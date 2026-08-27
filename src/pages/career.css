@@ -1,0 +1,183 @@
+/* ---------- Hero ---------- */
+.car-hero {
+  width: min(1828px, 100% - 3.2rem);
+  margin: clamp(30px, 4vw, 46px) auto 0;
+  border-radius: 40px;
+  background: rgba(0, 97, 248, 0.06);
+  min-height: 320px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1828 / 572;
+}
+.car-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Intro + CTA row ---------- */
+.car-intro-row { width: min(1465px, 100% - 3.2rem); margin: clamp(60px, 8vw, 100px) auto 0; display: flex; justify-content: flex-end; gap: 40px; flex-wrap: wrap; align-items: flex-end; }
+.car-intro-copy { flex: 1 1 480px; max-width: 1092px; display: flex; flex-direction: column; gap: 16px; }
+.car-intro-copy p, .car-intro-copy span {
+  margin: 0; font: 500 clamp(20px, 2.4vw, 30px)/1.25 'Manrope', sans-serif;
+  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+.car-intro-copy .lede { color: #070707; }
+.car-intro-copy .lede .muted, .car-intro-copy .sub { color: #9c9c9c; }
+
+.car-intro-copy.is-scrolled .lede { color: #9c9c9c; }
+.car-intro-copy.is-scrolled .lede .muted, .car-intro-copy.is-scrolled .sub { color: #070707; }
+.car-cta-btn {
+  flex-shrink: 0; background: linear-gradient(180deg, #0061f8, #0140a2); border-radius: 60px; padding: 12px 30px;
+  color: #fff; font: 700 18px/24px 'Manrope', sans-serif; text-transform: uppercase; text-decoration: none; display: inline-block;
+}
+
+/* ---------- Why build (light-blue section) ---------- */
+.car-why { background: #f3f8fe; margin-top: clamp(70px, 9vw, 100px); padding: clamp(60px, 8vw, 90px) 0 clamp(60px, 10vw, 120px); }
+.car-why-head { width: min(1464px, 100% - 3.2rem); margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.car-why-copy { display: flex; flex-direction: column; gap: 16px; max-width: 1007px; }
+.car-why-tag { align-self: flex-start; background: #fff; border-radius: 24px; padding: 10px 26px; font: 600 15px/24px 'Manrope', sans-serif; color: var(--blue); letter-spacing: 1.5px; text-transform: uppercase; }
+.car-why-copy h2 { margin: 0; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: #070707; }
+.car-why-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #6a6a6a; letter-spacing: 0.22px; }
+
+.car-panels { width: min(1464px, 100% - 3.2rem); margin: clamp(60px, 8vw, 80px) auto 0; display: flex; flex-direction: column; gap: 40px; }
+.car-panel {
+  background: #fff; border: 1.7px solid rgba(0, 97, 248, 0.5); border-radius: 60px;
+  display: flex; align-items: center; gap: 40px; padding: 40px; min-height: 340px;
+}
+.car-panel.reverse { flex-direction: row-reverse; }
+.car-panel-image {
+  flex: 1 1 360px; min-height: 260px; align-self: stretch; border-radius: 40px; overflow: hidden; position: relative;
+  background: linear-gradient(160deg, #eaf3fb, #f3fbff);
+}
+.car-panel-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.car-panel-image.split { display: flex; flex-direction: column; gap: 4px; background: none; }
+.car-panel-image.split .strip { flex: 0 0 40%; position: relative; overflow: hidden; border-radius: 24px; }
+.car-panel-image.split .main { flex: 1 1 auto; position: relative; overflow: hidden; border-radius: 24px; }
+.car-panel-image.split img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.car-panel-copy { flex: 1 1 420px; display: flex; flex-direction: column; gap: 16px; }
+.car-panel-copy h3 { margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 'Manrope', sans-serif; color: var(--blue); }
+.car-panel-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #393939; letter-spacing: 0.22px; }
+.car-panel-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.car-panel-list-item { display: flex; gap: 12px; align-items: flex-start; }
+.car-panel-list-item img { width: 16px; height: 16px; margin-top: 6px; flex-shrink: 0; }
+.car-panel-list-item p { margin: 0; }
+
+/* ---------- Stat cards ---------- */
+.car-stats { width: min(1465px, 100% - 3.2rem); margin: clamp(60px, 8vw, 100px) auto 0; display: flex; flex-wrap: wrap; gap: 24px; }
+.car-stat-card { flex: 1 1 260px; min-height: 340px; border-radius: 30px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(180deg, #f0f6ff, #dbe9ff); }
+.car-stat-bar { background: linear-gradient(180deg, #0061f8, #004dc5); border-radius: 30px; padding: 30px 40px; min-height: 122px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.car-stat-bar p { margin: 0; font: 600 clamp(20px, 2vw, 28px)/1.2 'Manrope', sans-serif; color: #fff; }
+.car-stat-icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 40px; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; }
+.car-stat-icon img { width: 20px; height: 20px; }
+.car-stat-card { position: relative; overflow: hidden; }
+.car-stat-card img.photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.car-stat-card .car-stat-bar { position: relative; z-index: 1; }
+
+/* ---------- Beyond the Workday ---------- */
+.car-workday { width: 100%; margin-top: clamp(80px, 10vw, 120px); position: relative; min-height: 700px; overflow: hidden; color: #fff; }
+.car-workday img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.car-workday .overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 1; }
+.car-workday-inner { position: relative; z-index: 2; padding: clamp(50px, 8vw, 100px) max(16px, calc((100% - 1920px) / 2 + 228px)) clamp(60px, 8vw, 90px); display: flex; flex-direction: column; gap: clamp(60px, 8vw, 100px); }
+.car-workday-head { max-width: 728px; display: flex; flex-direction: column; gap: 24px; }
+.car-workday-head h2 { margin: 0; font: 600 clamp(30px, 4vw, 50px)/1.15 'Manrope', sans-serif; }
+.car-workday-head p { margin: 0; font: 600 22px/1.3 'Manrope', sans-serif; letter-spacing: 0.22px; opacity: 0.9; }
+.car-workday-active { max-width: 793px; display: flex; flex-direction: column; gap: 14px; }
+.car-workday-active .label { margin: 0; font: 600 clamp(32px, 5vw, 60px)/1.2 'Manrope', sans-serif; text-transform: uppercase; }
+.car-workday-active .desc { margin: 0; font: 600 clamp(18px, 2vw, 28px)/1.2 'Manrope', sans-serif; }
+.car-workday-tabs { position: relative; z-index: 2; display: flex; gap: 24px; flex-wrap: wrap; padding: 0 max(16px, calc((100% - 1920px) / 2 + 228px)) clamp(40px, 6vw, 70px); }
+.car-workday-tab {
+  flex: 1 1 260px; backdrop-filter: blur(4px); border-radius: 18px; padding: 18px 24px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid rgba(0,97,248,0.3);
+  background: #fff; color: var(--blue); font: 600 22px/1.3 'Manrope', sans-serif; letter-spacing: 0.22px; text-align: left;
+}
+.car-workday-tab.active { background: var(--blue); color: #fff; border-color: rgba(255,255,255,0.2); }
+.car-workday-tab img { width: 30px; height: 30px; flex-shrink: 0; }
+
+/* ---------- Way in Practice (dark card) ---------- */
+.car-practice { width: min(1828px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; background: rgba(0,0,0,0.3); border-radius: 40px; padding: clamp(50px, 7vw, 120px) clamp(24px, 6vw, 182px) 60px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.car-practice h2 { margin: 0; font: 600 clamp(28px, 4vw, 50px)/1.15 'Manrope', sans-serif; color: #fff; text-align: center; }
+.car-practice-card {
+  background: rgba(255,255,255,0.9); border: 1px solid #fff; border-radius: 24px; padding: 30px 40px;
+  display: flex; flex-direction: column; gap: 24px; max-width: 770px; width: 100%;
+}
+.car-practice-icon { width: 60px; height: 60px; }
+.car-practice-card h3 { margin: 0; font: 600 38px/1.2 'Manrope', sans-serif; color: var(--blue); }
+.car-practice-card p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #6a6a6a; letter-spacing: 0.22px; }
+.car-practice-bar { display: flex; gap: 12px; }
+.car-practice-seg { height: 6px; width: 50px; border-radius: 8px; background: rgba(255,255,255,0.5); }
+.car-practice-seg.active { width: 120px; background: linear-gradient(90deg, #016ef7 4.5%, #38b34a 45.6%, #66cef5 98.7%); }
+
+/* ---------- Testimonials ---------- */
+.car-testimonials { margin-top: clamp(80px, 10vw, 120px); }
+.car-testimonials h2 { margin: 0 0 40px; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: #070707; text-align: center; }
+.car-testimonial-track { display: flex; gap: 24px; overflow-x: auto; padding: 0 max(16px, calc((100% - 1920px) / 2 + 46px)) 8px; scroll-snap-type: x mandatory; }
+.car-testimonial-card { flex: 0 0 min(472px, 80vw); scroll-snap-align: start; display: flex; flex-direction: column; gap: 24px; }
+.car-testimonial-photo { height: 460px; border-radius: 40px; overflow: hidden; position: relative; background: repeating-linear-gradient(135deg, #f3fbff, #f3fbff 12px, #eaf3fb 12px, #eaf3fb 24px); }
+.car-testimonial-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.car-testimonial-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.car-testimonial-foot .name { margin: 0; font: 600 28px/1.2 'Manrope', sans-serif; color: var(--blue); }
+.car-testimonial-foot .role { margin: 4px 0 0; font: 500 18px/1.2 'Manrope', sans-serif; color: #070707; letter-spacing: 0.72px; text-transform: uppercase; }
+.car-testimonial-add { flex-shrink: 0; width: 40px; height: 40px; border-radius: 40px; background: var(--bg-blue, #eaf9ff); display: flex; align-items: center; justify-content: center; }
+.car-testimonial-add img { width: 20px; height: 20px; }
+
+/* ---------- CTA banner ---------- */
+.car-cta { width: min(1462px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; border-radius: 40px; padding: 60px;
+  background: linear-gradient(89.2deg, #beedfa 34.8%, rgba(0,186,234,0) 79.8%);
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.car-cta-copy { flex: 1 1 480px; max-width: 843px; display: flex; flex-direction: column; gap: 24px; }
+.car-cta-copy h2 { margin: 0; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: #002fff; }
+.car-cta-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #070707; letter-spacing: 0.22px; }
+
+/* ---------- Opportunities: hero with real photo ---------- */
+.car-hero-photo { width: min(1828px, 100% - 3.2rem); margin: clamp(30px, 4vw, 46px) auto 0; border-radius: 40px; overflow: hidden; min-height: 320px; position: relative; aspect-ratio: 1828 / 572; }
+.car-hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.car-hero-photo .overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.1); }
+
+/* ---------- Opportunities: filters ---------- */
+.car-filters { width: min(1464px, 100% - 3.2rem); margin: clamp(60px, 8vw, 80px) auto 0; display: flex; gap: 24px; flex-wrap: wrap; }
+.car-filter-search { flex: 1 1 260px; display: flex; align-items: center; gap: 12px; background: #f8f8f8; border-radius: 40px; padding: 14px 40px; }
+.car-filter-search img { width: 24px; height: 24px; }
+.car-filter-search span { font: 700 18px/24px 'Manrope', sans-serif; color: var(--blue); text-transform: uppercase; }
+.car-filter-pill { flex-shrink: 0; display: flex; align-items: center; gap: 10px; background: #f8f8f8; border-radius: 40px; padding: 14px 40px; }
+.car-filter-pill span { font: 700 18px/24px 'Manrope', sans-serif; color: var(--blue); text-transform: uppercase; }
+.car-filter-pill img { width: 12px; height: 24px; transform: rotate(90deg); }
+
+/* ---------- Opportunities: job list ---------- */
+.car-jobs { width: min(1464px, 100% - 3.2rem); margin: 40px auto 0; display: flex; flex-direction: column; gap: 40px; padding-top: 40px; border-top: 1px solid #eee; }
+.car-job-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-bottom: 40px; border-bottom: 1px solid #eee; }
+.car-job-row:last-child { border-bottom: none; padding-bottom: 0; }
+.car-job-info { display: flex; gap: 24px; flex-wrap: wrap; font: 500 24px/1.2 'Manrope', sans-serif; color: #393939; letter-spacing: 0.24px; }
+.car-job-info span { flex: 0 0 auto; }
+.car-job-info span:nth-child(1), .car-job-info span:nth-child(2) { width: 220px; }
+.car-job-info span:nth-child(3), .car-job-info span:nth-child(4) { width: 160px; }
+
+/* ---------- Opportunities: pagination reuse ---------- */
+.car-pagination { width: min(1464px, 100% - 3.2rem); margin: 0 auto; display: flex; gap: 12px; align-items: center; }
+.car-page-btn { border: 1px solid #cdcdcd; border-radius: 12px; background: #fff; cursor: pointer; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font: 700 18px/24px 'Manrope', sans-serif; color: var(--blue); padding: 0; }
+.car-page-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+.car-page-btn img { width: 24px; height: 24px; }
+.car-page-btn.nav { transform: scaleY(-1); }
+
+/* ---------- Opportunities: photo CTA ---------- */
+.car-cta-photo { width: min(1464px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; border-radius: 40px; padding: 60px; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.car-cta-photo img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.car-cta-photo .overlay { position: absolute; inset: 0; background: linear-gradient(89.2deg, #beedfa 34.8%, rgba(0,186,234,0) 68.9%); z-index: 1; }
+.car-cta-photo .car-cta-copy, .car-cta-photo .car-cta-btn { position: relative; z-index: 2; }
+
+/* ---------- Great Place to Work banner ---------- */
+.car-great-place { width: min(1464px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; display: flex; gap: 24px; flex-wrap: wrap; }
+.car-great-place-copy {
+  flex: 1 1 480px; background: linear-gradient(180deg, #0061f8, #004dc5); border-radius: 40px; padding: 60px;
+  display: flex; align-items: center; min-height: 300px;
+}
+.car-great-place-copy p { margin: 0; font: 500 clamp(26px, 3vw, 50px)/1.2 'Manrope', sans-serif; color: #fff; }
+.car-great-place-image {
+  flex: 1 1 300px; min-height: 300px; border-radius: 40px; background: rgba(0, 97, 248, 0.04);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.car-great-place-image img { max-height: 70%; max-width: 40%; object-fit: contain; }
+
+@media (max-width: 900px) {
+  .car-panel, .car-panel.reverse { flex-direction: column; }
+  .car-panel-image.split { flex-direction: row; }
+  .car-job-info { flex-direction: column; gap: 8px; }
+  .car-job-info span { width: auto !important; }
+}

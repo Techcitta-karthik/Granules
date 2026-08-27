@@ -1,0 +1,365 @@
+/* Main 3-Pillar Tab Bar with Horizontal Gradient Track */
+.esg-main-tabs-wrap {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(48px, 6vw, 72px) auto clamp(40px, 5vw, 60px) !important;
+  position: relative;
+}
+
+.esg-main-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.esg-main-tab-btn {
+  background: none;
+  border: none;
+  padding: 16px 8px 18px;
+  font: 700 clamp(14px, 1.2vw, 17px)/1.2 'Manrope', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0061f8;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.25s ease, opacity 0.25s ease;
+  user-select: none;
+}
+
+.esg-main-tab-btn:hover {
+  color: #0044cc;
+}
+
+.esg-main-tab-btn.active {
+  color: #004ecc;
+  font-weight: 800;
+}
+
+.esg-main-tabs-track {
+  position: relative;
+  width: 100%;
+  height: 3.5px;
+  background: #bae6fd;
+  border-radius: 4px;
+}
+
+.esg-main-tabs-indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 33.333%;
+  background: linear-gradient(90deg, #38bdf8 0%, #0061f8 50%, #22c55e 100%);
+  border-radius: 4px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.esg-pillar-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
+}
+
+.esg-pillar-head {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.esg-pillar-head h2 {
+  margin: 0;
+  font: 600 clamp(28px, 3.8vw, 48px)/1.15 'Manrope', sans-serif;
+  color: #111827;
+  max-width: 720px;
+  letter-spacing: -0.5px;
+}
+
+.esg-pillar-head p {
+  margin: 0;
+  font: 500 clamp(16px, 1.3vw, 20px)/1.45 'Manrope', sans-serif;
+  color: #4b5563;
+  letter-spacing: 0.2px;
+  flex: 1 1 320px;
+  max-width: 620px;
+}
+
+/* Sub Tabs Pills */
+.esg-sub-tabs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.esg-sub-tab {
+  background: transparent;
+  border: 1.5px solid #197b0c;
+  border-radius: 9999px;
+  padding: 12px 28px;
+  font: 700 13px/1 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #197b0c;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.esg-sub-tab:hover {
+  background: rgba(25, 123, 12, 0.08);
+  transform: translateY(-1px);
+}
+
+.esg-sub-tab.active {
+  background: #197b0c;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(25, 123, 12, 0.25);
+}
+
+/* Environment Interactive 2-Column Card */
+.esg-env-card {
+  background: #f0fcf3;
+  border-radius: 36px;
+  padding: clamp(32px, 4vw, 56px);
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+  box-shadow: 0 12px 36px rgba(0, 30, 10, 0.04);
+}
+
+.esg-env-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.esg-env-title {
+  margin: 0 0 14px;
+  font: 700 clamp(20px, 2vw, 26px)/1.2 'Manrope', sans-serif;
+  color: #197b0c;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.esg-env-desc {
+  margin: 0 0 clamp(40px, 5vw, 68px);
+  font: 500 clamp(16px, 1.2vw, 19px)/1.45 'Manrope', sans-serif;
+  color: #1f2937;
+  max-width: 480px;
+}
+
+.esg-env-metric-block {
+  margin-top: auto;
+}
+
+.esg-env-stat-val {
+  margin: 0 0 12px;
+  font: 700 clamp(54px, 5.8vw, 84px)/1 'Manrope', sans-serif;
+  color: #197b0c;
+  letter-spacing: -1.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.esg-env-stat-unit {
+  font: 700 clamp(30px, 3.2vw, 48px)/1 'Manrope', sans-serif;
+  color: #197b0c;
+}
+
+.esg-env-stat-lbl {
+  margin: 0 0 24px;
+  font: 700 clamp(12px, 0.9vw, 14px)/1.4 'Manrope', sans-serif;
+  color: #15803d;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.esg-env-dashes {
+  display: flex;
+  gap: 12px;
+}
+
+.esg-env-dash {
+  width: clamp(70px, 8vw, 110px);
+  height: 3.5px;
+  border-radius: 2px;
+  background: rgba(21, 128, 61, 0.25);
+  transition: background-color 0.3s ease;
+}
+
+.esg-env-dash.active {
+  background: #15803d;
+}
+
+/* Environment Right Image Carousel with Next Button */
+.esg-env-media {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.esg-env-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 28px;
+  transition: opacity 0.35s ease;
+}
+
+.esg-env-next-btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(25, 123, 12, 0.15);
+  color: #197b0c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+  user-select: none;
+}
+
+.esg-env-next-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #f0fdf4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Social & Governance Carousel Styles */
+.esg-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  border-radius: 40px;
+}
+
+.esg-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.esg-carousel img {
+  flex: 0 0 auto;
+  width: 45%;
+  min-width: 320px;
+  aspect-ratio: 903/650;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+/* Governance Interactive 2-Column Card */
+.esg-gov-card {
+  background: #f4f0ff;
+  border-radius: 36px;
+  padding: clamp(32px, 4vw, 56px);
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+  box-shadow: 0 12px 36px rgba(114, 72, 245, 0.04);
+}
+
+.esg-gov-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.esg-gov-title {
+  margin: 0 0 14px;
+  font: 700 clamp(20px, 2vw, 26px)/1.2 'Manrope', sans-serif;
+  color: #7248f5;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.esg-gov-desc {
+  margin: 0 0 clamp(40px, 5vw, 68px);
+  font: 500 clamp(16px, 1.2vw, 19px)/1.45 'Manrope', sans-serif;
+  color: #1f2937;
+  max-width: 480px;
+}
+
+.esg-gov-stat-wrap {
+  margin-top: auto;
+  animation: sus-fade-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.esg-gov-stat-val {
+  margin: 0 0 12px;
+  font: 700 clamp(54px, 5.8vw, 84px)/1 'Manrope', sans-serif;
+  color: #7248f5;
+  letter-spacing: -1.5px;
+}
+
+.esg-gov-stat-lbl {
+  margin: 0 0 24px;
+  font: 700 clamp(12px, 0.9vw, 14px)/1.4 'Manrope', sans-serif;
+  color: #7248f5;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.esg-gov-dashes {
+  display: flex;
+  gap: 10px;
+}
+
+.esg-gov-dash {
+  width: clamp(44px, 5vw, 70px);
+  height: 3.5px;
+  border-radius: 2px;
+  background: rgba(114, 72, 245, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.esg-gov-dash.active {
+  background: #7248f5;
+}
+
+.esg-gov-media {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.esg-gov-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 28px;
+}
+
+@media (max-width: 960px) {
+  .esg-env-card, .esg-gov-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

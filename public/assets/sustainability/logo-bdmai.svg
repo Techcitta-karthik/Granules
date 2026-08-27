@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="100%" height="100%">
+  <!-- Green Hexagon Dots Column -->
+  <g fill="#22c55e">
+    <polygon points="20,18 27,22 27,30 20,34 13,30 13,22" />
+    <polygon points="20,38 27,42 27,50 20,54 13,50 13,42" />
+    <polygon points="20,58 27,62 27,70 20,74 13,70 13,62" />
+    <polygon points="32,28 39,32 39,40 32,44 25,40 25,32" />
+    <polygon points="32,48 39,52 39,60 32,64 25,60 25,52" />
+  </g>
+  <!-- Text -->
+  <text x="48" y="48" font-family="'Manrope', sans-serif" font-size="30" font-weight="900" fill="#0f172a" letter-spacing="-1">BDMAI</text>
+  <text x="160" y="38" font-family="'Manrope', sans-serif" font-size="6.5" font-weight="800" fill="#475569" letter-spacing="0.5">BULK DRUG</text>
+  <text x="160" y="48" font-family="'Manrope', sans-serif" font-size="6.5" font-weight="800" fill="#475569" letter-spacing="0.5">MANUFACTURERS</text>
+  <text x="160" y="58" font-family="'Manrope', sans-serif" font-size="6.5" font-weight="800" fill="#475569" letter-spacing="0.5">ASSOCIATION OF INDIA</text>
+</svg>

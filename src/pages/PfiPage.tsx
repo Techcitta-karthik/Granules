@@ -1,0 +1,219 @@
+import { useEffect, useState } from 'react';
+import { NavBar, CompanyFooter } from '../components/company';
+import { useSwipeScroll } from '../hooks/useSwipeScroll';
+import '../components/company/company.css';
+import './business.css';
+
+const P = '/assets/pfi/';
+
+type FocusCard = {
+  title: string;
+  image: string | null;
+  desc: string;
+};
+
+const FOCUS_AREAS: FocusCard[] = [
+  {
+    title: 'Scaling Operational Throughput',
+    image: null,
+    desc: 'High-speed automated direct compression minimizing downtime and accelerating output.',
+  },
+  {
+    title: 'Enhancing Customer Efficiency',
+    image: 'card-customer-efficiency.png',
+    desc: 'Proprietary Drum-to-Hopper model reduces processing steps and streamlines plant footprint.',
+  },
+  {
+    title: 'Delivering End-To-End Formulation Value',
+    image: null,
+    desc: 'Customized multi-particulate and fixed-dose combinations engineered for precise release.',
+  },
+  {
+    title: 'Expanding Global Reach and Impact',
+    image: 'card-global-reach.png',
+    desc: 'Serving pharma partners across 80+ countries with regulatory-aligned, scalable intermediates.',
+  },
+];
+
+type BenefitItem = { title: string; body: string; icon: string };
+
+const BENEFITS: BenefitItem[] = [
+  {
+    title: 'Efficient Testing Solutions',
+    body: 'Driving efficiency through tailor-made and complex PFI solutions customized to the needs',
+    icon: 'icon-test-tube.svg',
+  },
+  { title: 'Simplified Logistics', body: 'PFIs cut supply chain steps and inventory pressures', icon: 'icon-box.svg' },
+  { title: 'Quality Assurance', body: 'Volume manufacturing assures consistent, reliable output.', icon: 'icon-manufacturing.svg' },
+  { title: 'Asset-Light Production', body: 'PFIs replicate over 80% of standard oral facility infrastructure', icon: 'icon-production-belt.svg' },
+  { title: 'Tailored Release Capabilities', body: 'Custom solutions allow for homogeneous mixtures with other APIs', icon: 'icon-circles.svg' },
+];
+
+export default function PfiPage() {
+  const {
+    swipeProps,
+    isDragging,
+    scrollProgress,
+    canScrollLeft,
+    canScrollRight,
+    thumbWidth,
+    scroll,
+  } = useSwipeScroll();
+  const [openCard, setOpenCard] = useState(-1);
+  const [open, setOpen] = useState(-1);
+
+  useEffect(() => {
+    document.title = 'Pharmaceutical Formulation Intermediates — Granules India';
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="cp">
+      <NavBar />
+
+      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+        <span>Homepage</span>
+        <span className="sep">{'>'}</span>
+        <span>Business</span>
+        <span className="sep">{'>'}</span>
+        <span className="current">Pharmaceutical Formulation Intermediates</span>
+      </p>
+      <h1 className="cp-page-title">Pharmaceutical formulation intermediates</h1>
+      <div className="cp-hero-panel">
+        <span className="cp-hero-badge">STOCK IMAGE</span>
+      </div>
+
+      <div className="biz-intro">
+        <p>
+          Granules India is a global leader and pioneer in Pharmaceutical Formulation
+          Intermediates (PFIs) offering scalable, cost-effective solutions that simplify
+          complexity and accelerate manufacturing for oral solid dosage forms.
+        </p>
+        <p>
+          With a six-tonne batch capacity and a presence in over 80 countries, we are the
+          world&rsquo;s largest PFI manufacturer by volume. Our proprietary &ldquo;Drum to
+          Hopper&rdquo; model enables direct compression with minimal development effort, helping
+          partners streamline production and avoid intensive infrastructure setups. Our PFIs
+          support a broad range of chronic and acute therapies, including fixed-dose
+          combinations, and are tailored to meet market-specific regulatory needs.
+        </p>
+      </div>
+
+      <div className="biz-section-head">
+        <div className="copy">
+          <span className="cp-section-badge">Section Head</span>
+          <h2>Our focus areas in PFI excellence</h2>
+        </div>
+      </div>
+
+      <div className="biz-carousel">
+        <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
+          {FOCUS_AREAS.map((card, idx) => {
+            const isOpenCard = openCard === idx;
+            return (
+              <article
+                className={`biz-card${card.image ? '' : ' biz-card--placeholder'}${isOpenCard ? ' is-open' : ''}`}
+                key={card.title}
+                onMouseEnter={() => setOpenCard(idx)}
+                onMouseLeave={() => setOpenCard(-1)}
+                onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
+              >
+                {card.image && <img className="bg" src={`${P}${card.image}`} alt={card.title} />}
+                <div className="biz-sheet">
+                  <div className="biz-sheet-head">
+                    <span className="biz-sheet-title">{card.title}</span>
+                    <span className="biz-sheet-symbol" aria-hidden="true">+</span>
+                  </div>
+                  <div className="biz-sheet-body">
+                    <p className="biz-sheet-desc">{card.desc}</p>
+                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Dynamic progress bar and smooth arrow navigation */}
+        <div className="biz-carousel-controls">
+          <div className="biz-progress-track">
+            <div
+              className="biz-progress-bar"
+              style={{
+                width: `${thumbWidth}%`,
+                left: `${scrollProgress * (100 - thumbWidth)}%`,
+              }}
+            />
+          </div>
+          <div className="biz-carousel-arrows">
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(-1)}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+            >
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(1)}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+            >
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="biz-panel">
+        <img className="bg" src={`${P}key-benefits-bg.png`} alt="" />
+        <div className="overlay" />
+        <div className="biz-panel-grid">
+          <div className="biz-panel-head">
+            <h2>Key benefits of our PFI model</h2>
+          </div>
+          <div className="biz-accordion">
+            {BENEFITS.map((item, index) => {
+              const isOpen = open === index;
+              return (
+                <button
+                  key={item.title}
+                  type="button"
+                  className={`biz-accordion-item${isOpen ? '' : ' collapsed'}`}
+                  onClick={() => setOpen(isOpen ? -1 : index)}
+                >
+                  <div className="biz-accordion-head">
+                    <div className="biz-accordion-icon-row">
+                      <span className="biz-accordion-icon">
+                        <img src={`${P}${item.icon}`} alt="" />
+                      </span>
+                      <p className="biz-accordion-title">{item.title}</p>
+                    </div>
+                    <span className="biz-accordion-toggle">
+                      <img src={`${P}${isOpen ? 'icon-minus.svg' : 'icon-plus.svg'}`} alt={isOpen ? 'Collapse' : 'Expand'} />
+                    </span>
+                  </div>
+                  {isOpen && <p className="biz-accordion-body">{item.body}</p>}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="biz-cta">
+        <img className="bg" src={`${P}cta-bg.png`} alt="" />
+        <div className="overlay" />
+        <div className="biz-cta-copy">
+          <h2>Explore our full PFI product portfolio</h2>
+        </div>
+        <a className="cp-cta-btn" href="/business/pfi">View Product List</a>
+      </div>
+
+      <CompanyFooter />
+    </div>
+  );
+}

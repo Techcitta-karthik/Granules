@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 90" width="100%" height="100%">
+  <!-- Left: Geometric Teal M Icon -->
+  <polygon points="15,68 15,22 42,68" fill="#0f766e" />
+  <polygon points="42,68 68,22 68,68" fill="#14b8a6" />
+  
+  <!-- Right: MANUFACTURE 2030 text -->
+  <text x="80" y="38" font-family="'Manrope', sans-serif" font-size="16" font-weight="900" fill="#0f172a" letter-spacing="1">MANUFACTURE</text>
+  <text x="80" y="70" font-family="'Manrope', sans-serif" font-size="34" font-weight="900" fill="#0f172a" letter-spacing="-1">2030</text>
+</svg>

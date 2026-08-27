@@ -1,0 +1,264 @@
+/* Strict 85% sides edge spacing for Quality & Compliance business page */
+.cp-page-title,
+.cp-hero-banner,
+.cp-hero-panel,
+.cp-video-banner {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.qc-intro {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.qc-intro p, .qc-intro span {
+  margin: 0; font: 500 clamp(18px, 2vw, 30px)/1.2 'Manrope', sans-serif;
+  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+.qc-intro p:first-child { color: var(--n9); }
+.qc-intro p:first-child .muted, .qc-intro p:last-child { color: var(--n5); }
+
+.qc-intro.is-scrolled p:first-child { color: var(--n5); }
+.qc-intro.is-scrolled p:first-child .muted, .qc-intro.is-scrolled p:last-child { color: var(--n9); }
+
+.qc-systems {
+  position: relative;
+  background: #f3f8fe;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: clamp(60px, 8vw, 90px);
+  display: flex;
+  flex-direction: column;
+}
+.qc-systems-head {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(40px, 5vw, 60px) !important;
+  padding-top: clamp(40px, 6vw, 60px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.qc-systems-head h2 {
+  margin: 0;
+  font: 600 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--n9);
+  letter-spacing: -0.5px;
+}
+
+/* Individual Stacking Card - direct child of .qc-systems so it stays pinned */
+.qc-stack-card {
+  position: sticky;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-inline: auto !important;
+  margin-bottom: clamp(80px, 12vh, 160px);
+  border-radius: 44px;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 97, 248, 0.4);
+  box-shadow: 0 -8px 30px rgba(0, 20, 60, 0.05), 0 20px 48px rgba(0, 20, 60, 0.09);
+  padding: clamp(32px, 4.5vw, 64px);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-areas: "copy media";
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  min-height: 480px;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qc-stack-card--reverse {
+  grid-template-columns: 1fr 1.15fr;
+  grid-template-areas: "media copy";
+}
+
+/* Sticky top offsets with generous clearance below floating header */
+.qc-stack-card--0 {
+  top: clamp(120px, 15vh, 145px);
+  z-index: 1;
+}
+.qc-stack-card--1 {
+  top: clamp(140px, 17.5vh, 165px);
+  z-index: 2;
+}
+.qc-stack-card--2 {
+  top: clamp(160px, 20vh, 185px);
+  z-index: 3;
+}
+.qc-stack-card--3 {
+  top: clamp(180px, 22.5vh, 205px);
+  z-index: 4;
+}
+
+.qc-card-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.qc-card-copy h3 {
+  margin: 0;
+  font: 700 clamp(24px, 2.8vw, 36px)/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.4px;
+}
+.qc-card-copy p {
+  margin: 0;
+  font: 500 clamp(15px, 1.2vw, 18px)/1.55 'Manrope', sans-serif;
+  color: #374151;
+  letter-spacing: 0.1px;
+}
+
+.qc-card-media {
+  grid-area: media;
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 26vw, 380px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.qc-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* Below-Stack Container: Scrolls ON TOP of all 4 sticky cards like a curtain */
+.qc-below-stack {
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  border-top-left-radius: 44px;
+  border-top-right-radius: 44px;
+  margin-top: 0;
+  padding-top: clamp(80px, 10vw, 120px);
+  padding-bottom: clamp(60px, 8vw, 100px);
+  box-shadow: 0 -28px 60px rgba(0, 20, 60, 0.08);
+}
+
+.qc-certs {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.qc-certs-badge {
+  flex: 1 1 260px;
+  border-radius: 40px;
+  padding: 40px;
+  background: linear-gradient(180deg, #0061f8, #004dc5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font: 500 clamp(24px, 3vw, 36px)/1.1 'Manrope', sans-serif;
+}
+.qc-certs-icons {
+  flex: 2 1 500px;
+  border-radius: 40px;
+  background: var(--bg-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 30px 24px;
+}
+.qc-cert-tile {
+  background: #fff;
+  border-radius: 30px;
+  padding: 24px;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qc-cert-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.qc-cta {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 90px) auto 0 !important;
+  border-radius: 40px;
+  padding: clamp(30px, 4vw, 60px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 240px;
+}
+.qc-cta img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.qc-cta .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(89deg, rgba(190, 237, 250, 0.9) 35%, rgba(0, 186, 234, 0) 69%);
+}
+.qc-cta-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 784px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.qc-cta-copy h2 {
+  margin: 0;
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--blue-2);
+}
+.qc-cta-copy p {
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif;
+  color: var(--n9);
+  letter-spacing: 0.22px;
+}
+.qc-cta .cp-cta-btn {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .qc-stack-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 24px;
+    min-height: auto;
+    position: relative;
+    top: auto !important;
+  }
+  .qc-card-media {
+    height: 240px;
+  }
+  .qc-card-media img {
+    object-position: center;
+  }
+}

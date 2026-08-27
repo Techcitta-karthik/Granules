@@ -1,0 +1,723 @@
+.ov-goals {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  border-radius: 40px;
+  background: radial-gradient(ellipse at 50% 30%, #e2f7e6 0%, #f4fcf6 60%, #ffffff 100%);
+  padding: clamp(48px, 6vw, 84px) clamp(20px, 4vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4vw, 48px);
+  overflow: hidden;
+  position: relative;
+}
+
+.ov-goals h2 {
+  margin: 0;
+  font: 600 clamp(32px, 4vw, 52px)/1.15 'Manrope', sans-serif;
+  color: #197b0c;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* Slider with Center card and Peek cards */
+.ov-goals-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.5vw, 36px);
+  width: 100%;
+  max-width: 1540px;
+  position: relative;
+}
+
+/* Peek Cards (Left & Right) */
+.ov-goal-peek {
+  flex: 0 0 clamp(180px, 20vw, 280px);
+  height: clamp(280px, 28vw, 360px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 36px;
+  border: 1px solid rgba(25, 123, 12, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 30, 10, 0.04);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  padding: 24px;
+}
+
+.ov-goal-peek:hover {
+  background: #ffffff;
+  transform: scale(1.03);
+  box-shadow: 0 14px 40px rgba(0, 30, 10, 0.08);
+}
+
+.ov-goal-peek span {
+  font: 500 clamp(38px, 4.5vw, 68px)/1 'Manrope', sans-serif;
+  color: #197b0c;
+  letter-spacing: -1px;
+}
+
+/* Center Active Card */
+.ov-goal-card {
+  flex: 0 1 840px;
+  background: #ffffff;
+  border-radius: 36px;
+  padding: clamp(32px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: center;
+  box-shadow: 0 16px 48px rgba(0, 30, 10, 0.08);
+  min-height: 380px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.ov-goal-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ov-goal-copy h3 {
+  margin: 0 0 18px;
+  font: 600 clamp(24px, 2.5vw, 32px)/1.2 'Manrope', sans-serif;
+  color: #197b0c;
+  letter-spacing: -0.3px;
+}
+
+.ov-goal-stat-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 140px;
+}
+
+.ov-goal-stat-val {
+  margin: 0 0 10px;
+  font: 400 clamp(48px, 5.5vw, 76px)/1 'Manrope', sans-serif;
+  color: #111827;
+  letter-spacing: -2px;
+  animation: sus-fade-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.ov-goal-stat-lbl {
+  margin: 0;
+  font: 700 clamp(12px, 1vw, 14px)/1.45 'Manrope', sans-serif;
+  color: #4b5563;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  max-width: 380px;
+  animation: sus-fade-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Static Goal Title (2032 & 2050) */
+.ov-goal-static-title {
+  margin: auto 0;
+  font: 500 clamp(28px, 3.2vw, 42px)/1.22 'Manrope', sans-serif;
+  color: #111827;
+  letter-spacing: -0.5px;
+  max-width: 340px;
+  animation: sus-fade-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* 7 Progress Segment Bars */
+.ov-goal-segments {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.ov-goal-seg {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: #197b0c;
+  opacity: 0.25;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.ov-goal-seg:hover {
+  opacity: 0.6;
+  transform: scaleY(1.4);
+}
+
+.ov-goal-seg.active {
+  opacity: 1;
+  transform: scaleY(1.6);
+}
+
+/* Goal Image */
+.ov-goal-image {
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  max-height: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.ov-goal-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nav Buttons Below */
+.ov-goals-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.ov-goals-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(25, 123, 12, 0.15);
+  color: #197b0c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 30, 10, 0.06);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.ov-goals-nav-btn:hover {
+  transform: scale(1.1);
+  background: #f0fdf4;
+  box-shadow: 0 6px 16px rgba(0, 30, 10, 0.12);
+}
+
+@media (max-width: 1100px) {
+  .ov-goal-peek {
+    display: none;
+  }
+  .ov-goal-card {
+    flex: 1 1 100%;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ov-goal-card {
+    grid-template-columns: 1fr;
+    padding: 28px 20px;
+    border-radius: 28px;
+  }
+  .ov-goal-image {
+    min-height: 200px;
+  }
+}
+
+.ov-leadership {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
+  position: relative;
+  border-radius: clamp(36px, 4vw, 48px);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 480px;
+  max-height: 640px;
+  background: #edf3f8;
+  box-shadow: 0 20px 50px rgba(0, 34, 90, 0.08);
+}
+
+.ov-leadership-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(5.5px);
+  transform: scale(1.04);
+  border-radius: inherit;
+}
+
+.ov-leadership-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0.3) 100%);
+  z-index: 1;
+}
+
+.ov-leadership-person {
+  position: absolute;
+  right: clamp(40px, 8vw, 150px);
+  top: 5%;
+  height: 190%;
+  max-height: none;
+  width: auto;
+  object-fit: contain;
+  object-position: top center;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.12));
+}
+
+.ov-quote-card {
+  position: absolute;
+  z-index: 3;
+  left: clamp(24px, 4vw, 56px);
+  bottom: clamp(24px, 4vw, 44px);
+  width: min(480px, calc(100% - 48px));
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid #0061f8;
+  border-radius: 28px;
+  padding: clamp(24px, 2.8vw, 36px);
+  box-shadow: 0 16px 40px rgba(0, 34, 90, 0.1);
+}
+
+.ov-quote-mark {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ov-quote-mark svg {
+  display: block;
+}
+
+.ov-quote-text {
+  margin: 0;
+  font: 500 clamp(15px, 1.2vw, 18px)/1.45 'Manrope', sans-serif;
+  color: #111111;
+  letter-spacing: -0.01em;
+}
+
+.ov-quote-name {
+  margin: 20px 0 0;
+  font: 700 16px/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+}
+
+.ov-quote-role {
+  margin: 4px 0 0;
+  font: 600 11px/1.2 'Manrope', sans-serif;
+  color: #64748b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Journey Section with Outline Watermarks and Timeline */
+.ov-journey {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  border-radius: 40px;
+  background: radial-gradient(ellipse at 50% 30%, #e2f7e6 0%, #f4fcf6 60%, #ffffff 100%);
+  padding: clamp(48px, 6vw, 84px) clamp(20px, 4vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ov-journey h2 {
+  margin: 0;
+  font: 600 clamp(32px, 4vw, 52px)/1.15 'Manrope', sans-serif;
+  color: #197b0c;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* Stage containing center card & giant outline watermark years */
+.ov-journey-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(28px, 3.5vw, 44px);
+}
+
+.ov-journey-watermark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 700 clamp(110px, 16vw, 220px)/1 'Manrope', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(25, 123, 12, 0.22);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  letter-spacing: -2px;
+  animation: sus-fade-in 0.4s ease both;
+}
+
+.ov-journey-watermark--left {
+  left: clamp(0px, 2vw, 40px);
+}
+
+.ov-journey-watermark--right {
+  right: clamp(0px, 2vw, 40px);
+}
+
+/* Center Journey Card */
+.ov-journey-card {
+  position: relative;
+  z-index: 2;
+  width: min(580px, 100%);
+  background: #ffffff;
+  border-radius: 36px;
+  padding: clamp(24px, 3.2vw, 36px);
+  box-shadow: 0 16px 48px rgba(0, 30, 10, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: sus-fade-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.ov-journey-media {
+  width: 100%;
+  aspect-ratio: 16 / 6.2;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.ov-journey-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+.ov-journey-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ov-journey-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ov-journey-item svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.ov-journey-item span {
+  font: 500 clamp(13.5px, 1.1vw, 15px)/1.45 'Manrope', sans-serif;
+  color: #1b4d14;
+}
+
+/* Nav Buttons */
+.ov-journey-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.ov-journey-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(25, 123, 12, 0.15);
+  color: #197b0c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 30, 10, 0.06);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.ov-journey-nav-btn:hover {
+  transform: scale(1.1);
+  background: #f0fdf4;
+  box-shadow: 0 6px 16px rgba(0, 30, 10, 0.12);
+}
+
+/* Bottom Timeline */
+.ov-journey-timeline {
+  position: relative;
+  width: min(780px, 92%);
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.ov-timeline-line {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: rgba(25, 123, 12, 0.25);
+  border-radius: 3px;
+}
+
+.ov-timeline-progress {
+  height: 100%;
+  background: #197b0c;
+  border-radius: 3px;
+  transition: width 0.35s ease;
+}
+
+.ov-timeline-nodes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.ov-timeline-node {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease;
+}
+
+.ov-node-year {
+  font: 600 15px/1 'Manrope', sans-serif;
+  color: #197b0c;
+  opacity: 0.65;
+  transition: font-weight 0.2s, font-size 0.2s, opacity 0.2s, transform 0.2s;
+}
+
+.ov-node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #197b0c;
+  opacity: 0.6;
+  transition: transform 0.2s, opacity 0.2s, width 0.2s, height 0.2s, box-shadow 0.2s;
+  margin-top: 2px;
+}
+
+.ov-timeline-node:hover .ov-node-year {
+  opacity: 1;
+}
+
+.ov-timeline-node.active .ov-node-year {
+  font-weight: 800;
+  font-size: 20px;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.ov-timeline-node.active .ov-node-dot {
+  width: 14px;
+  height: 14px;
+  opacity: 1;
+  transform: scale(1.15);
+  margin-top: 0;
+  box-shadow: 0 0 0 4px rgba(25, 123, 12, 0.18);
+}
+
+@media (max-width: 900px) {
+  .ov-journey-watermark {
+    display: none;
+  }
+}
+
+.ov-partnerships {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
+}
+
+.ov-partnerships h2 {
+  margin: 0 0 clamp(32px, 4vw, 48px);
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--n9);
+  text-align: center;
+}
+
+.ov-p-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1.5px solid #e2e8f0;
+  position: relative;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.ov-p-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 8px 18px;
+  font: 700 clamp(13px, 1.1vw, 18px)/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--blue, #0061f8);
+  opacity: 0.45;
+  position: relative;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.ov-p-tab:hover {
+  opacity: 0.85;
+}
+
+.ov-p-tab.active {
+  opacity: 1;
+  color: var(--blue, #0061f8);
+}
+
+.ov-p-tab.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1.5px;
+  height: 3.5px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #0061f8 0%, #38b34a 50%, #00b4d8 100%);
+}
+
+.ov-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 32px);
+  width: 100%;
+}
+
+.ov-logo-tile {
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 32px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 3vw, 36px);
+  box-shadow: 0 4px 16px rgba(0, 34, 90, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.ov-logo-tile:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: rgba(0, 97, 248, 0.25);
+  box-shadow: 0 12px 32px rgba(0, 34, 90, 0.08);
+}
+
+.ov-logo-tile img {
+  max-width: 80%;
+  max-height: 75%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 1100px) {
+  .ov-goal-peek {
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .ov-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .ov-leadership {
+    aspect-ratio: auto;
+    min-height: 0;
+    overflow: hidden;
+    padding-bottom: 24px;
+  }
+
+  .ov-leadership-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ov-leadership-person {
+    position: relative;
+    top: auto;
+    right: auto;
+    height: 320px;
+    align-self: center;
+    margin-bottom: 12px;
+  }
+
+  .ov-quote-card {
+    position: static;
+    transform: none;
+    width: calc(100% - 32px);
+    margin: 16px auto 0;
+    padding: 24px;
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ov-logo-grid {
+    grid-template-columns: 1fr;
+  }
+  .ov-p-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .ov-p-tab {
+    white-space: nowrap;
+  }
+}

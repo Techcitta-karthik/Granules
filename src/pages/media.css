@@ -1,0 +1,509 @@
+/* ==========================================================================
+   MEDIA / NEWSROOM PAGE STYLES (src/pages/media.css)
+   Clean, modern styling matching the Granules India design system.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO BANNER
+   -------------------------------------------------------------------------- */
+.med-hero {
+  width: min(1828px, 100% - 3.2rem);
+  margin: clamp(30px, 4vw, 46px) auto 0;
+  border-radius: 40px;
+  background: rgba(0, 97, 248, 0.06);
+  min-height: 320px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.med-hero-badge {
+  margin: 30px 40px 0 0;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 14px 18px;
+  font: 700 18px/1 'Manrope', sans-serif;
+  letter-spacing: 1.2px;
+  color: #070707;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   2. TABS & YEAR FILTER
+   Controls switching between "In the News" and "Press release".
+   -------------------------------------------------------------------------- */
+.med-tabs-row {
+  width: min(1010px, 100% - 3.2rem);
+  margin: 64px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.med-tabs {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  gap: 0;
+}
+
+/* Tab button typography & state */
+.med-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: 700 16px/1.2 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--blue, #0061f8);
+  opacity: 0.55;
+  padding: 0;
+  text-align: left;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.med-tab:hover {
+  opacity: 0.85;
+}
+
+.med-tab.active {
+  opacity: 1;
+}
+
+/* Year dropdown pill */
+.med-year {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.med-year span {
+  font: 700 16px/1.2 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.med-year img {
+  width: 8px;
+  height: 14px;
+  transform: rotate(90deg);
+}
+
+/* Animated gradient indicator underline */
+.med-tabs-divider {
+  width: min(1010px, 100% - 3.2rem);
+  margin: 14px auto 0;
+  height: 3px;
+  border-radius: 4px;
+  background: #eaeaea;
+  position: relative;
+  overflow: hidden;
+}
+
+.med-tabs-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 3px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #66cef5 0%, #38b34a 50%, #016ef7 100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0);
+}
+
+.med-tabs-divider.press::after {
+  transform: translateX(200px);
+}
+
+/* --------------------------------------------------------------------------
+   3. NEWS & PRESS RELEASE LIST ITEMS
+   Matches target design with refined font sizing, tags, and button alignment.
+   -------------------------------------------------------------------------- */
+.med-news-list {
+  width: min(1010px, 100% - 3.2rem);
+  margin: 36px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Individual list item */
+.med-news-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.med-news-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Thumbnail image for news items */
+.med-news-image {
+  flex-shrink: 0;
+  width: 260px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Content body holding tags, title and CTA button */
+.med-news-body {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.med-news-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+/* Category & date pill badges */
+.med-news-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.med-news-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--blue, #0061f8);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font: 700 10.5px/1.2 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  background: transparent;
+  white-space: nowrap;
+}
+
+/* News / Press Release headline text */
+.med-news-title {
+  margin: 0;
+  font: 500 16px/1.38 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: -0.01em;
+  max-width: 580px;
+}
+
+/* Press release item title can have slightly wider bound without image */
+.med-news-item:not(.with-image) .med-news-title {
+  max-width: 760px;
+}
+
+/* "Read More" pill button */
+.med-read-more {
+  flex: 0 0 102px;
+  width: 102px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
+  border-radius: 60px;
+  padding: 0;
+  color: #ffffff;
+  font: 700 11px/1 'Manrope', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 97, 248, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  white-space: nowrap;
+}
+
+.med-read-more:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 97, 248, 0.35);
+  filter: brightness(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   4. PAGINATION
+   -------------------------------------------------------------------------- */
+.med-pagination {
+  width: min(1010px, 100% - 3.2rem);
+  margin: 40px auto 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.med-page-btn {
+  border: 1px solid #cdcdcd;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 18px/24px 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.med-page-btn:hover {
+  border-color: var(--blue, #0061f8);
+}
+
+.med-page-btn.active {
+  background: var(--blue, #0061f8);
+  border-color: var(--blue, #0061f8);
+  color: #ffffff;
+}
+
+.med-page-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.med-page-btn.nav.up {
+  transform: scaleY(-1);
+}
+
+/* --------------------------------------------------------------------------
+   5. ANNUAL REPORT BANNER
+   -------------------------------------------------------------------------- */
+.med-report {
+  width: 100%;
+  margin-top: clamp(80px, 10vw, 120px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  overflow: hidden;
+}
+
+.med-report-copy {
+  flex: 1 1 380px;
+  max-width: 620px;
+  margin-left: max(16px, calc((100% - 1920px) / 2 + 227px));
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.med-report-copy h2 {
+  margin: 0;
+  font: 500 clamp(30px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+}
+
+.med-report-btn {
+  align-self: flex-start;
+  background: linear-gradient(180deg, #0061f8, #0140a2);
+  border-radius: 60px;
+  padding: 12px 30px;
+  color: #ffffff;
+  font: 700 18px/24px 'Manrope', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.med-report-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 97, 248, 0.3);
+}
+
+.med-report-image {
+  flex: 1 1 480px;
+  max-width: 642px;
+  border-radius: 24px;
+  min-height: 320px;
+  background: repeating-linear-gradient(135deg, #f3fbff, #f3fbff 12px, #eaf3fb 12px, #eaf3fb 24px);
+}
+
+/* --------------------------------------------------------------------------
+   6. MEDIA KIT SECTION
+   -------------------------------------------------------------------------- */
+.med-kit {
+  width: min(1465px, 100% - 3.2rem);
+  margin: clamp(80px, 10vw, 120px) auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.med-kit h2 {
+  margin: 0;
+  font: 500 clamp(30px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: #070707;
+}
+
+.med-kit-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.med-kit-item {
+  flex: 1 1 340px;
+  border: 1px solid #cdcdcd;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.med-kit-item:hover {
+  border-color: var(--blue, #0061f8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.08);
+}
+
+.med-kit-icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  background: var(--pale-blue, #eaf9ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-kit-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.med-kit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.med-kit-text p {
+  margin: 0;
+}
+
+.med-kit-text .name {
+  font: 700 26px/1.2 'Manrope', sans-serif;
+  color: #070707;
+}
+
+.med-kit-text .action {
+  font: 700 20px/1.2 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   7. SOCIAL MEDIA FOLLOW BANNER
+   -------------------------------------------------------------------------- */
+.med-follow {
+  width: min(1464px, 100% - 3.2rem);
+  margin: clamp(80px, 10vw, 120px) auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.med-follow h2 {
+  margin: 0;
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: #070707;
+}
+
+.med-follow-icons {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.med-follow-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(2deg, #0065f8 2%, #00a2ff 114%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.med-follow-icon:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0, 101, 248, 0.35);
+}
+
+.med-follow-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .med-news-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .med-news-image {
+    width: 100%;
+    max-width: 100%;
+    height: 180px;
+  }
+
+  .med-news-body {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .med-news-title {
+    max-width: 100%;
+  }
+
+  .med-read-more {
+    align-self: flex-start;
+  }
+
+  .med-report-copy {
+    margin-left: 0;
+  }
+
+  .med-follow-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .med-follow-icon img {
+    width: 34px;
+    height: 34px;
+  }
+}

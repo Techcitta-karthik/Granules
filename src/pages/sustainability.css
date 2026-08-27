@@ -1,0 +1,333 @@
+/* Shared primitives across Sustainability Overview / Strategy / ESG pages */
+/* Strict 85% sides edge spacing for all sustainability pages */
+
+.cp-page-title,
+.cp-hero-banner,
+.cp-video-banner,
+.biz-panel {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.sus-intro {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sus-intro p, .sus-intro span {
+  margin: 0;
+  font: 500 clamp(18px, 2vw, 30px)/1.2 'Manrope', sans-serif;
+  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.sus-intro p { color: var(--n9); }
+.sus-intro .muted, .sus-intro p.muted { color: var(--n5); }
+
+.sus-intro.is-scrolled p { color: var(--n5); }
+.sus-intro.is-scrolled .muted, .sus-intro.is-scrolled p.muted { color: var(--n9); }
+
+.sus-section-head {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 90px) auto 0 !important;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.sus-section-head .copy {
+  max-width: 904px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sus-section-head h2 {
+  margin: 0;
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--n9);
+}
+
+.sus-section-head p {
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif;
+  color: var(--n7);
+  letter-spacing: 0.22px;
+}
+
+/* Interactive ESG Pillar Cards (Sustainability Overview) */
+.sus-pillar-grid {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.sus-pillar-card {
+  height: 502px;
+  border-radius: 36px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 20, 60, 0.06);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  user-select: none;
+  background: #f4f6f8;
+}
+
+.sus-pillar-card:hover, .sus-pillar-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 20, 60, 0.12);
+  outline: none;
+}
+
+/* Collapsed State (Default with photo background + bottom bar) */
+.sus-pillar-visual {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1);
+}
+
+.sus-pillar-card:hover .sus-pillar-visual,
+.sus-pillar-card.is-open .sus-pillar-visual {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.96);
+  pointer-events: none;
+}
+
+.sus-pillar-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: calc(100% - 84px);
+  object-fit: cover;
+  border-radius: 36px 36px 0 0;
+  display: block;
+}
+
+.sus-pillar-bar {
+  position: relative;
+  z-index: 1;
+  min-height: 84px;
+  padding: 18px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-radius: 0 0 36px 36px;
+  color: #fff;
+}
+
+.sus-pillar-bar-title {
+  font: 700 24px/1.2 'Manrope', sans-serif;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+/* Expanded State (Full color card showing Title, Minus icon, and Description on hover) */
+.sus-pillar-detail {
+  position: absolute;
+  inset: 0;
+  padding: clamp(32px, 3.8vw, 44px) clamp(26px, 3vw, 38px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.98);
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.35s;
+  border-radius: 36px;
+}
+
+.sus-pillar-card:hover .sus-pillar-detail,
+.sus-pillar-card.is-open .sus-pillar-detail {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.sus-pillar-detail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.sus-pillar-detail-title {
+  margin: 0;
+  font: 700 clamp(26px, 2.3vw, 36px)/1.15 'Manrope', sans-serif;
+  letter-spacing: -0.5px;
+  color: #fff;
+  max-width: 80%;
+}
+
+.sus-pillar-detail-desc {
+  margin: 0;
+  font: 500 clamp(16px, 1.2vw, 20px)/1.45 'Manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.2px;
+}
+
+/* Circle Plus / Minus Action Button */
+.sus-pillar-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sus-pillar-card:hover .sus-pillar-btn {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 1080px) {
+  .sus-pillar-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .sus-pillar-card {
+    height: 460px;
+    border-radius: 28px;
+  }
+  .sus-pillar-bg {
+    border-radius: 28px 28px 0 0;
+    height: calc(100% - 76px);
+  }
+  .sus-pillar-bar {
+    min-height: 76px;
+    padding: 14px 18px;
+    border-radius: 0 0 28px 28px;
+  }
+  .sus-pillar-bar-title {
+    font-size: 20px;
+  }
+  .sus-pillar-detail {
+    border-radius: 28px;
+    padding: 28px 22px;
+  }
+}
+
+@media (max-width: 860px) {
+  .sus-pillar-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .sus-pillar-card {
+    height: 380px;
+  }
+}
+
+/* Generic stat display: big number + uppercase label */
+.sus-stat { display: flex; flex-direction: column; gap: 10px; }
+.sus-stat-value { margin: 0; font: 400 clamp(48px, 6vw, 90px)/1.2 'Manrope', sans-serif; }
+.sus-stat-label { margin: 0; font: 700 18px/24px 'Manrope', sans-serif; letter-spacing: 0.9px; text-transform: uppercase; }
+
+/* Pillar deep-dive event card (Strategy + ESG) */
+.sus-event {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
+  border-radius: 40px;
+  padding: clamp(30px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sus-event-copy { display: flex; flex-direction: column; gap: 24px; }
+.sus-event-badge {
+  align-self: flex-start;
+  border-radius: 24px;
+  padding: 10px 26px;
+  font: 600 15px/24px 'Manrope', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: #fff;
+  border: 1px solid currentColor;
+}
+.sus-event-title { margin: 0; font: 600 clamp(24px, 3vw, 38px)/1.2 'Manrope', sans-serif; letter-spacing: 0.8px; text-transform: uppercase; }
+.sus-event-desc { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: var(--n9); letter-spacing: 0.22px; }
+.sus-event-stats { display: flex; flex-wrap: wrap; gap: 32px 40px; margin-top: 8px; }
+.sus-event-image { border-radius: 40px; overflow: hidden; aspect-ratio: 720 / 560; position: relative; }
+.sus-event-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sus-event-image .arrow-btn {
+  position: absolute; bottom: 24px; right: 24px; width: 50px; height: 50px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+
+.sus-pillar-tabs {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sus-pillar-tab {
+  flex: 1 1 220px;
+  border-radius: 24px;
+  padding: 10px 26px;
+  text-align: center;
+  font: 600 15px/24px 'Manrope', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: #fff;
+  border: 1px solid currentColor;
+  cursor: pointer;
+}
+.sus-pillar-tab.active { color: #fff; }
+
+.sus-cta {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
+  border-radius: 40px;
+  padding: clamp(30px, 4vw, 60px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 240px;
+}
+
+.sus-cta img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.sus-cta .overlay { position: absolute; inset: 0; z-index: 0; background: linear-gradient(89deg, rgba(190, 237, 250, 0.9) 35%, rgba(0, 186, 234, 0) 69%); }
+.sus-cta-copy { position: relative; z-index: 1; max-width: 843px; display: flex; flex-direction: column; gap: 24px; }
+.sus-cta-copy h2 { margin: 0; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: var(--blue-2); }
+.sus-cta-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: var(--n9); letter-spacing: 0.22px; }
+.sus-cta .cp-cta-btn { position: relative; z-index: 1; }
+
+@media (max-width: 900px) {
+  .sus-event { grid-template-columns: 1fr; }
+}

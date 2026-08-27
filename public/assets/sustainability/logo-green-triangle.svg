@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <polygon points="80,25 140,125 20,125" fill="none" stroke="#16a34a" stroke-width="12" stroke-linejoin="round" />
+  <polygon points="80,48 122,118 38,118" fill="none" stroke="#16a34a" stroke-width="4" stroke-linejoin="round" />
+  <!-- Registered ® Symbol -->
+  <text x="140" y="32" font-family="'Manrope', sans-serif" font-size="14" font-weight="900" fill="#16a34a">®</text>
+  <!-- Text inside/around -->
+  <text x="80" y="145" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="10" font-weight="800" fill="#16a34a" letter-spacing="1">GREEN TRIANGLE</text>
+</svg>
