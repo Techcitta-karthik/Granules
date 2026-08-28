@@ -1,17 +1,44 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
+import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
+import './business.css';
 import './gls.css';
 
 const G = '/assets/gls/';
 
-const CAPABILITY_CARDS = [
-  { title: 'Automated production', image: 'card-automated-production.png' },
-  { title: 'Lean process design', image: 'card-lean-process.png' },
-  { title: 'Digital oversight', image: 'card-digital-oversight.png' },
+type CapabilityCard = { title: string; image: string; desc: string };
+
+const CAPABILITY_CARDS: CapabilityCard[] = [
+  {
+    title: 'Automated Production',
+    image: 'card-automated-production.png',
+    desc: 'Advanced robotic formulation and high-speed encapsulation delivering 10 billion oral solid dosages annually.',
+  },
+  {
+    title: 'Lean Process Design',
+    image: 'card-lean-process.png',
+    desc: 'Optimized material flows, zero-defect quality systems, and shortened supply lead times for regulated global markets.',
+  },
+  {
+    title: 'Digital Oversight',
+    image: 'card-digital-oversight.png',
+    desc: 'Real-time batch tracking, automated quality control release, and continuous environmental and process monitoring.',
+  },
 ];
 
 export default function GranulesLifeSciencesPage() {
+  const {
+    swipeProps,
+    isDragging,
+    scrollProgress,
+    canScrollLeft,
+    canScrollRight,
+    thumbWidth,
+    scroll,
+  } = useSwipeScroll();
+  const [openCard, setOpenCard] = useState(-1);
+
   useEffect(() => {
     document.title = 'Granules Life Sciences — Granules India';
     window.scrollTo(0, 0);
@@ -21,7 +48,7 @@ export default function GranulesLifeSciencesPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <span>Homepage</span>
         <span className="sep">{'>'}</span>
         <span>Company</span>
@@ -57,15 +84,66 @@ export default function GranulesLifeSciencesPage() {
             into regulated markets.
           </p>
         </div>
-        <div className="gls-cards">
-          {CAPABILITY_CARDS.map((card) => (
-            <article className="gls-card" key={card.title}>
-              <img className="bg" src={`${G}${card.image}`} alt="" />
-              <div className="gls-card-label">
-                <span>{card.title}</span>
-              </div>
-            </article>
-          ))}
+        <div className="biz-carousel" style={{ margin: 0, width: '100%', maxWidth: '100%' }}>
+          <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
+            {CAPABILITY_CARDS.map((card, idx) => {
+              const isOpenCard = openCard === idx;
+              return (
+                <article
+                  className={`biz-card${isOpenCard ? ' is-open' : ''}`}
+                  key={card.title}
+                  onMouseEnter={() => setOpenCard(idx)}
+                  onMouseLeave={() => setOpenCard(-1)}
+                  onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
+                >
+                  <img className="bg" src={`${G}${card.image}`} alt={card.title} />
+                  <div className="biz-sheet">
+                    <div className="biz-sheet-head">
+                      <span className="biz-sheet-title">{card.title}</span>
+                      <span className="biz-sheet-symbol" aria-hidden="true">+</span>
+                    </div>
+                    <div className="biz-sheet-body">
+                      <p className="biz-sheet-desc">{card.desc}</p>
+                      <span className="biz-sheet-learn">LEARN MORE ↗</span>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* Dynamic progress bar and smooth arrow navigation */}
+          <div className="biz-carousel-controls" style={{ width: '100%', maxWidth: '100%' }}>
+            <div className="biz-progress-track">
+              <div
+                className="biz-progress-bar"
+                style={{
+                  width: `${thumbWidth}%`,
+                  left: `${scrollProgress * (100 - thumbWidth)}%`,
+                }}
+              />
+            </div>
+            <div className="biz-carousel-arrows">
+              <button
+                type="button"
+                className="biz-arrow-btn"
+                onClick={() => scroll(-1)}
+                disabled={!canScrollLeft}
+                aria-label="Scroll left"
+              >
+                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+              </button>
+              <button
+                type="button"
+                className="biz-arrow-btn"
+                onClick={() => scroll(1)}
+                disabled={!canScrollRight}
+                aria-label="Scroll right"
+              >
+                <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,13 +1,26 @@
+/* Strict 85% sides edge spacing for Facilities company page */
+.cp-page-title,
+.cp-hero-banner,
+.cp-hero-panel,
+.cp-video-banner {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .fac-intro {
-  width: min(1093px, 100% - 3.2rem);
-  margin: clamp(40px, 6vw, 60px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 6vw, 60px) auto 0 !important;
   display: flex; flex-direction: column; gap: 24px;
 }
 .fac-intro p { margin: 0; font: 500 clamp(18px, 2vw, 30px)/1.2 'Manrope', sans-serif; color: var(--n7); }
 
 .fac-filters {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(60px, 8vw, 90px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 90px) auto 0 !important;
   display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
   padding-bottom: 24px; border-bottom: 1px solid #e6e6e6; position: relative;
 }
@@ -23,8 +36,9 @@
 }
 
 .fac-grid {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(40px, 6vw, 60px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 6vw, 60px) auto 0 !important;
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px 24px;
 }
 .fac-card { display: flex; flex-direction: column; gap: 24px; }
@@ -40,8 +54,9 @@
 .fac-card-icon img { width: 20px; height: 20px; }
 
 .fac-cta {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(80px, 10vw, 120px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
   border-radius: 40px; padding: clamp(30px, 4vw, 60px);
   position: relative; overflow: hidden;
   display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;

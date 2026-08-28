@@ -1,18 +1,40 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
+import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
+import './business.css';
 import './czro.css';
 
 const C = '/assets/czro/';
 
-type CapabilityCard = { title: string; image: string };
+type CapabilityCard = { title: string; image: string; desc: string };
 
 const CAPABILITIES: CapabilityCard[] = [
-  { title: 'Green Molecules at the Core', image: 'card-green-molecules.png' },
-  { title: '24/7 Carbon-Free Energy', image: 'card-carbon-free.png' },
-  { title: 'Circular Economy by Design', image: 'card-circular-economy.png' },
-  { title: 'Vertically Integrated Manufacturing', image: 'card-vertically-integrated.png' },
-  { title: 'Advanced Technologies', image: 'card-advanced-tech.png' },
+  {
+    title: 'Green Molecules at the Core',
+    image: 'card-green-molecules.png',
+    desc: 'Synthesizing green starting materials, bio-based chemicals, and near-zero carbon active pharmaceutical ingredients.',
+  },
+  {
+    title: '24/7 Carbon-Free Energy',
+    image: 'card-carbon-free.png',
+    desc: 'Powered round-the-clock by dedicated renewable energy sources, energy storage systems, and zero-carbon grids.',
+  },
+  {
+    title: 'Circular Economy by Design',
+    image: 'card-circular-economy.png',
+    desc: 'Closed-loop manufacturing systems designed to recycle solvents, capture by-products, and eliminate chemical waste.',
+  },
+  {
+    title: 'Vertically Integrated Manufacturing',
+    image: 'card-vertically-integrated.png',
+    desc: 'End-to-end green supply chain resilience spanning starting materials, intermediates, and commercial formulation.',
+  },
+  {
+    title: 'Advanced Technologies',
+    image: 'card-advanced-tech.png',
+    desc: 'Deploying continuous flow chemistry, biocatalysis, and digital process optimization to minimize lifecycle emissions.',
+  },
 ];
 
 type FacilityItem = { title: string; body: string; tags?: string[] };
@@ -73,22 +95,27 @@ function FacilityAccordion() {
 }
 
 export default function GranulesCzroPage() {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const {
+    swipeProps,
+    isDragging,
+    scrollProgress,
+    canScrollLeft,
+    canScrollRight,
+    thumbWidth,
+    scroll,
+  } = useSwipeScroll();
+  const [openCard, setOpenCard] = useState(-1);
 
   useEffect(() => {
     document.title = 'Granules CZRO — Granules India';
     window.scrollTo(0, 0);
   }, []);
 
-  const scroll = (direction: 1 | -1) => {
-    trackRef.current?.scrollBy({ left: direction * 500, behavior: 'smooth' });
-  };
-
   return (
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <span>Homepage</span>
         <span className="sep">{'>'}</span>
         <span>Company</span>
@@ -130,27 +157,65 @@ export default function GranulesCzroPage() {
         <a className="cp-cta-btn" href="/sustainability/strategy">Sustainability Strategy</a>
       </div>
 
-      <div className="czro-carousel">
-        <div className="czro-track" ref={trackRef}>
-          {CAPABILITIES.map((card) => (
-            <article className="czro-card" key={card.title}>
-              <img className="bg" src={`${C}${card.image}`} alt="" />
-              <div className="czro-card-label">
-                <span>{card.title}</span>
-                <span className="czro-card-arrow">
-                  <img src={`${C}arrow-plus.svg`} alt="" style={{ width: 20, height: 20 }} />
-                </span>
-              </div>
-            </article>
-          ))}
+      <div className="biz-carousel">
+        <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
+          {CAPABILITIES.map((card, idx) => {
+            const isOpenCard = openCard === idx;
+            return (
+              <article
+                className={`biz-card${isOpenCard ? ' is-open' : ''}`}
+                key={card.title}
+                onMouseEnter={() => setOpenCard(idx)}
+                onMouseLeave={() => setOpenCard(-1)}
+                onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
+              >
+                <img className="bg" src={`${C}${card.image}`} alt={card.title} />
+                <div className="biz-sheet">
+                  <div className="biz-sheet-head">
+                    <span className="biz-sheet-title">{card.title}</span>
+                    <span className="biz-sheet-symbol" aria-hidden="true">+</span>
+                  </div>
+                  <div className="biz-sheet-body">
+                    <p className="biz-sheet-desc">{card.desc}</p>
+                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
-        <div className="czro-carousel-nav">
-          <button type="button" aria-label="Scroll left" onClick={() => scroll(-1)}>
-            <img src={`${C}carousel-arrow-left.svg`} alt="" />
-          </button>
-          <button type="button" aria-label="Scroll right" onClick={() => scroll(1)}>
-            <img src={`${C}carousel-arrow-right.svg`} alt="" />
-          </button>
+
+        {/* Dynamic progress bar and smooth arrow navigation */}
+        <div className="biz-carousel-controls">
+          <div className="biz-progress-track">
+            <div
+              className="biz-progress-bar"
+              style={{
+                width: `${thumbWidth}%`,
+                left: `${scrollProgress * (100 - thumbWidth)}%`,
+              }}
+            />
+          </div>
+          <div className="biz-carousel-arrows">
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(-1)}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+            >
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(1)}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+            >
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+          </div>
         </div>
       </div>
 

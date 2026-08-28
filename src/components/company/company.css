@@ -15,8 +15,9 @@
 .cp * { box-sizing: border-box; }
 
 .cp .cp-shell {
-  width: min(1828px, 100% - 3.2rem);
-  margin-inline: auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-inline: auto !important;
 }
 
 .cp-visually-hidden {
@@ -351,8 +352,9 @@
 }
 
 .cp-hero-inner {
-  width: min(1828px, 100% - 3.2rem);
-  margin-inline: auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-inline: auto !important;
   display: flex;
   flex-direction: column;
 }
@@ -365,7 +367,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 16px 0;
+  margin: clamp(60px, 8vw, 118px) auto 16px !important;
+  width: 85% !important;
+  max-width: 85% !important;
   padding: 0;
   flex-wrap: wrap;
 }
@@ -389,12 +393,17 @@
   font: 700 clamp(40px, 5vw, 68px)/1.08 'Manrope', sans-serif;
   color: #0061f8;
   letter-spacing: -0.5px;
-  margin: 0 0 28px 0;
+  margin: 0 auto 28px !important;
+  width: 85% !important;
+  max-width: 85% !important;
   padding: 0;
 }
 
 .cp-hero-panel {
-  width: 100%;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   aspect-ratio: 1828 / 640;
   min-height: 400px;
   max-height: 600px;
@@ -449,8 +458,9 @@
 
 /* ---------- About description ---------- */
 .cp-about-desc {
-  width: min(1216px, 100% - 3.2rem);
-  margin: clamp(60px, 8vw, 118px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 118px) auto 0 !important;
   display: flex; flex-direction: column; gap: 16px;
 }
 .cp-about-desc p {
@@ -478,15 +488,18 @@
 }
 
 .cp-divider {
-  width: min(1828px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   height: 1px; background: #e6e6e6;
-  margin: clamp(40px, 6vw, 65px) auto 0;
+  margin: clamp(40px, 6vw, 65px) auto 0 !important;
 }
 
 .cp-drives-us {
   text-align: center;
   font: 500 clamp(30px, 4.5vw, 50px)/1.1 'Manrope', sans-serif;
-  margin: clamp(50px, 6vw, 88px) auto 0;
+  margin: clamp(50px, 6vw, 88px) auto 0 !important;
+  width: 85% !important;
+  max-width: 85% !important;
   color: var(--n9);
 }
 
@@ -498,8 +511,9 @@
 }
 
 .cp-pin-panel {
-  width: min(1280px, calc(100% - 3.2rem));
-  margin-inline: auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-inline: auto !important;
   aspect-ratio: 1280 / 420;
   max-height: 420px;
   min-height: 280px;
@@ -622,8 +636,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(16px, 1.8vw, 24px);
-  width: min(1320px, 100%);
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
 }
 .cp-value-card {
   position: relative;
@@ -702,8 +717,9 @@
 
 /* ---------- Leadership speaks ---------- */
 .cp-leadership {
-  width: min(1828px, 100% - 3.2rem);
-  margin: clamp(60px, 8vw, 100px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
 }
 .cp-leadership h2 {
   font: 500 clamp(30px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: var(--n9); margin: 0 0 40px;
@@ -764,9 +780,9 @@
   align-items: center;
   justify-content: center;
   gap: clamp(16px, 2.5vw, 36px);
-  width: 100%;
-  max-width: 1720px;
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
   padding: 0 clamp(16px, 3vw, 40px);
   box-sizing: border-box;
 }
@@ -956,8 +972,9 @@
 
 /* ---------- Career CTA ---------- */
 .cp-career {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(60px, 8vw, 100px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
   border-radius: 40px;
   padding: clamp(30px, 4vw, 60px);
   position: relative;
@@ -1008,8 +1025,9 @@
 .cp-footer-inner {
   position: relative;
   z-index: 1;
-  width: min(1464px, 100% - 3.2rem);
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
   display: flex;
   flex-direction: column;
 }
@@ -1192,13 +1210,15 @@
   font: 600 clamp(40px, 6vw, 80px)/1.15 'Manrope', sans-serif;
   letter-spacing: -2.8px;
   color: var(--blue);
-  margin: clamp(24px, 4vw, 40px) auto clamp(24px, 4vw, 40px);
-  width: min(1463px, 100% - 3.2rem);
+  margin: clamp(24px, 4vw, 40px) auto clamp(24px, 4vw, 40px) !important;
+  width: 85% !important;
+  max-width: 85% !important;
 }
 
 .cp-hero-banner {
-  width: min(1828px, 100% - 3.2rem);
-  margin: clamp(40px, 5vw, 65px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 65px) auto 0 !important;
   aspect-ratio: 1828 / 572;
   border-radius: 40px;
   overflow: hidden;

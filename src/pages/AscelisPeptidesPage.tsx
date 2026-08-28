@@ -1,36 +1,77 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
+import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
+import './business.css';
 import './ascelis.css';
 
 const A = '/assets/ascelis/';
 
-const CORE_FOCUS = [
-  { title: 'Peptide-based APIs & Generics', image: 'card-peptide-apis.png' },
-  { title: 'Specialized CDMO Services', image: 'card-cdmo-services.png' },
-  { title: 'Cosmetic Peptides', image: 'card-cosmetic-peptides.png' },
-  { title: 'Theragnostic Peptides', image: 'card-theragnostic-peptides.png' },
+type CapabilityCard = { title: string; image: string; desc: string };
+
+const CORE_FOCUS: CapabilityCard[] = [
+  {
+    title: 'Peptide-based APIs & Generics',
+    image: 'card-peptide-apis.png',
+    desc: 'Scalable synthesis and high-purity production of therapeutic peptide APIs and complex generic formulations.',
+  },
+  {
+    title: 'Specialized CDMO Services',
+    image: 'card-cdmo-services.png',
+    desc: 'Comprehensive contract development and manufacturing from early-phase lead optimization to commercial batches.',
+  },
+  {
+    title: 'Cosmetic Peptides',
+    image: 'card-cosmetic-peptides.png',
+    desc: 'High-efficacy bioactive peptides and custom formulations tailored for advanced cosmeceutical applications.',
+  },
+  {
+    title: 'Theragnostic Peptides',
+    image: 'card-theragnostic-peptides.png',
+    desc: 'Next-generation peptides combining precision diagnostic molecular imaging with targeted cellular drug delivery.',
+  },
 ];
 
-const FOOTPRINT = ['Senn Chemicals AG (Switzerland)', 'Ascelis India (Upcoming)', 'IIT Hyderabad R&D Lab'];
+type FootprintCard = { title: string; desc: string };
+
+const FOOTPRINT: FootprintCard[] = [
+  {
+    title: 'Senn Chemicals AG (Switzerland)',
+    desc: 'Established CDMO hub in Dielsdorf with 60+ years of peptide synthesis expertise, Swissmedic-approved facilities, and cGMP compliance.',
+  },
+  {
+    title: 'Ascelis India (Upcoming)',
+    desc: 'Large-scale commercial peptide manufacturing facility in Genome Valley, Hyderabad, driving scalable production and global access.',
+  },
+  {
+    title: 'IIT Hyderabad R&D Lab',
+    desc: 'Collaborative research and development center specializing in advanced peptide chemistry, process analytical technologies, and novel synthesis routes.',
+  },
+];
 
 export default function AscelisPeptidesPage() {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const {
+    swipeProps,
+    isDragging,
+    scrollProgress,
+    canScrollLeft,
+    canScrollRight,
+    thumbWidth,
+    scroll,
+  } = useSwipeScroll();
+  const [openCard, setOpenCard] = useState(-1);
+  const [openFootprintCard, setOpenFootprintCard] = useState(-1);
 
   useEffect(() => {
     document.title = 'Ascelis Peptides Private Limited — Granules India';
     window.scrollTo(0, 0);
   }, []);
 
-  const scroll = (direction: 1 | -1) => {
-    trackRef.current?.scrollBy({ left: direction * 500, behavior: 'smooth' });
-  };
-
   return (
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <span>Homepage</span>
         <span className="sep">{'>'}</span>
         <span>Company</span>
@@ -67,27 +108,65 @@ export default function AscelisPeptidesPage() {
         <a className="cp-cta-btn" href="/company">Learn more</a>
       </div>
 
-      <div className="asc-carousel">
-        <div className="asc-track" ref={trackRef}>
-          {CORE_FOCUS.map((card) => (
-            <article className="asc-card" key={card.title}>
-              <img className="bg" src={`${A}${card.image}`} alt="" />
-              <div className="asc-card-label">
-                <span>{card.title}</span>
-                <span className="asc-card-arrow">
-                  <img src={`${A}arrow-plus.svg`} alt="" style={{ width: 20, height: 20 }} />
-                </span>
-              </div>
-            </article>
-          ))}
+      <div className="biz-carousel">
+        <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
+          {CORE_FOCUS.map((card, idx) => {
+            const isOpenCard = openCard === idx;
+            return (
+              <article
+                className={`biz-card${isOpenCard ? ' is-open' : ''}`}
+                key={card.title}
+                onMouseEnter={() => setOpenCard(idx)}
+                onMouseLeave={() => setOpenCard(-1)}
+                onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
+              >
+                <img className="bg" src={`${A}${card.image}`} alt={card.title} />
+                <div className="biz-sheet">
+                  <div className="biz-sheet-head">
+                    <span className="biz-sheet-title">{card.title}</span>
+                    <span className="biz-sheet-symbol" aria-hidden="true">+</span>
+                  </div>
+                  <div className="biz-sheet-body">
+                    <p className="biz-sheet-desc">{card.desc}</p>
+                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
-        <div className="asc-carousel-nav">
-          <button type="button" aria-label="Scroll left" onClick={() => scroll(-1)}>
-            <img src={`${A}carousel-arrow-left.svg`} alt="" />
-          </button>
-          <button type="button" aria-label="Scroll right" onClick={() => scroll(1)}>
-            <img src={`${A}carousel-arrow-right.svg`} alt="" />
-          </button>
+
+        {/* Dynamic progress bar and smooth arrow navigation */}
+        <div className="biz-carousel-controls">
+          <div className="biz-progress-track">
+            <div
+              className="biz-progress-bar"
+              style={{
+                width: `${thumbWidth}%`,
+                left: `${scrollProgress * (100 - thumbWidth)}%`,
+              }}
+            />
+          </div>
+          <div className="biz-carousel-arrows">
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(-1)}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+            >
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(1)}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+            >
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -118,11 +197,29 @@ export default function AscelisPeptidesPage() {
           </p>
         </div>
         <div className="asc-footprint-grid">
-          {FOOTPRINT.map((title) => (
-            <article className="asc-placeholder-card" key={title}>
-              <div className="asc-placeholder-label">{title}</div>
-            </article>
-          ))}
+          {FOOTPRINT.map((item, idx) => {
+            const isOpen = openFootprintCard === idx;
+            return (
+              <article
+                className={`biz-card biz-card--placeholder${isOpen ? ' is-open' : ''}`}
+                key={item.title}
+                onMouseEnter={() => setOpenFootprintCard(idx)}
+                onMouseLeave={() => setOpenFootprintCard(-1)}
+                onClick={() => setOpenFootprintCard(isOpen ? -1 : idx)}
+              >
+                <div className="biz-sheet">
+                  <div className="biz-sheet-head">
+                    <span className="biz-sheet-title">{item.title}</span>
+                    <span className="biz-sheet-symbol" aria-hidden="true">+</span>
+                  </div>
+                  <div className="biz-sheet-body">
+                    <p className="biz-sheet-desc">{item.desc}</p>
+                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 
