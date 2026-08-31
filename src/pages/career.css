@@ -9,175 +9,1756 @@
   position: relative;
   aspect-ratio: 1828 / 572;
 }
-.car-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.car-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* ---------- Intro + CTA row ---------- */
-.car-intro-row { width: min(1465px, 100% - 3.2rem); margin: clamp(60px, 8vw, 100px) auto 0; display: flex; justify-content: flex-end; gap: 40px; flex-wrap: wrap; align-items: flex-end; }
-.car-intro-copy { flex: 1 1 480px; max-width: 1092px; display: flex; flex-direction: column; gap: 16px; }
-.car-intro-copy p, .car-intro-copy span {
-  margin: 0; font: 500 clamp(20px, 2.4vw, 30px)/1.25 'Manrope', sans-serif;
+.car-intro-row {
+  width: min(1465px, 100% - 3.2rem);
+  margin: clamp(60px, 8vw, 100px) auto 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.car-intro-copy {
+  flex: 1 1 480px;
+  max-width: 1092px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.car-intro-copy p,
+.car-intro-copy span {
+  margin: 0;
+  font: 500 clamp(20px, 2.4vw, 30px)/1.25 'Manrope', sans-serif;
   transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
 }
-.car-intro-copy .lede { color: #070707; }
-.car-intro-copy .lede .muted, .car-intro-copy .sub { color: #9c9c9c; }
 
-.car-intro-copy.is-scrolled .lede { color: #9c9c9c; }
-.car-intro-copy.is-scrolled .lede .muted, .car-intro-copy.is-scrolled .sub { color: #070707; }
+.car-intro-copy .lede {
+  color: #070707;
+}
+
+.car-intro-copy .lede .muted,
+.car-intro-copy .sub {
+  color: #9c9c9c;
+}
+
+.car-intro-copy.is-scrolled .lede {
+  color: #9c9c9c;
+}
+
+.car-intro-copy.is-scrolled .lede .muted,
+.car-intro-copy.is-scrolled .sub {
+  color: #070707;
+}
+
 .car-cta-btn {
-  flex-shrink: 0; background: linear-gradient(180deg, #0061f8, #0140a2); border-radius: 60px; padding: 12px 30px;
-  color: #fff; font: 700 18px/24px 'Manrope', sans-serif; text-transform: uppercase; text-decoration: none; display: inline-block;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #0061f8, #0140a2);
+  border-radius: 60px;
+  padding: 12px 30px;
+  color: #fff;
+  font: 700 18px/24px 'Manrope', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
 }
 
-/* ---------- Why build (light-blue section) ---------- */
-.car-why { background: #f3f8fe; margin-top: clamp(70px, 9vw, 100px); padding: clamp(60px, 8vw, 90px) 0 clamp(60px, 10vw, 120px); }
-.car-why-head { width: min(1464px, 100% - 3.2rem); margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.car-why-copy { display: flex; flex-direction: column; gap: 16px; max-width: 1007px; }
-.car-why-tag { align-self: flex-start; background: #fff; border-radius: 24px; padding: 10px 26px; font: 600 15px/24px 'Manrope', sans-serif; color: var(--blue); letter-spacing: 1.5px; text-transform: uppercase; }
-.car-why-copy h2 { margin: 0; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: #070707; }
-.car-why-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #6a6a6a; letter-spacing: 0.22px; }
+/* ---------- Why build (light-blue section with smooth stacking cards) ---------- */
+.car-why {
+  position: relative;
+  background: #f3f8fe;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: clamp(60px, 8vw, 90px);
+  display: flex;
+  flex-direction: column;
+}
 
-.car-panels { width: min(1464px, 100% - 3.2rem); margin: clamp(60px, 8vw, 80px) auto 0; display: flex; flex-direction: column; gap: 40px; }
+.car-why-head {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(40px, 5vw, 60px) !important;
+  padding-top: clamp(40px, 6vw, 60px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.car-why-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1007px;
+}
+
+.car-why-tag {
+  align-self: flex-start;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 10px 26px;
+  font: 600 15px/24px 'Manrope', sans-serif;
+  color: var(--blue);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.08);
+}
+
+.car-why-copy h2 {
+  margin: 0;
+  font: 600 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: #070707;
+}
+
+.car-why-copy p {
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif;
+  color: #6a6a6a;
+  letter-spacing: 0.22px;
+}
+
+/* Individual Stacking Card - Direct child of .car-why */
 .car-panel {
-  background: #fff; border: 1.7px solid rgba(0, 97, 248, 0.5); border-radius: 60px;
-  display: flex; align-items: center; gap: 40px; padding: 40px; min-height: 340px;
+  position: sticky;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-inline: auto !important;
+  margin-bottom: clamp(80px, 12vh, 160px);
+  border-radius: 44px;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 97, 248, 0.4);
+  box-shadow: 0 -8px 30px rgba(0, 20, 60, 0.05), 0 20px 48px rgba(0, 20, 60, 0.09);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  grid-template-areas: "media copy";
+  gap: clamp(24px, 4vw, 56px);
+  align-items: stretch;
+  min-height: 480px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.car-panel.reverse { flex-direction: row-reverse; }
+
+.car-panel.reverse {
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-areas: "copy media";
+}
+
+/* Sticky top offsets with generous clearance below floating header matching Quality page */
+.car-panel--0 {
+  top: clamp(120px, 15vh, 145px);
+  z-index: 1;
+}
+
+.car-panel--1 {
+  top: clamp(140px, 17.5vh, 165px);
+  z-index: 2;
+}
+
+.car-panel--2 {
+  top: clamp(160px, 20vh, 185px);
+  z-index: 3;
+}
+
+.car-panel--3 {
+  top: clamp(180px, 22.5vh, 205px);
+  z-index: 4;
+}
+
+/* Below-Stack Container: Scrolls ON TOP of all 4 sticky cards like a curtain */
+.car-below-stack {
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  border-top-left-radius: 44px;
+  border-top-right-radius: 44px;
+  margin-top: 0;
+  padding-top: clamp(80px, 10vw, 120px);
+  padding-bottom: 0 !important;
+  box-shadow: 0 -28px 60px rgba(0, 20, 60, 0.08);
+}
+
+/* Left/Right Image Container - Flush to outer border and bottom curved corner */
 .car-panel-image {
-  flex: 1 1 360px; min-height: 260px; align-self: stretch; border-radius: 40px; overflow: hidden; position: relative;
-  background: linear-gradient(160deg, #eaf3fb, #f3fbff);
+  grid-area: media;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(160deg, #f0f7ff, #f8fbff);
+  padding: 32px 0 0 0;
 }
-.car-panel-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.car-panel-image.split { display: flex; flex-direction: column; gap: 4px; background: none; }
-.car-panel-image.split .strip { flex: 0 0 40%; position: relative; overflow: hidden; border-radius: 24px; }
-.car-panel-image.split .main { flex: 1 1 auto; position: relative; overflow: hidden; border-radius: 24px; }
-.car-panel-image.split img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.car-panel-copy { flex: 1 1 420px; display: flex; flex-direction: column; gap: 16px; }
-.car-panel-copy h3 { margin: 0; font: 600 clamp(26px, 3vw, 38px)/1.2 'Manrope', sans-serif; color: var(--blue); }
-.car-panel-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #393939; letter-spacing: 0.22px; }
-.car-panel-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-.car-panel-list-item { display: flex; gap: 12px; align-items: flex-start; }
-.car-panel-list-item img { width: 16px; height: 16px; margin-top: 6px; flex-shrink: 0; }
-.car-panel-list-item p { margin: 0; }
 
-/* ---------- Stat cards ---------- */
-.car-stats { width: min(1465px, 100% - 3.2rem); margin: clamp(60px, 8vw, 100px) auto 0; display: flex; flex-wrap: wrap; gap: 24px; }
-.car-stat-card { flex: 1 1 260px; min-height: 340px; border-radius: 30px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(180deg, #f0f6ff, #dbe9ff); }
-.car-stat-bar { background: linear-gradient(180deg, #0061f8, #004dc5); border-radius: 30px; padding: 30px 40px; min-height: 122px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.car-stat-bar p { margin: 0; font: 600 clamp(20px, 2vw, 28px)/1.2 'Manrope', sans-serif; color: #fff; }
-.car-stat-icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 40px; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; }
-.car-stat-icon img { width: 20px; height: 20px; }
-.car-stat-card { position: relative; overflow: hidden; }
-.car-stat-card img.photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.car-stat-card .car-stat-bar { position: relative; z-index: 1; }
-
-/* ---------- Beyond the Workday ---------- */
-.car-workday { width: 100%; margin-top: clamp(80px, 10vw, 120px); position: relative; min-height: 700px; overflow: hidden; color: #fff; }
-.car-workday img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.car-workday .overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 1; }
-.car-workday-inner { position: relative; z-index: 2; padding: clamp(50px, 8vw, 100px) max(16px, calc((100% - 1920px) / 2 + 228px)) clamp(60px, 8vw, 90px); display: flex; flex-direction: column; gap: clamp(60px, 8vw, 100px); }
-.car-workday-head { max-width: 728px; display: flex; flex-direction: column; gap: 24px; }
-.car-workday-head h2 { margin: 0; font: 600 clamp(30px, 4vw, 50px)/1.15 'Manrope', sans-serif; }
-.car-workday-head p { margin: 0; font: 600 22px/1.3 'Manrope', sans-serif; letter-spacing: 0.22px; opacity: 0.9; }
-.car-workday-active { max-width: 793px; display: flex; flex-direction: column; gap: 14px; }
-.car-workday-active .label { margin: 0; font: 600 clamp(32px, 5vw, 60px)/1.2 'Manrope', sans-serif; text-transform: uppercase; }
-.car-workday-active .desc { margin: 0; font: 600 clamp(18px, 2vw, 28px)/1.2 'Manrope', sans-serif; }
-.car-workday-tabs { position: relative; z-index: 2; display: flex; gap: 24px; flex-wrap: wrap; padding: 0 max(16px, calc((100% - 1920px) / 2 + 228px)) clamp(40px, 6vw, 70px); }
-.car-workday-tab {
-  flex: 1 1 260px; backdrop-filter: blur(4px); border-radius: 18px; padding: 18px 24px; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid rgba(0,97,248,0.3);
-  background: #fff; color: var(--blue); font: 600 22px/1.3 'Manrope', sans-serif; letter-spacing: 0.22px; text-align: left;
+.car-panel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left bottom;
+  display: block;
 }
-.car-workday-tab.active { background: var(--blue); color: #fff; border-color: rgba(255,255,255,0.2); }
-.car-workday-tab img { width: 30px; height: 30px; flex-shrink: 0; }
 
-/* ---------- Way in Practice (dark card) ---------- */
-.car-practice { width: min(1828px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; background: rgba(0,0,0,0.3); border-radius: 40px; padding: clamp(50px, 7vw, 120px) clamp(24px, 6vw, 182px) 60px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
-.car-practice h2 { margin: 0; font: 600 clamp(28px, 4vw, 50px)/1.15 'Manrope', sans-serif; color: #fff; text-align: center; }
-.car-practice-card {
-  background: rgba(255,255,255,0.9); border: 1px solid #fff; border-radius: 24px; padding: 30px 40px;
-  display: flex; flex-direction: column; gap: 24px; max-width: 770px; width: 100%;
+/* Standard cards (1, 2, 4): image on left */
+.car-panel:not(.reverse) .car-panel-image {
+  border-bottom-left-radius: 44px;
+  padding-left: 0;
 }
-.car-practice-icon { width: 60px; height: 60px; }
-.car-practice-card h3 { margin: 0; font: 600 38px/1.2 'Manrope', sans-serif; color: var(--blue); }
-.car-practice-card p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #6a6a6a; letter-spacing: 0.22px; }
-.car-practice-bar { display: flex; gap: 12px; }
-.car-practice-seg { height: 6px; width: 50px; border-radius: 8px; background: rgba(255,255,255,0.5); }
-.car-practice-seg.active { width: 120px; background: linear-gradient(90deg, #016ef7 4.5%, #38b34a 45.6%, #66cef5 98.7%); }
 
-/* ---------- Testimonials ---------- */
-.car-testimonials { margin-top: clamp(80px, 10vw, 120px); }
-.car-testimonials h2 { margin: 0 0 40px; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: #070707; text-align: center; }
-.car-testimonial-track { display: flex; gap: 24px; overflow-x: auto; padding: 0 max(16px, calc((100% - 1920px) / 2 + 46px)) 8px; scroll-snap-type: x mandatory; }
-.car-testimonial-card { flex: 0 0 min(472px, 80vw); scroll-snap-align: start; display: flex; flex-direction: column; gap: 24px; }
-.car-testimonial-photo { height: 460px; border-radius: 40px; overflow: hidden; position: relative; background: repeating-linear-gradient(135deg, #f3fbff, #f3fbff 12px, #eaf3fb 12px, #eaf3fb 24px); }
-.car-testimonial-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.car-testimonial-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.car-testimonial-foot .name { margin: 0; font: 600 28px/1.2 'Manrope', sans-serif; color: var(--blue); }
-.car-testimonial-foot .role { margin: 4px 0 0; font: 500 18px/1.2 'Manrope', sans-serif; color: #070707; letter-spacing: 0.72px; text-transform: uppercase; }
-.car-testimonial-add { flex-shrink: 0; width: 40px; height: 40px; border-radius: 40px; background: var(--bg-blue, #eaf9ff); display: flex; align-items: center; justify-content: center; }
-.car-testimonial-add img { width: 20px; height: 20px; }
-
-/* ---------- CTA banner ---------- */
-.car-cta { width: min(1462px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; border-radius: 40px; padding: 60px;
-  background: linear-gradient(89.2deg, #beedfa 34.8%, rgba(0,186,234,0) 79.8%);
-  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-.car-cta-copy { flex: 1 1 480px; max-width: 843px; display: flex; flex-direction: column; gap: 24px; }
-.car-cta-copy h2 { margin: 0; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: #002fff; }
-.car-cta-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: #070707; letter-spacing: 0.22px; }
-
-/* ---------- Opportunities: hero with real photo ---------- */
-.car-hero-photo { width: min(1828px, 100% - 3.2rem); margin: clamp(30px, 4vw, 46px) auto 0; border-radius: 40px; overflow: hidden; min-height: 320px; position: relative; aspect-ratio: 1828 / 572; }
-.car-hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.car-hero-photo .overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.1); }
-
-/* ---------- Opportunities: filters ---------- */
-.car-filters { width: min(1464px, 100% - 3.2rem); margin: clamp(60px, 8vw, 80px) auto 0; display: flex; gap: 24px; flex-wrap: wrap; }
-.car-filter-search { flex: 1 1 260px; display: flex; align-items: center; gap: 12px; background: #f8f8f8; border-radius: 40px; padding: 14px 40px; }
-.car-filter-search img { width: 24px; height: 24px; }
-.car-filter-search span { font: 700 18px/24px 'Manrope', sans-serif; color: var(--blue); text-transform: uppercase; }
-.car-filter-pill { flex-shrink: 0; display: flex; align-items: center; gap: 10px; background: #f8f8f8; border-radius: 40px; padding: 14px 40px; }
-.car-filter-pill span { font: 700 18px/24px 'Manrope', sans-serif; color: var(--blue); text-transform: uppercase; }
-.car-filter-pill img { width: 12px; height: 24px; transform: rotate(90deg); }
-
-/* ---------- Opportunities: job list ---------- */
-.car-jobs { width: min(1464px, 100% - 3.2rem); margin: 40px auto 0; display: flex; flex-direction: column; gap: 40px; padding-top: 40px; border-top: 1px solid #eee; }
-.car-job-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-bottom: 40px; border-bottom: 1px solid #eee; }
-.car-job-row:last-child { border-bottom: none; padding-bottom: 0; }
-.car-job-info { display: flex; gap: 24px; flex-wrap: wrap; font: 500 24px/1.2 'Manrope', sans-serif; color: #393939; letter-spacing: 0.24px; }
-.car-job-info span { flex: 0 0 auto; }
-.car-job-info span:nth-child(1), .car-job-info span:nth-child(2) { width: 220px; }
-.car-job-info span:nth-child(3), .car-job-info span:nth-child(4) { width: 160px; }
-
-/* ---------- Opportunities: pagination reuse ---------- */
-.car-pagination { width: min(1464px, 100% - 3.2rem); margin: 0 auto; display: flex; gap: 12px; align-items: center; }
-.car-page-btn { border: 1px solid #cdcdcd; border-radius: 12px; background: #fff; cursor: pointer; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font: 700 18px/24px 'Manrope', sans-serif; color: var(--blue); padding: 0; }
-.car-page-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
-.car-page-btn img { width: 24px; height: 24px; }
-.car-page-btn.nav { transform: scaleY(-1); }
-
-/* ---------- Opportunities: photo CTA ---------- */
-.car-cta-photo { width: min(1464px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; border-radius: 40px; padding: 60px; position: relative; overflow: hidden;
-  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-.car-cta-photo img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.car-cta-photo .overlay { position: absolute; inset: 0; background: linear-gradient(89.2deg, #beedfa 34.8%, rgba(0,186,234,0) 68.9%); z-index: 1; }
-.car-cta-photo .car-cta-copy, .car-cta-photo .car-cta-btn { position: relative; z-index: 2; }
-
-/* ---------- Great Place to Work banner ---------- */
-.car-great-place { width: min(1464px, 100% - 3.2rem); margin: clamp(80px, 10vw, 120px) auto 0; display: flex; gap: 24px; flex-wrap: wrap; }
-.car-great-place-copy {
-  flex: 1 1 480px; background: linear-gradient(180deg, #0061f8, #004dc5); border-radius: 40px; padding: 60px;
-  display: flex; align-items: center; min-height: 300px;
+.car-panel:not(.reverse) .car-panel-image img {
+  border-bottom-left-radius: 44px;
 }
-.car-great-place-copy p { margin: 0; font: 500 clamp(26px, 3vw, 50px)/1.2 'Manrope', sans-serif; color: #fff; }
-.car-great-place-image {
-  flex: 1 1 300px; min-height: 300px; border-radius: 40px; background: rgba(0, 97, 248, 0.04);
-  display: flex; align-items: center; justify-content: center; position: relative;
+
+/* Reverse card (3): image on right */
+.car-panel.reverse .car-panel-image {
+  border-bottom-right-radius: 44px;
+  padding-right: 0;
 }
-.car-great-place-image img { max-height: 70%; max-width: 40%; object-fit: contain; }
+
+.car-panel.reverse .car-panel-image img {
+  border-bottom-right-radius: 44px;
+  object-position: right bottom;
+}
+
+/* Copy Column */
+.car-panel-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: clamp(36px, 4vw, 54px) clamp(36px, 4.5vw, 68px);
+  position: relative;
+  z-index: 1;
+}
+
+.car-panel:not(.reverse) .car-panel-copy {
+  padding-left: clamp(24px, 3vw, 44px);
+}
+
+.car-panel.reverse .car-panel-copy {
+  padding-right: clamp(24px, 3vw, 44px);
+}
+
+.car-panel-copy h3 {
+  margin: 0;
+  font: 600 clamp(30px, 3.2vw, 44px)/1.2 'Manrope', sans-serif;
+  color: var(--blue);
+  letter-spacing: -0.015em;
+}
+
+.car-panel-copy p {
+  margin: 0;
+  font: 500 clamp(16px, 1.35vw, 19px)/1.5 'Manrope', sans-serif;
+  color: #334155;
+}
+
+.car-panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.car-panel-list-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.car-panel-bullet {
+  flex-shrink: 0;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-panel-list-item p {
+  margin: 0;
+  font: 500 clamp(15px, 1.25vw, 18px)/1.45 'Manrope', sans-serif;
+  color: #475569;
+}
+
+/* ---------- Talent Management Stat Cards (Matching Product Card Sizing & Sliding Drawer) ---------- */
+.car-stats-grid {
+  width: min(1464px, 100% - 3.2rem) !important;
+  max-width: 1464px !important;
+  margin: 0 auto clamp(60px, 8vw, 100px) !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 42px;
+}
+
+@media (max-width: 1024px) {
+  .car-stats-grid {
+    gap: 24px;
+  }
+}
 
 @media (max-width: 900px) {
-  .car-panel, .car-panel.reverse { flex-direction: column; }
-  .car-panel-image.split { flex-direction: row; }
-  .car-job-info { flex-direction: column; gap: 8px; }
-  .car-job-info span { width: auto !important; }
+  .car-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.car-stat-drawer-card {
+  position: relative;
+  overflow: hidden;
+  height: 520px;
+  min-height: 520px;
+  border-radius: 40px;
+  color: white;
+  background: #edf3f5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.car-stat-drawer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 47, 180, 0.2);
+}
+
+/* Background image container */
+.car-stat-img-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #edf3f5;
+}
+
+.car-stat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+
+.car-stat-drawer-card:hover .car-stat-img-wrap img {
+  transform: scale(1.05);
+}
+
+/* Sliding Blue Drawer Sheet - Exactly matching homepage product cards */
+.car-stat-sheet {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px 28px 40px 40px;
+  background: linear-gradient(160deg, #0065f8 0%, #0052d4 55%, #0044b3 100%);
+  padding: 34px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -8px 28px rgba(0, 20, 80, 0.16);
+  transform: translateY(calc(100% - 114px));
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.4s ease;
+  will-change: transform;
+}
+
+.car-stat-drawer-card:hover .car-stat-sheet {
+  transform: translateY(0);
+  border-radius: 40px;
+}
+
+/* Header bar with title and plus/minus button */
+.car-stat-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+}
+
+.car-stat-sheet-title {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #ffffff;
+  max-width: 80%;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.car-stat-sheet-symbol {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  color: #0061f8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, color 0.2s ease;
+}
+
+.car-stat-sheet-symbol .symbol-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-stat-sheet-symbol .symbol-minus {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-stat-drawer-card:hover .car-stat-sheet-symbol {
+  transform: scale(1.05);
+}
+
+.car-stat-drawer-card:hover .car-stat-sheet-symbol .symbol-plus {
+  display: none;
+}
+
+.car-stat-drawer-card:hover .car-stat-sheet-symbol .symbol-minus {
+  display: flex;
+}
+
+/* Expandable content area inside the sheet */
+.car-stat-sheet-body {
+  flex: 1 1 auto;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.car-stat-drawer-card:hover .car-stat-sheet-body {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.car-stat-sheet-desc {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.94);
+  max-width: 90%;
+}
+
+.car-stat-sheet-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  width: fit-content;
+  margin-top: auto;
+}
+
+/* ---------- Beyond the Workday (Matching Image 2) ---------- */
+.car-workday-wrap {
+  width: 100%;
+  margin-top: clamp(60px, 8vw, 100px);
+  position: relative;
+  overflow: hidden;
+}
+
+.car-workday-banner {
+  position: relative;
+  width: 100%;
+  height: clamp(640px, 58vw, 760px);
+  min-height: clamp(640px, 58vw, 760px);
+  overflow: hidden;
+  background: #0b1329;
+}
+
+.car-workday-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.2, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.car-workday-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.car-workday-slide img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.car-workday-slide .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.22) 40%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.car-workday-top-title {
+  position: absolute;
+  top: clamp(36px, 5vw, 58px);
+  left: clamp(36px, 5vw, 80px);
+  margin: 0;
+  font: 500 clamp(24px, 3vw, 40px)/1.2 'Manrope', sans-serif;
+  color: #ffffff;
+  z-index: 10;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.car-workday-story {
+  position: absolute;
+  top: clamp(160px, 20vw, 250px);
+  left: clamp(36px, 5vw, 80px);
+  max-width: clamp(380px, 48vw, 680px);
+  z-index: 10;
+  animation: practiceCardFadeIn 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.car-workday-story h3 {
+  margin: 0 0 12px;
+  font: 700 clamp(26px, 3.4vw, 44px)/1.15 'Manrope', sans-serif;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.car-workday-story p {
+  margin: 0;
+  font: 500 clamp(15px, 1.25vw, 19px)/1.5 'Manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.car-workday-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.car-workday-arrow:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.car-workday-arrow.prev {
+  left: clamp(16px, 2.5vw, 36px);
+}
+
+.car-workday-arrow.next {
+  right: clamp(16px, 2.5vw, 36px);
+}
+
+.car-workday-pill-tabs {
+  position: absolute;
+  bottom: clamp(24px, 4vw, 44px);
+  left: clamp(32px, 5vw, 72px);
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+.car-workday-pill-tab {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 600 clamp(14px, 1.1vw, 16.5px)/1 'Manrope', sans-serif;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+  background: #ffffff;
+  color: #0061f8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.car-workday-pill-tab.active {
+  background: #0061f8;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.4);
+}
+
+/* ---------- Way in Practice (Interactive 5-Slide Banner with Real HTML Boxes) ---------- */
+.car-practice-wrap {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 20, 60, 0.1);
+}
+
+.car-practice-banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1828 / 740;
+  min-height: clamp(400px, 38vw, 540px);
+  border-radius: 40px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.car-practice-slide-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.2, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.car-practice-slide-layer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.car-practice-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-practice-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.15) 45%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.car-practice-headline {
+  position: absolute;
+  top: clamp(24px, 4vw, 50px);
+  left: clamp(26px, 4vw, 60px);
+  margin: 0;
+  font: 600 clamp(22px, 3vw, 38px)/1.2 'Manrope', sans-serif;
+  color: #ffffff;
+  z-index: 10;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Floating White Card Box */
+.car-practice-card {
+  position: absolute;
+  bottom: clamp(22px, 3.5vw, 46px);
+  right: clamp(24px, 4vw, 60px);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  padding: clamp(20px, 2.5vw, 30px) clamp(24px, 3vw, 38px);
+  max-width: clamp(340px, 40vw, 500px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  animation: practiceCardFadeIn 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+@keyframes practiceCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.car-practice-card-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 6px;
+}
+
+.car-practice-card h3 {
+  margin: 0 0 8px;
+  font: 700 clamp(20px, 2vw, 28px)/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.01em;
+}
+
+.car-practice-card p {
+  margin: 0;
+  font: 500 clamp(13.5px, 1.05vw, 15.5px)/1.5 'Manrope', sans-serif;
+  color: #475569;
+}
+
+/* Clickable bottom-left interactive progress segments */
+.car-practice-nav {
+  position: absolute;
+  bottom: clamp(22px, 3.5vw, 46px);
+  left: clamp(26px, 4vw, 60px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.car-practice-nav-btn {
+  border: none;
+  background: rgba(255, 255, 255, 0.45);
+  height: 6px;
+  width: clamp(32px, 3.5vw, 50px);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  padding: 0;
+}
+
+.car-practice-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.car-practice-nav-btn.active {
+  width: clamp(70px, 8vw, 120px);
+  background: linear-gradient(90deg, #016ef7 4.5%, #38b34a 45.6%, #66cef5 98.7%);
+  box-shadow: 0 0 14px rgba(1, 110, 247, 0.7);
+}
+
+/* Divider Line matching Image 2 */
+.car-divider {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 90px) auto 0 !important;
+  height: 1.5px;
+  background: #bfdbfe;
+}
+
+/* Great Place to Work 2-Card Row matching Image 2 */
+.car-great-place-row {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(20px, 2.5vw, 32px);
+  align-items: stretch;
+}
+
+.car-great-place-blue {
+  background: #0061f8;
+  border-radius: 36px;
+  padding: clamp(36px, 4.5vw, 56px) clamp(32px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 12px 32px rgba(0, 97, 248, 0.16);
+}
+
+.car-great-place-blue p {
+  margin: 0;
+  font: 600 clamp(24px, 2.6vw, 38px)/1.25 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+}
+
+.car-great-place-media {
+  position: relative;
+  border-radius: 36px;
+  overflow: hidden;
+  min-height: clamp(220px, 22vw, 300px);
+  box-shadow: 0 12px 32px rgba(0, 20, 60, 0.08);
+  background: #f0f7ff;
+}
+
+.car-great-place-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* "A place where your work Matters" Banner matching Image 2 */
+.car-cta-photo {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(28px, 3.5vw, 42px) auto 100px !important;
+  border-radius: 36px;
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(170px, 16vw, 220px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(28px, 3.5vw, 44px) clamp(36px, 4.5vw, 56px);
+  background: linear-gradient(90deg, #cbefff 0%, #d8f4ff 35%, rgba(216, 244, 255, 0.6) 100%);
+  box-shadow: 0 12px 32px rgba(0, 20, 60, 0.06);
+}
+
+.cp:has(.car-why) .cp-footer {
+  margin-top: 0 !important;
+}
+
+.car-cta-photo img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: 0;
+}
+
+.car-cta-photo .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #cbf1ff 0%, rgba(203, 241, 255, 0.9) 45%, rgba(203, 241, 255, 0.25) 100%);
+  z-index: 1;
+}
+
+.car-cta-copy {
+  position: relative;
+  z-index: 2;
+  max-width: clamp(400px, 52vw, 700px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.car-cta-copy h2 {
+  margin: 0;
+  font: 600 clamp(24px, 2.8vw, 38px)/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.015em;
+}
+
+.car-cta-copy p {
+  margin: 0;
+  font: 500 clamp(14px, 1.15vw, 16.5px)/1.5 'Manrope', sans-serif;
+  color: #1e293b;
+}
+
+.car-cta-apply-btn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 34px;
+  border-radius: 30px;
+  background: #0056e0;
+  color: #ffffff;
+  font: 700 14px/1 'Manrope', sans-serif;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 86, 224, 0.35);
+  transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.car-cta-apply-btn:hover {
+  background: #0045b8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 86, 224, 0.5);
+}
+
+/* ---------- Testimonials (Voices from Granules - Auto-Scrolling Marquee with Product-Bar Style Drawer Sheet) ---------- */
+.car-testimonials-section {
+  width: 100%;
+  margin-top: clamp(70px, 9vw, 110px);
+  position: relative;
+  overflow: hidden;
+}
+
+.car-testimonials-header {
+  width: 85%;
+  margin: 0 auto clamp(24px, 3.5vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.car-testimonials-header h2 {
+  margin: 0;
+  font: 600 clamp(28px, 3.5vw, 46px)/1.15 'Manrope', sans-serif;
+  color: #070707;
+}
+
+/* Seamless infinite marquee wrapper */
+.car-testimonial-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0 36px;
+  mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+}
+
+.car-testimonial-marquee-track {
+  display: flex;
+  gap: clamp(24px, 2.5vw, 36px);
+  width: max-content;
+  animation: carTestimonialMarquee 42s linear infinite;
+  will-change: transform;
+}
+
+.car-testimonial-marquee-track:hover,
+.car-testimonial-marquee-track:focus-within {
+  animation-play-state: paused;
+}
+
+@keyframes carTestimonialMarquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333333%);
+  }
+}
+
+/* Voices from Granules Flip Cards & Auto-Scroll Marquee (Matching User Reference Images) */
+.car-voice-card {
+  flex: 0 0 clamp(310px, 27vw, 370px);
+  width: clamp(310px, 27vw, 370px);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.35s ease;
+}
+
+.car-voice-card:hover {
+  transform: translateY(-4px);
+}
+
+.car-voice-card-top {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.05;
+  min-height: 340px;
+  border-radius: 36px;
+  perspective: 1200px;
+}
+
+.car-voice-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  transition: transform 0.65s cubic-bezier(0.2, 0.85, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.car-voice-card:hover .car-voice-card-inner,
+.car-voice-card.is-active .car-voice-card-inner {
+  transform: rotateY(180deg);
+}
+
+.car-voice-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Front: Crisp Person Portrait (Matching Image 5) */
+.car-voice-front {
+  background: #ffffff;
+  border: 1px solid #eef4fb;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 20, 60, 0.05);
+}
+
+.car-voice-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+}
+
+/* Back: Solid Blue Quote Card (Matching Images 1, 2, 3, 4) */
+.car-voice-back {
+  background: #0061f8;
+  color: #ffffff;
+  padding: clamp(28px, 2.5vw, 36px) clamp(24px, 2.2vw, 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  transform: rotateY(180deg);
+  box-shadow: 0 14px 40px rgba(0, 97, 248, 0.25);
+  border-radius: 36px;
+}
+
+.car-voice-quote-icon {
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  line-height: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.car-voice-quote-text {
+  margin: 0;
+  font: 400 clamp(15px, 1.15vw, 17.5px)/1.45 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+/* Bottom info row */
+.car-voice-foot {
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 4px;
+}
+
+.car-voice-info .name {
+  margin: 0 0 4px;
+  font: 700 clamp(19px, 1.7vw, 23px)/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.01em;
+}
+
+.car-voice-info .role {
+  margin: 0;
+  font: 700 clamp(11.5px, 0.9vw, 13px)/1.3 'Manrope', sans-serif;
+  color: #070707;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.car-voice-toggle-btn {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eaf6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0061f8;
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.1);
+  margin-top: 2px;
+  transition: all 0.25s ease;
+}
+
+.car-voice-toggle-btn .icon-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-voice-toggle-btn .icon-minus {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When hovered or active: switch plus icon to minus icon */
+.car-voice-card:hover .car-voice-toggle-btn,
+.car-voice-card.is-active .car-voice-toggle-btn {
+  background: #eaf6ff;
+}
+
+.car-voice-card:hover .car-voice-toggle-btn .icon-plus,
+.car-voice-card.is-active .car-voice-toggle-btn .icon-plus {
+  display: none;
+}
+
+.car-voice-card:hover .car-voice-toggle-btn .icon-minus,
+.car-voice-card.is-active .car-voice-toggle-btn .icon-minus {
+  display: flex;
+}
+
+/* ---------- CTA banner ---------- */
+.car-cta {
+  width: min(1462px, 100% - 3.2rem);
+  margin: clamp(80px, 10vw, 120px) auto 0;
+  border-radius: 40px;
+  padding: 60px;
+  background: linear-gradient(89.2deg, #beedfa 34.8%, rgba(0, 186, 234, 0) 79.8%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.car-cta-copy {
+  flex: 1 1 480px;
+  max-width: 843px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.car-cta-copy h2 {
+  margin: 0;
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: #002fff;
+}
+
+.car-cta-copy p {
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: 0.22px;
+}
+
+/* ---------- Opportunities: hero with real photo ---------- */
+.car-hero-photo {
+  width: min(1828px, 100% - 3.2rem);
+  margin: clamp(30px, 4vw, 46px) auto 0;
+  border-radius: 40px;
+  overflow: hidden;
+  min-height: 320px;
+  position: relative;
+  aspect-ratio: 1828 / 572;
+}
+
+.car-hero-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-hero-photo .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Opportunities: Modern Job Search & Filter Section (Matching Reference) ---------- */
+.car-opp-container {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(30px, 4vw, 48px) auto 0 !important;
+}
+
+.car-opp-intro {
+  margin-bottom: 24px;
+}
+
+.car-opp-intro .lede {
+  margin: 0;
+  font: 500 clamp(20px, 2vw, 28px)/1.35 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: -0.015em;
+  max-width: 1140px;
+}
+
+.car-opp-intro .lede .muted {
+  color: #8b9bb4;
+}
+
+/* Filter bar with 4 equal-sized stretched dropdown pills */
+.car-opp-filter-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.car-opp-search-box {
+  flex: 1.15 1 0;
+  min-width: 180px;
+  height: 52px;
+  border-radius: 9999px;
+  background: #f6f8fb;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.car-opp-search-box:focus-within {
+  background: #ffffff;
+  border-color: #0061f8;
+  box-shadow: 0 0 0 3px rgba(0, 97, 248, 0.12);
+}
+
+.car-opp-search-icon {
+  color: #0061f8;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.car-opp-search-input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font: 700 13px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.car-opp-search-input::placeholder {
+  color: #0061f8;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.car-opp-clear-btn {
+  border: none;
+  background: transparent;
+  color: #8b9bb4;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* Filter dropdown pills - all 4 stretched to the exact same size */
+.car-opp-dropdown-wrap {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+}
+
+.car-opp-filter-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 9999px;
+  background: #f6f8fb;
+  border: 1.5px solid transparent;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.car-opp-filter-btn:hover,
+.car-opp-filter-btn.active,
+.car-opp-filter-btn.is-filtered {
+  background: #eaf3ff;
+  border-color: rgba(0, 97, 248, 0.2);
+}
+
+.car-opp-filter-btn svg {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.car-opp-filter-btn.active svg {
+  transform: rotate(180deg);
+}
+
+.car-opp-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0, 20, 60, 0.16);
+  border: 1px solid #eef2f6;
+  padding: 6px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.car-opp-dropdown-item {
+  border: none;
+  background: transparent;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font: 500 13.5px/1.3 'Manrope', sans-serif;
+  color: #1e293b;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.car-opp-dropdown-item:hover,
+.car-opp-dropdown-item.selected {
+  background: #f0f7ff;
+  color: #0061f8;
+  font-weight: 600;
+}
+
+.car-opp-reset-btn {
+  height: 52px;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1.5px dashed #0061f8;
+  color: #0061f8;
+  padding: 0 28px;
+  font: 700 12px/1 'Manrope', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.car-opp-reset-btn:hover {
+  background: #eaf3ff;
+}
+
+/* Job table list */
+.car-opp-job-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #eef2f6;
+  width: 100%;
+}
+
+.car-opp-job-row {
+  display: grid;
+  grid-template-columns: 24% 28% 16% 18% auto;
+  align-items: center;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid #eef2f6;
+  transition: background-color 0.2s ease;
+}
+
+.car-opp-job-row:hover {
+  background-color: rgba(0, 97, 248, 0.015);
+}
+
+.car-opp-job-cell {
+  font: 400 clamp(16px, 1.2vw, 18px)/1.35 'Manrope', sans-serif;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+}
+
+.car-opp-job-cell.designation {
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.car-opp-apply-btn {
+  background: #0061f8;
+  color: #ffffff;
+  font: 700 13px/1 'Manrope', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 14px 52px;
+  height: 52px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.2);
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+  white-space: nowrap;
+  justify-self: end;
+}
+
+.car-opp-apply-btn:hover {
+  background: #004ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.35);
+}
+
+@media (max-width: 960px) {
+  .car-opp-filter-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .car-opp-job-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* Pagination (Matching Image 2) */
+.car-opp-pagination-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: clamp(36px, 4.5vw, 52px);
+  margin-bottom: clamp(20px, 3vw, 36px);
+}
+
+.car-opp-page-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1.5px solid #d4e5fd;
+  background: #ffffff;
+  color: #0061f8;
+  font: 700 13px/1 'Manrope', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.car-opp-page-btn:hover:not(:disabled):not(.active) {
+  background: #f0f7ff;
+  border-color: #0061f8;
+}
+
+.car-opp-page-btn.active {
+  background: #0061f8;
+  border-color: #0061f8;
+  color: #ffffff;
+}
+
+.car-opp-page-btn.disabled,
+.car-opp-page-btn:disabled {
+  border-color: #e2e8f0;
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.car-opp-page-btn.dots {
+  border-color: #d4e5fd;
+  color: #0061f8;
+  cursor: default;
+}
+
+.car-opp-empty {
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.car-opp-empty p {
+  margin: 0;
+  font: 500 18px/1.4 'Manrope', sans-serif;
+  color: #64748b;
+}
+
+/* Modal Dialog */
+.car-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 19, 41, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: practiceCardFadeIn 0.3s ease;
+}
+
+.car-modal-box {
+  background: #ffffff;
+  border-radius: 32px;
+  padding: clamp(32px, 4vw, 48px);
+  max-width: 580px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 20, 60, 0.25);
+}
+
+.car-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  color: #475569;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.car-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.car-modal-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #eaf3ff;
+  color: #0061f8;
+  border-radius: 20px;
+  font: 700 12px/1 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.car-modal-box h3 {
+  margin: 0 0 8px;
+  font: 700 clamp(24px, 2.5vw, 32px)/1.2 'Manrope', sans-serif;
+  color: #0f172a;
+}
+
+.car-modal-sub {
+  margin: 0 0 20px;
+  font: 600 14.5px/1.4 'Manrope', sans-serif;
+  color: #0061f8;
+}
+
+.car-modal-info {
+  margin: 0 0 28px;
+  font: 400 15px/1.6 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.car-modal-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.car-modal-cancel-btn {
+  padding: 13px 26px;
+  border-radius: 9999px;
+  border: 1.5px solid #e2e8f0;
+  background: transparent;
+  font: 700 13px/1 'Manrope', sans-serif;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.car-modal-cancel-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+@media (max-width: 900px) {
+  .car-opp-job-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 20px 0;
+  }
+  .car-opp-job-cell:nth-child(5) {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+  }
+}
+
+/* ---------- Opportunities: pagination reuse ---------- */
+.car-pagination {
+  width: min(1464px, 100% - 3.2rem);
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.car-page-btn {
+  border: 1px solid #cdcdcd;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 18px/24px 'Manrope', sans-serif;
+  color: var(--blue);
+  padding: 0;
+}
+
+.car-page-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.car-page-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.car-page-btn.nav {
+  transform: scaleY(-1);
+}
+
+/* ---------- Opportunities: photo CTA ---------- */
+.car-cta-photo {
+  width: min(1464px, 100% - 3.2rem);
+  margin: clamp(80px, 10vw, 120px) auto 0;
+  border-radius: 40px;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.car-cta-photo img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.car-cta-photo .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(89.2deg, #beedfa 34.8%, rgba(0, 186, 234, 0) 68.9%);
+  z-index: 1;
+}
+
+.car-cta-photo .car-cta-copy,
+.car-cta-photo .car-cta-btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Great Place to Work banner ---------- */
+.car-great-place {
+  width: min(1464px, 100% - 3.2rem);
+  margin: clamp(80px, 10vw, 120px) auto 0;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.car-great-place-copy {
+  flex: 1 1 480px;
+  background: linear-gradient(180deg, #0061f8, #004dc5);
+  border-radius: 40px;
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  min-height: 300px;
+}
+
+.car-great-place-copy p {
+  margin: 0;
+  font: 500 clamp(26px, 3vw, 50px)/1.2 'Manrope', sans-serif;
+  color: #fff;
+}
+
+.car-great-place-image {
+  flex: 1 1 300px;
+  min-height: 300px;
+  border-radius: 40px;
+  background: rgba(0, 97, 248, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.car-great-place-image img {
+  max-height: 70%;
+  max-width: 40%;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+
+  .car-panel,
+  .car-panel.reverse {
+    flex-direction: column;
+  }
+
+  .car-panel-image.split {
+    flex-direction: row;
+  }
+
+  .car-job-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .car-job-info span {
+    width: auto !important;
+  }
 }

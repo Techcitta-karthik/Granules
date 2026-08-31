@@ -319,10 +319,10 @@ export default function EsgInActionPage() {
         <img className="bg" src={`${S}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="sus-cta-copy">
-          <h2>Lorem ipsum convallis consectetur</h2>
-          <p>Lorem ipsum dolor sit amet consectetur. Ipsum magna a ac nibh morbi malesuada molestie mauris.</p>
+          <h2>Transparent Reporting, Measurable Progress</h2>
+          <p>Explore our integrated annual and sustainability reports to discover how we track, report, and advance our ESG commitments.</p>
         </div>
-        <a className="cp-cta-btn" href="/#investor">Integrated Report</a>
+        <Link className="cp-cta-btn" to="/investor/annual-reports">Integrated Report</Link>
       </div>
 
       <CompanyFooter />

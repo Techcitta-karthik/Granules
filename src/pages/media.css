@@ -32,37 +32,41 @@
 
 /* --------------------------------------------------------------------------
    2. TABS & YEAR FILTER
-   Controls switching between "In the News" and "Press release".
    -------------------------------------------------------------------------- */
+.med-tabs-container {
+  width: min(1320px, 100% - 3.2rem);
+  margin: clamp(48px, 6vw, 76px) auto 0;
+  position: relative;
+}
+
 .med-tabs-row {
-  width: min(1010px, 100% - 3.2rem);
-  margin: 64px auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.med-tabs {
+  width: 100%;
   display: grid;
-  grid-template-columns: 200px 200px;
-  gap: 0;
+  grid-template-columns: 40% 40% 1fr;
+  align-items: center;
 }
 
-/* Tab button typography & state */
+.med-tab-left {
+  justify-self: center;
+  text-align: center;
+}
+
+.med-tab-center {
+  justify-self: center;
+  text-align: center;
+}
+
 .med-tab {
   background: none;
   border: none;
   cursor: pointer;
-  font: 700 16px/1.2 'Manrope', sans-serif;
+  font: 700 clamp(16px, 1.4vw, 20px)/1.2 'Manrope', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
-  color: var(--blue, #0061f8);
-  opacity: 0.55;
-  padding: 0;
-  text-align: left;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.6px;
+  color: #0061f8;
+  opacity: 0.45;
+  padding: 8px 0;
+  transition: opacity 0.25s ease, color 0.25s ease;
 }
 
 .med-tab:hover {
@@ -74,111 +78,147 @@
 }
 
 /* Year dropdown pill */
+.med-year-wrap {
+  justify-self: end;
+  position: relative;
+}
+
 .med-year {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  background: none;
+  border: none;
   cursor: pointer;
   user-select: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.med-year:hover {
+  background: rgba(0, 97, 248, 0.06);
 }
 
 .med-year span {
-  font: 700 16px/1.2 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
+  font: 700 clamp(16px, 1.4vw, 20px)/1.2 'Manrope', sans-serif;
+  color: #0061f8;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.6px;
 }
 
-.med-year img {
-  width: 8px;
-  height: 14px;
-  transform: rotate(90deg);
+.med-year svg {
+  color: #0061f8;
 }
 
-/* Animated gradient indicator underline */
-.med-tabs-divider {
-  width: min(1010px, 100% - 3.2rem);
-  margin: 14px auto 0;
-  height: 3px;
-  border-radius: 4px;
+.med-year-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 30, 90, 0.14);
+  border: 1px solid #e2e8f0;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 50;
+  min-width: 90px;
+}
+
+.med-year-option {
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font: 600 15px 'Manrope', sans-serif;
+  color: #334155;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.med-year-option:hover,
+.med-year-option.active {
+  background: #0061f8;
+  color: #ffffff;
+}
+
+/* Full-width track with animated gradient indicator underline */
+.med-tabs-track {
+  width: 100%;
+  margin-top: 16px;
+  height: 2px;
   background: #eaeaea;
   position: relative;
-  overflow: hidden;
 }
 
-.med-tabs-divider::after {
-  content: '';
+.med-tabs-indicator {
   position: absolute;
-  top: 0;
+  top: -1.5px;
   left: 0;
-  width: 200px;
-  height: 3px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #66cef5 0%, #38b34a 50%, #016ef7 100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(0);
+  width: 40%;
+  height: 5px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #4dc9f6 0%, #38b34a 50%, #016ef7 100%);
+  transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.med-tabs-divider.press::after {
-  transform: translateX(200px);
+.med-tabs-indicator.press {
+  left: 40%;
+  width: 40%;
 }
 
 /* --------------------------------------------------------------------------
    3. NEWS & PRESS RELEASE LIST ITEMS
-   Matches target design with refined font sizing, tags, and button alignment.
    -------------------------------------------------------------------------- */
 .med-news-list {
-  width: min(1010px, 100% - 3.2rem);
-  margin: 36px auto 0;
+  width: min(1320px, 100% - 3.2rem);
+  margin: 16px auto 0;
   display: flex;
   flex-direction: column;
-  gap: 28px;
 }
 
-/* Individual list item */
 .med-news-item {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid #e2e8f0;
+  gap: clamp(24px, 3vw, 44px);
+  padding: clamp(30px, 3.4vw, 44px) 0;
+  border-bottom: 1px solid #e8ecf2;
 }
 
 .med-news-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  border-bottom: 1px solid #e8ecf2;
 }
 
-/* Thumbnail image for news items */
 .med-news-image {
   flex-shrink: 0;
-  width: 260px;
-  height: 120px;
-  border-radius: 16px;
+  width: clamp(260px, 20vw, 320px);
+  height: clamp(140px, 11vw, 175px);
+  border-radius: 22px;
   object-fit: cover;
 }
 
-/* Content body holding tags, title and CTA button */
 .med-news-body {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: clamp(24px, 2.5vw, 40px);
 }
 
 .med-news-content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
   flex: 1 1 auto;
 }
 
-/* Category & date pill badges */
 .med-news-tags {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -186,219 +226,366 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--blue, #0061f8);
-  border-radius: 20px;
-  padding: 3px 10px;
-  font: 700 10.5px/1.2 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
-  letter-spacing: 0.4px;
+  border: 1.5px solid #0061f8;
+  border-radius: 999px;
+  padding: 4px 16px;
+  font: 700 11px/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   background: transparent;
   white-space: nowrap;
 }
 
-/* News / Press Release headline text */
 .med-news-title {
   margin: 0;
-  font: 500 16px/1.38 'Manrope', sans-serif;
+  font: 600 clamp(20px, 1.6vw, 24px)/1.32 'Manrope', sans-serif;
   color: #070707;
-  letter-spacing: -0.01em;
-  max-width: 580px;
+  letter-spacing: -0.015em;
+  max-width: 860px;
 }
 
-/* Press release item title can have slightly wider bound without image */
 .med-news-item:not(.with-image) .med-news-title {
-  max-width: 760px;
+  max-width: 960px;
 }
 
-/* "Read More" pill button */
+/* "Read More" solid blue pill button */
 .med-read-more {
-  flex: 0 0 102px;
-  width: 102px;
-  height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
-  border-radius: 60px;
-  padding: 0;
+  flex-shrink: 0;
+  background: #0061f8;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 30px;
   color: #ffffff;
-  font: 700 11px/1 'Manrope', sans-serif;
-  letter-spacing: 0.5px;
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0, 97, 248, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.28);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
 .med-read-more:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 97, 248, 0.35);
-  filter: brightness(1.05);
+  background: #004ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.38);
+}
+
+.med-read-more:active {
+  transform: scale(0.96);
 }
 
 /* --------------------------------------------------------------------------
    4. PAGINATION
    -------------------------------------------------------------------------- */
 .med-pagination {
-  width: min(1010px, 100% - 3.2rem);
-  margin: 40px auto 0;
+  width: min(1080px, 100% - 3.2rem);
+  margin: 48px auto 0;
   display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: center;
 }
 
 .med-page-btn {
-  border: 1px solid #cdcdcd;
+  border: 1px solid #d1d5db;
   border-radius: 12px;
   background: #ffffff;
   cursor: pointer;
-  width: 48px;
-  height: 48px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font: 700 18px/24px 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
-  padding: 0;
+  font: 700 15px 'Manrope', sans-serif;
+  color: #0061f8;
   transition: all 0.2s ease;
 }
 
 .med-page-btn:hover {
-  border-color: var(--blue, #0061f8);
+  border-color: #0061f8;
+  background: #f0f6ff;
 }
 
 .med-page-btn.active {
-  background: var(--blue, #0061f8);
-  border-color: var(--blue, #0061f8);
+  background: #0061f8;
+  border-color: #0061f8;
   color: #ffffff;
 }
 
-.med-page-btn img {
-  width: 24px;
-  height: 24px;
-}
-
-.med-page-btn.nav.up {
-  transform: scaleY(-1);
+.med-page-btn.nav {
+  padding: 0 12px;
 }
 
 /* --------------------------------------------------------------------------
-   5. ANNUAL REPORT BANNER
+   MODAL OVERLAY FOR READING ARTICLES
    -------------------------------------------------------------------------- */
-.med-report {
-  width: 100%;
-  margin-top: clamp(80px, 10vw, 120px);
+.med-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 40px;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  animation: medFadeIn 0.25s ease-out;
+}
+
+.med-modal-card {
+  background: #ffffff;
+  border-radius: 32px;
+  width: min(720px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(28px, 4vw, 44px);
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  animation: medSlideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.med-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  line-height: 1;
+  color: #334155;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.med-modal-close:hover {
+  background: #e2e8f0;
+  transform: scale(1.08);
+}
+
+.med-modal-image {
+  width: 100%;
+  max-height: 320px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.med-modal-title {
+  margin: 16px 0 14px;
+  font: 700 clamp(22px, 2.2vw, 30px)/1.25 'Manrope', sans-serif;
+  color: #0f172a;
+}
+
+.med-modal-body {
+  margin: 0;
+  font: 500 17px/1.6 'Manrope', sans-serif;
+  color: #475569;
+}
+
+@keyframes medFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes medSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   5. 2024 INTEGRATED ANNUAL REPORT BANNER (Matching Investor section)
+   -------------------------------------------------------------------------- */
+.med-report-section {
+  width: 100%;
+  margin: clamp(80px, 10vw, 120px) 0 0 0;
+  position: relative;
+  background-color: #eef2fb;
+  background-image: url('/assets/investor/quarterly-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
+.med-report-card {
+  width: min(1464px, 100% - 3.2rem);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 4.5vw, 64px);
+  align-items: end;
+  padding: clamp(60px, 6.5vw, 96px) 0 0 0;
+  position: relative;
+  z-index: 1;
+}
+
 .med-report-copy {
-  flex: 1 1 380px;
-  max-width: 620px;
-  margin-left: max(16px, calc((100% - 1920px) / 2 + 227px));
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  padding-bottom: clamp(60px, 6.5vw, 96px);
+  position: relative;
+  z-index: 1;
 }
 
 .med-report-copy h2 {
-  margin: 0;
-  font: 500 clamp(30px, 4vw, 50px)/1.1 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
+  margin: 0 0 clamp(24px, 3vw, 36px);
+  font: 600 clamp(34px, 3.8vw, 50px)/1.15 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.01em;
 }
 
 .med-report-btn {
   align-self: flex-start;
-  background: linear-gradient(180deg, #0061f8, #0140a2);
-  border-radius: 60px;
-  padding: 12px 30px;
+  background: #0061f8;
+  border-radius: 999px;
+  padding: 12px 32px;
   color: #ffffff;
-  font: 700 18px/24px 'Manrope', sans-serif;
+  font: 700 13px/1 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   text-decoration: none;
-  display: inline-block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.28);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .med-report-btn:hover {
+  background: #004ecc;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 97, 248, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.38);
 }
 
-.med-report-image {
-  flex: 1 1 480px;
-  max-width: 642px;
-  border-radius: 24px;
-  min-height: 320px;
-  background: repeating-linear-gradient(135deg, #f3fbff, #f3fbff 12px, #eaf3fb 12px, #eaf3fb 24px);
+.med-report-device-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.med-report-device {
+  width: 100%;
+  max-width: 540px;
+  height: 340px;
+  background: #111827;
+  border-radius: 24px 24px 0 0;
+  padding: 16px 16px 0 16px;
+  box-shadow: 0 -8px 30px rgba(0, 20, 60, 0.18), 0 25px 60px rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.med-report-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.med-report-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.22);
+  transform-origin: center 34%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.med-report-device:hover .med-report-screen img {
+  transform: scale(1.26);
 }
 
 /* --------------------------------------------------------------------------
    6. MEDIA KIT SECTION
    -------------------------------------------------------------------------- */
 .med-kit {
-  width: min(1465px, 100% - 3.2rem);
+  width: min(1320px, 100% - 3.2rem);
   margin: clamp(80px, 10vw, 120px) auto 0;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 36px;
 }
 
 .med-kit h2 {
   margin: 0;
-  font: 500 clamp(30px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  font: 600 clamp(30px, 3.2vw, 42px)/1.2 'Manrope', sans-serif;
   color: #070707;
+  letter-spacing: -0.01em;
 }
 
 .med-kit-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+}
+
+@media (max-width: 768px) {
+  .med-kit-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .med-kit-item {
-  flex: 1 1 340px;
-  border: 1px solid #cdcdcd;
-  border-radius: 24px;
-  padding: 24px;
+  background: #ffffff;
+  border: 1.5px solid #eef2f6;
+  border-radius: 18px;
+  padding: 18px 24px;
   display: flex;
-  align-items: flex-end;
-  gap: 24px;
+  align-items: center;
+  gap: 20px;
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.28s cubic-bezier(0.2, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
-.med-kit-item:hover {
-  border-color: var(--blue, #0061f8);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.08);
+.med-kit-item:hover,
+.med-kit-item:focus-visible {
+  border-color: #0061f8;
+  box-shadow: 0 10px 28px rgba(0, 97, 248, 0.12);
+  transform: translateY(-3px);
 }
 
 .med-kit-icon {
   flex-shrink: 0;
-  width: 80px;
-  height: 80px;
-  border-radius: 18px;
-  background: var(--pale-blue, #eaf9ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: #eaf4ff;
+  display: grid;
+  place-items: center;
+  color: #0061f8;
+  transition: all 0.28s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.med-kit-icon img {
-  width: 50px;
-  height: 50px;
+.med-kit-item:hover .med-kit-icon,
+.med-kit-item:focus-visible .med-kit-icon {
+  background: #0061f8;
+  color: #ffffff;
+  transform: scale(1.04);
 }
 
 .med-kit-text {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 6px;
 }
 
 .med-kit-text p {
@@ -406,14 +593,15 @@
 }
 
 .med-kit-text .name {
-  font: 700 26px/1.2 'Manrope', sans-serif;
+  font: 600 19px/1.25 'Manrope', sans-serif;
   color: #070707;
+  letter-spacing: -0.01em;
 }
 
 .med-kit-text .action {
-  font: 700 20px/1.2 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
-  letter-spacing: 1px;
+  font: 700 12px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
 }
 
@@ -421,8 +609,10 @@
    7. SOCIAL MEDIA FOLLOW BANNER
    -------------------------------------------------------------------------- */
 .med-follow {
-  width: min(1464px, 100% - 3.2rem);
+  width: min(1320px, 100% - 3.2rem);
   margin: clamp(80px, 10vw, 120px) auto 0;
+  border-top: 1.5px solid #bfdbfe;
+  padding-top: clamp(48px, 6vw, 72px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -432,35 +622,64 @@
 
 .med-follow h2 {
   margin: 0;
-  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  max-width: 440px;
+  font: 600 clamp(28px, 3.2vw, 42px)/1.2 'Manrope', sans-serif;
   color: #070707;
+  letter-spacing: -0.015em;
 }
 
 .med-follow-icons {
   display: flex;
-  gap: 40px;
+  align-items: center;
+  gap: clamp(20px, 2.5vw, 36px);
   flex-wrap: wrap;
 }
 
 .med-follow-icon {
-  width: 140px;
-  height: 140px;
-  border-radius: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(2deg, #0065f8 2%, #00a2ff 114%);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: clamp(80px, 7.5vw, 106px);
+  height: clamp(80px, 7.5vw, 106px);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0080ff 0%, #0056eb 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 97, 248, 0.28);
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.35s ease;
+  text-decoration: none;
+}
+
+/* Dynamic Green/Cyan/Blue gradient overlay on hover */
+.med-follow-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e 0%, #38b34a 32%, #48cae4 70%, #0061f8 100%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.med-follow-icon:hover::before {
+  opacity: 1;
 }
 
 .med-follow-icon:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 10px 24px rgba(0, 101, 248, 0.35);
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 16px 32px rgba(56, 179, 74, 0.35);
 }
 
-.med-follow-icon img {
-  width: 50px;
-  height: 50px;
+.med-follow-icon svg {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.med-follow-icon:hover svg {
+  transform: scale(1.08);
 }
 
 /* --------------------------------------------------------------------------

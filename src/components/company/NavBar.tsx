@@ -12,8 +12,8 @@ type Submenu = {
 };
 
 const SUBMENUS: Record<string, Submenu> = {
-  Company: {
-    title: 'Company',
+  'About Us': {
+    title: 'About Us',
     quickLinks: [
       { label: 'ABOUT US', href: '/company' },
       { label: 'MILESTONE', href: '/company/milestone' },
@@ -21,7 +21,23 @@ const SUBMENUS: Record<string, Submenu> = {
     ],
     links: [
       { label: 'Leadership', href: '/company/leadership' },
-      { label: 'Group Companies', href: '/company' },
+      { label: 'Group Companies', href: '/company#subsidiaries' },
+      { label: 'Sub Companies', href: '/company#subsidiaries' },
+      { label: 'Operational Excellence', href: '/company/operational-excellence' },
+    ],
+    image: 'company/values-bg-2.png',
+  },
+  Company: {
+    title: 'About Us',
+    quickLinks: [
+      { label: 'ABOUT US', href: '/company' },
+      { label: 'MILESTONE', href: '/company/milestone' },
+      { label: 'AWARDS', href: '/company/awards' },
+    ],
+    links: [
+      { label: 'Leadership', href: '/company/leadership' },
+      { label: 'Group Companies', href: '/company#subsidiaries' },
+      { label: 'Sub Companies', href: '/company#subsidiaries' },
       { label: 'Operational Excellence', href: '/company/operational-excellence' },
     ],
     image: 'company/values-bg-2.png',
@@ -49,11 +65,13 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'ESG IN ACTION', href: '/sustainability/esg-in-action' },
     ],
     links: [
-      { label: 'Community Initiatives', href: '/sustainability/esg-in-action/community' },
-      { label: 'Environmental Stewardship', href: '/sustainability' },
-      { label: 'Granules CZRO', href: '/company/granules-czro' },
+      { label: 'Policies', href: '/sustainability#policies' },
+      { label: 'Reports & Disclosures', href: '/sustainability#reports' },
+      { label: 'Assurance & Verification Report', href: '/sustainability#assurance' },
+      { label: 'Commitments Memberships & Ratings', href: '/sustainability#commitments' },
+      { label: 'Certifications', href: '/sustainability#certifications' },
     ],
-    image: 'company/purpose-bg.png',
+    image: 'esg-world-profile.png',
   },
   Investor: {
     title: 'Investor Relations',
@@ -62,7 +80,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'ANNUAL REPORTS', href: '/investor/annual-reports' },
     ],
     links: [
-      { label: 'Quarterly Results', href: '/investor' },
+      { label: 'Investor V2', href: '/investor/v2' },
       { label: 'Investor Resources', href: '/investor' },
       { label: 'Financial Highlights', href: '/investor' },
     ],

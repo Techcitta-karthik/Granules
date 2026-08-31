@@ -436,7 +436,7 @@ export default function SustainabilityOverviewPage() {
         <a className="cp-cta-btn" href="/sustainability/strategy">Explore ESG Strategy</a>
       </div>
 
-      {/* Interactive ESG Pillars: Appears on hover/pointer in, closes when pointer leaves */}
+      {/* Interactive ESG Pillars: Smooth sliding drawer flow matching homepage product cards */}
       <div
         className="sus-pillar-grid"
         onMouseLeave={() => setActivePillar(null)}
@@ -461,37 +461,34 @@ export default function SustainabilityOverviewPage() {
               }}
               aria-expanded={isOpen}
             >
-              {/* Collapsed State: Photo background with bottom color pill bar and (+) icon */}
-              <div className="sus-pillar-visual">
+              {/* Background Photo with smooth scale */}
+              <div className="sus-pillar-img-wrap">
                 <img className="sus-pillar-bg" src={`${S}${pillar.image}`} alt={pillar.title} />
-                <div
-                  className="sus-pillar-bar"
-                  style={{ background: pillar.bgGradient }}
-                >
-                  <span className="sus-pillar-bar-title">{pillar.title}</span>
-                  <span className="sus-pillar-btn sus-pillar-btn--plus" style={{ color: pillar.iconColor }}>
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                      <line x1="12" y1="5" x2="12" y2="19" />
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                  </span>
-                </div>
               </div>
 
-              {/* Expanded State: Full color card with Title, (-) icon, and full description */}
+              {/* Smooth Bottom Sliding Sheet (Matching product card flow) */}
               <div
-                className="sus-pillar-detail"
+                className="sus-pillar-sheet"
                 style={{ background: pillar.bgGradient }}
               >
-                <div className="sus-pillar-detail-head">
-                  <h3 className="sus-pillar-detail-title">{pillar.title}</h3>
-                  <span className="sus-pillar-btn sus-pillar-btn--minus" style={{ color: pillar.iconColor }}>
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
+                <div className="sus-pillar-sheet-head">
+                  <span className="sus-pillar-sheet-title">{pillar.title}</span>
+                  <span
+                    className="sus-pillar-symbol"
+                    style={{ color: pillar.iconColor }}
+                    aria-hidden="true"
+                  >
+                    {isOpen ? '−' : '+'}
                   </span>
                 </div>
-                <p className="sus-pillar-detail-desc">{pillar.desc}</p>
+
+                <div className="sus-pillar-sheet-body">
+                  <p className="sus-pillar-sheet-desc">{pillar.desc}</p>
+                  <a className="sus-pillar-learn" href="/sustainability/strategy">
+                    <span>LEARN MORE</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
               </div>
             </article>
           );

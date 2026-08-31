@@ -7,7 +7,7 @@ export default function HeroSection() {
         <p className="cp-breadcrumb">
           <span>HOMEPAGE</span>
           <span className="sep">›</span>
-          <span>COMPANY</span>
+          <span>ABOUT US</span>
           <span className="sep">›</span>
           <span className="current">ABOUT US (OVERVIEW)</span>
         </p>

@@ -64,7 +64,7 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
 ];
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Company', href: '/company', matchPrefix: '/company' },
+  { label: 'About Us', href: '/company', matchPrefix: '/company' },
   { label: 'Business', href: '/business/api', matchPrefix: '/business' },
   { label: 'Sustainability', href: '/sustainability', matchPrefix: '/sustainability' },
   { label: 'Investor', href: '/investor', matchPrefix: '/investor' },

@@ -40,12 +40,12 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
   const [hoveredMenu, setHoveredMenu] = useState(null);
   const closeTimer = useRef(null);
   const links = [
-    ['Company', '/company'], ['Business', '#business'], ['Sustainability', '#sustainability'],
+    ['About Us', '/company'], ['Business', '#business'], ['Sustainability', '#sustainability'],
     ['Investor', '#investor'], ['Media', '#media'], ['Careers', '#careers'], ['Contact', '#footer']
   ];
   const submenuData = {
-    Company: {
-      title: 'Company',
+    'About Us': {
+      title: 'About Us',
       quickLinks: [
         ['ABOUT US', '/company'],
         ['MILESTONE', '/company/milestone'],
@@ -53,7 +53,23 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
       ],
       links: [
         ['Leadership', '/company/leadership'],
-        ['Group Companies', '/company'],
+        ['Group Companies', '/company#subsidiaries'],
+        ['Sub Companies', '/company#subsidiaries'],
+        ['Operational Excellence', '/company/operational-excellence'],
+      ],
+      image: 'company/values-bg-2.png',
+    },
+    Company: {
+      title: 'About Us',
+      quickLinks: [
+        ['ABOUT US', '/company'],
+        ['MILESTONE', '/company/milestone'],
+        ['AWARDS', '/company/awards'],
+      ],
+      links: [
+        ['Leadership', '/company/leadership'],
+        ['Group Companies', '/company#subsidiaries'],
+        ['Sub Companies', '/company#subsidiaries'],
         ['Operational Excellence', '/company/operational-excellence'],
       ],
       image: 'company/values-bg-2.png',
@@ -78,13 +94,16 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
       quickLinks: [
         ['OVERVIEW', '/sustainability'],
         ['STRATEGY', '/sustainability/strategy'],
+        ['ESG IN ACTION', '/sustainability/esg-in-action'],
       ],
       links: [
-        ['ESG in Action', '/sustainability/esg-in-action'],
-        ['Community Initiatives', '/sustainability/esg-in-action/community'],
-        ['Granules CZRO', '/company/granules-czro'],
+        ['Policies', '/sustainability#policies'],
+        ['Reports & Disclosures', '/sustainability#reports'],
+        ['Assurance & Verification Report', '/sustainability#assurance'],
+        ['Commitments Memberships & Ratings', '/sustainability#commitments'],
+        ['Certifications', '/sustainability#certifications'],
       ],
-      image: 'company/purpose-bg.png',
+      image: 'esg-world-profile.png',
     },
     Investor: {
       title: 'Investor',

@@ -8,7 +8,7 @@ const PRODUCT_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { label: 'COMPANY', href: '/company' },
+  { label: 'ABOUT US', href: '/company' },
   { label: 'SUSTAINABILITY', href: '/sustainability' },
   { label: 'INVESTORS', href: '/investor' },
   { label: 'MEDIA', href: '/media' },

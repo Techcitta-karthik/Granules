@@ -159,20 +159,12 @@ export default function InvestorOverviewPage() {
 
   const scrollReasons = (dir: number) => {
     if (trackRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = trackRef.current;
+      const { scrollWidth, clientWidth } = trackRef.current;
       const maxScroll = scrollWidth - clientWidth;
       if (maxScroll <= 0) return;
 
-      // Exactly 2 clicks will scroll from the first card to the 5th/last card
-      const step = Math.ceil(maxScroll / 2);
-
-      let targetScroll = scrollLeft + dir * step;
-      if (dir > 0 && targetScroll >= maxScroll - 40) {
-        targetScroll = maxScroll;
-      } else if (dir < 0 && targetScroll <= 40) {
-        targetScroll = 0;
-      }
-
+      // 1 click scrolls directly to the last card at the end, or back to the start
+      const targetScroll = dir > 0 ? maxScroll : 0;
       trackRef.current.scrollTo({ left: targetScroll, behavior: 'smooth' });
     }
   };
@@ -192,12 +184,14 @@ export default function InvestorOverviewPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Investor</span>
-      </p>
-      <h1 className="cp-page-title">Investor overview</h1>
+      <div className="cp-hero-inner" style={{ paddingTop: 'clamp(18px, 2.2vw, 30px)' }}>
+        <p className="cp-breadcrumb">
+          <span>HOMEPAGE</span>
+          <span className="sep">›</span>
+          <span className="current">INVESTOR OVERVIEW</span>
+        </p>
+        <h1 className="cp-page-title">Investor overview</h1>
+      </div>
 
       <div className="inv-hero">
         <span className="inv-hero-badge">STOCK IMAGE</span>
@@ -427,7 +421,7 @@ export default function InvestorOverviewPage() {
             committed to transparent communication and timely responses.
           </p>
         </div>
-        <a className="inv-contact-btn" href="/#footer">Contact</a>
+        <Link className="inv-contact-btn" to="/contact">Contact</Link>
       </div>
 
       <CompanyFooter />

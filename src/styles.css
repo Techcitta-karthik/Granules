@@ -150,6 +150,12 @@ img { display: block; max-width: 100%; }
   border-radius: 18px;
   display: block;
 }
+.home-nav-submenu-thumb img[src*="esg-world"],
+.home-nav-submenu > img[src*="esg-world"] {
+  object-fit: contain;
+  padding: 18px;
+  background: #f8fafc;
+}
 .search-button { width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
 .search-button img { width: 24px; height: 24px; }
 .global { display: flex; align-items: center; gap: 6px; white-space: nowrap; }

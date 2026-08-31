@@ -27,39 +27,6 @@ const MILESTONES: MilestoneEntry[] = [
   { year: '2025', image: 'y2025.png', caption: 'Successfully acquired Switzerland’s peptide CDMO firm Senn Chemicals AG; Inaugurated phase-II of GLS expanding dosage capacity to 10bn dosages.' },
 ];
 
-function TimelineRow({ entry, index }: { entry: MilestoneEntry; index: number }) {
-  const imageOnLeft = index % 2 === 1;
-  const yearBlock = (
-    <div>
-      {entry.eyebrow && <span className="ms-year-eyebrow">{entry.eyebrow}</span>}
-      <span className="ms-year">{entry.year}</span>
-    </div>
-  );
-  const imageBlock = (
-    <div>
-      <div className="ms-image">
-        <img src={`${M}${entry.image}`} alt={`Granules milestone ${entry.year}`} />
-      </div>
-      <p className="ms-caption">{entry.caption}</p>
-    </div>
-  );
-  return (
-    <div className={`ms-row${imageOnLeft ? ' ms-row--year-right' : ''}`}>
-      {imageOnLeft ? (
-        <>
-          {imageBlock}
-          {yearBlock}
-        </>
-      ) : (
-        <>
-          {yearBlock}
-          {imageBlock}
-        </>
-      )}
-    </div>
-  );
-}
-
 export default function MilestonePage() {
   useEffect(() => {
     document.title = 'Milestone — Granules India';
@@ -70,7 +37,7 @@ export default function MilestonePage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <span>Homepage</span>
         <span className="sep">{'>'}</span>
         <span>Company</span>
@@ -97,26 +64,53 @@ export default function MilestonePage() {
         </p>
       </div>
 
-      <div className="ms-timeline">
-        {MILESTONES.map((entry, index) => (
-          <TimelineRow entry={entry} index={index} key={entry.year} />
-        ))}
-      </div>
-
-      <div className="ms-cta">
-        <img className="cp-bg" src={`${M}achievements-cta-bg.png`} alt="" />
-        <div className="cp-bg-overlay" />
-        <div className="ms-cta-copy">
-          <h2>Celebrating our achievements</h2>
-          <p>
-            From breakthrough innovations to sustainable practices, these accolades highlight our
-            pursuit of progress.
-          </p>
+      <div className="ms-systems">
+        <div className="ms-systems-head">
+          <span className="cp-section-badge" style={{ alignSelf: 'flex-start', background: '#fff' }}>Our Journey</span>
+          <h2>Four decades of innovation and scale</h2>
         </div>
-        <a className="cp-cta-btn" href="/company/awards">Awards</a>
+
+        {MILESTONES.map((entry, index) => {
+          const isReverse = index % 2 === 1;
+          return (
+            <div
+              className={`ms-stack-card ms-stack-card--${index}${isReverse ? ' ms-stack-card--reverse' : ''}`}
+              key={entry.year}
+              style={{
+                zIndex: index + 1,
+                top: 'clamp(120px, 15vh, 145px)',
+              }}
+            >
+              <div className="ms-card-copy">
+                {entry.eyebrow && <span className="ms-card-eyebrow">{entry.eyebrow}</span>}
+                <h3 className="ms-card-year">{entry.year}</h3>
+                <p className="ms-card-caption">{entry.caption}</p>
+              </div>
+              <div className="ms-card-media">
+                <img src={`${M}${entry.image}`} alt={`Granules milestone ${entry.year}`} />
+              </div>
+            </div>
+          );
+        })}
+
+        <div className="ms-below-stack">
+          <div className="ms-cta">
+            <img className="cp-bg" src={`${M}achievements-cta-bg.png`} alt="" />
+            <div className="cp-bg-overlay" />
+            <div className="ms-cta-copy">
+              <h2>Celebrating our achievements</h2>
+              <p>
+                From breakthrough innovations to sustainable practices, these accolades highlight our
+                pursuit of progress.
+              </p>
+            </div>
+            <a className="cp-cta-btn" href="/company/awards">Awards</a>
+          </div>
+        </div>
       </div>
 
       <CompanyFooter />
     </div>
   );
 }
+
