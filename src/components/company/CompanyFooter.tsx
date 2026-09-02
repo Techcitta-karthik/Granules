@@ -20,7 +20,7 @@ const SOCIAL_LINKS = [
   { name: 'Facebook', icon: '/assets/facebook.svg', href: 'https://facebook.com' },
   { name: 'Instagram', icon: '/assets/instagram.svg', href: 'https://instagram.com' },
   { name: 'X', icon: '/assets/x.svg', href: 'https://x.com' },
-  { name: 'LinkedIn', icon: '/assets/linkedin.svg', href: 'https://linkedin.com' },
+  { name: 'LinkedIn', icon: '/assets/linkedin.svg', href: 'https://www.linkedin.com/company/granules-india-limited/' },
   { name: 'YouTube', icon: '/assets/youtube.svg', href: 'https://youtube.com' },
 ];
 

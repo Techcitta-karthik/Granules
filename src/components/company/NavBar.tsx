@@ -43,19 +43,19 @@ const SUBMENUS: Record<string, Submenu> = {
     image: 'company/values-bg-2.webp',
   },
   Business: {
-    title: 'Product',
+    title: 'Business',
     quickLinks: [
-      { label: 'ACTIVE PHARMACEUTICAL INGREDIENTS', href: '/business/api' },
-      { label: 'PEPTIDES', href: '/business/peptides' },
-      { label: 'PHARMACEUTICAL FORMULATION INTERMEDIATES', href: '/business/pfi' },
+      { label: 'API', href: '/business/api' },
+      { label: 'PFI', href: '/business/pfi' },
       { label: 'FINISHED DOSAGES', href: '/business/fd' },
+      { label: 'PEPTIDES', href: '/business/peptides' },
     ],
     links: [
       { label: 'Research & Development', href: '/business/rd' },
-      { label: 'Quality Control & Compliance Facilities', href: '/business/quality-compliance' },
-      { label: 'Facilities', href: '/company/facilities' },
+      { label: 'Quality & Compliance', href: '/business/quality-compliance' },
+      { label: 'Manufacturing Facilities', href: '/company/facilities' },
     ],
-    image: 'czro/hero-banner.webp',
+    image: 'company/gpi-facility.webp',
   },
   Sustainability: {
     title: 'Sustainability',
@@ -74,23 +74,23 @@ const SUBMENUS: Record<string, Submenu> = {
     image: 'esg-world-profile.webp',
   },
   Investor: {
-    title: 'Investor Relations',
+    title: 'Investor',
     quickLinks: [
       { label: 'OVERVIEW', href: '/investor' },
       { label: 'ANNUAL REPORTS', href: '/investor/annual-reports' },
     ],
     links: [
-      { label: 'Investor V2', href: '/investor/v2' },
+      { label: 'Quarterly Results', href: '/investor' },
       { label: 'Investor Resources', href: '/investor' },
       { label: 'Financial Highlights', href: '/investor' },
     ],
     image: 'investor-report-cover.webp',
   },
   Media: {
-    title: 'Media & News',
+    title: 'Media',
     quickLinks: [
+      { label: 'NEWS & MEDIA', href: '/media' },
       { label: 'PRESS RELEASES', href: '/media' },
-      { label: 'NEWS & COVERAGE', href: '/media' },
     ],
     links: [
       { label: 'Corporate Announcements', href: '/media' },
@@ -103,11 +103,10 @@ const SUBMENUS: Record<string, Submenu> = {
     quickLinks: [
       { label: 'OVERVIEW', href: '/careers' },
       { label: 'OPPORTUNITIES', href: '/careers/opportunities' },
-      { label: 'LIFE AT GRANULES', href: '/careers/life-at-granules' },
     ],
     links: [
-      { label: 'Culture, Purpose & People', href: '/careers' },
-      { label: 'Graduate & Internship Programs', href: '/careers' },
+      { label: 'Life at Granules', href: '/careers/life-at-granules' },
+      { label: 'Culture & Purpose', href: '/careers' },
     ],
     image: 'company/career-bg.webp',
   },
@@ -115,11 +114,10 @@ const SUBMENUS: Record<string, Submenu> = {
     title: 'Contact',
     quickLinks: [
       { label: 'CONTACT US', href: '/contact' },
-      { label: 'GLOBAL LOCATIONS', href: '/contact' },
     ],
     links: [
-      { label: 'Corporate Headquarters', href: '/contact' },
-      { label: 'Investor & Media Relations', href: '/investor' },
+      { label: 'Global Offices', href: '/contact' },
+      { label: 'Investor Inquiries', href: '/investor' },
     ],
     image: 'company/gpi-facility.webp',
   },

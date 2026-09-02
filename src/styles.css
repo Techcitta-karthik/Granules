@@ -199,7 +199,8 @@ img {
 .home-nav-submenu-copy {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 14px;
 }
 
 .home-nav-submenu-header-box {
