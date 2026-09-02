@@ -6,15 +6,16 @@ import './business.css';
 const A = '/assets/api/';
 
 const THERAPEUTIC_AREAS = [
-  { label: 'Anti-inflammatories', icon: 'icon-anti-inflammatories.svg' },
   { label: 'Anti-diabetics', icon: 'icon-anti-diabetics.svg' },
-  { label: 'CNS (Central Nervous System)', icon: 'icon-cns.svg' },
-  { label: 'Anti-infectives', icon: 'icon-anti-infectives.svg' },
-  { label: 'Analgesics', icon: 'icon-analgesics.svg' },
+  { label: 'Anti-inflammatories', icon: 'icon-anti-inflammatories.svg' },
+  { label: 'CNS/ADHD', icon: 'icon-cns.svg' },
   { label: 'Oncology', icon: 'icon-oncology.svg' },
+  // No dedicated Gastroenterology icon is available. Reusing a freed-up icon from a
+  // different therapeutic area (anti-infectives/analgesics/anti-retrovirals) risked
+  // implying the wrong therapeutic meaning, so a neutral, non-therapeutic icon is used instead.
+  { label: 'Gastroenterology', icon: 'icon-manufacturing.svg' },
   { label: 'Anti-histamines', icon: 'icon-anti-histamines.svg' },
   { label: 'Anti-coagulants', icon: 'icon-anti-coagulants.svg' },
-  { label: 'Anti-retrovirals', icon: 'icon-anti-retrovirals.svg' },
   { label: 'Anti-hypertensives', icon: 'icon-anti-hypertensives.svg' },
 ];
 
@@ -22,20 +23,20 @@ type ScaleItem = { title: string; body: string; icon: string; image?: string | n
 
 const SCALE_ITEMS: ScaleItem[] = [
   {
-    title: '40,000+ TPA Installed Capacity',
-    body: 'The installed capacity spans four locations in Hyderabad and Vizag, totaling over 40,000 TPA.',
+    title: '40,000 TPA Installed Capacity',
+    body: '40,000 TPA installed capacity across four specialized facilities, with seamless vertical integration from key starting materials and intermediates to downstream PFI and Finished Dosage operations, enhancing supply security and cost competitiveness.',
     icon: 'icon-capacity.svg',
     image: 'scale-bg.png',
   },
   {
-    title: 'Automation with DCS',
-    body: 'Distributed Control Systems (DCS) minimize human error and optimize consistency',
+    title: 'Innovation-Led, Technology-Driven',
+    body: 'Our API operations are enabled by advanced Industry 4.0 technologies, including PLC, DCS, and Electronic Batch Manufacturing Records, while embedding Green Chemistry and sustainable innovation into R&D and manufacturing to improve yields, reduce waste, and enhance operational efficiency.',
     icon: 'icon-manufacturing.svg',
     image: null,
   },
   {
     title: 'Global Market Presence',
-    body: 'Proven ability to serve 80+ countries across regulated markets.',
+    body: 'Global regulatory accreditations enabling supplies to 80+ countries, supported by industry-leading practices including Quality by Design (QbD), closed-loop operations, robust GMP systems, data integrity controls, and a deeply embedded safety culture.',
     icon: 'icon-globe.svg',
     image: null,
   },
@@ -62,17 +63,29 @@ export default function ApiPage() {
         <span className="sep">{'>'}</span>
         <span className="current">Active Pharmaceutical Ingredients</span>
       </p>
-      <h1 className="cp-page-title">Active pharmaceutical ingredients</h1>
+      <h1 className="cp-page-title">Active Pharmaceutical Ingredients</h1>
       <div className="cp-hero-banner">
         <img src={`${A}hero-banner.png`} alt="Granules API manufacturing facility" />
+        <div className="api-hero-scrim" />
+        <div className="api-hero-overlay">
+          <h2 className="api-hero-heading">
+            Built for Scale. Engineered for Precision. Committed to Global Compliance.
+          </h2>
+          <a className="cp-cta-btn" href="/contact">Explore Partnership Opportunities</a>
+        </div>
       </div>
 
       <div className="biz-intro">
         <p>
-          We are a globally trusted API manufacturer, delivering both high-volume and niche APIs
-          across regulated and semi-regulated markets. Our product range includes legacy products
-          such as{' '}
-          <span className="muted">Paracetamol, Metformin, Guaifenesin, and Methocarbamol, alongside a growing portfolio of complex molecules/non-legacy products.</span>
+          For over four decades, Granules has been a globally trusted manufacturer of Active
+          Pharmaceutical Ingredients (APIs), delivering a diverse portfolio of both high-volume
+          legacy molecules and a growing pipeline of complex, high-barrier APIs.
+        </p>
+        <p>
+          We combine our deep process chemistry know-how with modern manufacturing scale, digital
+          quality systems and disciplined regulatory execution. Our integrated API platform
+          supports both internal formulation requirements and external customer demand across
+          regulated and semi-regulated markets.
         </p>
       </div>
 
@@ -80,11 +93,12 @@ export default function ApiPage() {
         <div className="copy">
           <h2>Global reach, therapeutic expertise</h2>
           <p>
-            We address diverse chronic and acute conditions with a strong portfolio of therapies,
-            ensuring reliable, high-quality solutions for patients worldwide.
+            We address diverse chronic and acute conditions with a portfolio of 100+ DMFs spanning
+            wide-ranging therapeutic areas, ensuring reliable, high-quality solutions for patients
+            worldwide.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/business/api">View Product List</a>
+        <a className="cp-cta-btn" href="/business/pfi">View Product List</a>
       </div>
 
       <div className="biz-tag-grid">
@@ -138,9 +152,13 @@ export default function ApiPage() {
 
       <div className="biz-cta biz-cta--placeholder">
         <div className="biz-cta-copy">
-          <h2>Let&rsquo;s build long-term, scalable API partnerships.</h2>
+          <h2>Let&rsquo;s Build Long-Term, Scalable API Partnerships</h2>
+          <p>
+            Explore our full API portfolio and discover how Granules can be your strategic
+            manufacturing partner for quality, scale, and sustainability.
+          </p>
         </div>
-        <a className="cp-cta-btn" href="/business/api">View Product List</a>
+        <a className="cp-cta-btn" href="/business/pfi">Explore API Portfolio</a>
       </div>
 
       <CompanyFooter />
