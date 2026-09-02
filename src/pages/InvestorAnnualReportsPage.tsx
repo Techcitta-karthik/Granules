@@ -60,12 +60,12 @@ export default function InvestorAnnualReportsPage() {
             <div className="inv-detail-actions">
               <a className="inv-detail-pill" href="/#footer">
                 PDF
-                <img src={`${A}pdf-icon.svg`} alt="" />
+                <img src={`${A}pdf-icon.svg`} alt="" loading="lazy" decoding="async" />
               </a>
               {report.visit && (
                 <a className="inv-detail-pill" href="/#footer">
                   VISIT
-                  <img src={`${A}arrow-diag.svg`} alt="" />
+                  <img src={`${A}arrow-diag.svg`} alt="" loading="lazy" decoding="async" />
                 </a>
               )}
             </div>

@@ -28,13 +28,13 @@ export default function CompanyFooter() {
   return (
     <footer className="cp-footer" id="footer">
       <div className="cp-footer-bg-wrap">
-        <img className="cp-bg" src="/assets/footer-bg.png" alt="" />
+        <img className="cp-bg" src="/assets/footer-bg.webp" alt="" loading="lazy" decoding="async" />
       </div>
       <div className="cp-footer-inner">
         <div className="cp-footer-top">
           <div className="cp-footer-brand">
             <Link to="/" className="cp-footer-logo-badge" aria-label="Granules Homepage">
-              <img src="/assets/footer-logo.png" alt="Granules" />
+              <img src="/assets/footer-logo.webp" alt="Granules" loading="eager" decoding="async" />
             </Link>
             <p>
               Granules India, headquartered in Hyderabad, is a vertically integrated pharma
@@ -88,7 +88,7 @@ export default function CompanyFooter() {
                 rel="noreferrer"
                 aria-label={item.name}
               >
-                <img src={item.icon} alt={item.name} />
+                <img src={item.icon} alt={item.name} loading="lazy" decoding="async" />
               </a>
             ))}
           </div>

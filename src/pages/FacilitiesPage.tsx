@@ -8,14 +8,14 @@ const F = '/assets/facilities/';
 type Facility = { name: string; location: string; country: 'India' | 'USA'; image: string };
 
 const FACILITIES: Facility[] = [
-  { name: 'Bonthapally', location: 'Telangana', country: 'India', image: 'bonthapally.png' },
-  { name: 'Bonthapally II (API Intermediate)', location: 'Telangana', country: 'India', image: 'bonthapally-2.png' },
-  { name: 'Jeedimetla', location: 'Telangana', country: 'India', image: 'jeedimetla.png' },
-  { name: 'Gagillapur', location: 'Telangana', country: 'India', image: 'gagillapur.png' },
-  { name: 'Granules Life Sciences (GLS)', location: 'Telangana', country: 'India', image: 'gls.png' },
-  { name: 'Visakhapatnam (Unit IV)', location: 'Andhra Pradesh', country: 'India', image: 'vizag-unit4.png' },
-  { name: 'Visakhapatnam (Unit V)', location: 'Andhra Pradesh', country: 'India', image: 'vizag-unit5.png' },
-  { name: 'Manufacturing Facility', location: 'Virginia, USA', country: 'USA', image: 'virginia-usa.png' },
+  { name: 'Bonthapally', location: 'Telangana', country: 'India', image: 'bonthapally.webp' },
+  { name: 'Bonthapally II (API Intermediate)', location: 'Telangana', country: 'India', image: 'bonthapally-2.webp' },
+  { name: 'Jeedimetla', location: 'Telangana', country: 'India', image: 'jeedimetla.webp' },
+  { name: 'Gagillapur', location: 'Telangana', country: 'India', image: 'gagillapur.webp' },
+  { name: 'Granules Life Sciences (GLS)', location: 'Telangana', country: 'India', image: 'gls.webp' },
+  { name: 'Visakhapatnam (Unit IV)', location: 'Andhra Pradesh', country: 'India', image: 'vizag-unit4.webp' },
+  { name: 'Visakhapatnam (Unit V)', location: 'Andhra Pradesh', country: 'India', image: 'vizag-unit5.webp' },
+  { name: 'Manufacturing Facility', location: 'Virginia, USA', country: 'USA', image: 'virginia-usa.webp' },
 ];
 
 const FILTERS = ['All', 'India', 'USA'] as const;
@@ -74,7 +74,7 @@ export default function FacilitiesPage() {
         {facilities.map((facility) => (
           <article className="fac-card" key={facility.name}>
             <div className="fac-card-image">
-              <img src={`${F}${facility.image}`} alt={facility.name} />
+              <img src={`${F}${facility.image}`} alt={facility.name} loading="lazy" decoding="async" />
             </div>
             <div className="fac-card-info">
               <div>
@@ -82,7 +82,7 @@ export default function FacilitiesPage() {
                 <p className="fac-card-loc">{facility.location}</p>
               </div>
               <span className="fac-card-icon">
-                <img src={`${F}icon-plus.svg`} alt="" />
+                <img src={`${F}icon-plus.svg`} alt="" loading="lazy" decoding="async" />
               </span>
             </div>
           </article>
@@ -90,7 +90,7 @@ export default function FacilitiesPage() {
       </div>
 
       <div className="fac-cta">
-        <img className="bg" src={`${F}cta-bg.png`} alt="" />
+        <img className="bg" src={`${F}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="fac-cta-copy">
           <h2>Lorem ipsum mattis viverra tortor</h2>

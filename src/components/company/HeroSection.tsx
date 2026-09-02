@@ -15,7 +15,7 @@ export default function HeroSection() {
         <div className="cp-hero-panel">
           <span className="cp-hero-badge">STOCK VIDEO</span>
           <div className="cp-scroll-indicator">
-            <img src={asset('scroll-down-icon.png')} alt="" />
+            <img src={asset('scroll-down-icon.webp')} alt="" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

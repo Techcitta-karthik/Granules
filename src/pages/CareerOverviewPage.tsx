@@ -6,6 +6,13 @@ import './career.css';
 
 const A = '/assets/career/';
 
+const OVERVIEW_STATS = [
+  { id: 'employees', value: '4,000+', label: 'Employees, globally' },
+  { id: 'female-employees', value: '9.4%', label: 'Female Employees' },
+  { id: 'return-to-work', value: '100%', label: 'Return-to-work rate' },
+  { id: 'women-board', value: '25%', label: 'Women on the Board' },
+];
+
 const GROW_ITEMS = [
   'Identify: Spotting high-potential talent early and placing them in meaningful roles.',
   'Develop: Offering structured programs, on-the job learning, and hands-on mentorship.',
@@ -107,6 +114,7 @@ export default function CareerOverviewPage() {
         <span className="current">Careers</span>
       </p>
       <h1 className="cp-page-title">Careers at Granules</h1>
+      <p className="car-hero-tagline">Build Your Future in Science, Innovation, and Impact</p>
 
       <div className="car-hero">
         <img src={`${A}hero-real.png`} alt="Granules India colleagues collaborating in a lab" />
@@ -124,7 +132,18 @@ export default function CareerOverviewPage() {
             center of everything we do.
           </p>
         </div>
-        <Link className="car-cta-btn" to="/careers/opportunities">Career Opportunities</Link>
+        <Link className="car-cta-btn" to="/careers/opportunities">Explore Career Opportunities</Link>
+      </div>
+
+      <div className="car-ov-stats">
+        <div className="car-ov-stats-grid">
+          {OVERVIEW_STATS.map((stat) => (
+            <div className="car-ov-stat-card" key={stat.id}>
+              <p className="car-ov-stat-value">{stat.value}</p>
+              <p className="car-ov-stat-label">{stat.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="car-why">
@@ -241,32 +260,17 @@ export default function CareerOverviewPage() {
             </div>
           </div>
 
-          <div className="car-divider" />
-
-          <div className="car-great-place-row">
-            <div className="car-great-place-blue">
-              <p>
-                Together, we make<br />
-                Granules a great<br />
-                place to work.
-              </p>
-            </div>
-            <div className="car-great-place-media">
-              <img src={`${A}great-place-card.png`} alt="Great Place To Work Certified - Granules India" />
-            </div>
-          </div>
-
           <div className="car-cta-photo">
             <img className="bg" src={`${A}work-matters-bg.png`} alt="" />
             <div className="overlay" />
             <div className="car-cta-copy">
-              <h2>A place where your work Matters</h2>
+              <h2>A Place Where Your Work Matters</h2>
               <p>
                 Step into a career with impact. Whether you&rsquo;re a scientist, operator, or
                 strategist, your journey starts here.
               </p>
             </div>
-            <Link className="car-cta-apply-btn" to="/careers/opportunities">Apply now</Link>
+            <Link className="car-cta-apply-btn" to="/careers/opportunities">Apply Now</Link>
           </div>
         </div>
       </div>

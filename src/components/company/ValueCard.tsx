@@ -5,7 +5,7 @@ export default function ValueCard({ icon, title, body }: ValueItem) {
   return (
     <article className="cp-value-card" tabIndex={0}>
       <span className="cp-value-icon">
-        <img src={asset(icon)} alt="" />
+        <img src={asset(icon)} alt="" loading="lazy" decoding="async" />
       </span>
       <div className="cp-value-body">
         <h4>{title}</h4>

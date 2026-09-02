@@ -45,8 +45,7 @@ export default function StockVideoBanner({
         <img
           src={posterSrc}
           alt={alt}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-        />
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" decoding="async" />
       ) : null}
 
       {badgeText && (

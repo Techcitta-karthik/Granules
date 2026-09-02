@@ -1,6 +1,7 @@
 /* ---------- Hero ---------- */
 .car-hero {
-  width: min(1828px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(30px, 4vw, 46px) auto 0;
   border-radius: 40px;
   background: rgba(0, 97, 248, 0.06);
@@ -18,9 +19,47 @@
   object-fit: cover;
 }
 
+/* Subheading tagline shown under the page H1, above the hero image (Careers
+   Overview page only). */
+.car-hero-tagline {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(20px, 3vw, 32px) !important;
+  font: 600 clamp(18px, 2vw, 26px)/1.35 'Manrope', sans-serif;
+  color: #334155;
+  letter-spacing: -0.01em;
+}
+
+/* Scrim + heading overlay for hero images that carry a headline (matches the
+   .ct-hero-text-overlay convention used on the Contact page, adapted for
+   .car-hero's dimensions/border-radius). */
+.car-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.55) 0%, rgba(4, 12, 32, 0.08) 45%, rgba(4, 12, 32, 0.04) 100%);
+  z-index: 1;
+}
+
+.car-hero-overlay {
+  position: absolute;
+  top: clamp(28px, 4.5vw, 56px);
+  left: clamp(28px, 4.5vw, 64px);
+  max-width: min(560px, 82%);
+  z-index: 2;
+}
+
+.car-hero-heading {
+  margin: 0;
+  font: 700 clamp(24px, 3.6vw, 46px)/1.18 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
 /* ---------- Intro + CTA row ---------- */
 .car-intro-row {
-  width: min(1465px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(60px, 8vw, 100px) auto 0;
   display: flex;
   justify-content: flex-end;
@@ -294,10 +333,59 @@
   color: #475569;
 }
 
+/* ---------- Careers Overview: Statistics (simple 4-up stat row) ---------- */
+.car-ov-stats {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0;
+}
+
+.car-ov-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 2.5vw, 32px);
+}
+
+.car-ov-stat-card {
+  background: #f3f8fe;
+  border: 1.5px solid rgba(0, 97, 248, 0.14);
+  border-radius: 32px;
+  padding: clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.car-ov-stat-value {
+  margin: 0;
+  font: 700 clamp(32px, 4vw, 52px)/1.1 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.02em;
+}
+
+.car-ov-stat-label {
+  margin: 0;
+  font: 600 clamp(14px, 1.1vw, 17px)/1.4 'Manrope', sans-serif;
+  color: #334155;
+}
+
+@media (max-width: 900px) {
+  .car-ov-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .car-ov-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Talent Management Stat Cards (Matching Product Card Sizing & Sliding Drawer) ---------- */
 .car-stats-grid {
-  width: min(1464px, 100% - 3.2rem) !important;
-  max-width: 1464px !important;
+  width: 85% !important;
+  max-width: 85% !important;
   margin: 0 auto clamp(60px, 8vw, 100px) !important;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -481,11 +569,33 @@
 }
 
 /* ---------- Beyond the Workday (Matching Image 2) ---------- */
+.car-workday-lede {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0;
+}
+
+.car-workday-lede p {
+  margin: 0;
+  font: 500 clamp(17px, 1.5vw, 21px)/1.6 'Manrope', sans-serif;
+  color: #55627a;
+  letter-spacing: -0.01em;
+  max-width: 900px;
+}
+
 .car-workday-wrap {
   width: 100%;
-  margin-top: clamp(60px, 8vw, 100px);
+  margin-top: clamp(32px, 4vw, 48px);
   position: relative;
   overflow: hidden;
+}
+
+.car-workday-cta-row {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  display: flex;
+  justify-content: center;
 }
 
 .car-workday-banner {
@@ -545,6 +655,18 @@
   max-width: clamp(380px, 48vw, 680px);
   z-index: 10;
   animation: practiceCardFadeIn 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+@keyframes practiceCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .car-workday-story h3 {
@@ -623,6 +745,116 @@
   background: #0061f8;
   color: #ffffff;
   box-shadow: 0 6px 18px rgba(0, 97, 248, 0.4);
+}
+
+/* ---------- People at Granules (Photo Slideshow) ---------- */
+/* Reuses the same absolute-layer / opacity-crossfade mechanism as
+   .car-workday-slide / .car-practice-slide-layer rather than a new carousel. */
+.car-people-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(70px, 9vw, 110px) auto 0;
+}
+
+.car-people-heading {
+  margin: 0 0 clamp(24px, 3.5vw, 40px);
+  font: 600 clamp(28px, 3.5vw, 46px)/1.15 'Manrope', sans-serif;
+  color: #070707;
+}
+
+.car-people-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1828 / 700;
+  min-height: clamp(320px, 34vw, 520px);
+  border-radius: 40px;
+  overflow: hidden;
+  background: #0b1329;
+  box-shadow: 0 20px 50px rgba(0, 20, 60, 0.1);
+}
+
+.car-people-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.2, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.car-people-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.car-people-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.car-people-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.car-people-arrow:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.car-people-arrow.prev {
+  left: clamp(16px, 2.5vw, 36px);
+}
+
+.car-people-arrow.next {
+  right: clamp(16px, 2.5vw, 36px);
+}
+
+.car-people-dots {
+  position: absolute;
+  bottom: clamp(20px, 3vw, 32px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.car-people-dot {
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.car-people-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.car-people-dot.active {
+  width: 26px;
+  border-radius: 6px;
+  background: #ffffff;
 }
 
 /* ---------- Way in Practice (Interactive 5-Slide Banner with Real HTML Boxes) ---------- */
@@ -704,18 +936,6 @@
   animation: practiceCardFadeIn 0.5s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-@keyframes practiceCardFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .car-practice-card-icon {
   width: 38px;
   height: 38px;
@@ -768,58 +988,6 @@
   width: clamp(70px, 8vw, 120px);
   background: linear-gradient(90deg, #016ef7 4.5%, #38b34a 45.6%, #66cef5 98.7%);
   box-shadow: 0 0 14px rgba(1, 110, 247, 0.7);
-}
-
-/* Divider Line matching Image 2 */
-.car-divider {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(60px, 8vw, 90px) auto 0 !important;
-  height: 1.5px;
-  background: #bfdbfe;
-}
-
-/* Great Place to Work 2-Card Row matching Image 2 */
-.car-great-place-row {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(40px, 5vw, 60px) auto 0 !important;
-  display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: clamp(20px, 2.5vw, 32px);
-  align-items: stretch;
-}
-
-.car-great-place-blue {
-  background: #0061f8;
-  border-radius: 36px;
-  padding: clamp(36px, 4.5vw, 56px) clamp(32px, 4vw, 48px);
-  display: flex;
-  align-items: center;
-  box-shadow: 0 12px 32px rgba(0, 97, 248, 0.16);
-}
-
-.car-great-place-blue p {
-  margin: 0;
-  font: 600 clamp(24px, 2.6vw, 38px)/1.25 'Manrope', sans-serif;
-  color: #ffffff;
-  letter-spacing: -0.015em;
-}
-
-.car-great-place-media {
-  position: relative;
-  border-radius: 36px;
-  overflow: hidden;
-  min-height: clamp(220px, 22vw, 300px);
-  box-shadow: 0 12px 32px rgba(0, 20, 60, 0.08);
-  background: #f0f7ff;
-}
-
-.car-great-place-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 /* "A place where your work Matters" Banner matching Image 2 */
@@ -906,6 +1074,16 @@
   background: #0045b8;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 86, 224, 0.5);
+}
+
+/* Row of two pill CTAs (e.g. "Careers Overview" + "Discover Roles and Apply")
+   inside .car-cta-photo, sitting alongside the single-button .car-cta-apply-btn usage. */
+.car-cta-btn-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 /* ---------- Testimonials (Voices from Granules - Auto-Scrolling Marquee with Product-Bar Style Drawer Sheet) ---------- */
@@ -1166,7 +1344,8 @@
 
 /* ---------- Opportunities: hero with real photo ---------- */
 .car-hero-photo {
-  width: min(1828px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(30px, 4vw, 46px) auto 0;
   border-radius: 40px;
   overflow: hidden;
@@ -1197,217 +1376,146 @@
 }
 
 .car-opp-intro {
-  margin-bottom: 24px;
+  margin-bottom: 8px;
+}
+
+.car-opp-intro h2 {
+  margin: 0 0 16px;
+  font: 600 clamp(28px, 4vw, 46px)/1.15 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: -0.015em;
 }
 
 .car-opp-intro .lede {
   margin: 0;
-  font: 500 clamp(20px, 2vw, 28px)/1.35 'Manrope', sans-serif;
+  font: 500 clamp(17px, 1.5vw, 21px)/1.55 'Manrope', sans-serif;
+  color: #55627a;
+  letter-spacing: -0.01em;
+  max-width: 900px;
+}
+
+.car-opp-section-heading {
+  margin: clamp(48px, 6vw, 72px) 0 28px;
+  font: 600 clamp(26px, 3vw, 38px)/1.2 'Manrope', sans-serif;
   color: #070707;
-  letter-spacing: -0.015em;
-  max-width: 1140px;
 }
 
-.car-opp-intro .lede .muted {
-  color: #8b9bb4;
-}
-
-/* Filter bar with 4 equal-sized stretched dropdown pills */
-.car-opp-filter-bar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.car-opp-search-box {
-  flex: 1.15 1 0;
-  min-width: 180px;
-  height: 52px;
-  border-radius: 9999px;
-  background: #f6f8fb;
-  padding: 0 28px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border: 1.5px solid transparent;
-  transition: all 0.25s ease;
-}
-
-.car-opp-search-box:focus-within {
-  background: #ffffff;
-  border-color: #0061f8;
-  box-shadow: 0 0 0 3px rgba(0, 97, 248, 0.12);
-}
-
-.car-opp-search-icon {
-  color: #0061f8;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.car-opp-search-input {
-  border: none;
-  background: transparent;
-  width: 100%;
-  font: 700 13px/1 'Manrope', sans-serif;
-  color: #0061f8;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  outline: none;
-}
-
-.car-opp-search-input::placeholder {
-  color: #0061f8;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.car-opp-clear-btn {
-  border: none;
-  background: transparent;
-  color: #8b9bb4;
-  cursor: pointer;
-  padding: 2px 4px;
-  font-size: 13px;
-  line-height: 1;
-}
-
-/* Filter dropdown pills - all 4 stretched to the exact same size */
-.car-opp-dropdown-wrap {
-  position: relative;
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-}
-
-.car-opp-filter-btn {
-  width: 100%;
-  height: 52px;
-  border-radius: 9999px;
-  background: #f6f8fb;
-  border: 1.5px solid transparent;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  font: 700 12.5px/1 'Manrope', sans-serif;
-  color: #0061f8;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-
-.car-opp-filter-btn:hover,
-.car-opp-filter-btn.active,
-.car-opp-filter-btn.is-filtered {
-  background: #eaf3ff;
-  border-color: rgba(0, 97, 248, 0.2);
-}
-
-.car-opp-filter-btn svg {
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-}
-
-.car-opp-filter-btn.active svg {
-  transform: rotate(180deg);
-}
-
-.car-opp-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  min-width: 100%;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 12px 36px rgba(0, 20, 60, 0.16);
-  border: 1px solid #eef2f6;
-  padding: 6px;
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  max-height: 260px;
-  overflow-y: auto;
-}
-
-.car-opp-dropdown-item {
-  border: none;
-  background: transparent;
-  padding: 9px 14px;
-  border-radius: 8px;
-  font: 500 13.5px/1.3 'Manrope', sans-serif;
-  color: #1e293b;
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.car-opp-dropdown-item:hover,
-.car-opp-dropdown-item.selected {
-  background: #f0f7ff;
-  color: #0061f8;
-  font-weight: 600;
-}
-
-.car-opp-reset-btn {
-  height: 52px;
-  border-radius: 9999px;
-  background: transparent;
-  border: 1.5px dashed #0061f8;
-  color: #0061f8;
-  padding: 0 28px;
-  font: 700 12px/1 'Manrope', sans-serif;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  flex-shrink: 0;
-}
-
-.car-opp-reset-btn:hover {
-  background: #eaf3ff;
-}
-
-/* Job table list */
-.car-opp-job-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #eef2f6;
-  width: 100%;
-}
-
-.car-opp-job-row {
+/* Open Roles job cards */
+.car-opp-job-grid {
   display: grid;
-  grid-template-columns: 24% 28% 16% 18% auto;
-  align-items: center;
-  gap: 20px;
-  padding: 26px 0;
-  border-bottom: 1px solid #eef2f6;
-  transition: background-color 0.2s ease;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 3vw, 36px);
 }
 
-.car-opp-job-row:hover {
-  background-color: rgba(0, 97, 248, 0.015);
+.car-opp-job-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 97, 248, 0.12);
+  border-radius: 32px;
+  padding: clamp(28px, 3vw, 40px);
+  box-shadow: 0 4px 20px rgba(0, 20, 60, 0.05);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-.car-opp-job-cell {
-  font: 400 clamp(16px, 1.2vw, 18px)/1.35 'Manrope', sans-serif;
-  color: #1e293b;
+.car-opp-job-card:hover,
+.car-opp-job-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 47, 180, 0.12);
+  border-color: rgba(0, 97, 248, 0.35);
+}
+
+.car-opp-job-title {
+  margin: 0;
+  font: 700 clamp(20px, 1.8vw, 25px)/1.3 'Manrope', sans-serif;
+  color: #0f172a;
   letter-spacing: -0.01em;
 }
 
-.car-opp-job-cell.designation {
-  font-weight: 500;
-  color: #0f172a;
+.car-opp-job-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font: 700 13px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.car-opp-job-meta span[aria-hidden] {
+  color: #b7d2fb;
+}
+
+.car-opp-job-desc {
+  margin: 0;
+  font: 500 15.5px/1.6 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.car-opp-job-card .car-opp-apply-btn {
+  align-self: flex-start;
+  margin-top: 6px;
+  height: auto;
+  padding: 13px 34px;
+}
+
+/* Back to Careers Overview navigation CTA */
+.car-opp-back-row {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 56px) auto 0 !important;
+}
+
+.car-opp-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 700 15px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  text-decoration: none;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.car-opp-back-link:hover,
+.car-opp-back-link:focus-visible {
+  gap: 10px;
+  color: #0045b8;
+  text-decoration: underline;
+}
+
+/* Don't See a Match / resume submission section */
+.car-opp-match {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(48px, 6vw, 72px) auto 100px !important;
+  background: #f3f8fe;
+  border-radius: 40px;
+  padding: clamp(40px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.car-opp-match h2 {
+  margin: 0;
+  font: 600 clamp(26px, 3vw, 38px)/1.2 'Manrope', sans-serif;
+  color: #070707;
+}
+
+.car-opp-match p {
+  margin: 0;
+  max-width: 780px;
+  font: 500 16px/1.6 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.car-opp-match .car-opp-apply-btn {
+  margin-top: 8px;
 }
 
 .car-opp-apply-btn {
@@ -1437,80 +1545,10 @@
   box-shadow: 0 6px 18px rgba(0, 97, 248, 0.35);
 }
 
-@media (max-width: 960px) {
-  .car-opp-filter-bar {
+@media (max-width: 900px) {
+  .car-opp-job-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
   }
-  .car-opp-job-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-}
-
-/* Pagination (Matching Image 2) */
-.car-opp-pagination-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: clamp(36px, 4.5vw, 52px);
-  margin-bottom: clamp(20px, 3vw, 36px);
-}
-
-.car-opp-page-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  border: 1.5px solid #d4e5fd;
-  background: #ffffff;
-  color: #0061f8;
-  font: 700 13px/1 'Manrope', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0;
-}
-
-.car-opp-page-btn:hover:not(:disabled):not(.active) {
-  background: #f0f7ff;
-  border-color: #0061f8;
-}
-
-.car-opp-page-btn.active {
-  background: #0061f8;
-  border-color: #0061f8;
-  color: #ffffff;
-}
-
-.car-opp-page-btn.disabled,
-.car-opp-page-btn:disabled {
-  border-color: #e2e8f0;
-  color: #cbd5e1;
-  cursor: not-allowed;
-}
-
-.car-opp-page-btn.dots {
-  border-color: #d4e5fd;
-  color: #0061f8;
-  cursor: default;
-}
-
-.car-opp-empty {
-  padding: 60px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.car-opp-empty p {
-  margin: 0;
-  font: 500 18px/1.4 'Manrope', sans-serif;
-  color: #64748b;
 }
 
 /* Modal Dialog */
@@ -1610,18 +1648,6 @@
 .car-modal-cancel-btn:hover {
   background: #f8fafc;
   color: #0f172a;
-}
-
-@media (max-width: 900px) {
-  .car-opp-job-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    padding: 20px 0;
-  }
-  .car-opp-job-cell:nth-child(5) {
-    grid-column: 1 / -1;
-    margin-top: 6px;
-  }
 }
 
 /* ---------- Opportunities: pagination reuse ---------- */

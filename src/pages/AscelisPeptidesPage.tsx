@@ -12,22 +12,22 @@ type CapabilityCard = { title: string; image: string; desc: string };
 const CORE_FOCUS: CapabilityCard[] = [
   {
     title: 'Peptide-based APIs & Generics',
-    image: 'card-peptide-apis.png',
+    image: 'card-peptide-apis.webp',
     desc: 'Scalable synthesis and high-purity production of therapeutic peptide APIs and complex generic formulations.',
   },
   {
     title: 'Specialized CDMO Services',
-    image: 'card-cdmo-services.png',
+    image: 'card-cdmo-services.webp',
     desc: 'Comprehensive contract development and manufacturing from early-phase lead optimization to commercial batches.',
   },
   {
     title: 'Cosmetic Peptides',
-    image: 'card-cosmetic-peptides.png',
+    image: 'card-cosmetic-peptides.webp',
     desc: 'High-efficacy bioactive peptides and custom formulations tailored for advanced cosmeceutical applications.',
   },
   {
     title: 'Theragnostic Peptides',
-    image: 'card-theragnostic-peptides.png',
+    image: 'card-theragnostic-peptides.webp',
     desc: 'Next-generation peptides combining precision diagnostic molecular imaging with targeted cellular drug delivery.',
   },
 ];
@@ -80,7 +80,7 @@ export default function AscelisPeptidesPage() {
       </p>
       <h1 className="cp-page-title">Ascelis Peptides Private Limited</h1>
       <div className="cp-hero-banner">
-        <img src={`${A}hero-banner.png`} alt="Ascelis Peptides facility" />
+        <img src={`${A}hero-banner.webp`} alt="Ascelis Peptides facility" loading="eager" decoding="async" />
       </div>
 
       <div className="asc-intro">
@@ -120,7 +120,7 @@ export default function AscelisPeptidesPage() {
                 onMouseLeave={() => setOpenCard(-1)}
                 onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
               >
-                <img className="bg" src={`${A}${card.image}`} alt={card.title} />
+                <img className="bg" src={`${A}${card.image}`} alt={card.title} loading="lazy" decoding="async" />
                 <div className="biz-sheet">
                   <div className="biz-sheet-head">
                     <span className="biz-sheet-title">{card.title}</span>
@@ -183,7 +183,7 @@ export default function AscelisPeptidesPage() {
           <span /><span /><span /><span /><span />
         </div>
         <div className="asc-motion-card">
-          <img src={`${A}icon-molecule.svg`} alt="" />
+          <img src={`${A}icon-molecule.svg`} alt="" loading="lazy" decoding="async" />
           <p>New peptide R&amp;D lab at IIT Hyderabad, aligned with Senn&rsquo;s Swiss R&amp;D</p>
         </div>
       </div>
@@ -224,7 +224,7 @@ export default function AscelisPeptidesPage() {
       </div>
 
       <div className="asc-cta">
-        <img className="bg" src={`${A}cta-bg.png`} alt="" />
+        <img className="bg" src={`${A}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="asc-cta-copy">
           <h2>Explore Senn Chemicals</h2>

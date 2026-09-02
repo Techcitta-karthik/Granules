@@ -9,27 +9,27 @@ const A = '/assets/investor/';
 const KEY_REASONS = [
   {
     title: 'Global Leadership in Pharma Manufacturing',
-    image: '/assets/oe/card-precision-in-motion.png',
+    image: '/assets/oe/card-precision-in-motion.webp',
     body: 'Scalable, vertically integrated pharmaceutical manufacturer delivering high-quality, cost-effective APIs, PFIs, and Finished Dosages globally.',
   },
   {
     title: 'Consistent Financial Performance',
-    image: '/assets/oe/card-visibility-drives-results.png',
+    image: '/assets/oe/card-visibility-drives-results.webp',
     body: 'Delivering steady revenue growth, robust EBITDA margins, and long-term value creation for global shareholders.',
   },
   {
     title: 'Operational Excellence at Scale',
-    image: '/assets/oe/card-engineered-for-safety.png',
+    image: '/assets/oe/card-engineered-for-safety.webp',
     body: 'World-class automated facilities approved by US FDA, EDQM, WHO-GMP, PMDA, and global regulatory bodies.',
   },
   {
     title: 'Innovation-driven Growth',
-    image: '/assets/peptides/card-contract-services.png',
+    image: '/assets/peptides/card-contract-services.webp',
     body: 'Pioneering green chemistry at CZRO, custom synthesis, peptide therapeutics, and advanced drug delivery systems.',
   },
   {
     title: 'Sustainability Commitment',
-    image: '/assets/strategy/pillar-environment.png',
+    image: '/assets/strategy/pillar-environment.webp',
     body: 'Committed to Net Zero by 2050, 100% renewable electricity transition, and responsible corporate governance.',
   },
 ];
@@ -212,7 +212,7 @@ export default function InvestorOverviewPage() {
           <div className="inv-stock-price-row">
             <p className="inv-stock-price">946.00</p>
             <span className="inv-stock-change up">
-              <img src={`${A}growth-arrow.svg`} alt="" />
+              <img src={`${A}growth-arrow.svg`} alt="" loading="lazy" decoding="async" />
               22.10 (2.20%)
             </span>
           </div>
@@ -250,7 +250,7 @@ export default function InvestorOverviewPage() {
                 >
                   {/* Card Background Image */}
                   <div className="inv-card-img-wrap">
-                    <img src={item.image} alt={item.title} />
+                    <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                   </div>
 
                   {/* Sliding Blue Sheet Drawer */}
@@ -354,9 +354,8 @@ export default function InvestorOverviewPage() {
             <div className="inv-quarterly-device">
               <div className="inv-device-screen">
                 <img
-                  src="/assets/investor-report-cover.png"
-                  alt="Expanding Horizons - 2024 Integrated Annual Report"
-                />
+                  src="/assets/investor-report-cover.webp"
+                  alt="Expanding Horizons - 2024 Integrated Annual Report" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>

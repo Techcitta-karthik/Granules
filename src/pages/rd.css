@@ -9,6 +9,31 @@
   margin-right: auto !important;
 }
 
+/* Hero tagline overlay (mirrors .czro-hero-scrim/-overlay/-heading in czro.css,
+   .gls-hero-scrim/-overlay/-heading in gls.css and .pfi-hero-* in business.css,
+   applied on top of the shared .cp-hero-banner from company.css, which is
+   already position: relative). */
+.rd-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.55) 0%, rgba(4, 12, 32, 0.08) 45%, rgba(4, 12, 32, 0.04) 100%);
+  z-index: 1;
+}
+.rd-hero-overlay {
+  position: absolute;
+  top: clamp(28px, 4.5vw, 56px);
+  left: clamp(28px, 4.5vw, 64px);
+  max-width: min(620px, 82%);
+  z-index: 2;
+}
+.rd-hero-heading {
+  margin: 0;
+  font: 700 clamp(24px, 3.6vw, 46px)/1.18 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
 .rd-intro {
   width: 85% !important;
   max-width: 85% !important;
@@ -37,6 +62,59 @@
 .rd-intro.is-scrolled p:last-child,
 .rd-intro.is-scrolled .muted {
   color: var(--n9);
+}
+
+/* Shared small info-card used by the Strategic Priorities and
+   Innovation Enabled by Technology grids below. */
+.rd-info-card {
+  background: #f8fafc;
+  border: 1.5px solid rgba(0, 97, 248, 0.12);
+  border-radius: 28px;
+  padding: clamp(26px, 2.8vw, 34px) clamp(22px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rd-info-card:hover {
+  background: #eef5ff;
+  border-color: rgba(0, 97, 248, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 97, 248, 0.1);
+}
+.rd-info-index {
+  font: 700 15px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.5px;
+}
+.rd-info-card h3 {
+  margin: 2px 0 0;
+  font: 700 clamp(18px, 1.7vw, 22px)/1.3 'Manrope', sans-serif;
+  color: var(--n9);
+  letter-spacing: -0.2px;
+}
+.rd-info-card p {
+  margin: 0;
+  font: 500 clamp(14.5px, 1.15vw, 16.5px)/1.5 'Manrope', sans-serif;
+  color: var(--n7);
+  letter-spacing: 0.1px;
+}
+
+/* R&D Strategic Priorities */
+.rd-priorities {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+}
+.rd-priorities h2 {
+  margin: 0 0 clamp(28px, 3.5vw, 44px);
+  font: 600 clamp(28px, 4vw, 50px)/1.15 'Manrope', sans-serif;
+  color: var(--n9);
+}
+.rd-priorities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
 }
 
 /* R&D Centers section */
@@ -303,6 +381,70 @@
   right: clamp(16px, 3vw, 40px);
 }
 
+/* IIT Hyderabad Centres of Excellence callout — a small standalone highlight
+   near (not inside) the tabbed R&D centres component. */
+.rd-iit-note {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(24px, 3vw, 36px) auto 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #eef5ff;
+  border: 1px solid rgba(0, 97, 248, 0.18);
+  border-radius: 20px;
+  padding: clamp(16px, 2vw, 22px) clamp(24px, 3vw, 32px);
+}
+.rd-iit-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0061f8;
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font: 700 12px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.rd-iit-note p {
+  margin: 0;
+  font: 600 clamp(15px, 1.3vw, 18px)/1.45 'Manrope', sans-serif;
+  color: #0f2a4a;
+  letter-spacing: 0.1px;
+}
+.rd-iit-note p strong {
+  color: #0061f8;
+}
+
+/* Innovation Enabled by Technology */
+.rd-tech {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(70px, 9vw, 110px) auto 0 !important;
+}
+.rd-tech-head {
+  max-width: 900px;
+}
+.rd-tech-head h2 {
+  margin: 0;
+  font: 600 clamp(28px, 4vw, 50px)/1.15 'Manrope', sans-serif;
+  color: var(--n9);
+}
+.rd-tech-head p {
+  margin: 20px 0 0;
+  font: 500 clamp(16px, 1.4vw, 20px)/1.45 'Manrope', sans-serif;
+  color: var(--n7);
+  letter-spacing: 0.15px;
+}
+.rd-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
+  margin-top: clamp(32px, 4vw, 44px);
+}
+
 /* =========================================================================
    Green Chemistry Cascading Alternating Layout (1st Left -> 2nd Right -> 3rd Left -> 4th Right)
    ========================================================================= */
@@ -523,6 +665,14 @@
   position: relative;
   z-index: 1;
 }
+.rd-cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.rd-cta-links .rd-know-more-btn {
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.28);
+}
 
 /* =========================================================================
    Responsive Breakpoints
@@ -555,6 +705,26 @@
   .rd-centers-tab {
     width: 100%;
     flex: 1 1 100%;
+  }
+  .rd-priorities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rd-tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rd-iit-note {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .rd-priorities-grid {
+    grid-template-columns: 1fr;
+  }
+  .rd-tech-grid {
+    grid-template-columns: 1fr;
   }
 }
 

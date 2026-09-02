@@ -39,14 +39,30 @@ type BenefitItem = { title: string; body: string; icon: string };
 
 const BENEFITS: BenefitItem[] = [
   {
-    title: 'Efficient Testing Solutions',
-    body: 'Driving efficiency through tailor-made and complex PFI solutions customized to the needs',
+    title: 'Unmatched Scale and Reliability',
+    body: 'Backward integrated and high-volume manufacturing assures consistent quality, dependable supply, and efficient commercial-scale production.',
+    icon: 'icon-manufacturing.svg',
+  },
+  {
+    title: 'Simplifying Supply Chain Complexity',
+    body: 'Our proprietary “Drum to Hopper” model enables direct compression with minimal development effort, helping customers streamline supply chain steps and inventory pressure',
+    icon: 'icon-box.svg',
+  },
+  {
+    title: 'Supporting Asset-Light Market Entry',
+    body: 'PFIs replicate more than 80% of the infrastructure required in a conventional oral solid dosage facility, reducing the need for significant capital investment.',
+    icon: 'icon-production-belt.svg',
+  },
+  {
+    title: 'Customized Formulation Solutions',
+    body: 'Tailor-made PFIs support complex formulations, fixed-dose combinations, and homogeneous blending with other APIs.',
     icon: 'icon-test-tube.svg',
   },
-  { title: 'Simplified Logistics', body: 'PFIs cut supply chain steps and inventory pressures', icon: 'icon-box.svg' },
-  { title: 'Quality Assurance', body: 'Volume manufacturing assures consistent, reliable output.', icon: 'icon-manufacturing.svg' },
-  { title: 'Asset-Light Production', body: 'PFIs replicate over 80% of standard oral facility infrastructure', icon: 'icon-production-belt.svg' },
-  { title: 'Tailored Release Capabilities', body: 'Custom solutions allow for homogeneous mixtures with other APIs', icon: 'icon-circles.svg' },
+  {
+    title: 'Global Regulatory Adaptability',
+    body: 'With approvals from global regulatory authorities, our PFI platform can be tailored to meet market-specific regulatory requirements across global markets.',
+    icon: 'icon-circles.svg',
+  },
 ];
 
 export default function PfiPage() {
@@ -78,30 +94,36 @@ export default function PfiPage() {
         <span className="sep">{'>'}</span>
         <span className="current">Pharmaceutical Formulation Intermediates</span>
       </p>
-      <h1 className="cp-page-title">Pharmaceutical formulation intermediates</h1>
-      <div className="cp-hero-panel">
-        <span className="cp-hero-badge">STOCK IMAGE</span>
+      <h1 className="cp-page-title">Pharmaceutical Formulation Intermediates</h1>
+      <div className="cp-hero-banner">
+        <img src={`${P}key-benefits-bg.png`} alt="Granules PFI manufacturing facility" />
+        <div className="pfi-hero-scrim" />
+        <div className="pfi-hero-overlay">
+          <h2 className="pfi-hero-heading">Simplifying Formulation. Accelerating Access.</h2>
+        </div>
       </div>
 
       <div className="biz-intro">
         <p>
-          Granules India is a global leader and pioneer in Pharmaceutical Formulation
-          Intermediates (PFIs) offering scalable, cost-effective solutions that simplify
-          complexity and accelerate manufacturing for oral solid dosage forms.
+          Granules India is a global pioneer in Pharmaceutical Formulation Intermediates
+          (PFIs), delivering scalable, cost-effective solutions that simplify complexity and
+          accelerate manufacturing for oral solid dosage forms. Our proprietary &ldquo;Drum to
+          Hopper&rdquo; model enables direct compression with minimal development effort,
+          allowing customers to accelerate production, reduce manufacturing complexity, and
+          avoid infrastructure-intensive setups. Supported by six-tonne batch capacity and a
+          presence across more than 80 countries, Granules is the world&rsquo;s largest PFI
+          manufacturer by volume.
         </p>
         <p>
-          With a six-tonne batch capacity and a presence in over 80 countries, we are the
-          world&rsquo;s largest PFI manufacturer by volume. Our proprietary &ldquo;Drum to
-          Hopper&rdquo; model enables direct compression with minimal development effort, helping
-          partners streamline production and avoid intensive infrastructure setups. Our PFIs
-          support a broad range of chronic and acute therapies, including fixed-dose
-          combinations, and are tailored to meet market-specific regulatory needs.
+          Our PFIs support a broad spectrum of chronic and acute therapies, including
+          fixed-dose combinations, and are tailored to meet market-specific regulatory
+          requirements.
         </p>
       </div>
 
       <div className="biz-section-head">
         <div className="copy">
-          <span className="cp-section-badge">Section Head</span>
+          <span className="cp-section-badge">Focus Areas</span>
           <h2>Our focus areas in PFI excellence</h2>
         </div>
       </div>
@@ -210,7 +232,7 @@ export default function PfiPage() {
         <div className="biz-cta-copy">
           <h2>Explore our full PFI product portfolio</h2>
         </div>
-        <a className="cp-cta-btn" href="/business/pfi">View Product List</a>
+        <a className="cp-cta-btn" href="/business/fd">View Product List</a>
       </div>
 
       <CompanyFooter />

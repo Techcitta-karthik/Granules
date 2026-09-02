@@ -11,7 +11,7 @@ const PILLARS = [
     key: 'environment',
     title: 'Environment Stewardship',
     desc: 'Driving clean energy adoption, water conservation, and waste circularity to minimize our footprint.',
-    image: 'card-environment.png',
+    image: 'card-environment.webp',
     color: '#008714',
     bgGradient: 'linear-gradient(180deg, #008714 0%, #00a819 100%)',
     iconColor: '#008714',
@@ -20,7 +20,7 @@ const PILLARS = [
     key: 'social',
     title: 'Breaking Barriers',
     desc: 'Empowering our people through safe workplaces, diversity, and community development.',
-    image: 'card-breaking-barriers.png',
+    image: 'card-breaking-barriers.webp',
     color: '#0061f8',
     bgGradient: 'linear-gradient(180deg, #0061f8 0%, #004ecc 100%)',
     iconColor: '#0061f8',
@@ -29,7 +29,7 @@ const PILLARS = [
     key: 'governance',
     title: 'Integrity in Action',
     desc: 'Operate with integrity, transparency, and a policy-backed governance structure.',
-    image: 'card-integrity.png',
+    image: 'card-integrity.webp',
     color: '#7248f5',
     bgGradient: 'linear-gradient(180deg, #7248f5 0%, #5f33e6 100%)',
     iconColor: '#7248f5',
@@ -51,7 +51,7 @@ const GOAL_PERIODS: GoalPeriod[] = [
     id: '2030',
     yearLabel: 'By 2030',
     peekLabel: '2030',
-    image: 'goal-2030-image.png',
+    image: 'goal-2030-image.webp',
     isDynamic: true,
     stats: [
       { value: '42%', label: 'REDUCTION IN SCOPE 1 AND 2 EMISSIONS' },
@@ -67,7 +67,7 @@ const GOAL_PERIODS: GoalPeriod[] = [
     id: '2032',
     yearLabel: 'By 2032',
     peekLabel: '2032',
-    image: 'goal-2032-image.png',
+    image: 'goal-2032-image.webp',
     isDynamic: false,
     staticTitle: 'Achieve Water Positivity',
   },
@@ -75,7 +75,7 @@ const GOAL_PERIODS: GoalPeriod[] = [
     id: '2050',
     yearLabel: 'By 2050',
     peekLabel: '2050',
-    image: 'goal-2050-image.png',
+    image: 'goal-2050-image.webp',
     isDynamic: false,
     staticTitle: 'Reach Net Zero Emission',
   },
@@ -90,7 +90,7 @@ type JourneyMilestone = {
 const JOURNEY_MILESTONES: JourneyMilestone[] = [
   {
     year: '2008',
-    image: 'journey-2023.png',
+    image: 'journey-2023.webp',
     items: [
       'Initiated enterprise-wide green pharma manufacturing benchmarks across core production units.',
       'Installed advanced wastewater treatment and Zero Liquid Discharge (ZLD) infrastructure.',
@@ -98,7 +98,7 @@ const JOURNEY_MILESTONES: JourneyMilestone[] = [
   },
   {
     year: '2020',
-    image: 'journey-2024.png',
+    image: 'journey-2024.webp',
     items: [
       'Formalized Board-level ESG governance charter and dedicated Sustainability Committee.',
       'Established 2030 sustainability roadmap aligned with UN Sustainable Development Goals (SDGs).',
@@ -106,7 +106,7 @@ const JOURNEY_MILESTONES: JourneyMilestone[] = [
   },
   {
     year: '2023',
-    image: 'journey-2023.png',
+    image: 'journey-2023.webp',
     items: [
       'Conducted comprehensive GHG inventorization across the value chain, including subsidiaries.',
       'Submitted SBTi net-zero commitment and established UNGC partnership.',
@@ -116,7 +116,7 @@ const JOURNEY_MILESTONES: JourneyMilestone[] = [
   },
   {
     year: '2024',
-    image: 'journey-2024.png',
+    image: 'journey-2024.webp',
     items: [
       'Achieved SBTi validation for near- and long-term goals, aligned with the 1.5°C pathway to reach Net Zero by 2050 or sooner.',
       'Commissioned 1 MW on-site rooftop solar installation at the Gagillapur unit.',
@@ -124,7 +124,7 @@ const JOURNEY_MILESTONES: JourneyMilestone[] = [
   },
   {
     year: '2025',
-    image: 'journey-2025.png',
+    image: 'journey-2025.webp',
     items: [
       'Received Gold rating from EcoVadis in our first corporate-wide assessment.',
       'Improved CDP Climate score to "B" and earned an "A" on CDP\'s 2024 Supplier Engagement Assessment (SEA).',
@@ -158,7 +158,7 @@ function SustainabilityJourneyCarousel() {
 
         <article className="ov-journey-card" key={current.year}>
           <div className="ov-journey-media">
-            <img src={`${S}${current.image}`} alt={`Granules sustainability journey ${current.year}`} />
+            <img src={`${S}${current.image}`} alt={`Granules sustainability journey ${current.year}`} loading="lazy" decoding="async" />
           </div>
 
           <ul className="ov-journey-list">
@@ -316,7 +316,7 @@ function SustainabilityGoalsCarousel() {
           </div>
 
           <div className="ov-goal-image">
-            <img key={currentPeriod.image} src={`${S}${currentPeriod.image}`} alt={currentPeriod.yearLabel} />
+            <img key={currentPeriod.image} src={`${S}${currentPeriod.image}`} alt={currentPeriod.yearLabel} loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -358,10 +358,10 @@ const PARTNERSHIP_TABS = [
   {
     label: 'OUR COMMITMENT',
     logos: [
-      { img: 'logo-sbt.png', name: 'Science Based Targets initiative' },
-      { img: 'logo-2.png', name: 'UN Global Compact' },
-      { img: 'logo-psci.png', name: 'PSCI' },
-      { img: 'logo-scan.png', name: 'SCAN' },
+      { img: 'logo-sbt.webp', name: 'Science Based Targets initiative' },
+      { img: 'logo-2.webp', name: 'UN Global Compact' },
+      { img: 'logo-psci.webp', name: 'PSCI' },
+      { img: 'logo-scan.webp', name: 'SCAN' },
     ],
   },
   {
@@ -417,7 +417,7 @@ export default function SustainabilityOverviewPage() {
       </p>
       <h1 className="cp-page-title">One planet. One purpose.</h1>
       <div className="cp-hero-banner">
-        <img src={`${S}hero-banner.png`} alt="Granules solar sustainability" />
+        <img src={`${S}hero-banner.webp`} alt="Granules solar sustainability" loading="eager" decoding="async" />
       </div>
 
       <div className="sus-intro">
@@ -463,7 +463,7 @@ export default function SustainabilityOverviewPage() {
             >
               {/* Background Photo with smooth scale */}
               <div className="sus-pillar-img-wrap">
-                <img className="sus-pillar-bg" src={`${S}${pillar.image}`} alt={pillar.title} />
+                <img className="sus-pillar-bg" src={`${S}${pillar.image}`} alt={pillar.title} loading="lazy" decoding="async" />
               </div>
 
               {/* Smooth Bottom Sliding Sheet (Matching product card flow) */}
@@ -502,9 +502,9 @@ export default function SustainabilityOverviewPage() {
         Leadership commitment
       </h2>
       <div className="ov-leadership">
-        <img className="ov-leadership-bg" src={`${S}leadership-bg.png`} alt="" />
+        <img className="ov-leadership-bg" src={`${S}leadership-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="ov-leadership-overlay" />
-        <img className="ov-leadership-person" src={`${S}leadership-portrait.png`} alt="Dr. Krishna Prasad Chigurupati" />
+        <img className="ov-leadership-person" src={`${S}leadership-portrait.webp`} alt="Dr. Krishna Prasad Chigurupati" loading="lazy" decoding="async" />
         <div className="ov-quote-card">
           <div className="ov-quote-mark">
             <svg viewBox="0 0 24 24" width="30" height="30" fill="#0061f8">
@@ -540,14 +540,14 @@ export default function SustainabilityOverviewPage() {
         <div className="ov-logo-grid">
           {PARTNERSHIP_TABS[partnershipTab].logos.map((logo) => (
             <div className="ov-logo-tile" key={logo.img}>
-              <img src={`${S}${logo.img}`} alt={logo.name} />
+              <img src={`${S}${logo.img}`} alt={logo.name} loading="eager" decoding="async" />
             </div>
           ))}
         </div>
       </div>
 
       <div className="sus-cta">
-        <img className="bg" src={`${S}cta-bg.png`} alt="" />
+        <img className="bg" src={`${S}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="sus-cta-copy">
           <h2>Building a sustainable tomorrow</h2>

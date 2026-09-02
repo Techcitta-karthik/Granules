@@ -12,14 +12,14 @@ type Category = (typeof CATEGORIES)[number];
 
 const AWARDS_BY_CATEGORY: Record<Category, AwardEntry[]> = {
   Leadership: [
-    { image: 'award-1.png', caption: 'Dr. Krishna Prasad Chigurupati, Chairman and Managing Director, Granules India Limited received BW Pharma Person of the Year Award 2024 by BW Pharma World & BW Healthcare World' },
-    { image: 'award-2.png', caption: 'Mrs. Uma Chigurupati, Executive Director, Granules India Limited Awarded for Exemplary Leadership in Social Impact & Corporate Responsibility 2024 by EdelGive Foundation & HURUN INDIA' },
-    { image: 'award-3.png', caption: 'Mr. Mukesh Surana, Chief Financial Officer, Granules India Limited Honoured with CII CFO Excellence Award 2024 for the Pharma & Chemicals Sector by Confederation of Indian Industry (CII)' },
-    { image: 'award-4.png', caption: 'Ms. Priyanka Chigurupati Awarded with the BW Healthcare World 40 Under 40 Young Achievers 2023 by Businessworld' },
-    { image: 'award-5.png', caption: 'FDD Leadership Award 2023 by Express Pharma and The Indian Express Pvt. Ltd.' },
-    { image: 'award-6.png', caption: 'Future Ready Organization Award 2023 by Economic Times' },
-    { image: 'award-7-bg.png', contain: true, caption: 'Most Trusted Brands of India 2023 by Team Marksmen' },
-    { image: 'award-8.png', contain: true, caption: 'Glory of India Award 2022 Presented to Chairman & Managing Director' },
+    { image: 'award-1.webp', caption: 'Dr. Krishna Prasad Chigurupati, Chairman and Managing Director, Granules India Limited received BW Pharma Person of the Year Award 2024 by BW Pharma World & BW Healthcare World' },
+    { image: 'award-2.webp', caption: 'Mrs. Uma Chigurupati, Executive Director, Granules India Limited Awarded for Exemplary Leadership in Social Impact & Corporate Responsibility 2024 by EdelGive Foundation & HURUN INDIA' },
+    { image: 'award-3.webp', caption: 'Mr. Mukesh Surana, Chief Financial Officer, Granules India Limited Honoured with CII CFO Excellence Award 2024 for the Pharma & Chemicals Sector by Confederation of Indian Industry (CII)' },
+    { image: 'award-4.webp', caption: 'Ms. Priyanka Chigurupati Awarded with the BW Healthcare World 40 Under 40 Young Achievers 2023 by Businessworld' },
+    { image: 'award-5.webp', caption: 'FDD Leadership Award 2023 by Express Pharma and The Indian Express Pvt. Ltd.' },
+    { image: 'award-6.webp', caption: 'Future Ready Organization Award 2023 by Economic Times' },
+    { image: 'award-7-bg.webp', contain: true, caption: 'Most Trusted Brands of India 2023 by Team Marksmen' },
+    { image: 'award-8.webp', contain: true, caption: 'Glory of India Award 2022 Presented to Chairman & Managing Director' },
   ],
   Sustainability: [],
   Innovation: [],
@@ -78,7 +78,7 @@ export default function AwardsPage() {
           {entries.map((award, index) => (
             <article className="aw-card" key={index}>
               <div className={`aw-card-image${award.contain ? ' contain' : ''}`}>
-                <img src={`${AW}${award.image}`} alt="" />
+                <img src={`${AW}${award.image}`} alt="" loading="lazy" decoding="async" />
               </div>
               <p>{award.caption}</p>
             </article>
@@ -89,7 +89,7 @@ export default function AwardsPage() {
       )}
 
       <div className="aw-cta">
-        <img className="cp-bg" src={`${AW}cta-bg.png`} alt="" />
+        <img className="cp-bg" src={`${AW}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="cp-bg-overlay" />
         <div className="aw-cta-copy">
           <h2>Lorem ipsum mattis viverra tortor</h2>

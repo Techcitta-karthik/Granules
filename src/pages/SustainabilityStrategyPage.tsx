@@ -35,7 +35,7 @@ const PILLAR_CONFIGS: PillarConfig[] = [
       {
         value: '32%',
         label: 'Absolute reduction in GHG emissions (Scope 1 & 2) compared to base year FY23',
-        image: 'pillar-environment.png',
+        image: 'pillar-environment.webp',
       },
       {
         value: '82,735 MWh',
@@ -90,7 +90,7 @@ const PILLAR_CONFIGS: PillarConfig[] = [
       {
         value: '6,166',
         label: 'Total Workforce',
-        image: 'pillar-social.png',
+        image: 'pillar-social.webp',
       },
       {
         value: '100%',
@@ -130,7 +130,7 @@ const PILLAR_CONFIGS: PillarConfig[] = [
       {
         value: '25%',
         label: 'Representation of women on the Board',
-        image: 'pillar-governance.png',
+        image: 'pillar-governance.webp',
       },
       {
         value: '100%',
@@ -289,8 +289,7 @@ function PillarStackCard({ pillar, index }: { pillar: PillarConfig; index: numbe
             key={currentMetric.image}
             className="sus-card-img"
             src={`${S}${currentMetric.image}`}
-            alt={currentMetric.label}
-          />
+            alt={currentMetric.label} loading="lazy" decoding="async" />
         ) : (
           <div className="sus-card-img-blank" style={{ color: pillar.color }}>
             <svg
@@ -346,7 +345,7 @@ export default function SustainabilityStrategyPage() {
       */}
       <StockVideoBanner
         videoSrc="/assets/strategy/sample-stock-video.mp4"
-        posterSrc="/assets/strategy/hero-video-poster.png"
+        posterSrc="/assets/strategy/hero-video-poster.webp"
         alt="Granules Sustainability Strategy - Clean Energy Windmills"
         targetScrollSelector=".sus-intro"
         badgeText="Stock Video"
@@ -386,7 +385,7 @@ export default function SustainabilityStrategyPage() {
 
       {/* Green science in motion section (moved UP) */}
       <div className="biz-panel" style={{ marginTop: 'clamp(60px, 8vw, 90px)' }}>
-        <img className="bg" src={`${S}green-science-bg.png`} alt="" />
+        <img className="bg" src={`${S}green-science-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="biz-panel-grid">
           <div className="biz-panel-head">
@@ -411,13 +410,13 @@ export default function SustainabilityStrategyPage() {
                     <div className="biz-accordion-icon-row">
                       {item.icon && isOpen && (
                         <span className="biz-accordion-icon" style={{ background: 'linear-gradient(180deg, #6cff81, #19c308)' }}>
-                          <img src={`${S}${item.icon}`} alt="" />
+                          <img src={`${S}${item.icon}`} alt="" loading="lazy" decoding="async" />
                         </span>
                       )}
                       <p className="biz-accordion-title" style={{ color: isOpen && item.tags ? '#197b0c' : 'var(--blue)' }}>{item.title}</p>
                     </div>
                     <span className="biz-accordion-toggle">
-                      <img src={`${S}${isOpen ? 'icon-minus.svg' : 'icon-plus.svg'}`} alt="" />
+                      <img src={`${S}${isOpen ? 'icon-minus.svg' : 'icon-plus.svg'}`} alt="" loading="lazy" decoding="async" />
                     </span>
                   </div>
                   {isOpen && item.tags && (
@@ -438,7 +437,7 @@ export default function SustainabilityStrategyPage() {
       <CarbonStatsCarousel />
 
       <div className="sus-cta">
-        <img className="bg" src={`${S}cta-bg.png`} alt="" />
+        <img className="bg" src={`${S}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="sus-cta-copy">
           <h2>Reimagining pharma for a carbon-free future</h2>

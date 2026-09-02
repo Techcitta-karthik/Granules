@@ -15,22 +15,22 @@ type CapabilityCard = {
 const CAPABILITY_CARDS: CapabilityCard[] = [
   {
     title: 'Generic APIs',
-    image: 'card-generic-apis.png',
+    image: 'card-generic-apis.webp',
     desc: 'High-purity generic peptide APIs synthesized to global pharmacopeial standards.',
   },
   {
     title: 'Contract Services',
-    image: 'card-contract-services.png',
+    image: 'card-contract-services.webp',
     desc: 'Custom peptide synthesis, process development, and scale-up services for clinical and commercial partners.',
   },
   {
     title: 'Cosmetic Peptides',
-    image: 'card-cosmetic-peptides.png',
+    image: 'card-cosmetic-peptides.webp',
     desc: 'Bioactive peptides for advanced dermatological and high-performance cosmetic formulations.',
   },
   {
     title: 'Theragnostic Peptides',
-    image: 'card-theragnostic-peptides.png',
+    image: 'card-theragnostic-peptides.webp',
     desc: 'Targeted peptide solutions uniting diagnostic molecular imaging with targeted therapeutic delivery.',
   },
 ];
@@ -96,7 +96,7 @@ export default function PeptidesPage() {
       </p>
       <h1 className="cp-page-title">Peptide</h1>
       <div className="cp-hero-banner">
-        <img src={`${P}hero-banner.png`} alt="Granules peptide science" />
+        <img src={`${P}hero-banner.webp`} alt="Granules peptide science" loading="eager" decoding="async" />
       </div>
 
       <div className="biz-intro">
@@ -142,7 +142,7 @@ export default function PeptidesPage() {
                 onMouseLeave={() => setOpenCard(-1)}
                 onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
               >
-                <img className="bg" src={`${P}${card.image}`} alt={card.title} />
+                <img className="bg" src={`${P}${card.image}`} alt={card.title} loading="lazy" decoding="async" />
                 <div className="biz-sheet">
                   <div className="biz-sheet-head">
                     <span className="biz-sheet-title">{card.title}</span>
@@ -193,7 +193,7 @@ export default function PeptidesPage() {
       </div>
 
       <div className="biz-panel">
-        <img className="bg" src={`${P}offers-bg.png`} alt="" />
+        <img className="bg" src={`${P}offers-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="biz-panel-grid">
           <div className="biz-panel-head">
@@ -212,12 +212,12 @@ export default function PeptidesPage() {
                   <div className="biz-accordion-head">
                     <div className="biz-accordion-icon-row">
                       <span className="biz-accordion-icon">
-                        <img src={`${P}${item.icon}`} alt="" />
+                        <img src={`${P}${item.icon}`} alt="" loading="lazy" decoding="async" />
                       </span>
                       <p className="biz-accordion-title">{item.title}</p>
                     </div>
                     <span className="biz-accordion-toggle">
-                      <img src={`${P}${isOpen ? 'icon-minus.svg' : 'icon-plus.svg'}`} alt={isOpen ? 'Collapse' : 'Expand'} />
+                      <img src={`${P}${isOpen ? 'icon-minus.svg' : 'icon-plus.svg'}`} alt={isOpen ? 'Collapse' : 'Expand'} loading="lazy" decoding="async" />
                     </span>
                   </div>
                   {isOpen && item.body && <p className="biz-accordion-body">{item.body}</p>}
@@ -229,7 +229,7 @@ export default function PeptidesPage() {
       </div>
 
       <div className="biz-cta">
-        <img className="bg" src={`${P}cta-bg.png`} alt="" />
+        <img className="bg" src={`${P}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="biz-cta-copy">
           <h2>Partner with Granules for your Peptide journey</h2>

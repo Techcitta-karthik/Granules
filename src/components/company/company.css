@@ -408,7 +408,7 @@
   min-height: 400px;
   max-height: 600px;
   border-radius: 36px;
-  background: #dbe7ff url('/assets/oe/hero-banner.png') center/cover no-repeat;
+  background: #dbe7ff url('/assets/oe/hero-banner.webp') center/cover no-repeat;
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 30, 80, 0.06);

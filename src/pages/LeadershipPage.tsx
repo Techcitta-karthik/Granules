@@ -8,19 +8,19 @@ const L = '/assets/leadership/';
 type Member = { image: string; name: string; role: string };
 
 const MEMBERS: Member[] = [
-  { image: 'krishna-prasad.png', name: 'Dr. Krishna Prasad Chigurupati', role: 'Chairman and Managing Director' },
-  { image: 'uma-devi.png', name: 'Mrs. Uma Devi Chigurupati', role: 'Executive Director' },
-  { image: 'priyanka.png', name: 'Mrs. Priyanka Chigurupati', role: 'Executive Director' },
-  { image: 'harsha.png', name: 'Mr. Harsha Chigurupati', role: 'Executive Director' },
-  { image: 'mukesh-surana.png', name: 'Mr. Mukesh Surana', role: 'Chief Financial Officer' },
-  { image: 'atul-dhavle.png', name: 'Mr. Atul Dhavle', role: 'Chief Human Resources Officer' },
-  { image: 'pv-srinivas.png', name: 'Mr. PV Srinivas', role: 'Chief Technology Officer' },
-  { image: 'sanjay-kumar.png', name: 'Mr. Sanjay Kumar', role: 'President & Chief Strategy and Sustainability Officer' },
-  { image: 'ramraj-rangarajalu.png', name: 'Mr. Ramraj Rangarajalu', role: 'President and Head - Formulations Operations' },
-  { image: 'baskaran-pn.png', name: 'Dr. Baskaran PN', role: 'President & Head - API Operations' },
-  { image: 'vijay-raghavan.png', name: 'Dr. Vijay Raghavan', role: 'President, Global Portfolio' },
-  { image: 'manikandan-ramalingam.png', name: 'Mr. Manikandan Ramalingam', role: 'Senior Vice President & Head Formulation R&D' },
-  { image: 'rajesh-kapoor.png', name: 'Dr. Rajesh Kapoor', role: 'Global Head - Quality' },
+  { image: 'krishna-prasad.webp', name: 'Dr. Krishna Prasad Chigurupati', role: 'Chairman and Managing Director' },
+  { image: 'uma-devi.webp', name: 'Mrs. Uma Devi Chigurupati', role: 'Executive Director' },
+  { image: 'priyanka.webp', name: 'Mrs. Priyanka Chigurupati', role: 'Executive Director' },
+  { image: 'harsha.webp', name: 'Mr. Harsha Chigurupati', role: 'Executive Director' },
+  { image: 'mukesh-surana.webp', name: 'Mr. Mukesh Surana', role: 'Chief Financial Officer' },
+  { image: 'atul-dhavle.webp', name: 'Mr. Atul Dhavle', role: 'Chief Human Resources Officer' },
+  { image: 'pv-srinivas.webp', name: 'Mr. PV Srinivas', role: 'Chief Technology Officer' },
+  { image: 'sanjay-kumar.webp', name: 'Mr. Sanjay Kumar', role: 'President & Chief Strategy and Sustainability Officer' },
+  { image: 'ramraj-rangarajalu.webp', name: 'Mr. Ramraj Rangarajalu', role: 'President and Head - Formulations Operations' },
+  { image: 'baskaran-pn.webp', name: 'Dr. Baskaran PN', role: 'President & Head - API Operations' },
+  { image: 'vijay-raghavan.webp', name: 'Dr. Vijay Raghavan', role: 'President, Global Portfolio' },
+  { image: 'manikandan-ramalingam.webp', name: 'Mr. Manikandan Ramalingam', role: 'Senior Vice President & Head Formulation R&D' },
+  { image: 'rajesh-kapoor.webp', name: 'Dr. Rajesh Kapoor', role: 'Global Head - Quality' },
 ];
 
 export default function LeadershipPage() {
@@ -62,7 +62,7 @@ export default function LeadershipPage() {
         {MEMBERS.map((member) => (
           <article className="ld-card" key={member.name}>
             <div className="ld-photo">
-              <img src={`${L}${member.image}`} alt={member.name} />
+              <img src={`${L}${member.image}`} alt={member.name} loading="lazy" decoding="async" />
             </div>
             <div>
               <p className="ld-name">{member.name}</p>
@@ -73,7 +73,7 @@ export default function LeadershipPage() {
       </div>
 
       <div className="ld-cta">
-        <img className="cp-bg" src={`${L}cta-bg.png`} alt="" />
+        <img className="cp-bg" src={`${L}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="cp-bg-overlay" />
         <div className="ld-cta-copy">
           <h2>Find your next role at Granules</h2>

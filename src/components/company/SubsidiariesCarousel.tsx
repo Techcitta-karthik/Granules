@@ -73,10 +73,9 @@ export default function SubsidiariesCarousel() {
               <img
                 src={getImgUrl(current.image)}
                 alt={current.fullName}
-                className="cp-sub-facility-img"
-              />
+                className="cp-sub-facility-img" loading="lazy" decoding="async" />
               <div className="cp-sub-logo-badge">
-                <img src="/assets/company/nav-logo.png" alt="Granules" />
+                <img src="/assets/company/nav-logo.webp" alt="Granules" loading="eager" decoding="async" />
               </div>
             </Link>
           </div>

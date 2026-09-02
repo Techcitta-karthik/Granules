@@ -30,7 +30,7 @@ const ENV_TABS_DATA: EnvSubTabItem[] = [
     desc: 'Granules is decoupling emissions from production, building a future-proof, low-carbon pharma platform.',
     statValue: '32.2%',
     statLabel: 'ABSOLUTE REDUCTION IN SCOPE 1 & 2 EMISSIONS SINCE FY23',
-    image: 'hero-banner.png',
+    image: 'hero-banner.webp',
   },
   {
     tabLabel: 'WATER MANAGEMENT',
@@ -39,7 +39,7 @@ const ENV_TABS_DATA: EnvSubTabItem[] = [
     statValue: '2,16,823',
     statUnit: 'KL',
     statLabel: 'TOTAL FRESHWATER USE IN FY25',
-    image: 'esg-water.png',
+    image: 'esg-water.webp',
   },
   {
     tabLabel: 'WASTE MANAGEMENT',
@@ -47,7 +47,7 @@ const ENV_TABS_DATA: EnvSubTabItem[] = [
     desc: 'Circularity is built into operations, from raw material selection to post-production disposal.',
     statValue: '100%',
     statLabel: 'NON-HAZARDOUS WASTE REUSED OR RECYCLED',
-    image: 'esg-waste.png',
+    image: 'esg-waste.webp',
   },
   {
     tabLabel: 'BIODIVERSITY MANAGEMENT',
@@ -55,7 +55,7 @@ const ENV_TABS_DATA: EnvSubTabItem[] = [
     desc: 'We seek opportunities to collaborate with environmental organizations and community-based programs to increase our positive impact.',
     statValue: '15,000',
     statLabel: 'NATIVE SAPLINGS PLANTED IN TELANGANA',
-    image: 'esg-biodiversity.png',
+    image: 'esg-biodiversity.webp',
   },
 ];
 
@@ -110,7 +110,7 @@ export default function EsgInActionPage() {
       </p>
       <h1 className="cp-page-title">ESG in action</h1>
       <div className="cp-hero-banner">
-        <img src={`${S}hero-banner.png`} alt="Granules ESG impact" />
+        <img src={`${S}hero-banner.webp`} alt="Granules ESG impact" loading="eager" decoding="async" />
       </div>
 
       <div className="sus-intro">
@@ -202,7 +202,7 @@ export default function EsgInActionPage() {
           </div>
 
           <div className="esg-env-media">
-            <img src={`${S}${currentEnvTab.image}`} alt={currentEnvTab.title} />
+            <img src={`${S}${currentEnvTab.image}`} alt={currentEnvTab.title} loading="lazy" decoding="async" />
             <button
               type="button"
               className="esg-env-next-btn"
@@ -258,8 +258,8 @@ export default function EsgInActionPage() {
             </div>
           </div>
           <div className="esg-carousel">
-            {['social-1.png', 'social-2.png'].map((img) => (
-              <img key={img} src={`${S}${img}`} alt="Social impact initiative" />
+            {['social-1.webp', 'social-2.webp'].map((img) => (
+              <img key={img} src={`${S}${img}`} alt="Social impact initiative" loading="lazy" decoding="async" />
             ))}
           </div>
         </div>
@@ -310,13 +310,13 @@ export default function EsgInActionPage() {
           </div>
 
           <div className="esg-gov-media">
-            <img src={`${S}governance-1.png`} alt="Board of Directors" />
+            <img src={`${S}governance-1.webp`} alt="Board of Directors" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
 
       <div className="sus-cta" style={{ marginTop: 'clamp(100px, 12vw, 140px)' }}>
-        <img className="bg" src={`${S}cta-bg.png`} alt="" />
+        <img className="bg" src={`${S}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="sus-cta-copy">
           <h2>Transparent Reporting, Measurable Progress</h2>

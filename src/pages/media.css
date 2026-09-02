@@ -407,7 +407,7 @@
   margin: clamp(80px, 10vw, 120px) 0 0 0;
   position: relative;
   background-color: #eef2fb;
-  background-image: url('/assets/investor/quarterly-bg.png');
+  background-image: url('/assets/investor/quarterly-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

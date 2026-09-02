@@ -7,32 +7,61 @@ import '../components/company/company.css';
 const A = '/assets/';
 
 const heroSlides = [
-  { image: 'hero-1.png', title: 'Globally approved. Vertically integrated. Trusted worldwide.', cta: 'Our Products' },
-  { image: 'hero-2.png', title: 'Advancing pharmaceuticals towards a near net zero carbon footprint', cta: 'Granules CZRO' },
-  { image: 'hero-3.png', title: 'Innovating for health. Committed to the planet.', cta: 'Sustainability' },
-  { image: 'hero-4.png', title: 'Setting global standards in quality, safety, and compliance', cta: 'Quality & Compliance' },
-  { image: 'hero-5.png', title: 'Driving innovation in peptides and custom manufacturing solutions', cta: 'Peptides & CDMO Business' },
+  {
+    image: 'hero-1.webp',
+    title: 'Globally approved. Vertically integrated. Trusted worldwide',
+    cta: 'Our Products',
+    link: '#business'
+  },
+  {
+    image: 'hero-5.webp',
+    title: 'Driving innovation in peptides and custom manufacturing solutions',
+    cta: 'Peptides & CDMO Business',
+    link: '/business/peptides'
+  },
+  {
+    image: 'hero-4.webp',
+    title: 'Setting global standards in quality, safety, and compliance',
+    cta: 'Quality & compliance',
+    link: '/business/quality-compliance'
+  },
+  {
+    image: 'hero-3.webp',
+    title: 'Innovating for health. Committed to the planet',
+    cta: 'Sustainability',
+    link: '/sustainability'
+  },
+  {
+    image: 'hero-2.webp',
+    title: 'Accelerating Innovation Through Integration and Digitalization',
+    cta: 'R&D',
+    link: '/business/rd'
+  },
 ];
 
+
 const products = [
-  { image: 'api.png', title: 'Active Pharmaceutical Ingredients', eyebrow: 'API', body: 'High-volume active pharmaceutical ingredients used by top global pharma companies.' },
-  { image: 'pfi.png', title: 'Pharmaceutical Formulations Intermediates', eyebrow: 'PFI', body: 'Custom pharmaceutical formulation intermediates optimized for flexibility and efficiency.' },
-  { image: 'finished-dosage.png', title: 'Finished Dosages', eyebrow: 'FD', body: 'Finished dosages manufactured at scale, backed by stringent quality systems.' },
+  { image: 'api.webp', title: 'Active Pharmaceutical Ingredients', eyebrow: 'API', body: 'High-volume active pharmaceutical ingredients used by top global pharma companies.' },
+  { image: 'pfi.webp', title: 'Pharmaceutical Formulations Intermediates', eyebrow: 'PFI', body: 'Custom pharmaceutical formulation intermediates optimized for flexibility and efficiency.' },
+  { image: 'finished-dosage.webp', title: 'Finished Dosages', eyebrow: 'FD', body: 'Finished dosages manufactured at scale, backed by stringent quality systems.' },
 ];
 
 const news = [
-  { image: 'news-1.png', category: 'News', title: 'Recognized among India’s Top 10 Sustainable Pharma Companies.', body: 'The recognition reflects continued progress across renewable energy, responsible operations and measurable climate action.' },
-  { image: 'news-2.png', category: 'News', title: 'Showcased breakthrough technologies at CPhI Worldwide 2025.', body: 'Granules presented integrated capabilities spanning APIs, finished dosages, peptides and next-generation manufacturing.' },
-  { image: 'news-3.png', category: 'Press Release', title: 'Launched a dedicated peptide manufacturing unit.', body: 'The new facility expands our ability to support complex molecules with a scalable, quality-led development platform.' },
+  { image: 'news-1.webp', category: 'News', title: 'Recognized among India’s Top 10 Sustainable Pharma Companies.', body: 'The recognition reflects continued progress across renewable energy, responsible operations and measurable climate action.' },
+  { image: 'news-2.webp', category: 'News', title: 'Showcased breakthrough technologies at CPhI Worldwide 2025.', body: 'Granules presented integrated capabilities spanning APIs, finished dosages, peptides and next-generation manufacturing.' },
+  { image: 'news-3.webp', category: 'Press Release', title: 'Launched a dedicated peptide manufacturing unit.', body: 'The new facility expands our ability to support complex molecules with a scalable, quality-led development platform.' },
 ];
 
-const certs = ['cert-1.png', 'cert-2.png', 'cert-3.png', 'cert-4.png', 'cert-5.png', 'cert-6.png', 'cert-7.png'];
+const certs = ['cert-1.webp', 'cert-2.webp', 'cert-3.webp', 'cert-4.webp', 'cert-5.webp', 'cert-6.webp', 'cert-7.webp'];
 
 function Arrow({ reverse = false }) {
-  return <img className={`arrow-icon ${reverse ? 'reverse' : ''}`} src={`${A}hero-arrow.svg`} alt="" />;
+  return <img className={`arrow-icon ${reverse ? 'reverse' : ''}`} src={`${A}hero-arrow.svg`} alt="" loading="eager" decoding="async" />;
 }
 
 function Button({ children, href = '#', className = '' }) {
+  if (href && href.startsWith('/')) {
+    return <Link className={`button ${className}`} to={href}>{children}</Link>;
+  }
   return <a className={`button ${className}`} href={href}>{children}</a>;
 }
 
@@ -57,7 +86,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Sub Companies', '/company#subsidiaries'],
         ['Operational Excellence', '/company/operational-excellence'],
       ],
-      image: 'company/values-bg-2.png',
+      image: 'company/values-bg-2.webp',
     },
     Company: {
       title: 'About Us',
@@ -72,7 +101,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Sub Companies', '/company#subsidiaries'],
         ['Operational Excellence', '/company/operational-excellence'],
       ],
-      image: 'company/values-bg-2.png',
+      image: 'company/values-bg-2.webp',
     },
     Business: {
       title: 'Business',
@@ -87,7 +116,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Quality & Compliance', '/business/quality-compliance'],
         ['Manufacturing Facilities', '/company/facilities'],
       ],
-      image: 'company/gpi-facility.png',
+      image: 'company/gpi-facility.webp',
     },
     Sustainability: {
       title: 'Sustainability',
@@ -103,7 +132,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Commitments Memberships & Ratings', '/sustainability#commitments'],
         ['Certifications', '/sustainability#certifications'],
       ],
-      image: 'esg-world-profile.png',
+      image: 'esg-world-profile.webp',
     },
     Investor: {
       title: 'Investor',
@@ -116,7 +145,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Investor Resources', '/investor'],
         ['Financial Highlights', '/investor'],
       ],
-      image: 'investor-report-cover.png',
+      image: 'investor-report-cover.webp',
     },
     Media: {
       title: 'Media',
@@ -128,7 +157,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Corporate Announcements', '/media'],
         ['Media Kit', '/media'],
       ],
-      image: 'company/leadership-photo-main-2.png',
+      image: 'company/leadership-photo-main-2.webp',
     },
     Careers: {
       title: 'Careers',
@@ -140,7 +169,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Life at Granules', '/careers/life-at-granules'],
         ['Culture & Purpose', '/careers'],
       ],
-      image: 'company/career-bg.png',
+      image: 'company/career-bg.webp',
     },
     Contact: {
       title: 'Contact',
@@ -151,7 +180,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         ['Global Offices', '/contact'],
         ['Investor Inquiries', '/investor'],
       ],
-      image: 'company/gpi-facility.png',
+      image: 'company/gpi-facility.webp',
     },
   };
 
@@ -166,7 +195,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
 
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
-      <a className="brand" href="#top" aria-label="Granules home"><img src={`${A}logo.png`} alt="Granules" /></a>
+      <a className="brand" href="#top" aria-label="Granules home"><img src={`${A}logo.webp`} alt="Granules" loading="eager" decoding="async" /></a>
       <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open}>Menu</button>
       <nav className={open ? 'open' : ''} aria-label="Primary navigation">
         {links.map(([label, href]) => {
@@ -205,14 +234,14 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
                     </div>
                   </div>
                   <div className="home-nav-submenu-thumb">
-                    <img src={`${A}${sub.image}`} alt="" />
+                    <img src={`${A}${sub.image}`} alt="" loading="lazy" decoding="async" />
                   </div>
                 </div>
               )}
             </div>
           );
         })}
-        <button className="search-button" aria-label="Search the page" onClick={onSearch}><img src={`${A}search.svg`} alt="" /></button>
+        <button className="search-button" aria-label="Search the page" onClick={onSearch}><img src={`${A}search.svg`} alt="" loading="lazy" decoding="async" /></button>
         <span className="global">🌍 <span>Global</span></span>
       </nav>
     </header>
@@ -222,7 +251,6 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
 function Hero() {
   const [slide, setSlide] = useState(0);
   const [previousSlide, setPreviousSlide] = useState(null);
-  const [focus, setFocus] = useState({ x: 50, y: 50 });
   useEffect(() => {
     const timer = setInterval(() => setSlide((current) => {
       setPreviousSlide(current);
@@ -238,13 +266,13 @@ function Hero() {
   const change = (step) => goToSlide((slide + step + heroSlides.length) % heroSlides.length);
 
   return (
-    <section className="hero" id="top" onPointerMove={(event) => { if (event.pointerType === 'mouse') setFocus({ x: 50 + ((event.clientX / innerWidth) - .5) * 4, y: 50 + ((event.clientY / innerHeight) - .5) * 4 }); }}>
-      {previousSlide !== null && <div className="hero-image hero-image-previous" style={{ backgroundImage: `url(${A}${heroSlides[previousSlide].image})`, backgroundPosition: `${focus.x}% ${focus.y}%` }} />}
-      <div className={`hero-image hero-image-current${previousSlide !== null ? ' is-transitioning' : ''}`} key={slide} style={{ backgroundImage: `url(${A}${current.image})`, backgroundPosition: `${focus.x}% ${focus.y}%` }} onAnimationEnd={() => setPreviousSlide(null)} />
+    <section className="hero" id="top">
+      {previousSlide !== null && <div className="hero-image hero-image-previous" style={{ backgroundImage: `url(${A}${heroSlides[previousSlide].image})` }} />}
+      <div className={`hero-image hero-image-current${previousSlide !== null ? ' is-transitioning' : ''}`} key={slide} style={{ backgroundImage: `url(${A}${current.image})` }} onAnimationEnd={() => setPreviousSlide(null)} />
       <div className="hero-shade" />
       <div className="hero-content shell">
         <h1>{current.title}</h1>
-        <Button href="#business">{current.cta}</Button>
+        <Button href={current.link || '#business'}>{current.cta}</Button>
       </div>
       <div className="hero-controls shell">
         <div className="progress" aria-label="Hero slides">
@@ -292,7 +320,7 @@ function Modal({ item, onClose, label = 'Details' }) {
     return () => { document.removeEventListener('keydown', close); document.body.classList.remove('modal-open'); };
   }, [item, onClose]);
   if (!item) return null;
-  return <div className="modal-backdrop" role="presentation" onMouseDown={onClose}><section className="content-modal" role="dialog" aria-modal="true" aria-label={item.title} onMouseDown={(event) => event.stopPropagation()}><button className="modal-close" onClick={onClose} aria-label="Close details">×</button>{item.image && <img src={`${A}${item.image}`} alt="" />}<div><Tag>{item.eyebrow || item.category || label}</Tag><h2>{item.title}</h2><p>{item.body}</p><Button href="#footer" className="modal-cta">Contact Our Team</Button></div></section></div>;
+  return <div className="modal-backdrop" role="presentation" onMouseDown={onClose}><section className="content-modal" role="dialog" aria-modal="true" aria-label={item.title} onMouseDown={(event) => event.stopPropagation()}><button className="modal-close" onClick={onClose} aria-label="Close details">×</button>{item.image && <img src={`${A}${item.image}`} alt="" loading="lazy" decoding="async" />}<div><Tag>{item.eyebrow || item.category || label}</Tag><h2>{item.title}</h2><p>{item.body}</p><Button href="#footer" className="modal-cta">Contact Our Team</Button></div></section></div>;
 }
 
 function About() {
@@ -300,14 +328,19 @@ function About() {
     <section className="section shell about" id="about">
       <div className="about-copy">
         <h2>Driving global healthcare through scalable pharma leadership</h2>
-        <p>With over 40 years of industry leadership, Granules India is a vertically integrated pharmaceutical manufacturer with a track record of delivering high-quality, affordable medicines at global scale. From Active Pharmaceutical Ingredients (APIs) and Pharmaceutical Formulation Intermediates (PFIs) to Finished Dosage Forms (FDFs) and Contract Development and Manufacturing (CDMO) services, we offer end-to-end solutions for global healthcare companies, built on compliance, innovation, and operational scale.</p>
+        <p>With over four decades of industry leadership, Granules India is committed to delivering high-quality, affordable medicines globally, through an integrated manufacturing platform. We offer end-to-end solutions for global healthcare needs, built on compliance, innovation, and operational scale, across Active Pharmaceutical Ingredients (APIs), Pharmaceutical Formulation Intermediates (PFIs), Finished Dosage Forms (FDFs), and Peptide CDMO.</p>
+        <div className="about-cta-wrap">
+          <Button href="/company">ABOUT GRANULES</Button>
+        </div>
       </div>
-      <div className="about-bottom">
-        <Button href="/company">ABOUT GRANULES</Button>
+      <div className="about-stats-wrap">
         <div className="stats">
           <article className="stat"><CountUp to={80} suffix="+" /><span>Countries served</span></article>
           <article className="stat"><CountUp to={40} suffix="+" /><span>Years of excellence</span></article>
-          <article className="stat"><CountUp to={11} /><span>Manufacturing facilities<br />across India, US and Europe</span></article>
+          <article className="stat"><CountUp to={10} /><span>Manufacturing facilities<br />across India, US & Europe</span></article>
+          <article className="stat"><CountUp to={6} /><span>R&D centers of excellence</span></article>
+          <article className="stat"><CountUp to={150} suffix="+" /><span>Dossiers</span></article>
+          <article className="stat"><CountUp to={100} suffix="+" /><span>DMFs</span></article>
         </div>
       </div>
     </section>
@@ -347,7 +380,7 @@ function Business() {
               >
                 {/* Background product image */}
                 <div className="product-img-wrap">
-                  <img src={`${A}${product.image}`} alt={product.title} />
+                  <img src={`${A}${product.image}`} alt={product.title} loading="lazy" decoding="async" />
                 </div>
 
                 {/* Sliding blue drawer sheet */}
@@ -395,7 +428,7 @@ function Presence() {
       <div className="presence-copy"><Tag>Our Presence</Tag><h2>Trusted healthcare partner in 80+ countries</h2></div>
       <div className="map-wrap">
         <div className={`map-plane${active > 0 ? ' focus-india' : ''}`} aria-hidden="true">
-          <img className="map" src={worldMapUrl} alt="" />
+          <img className="map" src={worldMapUrl} alt="" loading="lazy" decoding="async" />
         </div>
         <div className="map-points" key={active}>
           {points[active].map((point, index) => (
@@ -428,8 +461,7 @@ function Credentials() {
               <img
                 src={`${A}${logo}`}
                 alt="Regulatory certification"
-                key={`primary-${logo}-${index}`}
-              />
+                key={`primary-${logo}-${index}`} loading="eager" decoding="async" />
             ))}
           </div>
 
@@ -439,8 +471,7 @@ function Credentials() {
               <img
                 src={`${A}${logo}`}
                 alt=""
-                key={`clone-${logo}-${index}`}
-              />
+                key={`clone-${logo}-${index}`} loading="eager" decoding="async" />
             ))}
           </div>
         </div>
@@ -457,10 +488,10 @@ function Sustainability() {
   ];
   const [open, setOpen] = useState(0);
   return (
-    <section className="sustainability" id="sustainability" style={{ backgroundImage: `url(${A}sustainability.png)` }}>
+    <section className="sustainability" id="sustainability" style={{ backgroundImage: `url(${A}sustainability.webp)` }}>
       <div className="sustainability-overlay" />
       <div className="sustainability-copy"><Tag>Sustainability</Tag><h2>Where science acts responsibly</h2><p>From reducing our carbon footprint and investing in clean energy to building community resilience through skill development, we are shaping a healthier, more sustainable world.</p><Button href="#sustainability" className="green">Learn More</Button></div>
-      <div className="accordion">{items.map((item, index) => <article className={open === index ? 'open' : ''} key={item.title}><button onClick={() => setOpen(open === index ? -1 : index)}><span className="accordion-head"><i className={`accordion-icon accordion-icon-${item.iconType}`}><img src={`${A}${item.icon}`} alt="" /></i><span>{item.title}</span></span><img className="accordion-toggle" src={`${A}${open === index ? 'icon-minus-round.svg' : 'icon-plus-round.svg'}`} alt="" /></button>{open === index && <p>{item.body}</p>}</article>)}</div>
+      <div className="accordion">{items.map((item, index) => <article className={open === index ? 'open' : ''} key={item.title}><button onClick={() => setOpen(open === index ? -1 : index)}><span className="accordion-head"><i className={`accordion-icon accordion-icon-${item.iconType}`}><img src={`${A}${item.icon}`} alt="" loading="lazy" decoding="async" /></i><span>{item.title}</span></span><img className="accordion-toggle" src={`${A}${open === index ? 'icon-minus-round.svg' : 'icon-plus-round.svg'}`} alt="" loading="lazy" decoding="async" /></button>{open === index && <p>{item.body}</p>}</article>)}</div>
     </section>
   );
 }
@@ -471,17 +502,17 @@ function Investor() {
     <section className="section shell investor" id="investor">
       <div className="investor-copy"><Tag>Investor Relations</Tag><h2>Transparent. Trusted. Future-focused.</h2><p>Stay informed with real-time stock performance (NSE | BSE), key financial metrics, and forward-looking growth strategies backed by innovation and execution strength.</p><Button href="#investor">Learn More</Button></div>
       <div className="investor-panel">
-        <div className="investor-cover"><img src={`${A}investor-report-cover.png`} alt="Granules India Integrated Annual Report" /></div>
+        <div className="investor-cover"><img src={`${A}investor-report-cover.webp`} alt="Granules India Integrated Annual Report" loading="lazy" decoding="async" /></div>
         <div className="investor-side">
           <div className="stock-price-card">
             <span>Stock Price</span>
             <div className="exchange-links">
-              <a className="exchange-pill" href="#investor">NSE<img className="arrow-ne" src={`${A}icon-arrow-diag-investor.svg`} alt="" /></a>
-              <a className="exchange-pill" href="#investor">BSE<img className="arrow-ne" src={`${A}icon-arrow-diag-investor.svg`} alt="" /></a>
+              <a className="exchange-pill" href="#investor">NSE<img className="arrow-ne" src={`${A}icon-arrow-diag-investor.svg`} alt="" loading="lazy" decoding="async" /></a>
+              <a className="exchange-pill" href="#investor">BSE<img className="arrow-ne" src={`${A}icon-arrow-diag-investor.svg`} alt="" loading="lazy" decoding="async" /></a>
             </div>
           </div>
           <div className="investor-docs">
-            {docs.map((doc) => <a className="investor-doc" href="#investor" key={doc}><span>{doc}</span><i className="download-badge"><img src={`${A}investor/pdf-icon.svg`} alt="" /></i></a>)}
+            {docs.map((doc) => <a className="investor-doc" href="#investor" key={doc}><span>{doc}</span><i className="download-badge"><img src={`${A}investor/pdf-icon.svg`} alt="" loading="lazy" decoding="async" /></i></a>)}
           </div>
         </div>
       </div>
@@ -494,14 +525,14 @@ function Media() {
   return (
     <><section className="section shell ruled media" id="media">
       <div className="split-heading"><div><Tag>Newsroom</Tag><h2>What’s new at Granules</h2></div><Button href="#media">View All</Button></div>
-      <div className="news-grid">{news.map((item) => <article className="news-card" key={item.title}><button onClick={() => setSelected(item)} aria-label={`Read ${item.title}`}><img src={`${A}${item.image}`} alt="" /><div className="news-meta"><span>{item.category}</span><time>12 June 2024</time></div><h3>{item.title}</h3><span className="read-more">Read More</span></button></article>)}</div>
+      <div className="news-grid">{news.map((item) => <article className="news-card" key={item.title}><button onClick={() => setSelected(item)} aria-label={`Read ${item.title}`}><img src={`${A}${item.image}`} alt="" loading="lazy" decoding="async" /><div className="news-meta"><span>{item.category}</span><time>12 June 2024</time></div><h3>{item.title}</h3><span className="read-more">Read More</span></button></article>)}</div>
     </section><Modal item={selected} onClose={() => setSelected(null)} label="Newsroom" /></>
   );
 }
 
 function Careers() {
   return (
-    <section className="careers shell" id="careers" style={{ backgroundImage: `url(${A}career.png)` }}>
+    <section className="careers shell" id="careers" style={{ backgroundImage: `url(${A}career.webp)` }}>
       <div><h2>Shape healthcare with Granules</h2><p>Every role here strengthens access to affordable treatment for millions.</p></div>
       <Button href="#careers">Careers</Button>
     </section>
@@ -513,15 +544,15 @@ function Footer() {
   const companyLinks = [['Company', '/company'], ['Sustainability', '#sustainability'], ['Investors', '#investor'], ['Media', '#media'], ['Careers', '#careers'], ['Contact Us', '#footer']];
   const socials = ['facebook.svg', 'instagram.svg', 'x.svg', 'linkedin.svg', 'youtube.svg'];
   return (
-    <footer id="footer" style={{ backgroundImage: `url(${A}footer-bg.png)` }}>
+    <footer id="footer" style={{ backgroundImage: `url(${A}footer-bg.webp)` }}>
       <div className="footer-main shell">
-        <div className="footer-intro"><img src={`${A}footer-logo.png`} alt="Granules" /><p>Granules India, headquartered in Hyderabad, is a vertically integrated pharma manufacturer delivering APIs, PFIs, and FDs globally with regulatory-compliant operations in India, US and Europe ensuring quality, scale, and sustainability.</p></div>
+        <div className="footer-intro"><img src={`${A}footer-logo.webp`} alt="Granules" loading="eager" decoding="async" /><p>Granules India, headquartered in Hyderabad, is a vertically integrated pharma manufacturer delivering APIs, PFIs, and FDs globally with regulatory-compliant operations in India, US and Europe ensuring quality, scale, and sustainability.</p></div>
         <div className="footer-links">
           <div><strong>Products</strong>{productLinks.map((link) => <a href="#business" key={link}>{link}</a>)}</div>
           <div className="footer-col-caps">{companyLinks.map(([label, href]) => <a href={href} key={label}>{label}</a>)}</div>
         </div>
       </div>
-      <div className="footer-bottom shell"><div><span>Copyright © 2025 Granules. All rights reserved.</span><a href="#footer">Privacy Policy</a><a href="#footer">Cookies Policy</a><a href="#footer">Disclaimer</a><a href="#footer">Data Protection Notice</a><a href="#footer">Terms & Condition</a></div><div className="socials">{socials.map((icon) => <a href="#footer" key={icon}><img src={`${A}${icon}`} alt="" /></a>)}</div></div>
+      <div className="footer-bottom shell"><div><span>Copyright © 2025 Granules. All rights reserved.</span><a href="#footer">Privacy Policy</a><a href="#footer">Cookies Policy</a><a href="#footer">Disclaimer</a><a href="#footer">Data Protection Notice</a><a href="#footer">Terms & Condition</a></div><div className="socials">{socials.map((icon) => <a href="#footer" key={icon}><img src={`${A}${icon}`} alt="" loading="lazy" decoding="async" /></a>)}</div></div>
     </footer>
   );
 }
@@ -547,7 +578,7 @@ function SearchOverlay({ open, onClose }) {
     return () => document.removeEventListener('keydown', close);
   }, [open, onClose]);
   if (!open) return null;
-  return <div className="search-overlay" role="dialog" aria-modal="true" aria-label="Search the homepage"><div className="search-panel"><div className="search-field"><img src={`${A}search.svg`} alt="" /><input ref={inputRef} value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Granules" aria-label="Search Granules" /><button onClick={onClose} aria-label="Close search">×</button></div><div className="search-results">{results.map(([title, href, detail]) => <a href={href} key={title} onClick={onClose}><span><strong>{title}</strong><small>{detail}</small></span><Arrow /></a>)}{!results.length && <p>No matching section. Try “sustainability” or “investor”.</p>}</div></div></div>;
+  return <div className="search-overlay" role="dialog" aria-modal="true" aria-label="Search the homepage"><div className="search-panel"><div className="search-field"><img src={`${A}search.svg`} alt="" loading="lazy" decoding="async" /><input ref={inputRef} value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Granules" aria-label="Search Granules" /><button onClick={onClose} aria-label="Close search">×</button></div><div className="search-results">{results.map(([title, href, detail]) => <a href={href} key={title} onClick={onClose}><span><strong>{title}</strong><small>{detail}</small></span><Arrow /></a>)}{!results.length && <p>No matching section. Try “sustainability” or “investor”.</p>}</div></div></div>;
 }
 
 export default function HomePage() {

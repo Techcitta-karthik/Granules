@@ -25,7 +25,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Sub Companies', href: '/company#subsidiaries' },
       { label: 'Operational Excellence', href: '/company/operational-excellence' },
     ],
-    image: 'company/values-bg-2.png',
+    image: 'company/values-bg-2.webp',
   },
   Company: {
     title: 'About Us',
@@ -40,7 +40,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Sub Companies', href: '/company#subsidiaries' },
       { label: 'Operational Excellence', href: '/company/operational-excellence' },
     ],
-    image: 'company/values-bg-2.png',
+    image: 'company/values-bg-2.webp',
   },
   Business: {
     title: 'Product',
@@ -55,7 +55,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Quality Control & Compliance Facilities', href: '/business/quality-compliance' },
       { label: 'Facilities', href: '/company/facilities' },
     ],
-    image: 'czro/hero-banner.png',
+    image: 'czro/hero-banner.webp',
   },
   Sustainability: {
     title: 'Sustainability',
@@ -71,7 +71,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Commitments Memberships & Ratings', href: '/sustainability#commitments' },
       { label: 'Certifications', href: '/sustainability#certifications' },
     ],
-    image: 'esg-world-profile.png',
+    image: 'esg-world-profile.webp',
   },
   Investor: {
     title: 'Investor Relations',
@@ -84,7 +84,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Investor Resources', href: '/investor' },
       { label: 'Financial Highlights', href: '/investor' },
     ],
-    image: 'investor-report-cover.png',
+    image: 'investor-report-cover.webp',
   },
   Media: {
     title: 'Media & News',
@@ -96,7 +96,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Corporate Announcements', href: '/media' },
       { label: 'Media Kit', href: '/media' },
     ],
-    image: 'company/leadership-photo-main-2.png',
+    image: 'company/leadership-photo-main-2.webp',
   },
   Careers: {
     title: 'Careers',
@@ -109,7 +109,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Culture, Purpose & People', href: '/careers' },
       { label: 'Graduate & Internship Programs', href: '/careers' },
     ],
-    image: 'company/career-bg.png',
+    image: 'company/career-bg.webp',
   },
   Contact: {
     title: 'Contact',
@@ -121,7 +121,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Corporate Headquarters', href: '/contact' },
       { label: 'Investor & Media Relations', href: '/investor' },
     ],
-    image: 'company/gpi-facility.png',
+    image: 'company/gpi-facility.webp',
   },
 };
 
@@ -149,7 +149,7 @@ export default function NavBar() {
       <nav className={`cp-nav${open ? ' cp-nav--open' : ''}`} aria-label="Primary navigation">
         <div className="cp-nav-bar">
           <Link to="/" className="cp-nav-logo" aria-label="Granules home" onClick={() => setOpen(false)}>
-            <img src={asset('nav-logo.png')} alt="Granules" />
+            <img src={asset('nav-logo.webp')} alt="Granules" loading="eager" decoding="async" />
           </Link>
 
           <button
@@ -224,7 +224,7 @@ export default function NavBar() {
                       </div>
 
                       <div className="cp-nav-submenu-thumb">
-                        <img src={asset(submenu.image)} alt="" />
+                        <img src={asset(submenu.image)} alt="" loading="lazy" decoding="async" />
                       </div>
                     </div>
                   )}
@@ -233,12 +233,12 @@ export default function NavBar() {
             })}
 
             <button className="cp-nav-search" type="button" aria-label="Search">
-              <img src={asset('search-icon.svg')} alt="" />
+              <img src={asset('search-icon.svg')} alt="" loading="lazy" decoding="async" />
             </button>
 
             <span className="cp-nav-global">
               <span className="cp-nav-globe">
-                <img src={asset('group-globe-1.svg')} alt="" />
+                <img src={asset('group-globe-1.svg')} alt="" loading="lazy" decoding="async" />
               </span>
               Global
             </span>
@@ -258,7 +258,7 @@ export default function NavBar() {
               </Link>
             ))}
             <span className="cp-nav-drawer-global">
-              <img src={asset('group-globe-1.svg')} alt="" /> Global
+              <img src={asset('group-globe-1.svg')} alt="" loading="lazy" decoding="async" /> Global
             </span>
           </div>
         )}

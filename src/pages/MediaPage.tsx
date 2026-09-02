@@ -19,21 +19,21 @@ const IN_THE_NEWS: MediaArticle[] = [
     category: 'NEWS',
     date: '11 APRIL 2025',
     title: 'Granules India Acquires Swiss CDMO Senn Chemicals to Enter Peptide Therapeutics Space.',
-    image: '/assets/news-1.png',
+    image: '/assets/news-1.webp',
     body: 'Granules India Limited announced the completion of its strategic acquisition of Swiss CDMO Senn Chemicals AG, significantly bolstering its peptide synthesis capabilities and expanding its global footprint across Europe.',
   },
   {
     category: 'NEWS',
     date: '24 FEBRUARY 2025',
     title: 'Granules India enters CDMO business by acquiring Senn Chemicals AG.',
-    image: '/assets/news-2.png',
+    image: '/assets/news-2.webp',
     body: 'Entering the specialized CDMO market, Granules India combines its large-scale manufacturing excellence with Swiss precision to cater to high-growth peptide therapeutics and complex active pharmaceutical ingredients.',
   },
   {
     category: 'NEWS',
     date: '16 JANUARY 2025',
     title: 'Granules India AIG Hospitals extend breast cancer screening.',
-    image: '/assets/news-3.png',
+    image: '/assets/news-3.webp',
     body: 'In partnership with AIG Hospitals, Granules India launched mobile mammography screening units to provide accessible early cancer detection services across underserved rural and semi-urban communities.',
   },
 ];
@@ -211,7 +211,7 @@ export default function MediaPage() {
         <div className="med-news-list">
           {IN_THE_NEWS.map((item) => (
             <article className="med-news-item with-image" key={item.title}>
-              <img className="med-news-image" src={item.image} alt={item.title} />
+              <img className="med-news-image" src={item.image} alt={item.title} loading="lazy" decoding="async" />
 
               <div className="med-news-body">
                 <div className="med-news-content">
@@ -313,8 +313,7 @@ export default function MediaPage() {
               <img
                 className="med-modal-image"
                 src={modalArticle.image}
-                alt={modalArticle.title}
-              />
+                alt={modalArticle.title} loading="lazy" decoding="async" />
             )}
             <div className="med-news-tags" style={{ marginTop: '16px' }}>
               <span className="med-news-tag">{modalArticle.category}</span>
@@ -343,9 +342,8 @@ export default function MediaPage() {
             <div className="med-report-device">
               <div className="med-report-screen">
                 <img
-                  src="/assets/investor-report-cover.png"
-                  alt="Expanding Horizons - 2024 Integrated Annual Report"
-                />
+                  src="/assets/investor-report-cover.webp"
+                  alt="Expanding Horizons - 2024 Integrated Annual Report" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>

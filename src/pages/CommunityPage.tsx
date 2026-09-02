@@ -192,7 +192,7 @@ export default function CommunityPage() {
 
         <div className="com-event-media">
           {currentItem.image ? (
-            <img src={`${S}${currentItem.image}`} alt={currentItem.title} />
+            <img src={`${S}${currentItem.image}`} alt={currentItem.title} loading="lazy" decoding="async" />
           ) : null}
           {items.length > 1 && (
             <button
@@ -208,7 +208,7 @@ export default function CommunityPage() {
       </div>
 
       <div className="sus-cta" style={{ marginTop: 'clamp(100px, 12vw, 140px)' }}>
-        <img className="bg" src={`${S}cta-bg.png`} alt="" />
+        <img className="bg" src={`${S}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="sus-cta-copy">
           <h2>Creating shared value for our communities</h2>

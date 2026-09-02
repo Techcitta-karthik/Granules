@@ -50,7 +50,77 @@
 .biz-cta--placeholder { background: linear-gradient(89deg, var(--bg-blue) 0%, #f7fbff 100%); }
 .biz-cta-copy { position: relative; z-index: 1; max-width: 905px; }
 .biz-cta-copy h2 { margin: 0; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: var(--blue-2); }
+.biz-cta-copy p { margin: 12px 0 0; font: 500 clamp(16px, 1.5vw, 20px)/1.4 'Manrope', sans-serif; color: var(--n7); }
 .biz-cta .cp-cta-btn { position: relative; z-index: 1; }
+
+/* API hero tagline overlay */
+.api-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.65) 0%, rgba(4, 12, 32, 0.2) 50%, rgba(4, 12, 32, 0.05) 100%);
+  z-index: 1;
+}
+.api-hero-overlay {
+  position: absolute;
+  top: clamp(28px, 4.5vw, 56px);
+  left: clamp(28px, 4.5vw, 64px);
+  right: clamp(28px, 4.5vw, 64px);
+  max-width: min(720px, 90%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.api-hero-heading {
+  margin: 0;
+  font: 700 clamp(24px, 3.6vw, 44px)/1.2 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+.api-hero-cta {
+  background: linear-gradient(180deg, #0061f8, #004dc5);
+  color: #ffffff;
+  border: none;
+  border-radius: 60px;
+  padding: 12px 28px;
+  font: 600 16px/24px 'Manrope', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.api-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 97, 248, 0.4);
+}
+
+/* PFI hero tagline overlay (mirrors .czro-hero-scrim/-overlay/-heading in czro.css
+   and .gls-hero-scrim/-overlay/-heading in gls.css, applied on top of the shared
+   .cp-hero-banner from company.css, which is already position: relative). */
+.pfi-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.55) 0%, rgba(4, 12, 32, 0.08) 45%, rgba(4, 12, 32, 0.04) 100%);
+  z-index: 1;
+}
+.pfi-hero-overlay {
+  position: absolute;
+  top: clamp(28px, 4.5vw, 56px);
+  left: clamp(28px, 4.5vw, 64px);
+  max-width: min(620px, 82%);
+  z-index: 2;
+}
+.pfi-hero-heading {
+  margin: 0;
+  font: 700 clamp(24px, 3.6vw, 46px)/1.18 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
 
 /* Icon-tag grid (e.g. API therapeutic areas) */
 .biz-tag-grid {

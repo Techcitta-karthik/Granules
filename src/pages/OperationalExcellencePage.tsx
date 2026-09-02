@@ -12,17 +12,17 @@ type CapabilityCard = { title: string; image: string; desc: string };
 const KEY_INITIATIVE_CARDS: CapabilityCard[] = [
   {
     title: 'Precision in Motion',
-    image: 'card-precision-in-motion.png',
+    image: 'card-precision-in-motion.webp',
     desc: 'Automated robotic handling and process intensification reducing manual touchpoints and cycle times.',
   },
   {
     title: 'Engineered for Safety',
-    image: 'card-engineered-for-safety.png',
+    image: 'card-engineered-for-safety.webp',
     desc: 'Zero-harm safety architectures, automated containment, and continuous real-time hazard monitoring.',
   },
   {
     title: 'Visibility Drives Results',
-    image: 'card-visibility-drives-results.png',
+    image: 'card-visibility-drives-results.webp',
     desc: 'Real-time OEE dashboards and digital lean scorecards empowering shop-floor rapid decision-making.',
   },
 ];
@@ -98,7 +98,7 @@ export default function OperationalExcellencePage() {
       </p>
       <h1 className="cp-page-title">Operational excellence</h1>
       <div className="cp-hero-banner">
-        <img src={`${OE}hero-banner.png`} alt="Granules operational excellence" />
+        <img src={`${OE}hero-banner.webp`} alt="Granules operational excellence" loading="eager" decoding="async" />
       </div>
 
       <div className="oe-intro">
@@ -136,7 +136,7 @@ export default function OperationalExcellencePage() {
                   onMouseLeave={() => setOpenCard(-1)}
                   onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
                 >
-                  <img className="bg" src={`${OE}${card.image}`} alt={card.title} />
+                  <img className="bg" src={`${OE}${card.image}`} alt={card.title} loading="lazy" decoding="async" />
                   <div className="biz-sheet">
                     <div className="biz-sheet-head">
                       <span className="biz-sheet-title">{card.title}</span>
@@ -237,7 +237,7 @@ export default function OperationalExcellencePage() {
           </div>
         </div>
         <div className="oe-pyramid-wrap">
-          <img src={`${OE}belt-pyramid.svg`} alt="OE belt program pyramid: White, Yellow, Green, Black" />
+          <img src={`${OE}belt-pyramid.svg`} alt="OE belt program pyramid: White, Yellow, Green, Black" loading="lazy" decoding="async" />
           {BELT_TIERS.map((belt, index) => {
             const isOpen = activeBelt === index;
             return (
@@ -256,7 +256,7 @@ export default function OperationalExcellencePage() {
       </div>
 
       <div className="oe-cta">
-        <img className="bg" src={`${OE}cta-bg.png`} alt="" />
+        <img className="bg" src={`${OE}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="oe-cta-copy">
           <h2>Celebrating our achievements</h2>
