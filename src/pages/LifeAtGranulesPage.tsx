@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './career.css';
@@ -6,11 +7,6 @@ import './career.css';
 const A = '/assets/career/';
 
 const STATS = [
-<<<<<<< Updated upstream
-  { label: 'Structured Talent Development', image: 'life-stat-talent.png' },
-  { label: '24+ Annual Training Hours', image: 'life-stat-training.png' },
-  { label: 'Leadership Development', image: 'life-stat-leadership.png' },
-=======
   {
     id: 'talent-dev',
     label: 'Structured Talent Development',
@@ -29,16 +25,14 @@ const STATS = [
     image: 'life-stat-leadership.png',
     description: 'Targeted programs to build strategic, self-aware, and execution-focused leaders.',
   },
->>>>>>> Stashed changes
 ];
 
 const WORKDAY_TABS = [
   {
-    label: 'Granules Family Fest',
-    title: 'Granules Family Fest',
+    id: 'family-fest',
+    tabLabel: 'Granules Family Fest',
+    title: 'GRANULES FAMILY FEST',
     desc: 'An annual celebration that brings together employees and their families for cultural activities and fun.',
-<<<<<<< Updated upstream
-=======
     image: 'beyond-workday-bg.png',
   },
   {
@@ -54,10 +48,7 @@ const WORKDAY_TABS = [
     title: "WOMEN'S DAY CELEBRATIONS",
     desc: 'Acknowledging the achievements of women across the organization through events, awards, and conversations.',
     image: 'panel-people-first.png',
->>>>>>> Stashed changes
   },
-  { label: 'Sports Fest and 5K Run' },
-  { label: "Women's day Celebrations" },
 ];
 
 const PEOPLE_SLIDES = [
@@ -79,20 +70,47 @@ const PEOPLE_SLIDES = [
 ];
 
 const TESTIMONIALS = [
-  { name: 'Swathi Marella', role: 'Deputy General Manager, Regulatory Affairs', image: 'testimonial-swathi.png' },
-  { name: 'Ch Laxmana Rao', role: 'General Manager, QA', image: null },
-  { name: 'Pavani Veeramalla', role: 'Manager, QA', image: 'testimonial-pavani.png' },
-  { name: 'Khaleel Shaik', role: 'Vice President – Marketing', image: 'testimonial-khaleel.png' },
+  {
+    id: 'laxmana',
+    name: 'Ch Laxmana Rao',
+    role: 'GENERAL MANAGER, QA',
+    image: 'testimonial-laxmana.png',
+    quote: 'Granules is like a school — I’ve learned across functions and grown fast. The work culture and freedom keep me refreshed every day.',
+  },
+  {
+    id: 'pavani',
+    name: 'Pavani Veeramalla',
+    role: 'MANAGER, QA',
+    image: 'testimonial-pavani.png',
+    quote: 'Granules supported my transitions across roles and geographies, always considering my personal situation. If you’re joining, come with an open mind—your efforts will be valued, and there’s real room to grow.',
+  },
+  {
+    id: 'khaleel',
+    name: 'Khaleel Shaik',
+    role: 'VICE PRESIDENT – MARKETING',
+    image: 'testimonial-khaleel.png',
+    quote: 'Granules fosters a culture of continuous learning. Every role challenged me, offered cross-geography collaboration, and helped me grow with hands-on experience across the business.',
+  },
+  {
+    id: 'swathi',
+    name: 'Swathi Marella',
+    role: 'DEPUTY GENERAL MANAGER, REGULATORY AFFAIRS',
+    image: 'testimonial-swathi.png',
+    quote: 'My 6+ years at Granules have been the most rewarding. It’s the right place to implement ideas and feel truly recognised. Very proud to be part of the Granules family.',
+  },
+];
+
+// Duplicate items for infinite seamless auto-scrolling marquee
+const MARQUEE_TESTIMONIALS = [
+  ...TESTIMONIALS.map((t, i) => ({ ...t, key: `set1-${i}` })),
+  ...TESTIMONIALS.map((t, i) => ({ ...t, key: `set2-${i}` })),
+  ...TESTIMONIALS.map((t, i) => ({ ...t, key: `set3-${i}` })),
 ];
 
 export default function LifeAtGranulesPage() {
   const [workdayTab, setWorkdayTab] = useState(0);
-<<<<<<< Updated upstream
-  const active = WORKDAY_TABS[workdayTab].title ? WORKDAY_TABS[workdayTab] : WORKDAY_TABS[0];
-=======
   const [activeCardKey, setActiveCardKey] = useState<string | null>(null);
   const [peopleIdx, setPeopleIdx] = useState(0);
->>>>>>> Stashed changes
 
   useEffect(() => {
     document.title = 'Life at Granules | Culture, Growth & Opportunities in Pharma';
@@ -110,8 +128,6 @@ export default function LifeAtGranulesPage() {
     window.scrollTo(0, 0);
   }, []);
 
-<<<<<<< Updated upstream
-=======
   useEffect(() => {
     const timer = setInterval(() => {
       setPeopleIdx((prev) => (prev + 1) % PEOPLE_SLIDES.length);
@@ -123,12 +139,11 @@ export default function LifeAtGranulesPage() {
     setActiveCardKey((prev) => (prev === key ? null : key));
   };
 
->>>>>>> Stashed changes
   return (
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <span>Homepage</span>
         <span className="sep">{'>'}</span>
         <span className="current">Life at Granules</span>
@@ -160,25 +175,18 @@ export default function LifeAtGranulesPage() {
         </div>
       </div>
 
-      <div className="car-why-head" style={{ width: 'min(1464px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 100px) auto 0' }}>
+      {/* Talent Management and Growth matching Image 3 */}
+      <div className="car-why-head" style={{ width: 'min(1464px, calc(100% - 3.2rem))', maxWidth: 1464, margin: 'clamp(60px, 8vw, 100px) auto clamp(30px, 4vw, 44px)' }}>
         <div className="car-why-copy">
           <span className="car-why-tag">Empowering Your Growth</span>
           <h2>Talent management and growth</h2>
           <p>We invest in building a capable, resilient, and future-ready workforce through</p>
         </div>
-        <a className="car-cta-btn" href="/#footer">Explore Current Openings</a>
+        <Link className="car-cta-btn" to="/careers/opportunities">Explore Current Openings</Link>
       </div>
 
-      <div className="car-stats">
+      <div className="car-stats-grid">
         {STATS.map((stat) => (
-<<<<<<< Updated upstream
-          <div className="car-stat-card" key={stat.label}>
-            <img className="photo" src={`${A}${stat.image}`} alt="" />
-            <div className="car-stat-bar">
-              <p>{stat.label}</p>
-              <div className="car-stat-icon">
-                <img src={`${A}icon-card-arrow.svg`} alt="" />
-=======
           <div className="car-stat-drawer-card" key={stat.id}>
             <div className="car-stat-img-wrap">
               <img src={`${A}${stat.image}`} alt={stat.label} />
@@ -206,31 +214,12 @@ export default function LifeAtGranulesPage() {
               <div className="car-stat-sheet-body">
                 <p className="car-stat-sheet-desc">{stat.description}</p>
                 <div className="car-stat-sheet-badge">{stat.label}</div>
->>>>>>> Stashed changes
               </div>
             </div>
           </div>
         ))}
       </div>
 
-<<<<<<< Updated upstream
-      <div className="car-workday">
-        <img className="bg" src={`${A}beyond-workday-bg.png`} alt="Granules Family Fest celebration" />
-        <div className="overlay" />
-        <div className="car-workday-inner">
-          <div className="car-workday-head">
-            <h2>Beyond the workday</h2>
-            <p>
-              Strong teams are built on shared experiences, not just shared tasks. Our flagship
-              engagement events across Hyderabad and Vishakhapatnam celebrate connection, energy,
-              and belonging.
-            </p>
-          </div>
-          {active.title && (
-            <div className="car-workday-active">
-              <p className="label">{active.title}</p>
-              <p className="desc">{active.desc}</p>
-=======
       {/* Beyond the Workday Banner matching Image 2 */}
       <div className="car-workday-lede">
         <p>
@@ -249,39 +238,56 @@ export default function LifeAtGranulesPage() {
             >
               <img className="bg" src={`${A}${tab.image}`} alt={tab.title} />
               <div className="overlay" />
->>>>>>> Stashed changes
             </div>
-          )}
-        </div>
-        <div className="car-workday-tabs">
-          {WORKDAY_TABS.map((tab, index) => (
-            <button
-              key={tab.label}
-              type="button"
-              className={`car-workday-tab${index === workdayTab ? ' active' : ''}`}
-              onClick={() => setWorkdayTab(index)}
-            >
-              {tab.label}
-              <img src={`${A}icon-plus-small.svg`} alt="" style={index === workdayTab ? { filter: 'invert(1)' } : undefined} />
-            </button>
           ))}
+
+          <h2 className="car-workday-top-title">Beyond the workday</h2>
+
+          <div className="car-workday-story" key={workdayTab}>
+            <h3>{WORKDAY_TABS[workdayTab].title}</h3>
+            <p>{WORKDAY_TABS[workdayTab].desc}</p>
+          </div>
+
+          <button
+            type="button"
+            className="car-workday-arrow prev"
+            onClick={() => setWorkdayTab((prev) => (prev === 0 ? WORKDAY_TABS.length - 1 : prev - 1))}
+            aria-label="Previous fest slide"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            className="car-workday-arrow next"
+            onClick={() => setWorkdayTab((prev) => (prev + 1) % WORKDAY_TABS.length)}
+            aria-label="Next fest slide"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+
+          <div className="car-workday-pill-tabs">
+            {WORKDAY_TABS.map((tab, index) => (
+              <button
+                key={tab.id}
+                type="button"
+                className={`car-workday-pill-tab ${index === workdayTab ? 'active' : ''}`}
+                onClick={() => setWorkdayTab(index)}
+              >
+                <span>{tab.tabLabel}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-<<<<<<< Updated upstream
-      <div className="car-testimonials">
-        <h2>Voices from Granules</h2>
-        <div className="car-testimonial-track">
-          {TESTIMONIALS.map((t) => (
-            <div className="car-testimonial-card" key={t.name}>
-              <div className="car-testimonial-photo">
-                {t.image && <img src={`${A}${t.image}`} alt={t.name} />}
-              </div>
-              <div className="car-testimonial-foot">
-                <div>
-                  <p className="name">{t.name}</p>
-                  <p className="role">{t.role}</p>
-=======
       <div className="car-workday-cta-row">
         <Link className="car-cta-btn" to="/careers/opportunities">Explore Current Openings &rarr;</Link>
       </div>
@@ -392,14 +398,10 @@ export default function LifeAtGranulesPage() {
                       </span>
                     </div>
                   </div>
->>>>>>> Stashed changes
                 </div>
-                <div className="car-testimonial-add">
-                  <img src={`${A}icon-plus-round.svg`} alt="" />
-                </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -413,14 +415,10 @@ export default function LifeAtGranulesPage() {
             your growth is the goal.
           </p>
         </div>
-<<<<<<< Updated upstream
-        <a className="car-cta-btn" href="/#footer">Apply now</a>
-=======
         <div className="car-cta-btn-row">
           <Link className="car-cta-apply-btn" to="/careers">Careers Overview &rarr;</Link>
           <Link className="car-cta-apply-btn" to="/careers/opportunities">Discover Roles and Apply &rarr;</Link>
         </div>
->>>>>>> Stashed changes
       </div>
 
       <CompanyFooter />

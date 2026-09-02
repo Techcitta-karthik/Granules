@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-import { useEffect } from 'react';
-=======
 import { useEffect, useState } from 'react';
->>>>>>> Stashed changes
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
@@ -10,16 +6,6 @@ import './career.css';
 
 const A = '/assets/career/';
 
-<<<<<<< Updated upstream
-const FILTERS = ['Designation', 'Department', 'Level', 'location'];
-
-const JOBS = [
-  { title: 'Analyst', dept: 'Regulatory affairs', exp: '3+ Year', location: 'Hyderabad, India' },
-  { title: 'Analyst', dept: 'Formulation Analytical R&D', exp: '3+ Year', location: 'Hyderabad, India' },
-];
-
-export default function CareerOpportunitiesPage() {
-=======
 const CAREERS_EMAIL = 'careers@granulesindia.com';
 
 interface JobRole {
@@ -52,7 +38,6 @@ const openRoles: JobRole[] = [
 export default function CareerOpportunitiesPage() {
   const [selectedJob, setSelectedJob] = useState<JobRole | null>(null);
 
->>>>>>> Stashed changes
   useEffect(() => {
     document.title = 'Current Openings at Granules | Careers in Pharma & Healthcare Innovation';
 
@@ -73,72 +58,18 @@ export default function CareerOpportunitiesPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <span>Homepage</span>
         <span className="sep">{'>'}</span>
         <span className="current">Career Opportunities</span>
       </p>
-<<<<<<< Updated upstream
-      <h1 className="cp-page-title">Career opportunities</h1>
-=======
       <h1 className="cp-page-title">Explore Career Opportunities</h1>
->>>>>>> Stashed changes
 
       <div className="car-hero-photo">
-        <img src={`${A}hero-photo.png`} alt="Granules India employees in a lab setting" />
+        <img src={`${A}hero-photo.png`} alt="Granules India employees in a modern pharmaceutical facility" />
         <div className="overlay" />
       </div>
 
-<<<<<<< Updated upstream
-      <div className="car-intro-row" style={{ justifyContent: 'flex-start' }}>
-        <div className="car-intro-copy" style={{ maxWidth: 1184 }}>
-          <p className="lede">
-            Every role at Granules contributes to improving the quality of lives globally.
-            Whether you&rsquo;re launching your career or <span className="muted">looking for your next challenge, you&rsquo;ll work with a team driven by innovation, science, and purpose.</span>
-          </p>
-        </div>
-      </div>
-
-      <div className="car-filters">
-        <div className="car-filter-search">
-          <img src={`${A}icon-search.svg`} alt="" />
-          <span>Search</span>
-        </div>
-        {FILTERS.map((label) => (
-          <div className="car-filter-pill" key={label}>
-            <span>{label}</span>
-            <img src={`${A}icon-dropdown.svg`} alt="" />
-          </div>
-        ))}
-      </div>
-
-      <div className="car-jobs">
-        {JOBS.map((job, i) => (
-          <div className="car-job-row" key={i}>
-            <div className="car-job-info">
-              <span>{job.title}</span>
-              <span>{job.dept}</span>
-              <span>{job.exp}</span>
-              <span>{job.location}</span>
-            </div>
-            <a className="car-cta-btn" href="/#footer">Apply now</a>
-          </div>
-        ))}
-      </div>
-
-      <div className="car-pagination" style={{ marginTop: 40 }}>
-        <button type="button" className="car-page-btn nav" aria-label="Previous page">
-          <img src={`${A}pagination-left.svg`} alt="" />
-        </button>
-        {['01', '02', '....', '08'].map((p, i) => (
-          <button type="button" key={p} className={`car-page-btn${i === 0 ? ' active' : ''}`}>{p}</button>
-        ))}
-        <button type="button" className="car-page-btn nav" aria-label="Next page">
-          <img src={`${A}pagination-right.svg`} alt="" />
-        </button>
-      </div>
-
-=======
       <div className="car-opp-container">
         <div className="car-opp-intro">
           <h2>Careers that make an impact</h2>
@@ -170,7 +101,6 @@ export default function CareerOpportunitiesPage() {
       </div>
 
       {/* Still exploring CTA - shared markup/CSS with CareerOverviewPage and LifeAtGranulesPage */}
->>>>>>> Stashed changes
       <div className="car-cta-photo">
         <img className="bg" src={`${A}cta-bg.png`} alt="" />
         <div className="overlay" />
@@ -181,11 +111,6 @@ export default function CareerOpportunitiesPage() {
             contribute, and grow.
           </p>
         </div>
-<<<<<<< Updated upstream
-        <Link className="car-cta-btn" to="/careers/life-at-granules">Life at granules</Link>
-      </div>
-
-=======
         <Link className="car-cta-apply-btn" to="/careers/life-at-granules">
           Learn More About Life at Granules &rarr;
         </Link>
@@ -255,7 +180,6 @@ export default function CareerOpportunitiesPage() {
         </div>
       )}
 
->>>>>>> Stashed changes
       <CompanyFooter />
     </div>
   );
