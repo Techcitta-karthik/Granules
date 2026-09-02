@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { asset } from './constants';
 
 export default function CareerSection() {
@@ -8,11 +9,11 @@ export default function CareerSection() {
       <div className="cp-career-copy">
         <h2>Discover our growth story</h2>
         <p>
-          Explore the milestones and achievements that shaped Granules into a trusted name in
-          global pharma manufacturing.
+          Explore the milestones that shaped Granules into a trusted name in global pharma
+          manufacturing.
         </p>
       </div>
-      <a className="cp-cta-btn" href="/#footer">View Milestones</a>
+      <Link className="cp-cta-btn" to="/company/milestone">View Milestones</Link>
     </div>
   );
 }

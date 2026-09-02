@@ -27,6 +27,15 @@ const CAPABILITY_CARDS: CapabilityCard[] = [
   },
 ];
 
+const RESPONSIBILITY_ITEMS = [
+  'Sustainable design',
+  'Energy-efficient systems',
+  'Advanced safety protocols',
+  'GMP-compliant infrastructure',
+  'Advanced automation',
+  'Digital oversight',
+];
+
 export default function GranulesLifeSciencesPage() {
   const {
     swipeProps,
@@ -40,7 +49,18 @@ export default function GranulesLifeSciencesPage() {
   const [openCard, setOpenCard] = useState(-1);
 
   useEffect(() => {
-    document.title = 'Granules Life Sciences — Granules India';
+    document.title = 'Granules Life Sciences | Pharmaceutical Manufacturing in India';
+
+    const descriptionContent =
+      'A state-of-the-art pharmaceutical manufacturing facility in Genome Valley, Hyderabad, with GMP compliance, automation, and sustainable design.';
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', descriptionContent);
+
     window.scrollTo(0, 0);
   }, []);
 
@@ -58,29 +78,33 @@ export default function GranulesLifeSciencesPage() {
       <h1 className="cp-page-title">Granules Life Sciences</h1>
       <div className="cp-hero-banner">
         <img src={`${G}hero-banner.png`} alt="Granules Life Sciences facility" />
+        <div className="gls-hero-scrim" />
+        <div className="gls-hero-overlay">
+          <h2 className="gls-hero-heading">Engineered for the Future of Oral Solid Dosage Manufacturing</h2>
+        </div>
       </div>
 
       <div className="gls-intro">
         <p>
-          <span>Granules Life Sciences (GLS) is a wholly owned subsidiary of Granules India, located in Genome Valley, Hyderabad. GLS is a state-of-the-art vertically integrated manufacturing facility capable of producing 10 billion oral solid dosage (OSD) units annually, </span>
-          <span className="muted">approved by the USFDA and with EU GMP certification underway.</span>
+          <span>Granules Life Sciences (GLS) is a wholly owned subsidiary of Granules India, located in Genome Valley, Hyderabad. GLS is a state-of-the-art vertically integrated manufacturing facility capable of producing <strong>10 billion oral solid dosage (OSD) units annually</strong>, </span>
+          <span className="muted">approved by the USFDA, with EU GMP certification underway.</span>
         </p>
         <p>
-          Strategically designed layout in five acres of land to produce 10 billion oral solid
-          dosages/annum with additional 14 acres of land reserved for future expansion—ensuring we
-          are equipped to meet growing global demand with speed, flexibility, and compliance. With
-          advanced automation, GMP-compliant infrastructure, and green manufacturing systems at
-          its core, GLS is built for precision, reliability, and sustained growth.
+          The facility is strategically designed across <strong>five acres of land</strong> to produce
+          10 billion oral solid dosages per annum, with an additional <strong>14 acres reserved for
+          future expansion</strong>. The facility is designed to meet growing global demand with speed,
+          flexibility, and compliance. Advanced automation, GMP-compliant infrastructure, and green
+          manufacturing systems support precision, reliability, and sustained growth.
         </p>
       </div>
 
       <div className="gls-section">
         <div className="gls-section-head">
           <span className="cp-section-badge">Operational Excellence</span>
-          <h2>High-performance formulation manufacturing</h2>
+          <h2>High-Performance Formulation Manufacturing</h2>
           <p>
-            With automated production lines, lean process design, and digital oversight, we
-            deliver consistent quality with high throughput and shorter lead time for supplies
+            With automated production lines, lean process design, and digital oversight, GLS
+            delivers consistent quality with high throughput and shorter lead times for supplies
             into regulated markets.
           </p>
         </div>
@@ -153,11 +177,24 @@ export default function GranulesLifeSciencesPage() {
         <div className="gls-culture-inner">
           <h3>Future-ready and responsible</h3>
           <div className="gls-culture-card">
+            <p>Built for long-term responsibility, the site integrates:</p>
+            <div className="gls-culture-list">
+              {RESPONSIBILITY_ITEMS.map((item) => (
+                <div className="gls-culture-list-item" key={item}>
+                  <span className="gls-culture-bullet">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5">
+                      <circle cx="12" cy="12" r="9" />
+                      <circle cx="12" cy="12" r="4" fill="#0061f8" />
+                    </svg>
+                  </span>
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
             <p>
-              Built for long-term responsibility, the site integrates sustainable design,
-              energy-efficient systems, and advanced safety protocols, ensuring operational
-              excellence without compromising environmental or workforce safety standards. GLS
-              reflects our commitment to building a future-ready pharmaceutical supply chain.
+              GLS is designed to support operational excellence while maintaining environmental
+              and workforce safety standards and reflects Granules&rsquo; commitment to building a
+              future-ready pharmaceutical supply chain.
             </p>
           </div>
         </div>
@@ -167,13 +204,13 @@ export default function GranulesLifeSciencesPage() {
         <img className="bg" src={`${G}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="gls-cta-copy">
-          <h2>Advanced technologies for complex formulations</h2>
+          <h2>Explore Our Finished Dosages Capabilities</h2>
           <p>
-            From immediate to modified release, our advanced technologies drive precision,
-            patient compliance, and formulation innovation.
+            Driving formulation-led growth through innovation, integration, and customer focus
+            across global finished dosage operations.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/#business">Finished Dosages</a>
+        <a className="cp-cta-btn" href="/business/fd">Finished Dosages</a>
       </div>
 
       <CompanyFooter />

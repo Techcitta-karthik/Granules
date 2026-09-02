@@ -4,7 +4,8 @@
 
 /* ---------- Hero ---------- */
 .inv-hero {
-  width: min(1828px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(30px, 4vw, 46px) auto 0;
   border-radius: 40px;
   background: rgba(0, 97, 248, 0.06);
@@ -27,7 +28,8 @@
 
 /* ---------- Stock card ---------- */
 .inv-stock-wrap {
-  width: min(1828px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: -140px auto 0;
   display: flex;
   justify-content: flex-end;
@@ -130,7 +132,8 @@
 
 /* ---------- Why Invest Section ---------- */
 .inv-why {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(60px, 8vw, 100px) auto 0;
 }
 
@@ -151,7 +154,8 @@
 
 /* ---------- Key Reasons Carousel ---------- */
 .inv-reasons {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(40px, 5vw, 60px) auto 0;
   position: relative;
 }
@@ -429,7 +433,8 @@
 }
 
 .inv-quarterly-card {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -551,7 +556,8 @@
 }
 
 .inv-data-tabs {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -601,7 +607,8 @@
 }
 
 .inv-data-list {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: 14px auto 0;
   display: flex;
   flex-direction: column;
@@ -669,7 +676,8 @@
 
 /* ---------- Contact CTA ---------- */
 .inv-contact-cta {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(80px, 10vw, 120px) auto 0;
   border-radius: 40px;
   padding: 60px;
@@ -759,7 +767,8 @@
 }
 
 .inv-detail-list {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: 0 auto;
 }
 
@@ -824,7 +833,8 @@
   font: 700 16px/1.2 'Manrope', sans-serif;
   text-transform: uppercase;
   text-decoration: none;
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   transition: all 0.25s ease;
 }
 
@@ -835,7 +845,8 @@
 }
 
 .inv-detail-back-wrap {
-  width: min(1464px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: 0 auto;
   display: flex;
 }

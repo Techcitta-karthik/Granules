@@ -7,7 +7,8 @@
    1. HERO BANNER
    -------------------------------------------------------------------------- */
 .med-hero {
-  width: min(1828px, 100% - 3.2rem);
+  width: 85% !important;
+  max-width: 85% !important;
   margin: clamp(30px, 4vw, 46px) auto 0;
   border-radius: 40px;
   background: rgba(0, 97, 248, 0.06);
@@ -34,6 +35,16 @@
    2. TABS & YEAR FILTER
    Controls switching between "In the News" and "Press release".
    -------------------------------------------------------------------------- */
+<<<<<<< Updated upstream
+=======
+.med-tabs-container {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(48px, 6vw, 76px) auto 0;
+  position: relative;
+}
+
+>>>>>>> Stashed changes
 .med-tabs-row {
   width: min(1010px, 100% - 3.2rem);
   margin: 64px auto 0;
@@ -128,8 +139,14 @@
    Matches target design with refined font sizing, tags, and button alignment.
    -------------------------------------------------------------------------- */
 .med-news-list {
+<<<<<<< Updated upstream
   width: min(1010px, 100% - 3.2rem);
   margin: 36px auto 0;
+=======
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 16px auto 0;
+>>>>>>> Stashed changes
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -242,8 +259,14 @@
    4. PAGINATION
    -------------------------------------------------------------------------- */
 .med-pagination {
+<<<<<<< Updated upstream
   width: min(1010px, 100% - 3.2rem);
   margin: 40px auto 0;
+=======
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 48px auto 0;
+>>>>>>> Stashed changes
   display: flex;
   gap: 12px;
   align-items: center;
@@ -297,6 +320,22 @@
   overflow: hidden;
 }
 
+<<<<<<< Updated upstream
+=======
+.med-report-card {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 4.5vw, 64px);
+  align-items: end;
+  padding: clamp(60px, 6.5vw, 96px) 0 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+>>>>>>> Stashed changes
 .med-report-copy {
   flex: 1 1 380px;
   max-width: 620px;
@@ -342,7 +381,12 @@
    6. MEDIA KIT SECTION
    -------------------------------------------------------------------------- */
 .med-kit {
+<<<<<<< Updated upstream
   width: min(1465px, 100% - 3.2rem);
+=======
+  width: 85% !important;
+  max-width: 85% !important;
+>>>>>>> Stashed changes
   margin: clamp(80px, 10vw, 120px) auto 0;
   display: flex;
   flex-direction: column;
@@ -421,7 +465,12 @@
    7. SOCIAL MEDIA FOLLOW BANNER
    -------------------------------------------------------------------------- */
 .med-follow {
+<<<<<<< Updated upstream
   width: min(1464px, 100% - 3.2rem);
+=======
+  width: 85% !important;
+  max-width: 85% !important;
+>>>>>>> Stashed changes
   margin: clamp(80px, 10vw, 120px) auto 0;
   display: flex;
   align-items: center;

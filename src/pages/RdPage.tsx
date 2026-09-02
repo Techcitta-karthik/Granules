@@ -24,12 +24,12 @@ type TabData = {
 
 const CENTER_TABS_DATA: TabData[] = [
   {
-    name: 'Integrated Product Development',
+    name: 'India R&D Centres',
     slides: [
       {
         index: '01 / 02',
-        title: 'GENOME VALLEY R&D,\nHYDERABAD',
-        desc: 'State-of-the-art facility spanning APIs and Finished Dosages with focus on oncology and complex generics.',
+        title: 'GENOME VALLEY R&D,\nTELANGANA',
+        desc: 'Integrated Product Development for APIs and Finished Dosages.',
         image: 'hero-banner.png',
         needClarity: true,
         ctaText: 'KNOW MORE',
@@ -37,66 +37,102 @@ const CENTER_TABS_DATA: TabData[] = [
       },
       {
         index: '02 / 02',
-        title: 'GAGILLAPUR R&D,\nTELANGANA',
-        desc: 'Formulation development & PFI innovation center for advanced solid oral dosage delivery.',
-        image: 'capabilities-bg.png',
-        needClarity: true,
-        ctaText: 'KNOW MORE',
-        ctaHref: '/business/rd',
-      },
-    ],
-  },
-  {
-    name: 'Controlled Substances',
-    slides: [
-      {
-        index: '01 / 02',
         title: 'PRAGATHI NAGAR R&D,\nTELANGANA',
-        points: [
-          'Centre of Excellence for CII API development',
-          'Focus on select KSMs',
-        ],
+        desc: 'Centre of Excellence for Complex FD, CII API development, KSMs, and Bio Lab (enzymes & fermentation).',
         image: 'centers-bg.png',
         needClarity: true,
         ctaText: 'KNOW MORE',
         ctaHref: '/business/rd',
       },
+    ],
+  },
+  {
+    name: 'Global R&D Centres',
+    slides: [
       {
-        index: '02 / 02',
-        title: 'GPI R&D',
-        points: [
-          'Develops complex finished dosages under CII.',
-          'Specialized in high-barrier technologies for differentiated formulations.',
-        ],
+        index: '01 / 02',
+        title: 'VIRGINIA R&D,\nUSA',
+        desc: 'US-specific complex FD design, controlled substances and clinical support.',
         image: null,
         needClarity: true,
         ctaText: 'KNOW MORE',
-        ctaHref: '/business/rd',
+        ctaHref: '/business/fd',
+      },
+      {
+        index: '02 / 02',
+        title: 'SENN CHEMICALS,\nSWITZERLAND',
+        desc: 'Peptide & CDMO innovation — decades of peptide synthesis expertise.',
+        image: 'capabilities-bg.png',
+        needClarity: true,
+        ctaText: 'KNOW MORE',
+        ctaHref: '/business/peptides',
       },
     ],
   },
   {
-    name: 'New Technologies',
+    name: 'New Technology Platforms',
     slides: [
       {
-        index: '01 / 02',
-        title: 'BIO LAB AT PRAGATHI\nNAGAR, TELANGANA',
-        desc: 'Focused on enzyme and fermentation capabilities to enable novel product pathways.',
-        image: null,
-        needClarity: true,
-        ctaText: 'KNOW MORE',
-        ctaHref: '/business/rd',
-      },
-      {
-        index: '02 / 02',
-        title: 'PUNE R&D',
+        index: '01 / 01',
+        title: 'PUNE R&D,\nMAHARASHTRA',
         desc: 'Developing new technology platforms with a focus on KSM innovation and backward integration.',
         image: null,
         needClarity: true,
         ctaText: 'KNOW MORE',
-        ctaHref: '/business/rd',
+        ctaHref: '/business/api',
       },
     ],
+  },
+];
+
+type InfoItem = {
+  title: string;
+  body: string;
+};
+
+const STRATEGIC_PRIORITIES: InfoItem[] = [
+  {
+    title: 'Strengthen Scientific Capabilities',
+    body: 'Strengthen Scientific Capabilities to deepen expertise across chemistry, formulation and process sciences.',
+  },
+  {
+    title: 'Building a differentiated product pipeline',
+    body: 'Building a differentiated product pipeline focused on complex generics, oncology, CNS and peptides.',
+  },
+  {
+    title: 'Accelerate product development',
+    body: 'Accelerate product development to reduce time-to-market through integrated development and digital tools.',
+  },
+  {
+    title: 'Advance future-ready technologies',
+    body: 'Advance future-ready technologies through biocatalysis, particle engineering, peptides and digital R&D.',
+  },
+];
+
+const TECH_ITEMS: InfoItem[] = [
+  {
+    title: 'Electronic Lab Notebooks (ELN)',
+    body: 'Electronic Lab Notebooks (ELN) for structured, traceable and searchable capture of experimental data.',
+  },
+  {
+    title: 'Design of Experiments (DoE) Software',
+    body: 'Design of Experiments (DoE) Software enabling efficient exploration of critical formulation and process variables.',
+  },
+  {
+    title: 'Process Analytical Technology (PAT)',
+    body: 'Process Analytical Technology (PAT) for real-time monitoring and control of critical process parameters for Quality by Design (QbD).',
+  },
+  {
+    title: 'AI/ML-Assisted Formulation Development',
+    body: 'AI/ML-Assisted Formulation Development to accelerate design decisions across complex formulations and process chemistry.',
+  },
+  {
+    title: 'Predictive Dissolution Modelling',
+    body: 'Predictive Dissolution Modelling reducing development risk through in-silico prediction of in-vitro and in-vivo outcomes.',
+  },
+  {
+    title: 'Electronic CMC Documentation Systems',
+    body: 'Electronic CMC Documentation Systems supporting faster, more consistent regulatory dossier preparation.',
   },
 ];
 
@@ -147,7 +183,7 @@ const GREEN_CARDS: GreenCard[] = [
     image: 'card-synthesis.png',
   },
   {
-    title: 'BIOCATALYSIS & NOVEL PLATFORMS',
+    title: 'BIOCATALYSIS',
     body: 'Cleaner transformations with fewer by-products',
     image: 'card-biocatalysis.png',
   },
@@ -155,7 +191,7 @@ const GREEN_CARDS: GreenCard[] = [
 
 export default function RdPage() {
   const [openCapability, setOpenCapability] = useState<number>(0);
-  const [activeTabIndex, setActiveTabIndex] = useState<number>(1);
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -186,26 +222,43 @@ export default function RdPage() {
         <span className="sep">{'>'}</span>
         <span className="current">Research &amp; Development</span>
       </p>
-      <h1 className="cp-page-title">R&amp;D and innovation</h1>
+      <h1 className="cp-page-title">R&amp;D and Innovation</h1>
       <div className="cp-hero-banner">
         <img src={`${R}hero-banner.png`} alt="Granules R&D laboratory" />
+        <div className="rd-hero-scrim" />
+        <div className="rd-hero-overlay">
+          <h2 className="rd-hero-heading">Accelerating Innovation Through Integration and Digitalization</h2>
+        </div>
       </div>
 
       <div className="rd-intro">
         <p>
-          At Granules India, research and development drives our transformation into a vertically
-          integrated and diversified pharmaceutical company. Our comprehensive R&amp;D ecosystem
-          spanning APIs, PFIs, and FDs, enables us to deliver safe, effective, and affordable
-          healthcare solutions across regulated and emerging markets.
+          Our integrated R&amp;D ecosystem, spanning APIs, PFIs, Finished Dosages and Peptide
+          CDMO, enables us to deliver safe, effective and affordable healthcare solutions
+          worldwide.
         </p>
         <p>
-          With over 400 scientists across four global R&amp;D centres, we specialise in
-          cost-efficient, regulatory-compliant, and commercially scalable product development.{' '}
-          <span className="muted">
-            Our efforts cover the entire pharmaceutical value chain, from chemical intermediates
-            and APIs to finished dosages&mdash;designed for speed, quality, and global alignment.
-          </span>
+          Granules R&amp;D is powering the transformation of a legacy-scale generics company into
+          a differentiated, science-led global pharmaceutical platform &mdash; advancing complex
+          generics, oncology, CNS/ADHD, peptides and next-generation drug delivery through a
+          global network of six specialised research centres. Our R&amp;D strategy is designed to
+          strengthen these capabilities while supporting long-term growth through a diversified
+          and differentiated product portfolio.
         </p>
+      </div>
+
+      {/* R&D Strategic Priorities */}
+      <div className="rd-priorities">
+        <h2>R&amp;D Strategic Priorities</h2>
+        <div className="rd-priorities-grid">
+          {STRATEGIC_PRIORITIES.map((item, i) => (
+            <div className="rd-info-card" key={item.title}>
+              <span className="rd-info-index">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* R&D Centers Interactive Section */}
@@ -249,7 +302,7 @@ export default function RdPage() {
           <div className="rd-centers-top-row">
             <div>
               <span className="rd-center-badge">R&amp;D Center</span>
-              <h2>Revolutionizing global manufacturing</h2>
+              <h2>Our Global R&amp;D Network</h2>
             </div>
             {currentSlide.needClarity && (
               <div className="rd-clarity-badge">
@@ -302,6 +355,35 @@ export default function RdPage() {
                 <path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="rd-iit-note">
+        <span className="rd-iit-badge">Also</span>
+        <p>
+          Two Strategic Centres of Excellence at <strong>IIT Hyderabad, Telangana</strong>,
+          focused on Peptide Development and Particle Engineering.
+        </p>
+      </div>
+
+      {/* Innovation Enabled by Technology */}
+      <div className="rd-tech">
+        <div className="rd-tech-head">
+          <h2>Innovation Enabled by Technology</h2>
+          <p>
+            We are actively deploying a range of digital tools to support our integrated
+            development platform with a more connected, efficient and future-ready innovation
+            ecosystem.
+          </p>
+        </div>
+        <div className="rd-tech-grid">
+          {TECH_ITEMS.map((item, i) => (
+            <div className="rd-info-card" key={item.title}>
+              <span className="rd-info-index">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -393,17 +475,31 @@ export default function RdPage() {
         </span>
       </p>
 
+      {/* Built for Global Quality and Compliance */}
+      <div className="biz-section-head rd-quality-head">
+        <div className="copy">
+          <h2>Built for Global Quality and Compliance</h2>
+          <p>
+            We maintain a strong regulatory track record, driven by a culture of quality
+            that&rsquo;s embedded across every phase of our R&amp;D journey. From initial product
+            design and development, through early-stage safety and toxicology evaluations, to
+            clinical alignment and global regulatory submissions, our processes are built to meet
+            the highest standards of compliance, reliability, and global readiness.
+          </p>
+        </div>
+      </div>
+
       <div className="rd-cta">
         <img className="bg" src={`${R}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="rd-cta-copy">
-          <h2>Global manufacturing powerhouse</h2>
-          <p>
-            GMP-compliant facilities across India and the US enable consistent, high-quality,
-            large-scale production for global pharmaceutical partners.
-          </p>
+          <h2>Discover Our Innovation Platforms</h2>
+          <div className="rd-cta-links">
+            <a className="rd-know-more-btn" href="/business/api">API R&amp;D</a>
+            <a className="rd-know-more-btn" href="/business/fd">FD R&amp;D</a>
+            <a className="rd-know-more-btn" href="/business/peptides">Peptides</a>
+          </div>
         </div>
-        <a className="cp-cta-btn" href="/company/facilities">Facilities</a>
       </div>
 
       <CompanyFooter />

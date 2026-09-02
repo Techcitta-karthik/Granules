@@ -207,6 +207,39 @@
   z-index: 1;
 }
 
+/* Leadership CTA "box item" closing the timeline section */
+.ms-leadership {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(24px, 3vw, 40px) auto 0 !important;
+  border-radius: 40px;
+  padding: clamp(30px, 4vw, 60px);
+  background: #f3f8fe;
+  border: 1.5px solid rgba(0, 97, 248, 0.35);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.ms-leadership-copy {
+  max-width: 784px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ms-leadership-copy h2 {
+  margin: 0;
+  font: 600 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--n9);
+}
+.ms-leadership-copy p {
+  margin: 0;
+  font: 500 20px/1.3 'Manrope', sans-serif;
+  color: var(--n7);
+  letter-spacing: 0.2px;
+}
+
 @media (max-width: 900px) {
   .ms-stack-card {
     grid-template-columns: 1fr;

@@ -13,27 +13,27 @@ const CAPABILITIES: CapabilityCard[] = [
   {
     title: 'Green Molecules at the Core',
     image: 'card-green-molecules.png',
-    desc: 'Synthesizing green starting materials, bio-based chemicals, and near-zero carbon active pharmaceutical ingredients.',
+    desc: 'Producing vital chemicals like green hydrogen, ammonia, nitric acid, and methanol from renewable resources, water, air, and captured CO₂, replacing fossil fuel-based feedstocks.',
   },
   {
     title: '24/7 Carbon-Free Energy',
     image: 'card-carbon-free.png',
-    desc: 'Powered round-the-clock by dedicated renewable energy sources, energy storage systems, and zero-carbon grids.',
+    desc: 'Manufacturing operates entirely on renewable energy sourced from solar, wind, and pumped hydro storage, ensuring zero operational emissions.',
   },
   {
     title: 'Circular Economy by Design',
     image: 'card-circular-economy.png',
-    desc: 'Closed-loop manufacturing systems designed to recycle solvents, capture by-products, and eliminate chemical waste.',
+    desc: 'By reusing by-products and minimising waste, we close the loop on chemical manufacturing, reducing environmental impact and conserving resources. Leveraging the CZRO platform, we collaborate with suppliers to decarbonize these inputs and embed sustainability across the entire product lifecycle.',
   },
   {
     title: 'Vertically Integrated Manufacturing',
     image: 'card-vertically-integrated.png',
-    desc: 'End-to-end green supply chain resilience spanning starting materials, intermediates, and commercial formulation.',
+    desc: 'We produce APIs and their Key Starting Materials (KSMs) on-site, dramatically reducing reliance on external inputs and cutting Scope 3 emissions.',
   },
   {
     title: 'Advanced Technologies',
     image: 'card-advanced-tech.png',
-    desc: 'Deploying continuous flow chemistry, biocatalysis, and digital process optimization to minimize lifecycle emissions.',
+    desc: 'Utilising bio-catalysis and continuous flow systems, we enhance production efficiency while lowering energy consumption and carbon emissions.',
   },
 ];
 
@@ -46,8 +46,13 @@ const FACILITIES: FacilityItem[] = [
   },
   {
     title: 'Greenfield Facility in Kakinada',
-    body: 'A 100-acre Integrated Green Pharmaceutical Zone is being developed in Kakinada, Andhra Pradesh.',
-    tags: ['Use renewable energy', 'Create emissions-free APIs & KSMs', 'Reduce reliance on external resources', 'Meet decarbonisation goals'],
+    body: 'A 100-acre Integrated Green Pharmaceutical Zone (GPZ) is being developed in Kakinada, Andhra Pradesh.',
+    tags: [
+      'Operate on round-the-clock renewable energy',
+      'Produce APIs, intermediates, and KSMs without carbon emissions',
+      'Minimise reliance on external inputs and natural resources',
+      'Achieve Scope 1, 2, and 3 decarbonisation targets',
+    ],
   },
 ];
 
@@ -126,6 +131,10 @@ export default function GranulesCzroPage() {
       <div className="czro-hero-wrap">
         <div className="cp-hero-banner">
           <img src={`${C}hero-banner.png`} alt="Granules CZRO facility" />
+          <div className="czro-hero-scrim" />
+          <div className="czro-hero-overlay">
+            <h2 className="czro-hero-heading">Reimagining Pharma for a Carbon-Free Future</h2>
+          </div>
         </div>
         <span className="czro-badge">
           <img src={`${C}brandmark-1.svg`} alt="G-CZRO" />
@@ -136,12 +145,12 @@ export default function GranulesCzroPage() {
         <p>
           At Granules CZRO, we are reshaping how the world manufactures medicines. As a wholly
           owned subsidiary of Granules India, CZRO&rsquo;s mission is ambitious: achieve near-zero
-          <span className="muted"> emissions across the pharmaceutical value chain—from raw materials to finished APIs.</span>
+          <span className="muted"> emissions across the pharmaceutical value chain, from raw materials to finished APIs.</span>
         </p>
         <p>
           By combining cutting-edge green chemistry, 24/7 renewable energy, and circular
-          manufacturing principles, we are tackling the industry&rsquo;s toughest challenge—reducing
-          Scope 3 emissions, which account for over 80% of pharma&rsquo;s carbon footprint.
+          manufacturing principles, we are tackling the industry&rsquo;s toughest challenge of
+          reducing Scope 3 emissions, which account for over 80% of pharma&rsquo;s carbon footprint.
         </p>
       </div>
 
@@ -243,7 +252,7 @@ export default function GranulesCzroPage() {
             In partnership with Greenko, we are building India&rsquo;s first net-zero
             pharmaceutical zone that integrates renewable energy infrastructure, green molecule
             synthesis, and circular chemistry. This collaboration sets a new benchmark for
-            climate-conscious drug manufacturing designed in India, delivered to the world.
+            climate-conscious drug manufacturing that&rsquo;s designed in India, delivered to the world.
           </p>
         </div>
         <div className="czro-partnership-image">
@@ -256,13 +265,13 @@ export default function GranulesCzroPage() {
         <img className="bg" src={`${C}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="czro-cta-copy">
-          <h2>Driving impact beyond CZRO</h2>
+          <h2>Driving Impact Beyond CZRO</h2>
           <p>
-            Discover the strategy powering our transition to a net-zero, circular, and
+            Discover the strategy powering the transition to a net-zero, circular, and
             future-ready pharmaceutical ecosystem.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/#sustainability">Sustainability</a>
+        <a className="cp-cta-btn" href="/sustainability/strategy">Sustainability Strategy</a>
       </div>
 
       <CompanyFooter />

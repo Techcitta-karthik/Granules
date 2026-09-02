@@ -5,12 +5,20 @@ import './qc.css';
 
 const Q = '/assets/qc/';
 
-type Story = { title: string; body: string; image: string; reverse?: boolean };
+type Highlight = { value: string; label: string };
+type Story = {
+  title: string;
+  body: string;
+  image: string;
+  reverse?: boolean;
+  highlights?: Highlight[];
+};
+type Certification = { name: string; category: string; image: string };
 
 const STORIES: Story[] = [
   {
     title: 'Quality Systems that Deliver Confidence',
-    body: 'From molecule to market, our digital-first, risk-based Quality Management System (QMS) ensures consistent, compliant, and audit-ready operations worldwide. Designed to scale rapidly and meet the most rigorous global standards, our integrated QMS goes beyond compliance—it’s a competitive advantage built on trust, transparency, and relentless pursuit of excellence. We also integrate environmental responsibility and safety-first practices, ensuring sustainability coexists seamlessly with quality at every stage.',
+    body: 'From molecule to market, our digital-first, risk-based Quality Management System (QMS) ensures consistent, compliant, and audit-ready operations worldwide. Designed to scale rapidly and meet the most rigorous global standards, our integrated QMS goes beyond compliance to become a competitive advantage built on trust, transparency, and pursuit of excellence. We also integrate environmental responsibility and safety-first practices, ensuring sustainability coexists seamlessly with quality at every stage.',
     image: 'story-confidence.png',
   },
   {
@@ -25,11 +33,22 @@ const STORIES: Story[] = [
     image: 'story-digital.png',
   },
   {
-    title: 'Customer Feedback, Transparency and Trust',
+    title: 'Customer Feedback, Transparency, and Trust',
     body: 'Collaborating with over 300 global customers in more than 80 countries, we maintain robust feedback loops that drive continuous product and process improvement. Transparency and responsiveness are core to building lasting trust.',
     image: 'story-feedback.png',
     reverse: true,
+    highlights: [
+      { value: '300+', label: 'global customers' },
+      { value: '80+', label: 'countries' },
+    ],
   },
+];
+
+/* Artwork in /assets/qc verified against each standard's badge. */
+const CERTIFICATIONS: Certification[] = [
+  { name: 'ISO 9001:2015', category: 'Quality Management', image: 'cert-1.png' },
+  { name: 'ISO 14001:2015', category: 'Environmental Management', image: 'cert-2.png' },
+  { name: 'ISO 45001 / OHSAS 18001', category: 'Occupational Health & Safety', image: 'cert-3.png' },
 ];
 
 export default function QualityCompliancePage() {
@@ -47,27 +66,59 @@ export default function QualityCompliancePage() {
         <span className="sep">{'>'}</span>
         <span>Business</span>
         <span className="sep">{'>'}</span>
-        <span className="current">Quality Control &amp; Compliance</span>
+        <span className="current">Quality &amp; Compliance</span>
       </p>
-      <h1 className="cp-page-title">Quality &amp; compliance</h1>
+      <h1 className="cp-page-title">Quality &amp; Compliance</h1>
       <div className="cp-hero-banner">
         <img src={`${Q}hero-banner.png`} alt="Granules quality control laboratory" />
+        <div className="qc-hero-scrim" />
+        <div className="qc-hero-overlay">
+          <h2 className="qc-hero-heading">
+            Built for Compliance. Enabled by Technology. Trusted by Partners
+          </h2>
+        </div>
       </div>
 
       <div className="qc-intro">
         <p>
-          With a presence in regulated markets across North America, Europe, and Asia, we are
-          trusted by leading global pharmaceutical companies for one reason: we deliver
-          uncompromised quality, <span className="muted">every time.</span>
+          With regulated markets operations across North America, Europe, and Asia, Granules is
+          trusted by leading global pharmaceutical companies for one reason:{' '}
+          <span className="muted">consistent, uncompromised quality.</span>
         </p>
         <p>
-          From sourcing and manufacturing to packaging and global distribution, our quality
-          systems are built on cGMP compliance, regulatory readiness, and a culture of
-          accountability. With 45+ successful global inspections, certifications from top
-          agencies (USFDA, EDQM, MHRA, TGA, WHO, ANVISA, PMDA), Granules continues to raise the
-          global standard for pharmaceutical manufacturing excellence.
+          Our end-to-end quality systems, covering sourcing, manufacturing, packaging, and global
+          distribution, are grounded in cGMP compliance, regulatory readiness, and a culture of
+          accountability. With more than 45 successful global inspections and approvals from
+          agencies including USFDA, EDQM, MHRA, TGA, WHO, ANVISA, and PMDA, Granules continues to
+          raise the global standard for pharmaceutical manufacturing excellence.
         </p>
       </div>
+
+      <section className="qc-metrics" aria-labelledby="qc-metrics-title">
+        <div className="qc-metrics-head">
+          <span className="cp-section-badge">Key Metrics</span>
+          <h2 id="qc-metrics-title">Proven Global Compliance</h2>
+        </div>
+        <ul className="qc-metrics-grid">
+          <li className="qc-metric-card">
+            <p className="qc-metric-value">45+</p>
+            <p className="qc-metric-label">
+              successful inspections by USFDA, EDQM, WHO, ANVISA, PMDA &amp; more
+            </p>
+          </li>
+          <li className="qc-metric-card">
+            <p className="qc-metric-value">300+</p>
+            <p className="qc-metric-label">
+              filings (DMFs, ANDAs, MAAs, CEPs) across regulated markets
+            </p>
+          </li>
+          <li className="qc-metric-card qc-metric-card--standards">
+            <p className="qc-metric-standards">
+              Sites aligned with <strong>cGMP, ICH Q10, and ISO 9001:2015</strong> standards
+            </p>
+          </li>
+        </ul>
+      </section>
 
       <div className="qc-systems">
         <div className="qc-systems-head">
@@ -83,6 +134,16 @@ export default function QualityCompliancePage() {
             <div className="qc-card-copy">
               <h3>{story.title}</h3>
               <p>{story.body}</p>
+              {story.highlights && (
+                <ul className="qc-card-highlights">
+                  {story.highlights.map((highlight) => (
+                    <li className="qc-card-highlight" key={highlight.label}>
+                      <span className="qc-card-highlight-value">{highlight.value}</span>
+                      <span className="qc-card-highlight-label">{highlight.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             <div className="qc-card-media">
               <img src={`${Q}${story.image}`} alt={story.title} />
@@ -93,23 +154,18 @@ export default function QualityCompliancePage() {
         <div className="qc-below-stack">
           <div className="qc-certs">
             <div className="qc-certs-badge">Certified to global quality standards</div>
-            <div className="qc-certs-icons">
-              {['cert-1.png', 'cert-2.png', 'cert-3.png'].map((cert) => (
-                <div className="qc-cert-tile" key={cert}>
-                  <img src={`${Q}${cert}`} alt="Quality certification" />
-                </div>
+            <ul className="qc-certs-icons">
+              {CERTIFICATIONS.map((cert) => (
+                <li className="qc-cert-tile" key={cert.name}>
+                  <img
+                    src={`${Q}${cert.image}`}
+                    alt={`${cert.name} ${cert.category} certification`}
+                  />
+                  <p className="qc-cert-name">{cert.name}</p>
+                  <p className="qc-cert-category">{cert.category}</p>
+                </li>
               ))}
-            </div>
-          </div>
-
-          <div className="qc-cta">
-            <img className="bg" src={`${Q}cta-bg.png`} alt="" />
-            <div className="overlay" />
-            <div className="qc-cta-copy">
-              <h2>Lorem ipsum convallis consectetur</h2>
-              <p>Lorem ipsum dolor sit amet consectetur. Ipsum magna a ac nibh morbi malesuada molestie mauris.</p>
-            </div>
-            <a className="cp-cta-btn" href="/business/api">Lorem ipsum</a>
+            </ul>
           </div>
         </div>
       </div>

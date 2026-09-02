@@ -25,11 +25,12 @@ const MILESTONES: MilestoneEntry[] = [
   { year: '2023', image: 'y2023.png', caption: 'Set up GPAK, a ~80,000 sq. ft. packaging facility with four packaging suites and a warehousing facility; Established new purpose, mission and values.' },
   { year: '2024', image: 'y2024.png', caption: 'Granules Life Sciences (GLS) successfully commenced operations with a planned FD capacity of 10 billion dosages annually; Granules CZRO pilot plant commenced operations.' },
   { year: '2025', image: 'y2025.png', caption: 'Successfully acquired Switzerland’s peptide CDMO firm Senn Chemicals AG; Inaugurated phase-II of GLS expanding dosage capacity to 10bn dosages.' },
+  { year: '2026', image: 'hero-banner.png', caption: 'Expanded innovation capabilities through new R&D centres at IIT Hyderabad dedicated to peptide development and particle engineering' },
 ];
 
 export default function MilestonePage() {
   useEffect(() => {
-    document.title = 'Milestone — Granules India';
+    document.title = 'Our Journey — Granules India';
     window.scrollTo(0, 0);
   }, []);
 
@@ -42,9 +43,9 @@ export default function MilestonePage() {
         <span className="sep">{'>'}</span>
         <span>Company</span>
         <span className="sep">{'>'}</span>
-        <span className="current">Milestone</span>
+        <span className="current">Our Journey</span>
       </p>
-      <h1 className="cp-page-title">Key milestones</h1>
+      <h1 className="cp-page-title">Our Journey</h1>
       <div className="cp-hero-banner">
         <img src={`${M}hero-banner.png`} alt="Granules India facility" />
       </div>
@@ -57,10 +58,9 @@ export default function MilestonePage() {
           excellence.
         </p>
         <p>
-          From pioneering Pharmaceutical Formulation Intermediates (PFIs) in India to launching
-          front-end U.S. operations and investing in ESG-aligned infrastructure, every milestone
-          reflects our commitment to quality, access, and strengthening global pharmaceutical
-          supply chains.
+          From pioneering PFIs in India to establishing U.S. front-end operations and building
+          ESG-aligned infrastructure, every milestone reflects our commitment to quality, access,
+          and resilient global supply chains.
         </p>
       </div>
 
@@ -105,6 +105,17 @@ export default function MilestonePage() {
               </p>
             </div>
             <a className="cp-cta-btn" href="/company/awards">Awards</a>
+          </div>
+
+          <div className="ms-leadership">
+            <div className="ms-leadership-copy">
+              <h2>Meet the leadership shaping our future</h2>
+              <p>
+                Discover the people leading Granules with purpose, innovation, and a commitment to
+                excellence.
+              </p>
+            </div>
+            <a className="cp-cta-btn" href="/company/leadership">Our Leadership →</a>
           </div>
         </div>
       </div>

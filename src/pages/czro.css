@@ -28,6 +28,29 @@
 }
 .czro-badge img { height: 32px; width: auto; display: block; }
 
+/* Scrim + heading overlay for the hero banner (matches the .car-hero-scrim /
+   .ct-hero-text-overlay convention used elsewhere, adapted to .cp-hero-banner). */
+.czro-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.55) 0%, rgba(4, 12, 32, 0.08) 45%, rgba(4, 12, 32, 0.04) 100%);
+  z-index: 1;
+}
+.czro-hero-overlay {
+  position: absolute;
+  top: clamp(28px, 4.5vw, 56px);
+  left: clamp(28px, 4.5vw, 64px);
+  max-width: min(620px, 82%);
+  z-index: 2;
+}
+.czro-hero-heading {
+  margin: 0;
+  font: 700 clamp(24px, 3.6vw, 46px)/1.18 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
 .czro-intro {
   width: 85% !important;
   max-width: 85% !important;

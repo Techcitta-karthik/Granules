@@ -29,25 +29,27 @@ export default function AboutSection() {
       >
         <p>
           <span className="part-1">
-            For over four decades, Granules India Limited has been delivering affordable medicines
-            through a robust and vertically integrated manufacturing platform. Headquartered in
-            Hyderabad, Granules develops and manufactures Active Pharmaceutical Ingredients (APIs),
-            Pharmaceutical
+            With over four decades of rich legacy, Granules India Limited is committed to
+            delivering safe, effective and affordable medicines that meet the expectations of
+            partners and patients across the globe, through a robust and large-scale
+            manufacturing platform.
           </span>{' '}
           <span className="part-2">
-            Formulation Intermediates (PFIs), and Finished Dosage Forms (FDFs) for patients across
-            North America, Europe, India, Latin America, and other key global markets.
+            Headquartered in Hyderabad, Granules develops, manufactures, and commercializes
+            Active Pharmaceutical Ingredients (APIs), Pharmaceutical Formulation Intermediates
+            (PFIs), Finished Dosage Forms (FDFs), and Peptide CDMO products for global markets.
           </span>
         </p>
         <p className="part-2">
-          Our backward integration process covers everything from key starting materials to
-          finished formulations. With sustained investments in formulation technologies,
-          biocatalysis, and continuous manufacturing, we are expanding access to essential
-          medicines while reducing our environmental impact.
+          Our vertically integrated manufacturing model covers everything from key starting
+          materials to finished formulations, enabling speed to market, underpinned by rigorous
+          compliance at every stage. With sustained investments in formulation technologies,
+          digitalization, and sustainable manufacturing, we are expanding access to healthcare
+          innovation while reducing our environmental impact.
         </p>
       </div>
       <div className="cp-divider" />
-      <h2 className="cp-drives-us">What drives us</h2>
+      <h2 className="cp-drives-us">What Drives Us</h2>
     </>
   );
 }

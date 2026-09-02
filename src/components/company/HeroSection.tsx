@@ -11,7 +11,7 @@ export default function HeroSection() {
           <span className="sep">›</span>
           <span className="current">ABOUT US (OVERVIEW)</span>
         </p>
-        <h1 className="cp-page-title">About us</h1>
+        <h1 className="cp-page-title">About Us</h1>
         <div className="cp-hero-panel">
           <span className="cp-hero-badge">STOCK VIDEO</span>
           <div className="cp-scroll-indicator">

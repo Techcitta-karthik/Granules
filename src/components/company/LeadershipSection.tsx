@@ -19,7 +19,7 @@ export default function LeadershipSection() {
             <p className="cp-quote-name">Dr. Krishna Prasad Chigurupati</p>
             <p className="cp-quote-role">Founder, Chairman &amp; Managing Director</p>
           </div>
-          <a className="cp-cta-btn" href="/company/leadership">Meet Our team</a>
+          <a className="cp-cta-btn" href="/company/leadership">Meet Our Team</a>
         </div>
       </div>
     </section>
