@@ -43,8 +43,18 @@
 .asc-track { display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 8px; }
 .asc-track::-webkit-scrollbar { display: none; }
 .asc-card {
-  flex: 0 0 auto; width: 472px; height: 520px; border-radius: 30px; overflow: hidden;
-  position: relative; display: flex; flex-direction: column; justify-content: flex-end; background: #eee;
+  flex: 0 0 auto;
+  width: 472px;
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
+  border-radius: 40px !important;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #eee;
 }
 .asc-card img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .asc-card-label {

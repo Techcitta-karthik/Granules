@@ -1,39 +1,9 @@
 import { useEffect, useState } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
-import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
 import './business.css';
 
 const P = '/assets/pfi/';
-
-type FocusCard = {
-  title: string;
-  image: string | null;
-  desc: string;
-};
-
-const FOCUS_AREAS: FocusCard[] = [
-  {
-    title: 'Scaling Operational Throughput',
-    image: null,
-    desc: 'High-speed automated direct compression minimizing downtime and accelerating output.',
-  },
-  {
-    title: 'Enhancing Customer Efficiency',
-    image: 'card-customer-efficiency.png',
-    desc: 'Proprietary Drum-to-Hopper model reduces processing steps and streamlines plant footprint.',
-  },
-  {
-    title: 'Delivering End-To-End Formulation Value',
-    image: null,
-    desc: 'Customized multi-particulate and fixed-dose combinations engineered for precise release.',
-  },
-  {
-    title: 'Expanding Global Reach and Impact',
-    image: 'card-global-reach.png',
-    desc: 'Serving pharma partners across 80+ countries with regulatory-aligned, scalable intermediates.',
-  },
-];
 
 type BenefitItem = { title: string; body: string; icon: string; image?: string };
 
@@ -71,17 +41,7 @@ const BENEFITS: BenefitItem[] = [
 ];
 
 export default function PfiPage() {
-  const {
-    swipeProps,
-    isDragging,
-    scrollProgress,
-    canScrollLeft,
-    canScrollRight,
-    thumbWidth,
-    scroll,
-  } = useSwipeScroll();
-  const [openCard, setOpenCard] = useState(-1);
-  const [open, setOpen] = useState(-1);
+  const [open, setOpen] = useState(0);
 
   useEffect(() => {
     document.title = 'Pharmaceutical Formulation Intermediates — Granules India';
@@ -93,11 +53,11 @@ export default function PfiPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Business</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Pharmaceutical Formulation Intermediates</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/business/api">BUSINESS</a>
+        <span className="sep">›</span>
+        <span className="current">PHARMACEUTICAL FORMULATION INTERMEDIATES</span>
       </p>
       <h1 className="cp-page-title">Pharmaceutical Formulation Intermediates</h1>
       <div className="cp-hero-banner">
@@ -126,75 +86,6 @@ export default function PfiPage() {
         </p>
       </div>
 
-      <div className="biz-section-head">
-        <div className="copy">
-          <span className="cp-section-badge">Focus Areas</span>
-          <h2>Our focus areas in PFI excellence</h2>
-        </div>
-      </div>
-
-      <div className="biz-carousel">
-        <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
-          {FOCUS_AREAS.map((card, idx) => {
-            const isOpenCard = openCard === idx;
-            return (
-              <article
-                className={`biz-card${card.image ? '' : ' biz-card--placeholder'}${isOpenCard ? ' is-open' : ''}`}
-                key={card.title}
-                onMouseEnter={() => setOpenCard(idx)}
-                onMouseLeave={() => setOpenCard(-1)}
-                onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
-              >
-                {card.image && <img className="bg" src={`${P}${card.image}`} alt={card.title} />}
-                <div className="biz-sheet">
-                  <div className="biz-sheet-head">
-                    <span className="biz-sheet-title">{card.title}</span>
-                    <span className="biz-sheet-symbol" aria-hidden="true">+</span>
-                  </div>
-                  <div className="biz-sheet-body">
-                    <p className="biz-sheet-desc">{card.desc}</p>
-                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* Dynamic progress bar and smooth arrow navigation */}
-        <div className="biz-carousel-controls">
-          <div className="biz-progress-track">
-            <div
-              className="biz-progress-bar"
-              style={{
-                width: `${thumbWidth}%`,
-                left: `${scrollProgress * (100 - thumbWidth)}%`,
-              }}
-            />
-          </div>
-          <div className="biz-carousel-arrows">
-            <button
-              type="button"
-              className="biz-arrow-btn"
-              onClick={() => scroll(-1)}
-              disabled={!canScrollLeft}
-              aria-label="Scroll left"
-            >
-              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
-            </button>
-            <button
-              type="button"
-              className="biz-arrow-btn"
-              onClick={() => scroll(1)}
-              disabled={!canScrollRight}
-              aria-label="Scroll right"
-            >
-              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
       <div className="biz-panel">
         <img
           className="bg"
@@ -207,9 +98,6 @@ export default function PfiPage() {
         />
         <div className="overlay" />
         <div className="biz-panel-grid">
-          <div className="biz-panel-head">
-            <h2>Key benefits of our PFI model</h2>
-          </div>
           <div className="biz-accordion">
             {BENEFITS.map((item, index) => {
               const isOpen = open === index;
@@ -243,16 +131,15 @@ export default function PfiPage() {
         <img className="bg" src={`${P}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="biz-cta-copy">
-          <h2>Explore our full PFI product portfolio</h2>
+          <h2>Explore Our Full PFI Product Portfolio</h2>
         </div>
         <a
           className="cp-cta-btn"
           href="/documents/GIL_Product_Brochure_May_20_2025_Master_PFI-7abcdf7c89b2.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          download="Granules_PFI_Product_Catalog.pdf"
         >
-          Download Product List (PDF)
+          View Product List &rarr;
         </a>
       </div>
 

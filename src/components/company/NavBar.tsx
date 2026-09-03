@@ -23,7 +23,7 @@ const SUBMENUS: Record<string, Submenu> = {
     links: [
       { label: 'Leadership', href: '/company/leadership' },
       { label: 'Group Companies', href: '/company#subsidiaries' },
-      { label: 'Sub Companies', href: '/company#subsidiaries' },
+      { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
       { label: 'Operational Excellence', href: '/company/operational-excellence' },
     ],
     image: 'company/values-bg-2.webp',
@@ -38,7 +38,7 @@ const SUBMENUS: Record<string, Submenu> = {
     links: [
       { label: 'Leadership', href: '/company/leadership' },
       { label: 'Group Companies', href: '/company#subsidiaries' },
-      { label: 'Sub Companies', href: '/company#subsidiaries' },
+      { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
       { label: 'Operational Excellence', href: '/company/operational-excellence' },
     ],
     image: 'company/values-bg-2.webp',
@@ -57,21 +57,6 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Manufacturing Facilities', href: '/company/facilities' },
     ],
     image: 'company/gpi-facility.webp',
-  },
-  Community: {
-    title: 'Community',
-    quickLinks: [
-      { label: 'OVERVIEW', href: '/community' },
-      { label: 'SKILL DEVELOPMENT', href: '/community' },
-      { label: 'HEALTHCARE', href: '/community' },
-    ],
-    links: [
-      { label: 'Pharma Patashala', href: '/community' },
-      { label: 'Mobile Mammography Camps', href: '/community' },
-      { label: 'Vidya Volunteers & Education', href: '/community' },
-      { label: 'Native Tree Plantation', href: '/community' },
-    ],
-    image: 'esg/social-1.webp',
   },
   Investor: {
     title: 'Investor',

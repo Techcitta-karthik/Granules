@@ -39,13 +39,13 @@ export default function InvestorAnnualReportsPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <Link to="/investor">Investor</Link>
-        <span className="sep">{'>'}</span>
-        <span>Financial Reports &amp; Performance</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Annual Reports</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/investors">INVESTOR</a>
+        <span className="sep">›</span>
+        <a href="/investors">FINANCIAL REPORTS &amp; PERFORMANCE</a>
+        <span className="sep">›</span>
+        <span className="current">ANNUAL REPORTS</span>
       </p>
 
       <div className="inv-detail-head">
@@ -76,17 +76,6 @@ export default function InvestorAnnualReportsPage() {
                 PDF
                 <img src={`${A}pdf-icon.svg`} alt="" loading="lazy" decoding="async" />
               </a>
-              {report.visit && (
-                <a
-                  className="inv-detail-pill"
-                  href={report.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  VISIT
-                  <img src={`${A}arrow-diag.svg`} alt="" loading="lazy" decoding="async" />
-                </a>
-              )}
             </div>
           </div>
         ))}

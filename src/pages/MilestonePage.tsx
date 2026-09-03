@@ -39,11 +39,11 @@ export default function MilestonePage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Company</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Our Journey</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/company">COMPANY</a>
+        <span className="sep">›</span>
+        <span className="current">OUR JOURNEY</span>
       </p>
       <h1 className="cp-page-title">Our Journey</h1>
       <div className="cp-hero-banner">
@@ -94,20 +94,9 @@ export default function MilestonePage() {
         })}
 
         <div className="ms-below-stack">
-          <div className="ms-cta">
-            <img className="cp-bg" src={`${M}achievements-cta-bg.png`} alt="" />
-            <div className="cp-bg-overlay" />
-            <div className="ms-cta-copy">
-              <h2>Celebrating our achievements</h2>
-              <p>
-                From breakthrough innovations to sustainable practices, these accolades highlight our
-                pursuit of progress.
-              </p>
-            </div>
-            <a className="cp-cta-btn" href="/company/awards">Awards</a>
-          </div>
-
           <div className="ms-leadership">
+            <img className="cp-bg" src={`${M}achievements-cta-bg.webp`} alt="" loading="lazy" decoding="async" />
+            <div className="cp-bg-overlay" />
             <div className="ms-leadership-copy">
               <h2>Meet the leadership shaping our future</h2>
               <p>
@@ -115,7 +104,7 @@ export default function MilestonePage() {
                 excellence.
               </p>
             </div>
-            <a className="cp-cta-btn" href="/company/leadership">Our Leadership →</a>
+            <a className="cp-cta-btn" href="/company/leadership">Our Leadership &rarr;</a>
           </div>
         </div>
       </div>

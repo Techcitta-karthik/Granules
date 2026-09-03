@@ -109,9 +109,9 @@ export default function CareerOverviewPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Careers</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <span className="current">CAREERS</span>
       </p>
       <h1 className="cp-page-title">Careers at Granules</h1>
       <p className="car-hero-tagline">Build Your Future in Science, Innovation, and Impact</p>

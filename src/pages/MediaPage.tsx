@@ -146,7 +146,7 @@ export default function MediaPage() {
 
       <div className="cp-hero-inner" style={{ paddingTop: 'clamp(18px, 2.2vw, 30px)' }}>
         <p className="cp-breadcrumb">
-          <span>HOMEPAGE</span>
+          <a href="/">HOMEPAGE</a>
           <span className="sep">›</span>
           <span className="current">MEDIA</span>
         </p>

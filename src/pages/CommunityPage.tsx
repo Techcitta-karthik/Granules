@@ -118,9 +118,9 @@ export default function CommunityPage() {
       <main className="comm-main">
         {/* Breadcrumb Navigation */}
         <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-          <span>Homepage</span>
-          <span className="sep">{'>'}</span>
-          <span className="current">Community</span>
+          <a href="/">HOMEPAGE</a>
+          <span className="sep">›</span>
+          <span className="current">COMMUNITY</span>
         </p>
 
         {/* 1. Hero Section: Editorial Layout with Signature Title, Human Quote & Sky-Blue Portrait Card */}

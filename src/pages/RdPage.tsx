@@ -75,7 +75,7 @@ const CENTER_TABS_DATA: TabData[] = [
       {
         index: '01 / 01',
         title: 'PUNE R&D,\nMAHARASHTRA',
-        desc: 'Developing new technology platforms with a focus on KSM innovation and backward integration.',
+        desc: 'New technology platforms with focus on KSM innovation and backward integration.',
         image: null,
         needClarity: true,
         ctaText: 'KNOW MORE',
@@ -172,22 +172,22 @@ type GreenCard = {
 
 const GREEN_CARDS: GreenCard[] = [
   {
-    title: 'CATALYSIS OVER STOICHIOMETRIC REAGENTS',
+    title: 'Catalysis over stoichiometric reagents',
     body: 'Less waste, more efficiency',
     image: 'card-catalysis.png',
   },
   {
-    title: 'USAGE OF SAFER SOLVENTS',
+    title: 'Usage of Safer Solvents',
     body: 'Water and ethanol replace harmful chlorinated hydrocarbons',
     image: 'card-solvents.png',
   },
   {
-    title: 'ENERGY-EFFICIENT SYNTHESIS ROUTES',
+    title: 'Energy-efficient Synthesis Routes',
     body: 'Reactions run at ambient temperatures and pressures',
     image: 'card-synthesis.png',
   },
   {
-    title: 'BIOCATALYSIS',
+    title: 'Biocatalysis',
     body: 'Cleaner transformations with fewer by-products',
     image: 'card-biocatalysis.png',
   },
@@ -220,11 +220,11 @@ export default function RdPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Business</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Research &amp; Development</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/business/api">BUSINESS</a>
+        <span className="sep">›</span>
+        <span className="current">RESEARCH &amp; DEVELOPMENT</span>
       </p>
       <h1 className="cp-page-title">R&amp;D and Innovation</h1>
       <div className="cp-hero-banner">
@@ -247,7 +247,7 @@ export default function RdPage() {
           generics, oncology, CNS/ADHD, peptides and next-generation drug delivery through a
           global network of six specialised research centres. Our R&amp;D strategy is designed to
           strengthen these capabilities while supporting long-term growth through a diversified
-          and differentiated product portfolio.
+          and differentiated product portfolio
         </p>
       </div>
 
@@ -307,6 +307,10 @@ export default function RdPage() {
             <div>
               <span className="rd-center-badge">R&amp;D Center</span>
               <h2>Our Global R&amp;D Network</h2>
+              <p className="rd-centers-intro">
+                Our R&amp;D infrastructure spans multiple centres of excellence, each contributing
+                specialised expertise while operating within an integrated development framework.
+              </p>
             </div>
             {currentSlide.needClarity && (
               <div className="rd-clarity-badge">
@@ -366,8 +370,8 @@ export default function RdPage() {
       <div className="rd-iit-note">
         <span className="rd-iit-badge">Also</span>
         <p>
-          Two Strategic Centres of Excellence at <strong>IIT Hyderabad, Telangana</strong>,
-          focused on Peptide Development and Particle Engineering.
+          Complemented by Two Strategic Centres of Excellence at <strong>IIT Hyderabad, Telangana</strong>
+          {' '}focused on Peptide Development and Particle Engineering.
         </p>
       </div>
 
@@ -440,7 +444,7 @@ export default function RdPage() {
       {/* Cascading Alternating Green Chemistry Section */}
       <div className="rd-green-wrapper">
         <div className="rd-green-section">
-          <h2>Pioneering green pharmaceutical solutions</h2>
+          <h2>Pioneering Green Pharmaceutical Solutions</h2>
           <p>
             At Granules India, sustainability is embedded at the molecular level. We apply green
             chemistry principles, such as atom economy, e-factor optimization, and solvent

@@ -367,11 +367,12 @@
 .cp-hero {
   padding-top: clamp(18px, 2.2vw, 30px);
   position: relative;
+  width: 100%;
 }
 
 .cp-hero-inner {
-  width: 85% !important;
-  max-width: 85% !important;
+  width: 100% !important;
+  max-width: 100% !important;
   margin-inline: auto !important;
   display: flex;
   flex-direction: column;
@@ -392,19 +393,35 @@
   flex-wrap: wrap;
 }
 
+.cp-breadcrumb a,
+.cp-breadcrumb button,
 .cp-breadcrumb span {
   color: #7b8898;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.cp-breadcrumb a:hover,
+.cp-breadcrumb button:hover {
+  color: #0061f8;
 }
 
 .cp-breadcrumb .sep {
   color: #7b8898;
   font-size: 13px;
   opacity: 0.85;
+  cursor: default;
 }
 
 .cp-breadcrumb .current {
-  color: #0061f8;
+  color: #0061f8 !important;
   font-weight: 700;
+  cursor: default;
 }
 
 .cp-page-title {

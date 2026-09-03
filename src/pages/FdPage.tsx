@@ -9,27 +9,39 @@ type BenefitItem = { title: string; body: string; icon: string; image?: string }
 
 const BENEFITS: BenefitItem[] = [
   {
-    title: 'Modified Release Technologies',
-    body: 'Tailored for therapeutic precision and patient compliance.',
-    icon: 'icon-test-tube.svg',
+    title: 'Expanding Access to Diverse Therapeutic Segments',
+    body: 'Broad portfolio across wide range of therapeutic areas including Anti-diabetics, CNS/ADHD, Oncology, Gastroenterology, and others, made accessible to millions of patients globally through a combination of commercial capabilities, strategic partnerships, and reliable supply networks.',
+    icon: 'icon-circles.svg',
+    image: '/assets/fd/hero-banner.png',
+  },
+  {
+    title: 'Reliable Supply Through Vertical Integration',
+    body: '40+ Bn units annual capacity across five manufacturing facilities supported by backward integrated model, with dedicated infrastructure for controlled substances and oncology, strengthening quality, supply continuity, and operational efficiency.',
+    icon: '/assets/pfi/icon-manufacturing.svg',
     image: '/assets/fd/partnership-bg.png',
   },
   {
-    title: 'Different Dosage Forms',
-    body: 'Including tablets, capsules, powders and pediatric-friendly formats tailored for global markets.',
-    icon: 'icon-circles.svg',
+    title: 'Formulation Expertise in Complex Generics',
+    body: 'We offer patient-centric solutions through a wide range of capabilities across modified-release formulations, MUPS technologies, controlled substances, chewable dosage forms, oncology products and complex oral solids.',
+    icon: 'icon-test-tube.svg',
     image: '/assets/facilities/cta-bg.png',
   },
   {
-    title: 'Flexible Batch Size and Packaging Formats',
-    body: 'Designed for global distribution and market-specific regulatory needs.',
-    icon: 'icon-box.svg',
+    title: 'Global Reach with Local Customization',
+    body: 'With approvals from global regulatory authorities, including USFDA, EDQM, EU-GMP, ANVISA, COFEPRIS, WHO-GMP, TGA, KFDA, DEA, and others, we enable market-specific solutions that address diverse healthcare and compliance needs worldwide.',
+    icon: 'icon-globe.svg',
     image: '/assets/fd/cta-bg.png',
   },
   {
-    title: 'Global Regulatory Submissions',
-    body: 'Backed by deep expertise and region-specific regulatory filing strategies across US, EU, and global agencies.',
-    icon: 'icon-globe.svg',
+    title: 'Flexible Partnership Models',
+    body: 'Whether through dossier licensing, contract manufacturing, development collaborations, or commercialization partnerships, we create solutions aligned to our partners\' strategic objectives.',
+    icon: 'icon-box.svg',
+    image: '/assets/fd/partnership-bg.png',
+  },
+  {
+    title: 'Technology-Enabled by Digitalisation',
+    body: 'From digitally enabled product development and data-driven formulation design to electronic quality management systems and industry 4.0 manufacturing platforms, we are leveraging technology to accelerate innovation, strengthen data integrity, improve operational excellence, and support scalable, compliant delivery of high-quality medicines.',
+    icon: '/assets/pfi/icon-production-belt.svg',
     image: '/assets/fd/hero-banner.png',
   },
 ];
@@ -38,7 +50,7 @@ export default function FdPage() {
   const [open, setOpen] = useState(0);
 
   useEffect(() => {
-    document.title = 'Finished Dosages — Granules India';
+    document.title = 'Finished Dosage Formulations — Granules India';
     window.scrollTo(0, 0);
   }, []);
 
@@ -47,38 +59,33 @@ export default function FdPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Business</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Finished Dosages</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/business/api">BUSINESS</a>
+        <span className="sep">›</span>
+        <span className="current">FINISHED DOSAGE FORMULATIONS</span>
       </p>
-      <h1 className="cp-page-title">Finished dosages</h1>
+      <h1 className="cp-page-title">Finished Dosage Formulations</h1>
       <div className="cp-hero-banner">
         <img src={`${F}hero-banner.png`} alt="Granules finished dosages manufacturing" />
+        <div className="api-hero-scrim" />
+        <div className="api-hero-overlay">
+          <h2 className="api-hero-heading">Bringing Affordable Medicines to Patients Worldwide</h2>
+          <a className="cp-cta-btn" href="/contact">Explore Partnership Opportunities</a>
+        </div>
       </div>
 
       <div className="biz-intro">
         <p>
-          At Granules India we offer end-to-end development and manufacturing solutions for oral
-          dosage forms. Our capabilities bring together regulatory-compliant facilities, advanced
-          technologies, and global dossier readiness to ensure seamless delivery from concept to
-          commercialization. Customer-centric by design, our model supports tailored solutions,
-          rapid scale-up, and market-specific flexibility.{' '}
-          <span className="muted">Continuous manufacturing and vertically integrated operations allow us to deliver large batch sizes while maintaining high quality and compliance standards.</span>
-        </p>
-        <p className="muted">
-          We specialize in the development and manufacturing of a wide range of oral solid dosage
-          forms, including immediate-release, extended-release, delayed-release, and
-          multi-particulate pellet systems&mdash;across both tablets and capsules. Our
-          capabilities extend to various dosage forms such as: Tablets, Capsules, Press-fits, Oral
-          solutions and suspensions and Powders. Therapeutic focus areas include CNS,
-          antidepressants, anti-diabetics, and antihistamines.
-        </p>
-        <p className="muted">
-          With vertically integrated operations and regulatory approvals from authorities such as
-          US FDA, EU, GMP and DEA, we serve pharmaceutical companies in over 80 countries,
-          delivering high-quality, scalable and compliant solutions.
+          At Granules, we are committed to improving access to high-quality medicines for patients
+          around the world. Through our own commercial presence and strategic partnerships with
+          pharmaceutical companies, we develop, manufacture, and supply a broad range of oral dosage
+          formulations across key therapeutic areas. Combining formulation expertise, vertically
+          integrated operations, advanced manufacturing technologies, and global regulatory
+          capabilities, we help transform scientific innovation into accessible healthcare solutions
+          that improve patient outcomes at scale. Our flexible business model allows us to support
+          partners across the product lifecycle while ensuring reliable access to medicines in
+          diverse markets worldwide.
         </p>
       </div>
 
@@ -94,18 +101,10 @@ export default function FdPage() {
         />
         <div className="overlay" />
         <div className="biz-panel-grid">
-          <div className="biz-panel-head">
-            <h2>Flexible partnership models</h2>
-            <p>
-              We collaborate with leading pharma companies worldwide across a range of
-              partnership models, from dossier licensing to contract manufacturing. With a strong
-              presence in North America, Europe, LATAM, and AMEA, we have filed dossiers and
-              supported product launches across diverse regulatory landscapes.
-            </p>
-          </div>
           <div className="biz-accordion">
             {BENEFITS.map((item, index) => {
               const isOpen = open === index;
+              const iconSrc = item.icon.startsWith('/') ? item.icon : `${F}${item.icon}`;
               return (
                 <button
                   key={item.title}
@@ -116,7 +115,7 @@ export default function FdPage() {
                   <div className="biz-accordion-head">
                     <div className="biz-accordion-icon-row">
                       <span className="biz-accordion-icon">
-                        <img src={`${F}${item.icon}`} alt="" />
+                        <img src={iconSrc} alt="" />
                       </span>
                       <p className="biz-accordion-title">{item.title}</p>
                     </div>
@@ -136,17 +135,23 @@ export default function FdPage() {
         <img className="bg" src={`${F}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="biz-cta-copy">
-          <h2>Explore our Finished Dosage portfolio</h2>
+          <h2>Explore Our Finished Dosage Portfolio</h2>
         </div>
         <a
           className="cp-cta-btn"
           href="/documents/GIL_Product_Brochure_May_20_2025_Master_FD-9f15994d9ad2.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          download="Granules_Finished_Dosage_Product_Catalog.pdf"
         >
-          Download Product List (PDF)
+          View Product List &rarr;
         </a>
+      </div>
+
+      <div className="biz-cta biz-cta--placeholder">
+        <div className="biz-cta-copy">
+          <h2>Driving Innovation in Sustainable and Complex Formulations</h2>
+        </div>
+        <a className="cp-cta-btn" href="/business/rd">Explore Our R&amp;D Capabilities &rarr;</a>
       </div>
 
       <CompanyFooter />

@@ -1,105 +1,118 @@
-/* Strict 85% sides edge spacing for Leadership company page */
+/* 70% edge spacing for Leadership company page matching design specifications */
 .cp-page-title,
 .cp-hero-banner,
 .cp-hero-panel,
 .cp-video-banner {
-  width: 85% !important;
-  max-width: 85% !important;
+  width: 70% !important;
+  max-width: 70% !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
+/* ==========================================================================
+   MAIN LEADERSHIP OVERVIEW VIEW
+   ========================================================================== */
+.ld-main-breadcrumb {
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+}
+
 .ld-hero {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(40px, 6vw, 96px) auto 0 !important;
-  display: flex; flex-direction: column; gap: 24px;
-}
-.ld-hero p, .ld-hero span {
-  margin: 0; font: 500 clamp(18px, 2vw, 30px)/1.2 'Manrope', sans-serif;
-  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
-}
-.ld-hero p { color: var(--n9); }
-.ld-hero p .muted { color: var(--n5); }
-
-.ld-hero.is-scrolled p { color: var(--n5); }
-.ld-hero.is-scrolled p .muted { color: var(--n9); }
-
-.ld-tabs-wrap {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(50px, 7vw, 90px) auto 0 !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ld-tabs {
-  display: inline-flex;
-  align-items: center;
-  background: #f1f5f9;
-  padding: 6px;
-  border-radius: 60px;
-  position: relative;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
-  border: 1px solid #e2e8f0;
-}
-
-.ld-tab-btn {
-  background: none;
-  border: none;
-  font: 700 clamp(14px, 1.4vw, 17px)/1 'Manrope', sans-serif;
-  color: #64748b;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 14px clamp(24px, 3.5vw, 44px);
-  border-radius: 50px;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-  transition: color 0.3s cubic-bezier(0.2, 0, 0.2, 1);
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-}
-
-.ld-tab-btn:hover {
-  color: #0061f8;
-}
-
-.ld-tab-btn.active {
-  color: #ffffff;
-}
-
-.ld-tab-indicator {
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 6px;
-  width: calc(50% - 6px);
-  border-radius: 50px;
-  background: linear-gradient(135deg, #0061f8 0%, #004ecc 100%);
-  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.35);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.ld-grid {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(40px, 6vw, 60px) auto 0 !important;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px 32px;
-}
-
-.ld-card {
-  width: 440px;
-  max-width: 100%;
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(24px, 3.5vw, 44px) auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.ld-main-title {
+  margin: 0;
+  font: 700 clamp(42px, 5.5vw, 76px)/1.08 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-main-desc {
+  margin: 0;
+  max-width: 960px;
+  font: 500 clamp(17px, 1.35vw, 22px)/1.45 'Manrope', sans-serif;
+  color: #4b5563;
+  letter-spacing: 0.1px;
+}
+
+/* Underline Tab Navigation Bar */
+.ld-tabs-container {
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(48px, 6vw, 84px) auto 0 !important;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.ld-tabs-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.ld-tab-nav-btn {
+  background: none;
+  border: none;
+  padding: 16px 20px 22px;
+  font: 700 clamp(14px, 1.35vw, 17px)/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  color: #0061f8;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-tab-nav-btn:not(.active) {
+  opacity: 0.82;
+}
+
+.ld-tab-nav-btn:hover {
+  opacity: 1;
+}
+
+.ld-tab-nav-btn.active {
+  opacity: 1;
+}
+
+.ld-active-bar {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 4.5px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #66cef5 0%, #38b34a 45%, #0061f8 100%);
+}
+
+/* Leader Cards Grid (3 cards per row) */
+.ld-grid {
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(40px, 6vw, 64px) auto 0 !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 28px;
+}
+
+.ld-card {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -115,10 +128,11 @@
 }
 
 .ld-photo {
-  height: 440px;
+  width: 100%;
+  height: clamp(340px, 28vw, 440px);
   border-radius: 40px;
   overflow: hidden;
-  background: #f9f9f9;
+  background: #f4f6fa;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -135,13 +149,27 @@
 .ld-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
   transition: transform 0.4s ease;
 }
 
 .ld-card:hover .ld-photo img {
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+
+/* For square / rectangular headshots */
+.ld-photo img[src*="sankar-rao"],
+.ld-photo img[src*="arun-sawhney"],
+.ld-photo img[src*="saumen-chakraborty"],
+.ld-photo img[src*="sucharita-palepu"],
+.ld-photo img[src*="kapil-mehan"],
+.ld-photo img[src*="sethurathnam-ravi"],
+.ld-photo img[src*="rajiv-kakodkar"] {
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .ld-photo-badge {
@@ -156,7 +184,7 @@
   align-items: center;
   gap: 6px;
   font: 700 13px/1 'Manrope', sans-serif;
-  color: var(--blue);
+  color: #0061f8;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   opacity: 0.88;
   transform: translateY(0);
@@ -164,7 +192,7 @@
 }
 
 .ld-card:hover .ld-photo-badge {
-  background: var(--blue);
+  background: #0061f8;
   color: #ffffff;
   opacity: 1;
   transform: translateY(-2px);
@@ -180,7 +208,7 @@
 .ld-name {
   margin: 0;
   font: 700 24px/1.25 'Manrope', sans-serif;
-  color: var(--blue);
+  color: #0061f8;
   transition: color 0.2s ease;
 }
 
@@ -191,261 +219,332 @@
 .ld-role {
   margin: 4px 0 0;
   font: 600 15px/1.35 'Manrope', sans-serif;
-  color: #555555;
+  color: #6a6a6a;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 
 /* ==========================================================================
-   LEADERSHIP PROFILE MODAL POP-UP
+   STANDALONE LEADER PROFILE VIEW (70% Margins Matching User Screenshot)
    ========================================================================== */
-.ld-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(7, 15, 35, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(16px, 3vw, 40px);
-  z-index: 2000;
-  animation: ldModalFadeIn 0.25s ease-out;
+.ld-profile-view {
+  width: 100%;
 }
 
-.ld-modal-card {
-  background: #ffffff;
-  border-radius: 32px;
-  width: min(1040px, 100%);
-  height: min(84vh, 720px); /* Explicit fixed height so content flex area scrolls cleanly */
+.ld-profile-breadcrumb {
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+}
+
+.ld-breadcrumb-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.ld-breadcrumb-btn:hover {
+  color: #0061f8;
+}
+
+.ld-profile-hero {
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: 28px auto 0 !important;
+}
+
+.ld-profile-photo-card {
+  width: 100%;
+  height: clamp(340px, 36vw, 420px);
+  border-radius: 40px;
+  background: #f4f6fa;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.3);
-  animation: ldModalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: clamp(24px, 3.5vw, 36px);
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
-.ld-modal-close {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 24px;
-  line-height: 1;
-  color: #475569;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
-  z-index: 20;
-}
-
-.ld-modal-close:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-  transform: scale(1.08);
-}
-
-.ld-modal-layout {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: clamp(24px, 3vw, 40px);
-  align-items: stretch;
+.ld-profile-photo-card img {
   height: 100%;
-  min-height: 0; /* Crucial for child scroll area */
-  overflow: hidden;
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
 }
 
-.ld-modal-sidebar {
+/* Rectangular headshots in profile view */
+.ld-profile-photo-card img[src*="sankar-rao"],
+.ld-profile-photo-card img[src*="arun-sawhney"],
+.ld-profile-photo-card img[src*="saumen-chakraborty"],
+.ld-profile-photo-card img[src*="sucharita-palepu"],
+.ld-profile-photo-card img[src*="kapil-mehan"],
+.ld-profile-photo-card img[src*="sethurathnam-ravi"],
+.ld-profile-photo-card img[src*="rajiv-kakodkar"] {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+
+.ld-profile-details {
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(36px, 4.5vw, 56px) auto 0 !important;
+}
+
+.ld-profile-name {
+  margin: 0;
+  font: 700 clamp(32px, 3.8vw, 48px)/1.15 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.5px;
+}
+
+.ld-profile-role {
+  margin: 8px 0 0;
+  font: 600 clamp(13px, 1.2vw, 15px)/1.4 'Manrope', sans-serif;
+  color: #6a6a6a;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.ld-profile-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 24px 0 32px;
+  width: 100%;
+}
+
+.ld-profile-body {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+  max-width: 100%;
+}
+
+.ld-profile-paragraph {
+  margin: 0;
+  font: 400 clamp(15px, 1.15vw, 17px)/1.7 'Manrope', sans-serif;
+  color: #374151;
+  letter-spacing: 0.1px;
+}
+
+.ld-profile-directorships {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ld-profile-directorships-title {
+  margin: 0;
+  font: 500 clamp(15px, 1.15vw, 17px)/1.6 'Manrope', sans-serif;
+  color: #374151;
+}
+
+.ld-profile-directorships-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ld-profile-directorships-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 400 clamp(14px, 1.1vw, 16px)/1.5 'Manrope', sans-serif;
+  color: #374151;
+}
+
+.ld-profile-bullet {
+  color: #0061f8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
-.ld-modal-photo {
-  width: 100%;
-  height: 320px;
-  border-radius: 24px;
-  overflow: hidden;
-  background: #f1f5f9;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
-.ld-modal-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
-
-.ld-modal-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.ld-modal-name {
-  margin: 0;
-  font: 700 clamp(20px, 2vw, 24px)/1.2 'DM Sans', sans-serif;
-  color: #0061f8;
-  letter-spacing: -0.2px;
-}
-
-.ld-modal-role {
-  margin: 0;
-  font: 600 13px/1.3 'DM Sans', sans-serif;
-  color: #64748b;
-  text-transform: uppercase;
+.ld-back-btn {
+  background: #0061f8;
+  color: #ffffff;
+  font: 700 14px/1 'Manrope', sans-serif;
   letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 14px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.25);
 }
 
-/* Scrollbar placed cleanly INSIDE the text content column - ALWAYS VISIBLE */
-.ld-modal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  height: 100%;
-  min-height: 0;
-  overflow-y: scroll; /* Always show vertical scrollbar */
-  padding-right: 16px;
-  scrollbar-gutter: stable; /* Keeps scrollbar in dedicated gutter so content doesn't jump */
-  scrollbar-width: thin;
-  scrollbar-color: #0061f8 #e2e8f0; /* Clear contrast blue thumb on grey track */
-}
-
-/* Chrome / Safari / Edge scrollbar */
-.ld-modal-content::-webkit-scrollbar {
-  width: 8px;
-  display: block !important;
-}
-
-.ld-modal-content::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 10px;
-}
-
-.ld-modal-content::-webkit-scrollbar-thumb {
-  background: #0061f8;
-  border-radius: 10px;
-}
-
-.ld-modal-content::-webkit-scrollbar-thumb:hover {
+.ld-back-btn:hover {
   background: #004ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.35);
 }
 
-.ld-modal-section {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.ld-modal-section-title {
-  margin: 0;
-  font: 700 19px/1.2 'DM Sans', sans-serif;
-  color: #0f172a;
-  padding-bottom: 8px;
-  border-bottom: 1.5px solid #e2e8f0;
-  position: relative;
-  letter-spacing: -0.2px;
-}
-
-.ld-modal-section-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -1.5px;
-  width: 42px;
-  height: 2px;
-  background: #0061f8;
-}
-
-.ld-modal-paragraph {
-  margin: 0;
-  font: 400 15.5px/1.7 'DM Sans', sans-serif;
-  color: #334155;
-  text-align: left;
-  letter-spacing: 0.05px;
-}
-
-.ld-modal-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-}
-
-.ld-modal-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font: 500 14.5px/1.45 'DM Sans', sans-serif;
-  color: #1e293b;
-  background: #f8fafc;
-  padding: 9px 14px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-}
-
-.ld-modal-bullet {
-  color: #0061f8;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 1.2;
-}
-
-@keyframes ldModalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes ldModalSlideUp {
-  from { opacity: 0; transform: translateY(24px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+/* ==========================================================================
+   BOTTOM DIVIDER & CTA BANNER (70% Margin Matching Reference)
+   ========================================================================== */
+.ld-bottom-divider {
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  height: 1px;
+  background: #dbeafe;
 }
 
 .ld-cta {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(80px, 10vw, 120px) auto 0 !important;
+  width: 70% !important;
+  max-width: 70% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
   border-radius: 40px;
-  padding: clamp(30px, 4vw, 60px);
-  position: relative; overflow: hidden;
-  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;
-  min-height: 240px;
+  padding: clamp(36px, 4.5vw, 56px) clamp(30px, 4.5vw, 64px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 180px;
+  background: #e6f3ff;
+  box-shadow: 0 10px 32px rgba(0, 97, 248, 0.05);
 }
-.ld-cta img.cp-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+
+.ld-cta .cp-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 1;
+}
+
 .ld-cta .cp-bg-overlay {
-  position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(89deg, rgba(190, 237, 250, 0.9) 34.8%, rgba(0, 186, 234, 0) 68.9%);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(205, 235, 255, 0.92) 0%, rgba(225, 242, 255, 0.78) 55%, rgba(240, 248, 255, 0.52) 100%);
+  z-index: 1;
 }
-.ld-cta-copy { position: relative; z-index: 1; max-width: 905px; display: flex; flex-direction: column; gap: 24px; }
-.ld-cta-copy h2 { margin: 0; font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif; color: var(--blue-2); }
-.ld-cta-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: var(--n9); letter-spacing: 0.22px; }
-.ld-cta .cp-cta-btn { position: relative; z-index: 1; }
 
-@media (max-width: 960px) {
-  .ld-modal-layout {
+.ld-cta-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 780px;
+  position: relative;
+  z-index: 2;
+}
+
+.ld-cta-copy h2 {
+  margin: 0;
+  font: 700 clamp(26px, 3.2vw, 42px)/1.15 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.5px;
+}
+
+.ld-cta-copy p {
+  margin: 0;
+  font: 500 clamp(15px, 1.15vw, 18px)/1.45 'Manrope', sans-serif;
+  color: #374151;
+}
+
+.ld-cta-btn {
+  background: #0061f8;
+  color: #ffffff;
+  font: 700 14px/1 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.25);
+  flex-shrink: 0;
+}
+
+.ld-cta-btn:hover {
+  background: #004ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.35);
+}
+
+@media (max-width: 1100px) {
+  .ld-main-breadcrumb,
+  .ld-profile-breadcrumb,
+  .ld-hero,
+  .ld-tabs-container,
+  .ld-grid,
+  .ld-profile-hero,
+  .ld-profile-details,
+  .ld-bottom-divider,
+  .ld-cta {
+    width: 85% !important;
+    max-width: 85% !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .ld-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ld-main-breadcrumb,
+  .ld-profile-breadcrumb,
+  .ld-hero,
+  .ld-tabs-container,
+  .ld-grid,
+  .ld-profile-hero,
+  .ld-profile-details,
+  .ld-bottom-divider,
+  .ld-cta {
+    width: 90% !important;
+    max-width: 90% !important;
+  }
+  .ld-grid {
     grid-template-columns: 1fr;
+    gap: 32px 0;
   }
-  .ld-modal-photo {
-    height: 320px;
+  .ld-photo {
+    height: 380px;
   }
-  .ld-modal-sidebar {
-    position: static;
+  .ld-tabs-bar {
+    grid-template-columns: 1fr 1fr;
   }
-}
-
-@media (max-width: 720px) {
-  .ld-card { width: 100%; }
-  .ld-photo { height: 380px; }
-  .ld-tabs { flex-direction: column; gap: 12px; }
+  .ld-tab-nav-btn {
+    font-size: 13px;
+    padding: 12px 8px 16px;
+  }
+  .ld-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

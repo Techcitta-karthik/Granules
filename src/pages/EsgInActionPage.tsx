@@ -102,11 +102,11 @@ export default function EsgInActionPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Sustainability</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">ESG in action</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/sustainability">SUSTAINABILITY</a>
+        <span className="sep">›</span>
+        <span className="current">ESG IN ACTION</span>
       </p>
       <h1 className="cp-page-title">ESG in action</h1>
       <div className="cp-hero-banner">

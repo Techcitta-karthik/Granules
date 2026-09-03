@@ -121,11 +121,11 @@ export default function GranulesCzroPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Company</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Granules CZRO</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/company">COMPANY</a>
+        <span className="sep">›</span>
+        <span className="current">GRANULES CZRO</span>
       </p>
       <h1 className="cp-page-title">Granules CZRO</h1>
       <div className="czro-hero-wrap">

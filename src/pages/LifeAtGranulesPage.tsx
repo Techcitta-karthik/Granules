@@ -144,9 +144,11 @@ export default function LifeAtGranulesPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Life at Granules</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/careers">CAREERS</a>
+        <span className="sep">›</span>
+        <span className="current">LIFE AT GRANULES</span>
       </p>
       <h1 className="cp-page-title">Explore Life at Granules</h1>
 

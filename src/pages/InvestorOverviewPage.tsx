@@ -186,7 +186,7 @@ export default function InvestorOverviewPage() {
 
       <div className="cp-hero-inner" style={{ paddingTop: 'clamp(18px, 2.2vw, 30px)' }}>
         <p className="cp-breadcrumb">
-          <span>HOMEPAGE</span>
+          <a href="/">HOMEPAGE</a>
           <span className="sep">›</span>
           <span className="current">INVESTOR OVERVIEW</span>
         </p>
@@ -194,7 +194,22 @@ export default function InvestorOverviewPage() {
       </div>
 
       <div className="inv-hero">
-        <span className="inv-hero-badge">STOCK IMAGE</span>
+        <a
+          href="https://granules-26.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inv-hero-link"
+          aria-label="Visit Granules 26 platform"
+        >
+          <video
+            className="inv-hero-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            src="/Video/cover-video.mp4"
+          />
+        </a>
       </div>
 
       <div className="inv-stock-wrap">

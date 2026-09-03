@@ -90,11 +90,11 @@ export default function OperationalExcellencePage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Company</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Operational Excellence</span>
+        <a href="/">HOMEPAGE</a>
+        <span className="sep">›</span>
+        <a href="/company">COMPANY</a>
+        <span className="sep">›</span>
+        <span className="current">OPERATIONAL EXCELLENCE</span>
       </p>
       <h1 className="cp-page-title">Operational excellence</h1>
       <div className="cp-hero-banner">

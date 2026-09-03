@@ -358,190 +358,206 @@ export default function LeadershipPage() {
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
 
   useEffect(() => {
-    document.title = 'Leadership Team — Granules India';
-    window.scrollTo(0, 0);
-  }, []);
-
-  // Prevent background scrolling when pop-up is open
-  useEffect(() => {
     if (selectedMember) {
-      document.body.style.overflow = 'hidden';
+      document.title = `${selectedMember.name} — Leadership — Granules India`;
     } else {
-      document.body.style.overflow = '';
+      document.title = 'Leadership Team — Granules India';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [selectedMember]);
 
   const activeMembers = activeTab === 'board' ? BOARD_OF_DIRECTORS : MANAGEMENT_TEAM;
+
+  const handleSelectMember = (member: Member) => {
+    setSelectedMember(member);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToGrid = () => {
+    setSelectedMember(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Company</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Leadership</span>
-      </p>
-
-      <div className="ld-hero">
-        <h1 className="cp-page-title" style={{ margin: 0, width: 'auto' }}>Leadership team</h1>
-        <p>
-          Granules India is led by a seasoned executive team with deep pharmaceutical expertise
-          and a forward-looking vision. Together, they{' '}
-          <span className="muted">
-            drive operational excellence, global growth, and sustainable value through strategic
-            leadership.
-          </span>
-        </p>
-      </div>
-
-      <div className="ld-tabs-wrap">
-        <div className="ld-tabs" role="tablist">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'board'}
-            className={`ld-tab-btn ${activeTab === 'board' ? 'active' : ''}`}
-            onClick={() => setActiveTab('board')}
-          >
-            Board of Directors
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'management'}
-            className={`ld-tab-btn ${activeTab === 'management' ? 'active' : ''}`}
-            onClick={() => setActiveTab('management')}
-          >
-            Management Team
-          </button>
-          <div
-            className="ld-tab-indicator"
-            style={{
-              transform: activeTab === 'board' ? 'translateX(0%)' : 'translateX(100%)',
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="ld-grid">
-        {activeMembers.map((member) => (
-          <article
-            className="ld-card"
-            key={`${activeTab}-${member.name}`}
-            onClick={() => setSelectedMember(member)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setSelectedMember(member);
-              }
-            }}
-            aria-label={`View profile for ${member.name}`}
-          >
-            <div className="ld-photo">
-              <img src={`${L}${member.image}`} alt={member.name} loading="lazy" decoding="async" />
-              <div className="ld-photo-badge">
-                <span>View Profile</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </div>
-            </div>
-            <div className="ld-card-info">
-              <p className="ld-name">{member.name}</p>
-              <p className="ld-role">{member.role}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      {/* Leadership Profile Modal Pop-up */}
-      {selectedMember && (
-        <div
-          className="ld-modal-overlay"
-          onClick={() => setSelectedMember(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className="ld-modal-card" onClick={(e) => e.stopPropagation()}>
+      {selectedMember ? (
+        /* Standalone Leader Profile View (No Pop-up) */
+        <div className="ld-profile-view">
+          <p className="cp-breadcrumb ld-profile-breadcrumb">
+            <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOMEPAGE</a>
+            <span className="sep">›</span>
+            <a href="/company" style={{ color: 'inherit', textDecoration: 'none' }}>COMPANY</a>
+            <span className="sep">›</span>
             <button
               type="button"
-              className="ld-modal-close"
-              onClick={() => setSelectedMember(null)}
-              aria-label="Close profile details"
+              className="ld-breadcrumb-btn"
+              onClick={handleBackToGrid}
             >
-              ×
+              LEADERSHIP
             </button>
+            <span className="sep">›</span>
+            <span className="current">{selectedMember.name.toUpperCase()}</span>
+          </p>
 
-            <div className="ld-modal-layout">
-              <div className="ld-modal-sidebar">
-                <div className="ld-modal-photo">
+          <div className="ld-profile-hero">
+            <div className="ld-profile-photo-card">
+              <img
+                src={`${L}${selectedMember.image}`}
+                alt={selectedMember.name}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <div className="ld-profile-details">
+            <h1 className="ld-profile-name">{selectedMember.name}</h1>
+            <p className="ld-profile-role">{selectedMember.role}</p>
+
+            <div className="ld-profile-divider" />
+
+            <div className="ld-profile-body">
+              {selectedMember.profile && selectedMember.profile.length > 0 ? (
+                selectedMember.profile.map((paragraph, idx) => (
+                  <p className="ld-profile-paragraph" key={idx}>
+                    {paragraph}
+                  </p>
+                ))
+              ) : (
+                <p className="ld-profile-paragraph">
+                  {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
+                </p>
+              )}
+
+              {selectedMember.directorships && selectedMember.directorships.length > 0 && (
+                <div className="ld-profile-directorships">
+                  <p className="ld-profile-directorships-title">
+                    {selectedMember.name.startsWith('Mrs.') || selectedMember.name.startsWith('Ms.') ? 'Her' : 'His'} directorships and other full-time positions in bodies corporate are as follows:
+                  </p>
+                  <ul className="ld-profile-directorships-list">
+                    {selectedMember.directorships.map((dir, idx) => (
+                      <li key={idx}>
+                        <span className="ld-profile-bullet">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="12" r="10" />
+                          </svg>
+                        </span>
+                        <span>{dir}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <button
+              type="button"
+              className="ld-back-btn"
+              onClick={handleBackToGrid}
+            >
+              BACK
+            </button>
+          </div>
+        </div>
+      ) : (
+        /* Main Leadership Overview & Grid View */
+        <div className="ld-main-view">
+          <p className="cp-breadcrumb ld-main-breadcrumb">
+            <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOMEPAGE</a>
+            <span className="sep">›</span>
+            <a href="/company" style={{ color: 'inherit', textDecoration: 'none' }}>COMPANY</a>
+            <span className="sep">›</span>
+            <span className="current">LEADERSHIP</span>
+          </p>
+
+          <div className="ld-hero">
+            <h1 className="ld-main-title">
+              <span>Making Granules</span>
+              <span>Future-Ready</span>
+            </h1>
+            <p className="ld-main-desc">
+              Granules India is led by a seasoned executive team with deep pharmaceutical expertise
+              and a forward-looking vision. Together, they drive operational excellence, global growth,
+              and sustainable value through strategic leadership.
+            </p>
+          </div>
+
+          <div className="ld-tabs-container">
+            <div className="ld-tabs-bar" role="tablist">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === 'board'}
+                className={`ld-tab-nav-btn ${activeTab === 'board' ? 'active' : ''}`}
+                onClick={() => setActiveTab('board')}
+              >
+                <span>BOARD OF DIRECTORS</span>
+                {activeTab === 'board' && <span className="ld-active-bar" />}
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === 'management'}
+                className={`ld-tab-nav-btn ${activeTab === 'management' ? 'active' : ''}`}
+                onClick={() => setActiveTab('management')}
+              >
+                <span>MANAGEMENT TEAM</span>
+                {activeTab === 'management' && <span className="ld-active-bar" />}
+              </button>
+            </div>
+          </div>
+
+          <div className="ld-grid">
+            {activeMembers.map((member) => (
+              <article
+                className="ld-card"
+                key={`${activeTab}-${member.name}`}
+                onClick={() => handleSelectMember(member)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSelectMember(member);
+                  }
+                }}
+                aria-label={`View profile for ${member.name}`}
+              >
+                <div className="ld-photo">
                   <img
-                    src={`${L}${selectedMember.image}`}
-                    alt={selectedMember.name}
+                    src={`${L}${member.image}`}
+                    alt={member.name}
                     loading="lazy"
                     decoding="async"
                   />
-                </div>
-                <div className="ld-modal-meta">
-                  <h2 className="ld-modal-name">{selectedMember.name}</h2>
-                  <p className="ld-modal-role">{selectedMember.role}</p>
-                </div>
-              </div>
-
-              <div className="ld-modal-content">
-                <div className="ld-modal-section">
-                  <h3 className="ld-modal-section-title">Profile</h3>
-                  {selectedMember.profile && selectedMember.profile.length > 0 ? (
-                    selectedMember.profile.map((paragraph, idx) => (
-                      <p className="ld-modal-paragraph" key={idx}>
-                        {paragraph}
-                      </p>
-                    ))
-                  ) : (
-                    <p className="ld-modal-paragraph">
-                      {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
-                    </p>
-                  )}
-                </div>
-
-                {selectedMember.directorships && selectedMember.directorships.length > 0 && (
-                  <div className="ld-modal-section">
-                    <h3 className="ld-modal-section-title">
-                      Directorships and other full-time positions in bodies corporate
-                    </h3>
-                    <ul className="ld-modal-list">
-                      {selectedMember.directorships.map((dir, idx) => (
-                        <li key={idx}>
-                          <span className="ld-modal-bullet">»</span>
-                          <span>{dir}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="ld-photo-badge">
+                    <span>View Profile</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
                   </div>
-                )}
-              </div>
-            </div>
+                </div>
+                <div className="ld-card-info">
+                  <p className="ld-name">{member.name}</p>
+                  <p className="ld-role">{member.role}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       )}
 
+      <div className="ld-bottom-divider" />
+
       <div className="ld-cta">
-        <img className="cp-bg" src={`${L}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <img className="cp-bg" src={`${L}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="cp-bg-overlay" />
         <div className="ld-cta-copy">
           <h2>Find your next role at Granules</h2>
           <p>Join us in shaping the future of sustainable healthcare.</p>
         </div>
-        <a className="cp-cta-btn" href="/#careers">Careers</a>
+        <a className="ld-cta-btn" href="/careers">CAREERS</a>
       </div>
 
       <CompanyFooter />

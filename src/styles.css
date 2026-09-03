@@ -652,9 +652,10 @@ p {
 .product-card {
   position: relative;
   overflow: hidden;
-  height: 520px;
-  min-height: 520px;
-  border-radius: 40px;
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
+  border-radius: 40px !important;
   color: white;
   background: #edf3f5;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
@@ -1387,7 +1388,15 @@ article.open .accordion-icon-circle {
   cursor: pointer;
 }
 
-.news-card>button>img {
+.news-card>a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-card>button>img,
+.news-card>a>img {
   width: 100%;
   aspect-ratio: 2.15/1;
   border-radius: 20px;
@@ -1395,7 +1404,8 @@ article.open .accordion-icon-circle {
   transition: transform .4s, filter .4s;
 }
 
-.news-card:hover>button>img {
+.news-card:hover>button>img,
+.news-card:hover>a>img {
   transform: translateY(-5px);
   filter: saturate(1.12);
 }
@@ -1889,10 +1899,6 @@ footer[id] {
     padding: 22px 18px;
   }
 
-  .product-card {
-    min-height: 430px;
-  }
-
   .product-bar {
     flex-basis: 96px;
     min-height: 96px;
@@ -2037,24 +2043,25 @@ footer[id] {
   }
 
   .product-card {
-    min-height: 440px;
-    height: 440px;
-    border-radius: 28px;
+    height: 520px !important;
+    min-height: 520px !important;
+    max-height: 520px !important;
+    border-radius: 40px !important;
   }
 
   .product-sheet {
     inset: 0;
     width: 100%;
     height: 100%;
-    border-radius: 24px 24px 28px 28px;
-    padding: 22px 20px 24px;
-    transform: translateY(calc(100% - 96px));
+    border-radius: 28px 28px 40px 40px;
+    padding: 24px 22px 28px;
+    transform: translateY(calc(100% - 100px));
   }
 
   .product-card:hover .product-sheet,
   .product-card.is-open .product-sheet {
     transform: translateY(0);
-    border-radius: 28px;
+    border-radius: 40px !important;
   }
 
   .product-sheet-head {
@@ -2294,4 +2301,132 @@ footer[id] {
 .cp-about-desc p,
 .cp-about-desc span {
   transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   HOMEPAGE TOP BANNER COOKIE CONSENT MODAL (User Reference)
+   ========================================================================== */
+.home-cookie-card {
+  position: absolute;
+  bottom: clamp(28px, 4vw, 48px);
+  right: clamp(24px, 4.5vw, 64px);
+  z-index: 60;
+  width: min(440px, calc(100vw - 36px));
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 36px;
+  padding: 26px 30px 24px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: cookieCardSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cookieCardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.home-cookie-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-cookie-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.home-cookie-title {
+  margin: 0;
+  font: 700 20px/1.2 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.2px;
+}
+
+.home-cookie-desc {
+  margin: 0;
+  font: 400 13.5px/1.55 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #374151;
+}
+
+.home-cookie-link {
+  color: #0061f8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.home-cookie-link:hover {
+  opacity: 0.8;
+}
+
+.home-cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.home-cookie-btn {
+  flex: 1;
+  padding: 13px 24px;
+  border-radius: 50px;
+  font: 700 13px/1 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-cookie-accept {
+  background: #0061f8;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.3);
+}
+
+.home-cookie-accept:hover {
+  background: #004ecc;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.4);
+}
+
+.home-cookie-reject {
+  background: #ffffff;
+  color: #0061f8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.home-cookie-reject:hover {
+  background: #f8faff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 680px) {
+  .home-cookie-card {
+    right: 16px;
+    left: 16px;
+    width: auto;
+    bottom: 24px;
+    padding: 20px 22px 20px;
+    border-radius: 28px;
+  }
 }
