@@ -5,33 +5,37 @@ import './business.css';
 
 const F = '/assets/fd/';
 
-type BenefitItem = { title: string; body: string; icon: string };
+type BenefitItem = { title: string; body: string; icon: string; image?: string };
 
 const BENEFITS: BenefitItem[] = [
   {
     title: 'Modified Release Technologies',
     body: 'Tailored for therapeutic precision and patient compliance.',
     icon: 'icon-test-tube.svg',
+    image: '/assets/fd/partnership-bg.png',
   },
   {
     title: 'Different Dosage Forms',
     body: 'Including tablets, capsules, powders and pediatric-friendly formats tailored for global markets.',
     icon: 'icon-circles.svg',
+    image: '/assets/facilities/cta-bg.png',
   },
   {
     title: 'Flexible Batch Size and Packaging Formats',
     body: 'Designed for global distribution and market-specific regulatory needs.',
     icon: 'icon-box.svg',
+    image: '/assets/fd/cta-bg.png',
   },
   {
     title: 'Global Regulatory Submissions',
     body: 'Backed by deep expertise and region-specific regulatory filing strategies across US, EU, and global agencies.',
     icon: 'icon-globe.svg',
+    image: '/assets/fd/hero-banner.png',
   },
 ];
 
 export default function FdPage() {
-  const [open, setOpen] = useState(-1);
+  const [open, setOpen] = useState(0);
 
   useEffect(() => {
     document.title = 'Finished Dosages — Granules India';
@@ -79,7 +83,15 @@ export default function FdPage() {
       </div>
 
       <div className="biz-panel">
-        <img className="bg" src={`${F}partnership-bg.png`} alt="" />
+        <img
+          className="bg"
+          src={
+            open >= 0 && BENEFITS[open]?.image
+              ? BENEFITS[open].image
+              : BENEFITS[0].image
+          }
+          alt=""
+        />
         <div className="overlay" />
         <div className="biz-panel-grid">
           <div className="biz-panel-head">

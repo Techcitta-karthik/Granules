@@ -382,7 +382,7 @@ const PARTNERSHIP_TABS = [
       { img: 'logo-cii.svg', name: 'Confederation of Indian Industry' },
       { img: 'logo-bdmai.svg', name: 'BDMAI' },
       { img: 'logo-british-safety.svg', name: 'British Safety Council' },
-      { img: 'logo-esg-world.svg', name: 'ESG World' },
+      { img: 'logo-esg-world.svg', name: 'ESG World', href: 'https://granulesindia.com/esg-profile/' },
       { img: 'logo-ftapcci.svg', name: 'FTAPCCI' },
       { img: 'logo-green-triangle.svg', name: 'Green Triangle Society' },
     ],
@@ -539,9 +539,22 @@ export default function SustainabilityOverviewPage() {
         </div>
         <div className="ov-logo-grid">
           {PARTNERSHIP_TABS[partnershipTab].logos.map((logo) => (
-            <div className="ov-logo-tile" key={logo.img}>
-              <img src={`${S}${logo.img}`} alt={logo.name} loading="eager" decoding="async" />
-            </div>
+            (logo as { img: string; name: string; href?: string }).href ? (
+              <a
+                href={(logo as { img: string; name: string; href?: string }).href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ov-logo-tile"
+                key={logo.img}
+                title={logo.name}
+              >
+                <img src={`${S}${logo.img}`} alt={logo.name} loading="eager" decoding="async" />
+              </a>
+            ) : (
+              <div className="ov-logo-tile" key={logo.img}>
+                <img src={`${S}${logo.img}`} alt={logo.name} loading="eager" decoding="async" />
+              </div>
+            )
           ))}
         </div>
       </div>

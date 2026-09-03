@@ -82,6 +82,12 @@ import CareerOverviewPage from './pages/CareerOverviewPage.tsx';
 import LifeAtGranulesPage from './pages/LifeAtGranulesPage.tsx';
 import CareerOpportunitiesPage from './pages/CareerOpportunitiesPage.tsx';
 import ContactPage from './pages/ContactPage.tsx';
+import NotFoundPage from './pages/NotFoundPage.tsx';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage.tsx';
+import CookiePolicyPage from './pages/CookiePolicyPage.tsx';
+import DisclaimerPage from './pages/DisclaimerPage.tsx';
+import DataProtectionNoticePage from './pages/DataProtectionNoticePage.tsx';
+import TermsConditionsPage from './pages/TermsConditionsPage.tsx';
 
 function App() {
   return (
@@ -108,6 +114,8 @@ function App() {
         <Route path="/sustainability/strategy" element={<SustainabilityStrategyPage />} />
         <Route path="/sustainability/esg-in-action" element={<EsgInActionPage />} />
         <Route path="/sustainability/esg-in-action/community" element={<CommunityPage />} />
+        <Route path="/sustainability/community" element={<CommunityPage />} />
+        <Route path="/community" element={<CommunityPage />} />
         <Route path="/investor" element={<InvestorOverviewPage />} />
         <Route path="/investor/v2" element={<InvestorOverviewV2Page />} />
         <Route path="/investor/annual-reports" element={<InvestorAnnualReportsPage />} />
@@ -116,6 +124,18 @@ function App() {
         <Route path="/careers/life-at-granules" element={<LifeAtGranulesPage />} />
         <Route path="/careers/opportunities" element={<CareerOpportunitiesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+        <Route path="/cookies-policy" element={<CookiePolicyPage />} />
+        <Route path="/cookies" element={<CookiePolicyPage />} />
+        <Route path="/disclaimer" element={<DisclaimerPage />} />
+        <Route path="/data-protection-notice" element={<DataProtectionNoticePage />} />
+        <Route path="/data-protection" element={<DataProtectionNoticePage />} />
+        <Route path="/terms-conditions" element={<TermsConditionsPage />} />
+        <Route path="/terms-condition" element={<TermsConditionsPage />} />
+        <Route path="/terms" element={<TermsConditionsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

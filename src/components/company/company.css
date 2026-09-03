@@ -1018,7 +1018,7 @@
   color: #ffffff;
   overflow: hidden;
   width: 100%;
-  background: linear-gradient(90deg, #0088a3 0%, #006ef7 35%, #0056e4 70%, #0045cc 100%);
+  background: linear-gradient(90deg, #009d9a 0%, #007bf2 25%, #0062f5 60%, #0050e6 100%);
 }
 
 .cp-footer-bg-wrap {
@@ -1052,8 +1052,8 @@
 
 .cp-footer-top {
   display: grid;
-  grid-template-columns: 1.4fr 1.15fr 0.8fr;
-  gap: clamp(36px, 5vw, 72px);
+  grid-template-columns: 1.35fr 0.9fr 1.05fr 0.8fr;
+  gap: clamp(24px, 3.5vw, 60px);
   align-items: start;
 }
 
@@ -1061,7 +1061,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  max-width: 480px;
+  max-width: 440px;
 }
 
 .cp-footer-logo-badge {
@@ -1088,7 +1088,7 @@
 
 .cp-footer-brand p {
   margin: 0;
-  font: 400 15.5px/1.55 'Manrope', sans-serif;
+  font: 400 14px/1.6 'Manrope', sans-serif;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0;
 }
@@ -1103,9 +1103,9 @@
 }
 
 .cp-footer-col h5 {
-  margin: 0 0 12px;
-  font: 700 14.5px/1.2 'Manrope', sans-serif;
-  letter-spacing: 1px;
+  margin: 0 0 16px;
+  font: 700 14px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   color: #ffffff;
 }
@@ -1113,11 +1113,11 @@
 .cp-footer-link-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .cp-footer-col a {
-  font: 500 15.5px/1.4 'Manrope', sans-serif;
+  font: 500 14.5px/1.4 'Manrope', sans-serif;
   color: #ffffff;
   text-decoration: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -1130,7 +1130,7 @@
 }
 
 .cp-footer-col.cp-footer-impact .cp-footer-link-group {
-  gap: 9px;
+  gap: 12px;
 }
 
 .cp-footer-col.cp-footer-impact a {

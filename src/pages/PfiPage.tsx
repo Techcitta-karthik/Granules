@@ -35,33 +35,38 @@ const FOCUS_AREAS: FocusCard[] = [
   },
 ];
 
-type BenefitItem = { title: string; body: string; icon: string };
+type BenefitItem = { title: string; body: string; icon: string; image?: string };
 
 const BENEFITS: BenefitItem[] = [
   {
     title: 'Unmatched Scale and Reliability',
     body: 'Backward integrated and high-volume manufacturing assures consistent quality, dependable supply, and efficient commercial-scale production.',
     icon: 'icon-manufacturing.svg',
+    image: '/assets/pfi/key-benefits-bg.png',
   },
   {
     title: 'Simplifying Supply Chain Complexity',
     body: 'Our proprietary “Drum to Hopper” model enables direct compression with minimal development effort, helping customers streamline supply chain steps and inventory pressure',
     icon: 'icon-box.svg',
+    image: '/assets/pfi/cta-bg.png',
   },
   {
     title: 'Supporting Asset-Light Market Entry',
     body: 'PFIs replicate more than 80% of the infrastructure required in a conventional oral solid dosage facility, reducing the need for significant capital investment.',
     icon: 'icon-production-belt.svg',
+    image: '/assets/facilities/bonthapally-2.png',
   },
   {
     title: 'Customized Formulation Solutions',
     body: 'Tailor-made PFIs support complex formulations, fixed-dose combinations, and homogeneous blending with other APIs.',
     icon: 'icon-test-tube.svg',
+    image: '/assets/qc/hero-banner.png',
   },
   {
     title: 'Global Regulatory Adaptability',
     body: 'With approvals from global regulatory authorities, our PFI platform can be tailored to meet market-specific regulatory requirements across global markets.',
     icon: 'icon-circles.svg',
+    image: '/assets/api/scale-bg.png',
   },
 ];
 
@@ -191,7 +196,15 @@ export default function PfiPage() {
       </div>
 
       <div className="biz-panel">
-        <img className="bg" src={`${P}key-benefits-bg.png`} alt="" />
+        <img
+          className="bg"
+          src={
+            open >= 0 && BENEFITS[open]?.image
+              ? BENEFITS[open].image
+              : BENEFITS[0].image
+          }
+          alt=""
+        />
         <div className="overlay" />
         <div className="biz-panel-grid">
           <div className="biz-panel-head">

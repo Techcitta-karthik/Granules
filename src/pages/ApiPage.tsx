@@ -26,31 +26,31 @@ const SCALE_ITEMS: ScaleItem[] = [
     title: '40,000 TPA Installed Capacity',
     body: '40,000 TPA installed capacity across four specialized facilities, with seamless vertical integration from key starting materials and intermediates to downstream PFI and Finished Dosage operations, enhancing supply security and cost competitiveness.',
     icon: 'icon-capacity.svg',
-    image: 'scale-bg.png',
+    image: '/assets/api/scale-bg.png',
   },
   {
     title: 'Innovation-Led, Technology-Driven',
     body: 'Our API operations are enabled by advanced Industry 4.0 technologies, including PLC, DCS, and Electronic Batch Manufacturing Records, while embedding Green Chemistry and sustainable innovation into R&D and manufacturing to improve yields, reduce waste, and enhance operational efficiency.',
     icon: 'icon-manufacturing.svg',
-    image: null,
+    image: '/assets/api/hero-banner.png',
   },
   {
     title: 'Global Market Presence',
     body: 'Global regulatory accreditations enabling supplies to 80+ countries, supported by industry-leading practices including Quality by Design (QbD), closed-loop operations, robust GMP systems, data integrity controls, and a deeply embedded safety culture.',
     icon: 'icon-globe.svg',
-    image: null,
+    image: '/assets/facilities/bonthapally-2.png',
   },
 ];
 
 export default function ApiPage() {
-  const [open, setOpen] = useState(-1);
+  const [open, setOpen] = useState(0);
 
   useEffect(() => {
     document.title = 'Active Pharmaceutical Ingredients — Granules India';
     window.scrollTo(0, 0);
   }, []);
 
-  const activeImage = (open >= 0 && SCALE_ITEMS[open]?.image) ? `${A}${SCALE_ITEMS[open].image}` : (SCALE_ITEMS[0]?.image ? `${A}${SCALE_ITEMS[0].image}` : null);
+  const activeImage = (open >= 0 && SCALE_ITEMS[open]?.image) ? SCALE_ITEMS[open].image : SCALE_ITEMS[0]?.image;
 
   return (
     <div className="cp">

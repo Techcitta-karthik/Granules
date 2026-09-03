@@ -5,36 +5,6 @@ import './contact.css';
 
 const A = '/assets/contact/';
 
-type TabKey = 'key-contacts' | 'business-contacts' | 'investor-contacts';
-
-type TabData = {
-  title: string;
-  address: string;
-  cin?: string;
-  phone1: string;
-  phone2?: string;
-  email: string;
-};
-
-// Only the two tabs that map to a simple address / phone / email block use
-// TAB_DATA. "investor-contacts" has its own richer layout below.
-const TAB_DATA: Record<'key-contacts' | 'business-contacts', TabData> = {
-  'key-contacts': {
-    title: 'Corporate Office Address',
-    address: '15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India.',
-    cin: 'CIN: L24110TG1991PLC012471',
-    phone1: '+91 40 69043500',
-    phone2: '+91 40 23115145',
-    email: 'mail@granulesindia.com',
-  },
-  'business-contacts': {
-    title: 'Business Enquiries',
-    address: '15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India.',
-    phone1: '+91 40 69043500',
-    email: 'sales@granulesindia.com',
-  },
-};
-
 const SUBJECT_OPTIONS = [
   'API',
   'PFI',
@@ -42,7 +12,8 @@ const SUBJECT_OPTIONS = [
   'Research & Development',
   'Business Development',
   'Drugs Safety — For Reporting Adverse Effects',
-  'Product Queries',
+  'Product',
+  'Queries',
   'Careers',
   'Others',
 ];
@@ -57,7 +28,7 @@ function generateCaptcha() {
   return { a, b, answer: a + b };
 }
 
-/* -------- Small inline icon helpers (kept in the same style as the rest of the page) -------- */
+/* -------- Small inline icon helpers -------- */
 
 const PhoneIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -100,7 +71,7 @@ const LockIcon = () => (
 );
 
 export default function ContactPage() {
-  const [activeTab, setActiveTab] = useState<TabKey>('key-contacts');
+  const [activeTab, setActiveTab] = useState<'corporate' | 'enquiries' | 'investor'>('corporate');
   const [formData, setFormData] = useState({
     fullName: '',
     designation: '',
@@ -133,7 +104,6 @@ export default function ContactPage() {
 
     const captchaCorrect = parseInt(captchaInput, 10) === captcha.answer;
 
-    // Regenerate the captcha challenge after every submit attempt.
     setCaptcha(generateCaptcha());
     setCaptchaInput('');
 
@@ -151,9 +121,6 @@ export default function ContactPage() {
     }, 4000);
   };
 
-  const isInvestorTab = activeTab === 'investor-contacts';
-  const currentTabInfo = !isInvestorTab ? TAB_DATA[activeTab as 'key-contacts' | 'business-contacts'] : null;
-
   return (
     <div className="cp ct-page-wrap">
       <NavBar />
@@ -161,12 +128,11 @@ export default function ContactPage() {
       <main className="ct-main-content">
         {/* Top Hero + Floating Form Section */}
         <section className="ct-hero-form-section">
-          {/* Background image & Left Side Intro Copy */}
           <div className="ct-hero-bg-container">
             <img src={`${A}hero-photo.png`} alt="Granules India team" className="ct-hero-bg-img" />
 
             <div className="ct-hero-text-overlay">
-              <h1 className="ct-hero-heading">Let’s connect</h1>
+              <h1 className="ct-hero-heading">Contact Us</h1>
               <p className="ct-hero-desc">
                 We’re here to help and answer any questions you may have.
               </p>
@@ -176,7 +142,7 @@ export default function ContactPage() {
 
           {/* Right Floating Form Card */}
           <div className="ct-form-floating-card">
-            <h2 className="ct-form-card-title">Send us a message</h2>
+            <h2 className="ct-form-card-title">Send us a Message</h2>
 
             {submitted ? (
               <div className="ct-form-success-box">
@@ -200,7 +166,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      placeholder="Full Name *"
+                      placeholder="Your Name *"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       aria-label="Your Name (required)"
@@ -238,24 +204,24 @@ export default function ContactPage() {
                     <input
                       type="email"
                       required
-                      placeholder="Email address *"
+                      placeholder="Email Address *"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       aria-label="Email Address (required)"
                     />
                   </div>
 
-                  {/* Contact Number (optional) */}
+                  {/* Contact Number (not mandatory) */}
                   <div className="ct-form-input-box">
                     <span className="ct-input-icon">
                       <PhoneInputIcon />
                     </span>
                     <input
                       type="tel"
-                      placeholder="Contact number (optional)"
+                      placeholder="Contact number (not mandatory)"
                       value={formData.contactNumber}
                       onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                      aria-label="Contact Number (optional)"
+                      aria-label="Contact number (not mandatory)"
                     />
                   </div>
                 </div>
@@ -275,9 +241,9 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    aria-label="Choose subject (required)"
+                    aria-label="Choose Subject (required)"
                   >
-                    <option value="" disabled>Choose subject *</option>
+                    <option value="" disabled>Choose Subject *</option>
                     {SUBJECT_OPTIONS.map((option) => (
                       <option key={option} value={option}>{option}</option>
                     ))}
@@ -299,11 +265,11 @@ export default function ContactPage() {
                   </span>
                   <textarea
                     required
-                    placeholder="Write your message here... *"
+                    placeholder="Your message *"
                     rows={4}
                     value={formData.message}
                     onChange={handleMessageChange}
-                    aria-label="Your Message (required)"
+                    aria-label="Your message (required)"
                   />
                   <span className="ct-char-count">{messageLength} / 1000</span>
                 </div>
@@ -327,7 +293,7 @@ export default function ContactPage() {
                       inputMode="numeric"
                       pattern="[0-9]*"
                       required
-                      placeholder="Your answer"
+                      placeholder="Captcha answer *"
                       value={captchaInput}
                       onChange={(e) => {
                         setCaptchaInput(e.target.value);
@@ -346,7 +312,7 @@ export default function ContactPage() {
                 {/* Submit Button */}
                 <div className="ct-form-btn-row">
                   <button type="submit" className="ct-submit-pill-btn">
-                    <span>SEND MESSAGE</span>
+                    <span>Submit</span>
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="22" y1="2" x2="11" y2="13" />
                       <polygon points="22 2 15 22 11 13 2 9 22 2" />
@@ -358,35 +324,103 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Bottom Details Section matching Reference Image */}
+        {/* Bottom Details Section */}
         <section className="ct-bottom-unified-card">
           {/* Tabs Header */}
           <div className="ct-bottom-tabs-header">
             <button
               type="button"
-              className={`ct-bottom-tab ${activeTab === 'key-contacts' ? 'active' : ''}`}
-              onClick={() => setActiveTab('key-contacts')}
+              className={`ct-bottom-tab ${activeTab === 'corporate' ? 'active' : ''}`}
+              onClick={() => setActiveTab('corporate')}
             >
-              KEY CONTACTS
+              CORPORATE OFFICE
             </button>
             <button
               type="button"
-              className={`ct-bottom-tab ${activeTab === 'business-contacts' ? 'active' : ''}`}
-              onClick={() => setActiveTab('business-contacts')}
+              className={`ct-bottom-tab ${activeTab === 'enquiries' ? 'active' : ''}`}
+              onClick={() => setActiveTab('enquiries')}
             >
-              BUSINESS CONTACTS
+              GENERAL &amp; MEDIA ENQUIRIES
             </button>
             <button
               type="button"
-              className={`ct-bottom-tab ${activeTab === 'investor-contacts' ? 'active' : ''}`}
-              onClick={() => setActiveTab('investor-contacts')}
+              className={`ct-bottom-tab ${activeTab === 'investor' ? 'active' : ''}`}
+              onClick={() => setActiveTab('investor')}
             >
-              INVESTOR RELATION CONTACT
+              INVESTOR RELATIONS CONTACT
             </button>
           </div>
 
-          {/* Block 1: Active Tab Content */}
-          {isInvestorTab ? (
+          {/* Tab 1: Corporate Office Address */}
+          {activeTab === 'corporate' && (
+            <div className="ct-stacked-block">
+              <h3 className="ct-stacked-heading">Corporate Office Address</h3>
+              <div className="ct-address-text-block">
+                <p className="ct-address-line">
+                  15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India.
+                </p>
+                <p className="ct-address-cin">CIN: L24110TG1991PLC012471</p>
+              </div>
+
+              <div className="ct-action-pills-row">
+                <a href={`tel:${toTelHref('+91 40 69043500')}`} className="ct-action-pill">
+                  <span className="ct-pill-icon"><PhoneIcon /></span>
+                  <span>Telephone: +91 40 69043500</span>
+                </a>
+                <a href={`tel:${toTelHref('+91 40 23115145')}`} className="ct-action-pill">
+                  <span className="ct-pill-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                      <line x1="6" y1="6" x2="6.01" y2="6" />
+                      <line x1="6" y1="18" x2="6.01" y2="18" />
+                    </svg>
+                  </span>
+                  <span>Fax: +91 40 23115145</span>
+                </a>
+                <a href="mailto:mail@granulesindia.com" className="ct-action-pill">
+                  <span className="ct-pill-icon"><MailIcon /></span>
+                  <span>Email id: mail@granulesindia.com</span>
+                </a>
+              </div>
+            </div>
+          )}
+
+          {/* Tab 2: Enquiries (Business, General, Media) */}
+          {activeTab === 'enquiries' && (
+            <div className="ct-investor-tab-content">
+              <div className="ct-stacked-block">
+                <h3 className="ct-stacked-heading">For Business Enquiries</h3>
+                <a href="mailto:sales@granulesindia.com" className="ct-action-pill">
+                  <span className="ct-pill-icon"><MailIcon /></span>
+                  <span>sales@granulesindia.com</span>
+                </a>
+              </div>
+
+              <hr className="ct-section-divider" />
+
+              <div className="ct-stacked-block">
+                <h3 className="ct-stacked-heading">For General Enquiries</h3>
+                <a href="mailto:mail@granulesindia.com" className="ct-action-pill">
+                  <span className="ct-pill-icon"><MailIcon /></span>
+                  <span>mail@granulesindia.com</span>
+                </a>
+              </div>
+
+              <hr className="ct-section-divider" />
+
+              <div className="ct-stacked-block">
+                <h3 className="ct-stacked-heading">For Media Enquiries</h3>
+                <a href="mailto:Priyanka.Chawla@granulesindia.com" className="ct-action-pill">
+                  <span className="ct-pill-icon"><MailIcon /></span>
+                  <span>Priyanka.Chawla@granulesindia.com</span>
+                </a>
+              </div>
+            </div>
+          )}
+
+          {/* Tab 3: Investor Relations Contact */}
+          {activeTab === 'investor' && (
             <div className="ct-investor-tab-content">
               <div className="ct-investor-subsection">
                 <a
@@ -396,18 +430,19 @@ export default function ContactPage() {
                   className="ct-action-pill"
                 >
                   <span className="ct-pill-icon"><LinkPillIcon /></span>
-                  <span>Investor Relations Contact</span>
+                  <span>Investor Relations Contact Page ↗</span>
                 </a>
               </div>
 
               <hr className="ct-section-divider" />
 
+              {/* Institutional Investors & Financial Analysts */}
               <div className="ct-investor-subsection">
-                <h4 className="ct-investor-subheading">Institutional Investors &amp; Financial Analysts</h4>
+                <h4 className="ct-investor-subheading">For Institutional Investors &amp; Financial Analysts</h4>
                 <div className="ct-action-pills-row">
                   <a href={`tel:${toTelHref('+040-69043500')}`} className="ct-action-pill">
                     <span className="ct-pill-icon"><PhoneIcon /></span>
-                    <span>+040-69043500</span>
+                    <span>Tel: +040-69043500</span>
                   </a>
                   <a href="mailto:investorrelations@granulesindia.com" className="ct-action-pill">
                     <span className="ct-pill-icon"><MailIcon /></span>
@@ -422,6 +457,7 @@ export default function ContactPage() {
 
               <hr className="ct-section-divider" />
 
+              {/* Registrar and Transfer Agent */}
               <div className="ct-investor-subsection">
                 <h4 className="ct-investor-subheading">Registrar and Transfer Agent</h4>
                 <div className="ct-address-text-block">
@@ -433,23 +469,24 @@ export default function ContactPage() {
                 <div className="ct-action-pills-row">
                   <a href={`tel:${toTelHref('1-800-309-4001')}`} className="ct-action-pill">
                     <span className="ct-pill-icon"><PhoneIcon /></span>
-                    <span>Toll Free: 1-800-309-4001</span>
+                    <span>Toll Free No.: 1-800-309-4001</span>
                   </a>
                   <a href="mailto:einward.ris@kfintech.com" className="ct-action-pill">
                     <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>Investor Grievance: einward.ris@kfintech.com</span>
+                    <span>Investor Grievance ID: einward.ris@kfintech.com</span>
                   </a>
                   <a href="https://www.kfintech.com/" target="_blank" rel="noopener noreferrer" className="ct-action-pill">
                     <span className="ct-pill-icon"><LinkPillIcon /></span>
-                    <span>www.kfintech.com</span>
+                    <span>Website: www.kfintech.com</span>
                   </a>
                 </div>
               </div>
 
               <hr className="ct-section-divider" />
 
+              {/* Retail Investors and Grievance */}
               <div className="ct-investor-subsection">
-                <h4 className="ct-investor-subheading">Retail Investors and Grievance</h4>
+                <h4 className="ct-investor-subheading">For Retail Investors and Grievance</h4>
                 <div className="ct-address-text-block">
                   <p className="ct-address-line">
                     <strong>Ms. Chaitanya Tummala</strong><br />
@@ -457,110 +494,86 @@ export default function ContactPage() {
                     Granules India Limited
                   </p>
                   <p className="ct-address-line">
-                    15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India.
+                    15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India
                   </p>
                 </div>
                 <div className="ct-action-pills-row">
                   <a href={`tel:${toTelHref('+91 40 69043500')}`} className="ct-action-pill">
                     <span className="ct-pill-icon"><PhoneIcon /></span>
-                    <span>+91 40 69043500</span>
+                    <span>Tel: +91 40 69043500</span>
                   </a>
                   <a href={`tel:${toTelHref('+91 40 23115145')}`} className="ct-action-pill">
-                    <span className="ct-pill-icon"><PhoneIcon /></span>
+                    <span className="ct-pill-icon">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                        <line x1="6" y1="6" x2="6.01" y2="6" />
+                        <line x1="6" y1="18" x2="6.01" y2="18" />
+                      </svg>
+                    </span>
                     <span>Fax: +91 40 23115145</span>
                   </a>
                   <a href="mailto:chaitanya.tummala@granulesindia.com" className="ct-action-pill">
                     <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>chaitanya.tummala@granulesindia.com</span>
+                    <span>Email id: chaitanya.tummala@granulesindia.com</span>
+                  </a>
+                  <a href="mailto:investorrelations@granulesindia.com" className="ct-action-pill">
+                    <span className="ct-pill-icon"><MailIcon /></span>
+                    <span>Write to us at: investorrelations@granulesindia.com</span>
                   </a>
                 </div>
-                <a href="mailto:investorrelations@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>Write to us at: investorrelations@granulesindia.com</span>
-                </a>
               </div>
             </div>
-          ) : (
-            currentTabInfo && (
-              <div className="ct-stacked-block">
-                <div className="ct-address-text-block">
-                  <p className="ct-address-line">{currentTabInfo.address}</p>
-                  {currentTabInfo.cin && <p className="ct-address-cin">{currentTabInfo.cin}</p>}
-                </div>
-
-                <div className="ct-action-pills-row">
-                  <a href={`tel:${toTelHref(currentTabInfo.phone1)}`} className="ct-action-pill">
-                    <span className="ct-pill-icon"><PhoneIcon /></span>
-                    <span>{currentTabInfo.phone1}</span>
-                  </a>
-
-                  {currentTabInfo.phone2 && (
-                    <a href={`tel:${toTelHref(currentTabInfo.phone2)}`} className="ct-action-pill">
-                      <span className="ct-pill-icon">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-                          <line x1="6" y1="6" x2="6.01" y2="6" />
-                          <line x1="6" y1="18" x2="6.01" y2="18" />
-                        </svg>
-                      </span>
-                      <span>Fax: {currentTabInfo.phone2}</span>
-                    </a>
-                  )}
-
-                  <a href={`mailto:${currentTabInfo.email}`} className="ct-action-pill">
-                    <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>{currentTabInfo.email}</span>
-                  </a>
-                </div>
-              </div>
-            )
           )}
 
-          <hr className="ct-section-divider" />
+          {/* Quick Enquiries Summary in All Tabs */}
+          {activeTab === 'corporate' && (
+            <>
+              <hr className="ct-section-divider" />
+              <div className="ct-stacked-block">
+                <h3 className="ct-stacked-heading">For Business Enquiries</h3>
+                <a href="mailto:sales@granulesindia.com" className="ct-action-pill">
+                  <span className="ct-pill-icon"><MailIcon /></span>
+                  <span>sales@granulesindia.com</span>
+                </a>
+              </div>
 
-          {/* Block 2: Business Enquiries */}
-          <div className="ct-stacked-block">
-            <h3 className="ct-stacked-heading">Business Enquiries</h3>
-            <a href="mailto:sales@granulesindia.com" className="ct-action-pill">
-              sales@granulesindia.com
-            </a>
-          </div>
+              <hr className="ct-section-divider" />
+              <div className="ct-stacked-block">
+                <h3 className="ct-stacked-heading">For General Enquiries</h3>
+                <a href="mailto:mail@granulesindia.com" className="ct-action-pill">
+                  <span className="ct-pill-icon"><MailIcon /></span>
+                  <span>mail@granulesindia.com</span>
+                </a>
+              </div>
 
-          <hr className="ct-section-divider" />
-
-          {/* Block 3: General Enquiries */}
-          <div className="ct-stacked-block">
-            <h3 className="ct-stacked-heading">General Enquiries</h3>
-            <a href="mailto:mail@granulesindia.com" className="ct-action-pill">
-              mail@granulesindia.com
-            </a>
-          </div>
-
-          <hr className="ct-section-divider" />
-
-          {/* Block 4: Media Enquiries */}
-          <div className="ct-stacked-block">
-            <h3 className="ct-stacked-heading">Media Enquiries</h3>
-            <a href="mailto:Priyanka.Chawla@granulesindia.com" className="ct-action-pill">
-              Priyanka.Chawla@granulesindia.com
-            </a>
-          </div>
+              <hr className="ct-section-divider" />
+              <div className="ct-stacked-block">
+                <h3 className="ct-stacked-heading">For Media Enquiries</h3>
+                <a href="mailto:Priyanka.Chawla@granulesindia.com" className="ct-action-pill">
+                  <span className="ct-pill-icon"><MailIcon /></span>
+                  <span>Priyanka.Chawla@granulesindia.com</span>
+                </a>
+              </div>
+            </>
+          )}
         </section>
 
-        {/* Adverse Event Reporting Card matching Reference Image */}
+        {/* Adverse Event Reporting Card */}
         <section className="ct-adverse-section">
           <div className="ct-adverse-card">
             <h3 className="ct-adverse-title">For Adverse Event Reporting</h3>
             <p className="ct-adverse-desc">
-              To report an adverse experience with a specific Granules drug product, please call or mail Granules Pharmacovigilance Team
+              To report an adverse experience with a specific Granules drug product, please call Granules Pharmacovigilance Team at 1-877-770-3183 Or Email:
             </p>
             <div className="ct-adverse-pills-row">
               <a href="tel:18777703183" className="ct-adverse-pill">
-                1-877-770-3183
+                <span className="ct-pill-icon"><PhoneIcon /></span>
+                <span>1-877-770-3183</span>
               </a>
               <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-pill">
-                drugs.safety@granulesindia.com
+                <span className="ct-pill-icon"><MailIcon /></span>
+                <span>drugs.safety@granulesindia.com</span>
               </a>
             </div>
           </div>
@@ -585,7 +598,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="https://twitter.com/Granules_India"
+              href="https://x.com/GranulesIndia"
               target="_blank"
               rel="noopener noreferrer"
               className="ct-follow-circle-btn"
@@ -597,7 +610,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="https://www.facebook.com/GranulesIndiaLtd"
+              href="https://www.facebook.com/share/1BSgd7PiTC/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
               className="ct-follow-circle-btn"

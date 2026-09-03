@@ -341,7 +341,15 @@
   border-radius: 40px; padding: clamp(60px, 8vw, 120px) clamp(24px, 8vw, 182px) 80px;
   position: relative; overflow: hidden;
 }
-.biz-panel img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.biz-panel img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: opacity 0.4s ease-in-out;
+}
 .biz-panel .overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.2); z-index: 0; }
 .biz-panel-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 .biz-panel-head h2 { margin: 0; font: 600 clamp(28px, 4vw, 50px)/1.15 'Manrope', sans-serif; color: #fff; }

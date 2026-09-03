@@ -9,6 +9,7 @@ type Submenu = {
   quickLinks: { label: string; href: string }[];
   links: { label: string; href: string }[];
   image: string;
+  imageHref?: string;
 };
 
 const SUBMENUS: Record<string, Submenu> = {
@@ -57,21 +58,20 @@ const SUBMENUS: Record<string, Submenu> = {
     ],
     image: 'company/gpi-facility.webp',
   },
-  Sustainability: {
-    title: 'Sustainability',
+  Community: {
+    title: 'Community',
     quickLinks: [
-      { label: 'OVERVIEW', href: '/sustainability' },
-      { label: 'STRATEGY', href: '/sustainability/strategy' },
-      { label: 'ESG IN ACTION', href: '/sustainability/esg-in-action' },
+      { label: 'OVERVIEW', href: '/community' },
+      { label: 'SKILL DEVELOPMENT', href: '/community' },
+      { label: 'HEALTHCARE', href: '/community' },
     ],
     links: [
-      { label: 'Policies', href: '/sustainability#policies' },
-      { label: 'Reports & Disclosures', href: '/sustainability#reports' },
-      { label: 'Assurance & Verification Report', href: '/sustainability#assurance' },
-      { label: 'Commitments Memberships & Ratings', href: '/sustainability#commitments' },
-      { label: 'Certifications', href: '/sustainability#certifications' },
+      { label: 'Pharma Patashala', href: '/community' },
+      { label: 'Mobile Mammography Camps', href: '/community' },
+      { label: 'Vidya Volunteers & Education', href: '/community' },
+      { label: 'Native Tree Plantation', href: '/community' },
     ],
-    image: 'esg-world-profile.webp',
+    image: 'esg/social-1.webp',
   },
   Investor: {
     title: 'Investor',
@@ -221,9 +221,21 @@ export default function NavBar() {
                         </div>
                       </div>
 
-                      <div className="cp-nav-submenu-thumb">
-                        <img src={asset(submenu.image)} alt="" loading="lazy" decoding="async" />
-                      </div>
+                      {submenu.imageHref ? (
+                        <a
+                          href={submenu.imageHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cp-nav-submenu-thumb"
+                          title="View ESG Profile"
+                        >
+                          <img src={asset(submenu.image)} alt="ESG Profile" loading="lazy" decoding="async" />
+                        </a>
+                      ) : (
+                        <div className="cp-nav-submenu-thumb">
+                          <img src={asset(submenu.image)} alt="" loading="lazy" decoding="async" />
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

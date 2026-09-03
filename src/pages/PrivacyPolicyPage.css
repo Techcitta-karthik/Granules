@@ -1,0 +1,129 @@
+/* Policy Page Shared Styles */
+.policy-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.policy-main {
+  flex: 1 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(120px, 14vw, 175px) auto clamp(60px, 8vw, 100px) !important;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.policy-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.policy-title {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700;
+  color: #1e50ff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin: 0 0 24px;
+}
+
+.policy-divider {
+  width: 100%;
+  height: 1.5px;
+  background-color: #93c5fd;
+  opacity: 0.7;
+  margin: 0 0 clamp(32px, 4vw, 48px);
+}
+
+.policy-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 3.5vw, 40px);
+}
+
+.policy-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.policy-section-title {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(19px, 2vw, 22px);
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.policy-text {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  font-weight: 400;
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.policy-text strong {
+  font-weight: 600;
+  color: #374151;
+}
+
+.policy-list {
+  margin: 4px 0 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.policy-list li {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  font-weight: 400;
+  color: #4b5563;
+  line-height: 1.65;
+}
+
+.policy-list-subtext {
+  display: block;
+  margin-top: 4px;
+  color: #4b5563;
+}
+
+.policy-link {
+  color: #1e50ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.policy-link:hover {
+  color: #003cdb;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .policy-main {
+    width: 90% !important;
+    max-width: 90% !important;
+    margin-top: 120px !important;
+  }
+
+  .policy-title {
+    font-size: 32px;
+  }
+
+  .policy-section-title {
+    font-size: 19px;
+  }
+
+  .policy-text,
+  .policy-list li {
+    font-size: 15px;
+  }
+}

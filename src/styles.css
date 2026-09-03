@@ -1086,6 +1086,7 @@ p {
   gap: 120px;
   align-items: center;
   color: white;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .sustainability-overlay {
@@ -1467,7 +1468,7 @@ article.open .accordion-icon-circle {
   color: #1f2937;
 }
 
-footer {
+footer:not(.cp-footer) {
   color: white;
   background-size: cover;
   background-position: center;

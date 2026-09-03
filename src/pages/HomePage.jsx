@@ -125,7 +125,8 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
   const links = [
     ['About Us', '/company'],
     ['Business', '#business'],
-    ['Sustainability', '#sustainability'],
+    ['Sustainability', '/sustainability'],
+    ['Community', '/community'],
     ['Investor', '#investor'],
     ['Media', '#media'],
     ['Careers', '#careers'],
@@ -177,21 +178,20 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
       ],
       image: 'company/gpi-facility.webp',
     },
-    Sustainability: {
-      title: 'Sustainability',
+    Community: {
+      title: 'Community',
       quickLinks: [
-        ['OVERVIEW', '/sustainability'],
-        ['STRATEGY', '/sustainability/strategy'],
-        ['ESG IN ACTION', '/sustainability/esg-in-action'],
+        ['OVERVIEW', '/community'],
+        ['SKILL DEVELOPMENT', '/community'],
+        ['HEALTHCARE', '/community'],
       ],
       links: [
-        ['Policies', '/sustainability#policies'],
-        ['Reports & Disclosures', '/sustainability#reports'],
-        ['Assurance & Verification Report', '/sustainability#assurance'],
-        ['Commitments Memberships & Ratings', '/sustainability#commitments'],
-        ['Certifications', '/sustainability#certifications'],
+        ['Pharma Patashala', '/community'],
+        ['Mobile Mammography Camps', '/community'],
+        ['Vidya Volunteers & Education', '/community'],
+        ['Native Tree Plantation', '/community'],
       ],
-      image: 'esg-world-profile.webp',
+      image: 'esg/social-1.webp',
     },
     Investor: {
       title: 'Investor',
@@ -313,9 +313,21 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
                       ))}
                     </div>
                   </div>
-                  <div className="home-nav-submenu-thumb">
-                    <img src={`${A}${sub.image}`} alt="" loading="lazy" decoding="async" />
-                  </div>
+                  {sub.imageHref ? (
+                    <a
+                      href={sub.imageHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="home-nav-submenu-thumb"
+                      title="View ESG Profile"
+                    >
+                      <img src={`${A}${sub.image}`} alt="ESG Profile" loading="lazy" decoding="async" />
+                    </a>
+                  ) : (
+                    <div className="home-nav-submenu-thumb">
+                      <img src={`${A}${sub.image}`} alt="" loading="lazy" decoding="async" />
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -654,6 +666,7 @@ function Sustainability() {
       iconType: 'circle',
       href: '/company/granules-czro',
       cta: 'Explore Granules CZRO',
+      bg: `${A}sustainability.webp`,
     },
     {
       title: 'Target to achieve Net Zero by 2050',
@@ -662,6 +675,7 @@ function Sustainability() {
       iconType: 'plain',
       href: '/sustainability/strategy',
       cta: 'View Decarbonisation Strategy',
+      bg: `${A}sustainability-net-zero.jpg`,
     },
     {
       title: 'Pharma Pathshala',
@@ -670,11 +684,14 @@ function Sustainability() {
       iconType: 'circle',
       href: '/sustainability/esg-in-action/community',
       cta: 'Discover Community Programs',
+      bg: `${A}sustainability-pathshala.jpg`,
     },
   ];
   const [open, setOpen] = useState(0);
+  const currentBg = (open >= 0 && items[open]?.bg) ? items[open].bg : items[0].bg;
+
   return (
-    <section className="sustainability" id="sustainability" style={{ backgroundImage: `url(${A}sustainability.webp)` }}>
+    <section className="sustainability" id="sustainability" style={{ backgroundImage: `url(${currentBg})` }}>
       <div className="sustainability-overlay" />
       <div className="sustainability-copy">
         <Tag>Sustainability</Tag>
@@ -847,7 +864,13 @@ function Footer() {
     ['Careers', '/careers'],
     ['Contact Us', '/contact'],
   ];
-  const socials = ['facebook.svg', 'instagram.svg', 'x.svg', 'linkedin.svg', 'youtube.svg'];
+  const socials = [
+    { icon: 'facebook.svg', name: 'Facebook', href: 'https://www.facebook.com/share/1BSgd7PiTC/?mibextid=wwXIfr' },
+    { icon: 'instagram.svg', name: 'Instagram', href: 'https://instagram.com' },
+    { icon: 'x.svg', name: 'X', href: 'https://x.com/GranulesIndia' },
+    { icon: 'linkedin.svg', name: 'LinkedIn', href: 'https://www.linkedin.com/company/granules-india-limited/' },
+    { icon: 'youtube.svg', name: 'YouTube', href: 'https://www.youtube.com/@Granules-IndiaLimited/featured' },
+  ];
   return (
     <footer id="footer" style={{ backgroundImage: `url(${A}footer-bg.webp)` }}>
       <div className="footer-main shell">
@@ -883,9 +906,9 @@ function Footer() {
           <Link to="/contact">Terms & Condition</Link>
         </div>
         <div className="socials">
-          {socials.map((icon) => (
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" key={icon}>
-              <img src={`${A}${icon}`} alt="" loading="lazy" decoding="async" />
+          {socials.map((item) => (
+            <a href={item.href} target="_blank" rel="noreferrer" key={item.icon} aria-label={item.name}>
+              <img src={`${A}${item.icon}`} alt={item.name} loading="lazy" decoding="async" />
             </a>
           ))}
         </div>
@@ -1000,7 +1023,9 @@ export default function HomePage() {
         <Media />
         <Careers />
       </main>
-      <CompanyFooter />
+      <div className="cp">
+        <CompanyFooter />
+      </div>
       <a
         className={progress > 8 ? 'back-to-top visible' : 'back-to-top'}
         href="#top"

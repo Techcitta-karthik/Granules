@@ -140,6 +140,7 @@ type CapabilityItem = {
   title: string;
   body: string;
   icon: string;
+  image?: string;
 };
 
 const CAPABILITY_ITEMS: CapabilityItem[] = [
@@ -147,16 +148,19 @@ const CAPABILITY_ITEMS: CapabilityItem[] = [
     title: 'Targeting High Barrier Segments',
     body: 'Our API R&D is advancing high-barrier products in oncology and metabolic disorders through novel polymorphs, amorphous solid dispersions, and strategic collaborations with the Indian Institute of Technology (IIT) Hyderabad, National Institute of Pharmaceutical Education and Research (NIPER), CSIR-Indian Institute of Chemical Technology, and global partners.',
     icon: 'icon-pills.svg',
+    image: 'capabilities-bg.png',
   },
   {
     title: 'Biocatalysis as a Strategic Platform',
     body: 'Developing clean, enzyme-catalyzed synthesis pathways that replace hazardous reagents, achieve high stereo-selectivity, and reduce environmental impact.',
     icon: 'icon-circles.svg',
+    image: 'centers-bg.png',
   },
   {
     title: 'Enzyme & Biotransformation Technologies',
     body: 'Leveraging immobilized enzymes, engineered biocatalysts, and continuous flow biotransformations for sustainable, commercial-scale production.',
     icon: 'icon-dna.svg',
+    image: 'hero-banner.png',
   },
 ];
 
@@ -390,7 +394,15 @@ export default function RdPage() {
 
       {/* Building capabilities in complex and sustainable chemistry */}
       <div className="biz-panel">
-        <img className="bg" src={`${R}capabilities-bg.png`} alt="Complex chemistry and biocatalysis laboratory" />
+        <img
+          className="bg"
+          src={
+            openCapability >= 0 && CAPABILITY_ITEMS[openCapability]?.image
+              ? `${R}${CAPABILITY_ITEMS[openCapability].image}`
+              : `${R}${CAPABILITY_ITEMS[0].image}`
+          }
+          alt="Complex chemistry and biocatalysis laboratory"
+        />
         <div className="overlay" />
         <div className="biz-panel-grid">
           <div className="biz-panel-head">

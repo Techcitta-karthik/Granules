@@ -1,0 +1,111 @@
+/* 404 Not Found Page Styles */
+.err-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.err-main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(120px, 14vw, 170px) 24px clamp(60px, 8vw, 100px);
+  text-align: center;
+  position: relative;
+}
+
+.err-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 36px;
+  max-width: 100%;
+}
+
+.err-visual img {
+  width: min(540px, 85vw);
+  height: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.err-title {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+.err-desc {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(16px, 1.8vw, 19px);
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 0 32px;
+}
+
+.err-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 32px;
+  background-color: #0052e0;
+  color: #ffffff !important;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 82, 224, 0.35);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.err-btn:hover {
+  background-color: #0041b3;
+  box-shadow: 0 6px 20px rgba(0, 82, 224, 0.45);
+  transform: translateY(-2px);
+}
+
+.err-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .err-main {
+    padding-top: 130px;
+    padding-bottom: 50px;
+  }
+
+  .err-visual img {
+    width: min(320px, 80vw);
+  }
+
+  .err-title {
+    font-size: 28px;
+  }
+
+  .err-desc {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .err-btn {
+    padding: 12px 28px;
+    font-size: 13px;
+  }
+}

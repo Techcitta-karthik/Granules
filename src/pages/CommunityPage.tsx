@@ -1,225 +1,209 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
-import './sustainability.css';
+import '../styles.css';
 import './community.css';
 
 const S = '/assets/esg/';
+const L = '/assets/leadership/';
 
-type CategoryKey = 'health' | 'skilling' | 'environment';
+interface MetricCard {
+  tag: string;
+  value: string;
+  label: string;
+}
 
-const CATEGORY_TABS: { key: CategoryKey; label: string }[] = [
-  { key: 'health', label: 'HEALTH' },
-  { key: 'skilling', label: 'SKILLING & EDUCATION' },
-  { key: 'environment', label: 'ENVIRONMENT AND BIODIVERSITY' },
+const COMMUNITY_METRICS: MetricCard[] = [
+  {
+    tag: 'Our Goal',
+    value: '1 Million',
+    label: 'Touch 1 million lives by 2030',
+  },
+  {
+    tag: 'Our Progress',
+    value: '3.5+ Lakhs',
+    label: 'Lives positively touched in FY26',
+  },
+  {
+    tag: 'Skill Development',
+    value: '1,600+',
+    label: 'Individuals trained through Pharma Patashala since its inception in 2017',
+  },
+  {
+    tag: 'Healthcare',
+    value: '15,000+',
+    label: 'Beneficiaries reached through Breast Cancer Screening Camps, awareness sessions and eye screening programmes for school children.',
+  },
+  {
+    tag: 'Education',
+    value: '2,000+',
+    label: 'Students benefited through Vidya Volunteers and educational support initiatives implemented through NGO partnerships.',
+  },
+  {
+    tag: 'Environment',
+    value: '18,000+',
+    label: 'Native trees planted',
+  },
 ];
 
-const COMMUNITY_DATA: Record<
-  CategoryKey,
+interface PillarData {
+  id: string;
+  category: string;
+  tag: string;
+  metric: string;
+  unit: string;
+  desc: string;
+  image: string;
+  badgeBg: string;
+  badgeColor: string;
+}
+
+const PILLARS_DATA: PillarData[] = [
   {
-    badge: string;
-    title: string;
-    desc: string;
-    stats: { value: string; label: string }[];
-    image: string;
-  }[]
-> = {
-  health: [
-    {
-      badge: '01 / 03',
-      title: 'MOBILE MAMMOGRAPHY SERVICES',
-      desc: 'A mobile mammography unit was deployed to provide early detection and raise awareness about breast cancer among underserved women, enabling timely medical intervention.',
-      stats: [
-        { value: '2,500+', label: 'WOMEN BENEFITTED' },
-        { value: '95%', label: 'FROM VULNERABLE AND MARGINALISED GROUPS' },
-        { value: '5,000+', label: 'WOMEN REACHED THROUGH AWARENESS PROGRAMS' },
-      ],
-      image: '',
-    },
-    {
-      badge: '02 / 03',
-      title: 'PHARMA PATHASHALA',
-      desc: 'A flagship skill development initiative, launched with Swarna Bharat Trust, the program addresses high youth unemployment and the gap in science-based vocational education by training youth in pharmaceutical operations like production, quality control, and R&D.',
-      stats: [
-        { value: '1,450+', label: 'RURAL YOUTH TRAINED SINCE 2017' },
-        { value: '100%', label: 'OF GRADUATES PLACED IN PHARMA JOBS' },
-      ],
-      image: '',
-    },
-    {
-      badge: '03 / 03',
-      title: 'GRANULES GREEN — KANHA RUN',
-      desc: 'As the title sponsor, Granules supported a wellness-focused community event organized by the Heartfulness Institute to promote health and fitness.',
-      stats: [
-        { value: '3,500+', label: 'RUNNERS PARTICIPATED' },
-        { value: '15,000+', label: 'NATIVE SAPLINGS PLANTED' },
-      ],
-      image: '',
-    },
-  ],
-  skilling: [
-    {
-      badge: '01 / 04',
-      title: 'PHARMA PATHASHALA',
-      desc: 'A flagship skill development initiative, launched with Swarna Bharat Trust, the program addresses high youth unemployment and the gap in science-based vocational education by training youth in pharmaceutical operations like production, quality control, and R&D.',
-      stats: [
-        { value: '1,450+', label: 'RURAL YOUTH TRAINED SINCE 2017' },
-        { value: '100%', label: 'OF GRADUATES PLACED IN PHARMA JOBS' },
-      ],
-      image: '',
-    },
-  ],
-  environment: [
-    {
-      badge: '01 / 03',
-      title: 'GRANULES GREEN — KANHA RUN',
-      desc: 'As the title sponsor, Granules supported a wellness-focused community event organized by the Heartfulness Institute to promote health, fitness, and environmental biodiversity.',
-      stats: [
-        { value: '3,500+', label: 'RUNNERS PARTICIPATED' },
-        { value: '15,000+', label: 'NATIVE SAPLINGS PLANTED' },
-      ],
-      image: '',
-    },
-  ],
-};
+    id: 'skill-development',
+    category: 'Skill Development',
+    tag: 'Vocational Training',
+    metric: '1,600+',
+    unit: 'Individuals Trained',
+    desc: 'Individuals trained through Pharma Patashala since its inception in 2017 with certified curriculum and direct pharmaceutical industry placements.',
+    image: 'social-1.webp',
+    badgeBg: '#eff6ff',
+    badgeColor: '#0061f8',
+  },
+  {
+    id: 'healthcare',
+    category: 'Healthcare',
+    tag: 'Preventive Care',
+    metric: '15,000+',
+    unit: 'Beneficiaries Reached',
+    desc: 'Beneficiaries reached through Breast Cancer Screening Camps, awareness sessions and eye screening programmes for school children.',
+    image: 'community-mammography.webp',
+    badgeBg: '#f0fdfa',
+    badgeColor: '#0d9488',
+  },
+  {
+    id: 'education',
+    category: 'Education',
+    tag: 'Student Support',
+    metric: '2,000+',
+    unit: 'Students Benefited',
+    desc: 'Students benefited through Vidya Volunteers and educational support initiatives implemented through NGO partnerships.',
+    image: 'social-2.webp',
+    badgeBg: '#fffbeb',
+    badgeColor: '#d97706',
+  },
+  {
+    id: 'environment',
+    category: 'Environment',
+    tag: 'Afforestation',
+    metric: '18,000+',
+    unit: 'Native Trees Planted',
+    desc: 'Native trees planted and nurtured across local communities and Granules Green biodiversity initiatives.',
+    image: 'esg-biodiversity.webp',
+    badgeBg: '#ecfdf5',
+    badgeColor: '#059669',
+  },
+];
 
 export default function CommunityPage() {
-  const [activeTab, setActiveTab] = useState<CategoryKey>('health');
-  const [itemIndex, setItemIndex] = useState(0);
-
   useEffect(() => {
     document.title = 'Community — Granules India';
     window.scrollTo(0, 0);
   }, []);
 
-  const items = COMMUNITY_DATA[activeTab] || COMMUNITY_DATA.health;
-  const currentItem = items[itemIndex % items.length] || items[0];
-
-  const handleTabChange = (key: CategoryKey) => {
-    setActiveTab(key);
-    setItemIndex(0);
-  };
-
-  const handleNext = () => {
-    setItemIndex((prev) => (prev + 1) % items.length);
-  };
-
   return (
-    <div className="cp">
+    <div className="cp comm-root">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Sustainability</span>
-        <span className="sep">{'>'}</span>
-        <span>esg</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Community</span>
-      </p>
-      <h1 className="cp-page-title">Community</h1>
-
-      <div className="sus-intro">
-        <p style={{ color: 'var(--n9)', font: "500 clamp(18px, 2vw, 30px)/1.25 'Manrope', sans-serif" }}>
-          We believe lasting progress comes from strong, meaningful relationships with our
-          communities and stakeholders.{' '}
-          <span style={{ color: '#9c9c9c' }}>
-            Guided by empathy and responsibility, we support healthcare, education, and social
-            development, creating long-term value beyond business.
-          </span>
+      <main className="comm-main">
+        {/* Breadcrumb Navigation */}
+        <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+          <span>Homepage</span>
+          <span className="sep">{'>'}</span>
+          <span className="current">Community</span>
         </p>
-      </div>
 
-      {/* 3 Main Tabs Bar with Horizontal Sliding Gradient Track */}
-      <div className="comm-tabs-wrap">
-        <div className="comm-tabs">
-          {CATEGORY_TABS.map((tab) => (
-            <button
-              key={tab.key}
-              type="button"
-              className={`comm-tab-btn${activeTab === tab.key ? ' active' : ''}`}
-              onClick={() => handleTabChange(tab.key)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-        <div className="comm-tabs-track">
-          <div
-            className="comm-tabs-indicator"
-            style={{
-              transform: `translateX(${
-                activeTab === 'health' ? '0%' : activeTab === 'skilling' ? '100%' : '200%'
-              })`,
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Interactive 2-Column Community Event Card with Blue Border */}
-      <div className="com-event-card" key={`${activeTab}-${itemIndex}`}>
-        <div className="com-event-copy">
-          <div>
-            <span className="com-event-badge">{currentItem.badge}</span>
-            <h2 className="com-event-title">{currentItem.title}</h2>
-            <p className="com-event-desc">{currentItem.desc}</p>
+        {/* 1. Hero Section: Editorial Layout with Signature Title, Human Quote & Sky-Blue Portrait Card */}
+        <section className="comm-hero-editorial">
+          <div className="comm-hero-editorial-left">
+            <h1 className="comm-hero-editorial-title">Community</h1>
+            <p className="comm-hero-editorial-quote">
+              “We believe lasting progress comes from strong, meaningful relationships with our
+              communities and stakeholders. Guided by empathy and responsibility, we support
+              healthcare, education, and social development, creating long-term value beyond business.”
+            </p>
+            <div className="comm-hero-editorial-author">
+              – Ms. Uma Chigurupati, Executive Director, Granules India Limited
+            </div>
           </div>
 
-          <div className="com-event-stats">
-            {currentItem.stats.map((stat) => (
-              <div className="com-stat" key={stat.label}>
-                <p className="com-stat-value">{stat.value}</p>
-                <p className="com-stat-label">{stat.label}</p>
+          <div className="comm-hero-editorial-right">
+            <div className="comm-portrait-blue-card">
+              <img
+                src={`${L}uma-devi.webp`}
+                alt="Ms. Uma Chigurupati, Executive Director, Granules India Limited"
+                className="comm-portrait-blue-img"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 2. Grid of Natural Pale-Blue Metric Cards */}
+        <section className="comm-stats-section">
+          <div className="comm-stats-cards-grid">
+            {COMMUNITY_METRICS.map((item) => (
+              <div key={item.tag} className="comm-stat-box">
+                <span className="comm-stat-box-tag">{item.tag}</span>
+                <strong className="comm-stat-box-num">{item.value}</strong>
+                <p className="comm-stat-box-lbl">{item.label}</p>
               </div>
             ))}
-
-            {/* Initiative indicators (e.g. 3 initiatives under Health) */}
-            {items.length > 1 && (
-              <div className="com-event-dashes">
-                {items.map((it, idx) => (
-                  <button
-                    key={it.badge}
-                    type="button"
-                    className={`com-event-dash${idx === itemIndex ? ' active' : ''}`}
-                    onClick={() => setItemIndex(idx)}
-                    aria-label={`Go to ${it.title}`}
-                  />
-                ))}
-              </div>
-            )}
           </div>
-        </div>
+        </section>
 
-        <div className="com-event-media">
-          {currentItem.image ? (
-            <img src={`${S}${currentItem.image}`} alt={currentItem.title} loading="lazy" decoding="async" />
-          ) : null}
-          {items.length > 1 && (
-            <button
-              type="button"
-              className="com-event-next-btn"
-              onClick={handleNext}
-              aria-label="Next initiative"
-            >
-              ›
-            </button>
-          )}
-        </div>
-      </div>
+        {/* 3. Core Focus Areas Showcase */}
+        <section className="comm-pillars-section">
+          <div className="comm-section-head-simple">
+            <span className="comm-section-tag">Key Initiatives</span>
+            <h2>Core Focus Areas</h2>
+            <p className="comm-section-desc">
+              Dedicated social investments creating lasting value across health, skilling, education, and ecology.
+            </p>
+          </div>
 
-      <div className="sus-cta" style={{ marginTop: 'clamp(100px, 12vw, 140px)' }}>
-        <img className="bg" src={`${S}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
-        <div className="overlay" />
-        <div className="sus-cta-copy">
-          <h2>Creating shared value for our communities</h2>
-          <p>
-            Explore our comprehensive Environmental, Social, and Governance commitments and reports.
-          </p>
-        </div>
-        <a className="cp-cta-btn" href="/sustainability/esg-in-action">
-          ESG in Action
-        </a>
-      </div>
+          <div className="comm-pillars-showcase">
+            {PILLARS_DATA.map((card) => (
+              <div key={card.id} className="comm-pillar-item-card">
+                <div className="comm-pillar-item-media">
+                  <img
+                    src={`${S}${card.image}`}
+                    alt={card.category}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span
+                    className="comm-pillar-item-badge"
+                    style={{ background: card.badgeBg, color: card.badgeColor }}
+                  >
+                    {card.tag}
+                  </span>
+                </div>
+
+                <div className="comm-pillar-item-content">
+                  <h3 className="comm-pillar-item-title">{card.category}</h3>
+                  <div className="comm-pillar-item-stat-box">
+                    <strong className="comm-pillar-item-num">{card.metric}</strong>
+                    <span className="comm-pillar-item-unit">{card.unit}</span>
+                  </div>
+                  <p className="comm-pillar-item-desc">{card.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
 
       <CompanyFooter />
     </div>

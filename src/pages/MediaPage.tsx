@@ -86,7 +86,7 @@ const SOCIALS = [
       </svg>
     ),
     label: 'LinkedIn',
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/company/granules-india-limited/',
   },
   {
     icon: (
@@ -95,7 +95,7 @@ const SOCIALS = [
       </svg>
     ),
     label: 'X',
-    href: 'https://x.com',
+    href: 'https://x.com/GranulesIndia',
   },
   {
     icon: (
@@ -104,7 +104,7 @@ const SOCIALS = [
       </svg>
     ),
     label: 'Facebook',
-    href: 'https://facebook.com',
+    href: 'https://www.facebook.com/share/1BSgd7PiTC/?mibextid=wwXIfr',
   },
   {
     icon: (

@@ -1,27 +1,35 @@
 import { Link } from 'react-router-dom';
 
-const PRODUCT_LINKS = [
-  { label: 'Active Pharmaceutical Ingredients', href: '/business/api' },
-  { label: 'Pharmaceutical Formulation Intermediates', href: '/business/pfi' },
-  { label: 'Finished Dosages', href: '/business/fd' },
-  { label: 'Peptides', href: '/business/peptides' },
+const ABOUT_LINKS = [
+  { label: 'Company', href: '/company' },
+  { label: 'Vision & Mission', href: '/company#vision' },
+  { label: 'Leadership', href: '/company/leadership' },
+  { label: 'Milestone', href: '/company/milestone' },
+  { label: 'Group Companies', href: '/company#subsidiaries' },
 ];
 
-const COMPANY_LINKS = [
-  { label: 'ABOUT US', href: '/company' },
-  { label: 'SUSTAINABILITY', href: '/sustainability' },
+const SOLUTIONS_LINKS = [
+  { label: 'Products', href: '/business/api' },
+  { label: 'Manufacturing', href: '/company/facilities' },
+  { label: 'Quality', href: '/business/quality-compliance' },
+  { label: 'R&D', href: '/business/rd' },
+  { label: 'Facilities', href: '/company/facilities' },
+];
+
+const IMPACT_LINKS = [
+  { label: 'IMPACT', href: '/sustainability' },
   { label: 'INVESTORS', href: '/investor' },
-  { label: 'MEDIA', href: '/media' },
+  { label: 'NEWSROOM', href: '/media' },
   { label: 'CAREERS', href: '/careers' },
-  { label: 'CONTACT US', href: '/contact' },
+  { label: 'CONNECT', href: '/contact' },
 ];
 
 const SOCIAL_LINKS = [
-  { name: 'Facebook', icon: '/assets/facebook.svg', href: 'https://facebook.com' },
+  { name: 'Facebook', icon: '/assets/facebook.svg', href: 'https://www.facebook.com/share/1BSgd7PiTC/?mibextid=wwXIfr' },
   { name: 'Instagram', icon: '/assets/instagram.svg', href: 'https://instagram.com' },
-  { name: 'X', icon: '/assets/x.svg', href: 'https://x.com' },
+  { name: 'X', icon: '/assets/x.svg', href: 'https://x.com/GranulesIndia' },
   { name: 'LinkedIn', icon: '/assets/linkedin.svg', href: 'https://www.linkedin.com/company/granules-india-limited/' },
-  { name: 'YouTube', icon: '/assets/youtube.svg', href: 'https://youtube.com' },
+  { name: 'YouTube', icon: '/assets/youtube.svg', href: 'https://www.youtube.com/@Granules-IndiaLimited/featured' },
 ];
 
 export default function CompanyFooter() {
@@ -37,17 +45,30 @@ export default function CompanyFooter() {
               <img src="/assets/footer-logo.webp" alt="Granules" loading="eager" decoding="async" />
             </Link>
             <p>
-              Granules India, headquartered in Hyderabad, is a vertically integrated pharma
-              manufacturer delivering APIs, PFIs, and FDs globally with regulatory-compliant
-              operations in India, US and Europe ensuring quality, scale, and sustainability.
+              Granules India is a vertically integrated, high-growth pharmaceutical manufacturer
+              headquartered in Hyderabad, India. We produce high-quality APIs, FDs, PFIs, and
+              peptides, focusing on customer-centric solutions. Serving regulated markets, we
+              maintain strong operations in India, the U.S., and Europe, driving excellence through
+              innovation and commitment.
             </p>
           </div>
 
           <div className="cp-footer-cols">
             <div className="cp-footer-col">
-              <h5>PRODUCTS</h5>
+              <h5>ABOUT</h5>
               <div className="cp-footer-link-group">
-                {PRODUCT_LINKS.map((link) => (
+                {ABOUT_LINKS.map((link) => (
+                  <Link to={link.href} key={link.label}>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="cp-footer-col">
+              <h5>SOLUTIONS &amp; R&amp;D</h5>
+              <div className="cp-footer-link-group">
+                {SOLUTIONS_LINKS.map((link) => (
                   <Link to={link.href} key={link.label}>
                     {link.label}
                   </Link>
@@ -57,7 +78,7 @@ export default function CompanyFooter() {
 
             <div className="cp-footer-col cp-footer-impact">
               <div className="cp-footer-link-group">
-                {COMPANY_LINKS.map((link) => (
+                {IMPACT_LINKS.map((link) => (
                   <Link to={link.href} key={link.label}>
                     {link.label}
                   </Link>
@@ -72,11 +93,11 @@ export default function CompanyFooter() {
         <div className="cp-footer-bottom">
           <div className="cp-footer-legal">
             <span className="cp-legal-copy">COPYRIGHT © 2025 GRANULES. ALL RIGHTS RESERVED.</span>
-            <Link to="/#footer">PRIVACY POLICY</Link>
-            <Link to="/#footer">COOKIES POLICY</Link>
-            <Link to="/#footer">DISCLAIMER</Link>
-            <Link to="/#footer">DATA PROTECTION NOTICE</Link>
-            <Link to="/#footer">TERMS &amp; CONDITION</Link>
+            <Link to="/privacy-policy">PRIVACY POLICY</Link>
+            <Link to="/cookies-policy">COOKIES POLICY</Link>
+            <Link to="/disclaimer">DISCLAIMER</Link>
+            <Link to="/data-protection-notice">DATA PROTECTION NOTICE</Link>
+            <Link to="/terms-conditions">TERMS &amp; CONDITION</Link>
           </div>
 
           <div className="cp-footer-socials">
