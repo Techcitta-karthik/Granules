@@ -8,41 +8,34 @@ const S = '/assets/esg/';
 const L = '/assets/leadership/';
 
 interface MetricCard {
-  tag: string;
   value: string;
   label: string;
 }
 
-const COMMUNITY_METRICS: MetricCard[] = [
+const COMMUNITY_HERO_METRICS: MetricCard[] = [
   {
-    tag: 'Our Goal',
-    value: '1 Million',
+    value: '1M+',
     label: 'Touch 1 million lives by 2030',
   },
   {
-    tag: 'Our Progress',
-    value: '3.5+ Lakhs',
+    value: '3.5L+',
     label: 'Lives positively touched in FY26',
   },
   {
-    tag: 'Skill Development',
     value: '1,600+',
-    label: 'Individuals trained through Pharma Patashala since its inception in 2017',
+    label: 'Trained via Pharma Patashala',
   },
   {
-    tag: 'Healthcare',
     value: '15,000+',
-    label: 'Beneficiaries reached through Breast Cancer Screening Camps, awareness sessions and eye screening programmes for school children.',
+    label: 'Beneficiaries of healthcare camps',
   },
   {
-    tag: 'Education',
     value: '2,000+',
-    label: 'Students benefited through Vidya Volunteers and educational support initiatives implemented through NGO partnerships.',
+    label: 'Students benefited by Vidya Volunteers',
   },
   {
-    tag: 'Environment',
     value: '18,000+',
-    label: 'Native trees planted',
+    label: 'Native trees planted & nurtured',
   },
 ];
 
@@ -123,48 +116,64 @@ export default function CommunityPage() {
           <span className="current">COMMUNITY</span>
         </p>
 
-        {/* 1. Hero Section: Editorial Layout with Signature Title, Human Quote & Sky-Blue Portrait Card */}
-        <section className="comm-hero-editorial">
-          <div className="comm-hero-editorial-left">
-            <h1 className="comm-hero-editorial-title">Community</h1>
-            <p className="comm-hero-editorial-quote">
-              “We believe lasting progress comes from strong, meaningful relationships with our
-              communities and stakeholders. Guided by empathy and responsibility, we support
-              healthcare, education, and social development, creating long-term value beyond business.”
+        {/* 1. Hero Split Section: Left Headline/Description/Button + Right 2x3 Metric Cards (Matching Screenshot) */}
+        <section className="comm-hero-split">
+          <div className="comm-hero-left">
+            <h1 className="comm-hero-title">
+              Empowering communities through sustainable social development
+            </h1>
+            <p className="comm-hero-desc">
+              With over four decades of industry leadership, Granules India is committed
+              to delivering high-impact, sustainable development across local communities.
+              Through targeted social initiatives, we drive progress across Skill Development (Pharma Patashala),
+              Preventive Healthcare (Mobile Mammography Camps), Quality Education (Vidya Volunteers),
+              and Ecological Sustainability.
             </p>
-            <div className="comm-hero-editorial-author">
-              – Ms. Uma Chigurupati, Executive Director, Granules India Limited
-            </div>
+            <a href="#initiatives" className="comm-hero-btn">
+              ABOUT COMMUNITY &rarr;
+            </a>
           </div>
 
-          <div className="comm-hero-editorial-right">
-            <div className="comm-portrait-blue-card">
+          <div className="comm-hero-right">
+            <div className="comm-hero-metrics-grid">
+              {COMMUNITY_HERO_METRICS.map((item, idx) => (
+                <div key={idx} className="comm-metric-card">
+                  <div className="comm-metric-value">{item.value}</div>
+                  <div className="comm-metric-label">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 2. Leadership Quote Banner */}
+        <section className="comm-quote-banner-section">
+          <div className="comm-quote-banner">
+            <div className="comm-quote-content">
+              <span className="comm-quote-icon">“</span>
+              <p className="comm-quote-text">
+                We believe lasting progress comes from strong, meaningful relationships with our
+                communities and stakeholders. Guided by empathy and responsibility, we support
+                healthcare, education, and social development, creating long-term value beyond business.
+              </p>
+              <div className="comm-quote-author">
+                <strong>Ms. Uma Devi Chigurupati</strong>
+                <span>Executive Director, Granules India Limited</span>
+              </div>
+            </div>
+            <div className="comm-quote-photo-card">
               <img
                 src={`${L}uma-devi.webp`}
-                alt="Ms. Uma Chigurupati, Executive Director, Granules India Limited"
-                className="comm-portrait-blue-img"
-                loading="eager"
+                alt="Ms. Uma Devi Chigurupati"
+                loading="lazy"
                 decoding="async"
               />
             </div>
           </div>
         </section>
 
-        {/* 2. Grid of Natural Pale-Blue Metric Cards */}
-        <section className="comm-stats-section">
-          <div className="comm-stats-cards-grid">
-            {COMMUNITY_METRICS.map((item) => (
-              <div key={item.tag} className="comm-stat-box">
-                <span className="comm-stat-box-tag">{item.tag}</span>
-                <strong className="comm-stat-box-num">{item.value}</strong>
-                <p className="comm-stat-box-lbl">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* 3. Core Focus Areas Showcase */}
-        <section className="comm-pillars-section">
+        <section className="comm-pillars-section" id="initiatives">
           <div className="comm-section-head-simple">
             <span className="comm-section-tag">Key Initiatives</span>
             <h2>Core Focus Areas</h2>

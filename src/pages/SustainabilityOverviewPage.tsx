@@ -586,9 +586,8 @@ export default function SustainabilityOverviewPage() {
         <span className="current">SUSTAINABILITY OVERVIEW</span>
       </p>
 
-
       <section className="sus-lead-hero-wrap" style={{ marginTop: 'clamp(30px, 4vw, 50px)' }}>
-        {/* 5 Quick Jump Cards */}
+        {/* Quick Jump Cards with ESG World beside Certifications */}
         <div className="sus-jump-nav-grid" role="navigation" aria-label="Jump to sustainability document sections">
           <button
             type="button"
@@ -629,6 +628,20 @@ export default function SustainabilityOverviewPage() {
           >
             <span className="sus-jump-label">Certifications</span>
           </button>
+
+          <a
+            href="https://granulesindia.com/esg-profile/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sus-jump-card sus-jump-card--esg"
+            title="View Granules ESG Profile on ESG World"
+          >
+            <img
+              src="/assets/esg/esg-world-logo.png"
+              alt="ESG World - Our ESG Profile"
+              className="sus-jump-esg-img"
+            />
+          </a>
         </div>
 
         {/* Demonstrating Resilience, Emerging Stronger Speech Banner */}

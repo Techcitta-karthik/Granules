@@ -542,13 +542,13 @@
 .ct-follow-circles-list {
   display: flex;
   align-items: center;
-  gap: clamp(18px, 2.5vw, 32px);
+  gap: clamp(14px, 1.8vw, 22px);
   flex-wrap: wrap;
 }
 
 .ct-follow-circle-btn {
-  width: clamp(84px, 7.5vw, 108px);
-  height: clamp(84px, 7.5vw, 108px);
+  width: clamp(48px, 4vw, 56px);
+  height: clamp(48px, 4vw, 56px);
   border-radius: 50%;
   position: relative;
   overflow: hidden;
@@ -558,7 +558,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 12px 36px rgba(0, 119, 255, 0.38);
+  box-shadow: 0 6px 20px rgba(0, 119, 255, 0.3);
   transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.35s ease;
   flex-shrink: 0;
 }
@@ -576,6 +576,8 @@
 }
 
 .ct-follow-circle-btn svg {
+  width: 22px;
+  height: 22px;
   position: relative;
   z-index: 2;
   transition: transform 0.3s ease;
@@ -586,8 +588,8 @@
 }
 
 .ct-follow-circle-btn:hover {
-  transform: translateY(-6px) scale(1.08);
-  box-shadow: 0 18px 42px rgba(56, 179, 74, 0.4);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 14px 30px rgba(56, 179, 74, 0.4);
 }
 
 .ct-follow-circle-btn:hover svg {

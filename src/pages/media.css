@@ -631,13 +631,13 @@
 .med-follow-icons {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 2.5vw, 36px);
+  gap: clamp(14px, 1.8vw, 22px);
   flex-wrap: wrap;
 }
 
 .med-follow-icon {
-  width: clamp(80px, 7.5vw, 106px);
-  height: clamp(80px, 7.5vw, 106px);
+  width: clamp(48px, 4vw, 56px);
+  height: clamp(48px, 4vw, 56px);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -645,7 +645,7 @@
   overflow: hidden;
   background: linear-gradient(135deg, #0080ff 0%, #0056eb 100%);
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 97, 248, 0.28);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.28);
   transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.35s ease;
   text-decoration: none;
 }
@@ -667,11 +667,13 @@
 }
 
 .med-follow-icon:hover {
-  transform: scale(1.08) translateY(-4px);
-  box-shadow: 0 16px 32px rgba(56, 179, 74, 0.35);
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 24px rgba(56, 179, 74, 0.35);
 }
 
 .med-follow-icon svg {
+  width: 22px;
+  height: 22px;
   position: relative;
   z-index: 2;
   color: #ffffff;

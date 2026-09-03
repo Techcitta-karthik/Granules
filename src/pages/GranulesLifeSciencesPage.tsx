@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
-import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
 import './business.css';
 import './gls.css';
@@ -37,15 +36,6 @@ const RESPONSIBILITY_ITEMS = [
 ];
 
 export default function GranulesLifeSciencesPage() {
-  const {
-    swipeProps,
-    isDragging,
-    scrollProgress,
-    canScrollLeft,
-    canScrollRight,
-    thumbWidth,
-    scroll,
-  } = useSwipeScroll();
   const [openCard, setOpenCard] = useState(-1);
 
   useEffect(() => {
@@ -108,66 +98,31 @@ export default function GranulesLifeSciencesPage() {
             into regulated markets.
           </p>
         </div>
-        <div className="biz-carousel" style={{ margin: 0, width: '100%', maxWidth: '100%' }}>
-          <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
-            {CAPABILITY_CARDS.map((card, idx) => {
-              const isOpenCard = openCard === idx;
-              return (
-                <article
-                  className={`biz-card${isOpenCard ? ' is-open' : ''}`}
-                  key={card.title}
-                  onMouseEnter={() => setOpenCard(idx)}
-                  onMouseLeave={() => setOpenCard(-1)}
-                  onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
-                >
-                  <img className="bg" src={`${G}${card.image}`} alt={card.title} />
-                  <div className="biz-sheet">
-                    <div className="biz-sheet-head">
-                      <span className="biz-sheet-title">{card.title}</span>
-                      <span className="biz-sheet-symbol" aria-hidden="true">+</span>
-                    </div>
-                    <div className="biz-sheet-body">
-                      <p className="biz-sheet-desc">{card.desc}</p>
-                      <span className="biz-sheet-learn">LEARN MORE ↗</span>
-                    </div>
+        <div className="gls-cards-grid">
+          {CAPABILITY_CARDS.map((card, idx) => {
+            const isOpenCard = openCard === idx;
+            return (
+              <article
+                className={`biz-card gls-card-fixed${isOpenCard ? ' is-open' : ''}`}
+                key={card.title}
+                onMouseEnter={() => setOpenCard(idx)}
+                onMouseLeave={() => setOpenCard(-1)}
+                onClick={() => setOpenCard(isOpenCard ? -1 : idx)}
+              >
+                <img className="bg" src={`${G}${card.image}`} alt={card.title} />
+                <div className="biz-sheet">
+                  <div className="biz-sheet-head">
+                    <span className="biz-sheet-title">{card.title}</span>
+                    <span className="biz-sheet-symbol" aria-hidden="true">+</span>
                   </div>
-                </article>
-              );
-            })}
-          </div>
-
-          {/* Dynamic progress bar and smooth arrow navigation */}
-          <div className="biz-carousel-controls" style={{ width: '100%', maxWidth: '100%' }}>
-            <div className="biz-progress-track">
-              <div
-                className="biz-progress-bar"
-                style={{
-                  width: `${thumbWidth}%`,
-                  left: `${scrollProgress * (100 - thumbWidth)}%`,
-                }}
-              />
-            </div>
-            <div className="biz-carousel-arrows">
-              <button
-                type="button"
-                className="biz-arrow-btn"
-                onClick={() => scroll(-1)}
-                disabled={!canScrollLeft}
-                aria-label="Scroll left"
-              >
-                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
-              </button>
-              <button
-                type="button"
-                className="biz-arrow-btn"
-                onClick={() => scroll(1)}
-                disabled={!canScrollRight}
-                aria-label="Scroll right"
-              >
-                <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
-              </button>
-            </div>
-          </div>
+                  <div className="biz-sheet-body">
+                    <p className="biz-sheet-desc">{card.desc}</p>
+                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 
