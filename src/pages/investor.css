@@ -822,29 +822,48 @@
 }
 
 .inv-detail-back {
-  display: inline-block;
-  margin: 40px auto 0;
-  background: var(--blue);
-  color: #fff;
-  border-radius: 40px;
-  padding: 14px 32px;
-  font: 700 16px/1.2 'Manrope', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(180deg, #0061f8, #004ecc);
+  color: #ffffff;
+  border-radius: 60px;
+  padding: 14px 34px;
+  font: 700 15px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   text-decoration: none;
-  width: min(1464px, 100% - 3.2rem);
-  transition: all 0.25s ease;
+  width: auto;
+  min-width: 170px;
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.22);
+}
+
+.inv-detail-back svg {
+  transition: transform 0.25s ease;
 }
 
 .inv-detail-back:hover {
-  background: #004ecc;
+  background: linear-gradient(180deg, #004ecc, #0036a6);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 97, 248, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 97, 248, 0.35);
+  color: #ffffff;
+}
+
+.inv-detail-back:hover svg {
+  transform: translateX(-4px);
+}
+
+.inv-detail-back:active {
+  transform: translateY(0);
 }
 
 .inv-detail-back-wrap {
   width: min(1464px, 100% - 3.2rem);
-  margin: 0 auto;
+  margin: clamp(40px, 5vw, 60px) auto clamp(60px, 8vw, 90px);
   display: flex;
+  justify-content: flex-start;
 }
 
 /* ---------- Responsive ---------- */

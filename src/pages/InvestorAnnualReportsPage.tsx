@@ -7,25 +7,25 @@ import './investor.css';
 const A = '/assets/investor/';
 
 const REPORTS = [
-  { year: 'FY24-25', visit: false },
-  { year: 'FY23-24', visit: true },
-  { year: 'FY22-23', visit: true },
-  { year: 'FY21-22', visit: false },
-  { year: 'FY20-21', visit: false },
-  { year: 'FY19-20', visit: false },
-  { year: 'FY18-19', visit: false },
-  { year: 'FY17-18', visit: false },
-  { year: 'FY16-17', visit: false },
-  { year: 'FY15-16', visit: false },
-  { year: 'FY14-15', visit: false },
-  { year: 'FY13-14', visit: false },
-  { year: 'FY12-13', visit: false },
-  { year: 'FY11-12', visit: false },
-  { year: 'FY10-11', visit: false },
-  { year: 'FY09-10', visit: false },
-  { year: 'FY08-09', visit: false },
-  { year: 'FY07-08', visit: false },
-  { year: 'FY06-07', visit: false },
+  { year: 'FY24-25', pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf', visit: false },
+  { year: 'FY23-24', pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf', visit: true },
+  { year: 'FY22-23', pdf: '/documents/Granules-AR-2022-23-532f737451a2.pdf', visit: true },
+  { year: 'FY21-22', pdf: '/documents/Annual-Report-2021-22-ce6deff6f867.pdf', visit: false },
+  { year: 'FY20-21', pdf: '/documents/Annual-Report-2020-21-7948a9c23581.pdf', visit: false },
+  { year: 'FY19-20', pdf: '/documents/Annual-Report-2019-20-2e269e7676d8.pdf', visit: false },
+  { year: 'FY18-19', pdf: '/documents/3127Annual-Report---FY18-19-c9cc39471683.pdf', visit: false },
+  { year: 'FY17-18', pdf: '/documents/8058Annual-Report---FY17-18-0e6badda55f0.pdf', visit: false },
+  { year: 'FY16-17', pdf: '/documents/2198AR2016-17-1ab38b383c01.pdf', visit: false },
+  { year: 'FY15-16', pdf: '/documents/2668Annual-Report-2015-2016-053d09b9dde9.pdf', visit: false },
+  { year: 'FY14-15', pdf: '/documents/2427Annual-Report---FY14-15-9d8526bf403c.pdf', visit: false },
+  { year: 'FY13-14', pdf: '/documents/2027Annual-Report---FY13-14-6e22e01460e9.pdf', visit: false },
+  { year: 'FY12-13', pdf: '/documents/8742Annual-Report---FY12-13-5012f3f34ee5.pdf', visit: false },
+  { year: 'FY11-12', pdf: '/documents/6127Annual-Report---FY11-12-b035b60a4347.pdf', visit: false },
+  { year: 'FY10-11', pdf: '/documents/3268Annual-Report---FY10-11-0dd6a2bd1a12.pdf', visit: false },
+  { year: 'FY09-10', pdf: '/documents/6181Annual-Report---FY09-10-7d097d5806ea.pdf', visit: false },
+  { year: 'FY08-09', pdf: '/documents/6994Annual-Report---FY08-09-188f254a3537.pdf', visit: false },
+  { year: 'FY07-08', pdf: '/documents/2157Annual-Report---FY07-08-b0699957797f.pdf', visit: false },
+  { year: 'FY06-07', pdf: '/documents/6249Annual-Report---FY06-07-480c9456423e.pdf', visit: false },
 ];
 
 export default function InvestorAnnualReportsPage() {
@@ -50,7 +50,15 @@ export default function InvestorAnnualReportsPage() {
 
       <div className="inv-detail-head">
         <h1>Annual Reports</h1>
-        <a className="inv-detail-download" href="/#footer">Download</a>
+        <a
+          className="inv-detail-download"
+          href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+          download="Granules_Integrated-Report-2024-25.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download Latest
+        </a>
       </div>
 
       <div className="inv-detail-list">
@@ -58,12 +66,23 @@ export default function InvestorAnnualReportsPage() {
           <div className="inv-detail-row" key={report.year}>
             <p>Annual Report - {report.year}</p>
             <div className="inv-detail-actions">
-              <a className="inv-detail-pill" href="/#footer">
+              <a
+                className="inv-detail-pill"
+                href={report.pdf}
+                download={`Annual-Report-${report.year}.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 PDF
                 <img src={`${A}pdf-icon.svg`} alt="" loading="lazy" decoding="async" />
               </a>
               {report.visit && (
-                <a className="inv-detail-pill" href="/#footer">
+                <a
+                  className="inv-detail-pill"
+                  href={report.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   VISIT
                   <img src={`${A}arrow-diag.svg`} alt="" loading="lazy" decoding="async" />
                 </a>
@@ -74,7 +93,12 @@ export default function InvestorAnnualReportsPage() {
       </div>
 
       <div className="inv-detail-back-wrap">
-        <Link className="inv-detail-back" to="/investor">Back</Link>
+        <Link className="inv-detail-back" to="/investor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <span>BACK TO INVESTOR</span>
+        </Link>
       </div>
 
       <CompanyFooter />

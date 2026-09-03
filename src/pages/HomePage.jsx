@@ -750,9 +750,21 @@ function Sustainability() {
 
 function Investor() {
   const docs = [
-    { title: 'Integrated annual report 2024-25', href: '/investor/annual-reports' },
-    { title: 'Q2 Results for 2026', href: '/investor' },
-    { title: 'Investor presentation', href: '/investor' },
+    {
+      title: 'Integrated annual report 2024-25',
+      href: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
+      download: 'Granules_Integrated_Annual_Report_2024-25.pdf',
+    },
+    {
+      title: 'Q2 Results for 2026',
+      href: '/documents/Press-Release-Q2-FY26-07edcf6db296.pdf',
+      download: 'Granules_Q2_FY26_Results.pdf',
+    },
+    {
+      title: 'Investor presentation',
+      href: '/documents/Earnings-Presentation-Q2FY26-Circulation-fb2ccd8cf24d.pdf',
+      download: 'Granules_Investor_Presentation.pdf',
+    },
   ];
   return (
     <section className="section shell investor" id="investor">
@@ -766,14 +778,20 @@ function Investor() {
         <Button href="/investor">Learn More &rarr;</Button>
       </div>
       <div className="investor-panel">
-        <Link to="/investor/annual-reports" className="investor-cover" aria-label="View Annual Reports">
+        <a
+          href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="investor-cover"
+          aria-label="View Annual Reports"
+        >
           <img
             src={`${A}investor-report-cover.webp`}
             alt="Granules India Integrated Annual Report"
             loading="lazy"
             decoding="async"
           />
-        </Link>
+        </a>
         <div className="investor-side">
           <div className="stock-price-card">
             <span>Stock Price</span>
@@ -790,12 +808,19 @@ function Investor() {
           </div>
           <div className="investor-docs">
             {docs.map((doc) => (
-              <Link className="investor-doc" to={doc.href} key={doc.title}>
+              <a
+                className="investor-doc"
+                href={doc.href}
+                download={doc.download}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={doc.title}
+              >
                 <span>{doc.title}</span>
                 <i className="download-badge">
                   <img src={`${A}investor/pdf-icon.svg`} alt="" loading="lazy" decoding="async" />
                 </i>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

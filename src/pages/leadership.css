@@ -25,33 +25,392 @@
 .ld-hero.is-scrolled p { color: var(--n5); }
 .ld-hero.is-scrolled p .muted { color: var(--n9); }
 
-.ld-tabs {
+.ld-tabs-wrap {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(60px, 8vw, 120px) auto 0 !important;
-  display: flex; justify-content: space-between;
-  padding-bottom: 24px; border-bottom: 1px solid #e6e6e6; position: relative;
+  margin: clamp(50px, 7vw, 90px) auto 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.ld-tabs::after {
-  content: ''; position: absolute; left: 0; bottom: -1px; height: 4px; width: 46%; border-radius: 8px;
-  background: linear-gradient(90deg, #016ef7 4.5%, #38b34a 45.6%, #66cef5 98.7%);
+
+.ld-tabs {
+  display: inline-flex;
+  align-items: center;
+  background: #f1f5f9;
+  padding: 6px;
+  border-radius: 60px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
 }
-.ld-tab-label { font: 700 24px/1.2 'Manrope', sans-serif; color: var(--blue); text-transform: uppercase; text-align: center; flex: 1; }
+
+.ld-tab-btn {
+  background: none;
+  border: none;
+  font: 700 clamp(14px, 1.4vw, 17px)/1 'Manrope', sans-serif;
+  color: #64748b;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 14px clamp(24px, 3.5vw, 44px);
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.ld-tab-btn:hover {
+  color: #0061f8;
+}
+
+.ld-tab-btn.active {
+  color: #ffffff;
+}
+
+.ld-tab-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc(50% - 6px);
+  border-radius: 50px;
+  background: linear-gradient(135deg, #0061f8 0%, #004ecc 100%);
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.35);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
 
 .ld-grid {
   width: 85% !important;
   max-width: 85% !important;
   margin: clamp(40px, 6vw, 60px) auto 0 !important;
-  display: flex; flex-wrap: wrap; gap: 60px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px 32px;
 }
-.ld-card { width: 472px; max-width: 100%; display: flex; flex-direction: column; gap: 24px; }
+
+.ld-card {
+  width: 440px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.ld-card:hover,
+.ld-card:focus-visible {
+  transform: translateY(-8px);
+}
+
 .ld-photo {
-  height: 440px; border-radius: 40px; overflow: hidden; background: #f9f9f9;
-  display: flex; align-items: flex-end; justify-content: center; position: relative;
+  height: 440px;
+  border-radius: 40px;
+  overflow: hidden;
+  background: #f9f9f9;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.ld-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.ld-name { margin: 0; font: 700 26px/1.2 'Manrope', sans-serif; color: var(--blue); }
-.ld-role { margin: 8px 0 0; font: 500 20px/1.3 'Manrope', sans-serif; color: #393939; letter-spacing: 1.6px; text-transform: uppercase; }
+
+.ld-card:hover .ld-photo,
+.ld-card:focus-visible .ld-photo {
+  box-shadow: 0 16px 36px rgba(0, 97, 248, 0.16);
+}
+
+.ld-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.ld-card:hover .ld-photo img {
+  transform: scale(1.03);
+}
+
+.ld-photo-badge {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 700 13px/1 'Manrope', sans-serif;
+  color: var(--blue);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0.88;
+  transform: translateY(0);
+  transition: all 0.25s ease;
+}
+
+.ld-card:hover .ld-photo-badge {
+  background: var(--blue);
+  color: #ffffff;
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 97, 248, 0.3);
+}
+
+.ld-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ld-name {
+  margin: 0;
+  font: 700 24px/1.25 'Manrope', sans-serif;
+  color: var(--blue);
+  transition: color 0.2s ease;
+}
+
+.ld-card:hover .ld-name {
+  color: #004ecc;
+}
+
+.ld-role {
+  margin: 4px 0 0;
+  font: 600 15px/1.35 'Manrope', sans-serif;
+  color: #555555;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   LEADERSHIP PROFILE MODAL POP-UP
+   ========================================================================== */
+.ld-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 15, 35, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 3vw, 40px);
+  z-index: 2000;
+  animation: ldModalFadeIn 0.25s ease-out;
+}
+
+.ld-modal-card {
+  background: #ffffff;
+  border-radius: 32px;
+  width: min(1040px, 100%);
+  height: min(84vh, 720px); /* Explicit fixed height so content flex area scrolls cleanly */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.3);
+  animation: ldModalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: clamp(24px, 3.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  line-height: 1;
+  color: #475569;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  z-index: 20;
+}
+
+.ld-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: scale(1.08);
+}
+
+.ld-modal-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: clamp(24px, 3vw, 40px);
+  align-items: stretch;
+  height: 100%;
+  min-height: 0; /* Crucial for child scroll area */
+  overflow: hidden;
+}
+
+.ld-modal-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.ld-modal-photo {
+  width: 100%;
+  height: 320px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #f1f5f9;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.ld-modal-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.ld-modal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ld-modal-name {
+  margin: 0;
+  font: 700 clamp(20px, 2vw, 24px)/1.2 'DM Sans', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.2px;
+}
+
+.ld-modal-role {
+  margin: 0;
+  font: 600 13px/1.3 'DM Sans', sans-serif;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Scrollbar placed cleanly INSIDE the text content column - ALWAYS VISIBLE */
+.ld-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  height: 100%;
+  min-height: 0;
+  overflow-y: scroll; /* Always show vertical scrollbar */
+  padding-right: 16px;
+  scrollbar-gutter: stable; /* Keeps scrollbar in dedicated gutter so content doesn't jump */
+  scrollbar-width: thin;
+  scrollbar-color: #0061f8 #e2e8f0; /* Clear contrast blue thumb on grey track */
+}
+
+/* Chrome / Safari / Edge scrollbar */
+.ld-modal-content::-webkit-scrollbar {
+  width: 8px;
+  display: block !important;
+}
+
+.ld-modal-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.ld-modal-content::-webkit-scrollbar-thumb {
+  background: #0061f8;
+  border-radius: 10px;
+}
+
+.ld-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #004ecc;
+}
+
+.ld-modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ld-modal-section-title {
+  margin: 0;
+  font: 700 19px/1.2 'DM Sans', sans-serif;
+  color: #0f172a;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid #e2e8f0;
+  position: relative;
+  letter-spacing: -0.2px;
+}
+
+.ld-modal-section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1.5px;
+  width: 42px;
+  height: 2px;
+  background: #0061f8;
+}
+
+.ld-modal-paragraph {
+  margin: 0;
+  font: 400 15.5px/1.7 'DM Sans', sans-serif;
+  color: #334155;
+  text-align: left;
+  letter-spacing: 0.05px;
+}
+
+.ld-modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.ld-modal-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font: 500 14.5px/1.45 'DM Sans', sans-serif;
+  color: #1e293b;
+  background: #f8fafc;
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.ld-modal-bullet {
+  color: #0061f8;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+@keyframes ldModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ldModalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 
 .ld-cta {
   width: 85% !important;
@@ -73,7 +432,20 @@
 .ld-cta-copy p { margin: 0; font: 500 22px/1.3 'Manrope', sans-serif; color: var(--n9); letter-spacing: 0.22px; }
 .ld-cta .cp-cta-btn { position: relative; z-index: 1; }
 
+@media (max-width: 960px) {
+  .ld-modal-layout {
+    grid-template-columns: 1fr;
+  }
+  .ld-modal-photo {
+    height: 320px;
+  }
+  .ld-modal-sidebar {
+    position: static;
+  }
+}
+
 @media (max-width: 720px) {
   .ld-card { width: 100%; }
+  .ld-photo { height: 380px; }
   .ld-tabs { flex-direction: column; gap: 12px; }
 }

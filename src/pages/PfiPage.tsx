@@ -245,7 +245,15 @@ export default function PfiPage() {
         <div className="biz-cta-copy">
           <h2>Explore our full PFI product portfolio</h2>
         </div>
-        <a className="cp-cta-btn" href="/business/fd">View Product List</a>
+        <a
+          className="cp-cta-btn"
+          href="/documents/GIL_Product_Brochure_May_20_2025_Master_PFI-7abcdf7c89b2.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Granules_PFI_Product_Catalog.pdf"
+        >
+          Download Product List (PDF)
+        </a>
       </div>
 
       <CompanyFooter />

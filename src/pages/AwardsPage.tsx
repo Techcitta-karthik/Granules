@@ -21,8 +21,28 @@ const AWARDS_BY_CATEGORY: Record<Category, AwardEntry[]> = {
     { image: 'award-7-bg.webp', contain: true, caption: 'Most Trusted Brands of India 2023 by Team Marksmen' },
     { image: 'award-8.webp', contain: true, caption: 'Glory of India Award 2022 Presented to Chairman & Managing Director' },
   ],
-  Sustainability: [],
-  Innovation: [],
+  Sustainability: [
+    { image: 'award-9.webp', caption: 'Golden Peacock Award for Sustainability 2024 by the Institute of Directors (IOD)' },
+    { image: 'award-10.webp', caption: 'CII 25th National Award for Excellence in Energy Management 2024 by CII Energy Efficiency Council' },
+    { image: 'award-11.webp', caption: 'Valued Partner of Ashray Akruti 2024 by Ashray Akruti Foundation' },
+    { image: 'award-12.webp', caption: 'Gold Medal at the Indian Red Cross Annual General Meeting 2024 for establishing the Dr. Chigurupati Nageshwara Rao Rotary Dialysis Centre' },
+    { image: 'award-13.webp', caption: 'Repharma Award for Excellence in Contribution Towards Sustainability 2023 by ET Pharma & ET Healthworld' },
+    { image: 'award-14.webp', caption: 'IGBC Green Crusader Award 2023 by Indian Green Building Council (CII)' },
+    { image: 'award-15.webp', caption: 'Gold Award for Energy Conservation 2023 in the Large-Scale Industries category by TSREDCO' },
+    { image: 'award-16.webp', caption: 'IGBC Green Crusader 2022 by Indian Green Building Council (CII)' },
+  ],
+  Innovation: [
+    { image: 'award-17.webp', caption: 'Best Management Award 2025 by Government of Telangana, Department of Labour' },
+    { image: 'award-18.webp', caption: 'Pharma Quality Excellence Awards 2024 by Eminence Business Media' },
+    { image: 'award-19.webp', caption: '49th CII National Kaizen Competition 2024 by Confederation of Indian Industry (CII)' },
+    { image: 'award-20.webp', caption: 'CII SR-EHS Excellence Awards 2024 by Confederation of Indian Industry – Southern Region' },
+    { image: 'award-21.webp', caption: 'Excellence in Use of Technology by The Economic Times Re-Pharma Award 2024' },
+    { image: 'award-22.webp', caption: 'Excellence in QMS Integration & Quality Culture Transformation (Gagillapur Plant) Award by Pharma Quality Excellence Awards 2023' },
+    { image: 'award-23.webp', caption: 'Best Manufacturer – Bulk Drug by Business Excellence Awards 2022' },
+    { image: 'award-24.webp', caption: 'Gold Winner at the 10th CII National Poka-Yoke Competition 2022 by CII' },
+    { image: 'award-25.webp', caption: 'Silver Winner at the 10th CII National Poka-Yoke Competition 2022 by CII' },
+    { image: 'award-26.webp', caption: 'Best Skill Development Initiative (Pharma) by TISS LeapVault CLO Awards 2022' },
+  ],
 };
 
 export default function AwardsPage() {
@@ -51,11 +71,9 @@ export default function AwardsPage() {
         <h1 className="cp-page-title" style={{ margin: 0, width: 'auto' }}>Awards and recognitions</h1>
         <p>
           Our recognitions are a direct result of how we operate — with precision, responsibility,
-          and consistency across complex, regulated markets. Whether it&rsquo;s for operational{' '}
-          <span className="muted">
-            excellence, integration of innovation across the value chain, or responsible business
-            conduct, each award reaffirms the standards we uphold every day at Granules.
-          </span>
+          and consistency across complex, regulated markets. Whether it&rsquo;s for operational
+          excellence, integration of innovation across the value chain, or responsible business
+          conduct, each award reaffirms the standards we uphold every day at Granules.
         </p>
       </div>
 

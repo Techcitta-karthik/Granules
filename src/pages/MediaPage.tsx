@@ -12,6 +12,7 @@ interface MediaArticle {
   title: string;
   image?: string;
   body: string;
+  pdf?: string;
 }
 
 const IN_THE_NEWS: MediaArticle[] = [
@@ -21,6 +22,7 @@ const IN_THE_NEWS: MediaArticle[] = [
     title: 'Granules India Acquires Swiss CDMO Senn Chemicals to Enter Peptide Therapeutics Space.',
     image: '/assets/news-1.webp',
     body: 'Granules India Limited announced the completion of its strategic acquisition of Swiss CDMO Senn Chemicals AG, significantly bolstering its peptide synthesis capabilities and expanding its global footprint across Europe.',
+    pdf: '/documents/Granules-India-Announces-Closing-of-Acquisition-of-Senn-Chemicals-Strengthening-Capabilities-in-Pept-f1bab07d1304.pdf',
   },
   {
     category: 'NEWS',
@@ -28,6 +30,7 @@ const IN_THE_NEWS: MediaArticle[] = [
     title: 'Granules India enters CDMO business by acquiring Senn Chemicals AG.',
     image: '/assets/news-2.webp',
     body: 'Entering the specialized CDMO market, Granules India combines its large-scale manufacturing excellence with Swiss precision to cater to high-growth peptide therapeutics and complex active pharmaceutical ingredients.',
+    pdf: '/documents/Granules-India-Announces-Closing-of-Acquisition-of-Senn-Chemicals-Strengthening-Capabilities-in-Pept-f1bab07d1304.pdf',
   },
   {
     category: 'NEWS',
@@ -35,6 +38,7 @@ const IN_THE_NEWS: MediaArticle[] = [
     title: 'Granules India AIG Hospitals extend breast cancer screening.',
     image: '/assets/news-3.webp',
     body: 'In partnership with AIG Hospitals, Granules India launched mobile mammography screening units to provide accessible early cancer detection services across underserved rural and semi-urban communities.',
+    pdf: '/documents/Granules-Breast-Health-Express-b551b46c2dba.pdf',
   },
 ];
 
@@ -44,30 +48,35 @@ const PRESS_RELEASES: MediaArticle[] = [
     date: '18 MAY 2025',
     title: 'Granules India transforms BC government boys hostel in Parawada.',
     body: 'As part of its CSR initiatives, Granules India upgraded infrastructure, sanitation, and educational facilities at the BC Government Boys Hostel in Parawada, benefiting hundreds of students.',
+    pdf: '/documents/Granules-India-Transforms-BC-Government-Boys-Hostel-in-Parawada-ac5a57c033b8.pdf',
   },
   {
     category: 'PRESS RELEASE',
     date: '20 APRIL 2025',
     title: 'Q4FY25 Revenue from operations at INR 11,974 Mn up 2% YoY, EBITDA at INR 2,524 Mn down 1% YoY, PAT at INR 1,520 Mn up 17% YoY.',
     body: 'Granules India Limited announced robust financial performance for the fourth quarter ended March 31, 2025, driven by operational efficiencies and sustained demand across core formulation categories.',
+    pdf: '/documents/Press-Release-Q4-FY25-07a5cf0c6ce0.pdf',
   },
   {
     category: 'PRESS RELEASE',
     date: '04 APRIL 2025',
     title: 'Granules India Limited extends support to 1,030 TB patients in Bhadradri Kothagudem District.',
     body: 'Reinforcing its commitment to public health, Granules India partnered with district healthcare authorities to provide nutritional support and treatment monitoring for tuberculosis patients.',
+    pdf: '/documents/Granules-India-Limited-Extends-Support-to-1030-TB-Patients-in-Bhadradri-Kothagudem-District-Under-Pr-d6b2b98e4b27.pdf',
   },
   {
     category: 'PRESS RELEASE',
     date: '04 MAY 2025',
     title: 'Granules India earns gold rating in first-ever corporate-level EcoVadis assessment ranks in the top 5% globally across all industries.',
     body: 'Granules India received a Gold Medal in its inaugural corporate-level EcoVadis sustainability evaluation, positioning the company in the top 5 percentile of assessed enterprises worldwide.',
+    pdf: '/documents/Granules-India-Earns-Gold-Rating-in-First-Ever-Corporate-Level-EcoVadis-Assessment-9d64ae9af103.pdf',
   },
   {
     category: 'PRESS RELEASE',
     date: '22 MARCH 2025',
     title: 'Granules India announces closing of acquisition of Senn Chemicals, strengthening capabilities in Peptide therapeutics and CDMO Services.',
     body: 'The closing of the Senn Chemicals transaction enhances Granules’ end-to-end peptide offering from pre-clinical development through commercial manufacturing scale.',
+    pdf: '/documents/Granules-India-Announces-Closing-of-Acquisition-of-Senn-Chemicals-Strengthening-Capabilities-in-Pept-f1bab07d1304.pdf',
   },
 ];
 
@@ -321,6 +330,36 @@ export default function MediaPage() {
             </div>
             <h2 className="med-modal-title">{modalArticle.title}</h2>
             <p className="med-modal-body">{modalArticle.body}</p>
+            {modalArticle.pdf && (
+              <div style={{ marginTop: '24px' }}>
+                <a
+                  className="inv-detail-pill"
+                  href={modalArticle.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '10px 22px',
+                    borderRadius: '24px',
+                    background: '#0061f8',
+                    color: '#fff',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '14px',
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  DOWNLOAD DOCUMENT (PDF)
+                </a>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -332,9 +371,12 @@ export default function MediaPage() {
             <h2>2024 Integrated<br />Annual Report</h2>
             <a
               className="med-report-btn"
-              href="/investor/annual-reports"
+              href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Granules_Integrated-Report-2024-25.pdf"
             >
-              VIEW REPORT
+              DOWNLOAD REPORT
             </a>
           </div>
 

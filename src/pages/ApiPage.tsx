@@ -158,7 +158,15 @@ export default function ApiPage() {
             manufacturing partner for quality, scale, and sustainability.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/business/pfi">Explore API Portfolio</a>
+        <a
+          className="cp-cta-btn"
+          href="/documents/Granules_Product_Brochure_API-2e0d50e7805c.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Granules_API_Product_Catalog.pdf"
+        >
+          Download API Portfolio (PDF)
+        </a>
       </div>
 
       <CompanyFooter />
