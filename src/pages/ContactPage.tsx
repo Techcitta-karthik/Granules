@@ -622,7 +622,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="https://www.instagram.com/granulesindia"
+              href="https://www.instagram.com/granulesindialimited_official/followers/"
               target="_blank"
               rel="noopener noreferrer"
               className="ct-follow-circle-btn"

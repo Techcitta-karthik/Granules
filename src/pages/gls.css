@@ -1,4 +1,5 @@
 /* Strict 85% sides edge spacing for GLS company page */
+.gls-page-header,
 .cp-page-title,
 .cp-hero-banner,
 .cp-hero-panel,
@@ -7,6 +8,16 @@
   max-width: 85% !important;
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+.gls-page-header,
+h2.gls-page-header,
+h3.gls-page-header {
+  font: 700 clamp(24px, 2.4vw, 36px)/1.3 'Manrope', sans-serif !important;
+  letter-spacing: -0.02em !important;
+  color: var(--blue, #0061f8) !important;
+  margin: clamp(16px, 2vw, 28px) auto clamp(20px, 2.5vw, 32px) !important;
+  padding: 0;
 }
 
 /* Scrim + heading overlay for the hero banner (matches the .car-hero-scrim /

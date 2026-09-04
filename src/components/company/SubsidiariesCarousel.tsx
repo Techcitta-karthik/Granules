@@ -33,8 +33,8 @@ export default function SubsidiariesCarousel() {
   const getImgUrl = (path: string) => (path.startsWith('/') ? path : `/assets/${path}`);
 
   return (
-    <section className="cp-subsidiaries" aria-label="Our subsidiaries">
-      <h2>Our subsidiaries</h2>
+    <section className="cp-subsidiaries" id="subsidiaries" aria-label="Global Subsidiaries">
+      <h2>Global Subsidiaries</h2>
 
       <div className="cp-subsidiaries-stage">
         {/* Left preview card */}

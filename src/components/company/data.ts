@@ -83,13 +83,13 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'About Us', href: '/company', matchPrefix: '/company' },
-  { label: 'Business', href: '/business/api', matchPrefix: '/business' },
+  { label: 'Business', href: '/business/generics', matchPrefix: '/business' },
   { label: 'Sustainability', href: '/sustainability', matchPrefix: '/sustainability' },
   { label: 'Community', href: '/community', matchPrefix: '/community' },
   { label: 'Investor', href: '/investor', matchPrefix: '/investor' },
   { label: 'Media', href: '/media', matchPrefix: '/media' },
   { label: 'Careers', href: '/careers', matchPrefix: '/careers' },
-  { label: 'Contact', href: '/contact', matchPrefix: '/contact' },
+  { label: 'Contact Us', href: '/contact', matchPrefix: '/contact' },
 ];
 
 export const FOOTER_SOCIALS = ['social-1.svg', 'social-2.svg', 'social-3.svg', 'social-4.svg', 'social-5.svg'];

@@ -1,34 +1,31 @@
 import { Link } from 'react-router-dom';
 
 const ABOUT_LINKS = [
-  { label: 'Company', href: '/company' },
-  { label: 'Vision & Mission', href: '/company#vision' },
+  { label: 'Overview', href: '/company' },
   { label: 'Leadership', href: '/company/leadership' },
-  { label: 'Milestone', href: '/company/milestone' },
-  { label: 'Group Companies', href: '/company#subsidiaries' },
+  { label: 'Our Journey', href: '/company/milestone' },
+  { label: 'Global Subsidiaries', href: "" },
 ];
 
 const SOLUTIONS_LINKS = [
   { label: 'Products', href: '/business/api' },
-  { label: 'Manufacturing', href: '/company/facilities' },
   { label: 'Quality', href: '/business/quality-compliance' },
   { label: 'R&D', href: '/business/rd' },
   { label: 'Facilities', href: '/company/facilities' },
 ];
 
 const IMPACT_LINKS = [
-  { label: 'IMPACT', href: '/sustainability' },
-  { label: 'INVESTORS', href: '/investor' },
-  { label: 'NEWSROOM', href: '/media' },
-  { label: 'CAREERS', href: '/careers' },
-  { label: 'CONNECT', href: '/contact' },
+  { label: 'Investors', href: '/investor' },
+  { label: 'Media', href: '/media' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 const SOCIAL_LINKS = [
-  { name: 'Facebook', icon: '/assets/facebook.svg', href: 'https://www.facebook.com/share/1BSgd7PiTC/?mibextid=wwXIfr' },
-  { name: 'Instagram', icon: '/assets/instagram.svg', href: 'https://instagram.com' },
-  { name: 'X', icon: '/assets/x.svg', href: 'https://x.com/GranulesIndia' },
   { name: 'LinkedIn', icon: '/assets/linkedin.svg', href: 'https://www.linkedin.com/company/granules-india-limited/' },
+  { name: 'Instagram', icon: '/assets/instagram.svg', href: 'https://www.instagram.com/granulesindialimited_official/followers/' },
+  { name: 'X', icon: '/assets/x.svg', href: 'https://x.com/GranulesIndia' },
+  { name: 'Facebook', icon: '/assets/facebook.svg', href: 'https://www.facebook.com/share/1BSgd7PiTC/?mibextid=wwXIfr' },
   { name: 'YouTube', icon: '/assets/youtube.svg', href: 'https://www.youtube.com/@Granules-IndiaLimited/featured' },
 ];
 
@@ -54,7 +51,7 @@ export default function CompanyFooter() {
 
           <div className="cp-footer-cols">
             <div className="cp-footer-col">
-              <h5>ABOUT</h5>
+              <h5>About Us</h5>
               <div className="cp-footer-link-group">
                 {ABOUT_LINKS.map((link) => (
                   <Link to={link.href} key={link.label}>
@@ -65,7 +62,7 @@ export default function CompanyFooter() {
             </div>
 
             <div className="cp-footer-col">
-              <h5>SOLUTIONS &amp; R&amp;D</h5>
+              <h5>Business</h5>
               <div className="cp-footer-link-group">
                 {SOLUTIONS_LINKS.map((link) => (
                   <Link to={link.href} key={link.label}>
@@ -91,12 +88,12 @@ export default function CompanyFooter() {
 
         <div className="cp-footer-bottom">
           <div className="cp-footer-legal">
-            <span className="cp-legal-copy">COPYRIGHT © 2025 GRANULES. ALL RIGHTS RESERVED.</span>
-            <Link to="/privacy-policy">PRIVACY POLICY</Link>
-            <Link to="/cookies-policy">COOKIES POLICY</Link>
-            <Link to="/disclaimer">DISCLAIMER</Link>
-            <Link to="/data-protection-notice">DATA PROTECTION NOTICE</Link>
-            <Link to="/terms-conditions">TERMS &amp; CONDITION</Link>
+            <span className="cp-legal-copy">Copyright © 2025 Granules. All rights reserved.</span>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/cookies-policy">Cookies Policy</Link>
+            <Link to="/disclaimer">Disclaimer</Link>
+            <Link to="/data-protection-notice">Data Protection Notice</Link>
+            <Link to="/terms-conditions">Terms &amp; Conditions</Link>
           </div>
 
           <div className="cp-footer-socials">

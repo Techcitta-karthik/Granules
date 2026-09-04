@@ -4,111 +4,81 @@ import { asset } from './constants';
 import { NAV_LINKS } from './data';
 import type { NavLink as NavLinkItem } from './types';
 
+type QuickLink = {
+  label: string;
+  href: string;
+};
+
+type SubmenuSection = {
+  title?: string;
+  quickLinks: QuickLink[];
+};
+
 type Submenu = {
-  title: string;
-  quickLinks: { label: string; href: string }[];
-  links: { label: string; href: string }[];
+  title?: string;
+  quickLinks?: QuickLink[];
+  sections?: SubmenuSection[];
+  links?: { label: string; href: string }[];
   image: string;
   imageHref?: string;
 };
 
 const SUBMENUS: Record<string, Submenu> = {
   'About Us': {
-    title: 'About Us',
-    quickLinks: [
-      { label: 'ABOUT US', href: '/company' },
-      { label: 'MILESTONE', href: '/company/milestone' },
-      { label: 'AWARDS', href: '/company/awards' },
-    ],
-    links: [
-      { label: 'Leadership', href: '/company/leadership' },
-      { label: 'Group Companies', href: '/company#subsidiaries' },
-      { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
-      { label: 'Operational Excellence', href: '/company/operational-excellence' },
-    ],
-    image: 'company/values-bg-2.webp',
-  },
-  Company: {
-    title: 'About Us',
-    quickLinks: [
-      { label: 'ABOUT US', href: '/company' },
-      { label: 'MILESTONE', href: '/company/milestone' },
-      { label: 'AWARDS', href: '/company/awards' },
-    ],
-    links: [
-      { label: 'Leadership', href: '/company/leadership' },
-      { label: 'Group Companies', href: '/company#subsidiaries' },
-      { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
-      { label: 'Operational Excellence', href: '/company/operational-excellence' },
+    sections: [
+      {
+        title: 'Overview',
+        quickLinks: [
+          { label: 'Our Journey', href: '/company/milestone' },
+          { label: 'Leadership', href: '/company/leadership' },
+        ],
+      },
+      {
+        title: 'Global Subsidiaries',
+        quickLinks: [
+          { label: 'Granules Pharmaceuticals Inc. (GPI)', href: "https://www.granulespharma.com/" },
+          { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
+          { label: 'Senn Tides', href: '/company/ascelis-peptides' },
+          { label: 'Granules CZRO', href: '/company/granules-czro' },
+        ],
+      },
     ],
     image: 'company/values-bg-2.webp',
   },
   Business: {
-    title: 'Business',
+    title: 'GENERICS',
     quickLinks: [
       { label: 'API', href: '/business/api' },
       { label: 'PFI', href: '/business/pfi' },
       { label: 'FINISHED DOSAGES', href: '/business/fd' },
-      { label: 'PEPTIDES', href: '/business/peptides' },
     ],
     links: [
+      { label: 'Peptides CDMO', href: '/business/peptides' },
       { label: 'Research & Development', href: '/business/rd' },
       { label: 'Quality & Compliance', href: '/business/quality-compliance' },
-      { label: 'Manufacturing Facilities', href: '/company/facilities' },
+      { label: 'Facilities', href: '/company/facilities' },
     ],
     image: 'company/gpi-facility.webp',
   },
-  Investor: {
-    title: 'Investor',
-    quickLinks: [
-      { label: 'OVERVIEW', href: '/investor' },
-      { label: 'ANNUAL REPORTS', href: '/investor/annual-reports' },
-    ],
-    links: [
-      { label: 'Quarterly Results', href: '/investor' },
-      { label: 'Investor Resources', href: '/investor' },
-      { label: 'Financial Highlights', href: '/investor' },
-    ],
-    image: 'investor-report-cover.webp',
-  },
-  Media: {
-    title: 'Media',
-    quickLinks: [
-      { label: 'NEWS & MEDIA', href: '/media' },
-      { label: 'PRESS RELEASES', href: '/media' },
-    ],
-    links: [
-      { label: 'Corporate Announcements', href: '/media' },
-      { label: 'Media Kit', href: '/media' },
-    ],
-    image: 'company/leadership-photo-main-2.webp',
-  },
+
   Careers: {
     title: 'Careers',
-    quickLinks: [
-      { label: 'OVERVIEW', href: '/careers' },
-      { label: 'OPPORTUNITIES', href: '/careers/opportunities' },
-    ],
     links: [
-      { label: 'Life at Granules', href: '/careers/life-at-granules' },
-      { label: 'Culture & Purpose', href: '/careers' },
+      { label: 'Overview', href: '/careers' },
+      { label: 'Opportunities', href: '/careers/opportunities' },
     ],
     image: 'company/career-bg.webp',
-  },
-  Contact: {
-    title: 'Contact',
-    quickLinks: [
-      { label: 'CONTACT US', href: '/contact' },
-    ],
-    links: [
-      { label: 'Global Offices', href: '/contact' },
-      { label: 'Investor Inquiries', href: '/investor' },
-    ],
-    image: 'company/gpi-facility.webp',
   },
 };
 
 function isActive(link: NavLinkItem, pathname: string) {
+  if (link.label === 'Community') {
+    return (
+      pathname.startsWith('/community') ||
+      pathname.startsWith('/csr') ||
+      pathname.startsWith('/corporate-social-responsibility')
+    );
+  }
   return !!link.matchPrefix && pathname.startsWith(link.matchPrefix);
 }
 
@@ -171,10 +141,30 @@ export default function NavBar() {
                       onMouseEnter={() => showMenu(link.label)}
                     >
                       <div className="cp-nav-submenu-copy">
-                        <div className="cp-nav-submenu-header-box">
-                          <span className="cp-nav-submenu-title">{submenu.title}</span>
-                          <div className="cp-nav-quick-links">
-                            {submenu.quickLinks.map((item) => (
+                        {(submenu.sections || (submenu.title && submenu.quickLinks ? [{ title: submenu.title, quickLinks: submenu.quickLinks }] : [])).map((section, idx) => (
+                          <div className="cp-nav-submenu-header-box" key={section.title || idx}>
+                            {section.title && <span className="cp-nav-submenu-title">{section.title}</span>}
+                            <div className="cp-nav-quick-links">
+                              {section.quickLinks.map((item) => (
+                                <Link
+                                  to={item.href}
+                                  key={item.label}
+                                  onClick={() => {
+                                    setHoveredMenu(null);
+                                    setOpen(false);
+                                  }}
+                                >
+                                  <span>{item.label}</span>
+                                  <span className="cp-nav-arrow-diag" aria-hidden="true">↗</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+
+                        {submenu.links && submenu.links.length > 0 && (
+                          <div className="cp-nav-submenu-links">
+                            {submenu.links.map((item) => (
                               <Link
                                 to={item.href}
                                 key={item.label}
@@ -183,27 +173,11 @@ export default function NavBar() {
                                   setOpen(false);
                                 }}
                               >
-                                <span>{item.label}</span>
-                                <span className="cp-nav-arrow-diag" aria-hidden="true">↗</span>
+                                {item.label}
                               </Link>
                             ))}
                           </div>
-                        </div>
-
-                        <div className="cp-nav-submenu-links">
-                          {submenu.links.map((item) => (
-                            <Link
-                              to={item.href}
-                              key={item.label}
-                              onClick={() => {
-                                setHoveredMenu(null);
-                                setOpen(false);
-                              }}
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
+                        )}
                       </div>
 
                       {submenu.imageHref ? (

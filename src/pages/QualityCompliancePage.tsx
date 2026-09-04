@@ -112,9 +112,10 @@ export default function QualityCompliancePage() {
               filings (DMFs, ANDAs, MAAs, CEPs) across regulated markets
             </p>
           </li>
-          <li className="qc-metric-card qc-metric-card--standards">
-            <p className="qc-metric-standards">
-              Sites aligned with <strong>cGMP, ICH Q10, and ISO 9001:2015</strong> standards
+          <li className="qc-metric-card">
+            <p className="qc-metric-value">100%</p>
+            <p className="qc-metric-label">
+              sites aligned with cGMP, ICH Q10, and ISO 9001:2015 standards
             </p>
           </li>
         </ul>

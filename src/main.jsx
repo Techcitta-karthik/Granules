@@ -63,6 +63,7 @@ import GranulesCzroPage from './pages/GranulesCzroPage.tsx';
 import AscelisPeptidesPage from './pages/AscelisPeptidesPage.tsx';
 import GranulesLifeSciencesPage from './pages/GranulesLifeSciencesPage.tsx';
 import OperationalExcellencePage from './pages/OperationalExcellencePage.tsx';
+import GenericsPage from './pages/GenericsPage.tsx';
 import ApiPage from './pages/ApiPage.tsx';
 import PfiPage from './pages/PfiPage.tsx';
 import FdPage from './pages/FdPage.tsx';
@@ -102,7 +103,12 @@ function App() {
         <Route path="/company/granules-czro" element={<GranulesCzroPage />} />
         <Route path="/company/ascelis-peptides" element={<AscelisPeptidesPage />} />
         <Route path="/company/granules-life-sciences" element={<GranulesLifeSciencesPage />} />
+        <Route path="/granules-life-sciences" element={<GranulesLifeSciencesPage />} />
+        <Route path="/gls" element={<GranulesLifeSciencesPage />} />
         <Route path="/company/operational-excellence" element={<OperationalExcellencePage />} />
+        <Route path="/business" element={<GenericsPage />} />
+        <Route path="/business/generics" element={<GenericsPage />} />
+        <Route path="/generics" element={<GenericsPage />} />
         <Route path="/business/api" element={<ApiPage />} />
         <Route path="/business/pfi" element={<PfiPage />} />
         <Route path="/business/fd" element={<FdPage />} />
@@ -114,7 +120,11 @@ function App() {
         <Route path="/sustainability/strategy" element={<SustainabilityStrategyPage />} />
         <Route path="/sustainability/esg-in-action" element={<EsgInActionPage />} />
         <Route path="/sustainability/esg-in-action/community" element={<CommunityPage />} />
+        <Route path="/sustainability/corporate-social-responsibility" element={<CommunityPage />} />
+        <Route path="/sustainability/csr" element={<CommunityPage />} />
         <Route path="/sustainability/community" element={<CommunityPage />} />
+        <Route path="/corporate-social-responsibility" element={<CommunityPage />} />
+        <Route path="/csr" element={<CommunityPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/investor" element={<InvestorOverviewPage />} />
         <Route path="/investor/v2" element={<InvestorOverviewV2Page />} />

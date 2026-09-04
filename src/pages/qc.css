@@ -78,35 +78,33 @@
   background: #f3f8fe;
   border: 1.5px solid rgba(0, 97, 248, 0.14);
   border-radius: 32px;
-  padding: clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 28px);
+  padding: clamp(28px, 3.5vw, 44px) clamp(20px, 2.5vw, 32px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   text-align: center;
+  min-height: 180px;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.qc-metric-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 97, 248, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 97, 248, 0.08);
 }
 .qc-metric-value {
   margin: 0;
-  font: 700 clamp(32px, 4vw, 52px)/1.1 'Manrope', sans-serif;
+  font: 700 clamp(36px, 4.2vw, 54px)/1.05 'Manrope', sans-serif;
   color: #0061f8;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 .qc-metric-label {
   margin: 0;
-  font: 600 clamp(14px, 1.1vw, 17px)/1.4 'Manrope', sans-serif;
+  font: 600 clamp(13.5px, 1.1vw, 16px)/1.5 'Manrope', sans-serif;
   color: #334155;
-}
-.qc-metric-standards {
-  margin: 0;
-  font: 500 clamp(15px, 1.2vw, 19px)/1.45 'Manrope', sans-serif;
-  color: #334155;
-}
-.qc-metric-standards strong {
-  display: block;
-  margin: 6px 0;
-  font: 700 clamp(18px, 1.7vw, 24px)/1.3 'Manrope', sans-serif;
-  color: #0061f8;
-  letter-spacing: -0.01em;
+  max-width: 320px;
 }
 
 .qc-systems {
