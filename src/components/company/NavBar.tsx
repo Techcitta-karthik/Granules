@@ -145,7 +145,56 @@ export default function NavBar() {
                           <div className="cp-nav-submenu-header-box" key={section.title || idx}>
                             {section.title && <span className="cp-nav-submenu-title">{section.title}</span>}
                             <div className="cp-nav-quick-links">
-                              {section.quickLinks.map((item) => (
+                              {section.quickLinks.map((item) =>
+                                item.href.startsWith('http') ? (
+                                  <a
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    key={item.label}
+                                    onClick={() => {
+                                      setHoveredMenu(null);
+                                      setOpen(false);
+                                    }}
+                                  >
+                                    <span>{item.label}</span>
+                                    <span className="cp-nav-arrow-diag" aria-hidden="true">↗</span>
+                                  </a>
+                                ) : (
+                                  <Link
+                                    to={item.href}
+                                    key={item.label}
+                                    onClick={() => {
+                                      setHoveredMenu(null);
+                                      setOpen(false);
+                                    }}
+                                  >
+                                    <span>{item.label}</span>
+                                    <span className="cp-nav-arrow-diag" aria-hidden="true">↗</span>
+                                  </Link>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        ))}
+
+                        {submenu.links && submenu.links.length > 0 && (
+                          <div className="cp-nav-submenu-links">
+                            {submenu.links.map((item) =>
+                              item.href.startsWith('http') ? (
+                                <a
+                                  href={item.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  key={item.label}
+                                  onClick={() => {
+                                    setHoveredMenu(null);
+                                    setOpen(false);
+                                  }}
+                                >
+                                  {item.label}
+                                </a>
+                              ) : (
                                 <Link
                                   to={item.href}
                                   key={item.label}
@@ -154,28 +203,10 @@ export default function NavBar() {
                                     setOpen(false);
                                   }}
                                 >
-                                  <span>{item.label}</span>
-                                  <span className="cp-nav-arrow-diag" aria-hidden="true">↗</span>
+                                  {item.label}
                                 </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-
-                        {submenu.links && submenu.links.length > 0 && (
-                          <div className="cp-nav-submenu-links">
-                            {submenu.links.map((item) => (
-                              <Link
-                                to={item.href}
-                                key={item.label}
-                                onClick={() => {
-                                  setHoveredMenu(null);
-                                  setOpen(false);
-                                }}
-                              >
-                                {item.label}
-                              </Link>
-                            ))}
+                              )
+                            )}
                           </div>
                         )}
                       </div>
