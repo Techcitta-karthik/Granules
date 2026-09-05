@@ -286,27 +286,53 @@
 }
 
 .sus-pillar-tabs {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: 0 auto !important;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto clamp(20px, 2.5vw, 32px) !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #edf5ff;
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 97, 248, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.05);
+  box-sizing: border-box;
+  gap: 6px;
 }
 
 .sus-pillar-tab {
-  flex: 1 1 220px;
-  border-radius: 24px;
-  padding: 10px 26px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 13px 20px;
   text-align: center;
-  font: 600 15px/24px 'Manrope', sans-serif;
-  letter-spacing: 1.5px;
+  font: 700 clamp(13px, 1.1vw, 15px)/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
-  background: #fff;
-  border: 1px solid currentColor;
+  color: #0061f8;
   cursor: pointer;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  user-select: none;
+  opacity: 0.75;
 }
-.sus-pillar-tab.active { color: #fff; }
+
+.sus-pillar-tab:hover {
+  opacity: 1;
+  background: rgba(0, 97, 248, 0.08);
+  color: #0061f8;
+}
+
+.sus-pillar-tab.active {
+  background: #0061f8 !important;
+  color: #ffffff !important;
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.35);
+}
 
 .sus-cta {
   width: 85% !important;

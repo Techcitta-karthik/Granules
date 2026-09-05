@@ -90,34 +90,37 @@
 /* Sub Tabs Pills */
 .esg-sub-tabs {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 28px;
 }
 
 .esg-sub-tab {
-  background: transparent;
-  border: 1.5px solid #197b0c;
+  background: #edf5ff;
+  border: 1px solid rgba(0, 97, 248, 0.12);
   border-radius: 9999px;
-  padding: 12px 28px;
-  font: 700 13px/1 'Manrope', sans-serif;
-  letter-spacing: 0.8px;
+  padding: 12px 24px;
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #197b0c;
+  color: #0061f8;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.04);
   transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
   user-select: none;
 }
 
 .esg-sub-tab:hover {
-  background: rgba(25, 123, 12, 0.08);
-  transform: translateY(-1px);
+  background: #e4f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.1);
 }
 
 .esg-sub-tab.active {
-  background: #197b0c;
+  background: #0061f8;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(25, 123, 12, 0.25);
+  border-color: #0061f8;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.35);
 }
 
 /* Environment Interactive 2-Column Card */

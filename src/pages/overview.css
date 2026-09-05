@@ -1318,6 +1318,72 @@
   gap: 20px;
 }
 
+/* ==========================================================================
+   COMMITMENTS & MEMBERSHIP TAB SWITCH (PILL TOGGLE)
+   ========================================================================== */
+.ld-tabs-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto clamp(20px, 3vw, 36px) !important;
+  display: flex;
+  justify-content: center;
+}
+
+.ld-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  background: #edf5ff;
+  padding: 6px;
+  border-radius: 9999px;
+  position: relative;
+  border: 1px solid rgba(0, 97, 248, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.05);
+  box-sizing: border-box;
+}
+
+.ld-tab-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 13px 20px;
+  font: 700 clamp(13px, 1.1vw, 15px)/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #0061f8;
+  cursor: pointer;
+  border-radius: 9999px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  transition: color 0.3s cubic-bezier(0.2, 0, 0.2, 1), opacity 0.2s ease;
+  user-select: none;
+  opacity: 0.75;
+}
+
+.ld-tab-btn:hover {
+  opacity: 1;
+}
+
+.ld-tab-btn.active {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.ld-tab-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc(50% - 6px);
+  background: #0061f8;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.35);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* Document Item Card */
 .sus-doc-card {
   background: #edf5ff;

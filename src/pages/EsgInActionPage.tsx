@@ -224,19 +224,18 @@ export default function EsgInActionPage() {
             sustainable business growth.
           </p>
         </div>
-        <div className="sus-pillar-tabs" style={{ marginBottom: 24 }}>
+        <div className="sus-pillar-tabs" style={{ marginBottom: 28 }}>
           {SOCIAL_SUB_TABS.map((tab, index) =>
             tab === 'Community' ? (
               <Link
                 key={tab}
                 to="/sustainability/esg-in-action/community"
                 className="sus-pillar-tab"
-                style={{ background: '#fff', borderColor: '#0061f8', color: '#0061f8' }}
               >
                 {tab}
               </Link>
             ) : (
-              <span key={tab} className={`sus-pillar-tab${index === 0 ? ' active' : ''}`} style={{ background: index === 0 ? '#0061f8' : '#fff', borderColor: '#0061f8', color: index === 0 ? '#fff' : '#0061f8', cursor: 'default' }}>
+              <span key={tab} className={`sus-pillar-tab${index === 0 ? ' active' : ''}`} style={{ cursor: 'default' }}>
                 {tab}
               </span>
             )
