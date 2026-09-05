@@ -946,9 +946,9 @@
 }
 
 .sus-jump-card {
-  background: #ffffff;
-  border: 1.5px solid #d4dde8;
-  border-radius: 24px;
+  background: #edf5ff;
+  border: 1px solid rgba(0, 97, 248, 0.08);
+  border-radius: 22px;
   padding: 22px 20px;
   min-height: 104px;
   display: flex;
@@ -956,25 +956,26 @@
   justify-content: center;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0, 34, 90, 0.05);
-  transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
   text-decoration: none;
   outline: none;
 }
 
 .sus-jump-card:hover,
 .sus-jump-card:focus-visible {
-  transform: translateY(-5px);
-  border-color: #0061f8;
-  box-shadow: 0 16px 36px rgba(0, 97, 248, 0.16);
-  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+  transform: translateY(-3px);
+  border-color: rgba(0, 97, 248, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
+  background: #e4f0ff;
 }
 
 .sus-jump-label {
-  font: 700 clamp(15px, 1.2vw, 17.5px)/1.32 'Manrope', sans-serif;
-  color: #0a1629;
+  font: 700 clamp(14px, 1.1vw, 16.5px)/1.32 'Manrope', sans-serif;
+  color: #0061f8;
   margin: 0;
-  letter-spacing: -0.25px;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
   transition: color 0.25s ease;
 }
 
@@ -1046,71 +1047,71 @@
 }
 
 .sus-goal-card {
-  background: #eefff1;
-  border-radius: 28px;
-  padding: clamp(24px, 2.8vw, 34px);
-  color: #197b0c;
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: clamp(22px, 2.5vw, 30px);
+  color: #0061f8;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  border: 1.5px solid rgba(25, 123, 12, 0.14);
-  box-shadow: 0 4px 20px rgba(25, 123, 12, 0.04);
-  transition: all 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+  gap: 14px;
+  border: 1px solid rgba(0, 97, 248, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
   position: relative;
   overflow: hidden;
 }
 
 .sus-goal-card:hover {
-  transform: translateY(-5px);
-  background: #e5fbe9;
-  border-color: rgba(25, 123, 12, 0.35);
-  box-shadow: 0 16px 36px rgba(25, 123, 12, 0.12);
+  transform: translateY(-3px);
+  background: #e4f0ff;
+  border-color: rgba(0, 97, 248, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
 .sus-goal-card--blue {
-  background: #ebf9ff;
+  background: #edf5ff;
   color: #0061f8;
-  border: 1.5px solid rgba(0, 97, 248, 0.14);
-  box-shadow: 0 4px 20px rgba(0, 97, 248, 0.04);
+  border: 1px solid rgba(0, 97, 248, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.04);
 }
 
 .sus-goal-card--blue:hover {
-  background: #e0f4ff;
-  border-color: rgba(0, 97, 248, 0.35);
-  box-shadow: 0 16px 36px rgba(0, 97, 248, 0.12);
+  background: #e4f0ff;
+  border-color: rgba(0, 97, 248, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
 .sus-goal-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.85);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #ffffff;
   display: grid;
   place-items: center;
   margin-bottom: 2px;
-  color: #197b0c;
-  border: 1px solid rgba(25, 123, 12, 0.18);
-  box-shadow: 0 2px 8px rgba(25, 123, 12, 0.06);
+  color: #0061f8;
+  border: 1px solid rgba(0, 97, 248, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.06);
 }
 
 .sus-goal-card--blue .sus-goal-icon-wrap {
-  background: rgba(255, 255, 255, 0.85);
+  background: #ffffff;
   color: #0061f8;
-  border-color: rgba(0, 97, 248, 0.18);
+  border-color: rgba(0, 97, 248, 0.15);
   box-shadow: 0 2px 8px rgba(0, 97, 248, 0.06);
 }
 
 .sus-goal-icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   stroke-width: 2.2;
 }
 
 .sus-goal-title {
   margin: 0;
-  font: 700 21px/1.2 'Manrope', sans-serif;
-  color: #197b0c;
-  letter-spacing: -0.3px;
+  font: 700 18px/1.25 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.2px;
 }
 
 .sus-goal-card--blue .sus-goal-title {
@@ -1119,21 +1120,21 @@
 
 .sus-goal-desc {
   margin: 0;
-  font: 500 14px/1.6 'DM Sans', sans-serif;
-  color: #1b4317;
+  font: 500 13.5px/1.55 'Manrope', sans-serif;
+  color: #334155;
 }
 
 .sus-goal-card--blue .sus-goal-desc {
-  color: #0f3769;
+  color: #334155;
 }
 
 .sus-goal-desc strong {
-  color: #0e290b;
+  color: #0061f8;
   font-weight: 700;
 }
 
 .sus-goal-card--blue .sus-goal-desc strong {
-  color: #092548;
+  color: #0061f8;
   font-weight: 700;
 }
 
@@ -1160,34 +1161,46 @@
 }
 
 .sus-kpi-badge {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 24px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 14px rgba(0, 34, 90, 0.03);
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 22px 20px;
+  min-height: 140px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  justify-content: center;
+  gap: 6px;
+  color: #0061f8;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 97, 248, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .sus-kpi-badge:hover {
   transform: translateY(-3px);
-  border-color: #0061f8;
-  box-shadow: 0 10px 24px rgba(0, 97, 248, 0.08);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
+  border-color: rgba(0, 97, 248, 0.2);
 }
 
 .sus-kpi-value {
   margin: 0;
-  font: 800 clamp(26px, 2.6vw, 36px)/1.1 'Manrope', sans-serif;
+  font-size: clamp(30px, 2.3vw, 42px);
+  line-height: 1.1;
+  font-weight: 700;
   color: #0061f8;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
 }
 
 .sus-kpi-label {
   margin: 0;
-  font: 500 13.5px/1.45 'DM Sans', sans-serif;
-  color: #475569;
+  font-size: 12.5px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.36px;
+  color: #0061f8;
 }
 
 /* ==========================================================================
@@ -1307,8 +1320,8 @@
 
 /* Document Item Card */
 .sus-doc-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #edf5ff;
+  border: 1px solid rgba(0, 97, 248, 0.08);
   border-radius: 22px;
   padding: 24px 20px;
   display: flex;
@@ -1316,41 +1329,44 @@
   justify-content: space-between;
   gap: 16px;
   min-height: 180px;
-  box-shadow: 0 4px 14px rgba(0, 34, 90, 0.03);
-  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .sus-doc-card:hover {
-  background: #ffffff;
-  border-color: #0061f8;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 97, 248, 0.12);
+  background: #e4f0ff;
+  border-color: rgba(0, 97, 248, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
 .sus-doc-card--light {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 14px rgba(0, 34, 90, 0.03);
+  background: #edf5ff;
+  border: 1px solid rgba(0, 97, 248, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.04);
 }
 
 .sus-doc-card--light:hover {
-  background: #ffffff;
-  border-color: #0061f8;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 97, 248, 0.12);
+  background: #e4f0ff;
+  border-color: rgba(0, 97, 248, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
 .sus-doc-card-title {
   margin: 0;
   font: 700 16px/1.35 'Manrope', sans-serif;
-  color: #0f172a;
+  color: #0061f8;
   letter-spacing: -0.2px;
 }
 
 .sus-doc-card-meta {
-  margin: 4px 0 0;
-  font: 500 12px/1.3 'DM Sans', sans-serif;
-  color: #64748b;
+  margin: 6px 0 0;
+  font: 700 11.5px/1.3 'Manrope', sans-serif;
+  color: #0061f8;
+  text-transform: uppercase;
+  letter-spacing: 0.36px;
+  opacity: 0.75;
 }
 
 .sus-doc-btn {
@@ -1359,26 +1375,30 @@
   justify-content: center;
   gap: 8px;
   padding: 8px 18px;
-  border-radius: 24px;
-  background: #edf5ff;
+  border-radius: 9999px;
+  background: #ffffff;
   color: #0061f8;
-  font: 700 12px/1 'Manrope', sans-serif;
+  font: 700 11.5px/1 'Manrope', sans-serif;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   align-self: flex-start;
+  border: 1px solid rgba(0, 97, 248, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.06);
   transition: all 0.2s ease;
 }
 
 .sus-doc-btn:hover {
   background: #0061f8;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.35);
+  border-color: #0061f8;
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.3);
 }
 
 .sus-doc-btn--disabled {
-  background: #f1f5f9 !important;
-  color: #94a3b8 !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(0, 97, 248, 0.4) !important;
+  border-color: rgba(0, 97, 248, 0.1) !important;
   cursor: not-allowed;
   pointer-events: none;
 }

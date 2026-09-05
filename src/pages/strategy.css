@@ -236,14 +236,15 @@
   letter-spacing: -1px;
 }
 .strat-carbon-stats {
-  background: #d9f4dd;
-  border-radius: 40px;
+  background: #edf5ff;
+  border-radius: 36px;
+  border: 1px solid rgba(0, 97, 248, 0.08);
   padding: clamp(36px, 4.5vw, 60px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 310px;
-  box-shadow: 0 10px 30px rgba(0, 30, 10, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 86, 214, 0.05);
 }
 .strat-carbon-stat-content {
   display: flex;
@@ -254,14 +255,14 @@
 }
 .strat-carbon-value {
   margin: 0 0 14px;
-  font: 400 clamp(54px, 6.8vw, 96px)/1 'Manrope', sans-serif;
-  color: #197b0c;
+  font: 700 clamp(48px, 6vw, 84px)/1 'Manrope', sans-serif;
+  color: #0061f8;
   letter-spacing: -2px;
 }
 .strat-carbon-label {
   margin: 0;
   font: 700 clamp(13px, 1.1vw, 16px)/1.45 'Manrope', sans-serif;
-  color: #197b0c;
+  color: #0061f8;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   max-width: 600px;
@@ -278,7 +279,7 @@
   flex: 1;
   height: 4px;
   border-radius: 4px;
-  background: #197b0c;
+  background: #0061f8;
   opacity: 0.25;
   border: none;
   padding: 0;
