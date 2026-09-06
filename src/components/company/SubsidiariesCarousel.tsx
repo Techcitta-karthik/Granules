@@ -77,9 +77,6 @@ export default function SubsidiariesCarousel() {
                 loading="lazy"
                 decoding="async"
               />
-              <div className="cp-sub-logo-badge">
-                <img src="/assets/company/nav-logo.webp" alt="Granules" loading="eager" decoding="async" />
-              </div>
             </Link>
           </div>
         </article>

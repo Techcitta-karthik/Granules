@@ -269,175 +269,280 @@
 }
 
 /* ==========================================================================
-   3. CORE FOCUS AREAS SHOWCASE (4 PILLAR CARDS)
+   3. CORE FOCUS AREAS SHOWCASE (HOMEPAGE SUSTAINABILITY ACCORDION LAYOUT)
    ========================================================================== */
-.comm-pillars-section {
+.comm-sustainability {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(56px, 7vw, 90px) auto 0 !important;
-}
-
-.comm-section-head-simple {
-  margin-bottom: 36px;
-}
-
-.comm-section-head-simple h2 {
-  font: 700 clamp(28px, 2.8vw, 40px)/1.2 'Manrope', sans-serif;
-  color: #111827;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-.comm-pillars-showcase {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.comm-pillar-item-card {
+  margin: clamp(60px, 7vw, 100px) auto 100px !important;
+  min-height: 720px;
+  border-radius: 40px;
+  padding: clamp(60px, 6vw, 110px) clamp(40px, 5.5vw, 96px) !important;
   position: relative;
   overflow: hidden;
-  height: 490px;
-  min-height: 490px;
-  max-height: 490px;
-  border-radius: 32px;
-  background: #edf3f5;
-  border: 1px solid rgba(0, 97, 248, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 20, 60, 0.04);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  display: grid !important;
+  grid-template-columns: 0.9fr 1.25fr !important;
+  gap: clamp(40px, 5vw, 96px) !important;
+  align-items: center;
+  color: #ffffff;
+  transition: background-image 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 24px 64px rgba(0, 24, 70, 0.18);
 }
 
-.comm-pillar-item-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgba(0, 47, 180, 0.2);
-  border-color: rgba(0, 97, 248, 0.25);
-}
-
-.comm-pillar-item-media {
+/* sustainability-overlay matching homepage overlay with deep contrast */
+.comm-sustainability .sustainability-overlay {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #edf3f5;
+  background: linear-gradient(90deg, rgba(3, 20, 52, 0.88) 0%, rgba(2, 38, 92, 0.72) 48%, rgba(0, 97, 248, 0.32) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
-.comm-pillar-item-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.comm-pillar-item-card:hover .comm-pillar-item-media img,
-.comm-pillar-item-card.is-open .comm-pillar-item-media img {
-  transform: scale(1.06);
-}
-
-.comm-pillar-item-badge {
-  position: absolute;
-  top: 18px;
-  left: 18px;
+.comm-sustainability-copy {
+  position: relative;
   z-index: 2;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font: 700 11px/1.2 'Manrope', sans-serif;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-/* Sliding Blue Drawer Sheet - Covers full card on hover */
-.comm-pillar-sheet {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  border-radius: 24px 24px 32px 32px;
-  background: linear-gradient(160deg, #0065f8 0%, #0052d4 55%, #0044b3 100%);
-  padding: 24px 20px 22px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 -8px 28px rgba(0, 20, 80, 0.16);
-  transform: translateY(calc(100% - 92px));
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.4s ease;
-  will-change: transform;
-  box-sizing: border-box;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-.comm-pillar-item-card:hover .comm-pillar-sheet,
-.comm-pillar-item-card.is-open .comm-pillar-sheet {
-  transform: translateY(0);
+.comm-sustain-tag {
+  background: #e0edff !important;
+  color: #0061f8 !important;
+  border: 1px solid rgba(0, 97, 248, 0.2);
 }
 
-.comm-pillar-sheet-head {
+.comm-sustainability-copy h2 {
+  font: 700 clamp(32px, 3.4vw, 50px)/1.15 'Manrope', sans-serif !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  letter-spacing: -0.025em;
+}
+
+.comm-sustainability-copy p {
+  font: 500 clamp(16px, 1.18vw, 19px)/1.55 'Manrope', sans-serif !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 !important;
+  max-width: 520px;
+}
+
+.comm-sustain-stats-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  width: 100%;
+}
+
+.comm-sustain-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comm-sustain-stat-item strong {
+  font: 800 clamp(24px, 2.3vw, 32px)/1 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.comm-sustain-stat-item span {
+  font: 700 12px/1.3 'Manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Accordion Options Column */
+.comm-accordion {
+  position: relative;
+  z-index: 2;
+  display: flex !important;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.comm-accordion article {
+  border-radius: 24px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 22px 28px !important;
+  transition: all 0.35s cubic-bezier(0.2, 0, 0.2, 1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 4px 18px rgba(0, 16, 50, 0.08) !important;
+  cursor: pointer;
+}
+
+.comm-accordion article:hover {
+  background: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 20, 60, 0.16) !important;
+}
+
+.comm-accordion article.open {
+  background: #ffffff !important;
+  box-shadow: 0 16px 40px rgba(0, 24, 80, 0.22) !important;
+  border-color: #0061f8 !important;
+  transform: translateY(-2px);
+}
+
+.comm-accordion button {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer;
+  text-align: left !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(18px, 1.35vw, 22px) !important;
+  color: #0f172a !important;
+  transition: color 0.2s ease;
+}
+
+.comm-accordion article.open button {
+  font-size: clamp(20px, 1.5vw, 24px) !important;
+  color: #0061f8 !important;
+}
+
+.comm-accordion .accordion-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 48px;
-  cursor: pointer;
-  user-select: none;
+  gap: 16px;
 }
 
-.comm-pillar-sheet-title {
-  font: 700 18px/1.25 'Manrope', sans-serif;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: -0.2px;
-  max-width: 80%;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+.comm-accordion .accordion-head span {
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-.comm-pillar-symbol {
-  flex: 0 0 34px;
+.comm-accordion-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  transition: transform 0.3s ease;
+}
+
+.comm-accordion article.open .comm-accordion-icon {
+  transform: scale(1.08);
+}
+
+.comm-accordion-toggle-wrap {
   width: 34px;
   height: 34px;
-  display: grid;
-  place-items: center;
   border-radius: 50%;
-  color: #0061f8;
-  background: #ffffff;
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 600;
-  font-style: normal;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, color 0.2s ease;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
 }
 
-.comm-pillar-item-card:hover .comm-pillar-symbol,
-.comm-pillar-item-card.is-open .comm-pillar-symbol {
-  transform: rotate(180deg);
+.comm-accordion article.open .comm-accordion-toggle-wrap {
+  background: #e0edff;
 }
 
-/* Expandable content area inside the sheet */
-.comm-pillar-sheet-body {
-  flex: 1 1 auto;
-  margin-top: 14px;
+.comm-accordion-toggle {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Accordion Body */
+.comm-accordion-body {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #edf2f7;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.35s ease 0.08s, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
-  overflow-y: auto;
-  scrollbar-width: none;
+  animation: commAccordionFade 0.35s ease;
 }
 
-.comm-pillar-sheet-body::-webkit-scrollbar {
-  display: none;
+@keyframes commAccordionFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.comm-pillar-item-card:hover .comm-pillar-sheet-body,
-.comm-pillar-item-card.is-open .comm-pillar-sheet-body {
-  opacity: 1;
-  transform: translateY(0);
+.comm-accordion-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.comm-accordion-tag {
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font: 700 11px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.comm-accordion-metric {
+  font: 600 14px/1.2 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.comm-accordion-metric strong {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0061f8;
+  margin-right: 4px;
+}
+
+.comm-accordion-desc {
+  margin: 0;
+  font: 500 14.5px/1.55 'Manrope', sans-serif !important;
+  color: #334155 !important;
+}
+
+.comm-accordion-highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.comm-accordion-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 500 13px/1.45 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.comm-accordion-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .comm-pillar-item-stat-box {
@@ -610,8 +715,9 @@
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1200px) {
-  .comm-pillars-showcase {
-    grid-template-columns: repeat(2, 1fr);
+  .comm-sustainability {
+    gap: 48px !important;
+    padding: 60px 48px !important;
   }
 
   .comm-docs-grid {
@@ -619,7 +725,14 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  .comm-sustainability {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    min-height: auto !important;
+    padding: 50px 36px !important;
+  }
+
   .comm-speech-banner-card {
     grid-template-columns: 1fr;
   }
@@ -645,21 +758,24 @@
 @media (max-width: 640px) {
   .comm-speech-banner-wrap,
   .comm-impact-section,
-  .comm-pillars-section,
+  .comm-sustainability,
   .comm-docs-section {
     width: 92% !important;
     max-width: 92% !important;
   }
 
-  .comm-pillars-showcase {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .comm-sustainability {
+    border-radius: 28px !important;
+    padding: 36px 20px !important;
   }
 
-  .comm-pillar-item-card {
-    height: 460px;
-    min-height: 460px;
-    max-height: 460px;
+  .comm-accordion article {
+    padding: 16px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .comm-sustain-stats-mini {
+    gap: 20px;
   }
 
   .comm-impact-val {

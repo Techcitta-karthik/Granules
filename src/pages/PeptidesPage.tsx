@@ -182,7 +182,7 @@ export default function PeptidesPage() {
 
       {/* Breadcrumb Navigation */}
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOMEPAGE</a>
+        <a href="/">HOME</a>
         <span className="sep">›</span>
         <a href="/business/generics">BUSINESS</a>
         <span className="sep">›</span>

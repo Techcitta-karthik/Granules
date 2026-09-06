@@ -11,11 +11,13 @@ type QuickLink = {
 
 type SubmenuSection = {
   title?: string;
+  href?: string;
   quickLinks: QuickLink[];
 };
 
 type Submenu = {
   title?: string;
+  href?: string;
   quickLinks?: QuickLink[];
   sections?: SubmenuSection[];
   links?: { label: string; href: string }[];
@@ -29,26 +31,22 @@ const SUBMENUS: Record<string, Submenu> = {
       {
         title: 'Overview',
         quickLinks: [
-          { label: 'About Us', href: '/company' },
-          { label: 'Our Journey', href: '/company/milestone' },
-          { label: 'Leadership', href: '/company/leadership' },
-          { label: 'Awards', href: '/company/awards' },
+          { label: 'OUR JOURNEY', href: '/company/milestone' },
+          { label: 'LEADERSHIP', href: '/company/leadership' },
         ],
       },
       {
         title: 'Global Subsidiaries',
+        href: '/company/global-subsidiaries',
         quickLinks: [
-          { label: 'Overview', href: '/company/global-subsidiaries' },
-          { label: 'Granules Pharmaceuticals Inc. (GPI)', href: 'https://www.granulespharma.com/' },
-          { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
-          { label: 'Senn Tides', href: '/company/senn-tides' },
-          { label: 'Granules CZRO', href: '/company/granules-czro' },
+          { label: 'GRANULES PHARMACEUTICALS INC. (GPI)', href: 'https://www.granulespharma.com/' },
+          { label: 'GRANULES LIFE SCIENCES', href: '/company/granules-life-sciences' },
+          { label: 'SENN TIDES', href: '/company/senn-tides' },
+          { label: 'GRANULES CZRO', href: '/company/granules-czro' },
         ],
       },
     ],
-    links: [
-      { label: 'Operational Excellence', href: '/company/operational-excellence' },
-    ],
+    links: [],
     image: 'company/values-bg-2.webp',
   },
   Company: {
@@ -56,26 +54,22 @@ const SUBMENUS: Record<string, Submenu> = {
       {
         title: 'Overview',
         quickLinks: [
-          { label: 'About Us', href: '/company' },
-          { label: 'Our Journey', href: '/company/milestone' },
-          { label: 'Leadership', href: '/company/leadership' },
-          { label: 'Awards', href: '/company/awards' },
+          { label: 'OUR JOURNEY', href: '/company/milestone' },
+          { label: 'LEADERSHIP', href: '/company/leadership' },
         ],
       },
       {
         title: 'Global Subsidiaries',
+        href: '/company/global-subsidiaries',
         quickLinks: [
-          { label: 'Overview', href: '/company/global-subsidiaries' },
-          { label: 'Granules Pharmaceuticals Inc. (GPI)', href: 'https://www.granulespharma.com/' },
-          { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
-          { label: 'Senn Tides', href: '/company/senn-tides' },
-          { label: 'Granules CZRO', href: '/company/granules-czro' },
+          { label: 'GRANULES PHARMACEUTICALS INC. (GPI)', href: 'https://www.granulespharma.com/' },
+          { label: 'GRANULES LIFE SCIENCES', href: '/company/granules-life-sciences' },
+          { label: 'SENN TIDES', href: '/company/senn-tides' },
+          { label: 'GRANULES CZRO', href: '/company/granules-czro' },
         ],
       },
     ],
-    links: [
-      { label: 'Operational Excellence', href: '/company/operational-excellence' },
-    ],
+    links: [],
     image: 'company/values-bg-2.webp',
   },
   Business: {
@@ -217,9 +211,41 @@ export default function NavBar() {
                       onMouseEnter={() => showMenu(link.label)}
                     >
                       <div className="cp-nav-submenu-copy">
-                        {(submenu.sections || (submenu.title && submenu.quickLinks ? [{ title: submenu.title, quickLinks: submenu.quickLinks }] : [])).map((section, idx) => (
+                        {(submenu.sections || (submenu.title && submenu.quickLinks ? [{ title: submenu.title, href: submenu.href, quickLinks: submenu.quickLinks }] : [])).map((section, idx) => (
                           <div className="cp-nav-submenu-header-box" key={section.title || idx}>
-                            {section.title && <span className="cp-nav-submenu-title">{section.title}</span>}
+                            {section.title && (
+                              section.href ? (
+                                section.href.startsWith('http') ? (
+                                  <a
+                                    href={section.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="cp-nav-submenu-title"
+                                    onClick={() => {
+                                      setHoveredMenu(null);
+                                      setOpen(false);
+                                    }}
+                                  >
+                                    <span>{section.title}</span>
+                                    <span className="cp-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
+                                  </a>
+                                ) : (
+                                  <Link
+                                    to={section.href}
+                                    className="cp-nav-submenu-title"
+                                    onClick={() => {
+                                      setHoveredMenu(null);
+                                      setOpen(false);
+                                    }}
+                                  >
+                                    <span>{section.title}</span>
+                                    <span className="cp-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
+                                  </Link>
+                                )
+                              ) : (
+                                <span className="cp-nav-submenu-title">{section.title}</span>
+                              )
+                            )}
                             <div className="cp-nav-quick-links">
                               {(section.quickLinks || []).map((item) =>
                                 item.href.startsWith('http') ? (

@@ -144,7 +144,7 @@ export default function LifeAtGranulesPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOMEPAGE</a>
+        <a href="/">HOME</a>
         <span className="sep">›</span>
         <a href="/careers">CAREERS</a>
         <span className="sep">›</span>
@@ -178,7 +178,7 @@ export default function LifeAtGranulesPage() {
       </div>
 
       {/* Talent Management and Growth matching Image 3 */}
-      <div className="car-why-head" style={{ width: 'min(1464px, calc(100% - 3.2rem))', maxWidth: 1464, margin: 'clamp(60px, 8vw, 100px) auto clamp(30px, 4vw, 44px)' }}>
+      <div className="car-why-head" style={{ width: '85%', maxWidth: '85%', margin: 'clamp(60px, 8vw, 100px) auto clamp(30px, 4vw, 44px)' }}>
         <div className="car-why-copy">
           <span className="car-why-tag">Empowering Your Growth</span>
           <h2>Talent management and growth</h2>

@@ -187,9 +187,11 @@ export default function SennTidesPage() {
 
       {/* Breadcrumbs */}
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <Link to="/">HOMEPAGE</Link>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <Link to="/company">COMPANY</Link>
+        <Link to="/company">ABOUT US</Link>
+        <span className="sep">›</span>
+        <Link to="/company/global-subsidiaries">GLOBAL SUBSIDIARIES</Link>
         <span className="sep">›</span>
         <span className="current">SENN TIDES</span>
       </p>

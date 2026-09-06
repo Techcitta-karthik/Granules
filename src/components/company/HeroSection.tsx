@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section className="cp-hero">
       <p className="cp-breadcrumb">
-        <a href="/">HOMEPAGE</a>
+        <a href="/">HOME</a>
         <span className="sep">›</span>
         <a href="/company">ABOUT US</a>
         <span className="sep">›</span>

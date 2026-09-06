@@ -4,8 +4,9 @@
 
 /* ---------- Hero ---------- */
 .inv-hero {
-  width: min(1828px, 100% - 3.2rem);
-  margin: 0 auto clamp(40px, 5vw, 64px);
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(40px, 5vw, 64px) !important;
   border-radius: 28px;
   background: rgba(0, 97, 248, 0.06);
   height: clamp(280px, 26vw, 380px);
@@ -102,8 +103,9 @@
 
 /* ---------- Stock card ---------- */
 .inv-stock-wrap {
-  width: min(1828px, 100% - 3.2rem);
-  margin: -140px auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: -140px auto 0 !important;
   display: flex;
   justify-content: flex-end;
   position: relative;
@@ -209,8 +211,9 @@
 
 /* ---------- Why Invest Section ---------- */
 .inv-why {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(60px, 8vw, 100px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
 }
 
 .inv-why h2 {
@@ -230,8 +233,9 @@
 
 /* ---------- Key Reasons Carousel ---------- */
 .inv-reasons {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(40px, 5vw, 60px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
   position: relative;
 }
 
@@ -515,8 +519,9 @@
 }
 
 .inv-quarterly-card {
-  width: min(1464px, 100% - 3.2rem);
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: clamp(32px, 4.5vw, 64px);
@@ -637,8 +642,9 @@
 }
 
 .inv-data-tabs {
-  width: min(1464px, 100% - 3.2rem);
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -687,8 +693,9 @@
 }
 
 .inv-data-list {
-  width: min(1464px, 100% - 3.2rem);
-  margin: 14px auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 14px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -755,8 +762,9 @@
 
 /* ---------- Contact CTA ---------- */
 .inv-contact-cta {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(80px, 10vw, 120px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
   border-radius: 40px;
   padding: 60px;
   background: linear-gradient(89.4deg, #beedfa 42.3%, rgba(0, 186, 234, 0) 75.4%);
@@ -846,8 +854,9 @@
 }
 
 .inv-detail-list {
-  width: min(1464px, 100% - 3.2rem);
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
 }
 
 .inv-detail-row {
@@ -940,8 +949,9 @@
 }
 
 .inv-detail-back-wrap {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(40px, 5vw, 60px) auto clamp(60px, 8vw, 90px);
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto clamp(60px, 8vw, 90px) !important;
   display: flex;
   justify-content: flex-start;
 }
@@ -973,8 +983,9 @@
    7 Jump Navigation Cards (Matching Sustainability Page Style)
    ========================================================================== */
 .inv-jump-nav-wrap {
-  width: min(1828px, 100% - 3.2rem);
-  margin: clamp(24px, 3.5vw, 40px) auto clamp(24px, 3.5vw, 36px);
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(24px, 3.5vw, 40px) auto clamp(24px, 3.5vw, 36px) !important;
 }
 
 .inv-jump-nav-grid {
@@ -1051,8 +1062,9 @@
    Investor Document Sections & Headers
    ========================================================================== */
 .inv-doc-section {
-  width: min(1828px, 100% - 3.2rem);
-  margin: 0 auto clamp(60px, 8vw, 90px);
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(60px, 8vw, 90px) !important;
   scroll-margin-top: 100px;
 }
 

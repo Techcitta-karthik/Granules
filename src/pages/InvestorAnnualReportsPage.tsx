@@ -38,8 +38,8 @@ export default function InvestorAnnualReportsPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: 'min(1463px, 100% - 3.2rem)', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOMEPAGE</a>
+      <p className="cp-breadcrumb" style={{ width: '85%', maxWidth: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+        <a href="/">HOME</a>
         <span className="sep">›</span>
         <a href="/investors">INVESTOR</a>
         <span className="sep">›</span>

@@ -1,549 +1,298 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
+import {
+  BOARD_OF_DIRECTORS,
+  MANAGEMENT_TEAM,
+  LeadershipMember,
+} from '../data/leadershipData';
 import '../components/company/company.css';
 import './leadership.css';
 
 const L = '/assets/leadership/';
 
-interface Member {
-  image: string;
-  name: string;
-  role: string;
-  profile?: string[];
-  directorships?: string[];
-}
-
-const BOARD_OF_DIRECTORS: Member[] = [
-  {
-    image: 'krishna-prasad.webp',
-    name: 'Dr. Krishna Prasad Chigurupati',
-    role: 'Chairman and Managing Director',
-    profile: [
-      'Dr. Krishna Prasad Chigurupati is the Chairman and Managing Director of Granules India Limited. Under his leadership, the organisation has transformed itself into one of the largest pharmaceutical manufacturing Companies. His pharmaceutical journey started in 1984 with the manufacturing of Paracetamol for quality-conscious customers in the global markets. He pioneered many innovations in pharmaceutical manufacturing, including commercialising Pharmaceutical Formulation Intermediates as a cost-effective product for global finished dosage manufacturers.',
-      'Dr. Prasad, with his passion for innovation undertook research in process chemistry and filed 33 patents, out of which 5 patents were granted so far. He also ventured into setting up facilities across the continents in cities and countries such as China and the US. He was awarded an Honorary Doctor of Science by GITAM Deemed University for his exemplary contribution to science & society.',
-      'Dr. Prasad is an avid marathon runner and has participated in many marathons across the globe. In 2010, he along with his wife, Mrs. Uma Devi Chigurupati, ran marathons on all seven continents including Antarctica and the North Pole. In 2015, they completed the ‘World Marathon Challenge’ of running seven marathons on seven continents in seven days. Both these achievements have been recognised by the Guinness Book of World Records.',
-      'He is a passionate wine connoisseur and is the co-founder of KRSMA. The vineyard and the winery are located near Hampi. Today the wine from this vineyard is recognised worldwide and has put Hampi Hills and India on the world wine map. Dr. Prasad is the President of the Hyderabad Chapter of Swarna Bharat Trust, an NGO involved in the holistic improvement of the face of rural India, in the fields of Health, Education, Employment and Human Development.',
-    ],
-    directorships: [
-      'Granules Life Sciences Private Limited, Director',
-      'Granules CZRO Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
-      'Senn Chemicals A.G., Director',
-      'Chigurupati Vineyards Private Limited, Director',
-      'CEO Clubs India, Director',
-      'KRSMA Vineyards Private Limited, Director',
-      'KRSMA Estates Private Limited, Director',
-      'Tyche Investments Private Limited, Director',
-      'Santhi Surgery LLP, Designated Partner',
-      'KRSMA Hospitality LLP, Designated Partner',
-      'Granules Trust, Trustee',
-      'Chigurupati Family Trust, Trustee',
-    ],
-  },
-  {
-    image: 'uma-devi.webp',
-    name: 'Mrs. Uma Devi Chigurupati',
-    role: 'Executive Director',
-    profile: [
-      'An entrepreneur, a successful businesswoman, a sportsperson, and a two-time Guinness Book of World Record holder, Mrs. Uma Devi Chigurupati is also the Executive Director of Granules India Limited. She spearheads the Corporate Social Responsibility and Human Resources functions in the Company. A post-graduate in Soil Microbiology from Nagarjuna University, she holds more than three decades of experience in Pharmaceuticals across various corporate functions.',
-      'Mrs. Chigurupati has been the Chairperson of FICCI FLO Hyderabad. During her tenure, she has taken up many initiatives to empower women at both the grassroots and white-collar levels. Mrs. Chigurupati is also Director of KRSMA Estates Private Limited, one of India’s premier boutique wineries. Under her tenure, she has established the vineyard in the Hampi Hills of Karnataka and has been vital to the ongoing operations at the site.',
-    ],
-    directorships: [
-      'Granules Life Sciences Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
-      'Tyche Investments Private Limited, Director',
-      'KRSMA Vineyards Private Limited, Director',
-      'KRSMA Estates Private Limited, Director',
-      'Chigurupati Vineyards Private Limited, Director',
-      'Chigurupati Estates, Partner',
-      'UC Breast LLP, Designated Partner',
-      'KRSMA Hospitality LLP, Designated Partner',
-      'ABPC Evergreen, Partner',
-      'Sarvejana Healthcare Foundation, Member',
-      'Granules Trust, Trustee',
-      'Chigurupati Family Trust, Trustee',
-    ],
-  },
-  {
-    image: 'priyanka.webp',
-    name: 'Mrs. Priyanka Chigurupati',
-    role: 'Executive Director',
-    profile: [
-      'Mrs. Priyanka Chigurupati, Executive Director, Granules India Limited, is responsible for Global Sales & Marketing and Portfolio amongst other roles in the Company. She has been with Granules for over 14 years and has served in various capacities across multiple divisions. She is currently also serving as Director at Granules Pharmaceuticals Inc., where she served as Executive Director from 2017-2024.',
-      'Priyanka holds a Bachelor of Science in Business Management from Case Western Reserve University in Cleveland, Ohio, and has an Executive Leadership degree from Harvard Business School, Boston, Massachusetts.',
-    ],
-    directorships: [
-      'Granules CZRO Private Limited, Director',
-      'Chigurupati Technologies Private Limited, Director',
-      'Granules Pharmaceuticals, Inc., Director',
-      'Smarter Spiritz LLP, Designated Partner',
-    ],
-  },
-  {
-    image: 'harsha.webp',
-    name: 'Mr. Harsha Chigurupati',
-    role: 'Executive Director',
-    profile: [
-      'Mr. Harsha Chigurupati holds a bachelor’s degree of science in Business Administration from Boston University, USA. He has two decades of entrepreneurial experience in marketing, product development, customer relationship management & operations. He also has in-depth knowledge and experience in various fields of research and development, clinical trials, regulatory and legal framework navigation, patents, and peer-reviewed journal publications.',
-      'Mr. Chigurupati has been with Granules since 2005 in various capacities. He was instrumental in commercialising the Company’s Finished Dosage Division and transitioning the Company’s customer base towards brand loyalists. As an Executive Director, he is responsible for the standalone Operations and P&L of the Company.',
-    ],
-    directorships: [
-      'Chigurupati Technologies FZE, Director',
-      'Chigurupati Technologies Private. Limited, Director',
-      'Product Armor Packaging Private Limited, Director',
-      'Mission Protect Foundation, Director',
-      'Product Armor LLP, Designated Partner',
-      'Smarter Spirits LLP, Designated Partner',
-      'Chigurupati Estates, Partner',
-    ],
-  },
-  {
-    image: 'sankar-rao.webp',
-    name: 'Mr. K. B. Sankar Rao',
-    role: 'Non-Executive, Non-Independent Director',
-    profile: [
-      'Mr. K. B. Sankar Rao is an M.Pharm from Andhra University and has rich experience of more than three decades in various domains including manufacturing, projects, supply chain, quality, R-D and business strategy. Mr. K. B. Sankar Rao was associated with various reputed organizations like Warner Hindustan, Cipla and Dr. Reddy’s.',
-      'He led large teams in manufacturing while institutionalizing systems and processes to drive efficiencies. He was involved in the implementation of ‘Theory of Constraints’ principles to improve due date performance in R&D. He was instrumental in deploying a self-managed team concept to empower the workforce in manufacturing while driving productivity. Mr. K.B. Sankar Rao was the Managing Director of Raje Retail Private Limited, a pharmacy retail chain under the brand name - “My Health Pharmacy” in Hyderabad.',
-      'He holds no other directorships and other full-time positions in corporate bodies.',
-    ],
-  },
-  {
-    image: 'arun-sawhney.webp',
-    name: 'Mr. Arun Sawhney',
-    role: 'Independent Director',
-    profile: [
-      'Mr. Arun Sawhney holds bachelor’s degree in commerce from the University of Mumbai and Post Graduate Diploma in Management from IMI, New Delhi. Mr. Sawhney brings four decades of rich experience in Chemical and Pharmaceutical industry while working with Companies like Ranbaxy, Dr Reddys, Max-Gb Limited.',
-      'Mr Sawhney possess deep expertise in the areas of corporate strategy, business development, sales and marketing and new product planning to commercialization. In his last assignment as CEO and Managing Director of Ranbaxy, Mr. Sawhney successfully led one of the largest mergers in Indian Corporate history.',
-      'Mr. Sawhney was also a founder member of Indian Pharmaceutical Export Promotion Council (Pharmexcil) and was Chairman of the Pharmaceutical Committee of the Confederation of Indian Industries (CII) during 2012-2014. Mr. Sawhney is currently engaged with leading Companies in advisory capacity and a visiting faculty at IIM-Lucknow for subjects of Leadership and Organisation Behaviour.',
-    ],
-    directorships: [
-      'Granules Pharmaceuticals, Inc., Independent Director',
-    ],
-  },
-  {
-    image: 'saumen-chakraborty.webp',
-    name: 'Dr. Saumen Chakraborty',
-    role: 'Independent Director',
-    profile: [
-      'Dr. Saumen Chakraborty is a Graduate in Physics from Visvabharati University- Santiniketan, a Postgraduate in Management from the Indian Institute of Management (IIM)- Ahmedabad and is an Executive Fellow in Management from the Indian School of Business (ISB)- Hyderabad. He possesses over four decades of rich experience in Corporate Finance, Human Resources, IT& BPE, Manufacturing Operations and Quality functions while working with Dr. Reddy’s, Tecumseh, Eicher, C-DoT and CMC. He had played a significant role in the evolution of Dr. Reddy\'s as a Global Pharmaceutical Company, while handling various CXOs roles over 20 years. As a Global CFO at Dr. Reddy’s, he built robust financial systems and strong corporate governance thereby enhancing shareholders value.',
-      'Dr. Saumen as Global Chief of HR, built contemporary HR processes and systems to make Dr. Reddy’s a Great Place to Work. He established the Business Process Excellence function and led TOC implementation in Dr. Reddy’s. Saumen has sharp business acumen, strong process orientation and leadership capabilities to build high-performing teams. He is the recipient of the Best CFO award from various bodies, including CNBC, IMA and BW-Yes Bank. He has been a speaker at multiple global and national conferences and academic institutes. He serves as an Independent Director for Krishna Institute of Medical Sciences Limited. He is the founder and Managing Director of Samarjita Management Consultancy Private Limited.',
-    ],
-    directorships: [
-      'Samarjita Management Consultancy Private Limited, Managing Director',
-      'Krishna Institute of Medical Sciences Limited, Independent Director',
-      'Premas Biotech Private Limited, Director',
-    ],
-  },
-  {
-    image: 'sucharita-palepu.webp',
-    name: 'Mrs. Sucharita Rao Palepu',
-    role: 'Independent Director',
-    profile: [
-      'Sucharita Rao Palepu is a Chartered Accountant and possesses over three decades of professional experience in Information Technology and Financial Services Industries. She is currently an Independent Advisor, specialising in Organisation & HR Transformation. She was earlier in HR Leadership positions at Tech Mahindra, Infosys and Mahindra Satyam and was also associated with SMIFS Capital Markets & Pennar Paterson Securities.',
-      'She has worked extensively on HR Strategy, Talent Management, Learning & Development, Global Reward programs and Diversity initiatives. Over her career in HR, she has led several transformation programs and large-scale initiatives that have been recognised across various platforms. She is actively involved in a few NGOs and is also a certified coach. She was awarded the Exemplary Woman in Leadership Award (APAC) in HR Branding Awards 2015- 16.',
-    ],
-    directorships: [
-      'Adithya Automotive Applications Limited, Director',
-      'Serene Valley Realtors LLP, Partner',
-    ],
-  },
-  {
-    image: 'kapil-mehan.webp',
-    name: 'Mr. Kapil Kumar Mehan',
-    role: 'Independent Director',
-    profile: [
-      'Kapil Kumar Mehan is an accomplished business leader with deep managerial, domain and strategic expertise in the areas of Agri/Agri tech sectors, green technology (green ammonia), business strategy, management, business performance improvement, setting up a new business and strategic/financial investments in the manufacturing/Agribusiness sectors. He has keen insights into business and policy/ regulatory dynamics of the Agri and green chemistry industries. With his vast exposure across fertiliser, chemicals, consumer products and the agriculture industry globally, he is providing advisory and expertise across varied consulting assignments with industry (covering Indian and African markets) and marquee consulting firms such as E & Y, BCG, etc. A graduate of Veterinary Sciences and animal health, a Postgraduate in Management-SPA from the Indian Institute of Management (IIM)- Ahmedabad and has completed the Advanced Management Program from Harvard Business School.',
-      'He has experience in multiple Industry verticals such as fertilisers, Crop Protection Products, Seeds, and Agri Input retail, Fresh Produce Supply Chain, Industrial Chemicals, Consumer Products and Cement. Prior to the current advisory role, during his tenure in the industry, he has served in the capacity of Group Chief Executive Officer- Agribusiness of Adventz Group, as Managing Director of Coromandel International Limited in the Fertiliser industry and as an Executive Director in Tata Chemicals Limited. Key initiatives/activities handled in his role with Industry encompass Acquisitions, Mergers and Post Merger integration, Business transformational interventions, new business development / Inorganic growth, Brownfield expansions with direct involvement in EPC / EPCM, Technology contracts, overseas and local strategic sourcing tie-ups.',
-      'He is an active participant in key industry bodies at the National and International levels, including the Fertiliser Association of India (FAI), the International Fertiliser Association (IFA), the National Agriculture Council of Confederation of Indian Industry (CII), Chairman of Agricultural Committee of Northern Regional Council of CII, etc. He has been the past Chairman of the Alkali Manufacturers Association of India and the Salt Producers Association, Co-Chairman of FAI, and Chairman of the Marketing Committee of FAI.',
-      'He has served on the Board of the International Fertilisers Association (IFA) and chaired its Agriculture Committee. He has led many industry-level advocacy efforts for a healthy enabling policy framework for growth, sustainability, ease of doing business and meeting the requirements of multiple stakeholders in the fertiliser sector. He serves on the Board of Directors, as an Independent Director of Nuziveedu Seeds Limited & Punjab Chemicals and Crop Protection Limited.',
-    ],
-    directorships: [
-      'Nuziveedu Seeds Limited, Independent Director',
-      'Granules CZRO Private Limited, Independent Director',
-      'Punjab Chemicals and Crop Protection Limited, Independent Director',
-    ],
-  },
-  {
-    image: 'sethurathnam-ravi.webp',
-    name: 'Dr. Sethurathnam Ravi',
-    role: 'Independent Director',
-    profile: [
-      'Dr. Sethurathnam Ravi has a doctorate in finance and is a practising Chartered Accountant, having over 36 years of experience. He holds a diploma in Information Systems Audit (DISA) and is an Associate Member of the Association of Certified Fraud Examiners (CFE), USA. He is also registered as an Insolvency Resolution Professional. He is the Founder of Ravi Rajan & Co. LLP, a chartered accountancy firm specialising in Forensic and Insolvency assignments, Finance & Management, Turnaround Strategies, Business Valuations, Brand and Share Valuation, Assurance, Audit and Taxation. Dr. Ravi is Chairman of Tourism Finance Corporation of India Limited, Spacenet Enterprises India Limited and 360 One Asset Management Limited. He also serves on the Boards of Aditya Birla Health Insurance Company Limited, Aditya Birla ARC Limited, Aditya Birla Money Limited, PCBL Chemicals Limited, Usha Martin Limited, BillMart Fintech Limited, Xander Advisors India Private. Limited., Usha Martin UK Limited. and S Ravi Financial Management Services Private Limited. He has served as the Chairman and Director of BSE Ltd and Chairman and Director of UTI Trustee Company Private Limited.',
-      'Dr. Ravi was the Jury Chair for ICAI’s Awards for Excellence in Financial Reporting 2023-24, was a Special Invitee to ICAI’s Strategy Perspective Planning and Monitoring Committee (SPPMC), he was a member of SEBI’s Takeover Panel as well as its Mutual Fund Advisory Committee. He was also a Member of the Working Group formed by the Reserve Bank of India for the preparation of the Draft Government Securities Regulations within the Framework of the Government Securities Bill 2004. Over the span of his career, Dr. Ravi has served on the Boards of more than 45 Companies across various sectors. He is regularly invited by educational institutions and regulatory bodies to give talks, panel discussions, etc.',
-    ],
-    directorships: [
-      'Aditya Birla ARC Limited, Independent Director',
-      'Aditya Birla Health Insurance Company Limited, Independent Director',
-      'Aditya Birla Money Limited, Independent Director',
-      'Bill Mart Fintech Private Limited, Independent Director',
-      '360 One Asset Management Limited, Non-Executive Director',
-      'PCBL Chemicals Limited, Independent Director',
-      'S Ravi Financial Management Services Private. Limited, Promoter Director',
-      'Spacenet Enterprises India Limited, Non-Executive Director',
-      'Tourism Finance Corporation of India Limited (TFCIL), Non-Executive Director',
-      'Usha Martin Limited, Independent Director',
-      'Usha Martin UK Limited, United Kingdom, Independent Director',
-      'Xander Advisors India Private Limited, Independent Director',
-    ],
-  },
-  {
-    image: 'rajiv-kakodkar.webp',
-    name: 'Mr. Rajiv Pritidas Kakodkar',
-    role: 'Independent Director',
-    profile: [
-      'Mr. Rajiv Pritidas Kakodkar has over four decades of experience in the Indian pharmaceutical industry. He holds a Bachelor of Pharmacy degree from the University of Mumbai, and an MBA from the Stuart School of Business - Illinois Institute of Technology, USA. Mr. Kakodkar’s areas of expertise include global sourcing, indenting, trading and distribution of pharmaceutical ingredients. He founded Daiwat Chemicals in 1983 which began as an exclusive representative and indent sales agent of a French multinational.',
-      'Over the decades, he has been involved in the sourcing of drug substances from India on behalf of multiple innovators and generic pharmaceutical Companies, as well as worldwide distributors of APIs. Through this long association with the industry, he has had a first-hand view of its evolution from technocrat-driven single-product factories to world-class, multi-workshop facilities with all the requisite regulatory approvals. He owns and operates businesses in India and Singapore. He also served as an Independent Director on the Board of Directors of Indoco Remedies Limited and Vasundhara Rasayans Limited.',
-    ],
-    directorships: [
-      'Granules Life Sciences Private Limited, Independent Director',
-      'Ascelis Peptides Private Limited, Independent Director',
-      'Daiwat Chemicals (India), Founder & Managing Director',
-      'Sudaiwa (UAE, Singapore), Founder & Managing Partner',
-      'Matal (Singapore), Managing Director',
-    ],
-  },
-];
-
-const MANAGEMENT_TEAM: Member[] = [
-  {
-    image: 'krishna-prasad.webp',
-    name: 'Dr. Krishna Prasad Chigurupati',
-    role: 'Chairman and Managing Director',
-    profile: [
-      'Dr. Krishna Prasad Chigurupati is the Chairman and Managing Director of Granules India Limited. Under his leadership, the organisation has transformed itself into one of the largest pharmaceutical manufacturing Companies. His pharmaceutical journey started in 1984 with the manufacturing of Paracetamol for quality-conscious customers in the global markets. He pioneered many innovations in pharmaceutical manufacturing, including commercialising Pharmaceutical Formulation Intermediates as a cost-effective product for global finished dosage manufacturers.',
-      'Dr. Prasad, with his passion for innovation undertook research in process chemistry and filed 33 patents, out of which 5 patents were granted so far. He also ventured into setting up facilities across the continents in cities and countries such as China and the US. He was awarded an Honorary Doctor of Science by GITAM Deemed University for his exemplary contribution to science & society.',
-      'Dr. Prasad is an avid marathon runner and has participated in many marathons across the globe. In 2010, he along with his wife, Mrs. Uma Devi Chigurupati, ran marathons on all seven continents including Antarctica and the North Pole. In 2015, they completed the ‘World Marathon Challenge’ of running seven marathons on seven continents in seven days. Both these achievements have been recognised by the Guinness Book of World Records.',
-      'He is a passionate wine connoisseur and is the co-founder of KRSMA. The vineyard and the winery are located near Hampi. Today the wine from this vineyard is recognised worldwide and has put Hampi Hills and India on the world wine map. Dr. Prasad is the President of the Hyderabad Chapter of Swarna Bharat Trust, an NGO involved in the holistic improvement of the face of rural India, in the fields of Health, Education, Employment and Human Development.',
-    ],
-    directorships: [
-      'Granules Life Sciences Private Limited, Director',
-      'Granules CZRO Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
-      'Senn Chemicals A.G., Director',
-      'Chigurupati Vineyards Private Limited, Director',
-      'CEO Clubs India, Director',
-      'KRSMA Vineyards Private Limited, Director',
-      'KRSMA Estates Private Limited, Director',
-      'Tyche Investments Private Limited, Director',
-      'Santhi Surgery LLP, Designated Partner',
-      'KRSMA Hospitality LLP, Designated Partner',
-      'Granules Trust, Trustee',
-      'Chigurupati Family Trust, Trustee',
-    ],
-  },
-  {
-    image: 'uma-devi.webp',
-    name: 'Mrs. Uma Devi Chigurupati',
-    role: 'Executive Director',
-    profile: [
-      'An entrepreneur, a successful businesswoman, a sportsperson, and a two-time Guinness Book of World Record holder, Mrs. Uma Devi Chigurupati is also the Executive Director of Granules India Limited. She spearheads the Corporate Social Responsibility and Human Resources functions in the Company. A post-graduate in Soil Microbiology from Nagarjuna University, she holds more than three decades of experience in Pharmaceuticals across various corporate functions.',
-      'Mrs. Chigurupati has been the Chairperson of FICCI FLO Hyderabad. During her tenure, she has taken up many initiatives to empower women at both the grassroots and white-collar levels. Mrs. Chigurupati is also Director of KRSMA Estates Private Limited, one of India’s premier boutique wineries. Under her tenure, she has established the vineyard in the Hampi Hills of Karnataka and has been vital to the ongoing operations at the site.',
-    ],
-    directorships: [
-      'Granules Life Sciences Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
-      'Tyche Investments Private Limited, Director',
-      'KRSMA Vineyards Private Limited, Director',
-      'KRSMA Estates Private Limited, Director',
-      'Chigurupati Vineyards Private Limited, Director',
-      'Chigurupati Estates, Partner',
-      'UC Breast LLP, Designated Partner',
-      'KRSMA Hospitality LLP, Designated Partner',
-      'ABPC Evergreen, Partner',
-      'Sarvejana Healthcare Foundation, Member',
-      'Granules Trust, Trustee',
-      'Chigurupati Family Trust, Trustee',
-    ],
-  },
-  {
-    image: 'harsha.webp',
-    name: 'Mr. Harsha Chigurupati',
-    role: 'Executive Director',
-    profile: [
-      'Mr. Harsha Chigurupati holds a bachelor’s degree of science in Business Administration from Boston University, USA. He has two decades of entrepreneurial experience in marketing, product development, customer relationship management & operations. He also has in-depth knowledge and experience in various fields of research and development, clinical trials, regulatory and legal framework navigation, patents, and peer-reviewed journal publications.',
-      'Mr. Chigurupati has been with Granules since 2005 in various capacities. He was instrumental in commercialising the Company’s Finished Dosage Division and transitioning the Company’s customer base towards brand loyalists. As an Executive Director, he is responsible for the standalone Operations and P&L of the Company.',
-    ],
-    directorships: [
-      'Chigurupati Technologies FZE, Director',
-      'Chigurupati Technologies Private. Limited, Director',
-      'Product Armor Packaging Private Limited, Director',
-      'Mission Protect Foundation, Director',
-      'Product Armor LLP, Designated Partner',
-      'Smarter Spirits LLP, Designated Partner',
-      'Chigurupati Estates, Partner',
-    ],
-  },
-  {
-    image: 'mukesh-surana.webp',
-    name: 'Mr. Mukesh Surana',
-    role: 'Chief Financial Officer',
-    profile: [
-      'Mukesh is a Chartered Accountant by qualification and a seasoned finance professional with over two decades of global experience. He has rich experience in the areas of finance, taxation, transformation, risk management, projects management, mergers and acquisitions, investor relations, legal, secretarial, commercial, procurement, and IT. In the past he has worked with reputed organizations including Garware Technical Fibers, Kalpataru Power Transmission, Asian Paints and SRF. He is recognized as top CFO by various bodies including Business World, CEO Insights, White Page International, StartupLanes and CFO India.',
-    ],
-  },
-  {
-    image: 'atul-dhavle.webp',
-    name: 'Mr. Atul Dhavle',
-    role: 'Chief Human Resources Officer',
-    profile: [
-      'Mr. Atul Dhavle is a strategist with exceptional execution skills. He possesses over 30 years of versatile experience in Organization Design & Change, Talent Management, building High- Performance teams, Organization effectiveness and Lean Management. He has led the organization-wide HR and Business transformation initiatives in Manufacturing, Product Development, Sales & Marketing creating significant business impact, while working in Companies like Bharat Forge, Granules, Dr. Reddy’s, Welspun, DuPont and Mahindra. He is a Production Engineer from Nagpur University and holds a PGCBM from XLRI.',
-    ],
-  },
-  {
-    image: 'pv-srinivas.webp',
-    name: 'Dr. PV Srinivas',
-    role: 'Chief Technology Officer',
-    profile: [
-      'Dr Srinivas is a PhD in Organic Chemistry from Osmania University & a Post Doctorate from the University of Mississippi, USA.',
-      'He comes with over 30 years of experience in R&D and Portfolio selection, synthetic chemistry, fermentation technology and downstream processing. He was responsible for developing various projects, scaling them and commercializing. He has expertise in generic API development and end to end execution of projects from conceptualization till commercialization. Dr Srinivas has filed more than 100 patents and has 53 paper publications. He is a fellow of the Royal Society of Chemistry. He has worked in organizations with PI Industries, IICT, Biocon, & Cipla in his earlier assignments.',
-    ],
-  },
-  {
-    image: 'sanjay-kumar.webp',
-    name: 'Mr. Sanjay Kumar',
-    role: 'President & Chief Strategy and Sustainability Officer',
-    profile: [
-      'Sanjay is a B.Tech from IIT Kanpur and holds an MBA from IIM Bangalore. He is qualified CFA and has done courses in Business Analytics and Corporate Business Strategy.',
-      'Sanjay has over 20 years of experience in Corporate Strategy, Budgeting & Planning process, Performance management, Capital Projects Evaluations, Business case and Financial Modelling. He has worked closely with senior leadership teams in various Organizations to enable decision making and execution of key programs.',
-      'In Granules, Sanjay will focus on Corporate Strategy Planning, Growth Levers identification, Due Diligence of New Business and Ventures opportunities, and Annual Business Planning & Review. He was earlier associated with organizations such as Viatris (formerly Mylan), Granules India, Wanbury, Indian Engineering Services (Civil Services).',
-    ],
-  },
-  {
-    image: 'ramraj-rangarajalu.webp',
-    name: 'Mr. Ramraj Rangarajalu',
-    role: 'President and Head - Formulations Operations',
-    profile: [
-      'Ramraj Rangarajulu holds an M.Pharm degree from the Tamil Nadu Dr. MGR Medical University. He brings nearly three decades of expertise in formulation manufacturing, plant management, quality and regulatory compliance, operational excellence, new product scale-up, and product launches. Throughout his career, Mr. Rangarajulu has worked on various dosage forms, including oral solid dosage (OSD), small volume parenteral, and topical formulations, at leading pharmaceutical companies such as Zydus Life Sciences, Granules India Limited, Aurobindo Pharma, and Dr. Reddy’s Laboratories. At Granules, Ramraj will oversee the formulation manufacturing sites in India.',
-    ],
-  },
-  {
-    image: 'baskaran-pn.webp',
-    name: 'Dr. Baskaran PN',
-    role: 'President & Head - API Operations',
-    profile: [
-      'Dr. Baskaran PN holds a Doctorate in Chemical Engineering from Annamalai University and brings over 30 years of leadership experience in API, PFI, and FD operations. He has vast experience in operations management, supply chain, engineering projects, EHS, operational excellence, automation, and regulatory compliance.',
-      'Dr. Baskaran has held key leadership roles at various pharmaceutical and chemical companies, including Sekhmet, Lupin, Hetero, Granules, Cipla, and JK Pharma. He joined Granules on 2 April 2025 and is responsible for API manufacturing operations in India.',
-    ],
-  },
-  {
-    image: 'vijay-raghavan.webp',
-    name: 'Dr. Vijay Raghavan',
-    role: 'President, Global Portfolio',
-    profile: [
-      'Dr Vijay Raghavan is a seasoned pharmaceutical professional with over 25 years of global experience in developing processes for generic APIs, intellectual property, litigation, project management, business development and alliance management. He is a recipient of fellowship from ICMR and UGC and has worked in reputed pharmaceutical companies in India and abroad. In August 2023, Vijay Raghavan joined us as President of Global Portfolio.',
-    ],
-  },
-  {
-    image: 'manikandan-ramalingam.webp',
-    name: 'Mr. Manikandan Ramalingam',
-    role: 'Senior Vice President & Head Formulation R&D',
-    profile: [
-      'Mr. ManiKandan Ramalingam is pharmaceutical technologist with 25 years of experience and holds M. Pharma Tech from NIPER (Mohali) and Master black belt in six sigma. In his experience, worked in providing technical, strategic, and functional leadership in uniquely challenging positions in Pharmaceutical Research. Worked at Sun Pharma and Dr. Reddy’s prior to joining Granules; and served as functional head of Product development Research and subject matter expert for formulation at Dr.Reddys.',
-      'Has expertise in, API Assessment for FD design & API – FD integration, Pre-formulation, Formulation design. (Different types of dosage forms), Biopharmaceutics and pharmacokinetics, New Technology adoption and Product Scale up and manufacturing. Also served in leading cross functional research team, change management, Training and team building, Regulatory risk management, product selection assessment, Contract research management, thereby ensuring successful translation of products from Ideation to the Market.',
-    ],
-  },
-  {
-    image: 'rajesh-kapoor.webp',
-    name: 'Dr. Rajesh Kapoor',
-    role: 'Global Head - Quality',
-    profile: [
-      'Dr. Kapoor has a distinguished academic background with a Ph.D. in Biochemistry from the University of Lancaster, England, a B.S. in Biochemistry from the University of Essex, England, and an MBA from Suffolk University, Boston. His expertise spans Quality Operations (QA/QC) including aseptic and non-aseptic processes, Technology Transfer, Validation, Clinical Quality Assurance and GAP analysis. He has successfully managed quality operations for contract manufacturing, finished products, and APIs, collaborating effectively with Manufacturing, Regulatory Affairs, and R&D.',
-      'His achievements include implementing compliance programs aligned with cGXP standards, overseeing third-party vendors, and managing regulatory submissions while hosting successful inspections by global agencies such as FDA, ANVISA, TGA, Health Canada, Japan Health and MHRA. Additionally, his experience encompasses audits across commercial manufacturing, clinical trials, and CRO operations. He has over 35 years of experience across leading organizations such as P&G, Becton Dickinson, Wyeth, Takeda, Genzyme, Sun Pharma, Jubilant. Dr. Rajesh Kapoor joined Granules Pharmaceuticals, Inc., a wholly owned foreign subsidiary of the Company in 2022 as Head of Quality for North America. In his role as Global Head of Quality, Dr. Kapoor oversees quality across all sites of Granules globally and harmonises systems and practices.',
-    ],
-  },
-];
-
 export default function LeadershipPage() {
   const [activeTab, setActiveTab] = useState<'board' | 'management'>('board');
-  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
-
-  useEffect(() => {
-    if (selectedMember) {
-      document.title = `${selectedMember.name} — Leadership — Granules India`;
-    } else {
-      document.title = 'Leadership Team — Granules India';
-    }
-  }, [selectedMember]);
+  const [selectedMember, setSelectedMember] = useState<LeadershipMember | null>(null);
 
   const activeMembers = activeTab === 'board' ? BOARD_OF_DIRECTORS : MANAGEMENT_TEAM;
 
-  const handleSelectMember = (member: Member) => {
+  // Sync document title and URL hash
+  useEffect(() => {
+    if (selectedMember) {
+      document.title = `${selectedMember.name} — Leadership — Granules India`;
+      window.history.replaceState(null, '', `#${selectedMember.id}`);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.title = 'Leadership Team — Granules India';
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedMember]);
+
+  // Handle hash on initial load
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash) {
+      const allMembers = [...BOARD_OF_DIRECTORS, ...MANAGEMENT_TEAM];
+      const match = allMembers.find((m) => m.id === hash);
+      if (match) {
+        const isManagement = MANAGEMENT_TEAM.some((m) => m.id === hash);
+        if (isManagement && !BOARD_OF_DIRECTORS.some((m) => m.id === hash)) {
+          setActiveTab('management');
+        }
+        setSelectedMember(match);
+      }
+    }
+  }, []);
+
+  const handleSelectMember = (member: LeadershipMember) => {
     setSelectedMember(member);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleBackToGrid = () => {
+  const handleCloseModal = useCallback(() => {
     setSelectedMember(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
+
+  // Modal Next / Previous Navigation
+  const currentIndex = selectedMember
+    ? activeMembers.findIndex((m) => m.id === selectedMember.id)
+    : -1;
+
+  const handlePrevMember = useCallback(() => {
+    if (currentIndex > 0) {
+      setSelectedMember(activeMembers[currentIndex - 1]);
+    }
+  }, [currentIndex, activeMembers]);
+
+  const handleNextMember = useCallback(() => {
+    if (currentIndex >= 0 && currentIndex < activeMembers.length - 1) {
+      setSelectedMember(activeMembers[currentIndex + 1]);
+    }
+  }, [currentIndex, activeMembers]);
+
+  // Keyboard navigation (ESC, ArrowLeft, ArrowRight)
+  useEffect(() => {
+    if (!selectedMember) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleCloseModal();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevMember();
+      } else if (e.key === 'ArrowRight') {
+        handleNextMember();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedMember, handleCloseModal, handlePrevMember, handleNextMember]);
 
   return (
     <div className="cp">
       <NavBar />
 
-      {selectedMember ? (
-        /* Standalone Leader Profile View (No Pop-up) */
-        <div className="ld-profile-view">
-          <p className="cp-breadcrumb ld-profile-breadcrumb">
-            <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOMEPAGE</a>
-            <span className="sep">›</span>
-            <a href="/company" style={{ color: 'inherit', textDecoration: 'none' }}>COMPANY</a>
-            <span className="sep">›</span>
-            <button
-              type="button"
-              className="ld-breadcrumb-btn"
-              onClick={handleBackToGrid}
-            >
-              LEADERSHIP
-            </button>
-            <span className="sep">›</span>
-            <span className="current">{selectedMember.name.toUpperCase()}</span>
+      {/* Main Leadership Overview & Grid View */}
+      <div className="ld-main-view">
+        <p className="cp-breadcrumb ld-main-breadcrumb">
+          <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOME</a>
+          <span className="sep">›</span>
+          <a href="/company" style={{ color: 'inherit', textDecoration: 'none' }}>ABOUT US</a>
+          <span className="sep">›</span>
+          <span className="current">LEADERSHIP</span>
+        </p>
+
+        <div className="ld-hero">
+          <h1 className="ld-main-title">
+            <span>Making Granules</span>
+            <span>Future-Ready</span>
+          </h1>
+          <p className="ld-main-desc">
+            Granules India is led by a team of seasoned professionals of the pharmaceutical industry. Each leader
+            brings in-depth expertise and a modern outlook to tackle the challenges of today’s dynamic business.
+            Collectively, the Granules leadership chalks out strategies that help in building organisational
+            capability while delivering sustainable growth.
           </p>
+        </div>
 
-          <div className="ld-profile-hero">
-            <div className="ld-profile-photo-card">
-              <img
-                src={`${L}${selectedMember.image}`}
-                alt={selectedMember.name}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-
-          <div className="ld-profile-details">
-            <h1 className="ld-profile-name">{selectedMember.name}</h1>
-            <p className="ld-profile-role">{selectedMember.role}</p>
-
-            <div className="ld-profile-divider" />
-
-            <div className="ld-profile-body">
-              {selectedMember.profile && selectedMember.profile.length > 0 ? (
-                selectedMember.profile.map((paragraph, idx) => (
-                  <p className="ld-profile-paragraph" key={idx}>
-                    {paragraph}
-                  </p>
-                ))
-              ) : (
-                <p className="ld-profile-paragraph">
-                  {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
-                </p>
-              )}
-
-              {selectedMember.directorships && selectedMember.directorships.length > 0 && (
-                <div className="ld-profile-directorships">
-                  <p className="ld-profile-directorships-title">
-                    {selectedMember.name.startsWith('Mrs.') || selectedMember.name.startsWith('Ms.') ? 'Her' : 'His'} directorships and other full-time positions in bodies corporate are as follows:
-                  </p>
-                  <ul className="ld-profile-directorships-list">
-                    {selectedMember.directorships.map((dir, idx) => (
-                      <li key={idx}>
-                        <span className="ld-profile-bullet">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                            <circle cx="12" cy="12" r="10" />
-                          </svg>
-                        </span>
-                        <span>{dir}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
+        <div className="ld-tabs-container">
+          <div className="ld-tabs-bar" role="tablist">
             <button
               type="button"
-              className="ld-back-btn"
-              onClick={handleBackToGrid}
+              role="tab"
+              aria-selected={activeTab === 'board'}
+              className={`ld-tab-nav-btn ${activeTab === 'board' ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab('board');
+                setSelectedMember(null);
+              }}
             >
-              BACK
+              <span>BOARD OF DIRECTORS</span>
+              {activeTab === 'board' && <span className="ld-active-bar" />}
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={activeTab === 'management'}
+              className={`ld-tab-nav-btn ${activeTab === 'management' ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab('management');
+                setSelectedMember(null);
+              }}
+            >
+              <span>MANAGEMENT TEAM</span>
+              {activeTab === 'management' && <span className="ld-active-bar" />}
             </button>
           </div>
         </div>
-      ) : (
-        /* Main Leadership Overview & Grid View */
-        <div className="ld-main-view">
-          <p className="cp-breadcrumb ld-main-breadcrumb">
-            <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOMEPAGE</a>
-            <span className="sep">›</span>
-            <a href="/company" style={{ color: 'inherit', textDecoration: 'none' }}>COMPANY</a>
-            <span className="sep">›</span>
-            <span className="current">LEADERSHIP</span>
-          </p>
 
-          <div className="ld-hero">
-            <h1 className="ld-main-title">
-              <span>Making Granules</span>
-              <span>Future-Ready</span>
-            </h1>
-            <p className="ld-main-desc">
-              Granules India is led by a seasoned executive team with deep pharmaceutical expertise
-              and a forward-looking vision. Together, they drive operational excellence, global growth,
-              and sustainable value through strategic leadership.
-            </p>
-          </div>
+        <div className="ld-grid">
+          {activeMembers.map((member) => (
+            <article
+              className="ld-card"
+              key={`${activeTab}-${member.id}`}
+              onClick={() => handleSelectMember(member)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleSelectMember(member);
+                }
+              }}
+              aria-label={`View profile for ${member.name}`}
+            >
+              <div className="ld-photo">
+                <img
+                  src={`${L}${member.image}`}
+                  alt={member.name}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="ld-photo-badge">
+                  <span>View Profile</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </div>
+              </div>
+              <div className="ld-card-info">
+                <p className="ld-name">{member.name}</p>
+                <p className="ld-role">{member.role}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
 
-          <div className="ld-tabs-container">
-            <div className="ld-tabs-bar" role="tablist">
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === 'board'}
-                className={`ld-tab-nav-btn ${activeTab === 'board' ? 'active' : ''}`}
-                onClick={() => setActiveTab('board')}
-              >
-                <span>BOARD OF DIRECTORS</span>
-                {activeTab === 'board' && <span className="ld-active-bar" />}
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === 'management'}
-                className={`ld-tab-nav-btn ${activeTab === 'management' ? 'active' : ''}`}
-                onClick={() => setActiveTab('management')}
-              >
-                <span>MANAGEMENT TEAM</span>
-                {activeTab === 'management' && <span className="ld-active-bar" />}
-              </button>
-            </div>
-          </div>
+      {/* ==========================================================================
+          LEADER PROFILE DETAILS MODAL (Overlay Dialog)
+          ========================================================================== */}
+      {selectedMember && (
+        <div
+          className="ld-modal-backdrop"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) handleCloseModal();
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="ld-modal-title"
+        >
+          <div className="ld-modal-dialog">
+            <header className="ld-modal-header">
+              <span className="ld-modal-badge">
+                {activeTab === 'board' ? 'Board of Directors' : 'Management Team'}
+              </span>
 
-          <div className="ld-grid">
-            {activeMembers.map((member) => (
-              <article
-                className="ld-card"
-                key={`${activeTab}-${member.name}`}
-                onClick={() => handleSelectMember(member)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleSelectMember(member);
-                  }
-                }}
-                aria-label={`View profile for ${member.name}`}
-              >
-                <div className="ld-photo">
+              <div className="ld-modal-actions">
+                <button
+                  type="button"
+                  className="ld-modal-nav-btn"
+                  onClick={handlePrevMember}
+                  disabled={currentIndex <= 0}
+                  aria-label="Previous leader"
+                  title="Previous leader (Left Arrow)"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className="ld-modal-nav-btn"
+                  onClick={handleNextMember}
+                  disabled={currentIndex >= activeMembers.length - 1}
+                  aria-label="Next leader"
+                  title="Next leader (Right Arrow)"
+                >
+                  ›
+                </button>
+                <button
+                  type="button"
+                  className="ld-modal-close-btn"
+                  onClick={handleCloseModal}
+                  aria-label="Close modal"
+                  title="Close (Esc)"
+                >
+                  ✕
+                </button>
+              </div>
+            </header>
+
+            <div className="ld-modal-content">
+              <div className="ld-modal-hero">
+                <div className="ld-modal-avatar">
                   <img
-                    src={`${L}${member.image}`}
-                    alt={member.name}
+                    src={`${L}${selectedMember.image}`}
+                    alt={selectedMember.name}
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="ld-photo-badge">
-                    <span>View Profile</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
+                </div>
+                <div className="ld-modal-meta">
+                  <h2 className="ld-modal-title" id="ld-modal-title">
+                    {selectedMember.name}
+                  </h2>
+                  <p className="ld-modal-role">{selectedMember.role}</p>
+                </div>
+              </div>
+
+              <div className="ld-modal-body-text">
+                {selectedMember.profile && selectedMember.profile.length > 0 ? (
+                  selectedMember.profile.map((paragraph, idx) => (
+                    <p className="ld-modal-p" key={idx}>
+                      {paragraph}
+                    </p>
+                  ))
+                ) : (
+                  <p className="ld-modal-p">
+                    {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
+                  </p>
+                )}
+
+                {selectedMember.directorships && selectedMember.directorships.length > 0 && (
+                  <div className="ld-modal-directorships">
+                    <p className="ld-modal-directorships-title">
+                      {selectedMember.name.startsWith('Mrs.') || selectedMember.name.startsWith('Ms.')
+                        ? 'Her'
+                        : 'His'}{' '}
+                      directorships and other positions in bodies corporate:
+                    </p>
+                    <ul className="ld-modal-directorships-list">
+                      {selectedMember.directorships.map((dir, idx) => (
+                        <li key={idx}>
+                          <span>{dir}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-                <div className="ld-card-info">
-                  <p className="ld-name">{member.name}</p>
-                  <p className="ld-role">{member.role}</p>
-                </div>
-              </article>
-            ))}
+                )}
+              </div>
+            </div>
           </div>
         </div>
       )}

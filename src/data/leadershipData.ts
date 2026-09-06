@@ -1,0 +1,407 @@
+export interface LeadershipMember {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  profile: string[];
+  directorships?: string[];
+}
+
+export const BOARD_OF_DIRECTORS: LeadershipMember[] = [
+  {
+    id: 'krishna-prasad',
+    image: 'krishna-prasad.webp',
+    name: 'Dr. Krishna Prasad Chigurupati',
+    role: 'Chairman and Managing Director',
+    profile: [
+      'Dr. Krishna Prasad Chigurupati is the Chairman and Managing Director of Granules India Limited. Under his leadership, the organisation has transformed itself into one of the largest pharmaceutical manufacturing Companies. His pharmaceutical journey started in 1984 with the manufacturing of Paracetamol for quality-conscious customers in the global markets. He pioneered many innovations in pharmaceutical manufacturing, including commercialising Pharmaceutical Formulation Intermediates as a cost-effective product for global finished dosage manufacturers.',
+      'Dr. Prasad, with his passion for innovation undertook research in process chemistry and filed 33 patents, out of which 5 patents were granted so far. He also ventured into setting up facilities across the continents in cities and countries such as China and the US. He was awarded an Honorary Doctor of Science by GITAM Deemed University for his exemplary contribution to science & society.',
+      'Dr. Prasad is an avid marathon runner and has participated in many marathons across the globe. In 2010, he along with his wife, Mrs. Uma Devi Chigurupati, ran marathons on all seven continents including Antarctica and the North Pole. In 2015, they completed the ‘World Marathon Challenge’ of running seven marathons on seven continents in seven days. Both these achievements have been recognised by the Guinness Book of World Records.',
+      'He is a passionate wine connoisseur and is the co-founder of KRSMA. The vineyard and the winery are located near Hampi. Today the wine from this vineyard is recognised worldwide and has put Hampi Hills and India on the world wine map. Dr. Prasad is the President of the Hyderabad Chapter of Swarna Bharat Trust, an NGO involved in the holistic improvement of the face of rural India, in the fields of Health, Education, Employment and Human Development.',
+    ],
+    directorships: [
+      'Granules Life Sciences Private Limited, Director',
+      'Granules CZRO Private Limited, Director',
+      'Ascelis Peptides Private Limited, Director',
+      'Senn Chemicals A.G., Director',
+      'Chigurupati Vineyards Private Limited, Director',
+      'CEO Clubs India, Director',
+      'KRSMA Vineyards Private Limited, Director',
+      'KRSMA Estates Private Limited, Director',
+      'Tyche Investments Private Limited, Director',
+      'Santhi Surgery LLP, Designated Partner',
+      'KRSMA Hospitality LLP, Designated Partner',
+      'Granules Trust, Trustee',
+      'Chigurupati Family Trust, Trustee',
+    ],
+  },
+  {
+    id: 'uma-devi',
+    image: 'uma-devi.webp',
+    name: 'Mrs. Uma Devi Chigurupati',
+    role: 'Executive Director',
+    profile: [
+      'An entrepreneur, a successful businesswoman, a sportsperson, and a two-time Guinness Book of World Record holder, Mrs. Uma Devi Chigurupati is also the Executive Director of Granules India Limited. She spearheads the Corporate Social Responsibility and Human Resources functions in the Company. A post-graduate in Soil Microbiology from Nagarjuna University, she holds more than three decades of experience in Pharmaceuticals across various corporate functions.',
+      'Mrs. Chigurupati has been the Chairperson of FICCI FLO Hyderabad. During her tenure, she has taken up many initiatives to empower women at both the grassroots and white-collar levels. Mrs. Chigurupati is also Director of KRSMA Estates Private Limited, one of India’s premier boutique wineries. Under her tenure, she has established the vineyard in the Hampi Hills of Karnataka and has been vital to the ongoing operations at the site.',
+    ],
+    directorships: [
+      'Granules Life Sciences Private Limited, Director',
+      'Ascelis Peptides Private Limited, Director',
+      'Tyche Investments Private Limited, Director',
+      'KRSMA Vineyards Private Limited, Director',
+      'KRSMA Estates Private Limited, Director',
+      'Chigurupati Vineyards Private Limited, Director',
+      'Chigurupati Estates, Partner',
+      'UC Breast LLP, Designated Partner',
+      'KRSMA Hospitality LLP, Designated Partner',
+      'ABPC Evergreen, Partner',
+      'Sarvejana Healthcare Foundation, Member',
+      'Granules Trust, Trustee',
+      'Chigurupati Family Trust, Trustee',
+    ],
+  },
+  {
+    id: 'priyanka',
+    image: 'priyanka.webp',
+    name: 'Ms. Priyanka Chigurupati',
+    role: 'Executive Director',
+    profile: [
+      'Ms. Priyanka Chigurupati, Executive Director, Granules India Limited, is responsible for Global Sales & Marketing and Portfolio amongst other roles in the Company. She has been with Granules for over 14 years and has served in various capacities across multiple divisions. She is currently also serving as Director at Granules Pharmaceuticals Inc., where she served as Executive Director from 2017-2024.',
+      'Priyanka holds a Bachelor of Science in Business Management from Case Western Reserve University in Cleveland, Ohio, and has an Executive Leadership degree from Harvard Business School, Boston, Massachusetts.',
+    ],
+    directorships: [
+      'Granules CZRO Private Limited, Director',
+      'Chigurupati Technologies Private Limited, Director',
+      'Granules Pharmaceuticals, Inc., Director',
+      'Smarter Spiritz LLP, Designated Partner',
+    ],
+  },
+  {
+    id: 'harsha',
+    image: 'harsha.webp',
+    name: 'Mr. Harsha Chigurupati',
+    role: 'Executive Director',
+    profile: [
+      'Mr. Harsha Chigurupati holds a bachelor’s degree of science in Business Administration from Boston University, USA. He has two decades of entrepreneurial experience in marketing, product development, customer relationship management & operations. He also has in-depth knowledge and experience in various fields of research and development, clinical trials, regulatory and legal framework navigation, patents, and peer-reviewed journal publications.',
+      'Mr. Chigurupati has been with Granules since 2005 in various capacities. He was instrumental in commercialising the Company’s Finished Dosage Division and transitioning the Company’s customer base towards brand loyalists. As an Executive Director, he is responsible for the standalone Operations and P&L of the Company.',
+    ],
+    directorships: [
+      'Chigurupati Technologies FZE, Director',
+      'Chigurupati Technologies Private. Limited, Director',
+      'Product Armor Packaging Private Limited, Director',
+      'Mission Protect Foundation, Director',
+      'Product Armor LLP, Designated Partner',
+      'Smarter Spirits LLP, Designated Partner',
+      'Chigurupati Estates, Partner',
+    ],
+  },
+  {
+    id: 'sankar-rao',
+    image: 'sankar-rao.webp',
+    name: 'Mr. K. B. Sankar Rao',
+    role: 'Non-Executive, Non-Independent Director',
+    profile: [
+      'Mr. K. B. Sankar Rao is an M.Pharm from Andhra University and has rich experience of more than three decades in various domains including manufacturing, projects, supply chain, quality, R-D and business strategy. Mr. K. B. Sankar Rao was associated with various reputed organizations like Warner Hindustan, Cipla and Dr. Reddy’s.',
+      'He led large teams in manufacturing while institutionalizing systems and processes to drive efficiencies. He was involved in the implementation of ‘Theory of Constraints’ principles to improve due date performance in R&D. He was instrumental in deploying a self-managed team concept to empower the workforce in manufacturing while driving productivity. Mr. K.B. Sankar Rao was the Managing Director of Raje Retail Private Limited, a pharmacy retail chain under the brand name - “My Health Pharmacy” in Hyderabad.',
+      'He holds no other directorships and other full-time positions in corporate bodies.',
+    ],
+  },
+  {
+    id: 'arun-sawhney',
+    image: 'arun-sawhney.webp',
+    name: 'Mr. Arun Sawhney',
+    role: 'Independent Director',
+    profile: [
+      'Mr. Arun Sawhney holds bachelor’s degree in commerce from the University of Mumbai and Post Graduate Diploma in Management from IMI, New Delhi. Mr. Sawhney brings four decades of rich experience in Chemical and Pharmaceutical industry while working with Companies like Ranbaxy, Dr Reddys, Max-Gb Limited.',
+      'Mr Sawhney possess deep expertise in the areas of corporate strategy, business development, sales and marketing and new product planning to commercialization. In his last assignment as CEO and Managing Director of Ranbaxy, Mr. Sawhney successfully led one of the largest mergers in Indian Corporate history.',
+      'Mr. Sawhney was also a founder member of Indian Pharmaceutical Export Promotion Council (Pharmexcil) and was Chairman of the Pharmaceutical Committee of the Confederation of Indian Industries (CII) during 2012-2014. Mr. Sawhney is currently engaged with leading Companies in advisory capacity and a visiting faculty at IIM-Lucknow for subjects of Leadership and Organisation Behaviour.',
+    ],
+    directorships: [
+      'Granules Pharmaceuticals, Inc., Independent Director',
+    ],
+  },
+  {
+    id: 'robert-cunard',
+    image: 'robert-cunard.webp',
+    name: 'Mr. Robert George Cunard',
+    role: 'Independent Director',
+    profile: [
+      'Mr. Robert George Cunard holds bachelor’s degree from University of Pittsburgh in Business Economics. Mr. Cunard brings more than 30 years of experience in the areas of Executive Management, Sales & Marketing, Business Development and Supply Chain in the US Market. Mr Cunard possess deep understanding of various business models to serve different customer segments including B2B & B2C. He is a strategic thinker with sharp business acumen.',
+      'Mr. Cunard was CEO of Aurobindo Pharma USA, Inc., the subsidiary of Aurobindo Pharma Limited. In the past, Mr. Cunard also led critical roles in Mylan Laboratories and Teva Pharmaceuticals. Mr. Cunard is currently an Operating Partner with HealthEdge Investment Partners, a US healthcare focused private equity fund in addition to his charitable activities.',
+    ],
+  },
+  {
+    id: 'saumen-chakraborty',
+    image: 'saumen-chakraborty.webp',
+    name: 'Dr. Saumen Chakraborty',
+    role: 'Independent Director',
+    profile: [
+      'Dr. Saumen Chakraborty is a Graduate in Physics from Visvabharati University- Santiniketan, a Postgraduate in Management from the Indian Institute of Management (IIM)- Ahmedabad and is an Executive Fellow in Management from the Indian School of Business (ISB)- Hyderabad. He possesses over four decades of rich experience in Corporate Finance, Human Resources, IT& BPE, Manufacturing Operations and Quality functions while working with Dr. Reddy’s, Tecumseh, Eicher, C-DoT and CMC. He had played a significant role in the evolution of Dr. Reddy\'s as a Global Pharmaceutical Company, while handling various CXOs roles over 20 years. As a Global CFO at Dr. Reddy’s, he built robust financial systems and strong corporate governance thereby enhancing shareholders value.',
+      'Dr. Saumen as Global Chief of HR, built contemporary HR processes and systems to make Dr. Reddy’s a Great Place to Work. He established the Business Process Excellence function and led TOC implementation in Dr. Reddy’s. Saumen has sharp business acumen, strong process orientation and leadership capabilities to build high-performing teams. He is the recipient of the Best CFO award from various bodies, including CNBC, IMA and BW-Yes Bank. He has been a speaker at multiple global and national conferences and academic institutes. He serves as an Independent Director for Krishna Institute of Medical Sciences Limited. He is the founder and Managing Director of Samarjita Management Consultancy Private Limited.',
+    ],
+    directorships: [
+      'Samarjita Management Consultancy Private Limited, Managing Director',
+      'Krishna Institute of Medical Sciences Limited, Independent Director',
+      'Premas Biotech Private Limited, Director',
+    ],
+  },
+  {
+    id: 'sucharita-palepu',
+    image: 'sucharita-palepu.webp',
+    name: 'Mrs. Sucharita Rao Palepu',
+    role: 'Independent Director',
+    profile: [
+      'Sucharita Rao Palepu is a Chartered Accountant and possesses over three decades of professional experience in Information Technology and Financial Services Industries. She is currently an Independent Advisor, specialising in Organisation & HR Transformation. She was earlier in HR Leadership positions at Tech Mahindra, Infosys and Mahindra Satyam and was also associated with SMIFS Capital Markets & Pennar Paterson Securities.',
+      'She has worked extensively on HR Strategy, Talent Management, Learning & Development, Global Reward programs and Diversity initiatives. Over her career in HR, she has led several transformation programs and large-scale initiatives that have been recognised across various platforms. She is actively involved in a few NGOs and is also a certified coach. She was awarded the Exemplary Woman in Leadership Award (APAC) in HR Branding Awards 2015- 16.',
+    ],
+    directorships: [
+      'Adithya Automotive Applications Limited, Director',
+      'Serene Valley Realtors LLP, Partner',
+    ],
+  },
+  {
+    id: 'kapil-mehan',
+    image: 'kapil-mehan.webp',
+    name: 'Mr. Kapil Kumar Mehan',
+    role: 'Independent Director',
+    profile: [
+      'Kapil Kumar Mehan is an accomplished business leader with deep managerial, domain and strategic expertise in the areas of Agri/Agri tech sectors, green technology (green ammonia), business strategy, management, business performance improvement, setting up a new business and strategic/financial investments in the manufacturing/Agribusiness sectors. He has keen insights into business and policy/ regulatory dynamics of the Agri and green chemistry industries. With his vast exposure across fertiliser, chemicals, consumer products and the agriculture industry globally, he is providing advisory and expertise across varied consulting assignments with industry (covering Indian and African markets) and marquee consulting firms such as E & Y, BCG, etc. A graduate of Veterinary Sciences and animal health, a Postgraduate in Management-SPA from the Indian Institute of Management (IIM)- Ahmedabad and has completed the Advanced Management Program from Harvard Business School.',
+      'He has experience in multiple Industry verticals such as fertilisers, Crop Protection Products, Seeds, and Agri Input retail, Fresh Produce Supply Chain, Industrial Chemicals, Consumer Products and Cement. Prior to the current advisory role, during his tenure in the industry, he has served in the capacity of Group Chief Executive Officer- Agribusiness of Adventz Group, as Managing Director of Coromandel International Limited in the Fertiliser industry and as an Executive Director in Tata Chemicals Limited. Key initiatives/activities handled in his role with Industry encompass Acquisitions, Mergers and Post Merger integration, Business transformational interventions, new business development / Inorganic growth, Brownfield expansions with direct involvement in EPC / EPCM, Technology contracts, overseas and local strategic sourcing tie-ups.',
+      'He is an active participant in key industry bodies at the National and International levels, including the Fertiliser Association of India (FAI), the International Fertiliser Association (IFA), the National Agriculture Council of Confederation of Indian Industry (CII), Chairman of Agricultural Committee of Northern Regional Council of CII, etc. He has been the past Chairman of the Alkali Manufacturers Association of India and the Salt Producers Association, Co-Chairman of FAI, and Chairman of the Marketing Committee of FAI.',
+      'He has served on the Board of the International Fertilisers Association (IFA) and chaired its Agriculture Committee. He has led many industry-level advocacy efforts for a healthy enabling policy framework for growth, sustainability, ease of doing business and meeting the requirements of multiple stakeholders in the fertiliser sector. He serves on the Board of Directors, as an Independent Director of Nuziveedu Seeds Limited & Punjab Chemicals and Crop Protection Limited.',
+    ],
+    directorships: [
+      'Nuziveedu Seeds Limited, Independent Director',
+      'Granules CZRO Private Limited, Independent Director',
+      'Punjab Chemicals and Crop Protection Limited, Independent Director',
+    ],
+  },
+  {
+    id: 'sethurathnam-ravi',
+    image: 'sethurathnam-ravi.webp',
+    name: 'Dr. Sethurathnam Ravi',
+    role: 'Independent Director',
+    profile: [
+      'Dr. Sethurathnam Ravi has a doctorate in finance and is a practising Chartered Accountant, having over 36 years of experience. He holds a diploma in Information Systems Audit (DISA) and is an Associate Member of the Association of Certified Fraud Examiners (CFE), USA. He is also registered as an Insolvency Resolution Professional. He is the Founder of Ravi Rajan & Co. LLP, a chartered accountancy firm specialising in Forensic and Insolvency assignments, Finance & Management, Turnaround Strategies, Business Valuations, Brand and Share Valuation, Assurance, Audit and Taxation. Dr. Ravi is Chairman of Tourism Finance Corporation of India Limited, Spacenet Enterprises India Limited and 360 One Asset Management Limited. He also serves on the Boards of Aditya Birla Health Insurance Company Limited, Aditya Birla ARC Limited, Aditya Birla Money Limited, PCBL Chemicals Limited, Usha Martin Limited, BillMart Fintech Limited, Xander Advisors India Private. Limited., Usha Martin UK Limited. and S Ravi Financial Management Services Private Limited. He has served as the Chairman and Director of BSE Ltd and Chairman and Director of UTI Trustee Company Private Limited.',
+      'Dr. Ravi was the Jury Chair for ICAI’s Awards for Excellence in Financial Reporting 2023-24, was a Special Invitee to ICAI’s Strategy Perspective Planning and Monitoring Committee (SPPMC), he was a member of SEBI’s Takeover Panel as well as its Mutual Fund Advisory Committee. He was also a Member of the Working Group formed by the Reserve Bank of India for the preparation of the Draft Government Securities Regulations within the Framework of the Government Securities Bill 2004. Over the span of his career, Dr. Ravi has served on the Boards of more than 45 Companies across various sectors. He is regularly invited by educational institutions and regulatory bodies to give talks, panel discussions, etc.',
+    ],
+    directorships: [
+      'Aditya Birla ARC Limited, Independent Director',
+      'Aditya Birla Health Insurance Company Limited, Independent Director',
+      'Aditya Birla Money Limited, Independent Director',
+      'Bill Mart Fintech Private Limited, Independent Director',
+      '360 One Asset Management Limited, Non-Executive Director',
+      'PCBL Chemicals Limited, Independent Director',
+      'S Ravi Financial Management Services Private. Limited, Promoter Director',
+      'Spacenet Enterprises India Limited, Non-Executive Director',
+      'Tourism Finance Corporation of India Limited (TFCIL), Non-Executive Director',
+      'Usha Martin Limited, Independent Director',
+      'Usha Martin UK Limited, United Kingdom, Independent Director',
+      'Xander Advisors India Private Limited, Independent Director',
+    ],
+  },
+  {
+    id: 'rajiv-kakodkar',
+    image: 'rajiv-kakodkar.webp',
+    name: 'Mr. Rajiv Pritidas Kakodkar',
+    role: 'Independent Director',
+    profile: [
+      'Mr. Rajiv Pritidas Kakodkar has over four decades of experience in the Indian pharmaceutical industry. He holds a Bachelor of Pharmacy degree from the University of Mumbai, and an MBA from the Stuart School of Business - Illinois Institute of Technology, USA. Mr. Kakodkar’s areas of expertise include global sourcing, indenting, trading and distribution of pharmaceutical ingredients. He founded Daiwat Chemicals in 1983 which began as an exclusive representative and indent sales agent of a French multinational.',
+      'Over the decades, he has been involved in the sourcing of drug substances from India on behalf of multiple innovators and generic pharmaceutical Companies, as well as worldwide distributors of APIs. Through this long association with the industry, he has had a first-hand view of its evolution from technocrat-driven single-product factories to world-class, multi-workshop facilities with all the requisite regulatory approvals. He owns and operates businesses in India and Singapore. He also served as an Independent Director on the Board of Directors of Indoco Remedies Limited and Vasundhara Rasayans Limited.',
+    ],
+    directorships: [
+      'Granules Life Sciences Private Limited, Independent Director',
+      'Ascelis Peptides Private Limited, Independent Director',
+      'Daiwat Chemicals (India), Founder & Managing Director',
+      'Sudaiwa (UAE, Singapore), Founder & Managing Partner',
+      'Matal (Singapore), Managing Director',
+    ],
+  },
+];
+
+export const MANAGEMENT_TEAM: LeadershipMember[] = [
+  {
+    id: 'krishna-prasad',
+    image: 'krishna-prasad.webp',
+    name: 'Dr. Krishna Prasad Chigurupati',
+    role: 'Chairman and Managing Director',
+    profile: [
+      'Dr. Krishna Prasad Chigurupati is the Chairman and Managing Director of Granules India Limited. Under his leadership, the organisation has transformed itself into one of the largest pharmaceutical manufacturing Companies. His pharmaceutical journey started in 1984 with the manufacturing of Paracetamol for quality-conscious customers in the global markets. He pioneered many innovations in pharmaceutical manufacturing, including commercialising Pharmaceutical Formulation Intermediates as a cost-effective product for global finished dosage manufacturers.',
+      'Dr. Prasad, with his passion for innovation undertook research in process chemistry and filed 33 patents, out of which 5 patents were granted so far. He also ventured into setting up facilities across the continents in cities and countries such as China and the US. He was awarded an Honorary Doctor of Science by GITAM Deemed University for his exemplary contribution to science & society.',
+      'Dr. Prasad is an avid marathon runner and has participated in many marathons across the globe. In 2010, he along with his wife, Mrs. Uma Devi Chigurupati, ran marathons on all seven continents including Antarctica and the North Pole. In 2015, they completed the ‘World Marathon Challenge’ of running seven marathons on seven continents in seven days. Both these achievements have been recognised by the Guinness Book of World Records.',
+      'He is a passionate wine connoisseur and is the co-founder of KRSMA. The vineyard and the winery are located near Hampi. Today the wine from this vineyard is recognised worldwide and has put Hampi Hills and India on the world wine map. Dr. Prasad is the President of the Hyderabad Chapter of Swarna Bharat Trust, an NGO involved in the holistic improvement of the face of rural India, in the fields of Health, Education, Employment and Human Development.',
+    ],
+    directorships: [
+      'Granules Life Sciences Private Limited, Director',
+      'Granules CZRO Private Limited, Director',
+      'Ascelis Peptides Private Limited, Director',
+      'Senn Chemicals A.G., Director',
+      'Chigurupati Vineyards Private Limited, Director',
+      'CEO Clubs India, Director',
+      'KRSMA Vineyards Private Limited, Director',
+      'KRSMA Estates Private Limited, Director',
+      'Tyche Investments Private Limited, Director',
+      'Santhi Surgery LLP, Designated Partner',
+      'KRSMA Hospitality LLP, Designated Partner',
+      'Granules Trust, Trustee',
+      'Chigurupati Family Trust, Trustee',
+    ],
+  },
+  {
+    id: 'uma-devi',
+    image: 'uma-devi.webp',
+    name: 'Mrs. Uma Devi Chigurupati',
+    role: 'Executive Director',
+    profile: [
+      'An entrepreneur, a successful businesswoman, a sportsperson, and a two-time Guinness Book of World Record holder, Mrs. Uma Devi Chigurupati is also the Executive Director of Granules India Limited. She spearheads the Corporate Social Responsibility and Human Resources functions in the Company. A post-graduate in Soil Microbiology from Nagarjuna University, she holds more than three decades of experience in Pharmaceuticals across various corporate functions.',
+      'Mrs. Chigurupati has been the Chairperson of FICCI FLO Hyderabad. During her tenure, she has taken up many initiatives to empower women at both the grassroots and white-collar levels. Mrs. Chigurupati is also Director of KRSMA Estates Private Limited, one of India’s premier boutique wineries. Under her tenure, she has established the vineyard in the Hampi Hills of Karnataka and has been vital to the ongoing operations at the site.',
+    ],
+    directorships: [
+      'Granules Life Sciences Private Limited, Director',
+      'Ascelis Peptides Private Limited, Director',
+      'Tyche Investments Private Limited, Director',
+      'KRSMA Vineyards Private Limited, Director',
+      'KRSMA Estates Private Limited, Director',
+      'Chigurupati Vineyards Private Limited, Director',
+      'Chigurupati Estates, Partner',
+      'UC Breast LLP, Designated Partner',
+      'KRSMA Hospitality LLP, Designated Partner',
+      'ABPC Evergreen, Partner',
+      'Sarvejana Healthcare Foundation, Member',
+      'Granules Trust, Trustee',
+      'Chigurupati Family Trust, Trustee',
+    ],
+  },
+  {
+    id: 'priyanka',
+    image: 'priyanka.webp',
+    name: 'Ms. Priyanka Chigurupati',
+    role: 'Executive Director',
+    profile: [
+      'Ms. Priyanka Chigurupati, Executive Director, Granules India Limited, is responsible for Global Sales & Marketing and Portfolio amongst other roles in the Company. She has been with Granules for over 14 years and has served in various capacities across multiple divisions. She is currently also serving as Director at Granules Pharmaceuticals Inc., where she served as Executive Director from 2017-2024.',
+      'Priyanka holds a Bachelor of Science in Business Management from Case Western Reserve University in Cleveland, Ohio, and has an Executive Leadership degree from Harvard Business School, Boston, Massachusetts.',
+    ],
+    directorships: [
+      'Granules CZRO Private Limited, Director',
+      'Chigurupati Technologies Private Limited, Director',
+      'Granules Pharmaceuticals, Inc., Director',
+      'Smarter Spiritz LLP, Designated Partner',
+    ],
+  },
+  {
+    id: 'harsha',
+    image: 'harsha.webp',
+    name: 'Mr. Harsha Chigurupati',
+    role: 'Executive Director',
+    profile: [
+      'Mr. Harsha Chigurupati holds a bachelor’s degree of science in Business Administration from Boston University, USA. He has two decades of entrepreneurial experience in marketing, product development, customer relationship management & operations. He also has in-depth knowledge and experience in various fields of research and development, clinical trials, regulatory and legal framework navigation, patents, and peer-reviewed journal publications.',
+      'Mr. Chigurupati has been with Granules since 2005 in various capacities. He was instrumental in commercialising the Company’s Finished Dosage Division and transitioning the Company’s customer base towards brand loyalists. As an Executive Director, he is responsible for the standalone Operations and P&L of the Company.',
+    ],
+    directorships: [
+      'Chigurupati Technologies FZE, Director',
+      'Chigurupati Technologies Private. Limited, Director',
+      'Product Armor Packaging Private Limited, Director',
+      'Mission Protect Foundation, Director',
+      'Product Armor LLP, Designated Partner',
+      'Smarter Spirits LLP, Designated Partner',
+      'Chigurupati Estates, Partner',
+    ],
+  },
+  {
+    id: 'mukesh-surana',
+    image: 'mukesh-surana.webp',
+    name: 'Mr. Mukesh Surana',
+    role: 'Chief Financial Officer',
+    profile: [
+      'Mukesh is a Chartered Accountant by qualification and a seasoned finance professional with over two decades of global experience. He has rich experience in the areas of finance, taxation, transformation, risk management, projects management, mergers and acquisitions, investor relations, legal, secretarial, commercial, procurement, and IT. In the past he has worked with reputed organizations including Garware Technical Fibers, Kalpataru Power Transmission, Asian Paints and SRF. He is recognized as top CFO by various bodies including Business World, CEO Insights, White Page International, StartupLanes and CFO India.',
+    ],
+  },
+  {
+    id: 'pv-srinivas',
+    image: 'pv-srinivas.webp',
+    name: 'Dr. PV Srinivas',
+    role: 'Chief Technology Officer',
+    profile: [
+      'Dr Srinivas is a PhD in Organic Chemistry from Osmania University & a Post Doctorate from the University of Mississippi, USA.',
+      'He comes with over 30 years of experience in R&D and Portfolio selection, synthetic chemistry, fermentation technology and downstream processing. He was responsible for developing various projects, scaling them and commercializing. He has expertise in generic API development and end to end execution of projects from conceptualization till commercialization. Dr Srinivas has filed more than 100 patents and has 53 paper publications. He is a fellow of the Royal Society of Chemistry. He has worked in organizations with PI Industries, IICT, Biocon, & Cipla in his earlier assignments.',
+    ],
+  },
+  {
+    id: 'vinodkumar-parur',
+    image: 'vinodkumar-parur.webp',
+    name: 'Mr. Vinodkumar Parur',
+    role: 'Chief Human Resources Officer',
+    profile: [
+      'Mr. Vinodkumar Parur has over 24 years of experience in human resources leadership across multiple sectors, including manufacturing, engineering, pharmaceuticals and infrastructure. Mr. Parur has been involved in HR function set up for IPO preparation, mergers and acquisitions, implementation of HRMS systems, leadership development and employee engagement programs. His previous senior roles include Chief Human Resources Officer at RR Kabel Limited & Nilkamal Limited and senior HR leadership roles at A.T.E. Group & Schindler India. He holds a master’s degree in management studies (Human Resources) from PIMSR, Mumbai University, and a bachelor’s degree in commerce and economics from NMIMS, Mumbai University. He is certified in several HR assessment and training programs and is a member of advisory and academic boards.',
+    ],
+  },
+  {
+    id: 'ramraj-rangarajalu',
+    image: 'ramraj-rangarajalu.webp',
+    name: 'Mr. Ramraj Rangarajalu',
+    role: 'President and Head - Formulations Operations',
+    profile: [
+      'Ramraj Rangarajulu holds an M.Pharm degree from the Tamil Nadu Dr. MGR Medical University. He brings nearly three decades of expertise in formulation manufacturing, plant management, quality and regulatory compliance, operational excellence, new product scale-up, and product launches. Throughout his career, Mr. Rangarajulu has worked on various dosage forms, including oral solid dosage (OSD), small volume parenteral, and topical formulations, at leading pharmaceutical companies such as Zydus Life Sciences, Granules India Limited, Aurobindo Pharma, and Dr. Reddy’s Laboratories. At Granules, Ramraj will oversee the formulation manufacturing sites in India.',
+    ],
+  },
+  {
+    id: 'manikandan-ramalingam',
+    image: 'manikandan-ramalingam.webp',
+    name: 'Mr. Manikandan Ramalingam',
+    role: 'Senior Vice President & Head Formulation R&D',
+    profile: [
+      'Mr. ManiKandan Ramalingam is a pharmaceutical technologist with 25 years of experience and holds M. Pharma Tech from NIPER (Mohali) and Master black belt in six sigma. In his experience, worked in providing technical, strategic, and functional leadership in uniquely challenging positions in Pharmaceutical Research. Worked at Sun Pharma and Dr. Reddy’s prior to joining Granules; and served as functional head of Product development Research and subject matter expert for formulation at Dr.Reddys.',
+      'Has expertise in API Assessment for FD design & API – FD integration, Pre-formulation, Formulation design (different types of dosage forms), Biopharmaceutics and pharmacokinetics, New Technology adoption and Product Scale up and manufacturing. Also served in leading cross functional research team, change management, Training and team building, Regulatory risk management, product selection assessment, Contract research management, thereby ensuring successful translation of products from Ideation to the Market.',
+    ],
+  },
+  {
+    id: 'sanjay-kumar',
+    image: 'sanjay-kumar.webp',
+    name: 'Mr. Sanjay Kumar',
+    role: 'Chief Executive Officer, Senn Tides India Private Limited',
+    profile: [
+      'Sanjay is a B.Tech from IIT Kanpur and holds an MBA from IIM Bangalore. He is a qualified CFA and has done courses in Business Analytics and Corporate Business Strategy.',
+      'Sanjay has over 20 years of experience in Corporate Strategy, Budgeting & Planning process, Performance management, Capital Projects Evaluations, Business case and Financial Modelling. He has worked closely with senior leadership teams in various Organizations to enable decision making and execution of key programs.',
+      'In Granules, Sanjay focuses on Corporate Strategy Planning, Growth Levers identification, Due Diligence of New Business and Ventures opportunities, and Annual Business Planning & Review. He was earlier associated with organizations such as Viatris (formerly Mylan), Granules India, Wanbury, and Indian Engineering Services (Civil Services).',
+    ],
+  },
+  {
+    id: 'baskaran-pn',
+    image: 'baskaran-pn.webp',
+    name: 'Dr. Baskaran PN',
+    role: 'President & Head - API Operations',
+    profile: [
+      'Dr. Baskaran PN holds a Doctorate in Chemical Engineering from Annamalai University and brings over 30 years of leadership experience in API, PFI, and FD operations. He has vast experience in operations management, supply chain, engineering projects, EHS, operational excellence, automation, and regulatory compliance.',
+      'Dr. Baskaran has held key leadership roles at various pharmaceutical and chemical companies, including Sekhmet, Lupin, Hetero, Granules, Cipla, and JK Pharma. He joined Granules on 2 April 2025 and is responsible for API manufacturing operations in India.',
+    ],
+  },
+  {
+    id: 'vijay-raghavan',
+    image: 'vijay-raghavan.webp',
+    name: 'Dr. Vijay Raghavan',
+    role: 'President, Global Portfolio',
+    profile: [
+      'Dr Vijay Raghavan is a seasoned pharmaceutical professional with over 25 years of global experience in developing processes for generic APIs, intellectual property, litigation, project management, business development and alliance management. He is a recipient of fellowship from ICMR and UGC and has worked in reputed pharmaceutical companies in India and abroad. In August 2023, Vijay Raghavan joined us as President of Global Portfolio.',
+    ],
+  },
+  {
+    id: 'rajesh-kapoor',
+    image: 'rajesh-kapoor.webp',
+    name: 'Dr. Rajesh Kapoor',
+    role: 'Global Head - Quality',
+    profile: [
+      'Dr. Kapoor has a distinguished academic background with a Ph.D. in Biochemistry from the University of Lancaster, England, a B.S. in Biochemistry from the University of Essex, England, and an MBA from Suffolk University, Boston. His expertise spans Quality Operations (QA/QC) including aseptic and non-aseptic processes, Technology Transfer, Validation, Clinical Quality Assurance and GAP analysis. He has successfully managed quality operations for contract manufacturing, finished products, and APIs, collaborating effectively with Manufacturing, Regulatory Affairs, and R&D.',
+      'His achievements include implementing compliance programs aligned with cGXP standards, overseeing third-party vendors, and managing regulatory submissions while hosting successful inspections by global agencies such as FDA, ANVISA, TGA, Health Canada, Japan Health and MHRA. Additionally, his experience encompasses audits across commercial manufacturing, clinical trials, and CRO operations. He has over 35 years of experience across leading organizations such as P&G, Becton Dickinson, Wyeth, Takeda, Genzyme, Sun Pharma, Jubilant. Dr. Rajesh Kapoor joined Granules Pharmaceuticals, Inc., a wholly owned foreign subsidiary of the Company in 2022 as Head of Quality for North America. In his role as Global Head of Quality, Dr. Kapoor oversees quality across all sites of Granules globally and harmonises systems and practices.',
+    ],
+  },
+  {
+    id: 'tvsk-vittal',
+    image: 'tvsk-vittal.webp',
+    name: 'Dr. TVSK Vittal',
+    role: 'Senior Vice President & Head – API R&D',
+    profile: [
+      'Dr. Vittal has an MSc from University of Hyderabad and a PhD in Synthetic Organic Chemistry from the Osmania University, Hyderabad. He has also done his four years Post-Doctoral at IICT, Hyderabad.',
+      'He has over 30 years of experience in Academics and Pharmaceutical Industry in Synthetic Organic Chemistry, Process Chemistry and Analytical Chemistry. He has expertise in Generics API Development as well as NCE/Chemical Development for CRAMS/ CDMO business. He has filed more than 40 US DMFs and has various Publications and patents to his credit. Dr. Vittal has earlier worked with organizations such as Solara, Strides Shasun, Aurobindo, Sai Life & Dr. Reddy’s.',
+    ],
+  },
+];

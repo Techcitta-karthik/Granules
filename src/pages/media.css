@@ -71,8 +71,9 @@
    2. TABS & YEAR FILTER
    -------------------------------------------------------------------------- */
 .med-tabs-container {
-  width: min(1320px, 100% - 3.2rem);
-  margin: clamp(48px, 6vw, 76px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(48px, 6vw, 76px) auto 0 !important;
   position: relative;
 }
 
@@ -211,8 +212,9 @@
    3. NEWS & PRESS RELEASE LIST ITEMS
    -------------------------------------------------------------------------- */
 .med-news-list {
-  width: min(1320px, 100% - 3.2rem);
-  margin: 16px auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 16px auto 0 !important;
   display: flex;
   flex-direction: column;
 }
@@ -317,8 +319,9 @@
    4. PAGINATION
    -------------------------------------------------------------------------- */
 .med-pagination {
-  width: min(1080px, 100% - 3.2rem);
-  margin: 48px auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 48px auto 0 !important;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -465,8 +468,9 @@
 }
 
 .med-report-card {
-  width: min(1464px, 100% - 3.2rem);
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: clamp(32px, 4.5vw, 64px);
@@ -565,8 +569,9 @@
    6. MEDIA KIT SECTION
    -------------------------------------------------------------------------- */
 .med-kit {
-  width: min(1320px, 100% - 3.2rem);
-  margin: clamp(80px, 10vw, 120px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 36px;
@@ -659,8 +664,9 @@
    7. SOCIAL MEDIA FOLLOW BANNER
    -------------------------------------------------------------------------- */
 .med-follow {
-  width: min(1320px, 100% - 3.2rem);
-  margin: clamp(80px, 10vw, 120px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
   border-top: 1.5px solid #bfdbfe;
   padding-top: clamp(48px, 6vw, 72px);
   display: flex;

@@ -3,9 +3,10 @@
    ========================================================================== */
 
 .global-sub-intro {
-  max-width: 1080px;
-  margin: 40px auto 70px;
-  padding: 0 24px;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 40px auto 70px !important;
+  padding: 0;
   font: 500 clamp(20px, 2.2vw, 28px)/1.45 'Manrope', sans-serif;
   color: #94a3b8;
   letter-spacing: -0.3px;
@@ -27,9 +28,10 @@
 
 /* Featured Subsidiaries Section */
 .global-sub-section {
-  max-width: 1200px;
-  margin: 0 auto 100px;
-  padding: 0 24px;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto 100px !important;
+  padding: 0;
 }
 
 .global-sub-section-head {
@@ -221,8 +223,9 @@
 }
 
 .global-sub-pillars-grid {
-  max-width: 1160px;
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
@@ -274,8 +277,9 @@
 
 /* Bottom CTA Banner */
 .global-sub-cta {
-  max-width: 1160px;
-  margin: 0 auto 100px;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto 100px !important;
   padding: 48px;
   border-radius: 28px;
   background: linear-gradient(135deg, #0061f8 0%, #003eab 100%);
@@ -327,4 +331,14 @@
   background: #f0f7ff;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 768px) {
+  .global-sub-intro,
+  .global-sub-section,
+  .global-sub-pillars-grid,
+  .global-sub-cta {
+    width: min(85%, calc(100% - 32px)) !important;
+    max-width: min(85%, calc(100% - 32px)) !important;
+  }
 }

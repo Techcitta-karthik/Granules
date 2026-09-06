@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
@@ -121,9 +122,11 @@ export default function GranulesCzroPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOMEPAGE</a>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/company">COMPANY</a>
+        <Link to="/company">ABOUT US</Link>
+        <span className="sep">›</span>
+        <Link to="/company/global-subsidiaries">GLOBAL SUBSIDIARIES</Link>
         <span className="sep">›</span>
         <span className="current">GRANULES CZRO</span>
       </p>

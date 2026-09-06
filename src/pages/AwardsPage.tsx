@@ -52,11 +52,11 @@ export default function AwardsPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <span>Homepage</span>
-        <span className="sep">{'>'}</span>
-        <span>Company</span>
-        <span className="sep">{'>'}</span>
-        <span className="current">Awards</span>
+        <a href="/">HOME</a>
+        <span className="sep">›</span>
+        <a href="/company">ABOUT US</a>
+        <span className="sep">›</span>
+        <span className="current">AWARDS</span>
       </p>
 
       <div className="aw-hero">

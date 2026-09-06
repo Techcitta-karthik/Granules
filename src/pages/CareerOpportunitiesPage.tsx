@@ -3,102 +3,10 @@ import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './career.css';
+import { ALL_JOBS, JobOpening } from '../data/careersData';
 
 const A = '/assets/career/';
 const CAREERS_EMAIL = 'careers@granulesindia.com';
-
-interface JobOpening {
-  id: number;
-  designation: string;
-  department: string;
-  level: string;
-  location: string;
-  description: string;
-}
-
-const ALL_JOBS: JobOpening[] = [
-  {
-    id: 1,
-    designation: 'Analyst',
-    department: 'Regulatory affairs',
-    level: '3+ Year',
-    location: 'Hyderabad, India',
-    description:
-      'Coordinate and compile regulatory dossiers for global submissions. Requires strong knowledge of international regulations and hands-on documentation experience for APIs and formulations.',
-  },
-  {
-    id: 2,
-    designation: 'Analyst',
-    department: 'Formulation Analytical R&D',
-    level: '3+ Year',
-    location: 'Hyderabad, India',
-    description:
-      'Work on analytical method development and validation for formulations. Role involves handling high-throughput HPLC/GC instruments, interpreting complex data, and meeting global regulatory standards.',
-  },
-  {
-    id: 3,
-    designation: 'Senior Scientist',
-    department: 'API Process R&D',
-    level: '5+ Years',
-    location: 'Hyderabad, India',
-    description:
-      'Lead synthetic route design, process optimization, and scalable chemistry for active pharmaceutical ingredients. Ensure robust technology transfer to commercial manufacturing facilities.',
-  },
-  {
-    id: 4,
-    designation: 'Executive',
-    department: 'Quality Assurance',
-    level: '2-4 Years',
-    location: 'Gagillapur, India',
-    description:
-      'Maintain QA compliance, execute cGMP batch documentation reviews, conduct internal audits, and ensure adherence to US FDA, MHRA, and WHO regulatory quality standards.',
-  },
-  {
-    id: 5,
-    designation: 'Manager',
-    department: 'Supply Chain & Logistics',
-    level: '6+ Years',
-    location: 'Hyderabad, India',
-    description:
-      'Oversee end-to-end global supply chain operations, raw material procurement forecasting, inventory optimization, and export shipments across 80+ destination countries.',
-  },
-  {
-    id: 6,
-    designation: 'Senior Scientist',
-    department: 'Peptides & Swiss CDMO',
-    level: '5+ Years',
-    location: 'Hyderabad, India',
-    description:
-      'Specialized in solid-phase and liquid-phase peptide synthesis (SPPS/LPPS), purification chromatographic workflows, and complex therapeutic peptide characterization.',
-  },
-  {
-    id: 7,
-    designation: 'Executive',
-    department: 'Quality Control (Microbiology)',
-    level: '2-5 Years',
-    location: 'Bonthapally, India',
-    description:
-      'Conduct environmental monitoring, sterility testing, bioburden analysis, and microbial limit testing in state-of-the-art sterile and finished dosage manufacturing units.',
-  },
-  {
-    id: 8,
-    designation: 'Manager',
-    department: 'Operational Excellence (OE)',
-    level: '6+ Years',
-    location: 'Hyderabad, India',
-    description:
-      'Drive Lean Six Sigma projects, Gemba frontline continuous improvement, yield optimization, and cycle-time reduction across manufacturing operations.',
-  },
-  {
-    id: 9,
-    designation: 'Specialist',
-    department: 'Regulatory Strategy (US Market)',
-    level: '5+ Years',
-    location: 'Chantilly, Virginia (USA)',
-    description:
-      'Lead US ANDA lifecycle management, FDA briefing documentation, post-approval supplements, and commercial release compliance for North American generic drug portfolios.',
-  },
-];
 
 export default function CareerOpportunitiesPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -107,6 +15,7 @@ export default function CareerOpportunitiesPage() {
   const [selectedLevel, setSelectedLevel] = useState('ALL');
   const [selectedLocation, setSelectedLocation] = useState('ALL');
   const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     document.title = 'Current Openings | Granules India Careers';
@@ -202,7 +111,7 @@ export default function CareerOpportunitiesPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOMEPAGE</a>
+        <a href="/">HOME</a>
         <span className="sep">›</span>
         <a href="/careers">CAREERS</a>
         <span className="sep">›</span>
@@ -494,23 +403,77 @@ export default function CareerOpportunitiesPage() {
             >
               &#10005;
             </button>
-            <span className="car-modal-tag">Open Opening</span>
+
+            <div className="car-modal-badges">
+              <span className="car-modal-tag">{selectedJob.department}</span>
+              <span className="car-modal-tag location-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '4px' }}>
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                {selectedJob.location}
+              </span>
+              <span className="car-modal-tag exp-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '4px' }}>
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+                {selectedJob.level}
+              </span>
+              <span className="car-modal-tag">{selectedJob.type || 'Full-time'}</span>
+            </div>
+
             <h3 id="car-modal-job-title">{selectedJob.designation}</h3>
-            <p className="car-modal-sub">
-              {selectedJob.department} &bull; {selectedJob.level} &bull; {selectedJob.location}
-            </p>
+
             <p className="car-modal-info">{selectedJob.description}</p>
-            <p className="car-modal-info">
-              To apply for this role, email your resume to <strong>{CAREERS_EMAIL}</strong> with the
-              subject line <em>&ldquo;Application: {selectedJob.designation} &ndash; {selectedJob.department}&rdquo;</em>.
-            </p>
+
+            {selectedJob.responsibilities && selectedJob.responsibilities.length > 0 && (
+              <div className="car-modal-section">
+                <h4 className="car-modal-section-title">Key Responsibilities</h4>
+                <ul className="car-modal-list">
+                  {selectedJob.responsibilities.map((resp, i) => (
+                    <li key={i}>{resp}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {selectedJob.qualifications && selectedJob.qualifications.length > 0 && (
+              <div className="car-modal-section">
+                <h4 className="car-modal-section-title">Qualifications &amp; Requirements</h4>
+                <ul className="car-modal-list">
+                  {selectedJob.qualifications.map((qual, i) => (
+                    <li key={i}>{qual}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="car-modal-apply-card">
+              <p style={{ margin: 0, lineHeight: 1.5 }}>
+                To apply for this opening, email your resume to <strong>{CAREERS_EMAIL}</strong> with the subject line:{' '}
+                <em>&ldquo;Application: {selectedJob.designation} &ndash; {selectedJob.department}&rdquo;</em>.
+              </p>
+            </div>
+
             <div className="car-modal-actions">
               <a
                 className="car-btn-apply-now"
-                href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(`Application: ${selectedJob.designation} - ${selectedJob.department}`)}`}
+                href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(`Application: ${selectedJob.designation} - ${selectedJob.department}`)}&body=${encodeURIComponent(`Dear Granules Talent Acquisition Team,\n\nI would like to apply for the position of ${selectedJob.designation} (${selectedJob.department}) in ${selectedJob.location}.\n\nPlease find attached my resume for your consideration.\n\nBest regards,`)}`}
               >
                 APPLY VIA EMAIL &rarr;
               </a>
+              <button
+                type="button"
+                className="car-modal-cancel-btn"
+                onClick={() => {
+                  navigator.clipboard.writeText(CAREERS_EMAIL);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2500);
+                }}
+              >
+                {copied ? 'EMAIL COPIED! \u2713' : 'COPY HR EMAIL'}
+              </button>
               <button type="button" className="car-modal-cancel-btn" onClick={() => setSelectedJob(null)}>
                 Close
               </button>

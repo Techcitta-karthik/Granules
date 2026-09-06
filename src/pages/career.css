@@ -1310,8 +1310,9 @@
 
 /* ---------- CTA banner ---------- */
 .car-cta {
-  width: min(1462px, 100% - 3.2rem);
-  margin: clamp(80px, 10vw, 120px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
   border-radius: 40px;
   padding: 60px;
   background: linear-gradient(89.2deg, #beedfa 34.8%, rgba(0, 186, 234, 0) 79.8%);
@@ -1789,11 +1790,16 @@
 .car-modal-box {
   background: #ffffff;
   border-radius: 32px;
-  padding: clamp(32px, 4vw, 48px);
-  max-width: 580px;
+  padding: clamp(28px, 4vw, 44px);
+  max-width: 680px;
+  max-height: min(90vh, 820px);
+  overflow-y: auto;
   width: 100%;
   position: relative;
   box-shadow: 0 24px 64px rgba(0, 20, 60, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .car-modal-close {
@@ -1819,6 +1825,14 @@
   color: #0f172a;
 }
 
+.car-modal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 4px;
+}
+
 .car-modal-tag {
   display: inline-block;
   padding: 6px 14px;
@@ -1828,31 +1842,79 @@
   font: 700 12px/1 'Manrope', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 14px;
+}
+
+.car-modal-tag.location-tag {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.car-modal-tag.exp-tag {
+  background: #ecfdf5;
+  color: #047857;
 }
 
 .car-modal-box h3 {
-  margin: 0 0 8px;
+  margin: 0;
   font: 700 clamp(24px, 2.5vw, 32px)/1.2 'Manrope', sans-serif;
   color: #0f172a;
 }
 
 .car-modal-sub {
-  margin: 0 0 20px;
+  margin: 0;
   font: 600 14.5px/1.4 'Manrope', sans-serif;
   color: #0061f8;
 }
 
 .car-modal-info {
-  margin: 0 0 28px;
-  font: 400 15px/1.6 'Manrope', sans-serif;
+  margin: 0;
+  font: 400 14.5px/1.6 'Manrope', sans-serif;
   color: #475569;
+}
+
+.car-modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.car-modal-section-title {
+  margin: 0;
+  font: 700 13px/1.3 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #0f172a;
+}
+
+.car-modal-list {
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font: 400 14px/1.55 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.car-modal-apply-card {
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  font: 500 13.5px/1.5 'Manrope', sans-serif;
+  color: #334155;
+}
+
+.car-modal-apply-card strong {
+  color: #0061f8;
 }
 
 .car-modal-actions {
   display: flex;
-  gap: 14px;
+  flex-wrap: wrap;
+  gap: 12px;
   align-items: center;
+  margin-top: 4px;
 }
 
 .car-modal-cancel-btn {
@@ -1873,8 +1935,9 @@
 
 /* ---------- Opportunities: pagination reuse ---------- */
 .car-pagination {
-  width: min(1464px, 100% - 3.2rem);
-  margin: 0 auto;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -1912,8 +1975,9 @@
 
 /* ---------- Opportunities: photo CTA ---------- */
 .car-cta-photo {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(80px, 10vw, 120px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
   border-radius: 40px;
   padding: 60px;
   position: relative;
@@ -1949,8 +2013,9 @@
 
 /* ---------- Great Place to Work banner ---------- */
 .car-great-place {
-  width: min(1464px, 100% - 3.2rem);
-  margin: clamp(80px, 10vw, 120px) auto 0;
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
   display: flex;
   gap: 24px;
   flex-wrap: wrap;

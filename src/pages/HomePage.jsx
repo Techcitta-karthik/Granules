@@ -139,26 +139,22 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         {
           title: 'Overview',
           quickLinks: [
-            ['About Us', '/company'],
-            ['Our Journey', '/company/milestone'],
-            ['Leadership', '/company/leadership'],
-            ['Awards', '/company/awards'],
+            ['OUR JOURNEY', '/company/milestone'],
+            ['LEADERSHIP', '/company/leadership'],
           ],
         },
         {
           title: 'Global Subsidiaries',
+          href: '/company/global-subsidiaries',
           quickLinks: [
-            ['Overview', '/company/global-subsidiaries'],
-            ['Granules Pharmaceuticals Inc. (GPI)', 'https://www.granulespharma.com/'],
-            ['Granules Life Sciences', '/company/granules-life-sciences'],
-            ['Senn Tides', '/company/senn-tides'],
-            ['Granules CZRO', '/company/granules-czro'],
+            ['GRANULES PHARMACEUTICALS INC. (GPI)', 'https://www.granulespharma.com/'],
+            ['GRANULES LIFE SCIENCES', '/company/granules-life-sciences'],
+            ['SENN TIDES', '/company/senn-tides'],
+            ['GRANULES CZRO', '/company/granules-czro'],
           ],
         },
       ],
-      links: [
-        ['Operational Excellence', '/company/operational-excellence'],
-      ],
+      links: [],
       image: 'company/values-bg-2.webp',
     },
     Company: {
@@ -166,26 +162,22 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         {
           title: 'Overview',
           quickLinks: [
-            ['About Us', '/company'],
-            ['Our Journey', '/company/milestone'],
-            ['Leadership', '/company/leadership'],
-            ['Awards', '/company/awards'],
+            ['OUR JOURNEY', '/company/milestone'],
+            ['LEADERSHIP', '/company/leadership'],
           ],
         },
         {
           title: 'Global Subsidiaries',
+          href: '/company/global-subsidiaries',
           quickLinks: [
-            ['Overview', '/company/global-subsidiaries'],
-            ['Granules Pharmaceuticals Inc. (GPI)', 'https://www.granulespharma.com/'],
-            ['Granules Life Sciences', '/company/granules-life-sciences'],
-            ['Senn Tides', '/company/senn-tides'],
-            ['Granules CZRO', '/company/granules-czro'],
+            ['GRANULES PHARMACEUTICALS INC. (GPI)', 'https://www.granulespharma.com/'],
+            ['GRANULES LIFE SCIENCES', '/company/granules-life-sciences'],
+            ['SENN TIDES', '/company/senn-tides'],
+            ['GRANULES CZRO', '/company/granules-czro'],
           ],
         },
       ],
-      links: [
-        ['Operational Excellence', '/company/operational-excellence'],
-      ],
+      links: [],
       image: 'company/values-bg-2.webp',
     },
     Business: {
@@ -274,9 +266,41 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
               {sub && (
                 <div className={`home-nav-submenu${hoveredMenu === label ? ' is-open' : ''}`} onMouseEnter={() => showMenu(label)}>
                   <div className="home-nav-submenu-copy">
-                    {(sub.sections || (sub.title && sub.quickLinks ? [{ title: sub.title, quickLinks: sub.quickLinks }] : [])).map((section, idx) => (
+                    {(sub.sections || (sub.title && sub.quickLinks ? [{ title: sub.title, href: sub.href, quickLinks: sub.quickLinks }] : [])).map((section, idx) => (
                       <div className="home-nav-submenu-header-box" key={section.title || idx}>
-                        {section.title && <strong>{section.title}</strong>}
+                        {section.title && (
+                          section.href ? (
+                            section.href.startsWith('http') ? (
+                              <a
+                                href={section.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="home-nav-submenu-title"
+                                onClick={() => {
+                                  setHoveredMenu(null);
+                                  setOpen(false);
+                                }}
+                              >
+                                <strong>{section.title}</strong>
+                                <span className="home-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
+                              </a>
+                            ) : (
+                              <Link
+                                to={section.href}
+                                className="home-nav-submenu-title"
+                                onClick={() => {
+                                  setHoveredMenu(null);
+                                  setOpen(false);
+                                }}
+                              >
+                                <strong>{section.title}</strong>
+                                <span className="home-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
+                              </Link>
+                            )
+                          ) : (
+                            <strong>{section.title}</strong>
+                          )
+                        )}
                         <div className="home-nav-quick-links">
                           {(section.quickLinks || []).map(([subLabel, subHref]) =>
                             subHref.startsWith('http') ? (
@@ -291,7 +315,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
                                 }}
                               >
                                 <span>{subLabel}</span>
-                                <span aria-hidden="true">↗</span>
+                                <span className="home-nav-arrow-diag" aria-hidden="true">↗</span>
                               </a>
                             ) : (
                               <Link
@@ -303,7 +327,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
                                 }}
                               >
                                 <span>{subLabel}</span>
-                                <span aria-hidden="true">↗</span>
+                                <span className="home-nav-arrow-diag" aria-hidden="true">↗</span>
                               </Link>
                             )
                           )}
@@ -671,45 +695,192 @@ function Business() {
 function Presence() {
   const tabs = ['Our Locations', 'Our Key Subsidiaries', 'Our Facilities'];
   const [active, setActive] = useState(0);
-  const points = [
-    [
-      { x: 30, y: 40, label: 'North America', large: true },
-      { x: 49.2, y: 43, label: 'Europe' },
-      { x: 65.1, y: 59.6, label: 'Granules India' },
-      { x: 66.2, y: 58.9, label: 'Granules CZRO' },
-      { x: 67.1, y: 58.1, label: 'Hyderabad' },
-    ],
-    [{ x: 50.7, y: 55.4, label: 'Granules India', large: true }],
-    [
-      { x: 48.2, y: 56.4, label: 'Manufacturing facility' },
-      { x: 52.1, y: 54.9, label: 'R&D and manufacturing facility', large: true },
-    ],
-  ];
+
   return (
     <section className={`presence presence-state-${active}`} id="presence">
       <div className="presence-copy">
         <Tag>Our Presence</Tag>
         <h2>Trusted healthcare partner in 80+ countries</h2>
       </div>
+
       <div className="map-wrap">
-        <div className={`map-plane${active > 0 ? ' focus-india' : ''}`} aria-hidden="true">
-          <img className="map" src={worldMapUrl} alt="" loading="lazy" decoding="async" />
-        </div>
-        <div className="map-points" key={active}>
-          {points[active].map((point, index) => (
-            <button
-              className={`map-dot${point.large ? ' large' : ''}`}
-              style={{ left: `${point.x}%`, top: `${point.y}%` }}
-              type="button"
-              aria-label={point.label}
-              key={`${point.label}-${index}`}
+        <div className="map-stage">
+          <div className={`map-plane${active > 0 ? ' focus-india' : ''}`}>
+            {/* Base World Map Image */}
+            <img
+              className="map"
+              src={worldMapUrl}
+              alt="Granules India Global Presence Map"
+              loading="lazy"
+              decoding="async"
+            />
+
+            {/* SVG Vector Pin Layer - shares exact 1010x666 coordinate space with the map */}
+            <svg
+              className="map-pins-svg"
+              viewBox="0 0 1010 666"
+              preserveAspectRatio="xMidYMid meet"
             >
-              <b aria-hidden="true">+</b>
-              <span>{point.label}</span>
-            </button>
-          ))}
+            <defs>
+              {/* Glossy 3D Blue Sphere Pin Gradient */}
+              <radialGradient id="map-pin-3d" cx="35%" cy="30%" r="65%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+                <stop offset="22%" stopColor="#60a5fa" />
+                <stop offset="55%" stopColor="#0061f8" />
+                <stop offset="85%" stopColor="#003db3" />
+                <stop offset="100%" stopColor="#001d66" />
+              </radialGradient>
+
+              {/* Pin Drop Shadow */}
+              <filter id="map-pin-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="2.5" stdDeviation="3" floodColor="#0047cc" floodOpacity="0.4" />
+              </filter>
+
+              {/* Pill Badge Shadow */}
+              <filter id="map-pill-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#001a4d" floodOpacity="0.08" />
+              </filter>
+            </defs>
+
+            {/* ============================================================
+                TAB 0: OUR LOCATIONS (WORLD VIEW)
+                ============================================================ */}
+            <g
+              className="presence-layer presence-layer-world"
+              style={{
+                opacity: active === 0 ? 1 : 0,
+                pointerEvents: active === 0 ? 'auto' : 'none',
+                transition: 'opacity 0.35s ease'
+              }}
+            >
+              {/* 1. Chantilly (Virginia) USA */}
+              <line x1="261" y1="327" x2="245" y2="248" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                <rect x="145" y="222" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                <text x="235" y="235.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                  CHANTILLY (VIRGINIA) USA
+                </text>
+              </g>
+              <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+              {/* 2. Switzerland */}
+              <line x1="498" y1="315" x2="498" y2="280" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                <rect x="442" y="254" width="112" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                  SWITZERLAND
+                </text>
+              </g>
+              <circle className="map-pin-dot" cx="498" cy="315" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+              {/* 3. Pune (Maharashtra, India) */}
+              <line x1="683.5" y1="412" x2="676" y2="432" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                <rect x="620" y="420" width="56" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                <text x="648" y="432.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                  PUNE
+                </text>
+              </g>
+              <circle className="map-pin-dot" cx="683.5" cy="412" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+              {/* 4. Hyderabad (Telangana, India) */}
+              <line x1="698" y1="413" x2="714" y2="376" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                <rect x="670" y="352" width="88" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                <text x="714" y="364.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                  HYDERABAD
+                </text>
+              </g>
+              <circle className="map-pin-dot" cx="698" cy="413" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+              {/* 5. Visakhapatnam (Andhra Pradesh, India) */}
+              <line x1="717" y1="404" x2="722" y2="426" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                <rect x="706" y="426" width="116" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                <text x="764" y="438.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                  VISAKHAPATNAM
+                </text>
+              </g>
+              <circle className="map-pin-dot" cx="717" cy="404" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+            </g>
+
+            {/* ============================================================
+                TAB 1: OUR KEY SUBSIDIARIES (ZOOMED INDIA VIEW)
+                ============================================================ */}
+            <g
+              className="presence-layer presence-layer-subsidiaries"
+              style={{
+                opacity: active === 1 ? 1 : 0,
+                pointerEvents: active === 1 ? 'auto' : 'none',
+                transition: 'opacity 0.35s ease'
+              }}
+            >
+              {/* 3 Converging Leader Lines down to Hyderabad */}
+              <line x1="698" y1="413" x2="708" y2="352.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+              <line x1="698" y1="413" x2="708" y2="365.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+              <line x1="698" y1="413" x2="708" y2="378.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+
+              {/* Stacked Pills to upper-right of Hyderabad */}
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                {/* Pill 1: Granules Life Sciences */}
+                <rect x="708" y="347" width="108" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                <text x="762" y="352.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                  GRANULES LIFE SCIENCES PRIVATE LIMITED
+                </text>
+
+                {/* Pill 2: Granules CZRO */}
+                <rect x="708" y="360" width="86" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                <text x="751" y="365.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                  GRANULES CZRO PRIVATE LIMITED
+                </text>
+
+                {/* Pill 3: Ascelis Peptides */}
+                <rect x="708" y="373" width="90" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                <text x="753" y="378.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                  ASCELIS PEPTIDES PRIVATE LIMITED
+                </text>
+              </g>
+
+              {/* Dot at Hyderabad */}
+              <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+            </g>
+
+            {/* ============================================================
+                TAB 2: OUR FACILITIES (ZOOMED INDIA VIEW)
+                ============================================================ */}
+            <g
+              className="presence-layer presence-layer-facilities"
+              style={{
+                opacity: active === 2 ? 1 : 0,
+                pointerEvents: active === 2 ? 'auto' : 'none',
+                transition: 'opacity 0.35s ease'
+              }}
+            >
+              {/* Hyderabad */}
+              <line x1="698" y1="413" x2="685" y2="394" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                <rect x="660" y="383" width="42" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                <text x="681" y="388.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                  HYDERABAD
+                </text>
+              </g>
+              <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+              {/* Visakhapatnam */}
+              <line x1="717" y1="404" x2="728" y2="388" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+              <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                <rect x="715" y="377" width="52" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                <text x="741" y="382.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                  VISHAKHPATNAM
+                </text>
+              </g>
+              <circle className="map-pin-dot" cx="717" cy="404" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+            </g>
+          </svg>
         </div>
       </div>
+    </div>
+
       <div className="presence-tabs shell">
         {tabs.map((tab, index) => (
           <button
@@ -717,7 +888,7 @@ function Presence() {
             onClick={() => setActive(index)}
             key={tab}
           >
-            {tab}
+            <span>{tab}</span>
             <span className="tab-arrow" aria-hidden="true">↗</span>
           </button>
         ))}
@@ -865,6 +1036,21 @@ function Investor() {
       href: '/documents/Earnings-Presentation-Q2FY26-Circulation-fb2ccd8cf24d.pdf',
       download: 'Granules_Investor_Presentation.pdf',
     },
+    {
+      title: 'Earnings call transcript (Q2 FY26)',
+      href: '/documents/GranulesIndia-Q2-FY26-Transcript-Clean-Version-faeecef8a9cb.pdf',
+      download: 'Granules_Earnings_Call_Transcript_Q2_FY26.pdf',
+    },
+    {
+      title: 'Shareholding pattern',
+      href: '/documents/Third-Quarter-SHP-2025-b306d92c9c75.pdf',
+      download: 'Granules_Shareholding_Pattern.pdf',
+    },
+    {
+      title: 'Sustainability report 2024-25',
+      href: '/documents/Granules-Sustainability-Webpage-Content-56f22fc084e5.pdf',
+      download: 'Granules_Sustainability_Report_2024-25.pdf',
+    },
   ];
   return (
     <section className="section shell investor" id="investor">
@@ -893,19 +1079,6 @@ function Investor() {
           />
         </a>
         <div className="investor-side">
-          <div className="stock-price-card">
-            <span>Stock Price</span>
-            <div className="exchange-links">
-              <Link className="exchange-pill" to="/investor">
-                NSE
-                <img className="arrow-ne" src={`${A}icon-arrow-diag-investor.svg`} alt="" loading="lazy" decoding="async" />
-              </Link>
-              <Link className="exchange-pill" to="/investor">
-                BSE
-                <img className="arrow-ne" src={`${A}icon-arrow-diag-investor.svg`} alt="" loading="lazy" decoding="async" />
-              </Link>
-            </div>
-          </div>
           <div className="investor-docs">
             {docs.map((doc) => (
               <a
@@ -1039,7 +1212,7 @@ function Footer() {
       </div>
       <div className="footer-bottom shell">
         <div>
-          <span>Copyright © 2025 Granules. All rights reserved.</span>
+          <span>Copyright © 2026 Granules. All rights reserved.</span>
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/cookie-policy">Cookies Policy</Link>
           <Link to="/disclaimer">Disclaimer</Link>

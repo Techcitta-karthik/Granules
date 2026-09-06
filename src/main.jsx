@@ -146,6 +146,10 @@ function App() {
         <Route path="/careers" element={<CareerOverviewPage />} />
         <Route path="/careers/life-at-granules" element={<LifeAtGranulesPage />} />
         <Route path="/careers/opportunities" element={<CareerOpportunitiesPage />} />
+        <Route path="/careers/current-openings" element={<CareerOpportunitiesPage />} />
+        <Route path="/careers/openings" element={<CareerOpportunitiesPage />} />
+        <Route path="/careers/career-opportunities" element={<CareerOpportunitiesPage />} />
+        <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />

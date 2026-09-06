@@ -5,20 +5,65 @@ import './facilities.css';
 
 const F = '/assets/facilities/';
 
-type Facility = { name: string; location: string; country: 'India' | 'USA'; image: string };
+type Facility = {
+  name: string;
+  location: string;
+  country: 'India' | 'USA' | 'Switzerland';
+  countryCode: 'IN' | 'US' | 'CH';
+  image: string;
+};
 
 const FACILITIES: Facility[] = [
-  { name: 'Bonthapally', location: 'Telangana', country: 'India', image: 'bonthapally.webp' },
-  { name: 'Bonthapally II (API Intermediate)', location: 'Telangana', country: 'India', image: 'bonthapally-2.webp' },
-  { name: 'Jeedimetla', location: 'Telangana', country: 'India', image: 'jeedimetla.webp' },
-  { name: 'Gagillapur', location: 'Telangana', country: 'India', image: 'gagillapur.webp' },
-  { name: 'Granules Life Sciences (GLS)', location: 'Telangana', country: 'India', image: 'gls.webp' },
-  { name: 'Visakhapatnam (Unit IV)', location: 'Andhra Pradesh', country: 'India', image: 'vizag-unit4.webp' },
-  { name: 'Visakhapatnam (Unit V)', location: 'Andhra Pradesh', country: 'India', image: 'vizag-unit5.webp' },
-  { name: 'Manufacturing Facility', location: 'Virginia, USA', country: 'USA', image: 'virginia-usa.webp' },
+  // India Facilities
+  { name: 'Bonthapally', location: 'TELANGANA', country: 'India', countryCode: 'IN', image: 'bonthapally.webp' },
+  { name: 'Bonthapally II (API Intermediate)', location: 'TELANGANA', country: 'India', countryCode: 'IN', image: 'bonthapally-2.webp' },
+  { name: 'Jeedimetla', location: 'TELANGANA', country: 'India', countryCode: 'IN', image: 'jeedimetla.webp' },
+  { name: 'Gagillapur', location: 'TELANGANA', country: 'India', countryCode: 'IN', image: 'gagillapur.webp' },
+  { name: 'Granules Life Sciences (GLS)', location: 'TELANGANA', country: 'India', countryCode: 'IN', image: 'gls.webp' },
+  { name: 'Visakhapatnam (Unit IV)', location: 'ANDHRA PRADESH', country: 'India', countryCode: 'IN', image: 'vizag-unit4.webp' },
+  { name: 'Visakhapatnam (Unit V)', location: 'ANDHRA PRADESH', country: 'India', countryCode: 'IN', image: 'vizag-unit5.webp' },
+
+  // USA Facilities
+  {
+    name: 'Granules Pharmaceuticals, Inc.',
+    location: 'CHANTILLY, VIRGINIA',
+    country: 'USA',
+    countryCode: 'US',
+    image: 'gpi-chantilly.webp',
+  },
+  {
+    name: 'Granules Consumer Health (Packaging & Distribution)',
+    location: 'MANASSAS, VIRGINIA',
+    country: 'USA',
+    countryCode: 'US',
+    image: 'granules-manassas.jpg',
+  },
+  {
+    name: 'Granules USA Inc.',
+    location: 'PARSIPPANY, NEW JERSEY',
+    country: 'USA',
+    countryCode: 'US',
+    image: 'granules-parsippany.jpg',
+  },
+  {
+    name: 'Manufacturing Facility',
+    location: 'VIRGINIA, USA',
+    country: 'USA',
+    countryCode: 'US',
+    image: 'virginia-usa.webp',
+  },
+
+  // Switzerland Facility
+  {
+    name: 'Senn Chemicals AG',
+    location: 'DIELSDORF, SWITZERLAND',
+    country: 'Switzerland',
+    countryCode: 'CH',
+    image: 'senn-chemicals-dielsdorf.jpg',
+  },
 ];
 
-const FILTERS = ['All', 'India', 'USA'] as const;
+const FILTERS = ['All', 'India', 'USA', 'Switzerland'] as const;
 type Filter = (typeof FILTERS)[number];
 
 export default function FacilitiesPage() {
@@ -36,9 +81,9 @@ export default function FacilitiesPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOMEPAGE</a>
+        <a href="/">HOME</a>
         <span className="sep">›</span>
-        <a href="/company">COMPANY</a>
+        <a href="/company">ABOUT US</a>
         <span className="sep">›</span>
         <span className="current">FACILITIES</span>
       </p>
@@ -46,13 +91,13 @@ export default function FacilitiesPage() {
 
       <div className="fac-intro">
         <p>
-          Granules India operates GMP-compliant facilities across India and the United States
+          Granules India operates GMP-compliant facilities across India, the United States, and Switzerland,
           serving North America, Europe, India, Latin America, and emerging markets. Our vertical
           integration&mdash;from raw materials to finished formulations&mdash;ensures speed to
           market, tight quality control, and supply resilience.
         </p>
         <p>
-          With specialized R&amp;D hubs and regulatory-aligned plants, Granules delivers on its
+          With specialized R&amp;D hubs, advanced packaging lines, and regulatory-aligned plants worldwide, Granules delivers on its
           promise of affordable, high-quality, chronic care innovation at scale.
         </p>
       </div>
@@ -75,6 +120,9 @@ export default function FacilitiesPage() {
           <article className="fac-card" key={facility.name}>
             <div className="fac-card-image">
               <img src={`${F}${facility.image}`} alt={facility.name} loading="lazy" decoding="async" />
+              <span className="fac-country-badge">
+                <span className="fac-country-code">{facility.countryCode}</span> {facility.country}
+              </span>
             </div>
             <div className="fac-card-info">
               <div>
@@ -93,13 +141,13 @@ export default function FacilitiesPage() {
         <img className="bg" src={`${F}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="fac-cta-copy">
-          <h2>Lorem ipsum mattis viverra tortor</h2>
+          <h2>World-Class Global Manufacturing &amp; Supply Resilience</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur. At malesuada at sed phasellus. Ipsum posuere
-            aliquam dignissim suspendisse arcu tellus.
+            Operating 12 state-of-the-art facilities across India, North America, and Switzerland,
+            Granules empowers worldwide healthcare with unmatched pharmaceutical excellence.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/company">Lorem ipsum</a>
+        <a className="cp-cta-btn" href="/company/global-presence">Global Presence</a>
       </div>
 
       <CompanyFooter />
