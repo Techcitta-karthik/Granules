@@ -1,0 +1,661 @@
+/* ==========================================================================
+   ESG PROFILE / ESG WORLD PAGE STYLES (src/pages/esg-profile.css)
+   Modern Granules India corporate theme with signature royal blue & filter options
+   ========================================================================== */
+
+/* ---------- Hero Photo Banner ---------- */
+.esg-hero-photo {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(30px, 4vw, 46px) auto 0;
+  border-radius: 36px;
+  overflow: hidden;
+  min-height: 340px;
+  position: relative;
+  aspect-ratio: 1828 / 520;
+  box-shadow: 0 16px 40px rgba(0, 30, 80, 0.08);
+}
+
+.esg-hero-photo img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.esg-hero-photo .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 18, 38, 0.6) 0%, rgba(4, 18, 38, 0.2) 45%, rgba(4, 18, 38, 0.8) 100%);
+  z-index: 1;
+}
+
+.esg-hero-content {
+  position: absolute;
+  bottom: clamp(28px, 3.5vw, 50px);
+  left: clamp(28px, 4vw, 60px);
+  right: clamp(28px, 4vw, 60px);
+  z-index: 2;
+  max-width: 860px;
+}
+
+.esg-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  padding: 6px 18px;
+  font: 700 12px/1 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.esg-hero-heading {
+  margin: 0;
+  font: 700 clamp(24px, 3.2vw, 42px)/1.2 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Main Container ---------- */
+.esg-prof-container {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(36px, 4vw, 56px) auto 0 !important;
+  position: relative;
+}
+
+/* ---------- Two-Tone Intro Narrative ---------- */
+.esg-intro-wrap {
+  margin-bottom: clamp(28px, 3.5vw, 40px);
+  max-width: 1100px;
+}
+
+.esg-intro-text {
+  margin: 0;
+  font: 400 clamp(18px, 1.7vw, 24px)/1.45 'Manrope', sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.esg-intro-text strong {
+  color: #070707;
+  font-weight: 700;
+}
+
+.esg-intro-text span {
+  color: #7b8ba5;
+}
+
+/* ---------- TOP FILTER OPTIONS BAR (7 Solid Royal Blue Dropdowns) ---------- */
+.esg-top-filter-container {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.esg-top-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.esg-select-pill-wrap {
+  position: relative;
+  background: #0052cc;
+  border-radius: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 82, 204, 0.18);
+}
+
+.esg-select-pill-wrap:hover {
+  background: #0043a8;
+  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.28);
+  transform: translateY(-1px);
+}
+
+.esg-select-pill {
+  width: 100%;
+  height: 38px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font: 700 11.5px/1 'Manrope', sans-serif;
+  padding: 0 24px 0 10px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.esg-select-pill option {
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.esg-select-chevron {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  pointer-events: none;
+}
+
+/* ---------- GRADIENT ACCENT INDICATOR ---------- */
+.esg-gradient-accent {
+  width: 140px;
+  height: 3.5px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #0052cc 0%, #00b074 100%);
+  margin: 18px 0 16px 0;
+}
+
+/* ---------- TOOLBAR ROW (Stats, Toggles, Downloads) ---------- */
+.esg-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 0 14px;
+  border-bottom: 1px solid #edf2f7;
+  margin-bottom: 16px;
+}
+
+.esg-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.esg-toolbar-stat {
+  font: 600 13px/1.35 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.esg-toolbar-stat strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.esg-toolbar-center {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  flex-wrap: wrap;
+}
+
+.esg-refresh-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.esg-refresh-indicator {
+  width: 28px;
+  height: 15px;
+  background: #0052cc;
+  border-radius: 9999px;
+  display: inline-block;
+  position: relative;
+}
+
+.esg-refresh-indicator::after {
+  content: '';
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 11px;
+  height: 11px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.esg-refresh-text {
+  font: 600 12.5px/1.2 'Manrope', sans-serif;
+  color: #334155;
+}
+
+.esg-refresh-text small {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* Toggles */
+.esg-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.esg-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.esg-toggle-label {
+  font: 600 13px/1 'Manrope', sans-serif;
+  color: #334155;
+  transition: color 0.15s ease;
+}
+
+.esg-toggle-item:hover .esg-toggle-label {
+  color: #0052cc;
+}
+
+.esg-toggle-switch {
+  width: 34px;
+  height: 18px;
+  background: #cbd5e1;
+  border-radius: 9999px;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.esg-toggle-switch.active {
+  background: #0052cc;
+}
+
+.esg-toggle-switch::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.esg-toggle-switch.active::after {
+  transform: translateX(16px);
+}
+
+/* Document Export Badges (Excel & PDF) */
+.esg-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.esg-file-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.esg-file-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.esg-file-btn.excel {
+  color: #107c41;
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.esg-file-btn.pdf {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+/* ---------- RESULTS COUNTER & SEARCH ---------- */
+.esg-results-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.esg-showing-count {
+  font: 500 13.5px/1.4 'Manrope', sans-serif;
+  color: #64748b;
+}
+
+.esg-showing-count .esg-count-num {
+  font-weight: 700;
+  color: #0052cc;
+}
+
+.esg-search-unit {
+  display: inline-flex;
+  align-items: stretch;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.esg-search-prefix {
+  background: #0052cc;
+  color: #ffffff;
+  font: 700 12px/1 'Manrope', sans-serif;
+  padding: 8px 14px;
+  border-radius: 9999px 0 0 9999px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.4px;
+}
+
+.esg-search-field {
+  border: 1.5px solid #0052cc;
+  border-left: none;
+  border-radius: 0 9999px 9999px 0;
+  padding: 6px 14px;
+  font: 600 13px 'Manrope', sans-serif;
+  color: #0f172a;
+  outline: none;
+  min-width: 220px;
+  background: #ffffff;
+}
+
+.esg-search-field::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* ---------- STRUCTURED DATA TABLE ---------- */
+.esg-table-container {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 40, 120, 0.04);
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.esg-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Column Headers */
+.esg-custom-table thead th {
+  padding: 14px 18px;
+  font: 700 12px/1 'Manrope', sans-serif;
+  color: #0052cc;
+  background: #ffffff;
+  border-bottom: 2px solid #e8edf5;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.esg-custom-table th.sortable {
+  cursor: pointer;
+}
+
+.esg-custom-table th.sortable span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Full-width Category Header Bar */
+.esg-cat-banner-row td {
+  background: linear-gradient(90deg, #0052cc 0%, #0066f5 100%) !important;
+  color: #ffffff !important;
+  padding: 12px 18px !important;
+  font: 700 14px/1.2 'Manrope', sans-serif !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-top: 1px solid #004bb5;
+  border-bottom: 1px solid #004bb5;
+}
+
+/* Regular Data Rows */
+.esg-data-row {
+  border-bottom: 1px solid #edf2f7;
+  background: #ffffff;
+  transition: background-color 0.15s ease;
+}
+
+.esg-data-row:hover {
+  background: #f8fbff;
+}
+
+.esg-data-row td {
+  padding: 16px 18px;
+  vertical-align: top;
+  font: 500 13px/1.6 'Manrope', sans-serif;
+  color: #334155;
+}
+
+/* Subfactor Column */
+.esg-col-subfactor {
+  width: 18%;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #0052cc !important;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.esg-col-subfactor:hover {
+  color: #003da6 !important;
+  text-decoration: underline;
+}
+
+/* Keywords Column */
+.esg-col-keywords {
+  width: 16%;
+}
+
+.esg-kw-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.esg-kw-line {
+  font: 500 12.5px/1.35 'Manrope', sans-serif;
+  color: #334155;
+}
+
+/* DocuLinks Column */
+.esg-col-doculinks {
+  width: 8%;
+  text-align: center;
+}
+
+.esg-pdf-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: transform 0.15s ease;
+}
+
+.esg-pdf-trigger:hover {
+  transform: scale(1.18);
+}
+
+/* Factsheet Column */
+.esg-col-factsheet {
+  width: 10%;
+}
+
+.esg-factsheet-text {
+  font: 600 12px/1.35 'Manrope', sans-serif;
+  color: #0052cc;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.esg-factsheet-text:hover {
+  background: #dbeafe;
+  border-color: #0052cc;
+}
+
+/* Highlights Column */
+.esg-col-highlights {
+  width: 48%;
+  font: 400 13px/1.65 'Manrope', sans-serif;
+  color: #334155;
+}
+
+.esg-col-highlights strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* ---------- DASHBOARD CTA BANNER ---------- */
+.esg-dashboard-cta {
+  width: 100%;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #002266 0%, #0052cc 100%);
+  padding: clamp(36px, 4.5vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  box-shadow: 0 16px 40px rgba(0, 50, 160, 0.15);
+  margin-bottom: clamp(60px, 8vw, 100px);
+}
+
+.esg-dashboard-copy {
+  max-width: 680px;
+}
+
+.esg-dashboard-copy h2 {
+  margin: 0 0 12px;
+  font: 700 clamp(24px, 3vw, 36px)/1.2 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.esg-dashboard-copy p {
+  margin: 0;
+  font: 400 16px/1.55 'Manrope', sans-serif;
+  color: #e0e8f6;
+}
+
+.esg-dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #0052cc;
+  font: 700 14px/1 'Manrope', sans-serif;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+.esg-dashboard-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  background: #f0f7ff;
+}
+
+/* ---------- MODAL ---------- */
+.esg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 15, 40, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.esg-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: clamp(24px, 3.5vw, 36px);
+  max-width: 640px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 20, 60, 0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.esg-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.esg-modal-close:hover {
+  color: #0f172a;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .esg-top-filter-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .esg-top-filter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .esg-custom-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .esg-toolbar-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

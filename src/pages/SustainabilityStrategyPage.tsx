@@ -344,11 +344,10 @@ export default function SustainabilityStrategyPage() {
         - You can replace 'videoSrc' with your custom video file anytime (e.g. /assets/strategy/my-video.mp4).
       */}
       <StockVideoBanner
-        videoSrc="/assets/strategy/sample-stock-video.mp4"
+        videoSrc="/Video/cover-video.mp4"
         posterSrc="/assets/strategy/hero-video-poster.webp"
         alt="Granules Sustainability Strategy - Clean Energy Windmills"
         targetScrollSelector=".sus-intro"
-        badgeText="Stock Video"
       />
 
       <div className="sus-intro">

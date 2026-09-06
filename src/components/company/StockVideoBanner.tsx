@@ -14,7 +14,7 @@ export default function StockVideoBanner({
   posterSrc,
   alt = 'Banner',
   targetScrollSelector,
-  badgeText = 'Stock Video',
+  badgeText,
   className = '',
 }: StockVideoBannerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);

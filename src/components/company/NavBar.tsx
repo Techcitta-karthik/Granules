@@ -29,28 +29,66 @@ const SUBMENUS: Record<string, Submenu> = {
       {
         title: 'Overview',
         quickLinks: [
+          { label: 'About Us', href: '/company' },
           { label: 'Our Journey', href: '/company/milestone' },
           { label: 'Leadership', href: '/company/leadership' },
+          { label: 'Awards', href: '/company/awards' },
         ],
       },
       {
         title: 'Global Subsidiaries',
         quickLinks: [
-          { label: 'Granules Pharmaceuticals Inc. (GPI)', href: "https://www.granulespharma.com/" },
+          { label: 'Overview', href: '/company/global-subsidiaries' },
+          { label: 'Granules Pharmaceuticals Inc. (GPI)', href: 'https://www.granulespharma.com/' },
           { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
-          { label: 'Senn Tides', href: '/company/ascelis-peptides' },
+          { label: 'Senn Tides', href: '/company/senn-tides' },
           { label: 'Granules CZRO', href: '/company/granules-czro' },
         ],
       },
     ],
+    links: [
+      { label: 'Operational Excellence', href: '/company/operational-excellence' },
+    ],
+    image: 'company/values-bg-2.webp',
+  },
+  Company: {
+    sections: [
+      {
+        title: 'Overview',
+        quickLinks: [
+          { label: 'About Us', href: '/company' },
+          { label: 'Our Journey', href: '/company/milestone' },
+          { label: 'Leadership', href: '/company/leadership' },
+          { label: 'Awards', href: '/company/awards' },
+        ],
+      },
+      {
+        title: 'Global Subsidiaries',
+        quickLinks: [
+          { label: 'Overview', href: '/company/global-subsidiaries' },
+          { label: 'Granules Pharmaceuticals Inc. (GPI)', href: 'https://www.granulespharma.com/' },
+          { label: 'Granules Life Sciences', href: '/company/granules-life-sciences' },
+          { label: 'Senn Tides', href: '/company/senn-tides' },
+          { label: 'Granules CZRO', href: '/company/granules-czro' },
+        ],
+      },
+    ],
+    links: [
+      { label: 'Operational Excellence', href: '/company/operational-excellence' },
+    ],
     image: 'company/values-bg-2.webp',
   },
   Business: {
-    title: 'GENERICS',
-    quickLinks: [
-      { label: 'API', href: '/business/api' },
-      { label: 'PFI', href: '/business/pfi' },
-      { label: 'FINISHED DOSAGES', href: '/business/fd' },
+    sections: [
+      {
+        title: 'GENERICS',
+        quickLinks: [
+          { label: 'OVERVIEW', href: '/business/generics' },
+          { label: 'API', href: '/business/api' },
+          { label: 'PFI', href: '/business/pfi' },
+          { label: 'FINISHED DOSAGES', href: '/business/fd' },
+        ],
+      },
     ],
     links: [
       { label: 'Peptides CDMO', href: '/business/peptides' },
@@ -60,24 +98,62 @@ const SUBMENUS: Record<string, Submenu> = {
     ],
     image: 'company/gpi-facility.webp',
   },
-
   Careers: {
-    title: 'Careers',
-    links: [
-      { label: 'Overview', href: '/careers' },
-      { label: 'Opportunities', href: '/careers/opportunities' },
+    sections: [
+      {
+        title: 'CAREERS',
+        quickLinks: [
+          { label: 'Overview', href: '/careers' },
+          { label: 'Opportunities', href: '/careers/opportunities' },
+        ],
+      },
     ],
+    links: [],
     image: 'company/career-bg.webp',
   },
 };
 
 function isActive(link: NavLinkItem, pathname: string) {
+  if (link.label === 'About Us' || link.label === 'Company') {
+    return (
+      pathname.startsWith('/company') ||
+      pathname.startsWith('/global-subsidiaries') ||
+      pathname.startsWith('/granules-life-sciences') ||
+      pathname.startsWith('/gls')
+    );
+  }
+  if (link.label === 'Business') {
+    return pathname.startsWith('/business') || pathname.startsWith('/generics');
+  }
+  if (link.label === 'Sustainability') {
+    return (
+      pathname.startsWith('/sustainability') &&
+      !pathname.startsWith('/sustainability/community') &&
+      !pathname.startsWith('/sustainability/csr') &&
+      !pathname.startsWith('/sustainability/corporate-social-responsibility')
+    );
+  }
   if (link.label === 'Community') {
     return (
       pathname.startsWith('/community') ||
       pathname.startsWith('/csr') ||
-      pathname.startsWith('/corporate-social-responsibility')
+      pathname.startsWith('/corporate-social-responsibility') ||
+      pathname.startsWith('/sustainability/community') ||
+      pathname.startsWith('/sustainability/csr') ||
+      pathname.startsWith('/sustainability/corporate-social-responsibility')
     );
+  }
+  if (link.label === 'Investor') {
+    return pathname.startsWith('/investor');
+  }
+  if (link.label === 'Media') {
+    return pathname.startsWith('/media');
+  }
+  if (link.label === 'Careers') {
+    return pathname.startsWith('/careers');
+  }
+  if (link.label === 'Contact Us') {
+    return pathname.startsWith('/contact');
   }
   return !!link.matchPrefix && pathname.startsWith(link.matchPrefix);
 }
@@ -145,7 +221,7 @@ export default function NavBar() {
                           <div className="cp-nav-submenu-header-box" key={section.title || idx}>
                             {section.title && <span className="cp-nav-submenu-title">{section.title}</span>}
                             <div className="cp-nav-quick-links">
-                              {section.quickLinks.map((item) =>
+                              {(section.quickLinks || []).map((item) =>
                                 item.href.startsWith('http') ? (
                                   <a
                                     href={item.href}
@@ -217,9 +293,9 @@ export default function NavBar() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="cp-nav-submenu-thumb"
-                          title="View ESG Profile"
+                          title="View Profile"
                         >
-                          <img src={asset(submenu.image)} alt="ESG Profile" loading="lazy" decoding="async" />
+                          <img src={asset(submenu.image)} alt="" loading="lazy" decoding="async" />
                         </a>
                       ) : (
                         <div className="cp-nav-submenu-thumb">

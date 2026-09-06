@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 
 const ABOUT_LINKS = [
   { label: 'Overview', href: '/company' },
-  { label: 'Leadership', href: '/company/leadership' },
   { label: 'Our Journey', href: '/company/milestone' },
-  { label: 'Global Subsidiaries', href: "" },
+  { label: 'Leadership', href: '/company/leadership' },
+  { label: 'Awards', href: '/company/awards' },
+  { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
+  { label: 'Operational Excellence', href: '/company/operational-excellence' },
 ];
 
 const SOLUTIONS_LINKS = [

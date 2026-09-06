@@ -1,91 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './media.css';
+import { MEDIA_DATA, MediaArticle } from '../data/mediaData';
 
-// Base path for media assets
-const A = '/assets/media/';
-
-interface MediaArticle {
-  category: 'NEWS' | 'PRESS RELEASE';
-  date: string;
-  title: string;
-  image?: string;
-  body: string;
-  pdf?: string;
-}
-
-const IN_THE_NEWS: MediaArticle[] = [
-  {
-    category: 'NEWS',
-    date: '11 APRIL 2025',
-    title: 'Granules India Acquires Swiss CDMO Senn Chemicals to Enter Peptide Therapeutics Space.',
-    image: '/assets/news-1.webp',
-    body: 'Granules India Limited announced the completion of its strategic acquisition of Swiss CDMO Senn Chemicals AG, significantly bolstering its peptide synthesis capabilities and expanding its global footprint across Europe.',
-    pdf: '/documents/Granules-India-Announces-Closing-of-Acquisition-of-Senn-Chemicals-Strengthening-Capabilities-in-Pept-f1bab07d1304.pdf',
-  },
-  {
-    category: 'NEWS',
-    date: '24 FEBRUARY 2025',
-    title: 'Granules India enters CDMO business by acquiring Senn Chemicals AG.',
-    image: '/assets/news-2.webp',
-    body: 'Entering the specialized CDMO market, Granules India combines its large-scale manufacturing excellence with Swiss precision to cater to high-growth peptide therapeutics and complex active pharmaceutical ingredients.',
-    pdf: '/documents/Granules-India-Announces-Closing-of-Acquisition-of-Senn-Chemicals-Strengthening-Capabilities-in-Pept-f1bab07d1304.pdf',
-  },
-  {
-    category: 'NEWS',
-    date: '16 JANUARY 2025',
-    title: 'Granules India AIG Hospitals extend breast cancer screening.',
-    image: '/assets/news-3.webp',
-    body: 'In partnership with AIG Hospitals, Granules India launched mobile mammography screening units to provide accessible early cancer detection services across underserved rural and semi-urban communities.',
-    pdf: '/documents/Granules-Breast-Health-Express-b551b46c2dba.pdf',
-  },
-];
-
-const PRESS_RELEASES: MediaArticle[] = [
-  {
-    category: 'PRESS RELEASE',
-    date: '18 MAY 2025',
-    title: 'Granules India transforms BC government boys hostel in Parawada.',
-    body: 'As part of its CSR initiatives, Granules India upgraded infrastructure, sanitation, and educational facilities at the BC Government Boys Hostel in Parawada, benefiting hundreds of students.',
-    pdf: '/documents/Granules-India-Transforms-BC-Government-Boys-Hostel-in-Parawada-ac5a57c033b8.pdf',
-  },
-  {
-    category: 'PRESS RELEASE',
-    date: '20 APRIL 2025',
-    title: 'Q4FY25 Revenue from operations at INR 11,974 Mn up 2% YoY, EBITDA at INR 2,524 Mn down 1% YoY, PAT at INR 1,520 Mn up 17% YoY.',
-    body: 'Granules India Limited announced robust financial performance for the fourth quarter ended March 31, 2025, driven by operational efficiencies and sustained demand across core formulation categories.',
-    pdf: '/documents/Press-Release-Q4-FY25-07a5cf0c6ce0.pdf',
-  },
-  {
-    category: 'PRESS RELEASE',
-    date: '04 APRIL 2025',
-    title: 'Granules India Limited extends support to 1,030 TB patients in Bhadradri Kothagudem District.',
-    body: 'Reinforcing its commitment to public health, Granules India partnered with district healthcare authorities to provide nutritional support and treatment monitoring for tuberculosis patients.',
-    pdf: '/documents/Granules-India-Limited-Extends-Support-to-1030-TB-Patients-in-Bhadradri-Kothagudem-District-Under-Pr-d6b2b98e4b27.pdf',
-  },
-  {
-    category: 'PRESS RELEASE',
-    date: '04 MAY 2025',
-    title: 'Granules India earns gold rating in first-ever corporate-level EcoVadis assessment ranks in the top 5% globally across all industries.',
-    body: 'Granules India received a Gold Medal in its inaugural corporate-level EcoVadis sustainability evaluation, positioning the company in the top 5 percentile of assessed enterprises worldwide.',
-    pdf: '/documents/Granules-India-Earns-Gold-Rating-in-First-Ever-Corporate-Level-EcoVadis-Assessment-9d64ae9af103.pdf',
-  },
-  {
-    category: 'PRESS RELEASE',
-    date: '22 MARCH 2025',
-    title: 'Granules India announces closing of acquisition of Senn Chemicals, strengthening capabilities in Peptide therapeutics and CDMO Services.',
-    body: 'The closing of the Senn Chemicals transaction enhances Granules’ end-to-end peptide offering from pre-clinical development through commercial manufacturing scale.',
-    pdf: '/documents/Granules-India-Announces-Closing-of-Acquisition-of-Senn-Chemicals-Strengthening-Capabilities-in-Pept-f1bab07d1304.pdf',
-  },
-];
-
-const MEDIA_KIT = [
-  { icon: 'icon-webasset.svg', name: 'Logos' },
-  { icon: 'icon-user.svg', name: 'Leadership' },
-  { icon: 'icon-building.svg', name: 'Offices Images' },
-  { icon: 'icon-video.svg', name: 'Videos' },
-];
+const ITEMS_PER_PAGE = 6;
 
 const SOCIALS = [
   {
@@ -100,7 +19,7 @@ const SOCIALS = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
       </svg>
     ),
     label: 'Instagram',
@@ -137,15 +56,57 @@ const SOCIALS = [
 
 export default function MediaPage() {
   const [activeTab, setActiveTab] = useState<'news' | 'press'>('news');
-  const [selectedYear, setSelectedYear] = useState('2025');
+  const [selectedYear, setSelectedYear] = useState('2026');
   const [yearDropdownOpen, setYearDropdownOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState('01');
+  const [currentPage, setCurrentPage] = useState(1);
   const [modalArticle, setModalArticle] = useState<MediaArticle | null>(null);
 
   useEffect(() => {
     document.title = 'Granules Newsroom — Granules India';
     window.scrollTo(0, 0);
   }, []);
+
+  // Available years based on active tab
+  const availableYears = useMemo(() => {
+    if (activeTab === 'news') {
+      return MEDIA_DATA.newsYears;
+    }
+    return MEDIA_DATA.pressYears;
+  }, [activeTab]);
+
+  // Ensure selectedYear is valid when tab changes
+  useEffect(() => {
+    if (!availableYears.includes(selectedYear)) {
+      setSelectedYear(availableYears[0] || '2026');
+    }
+    setCurrentPage(1);
+  }, [activeTab, availableYears, selectedYear]);
+
+  // Current list of items for selected tab and year
+  const currentItems = useMemo(() => {
+    if (activeTab === 'news') {
+      return MEDIA_DATA.news[selectedYear] || [];
+    }
+    return MEDIA_DATA.pressReleases[selectedYear] || [];
+  }, [activeTab, selectedYear]);
+
+  // Pagination calculation
+  const totalPages = Math.max(1, Math.ceil(currentItems.length / ITEMS_PER_PAGE));
+  const paginatedItems = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return currentItems.slice(start, start + ITEMS_PER_PAGE);
+  }, [currentItems, currentPage]);
+
+  const handleTabChange = (tab: 'news' | 'press') => {
+    setActiveTab(tab);
+    setYearDropdownOpen(false);
+  };
+
+  const handleYearChange = (year: string) => {
+    setSelectedYear(year);
+    setYearDropdownOpen(false);
+    setCurrentPage(1);
+  };
 
   return (
     <div className="cp">
@@ -161,7 +122,18 @@ export default function MediaPage() {
       </div>
 
       <div className="med-hero">
-        <span className="med-hero-badge">STOCK IMAGE</span>
+        <img
+          src="/assets/media/media-hero-banner.jpg"
+          alt="Granules Global Media and Communications"
+          className="med-hero-img"
+          loading="eager"
+          decoding="async"
+        />
+        <div className="med-hero-overlay" />
+        <div className="med-hero-content">
+          <span className="med-hero-tag">NEWSROOM & PRESS</span>
+          <h2 className="med-hero-heading">Press Releases & In the News</h2>
+        </div>
       </div>
 
       {/* Tab Switcher & Year Filter */}
@@ -170,7 +142,7 @@ export default function MediaPage() {
           <button
             type="button"
             className={`med-tab med-tab-left${activeTab === 'news' ? ' active' : ''}`}
-            onClick={() => setActiveTab('news')}
+            onClick={() => handleTabChange('news')}
           >
             IN THE NEWS
           </button>
@@ -178,7 +150,7 @@ export default function MediaPage() {
           <button
             type="button"
             className={`med-tab med-tab-center${activeTab === 'press' ? ' active' : ''}`}
-            onClick={() => setActiveTab('press')}
+            onClick={() => handleTabChange('press')}
           >
             PRESS RELEASE
           </button>
@@ -191,22 +163,28 @@ export default function MediaPage() {
               aria-expanded={yearDropdownOpen}
             >
               <span>{selectedYear}</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
 
             {yearDropdownOpen && (
               <div className="med-year-dropdown">
-                {['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010'].map((yr) => (
+                {availableYears.map((yr) => (
                   <button
                     key={yr}
                     type="button"
                     className={`med-year-option${selectedYear === yr ? ' active' : ''}`}
-                    onClick={() => {
-                      setSelectedYear(yr);
-                      setYearDropdownOpen(false);
-                    }}
+                    onClick={() => handleYearChange(yr)}
                   >
                     {yr}
                   </button>
@@ -224,92 +202,200 @@ export default function MediaPage() {
 
       {/* News & Press Release Content Lists */}
       {activeTab === 'news' ? (
-        <div className="med-news-list">
-          {IN_THE_NEWS.map((item) => (
-            <article className="med-news-item with-image" key={item.title}>
-              <img className="med-news-image" src={item.image} alt={item.title} loading="lazy" decoding="async" />
+        <div className="med-press-container">
+          {paginatedItems.length > 0 ? (
+            <div className="med-news-list">
+              {paginatedItems.map((item, index) => {
+                const fallbackImg =
+                  index % 3 === 0
+                    ? '/assets/news-1.webp'
+                    : index % 3 === 1
+                    ? '/assets/news-2.webp'
+                    : '/assets/news-3.webp';
 
-              <div className="med-news-body">
-                <div className="med-news-content">
-                  <div className="med-news-tags">
-                    <span className="med-news-tag">NEWS</span>
-                    <span className="med-news-tag">{item.date}</span>
-                  </div>
-                  <h3 className="med-news-title">{item.title}</h3>
-                </div>
+                return (
+                  <article className="med-news-item with-image" key={item.id || item.title}>
+                    <img
+                      className="med-news-image"
+                      src={item.image || fallbackImg}
+                      alt={item.title}
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = fallbackImg;
+                      }}
+                    />
 
+                    <div className="med-news-body">
+                      <div className="med-news-content">
+                        <div className="med-news-tags">
+                          <span className="med-news-tag">NEWS</span>
+                          <span className="med-news-tag">{item.date || item.year}</span>
+                        </div>
+                        <h3 className="med-news-title">{item.title}</h3>
+                      </div>
+
+                      <button
+                        type="button"
+                        className="med-read-more"
+                        onClick={() => setModalArticle(item)}
+                      >
+                        READ MORE
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="med-empty-state">
+              <p>No news articles found for {selectedYear}.</p>
+            </div>
+          )}
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="med-pagination">
+              <button
+                type="button"
+                className="med-page-btn nav"
+                aria-label="Previous page"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
                 <button
                   type="button"
-                  className="med-read-more"
-                  onClick={() => setModalArticle(item)}
+                  key={pageNum}
+                  className={`med-page-btn${currentPage === pageNum ? ' active' : ''}`}
+                  onClick={() => setCurrentPage(pageNum)}
                 >
-                  READ MORE
+                  {pageNum < 10 ? `0${pageNum}` : pageNum}
                 </button>
-              </div>
-            </article>
-          ))}
+              ))}
+              <button
+                type="button"
+                className="med-page-btn nav"
+                aria-label="Next page"
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         <div className="med-press-container">
-          <div className="med-news-list">
-            {PRESS_RELEASES.map((item) => (
-              <article className="med-news-item" key={item.title}>
-                <div className="med-news-body">
-                  <div className="med-news-content">
-                    <div className="med-news-tags">
-                      <span className="med-news-tag">PRESS RELEASE</span>
-                      <span className="med-news-tag">{item.date}</span>
+          {paginatedItems.length > 0 ? (
+            <div className="med-news-list">
+              {paginatedItems.map((item) => (
+                <article className="med-news-item" key={item.id || item.title}>
+                  <div className="med-news-body">
+                    <div className="med-news-content">
+                      <div className="med-news-tags">
+                        <span className="med-news-tag">PRESS RELEASE</span>
+                        <span className="med-news-tag">{item.date || item.year}</span>
+                      </div>
+                      <h3 className="med-news-title">{item.title}</h3>
                     </div>
-                    <h3 className="med-news-title">{item.title}</h3>
-                  </div>
 
-                  <button
-                    type="button"
-                    className="med-read-more"
-                    onClick={() => setModalArticle(item)}
-                  >
-                    READ MORE
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
+                    <button
+                      type="button"
+                      className="med-read-more"
+                      onClick={() => setModalArticle(item)}
+                    >
+                      READ MORE
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="med-empty-state">
+              <p>No press releases found for {selectedYear}.</p>
+            </div>
+          )}
 
           {/* Pagination Controls */}
-          <div className="med-pagination">
-            <button
-              type="button"
-              className="med-page-btn nav"
-              aria-label="Previous page"
-              onClick={() => setCurrentPage('01')}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-            {['01', '02', '....', '08'].map((pageNumber) => (
+          {totalPages > 1 && (
+            <div className="med-pagination">
               <button
                 type="button"
-                key={pageNumber}
-                className={`med-page-btn${currentPage === pageNumber ? ' active' : ''}`}
-                onClick={() => {
-                  if (pageNumber !== '....') setCurrentPage(pageNumber);
-                }}
+                className="med-page-btn nav"
+                aria-label="Previous page"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               >
-                {pageNumber}
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
               </button>
-            ))}
-            <button
-              type="button"
-              className="med-page-btn nav"
-              aria-label="Next page"
-              onClick={() => setCurrentPage('02')}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
-          </div>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                <button
+                  type="button"
+                  key={pageNum}
+                  className={`med-page-btn${currentPage === pageNum ? ' active' : ''}`}
+                  onClick={() => setCurrentPage(pageNum)}
+                >
+                  {pageNum < 10 ? `0${pageNum}` : pageNum}
+                </button>
+              ))}
+              <button
+                type="button"
+                className="med-page-btn nav"
+                aria-label="Next page"
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
       )}
 
@@ -329,16 +415,23 @@ export default function MediaPage() {
               <img
                 className="med-modal-image"
                 src={modalArticle.image}
-                alt={modalArticle.title} loading="lazy" decoding="async" />
+                alt={modalArticle.title}
+                loading="lazy"
+                decoding="async"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/assets/news-1.webp';
+                }}
+              />
             )}
             <div className="med-news-tags" style={{ marginTop: '16px' }}>
               <span className="med-news-tag">{modalArticle.category}</span>
-              <span className="med-news-tag">{modalArticle.date}</span>
+              <span className="med-news-tag">{modalArticle.date || modalArticle.year}</span>
             </div>
             <h2 className="med-modal-title">{modalArticle.title}</h2>
             <p className="med-modal-body">{modalArticle.body}</p>
-            {modalArticle.pdf && (
-              <div style={{ marginTop: '24px' }}>
+
+            <div style={{ marginTop: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              {modalArticle.pdf && (
                 <a
                   className="inv-detail-pill"
                   href={modalArticle.pdf}
@@ -349,33 +442,85 @@ export default function MediaPage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    padding: '10px 22px',
+                    padding: '12px 24px',
                     borderRadius: '24px',
-                    background: '#0061f8',
+                    background: 'linear-gradient(180deg, #0061f8 0%, #0140a2 100%)',
                     color: '#fff',
                     textDecoration: 'none',
                     fontWeight: 700,
-                    fontSize: '14px',
+                    fontSize: '13px',
+                    letterSpacing: '0.5px',
                   }}
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
                   DOWNLOAD DOCUMENT (PDF)
                 </a>
-              </div>
-            )}
+              )}
+
+              {modalArticle.url && (
+                <a
+                  className="inv-detail-pill"
+                  href={modalArticle.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 24px',
+                    borderRadius: '24px',
+                    background: 'linear-gradient(180deg, #0061f8 0%, #0140a2 100%)',
+                    color: '#fff',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '13px',
+                    letterSpacing: '0.5px',
+                  }}
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  VIEW FULL NEWS COVERAGE ↗
+                </a>
+              )}
+            </div>
           </div>
         </div>
       )}
 
-      {/* 2024 Integrated Annual Report Banner */}
+      {/* 2026 Integrated Annual Report Banner */}
       <div className="med-report-section">
         <div className="med-report-card">
           <div className="med-report-copy">
-            <h2>2026 Integrated<br />Annual Report</h2>
+            <h2>
+              2026 Integrated
+              <br />
+              Annual Report
+            </h2>
             <a
               className="med-report-btn"
               href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
@@ -392,7 +537,10 @@ export default function MediaPage() {
               <div className="med-report-screen">
                 <img
                   src="/assets/investor-report-cover.webp"
-                  alt="Expanding Horizons - 2024 Integrated Annual Report" loading="lazy" decoding="async" />
+                  alt="Expanding Horizons - 2024 Integrated Annual Report"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
@@ -403,7 +551,11 @@ export default function MediaPage() {
       <div className="med-kit">
         <h2>Media kit</h2>
         <div className="med-kit-grid">
-          <button type="button" className="med-kit-item" onClick={() => alert('Downloading Granules India Brand Logos...')}>
+          <button
+            type="button"
+            className="med-kit-item"
+            onClick={() => alert('Downloading Granules India Brand Logos...')}
+          >
             <div className="med-kit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm0 14H5V8h14v10z" />
@@ -415,7 +567,11 @@ export default function MediaPage() {
             </div>
           </button>
 
-          <button type="button" className="med-kit-item" onClick={() => alert('Downloading Leadership High-Res Photos...')}>
+          <button
+            type="button"
+            className="med-kit-item"
+            onClick={() => alert('Downloading Leadership High-Res Photos...')}
+          >
             <div className="med-kit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
@@ -427,7 +583,11 @@ export default function MediaPage() {
             </div>
           </button>
 
-          <button type="button" className="med-kit-item" onClick={() => alert('Downloading Global Facilities & Offices Images...')}>
+          <button
+            type="button"
+            className="med-kit-item"
+            onClick={() => alert('Downloading Global Facilities & Offices Images...')}
+          >
             <div className="med-kit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
@@ -443,7 +603,11 @@ export default function MediaPage() {
 
       {/* Social Follow Banner */}
       <div className="med-follow">
-        <h2>Follow us for updates<br />and company news</h2>
+        <h2>
+          Follow us for updates
+          <br />
+          and company news
+        </h2>
         <div className="med-follow-icons">
           {SOCIALS.map((social) => (
             <a

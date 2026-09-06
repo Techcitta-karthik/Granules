@@ -797,18 +797,28 @@
 .cp-quote-name { margin: 0; font: 600 24px/1.2 'Manrope', sans-serif; color: var(--blue); text-transform: capitalize; }
 .cp-quote-role { margin: 6px 0 0; font: 500 18px/1.2 'Manrope', sans-serif; color: #7d7d7d; letter-spacing: 0.72px; text-transform: uppercase; }
 .cp-cta-btn {
-  align-self: flex-start; margin-top: 16px;
-  background: linear-gradient(180deg, #0061f8, #004dc5);
-  color: var(--n1); border: none; border-radius: 60px; padding: 12px 30px;
-  font: 700 15px/24px 'Manrope', sans-serif; text-transform: uppercase; text-decoration: none;
-  letter-spacing: 0.04em;
-  display: inline-flex; align-items: center; cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
+  align-self: flex-start;
+  margin-top: 16px;
+  background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
+  color: var(--n1);
+  border: none;
+  border-radius: 9999px;
+  padding: 13px 32px;
+  font: 700 13.5px/1 'Manrope', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.28);
+  transition: transform .2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow .2s ease;
 }
 
 .cp-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 64, 162, .23);
+  background: linear-gradient(180deg, #004ecc 0%, #002db3 100%);
+  box-shadow: 0 10px 28px rgba(0, 64, 162, 0.45);
   color: #ffffff;
 }
 

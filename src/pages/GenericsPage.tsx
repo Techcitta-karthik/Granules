@@ -7,11 +7,12 @@ import './business.css';
 
 const products = [
   {
-    image: 'finished-dosage.webp',
-    title: 'Finished Dosages (FDs)',
-    eyebrow: 'FD',
-    body: 'Scale and complexity supported by multi-site supply capabilities, comprehensive oral solid dosage solutions engineered for affordability, patient safety, and global compliance.',
-    href: '/business/fd',
+    image: 'api.webp',
+    title: 'Active Pharmaceutical Ingredients (APIs)',
+    eyebrow: 'API',
+    body: 'Large-scale manufacturing capabilities, integrated operations, and deep process chemistry delivering high-volume legacy molecules and complex niche APIs across 80+ countries.',
+    href: '/business/api',
+    cta: 'Click here to know more',
   },
   {
     image: 'pfi.webp',
@@ -19,13 +20,15 @@ const products = [
     eyebrow: 'PFI',
     body: 'Custom pharmaceutical formulation intermediates optimized for efficiency and flexibility with proprietary "Drum to Hopper" direct compression blends that eliminate manufacturing complexity.',
     href: '/business/pfi',
+    cta: 'Click here to know more',
   },
   {
-    image: 'api.webp',
-    title: 'Active Pharmaceutical Ingredients (APIs)',
-    eyebrow: 'API',
-    body: 'Large-scale manufacturing capabilities, integrated operations, and deep process chemistry delivering high-volume legacy molecules and complex niche APIs across 80+ countries.',
-    href: '/business/api',
+    image: 'finished-dosage.webp',
+    title: 'Finished Dosages (FDs)',
+    eyebrow: 'FD',
+    body: 'Scale and complexity supported by multi-site supply capabilities, comprehensive oral solid dosage solutions engineered for affordability, patient safety, and global compliance.',
+    href: '/business/fd',
+    cta: 'Click here to know more',
   },
 ];
 
@@ -68,6 +71,17 @@ export default function GenericsPage() {
 
   useEffect(() => {
     document.title = 'Generics — Advancing Healthcare Through Science & Scale | Granules India';
+
+    const descriptionContent =
+      'Granules India offers a diverse and continually evolving portfolio spanning APIs, PFIs, Finished Dosages, and Peptides CDMO products with integrated excellence.';
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', descriptionContent);
+
     window.scrollTo(0, 0);
   }, []);
 
@@ -85,41 +99,35 @@ export default function GenericsPage() {
           <span className="current">GENERICS</span>
         </p>
 
-        {/* Page Title */}
-        <h1 className="cp-page-title">Generics</h1>
+        {/* Hero / Page Main Heading */}
+        <h1 className="api-page-header">
+          Advancing Healthcare through Science, Scale and Integrated Excellence
+        </h1>
 
         {/* Hero Banner */}
         <div className="cp-hero-banner">
           <img src="/assets/hero-1.webp" alt="Granules Generics Manufacturing" />
           <div className="api-hero-scrim" />
           <div className="api-hero-overlay">
-            <h2 className="api-hero-heading">
-              Advancing Healthcare through Science, Scale and Integrated Excellence
-            </h2>
             <a className="cp-cta-btn" href="#three-verticals">Explore Generic Platforms</a>
           </div>
         </div>
 
-        {/* Narrative / Intro Section */}
+        {/* Narrative / Intro Section with interactive scroll highlight */}
         <div className="biz-intro">
           <p>
-            Granules India offers a diverse and continually evolving portfolio to the global
-            pharmaceutical market, spanning Active Pharmaceutical Ingredients (APIs),
-            Pharmaceutical Formulation Intermediates (PFIs), Finished Dosages (FDs) and Peptides CDMO
-            products. Guided by science and a clear focus on advancing high-value, specialised
-            therapies, our teams are committed to delivering safe, effective and affordable
-            medicines that meet the expectations of partners and patients across geographies.
+            <span>
+              Granules India offers a diverse and continually evolving portfolio to the global pharmaceutical market, spanning Active Pharmaceutical Ingredients (APIs), Pharmaceutical Formulation Intermediates (PFIs), Finished Dosages (FDs) and Peptides CDMO products. Guided by science and a clear focus on advancing high-value, specialised therapies, our teams are committed to delivering safe, effective and affordable medicines that meet the expectations of partners and patients across geographies.
+            </span>
           </p>
           <p>
-            Our portfolio strategy encompasses our core strength of scale, while expanding into
-            complex generics, controlled substances, oncology therapies, CNS/ADHD treatments,
-            peptides and advanced drug delivery systems. Supported by a global manufacturing and
-            R&amp;D network, Granules continues to strengthen its position as a trusted partner to
-            customers worldwide.
+            <span>
+              Our portfolio strategy encompasses our core strength of scale, while expanding into complex generics, controlled substances, oncology therapies, CNS/ADHD treatments, peptides and advanced drug delivery systems. Supported by a global manufacturing and R&amp;D network, Granules continues to strengthen its position as a trusted partner to customers worldwide.
+            </span>
           </p>
         </div>
 
-        {/* Three Boxes Section (API, PFI, FD) matching Home Page Product Bar */}
+        {/* Three Boxes Section (API, PFI, FD) */}
         <section className="gen-verticals-wrap" id="three-verticals" aria-label="Core Generic Verticals">
           <div className="biz-section-head" style={{ width: '85%', margin: 'clamp(56px, 7vw, 90px) auto clamp(24px, 3vw, 40px)' }}>
             <div className="copy">
@@ -182,7 +190,7 @@ export default function GenericsPage() {
                             e.stopPropagation();
                           }}
                         >
-                          <span>Click here to know more</span>
+                          <span>{product.cta}</span>
                           <span aria-hidden="true" style={{ marginLeft: '6px' }}>&rarr;</span>
                         </Link>
                       </div>

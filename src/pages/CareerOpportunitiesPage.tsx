@@ -1,48 +1,118 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './career.css';
 
 const A = '/assets/career/';
-
 const CAREERS_EMAIL = 'careers@granulesindia.com';
 
-interface JobRole {
+interface JobOpening {
   id: number;
-  title: string;
+  designation: string;
+  department: string;
+  level: string;
   location: string;
-  experience: string;
   description: string;
 }
 
-const openRoles: JobRole[] = [
+const ALL_JOBS: JobOpening[] = [
   {
     id: 1,
-    title: 'Analyst – Regulatory Affairs',
+    designation: 'Analyst',
+    department: 'Regulatory affairs',
+    level: '3+ Year',
     location: 'Hyderabad, India',
-    experience: '3+ years',
     description:
       'Coordinate and compile regulatory dossiers for global submissions. Requires strong knowledge of international regulations and hands-on documentation experience for APIs and formulations.',
   },
   {
     id: 2,
-    title: 'Analyst – Formulation Analytical R&D',
+    designation: 'Analyst',
+    department: 'Formulation Analytical R&D',
+    level: '3+ Year',
     location: 'Hyderabad, India',
-    experience: '3+ years',
     description:
-      'Work on analytical method development and validation for formulations. Role involves handling instruments, interpreting data, and meeting regulatory standards.',
+      'Work on analytical method development and validation for formulations. Role involves handling high-throughput HPLC/GC instruments, interpreting complex data, and meeting global regulatory standards.',
+  },
+  {
+    id: 3,
+    designation: 'Senior Scientist',
+    department: 'API Process R&D',
+    level: '5+ Years',
+    location: 'Hyderabad, India',
+    description:
+      'Lead synthetic route design, process optimization, and scalable chemistry for active pharmaceutical ingredients. Ensure robust technology transfer to commercial manufacturing facilities.',
+  },
+  {
+    id: 4,
+    designation: 'Executive',
+    department: 'Quality Assurance',
+    level: '2-4 Years',
+    location: 'Gagillapur, India',
+    description:
+      'Maintain QA compliance, execute cGMP batch documentation reviews, conduct internal audits, and ensure adherence to US FDA, MHRA, and WHO regulatory quality standards.',
+  },
+  {
+    id: 5,
+    designation: 'Manager',
+    department: 'Supply Chain & Logistics',
+    level: '6+ Years',
+    location: 'Hyderabad, India',
+    description:
+      'Oversee end-to-end global supply chain operations, raw material procurement forecasting, inventory optimization, and export shipments across 80+ destination countries.',
+  },
+  {
+    id: 6,
+    designation: 'Senior Scientist',
+    department: 'Peptides & Swiss CDMO',
+    level: '5+ Years',
+    location: 'Hyderabad, India',
+    description:
+      'Specialized in solid-phase and liquid-phase peptide synthesis (SPPS/LPPS), purification chromatographic workflows, and complex therapeutic peptide characterization.',
+  },
+  {
+    id: 7,
+    designation: 'Executive',
+    department: 'Quality Control (Microbiology)',
+    level: '2-5 Years',
+    location: 'Bonthapally, India',
+    description:
+      'Conduct environmental monitoring, sterility testing, bioburden analysis, and microbial limit testing in state-of-the-art sterile and finished dosage manufacturing units.',
+  },
+  {
+    id: 8,
+    designation: 'Manager',
+    department: 'Operational Excellence (OE)',
+    level: '6+ Years',
+    location: 'Hyderabad, India',
+    description:
+      'Drive Lean Six Sigma projects, Gemba frontline continuous improvement, yield optimization, and cycle-time reduction across manufacturing operations.',
+  },
+  {
+    id: 9,
+    designation: 'Specialist',
+    department: 'Regulatory Strategy (US Market)',
+    level: '5+ Years',
+    location: 'Chantilly, Virginia (USA)',
+    description:
+      'Lead US ANDA lifecycle management, FDA briefing documentation, post-approval supplements, and commercial release compliance for North American generic drug portfolios.',
   },
 ];
 
 export default function CareerOpportunitiesPage() {
-  const [selectedJob, setSelectedJob] = useState<JobRole | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDesignation, setSelectedDesignation] = useState('ALL');
+  const [selectedDepartment, setSelectedDepartment] = useState('ALL');
+  const [selectedLevel, setSelectedLevel] = useState('ALL');
+  const [selectedLocation, setSelectedLocation] = useState('ALL');
+  const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
 
   useEffect(() => {
-    document.title = 'Current Openings at Granules | Careers in Pharma & Healthcare Innovation';
+    document.title = 'Current Openings | Granules India Careers';
 
     const descriptionContent =
-      'Explore jobs at Granules in pharma manufacturing, R&D, regulatory affairs, ESG, and more. Apply today and build a purpose-driven career.';
+      'Explore career opportunities at Granules in pharma manufacturing, R&D, regulatory affairs, quality assurance, and global supply chain.';
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
@@ -53,6 +123,79 @@ export default function CareerOpportunitiesPage() {
 
     window.scrollTo(0, 0);
   }, []);
+
+  // Unique options for each dropdown
+  const designationOptions = useMemo(() => {
+    const set = new Set(ALL_JOBS.map((j) => j.designation));
+    return ['ALL', ...Array.from(set)];
+  }, []);
+
+  const departmentOptions = useMemo(() => {
+    const set = new Set(ALL_JOBS.map((j) => j.department));
+    return ['ALL', ...Array.from(set)];
+  }, []);
+
+  const levelOptions = useMemo(() => {
+    const set = new Set(ALL_JOBS.map((j) => j.level));
+    return ['ALL', ...Array.from(set)];
+  }, []);
+
+  const locationOptions = useMemo(() => {
+    const set = new Set(ALL_JOBS.map((j) => j.location));
+    return ['ALL', ...Array.from(set)];
+  }, []);
+
+  // Filtered jobs
+  const filteredJobs = useMemo(() => {
+    return ALL_JOBS.filter((job) => {
+      const matchesSearch =
+        !searchQuery.trim() ||
+        job.designation.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+      const matchesDesignation =
+        selectedDesignation === 'ALL' || job.designation === selectedDesignation;
+
+      const matchesDepartment =
+        selectedDepartment === 'ALL' || job.department === selectedDepartment;
+
+      const matchesLevel = selectedLevel === 'ALL' || job.level === selectedLevel;
+
+      const matchesLocation =
+        selectedLocation === 'ALL' || job.location === selectedLocation;
+
+      return (
+        matchesSearch &&
+        matchesDesignation &&
+        matchesDepartment &&
+        matchesLevel &&
+        matchesLocation
+      );
+    });
+  }, [
+    searchQuery,
+    selectedDesignation,
+    selectedDepartment,
+    selectedLevel,
+    selectedLocation,
+  ]);
+
+  const hasActiveFilters =
+    searchQuery.trim() !== '' ||
+    selectedDesignation !== 'ALL' ||
+    selectedDepartment !== 'ALL' ||
+    selectedLevel !== 'ALL' ||
+    selectedLocation !== 'ALL';
+
+  const clearFilters = () => {
+    setSearchQuery('');
+    setSelectedDesignation('ALL');
+    setSelectedDepartment('ALL');
+    setSelectedLevel('ALL');
+    setSelectedLocation('ALL');
+  };
 
   return (
     <div className="cp">
@@ -73,36 +216,230 @@ export default function CareerOpportunitiesPage() {
       </div>
 
       <div className="car-opp-container">
-        <div className="car-opp-intro">
-          <h2>Careers that make an impact</h2>
-          <p className="lede">
-            Every role at Granules contributes to improving the quality of lives globally. Whether
-            you&rsquo;re launching your career or looking for your next challenge, you&rsquo;ll work
-            with a team driven by innovation, science, and purpose.
+        {/* Intro sentence matching reference design */}
+        <div className="car-opp-headline-wrap">
+          <p className="car-opp-headline-text">
+            <strong>Every role at Granules contributes to improving the quality of lives globally.</strong>{' '}
+            <span>
+              Whether you&rsquo;re launching your career or looking for your next challenge,
+              you&rsquo;ll work with a team driven by innovation, science, and purpose.
+            </span>
           </p>
         </div>
 
-        <h2 className="car-opp-section-heading">Open Roles</h2>
+        {/* 5 Filter Controls in One Row matching reference */}
+        <div className="car-filter-bar" role="search" aria-label="Filter job openings">
+          {/* Search Input */}
+          <div className="car-filter-item car-filter-search">
+            <svg
+              className="car-filter-search-icon"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="text"
+              className="car-filter-input"
+              placeholder="SEARCH"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search job openings by keyword"
+            />
+          </div>
 
-        <div className="car-opp-job-grid">
-          {openRoles.map((job) => (
-            <article className="car-opp-job-card" key={job.id}>
-              <h3 className="car-opp-job-title">{job.title}</h3>
-              <p className="car-opp-job-meta">
-                <span>{job.location}</span>
-                <span aria-hidden="true">&bull;</span>
-                <span>{job.experience}</span>
-              </p>
-              <p className="car-opp-job-desc">{job.description}</p>
-              <button type="button" className="car-opp-apply-btn" onClick={() => setSelectedJob(job)}>
-                Read More
+          {/* Designation Dropdown */}
+          <div className="car-filter-item car-filter-select-wrap">
+            <select
+              className="car-filter-select"
+              value={selectedDesignation}
+              onChange={(e) => setSelectedDesignation(e.target.value)}
+              aria-label="Filter by Designation"
+            >
+              <option value="ALL">DESIGNATION</option>
+              {designationOptions
+                .filter((d) => d !== 'ALL')
+                .map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+            </select>
+            <svg
+              className="car-filter-chevron"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+
+          {/* Department Dropdown */}
+          <div className="car-filter-item car-filter-select-wrap">
+            <select
+              className="car-filter-select"
+              value={selectedDepartment}
+              onChange={(e) => setSelectedDepartment(e.target.value)}
+              aria-label="Filter by Department"
+            >
+              <option value="ALL">DEPARTMENT</option>
+              {departmentOptions
+                .filter((d) => d !== 'ALL')
+                .map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+            </select>
+            <svg
+              className="car-filter-chevron"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+
+          {/* Level Dropdown */}
+          <div className="car-filter-item car-filter-select-wrap">
+            <select
+              className="car-filter-select"
+              value={selectedLevel}
+              onChange={(e) => setSelectedLevel(e.target.value)}
+              aria-label="Filter by Level / Experience"
+            >
+              <option value="ALL">LEVEL</option>
+              {levelOptions
+                .filter((l) => l !== 'ALL')
+                .map((l) => (
+                  <option key={l} value={l}>
+                    {l}
+                  </option>
+                ))}
+            </select>
+            <svg
+              className="car-filter-chevron"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+
+          {/* Location Dropdown */}
+          <div className="car-filter-item car-filter-select-wrap">
+            <select
+              className="car-filter-select"
+              value={selectedLocation}
+              onChange={(e) => setSelectedLocation(e.target.value)}
+              aria-label="Filter by Location"
+            >
+              <option value="ALL">LOCATION</option>
+              {locationOptions
+                .filter((loc) => loc !== 'ALL')
+                .map((loc) => (
+                  <option key={loc} value={loc}>
+                    {loc}
+                  </option>
+                ))}
+            </select>
+            <svg
+              className="car-filter-chevron"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Active Filters Reset Pill */}
+        {hasActiveFilters && (
+          <div className="car-filter-reset-wrap">
+            <span>Showing {filteredJobs.length} openings</span>
+            <button type="button" className="car-filter-reset-btn" onClick={clearFilters}>
+              Reset Filters &#10005;
+            </button>
+          </div>
+        )}
+
+        {/* Current Openings Table / List */}
+        <div className="car-openings-list" aria-label="Current Job Openings">
+          {filteredJobs.length > 0 ? (
+            filteredJobs.map((job) => (
+              <article className="car-opening-row" key={job.id}>
+                <div className="car-col-designation">
+                  <span className="car-cell-title">{job.designation}</span>
+                </div>
+                <div className="car-col-department">
+                  <span className="car-cell-text">{job.department}</span>
+                </div>
+                <div className="car-col-level">
+                  <span className="car-cell-text">{job.level}</span>
+                </div>
+                <div className="car-col-location">
+                  <span className="car-cell-text">{job.location}</span>
+                </div>
+                <div className="car-col-action">
+                  <button
+                    type="button"
+                    className="car-btn-apply-now"
+                    onClick={() => setSelectedJob(job)}
+                    aria-label={`Apply for ${job.designation} in ${job.department}`}
+                  >
+                    APPLY NOW
+                  </button>
+                </div>
+              </article>
+            ))
+          ) : (
+            <div className="car-no-jobs">
+              <p>No job openings match your selected filters.</p>
+              <button type="button" className="car-btn-apply-now" onClick={clearFilters}>
+                View All Openings
               </button>
-            </article>
-          ))}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Still exploring CTA - shared markup/CSS with CareerOverviewPage and LifeAtGranulesPage */}
+      {/* Still exploring CTA */}
       <div className="car-cta-photo">
         <img className="bg" src={`${A}cta-bg.png`} alt="" />
         <div className="overlay" />
@@ -139,7 +476,7 @@ export default function CareerOpportunitiesPage() {
         </a>
       </div>
 
-      {/* Read More detail / apply dialog, reusing the existing car-modal-* markup */}
+      {/* Interactive Application Modal */}
       {selectedJob && (
         <div className="car-modal-backdrop" onClick={() => setSelectedJob(null)}>
           <div
@@ -157,22 +494,22 @@ export default function CareerOpportunitiesPage() {
             >
               &#10005;
             </button>
-            <span className="car-modal-tag">Open Role</span>
-            <h3 id="car-modal-job-title">{selectedJob.title}</h3>
+            <span className="car-modal-tag">Open Opening</span>
+            <h3 id="car-modal-job-title">{selectedJob.designation}</h3>
             <p className="car-modal-sub">
-              {selectedJob.location} &bull; {selectedJob.experience}
+              {selectedJob.department} &bull; {selectedJob.level} &bull; {selectedJob.location}
             </p>
             <p className="car-modal-info">{selectedJob.description}</p>
             <p className="car-modal-info">
-              To apply, send your updated CV to <strong>{CAREERS_EMAIL}</strong> with the subject
-              line <em>&ldquo;Application: {selectedJob.title}&rdquo;</em>.
+              To apply for this role, email your resume to <strong>{CAREERS_EMAIL}</strong> with the
+              subject line <em>&ldquo;Application: {selectedJob.designation} &ndash; {selectedJob.department}&rdquo;</em>.
             </p>
             <div className="car-modal-actions">
               <a
-                className="car-opp-apply-btn"
-                href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(`Application: ${selectedJob.title}`)}`}
+                className="car-btn-apply-now"
+                href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(`Application: ${selectedJob.designation} - ${selectedJob.department}`)}`}
               >
-                Apply via Email
+                APPLY VIA EMAIL &rarr;
               </a>
               <button type="button" className="car-modal-cancel-btn" onClick={() => setSelectedJob(null)}>
                 Close

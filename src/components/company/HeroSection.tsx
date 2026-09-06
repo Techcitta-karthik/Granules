@@ -12,7 +12,15 @@ export default function HeroSection() {
       </p>
       <h1 className="cp-page-title">Overview</h1>
       <div className="cp-hero-panel">
-        <span className="cp-hero-badge">STOCK VIDEO</span>
+        <video
+          src="/Video/cover-video.mp4"
+          poster="/assets/oe/hero-banner.webp"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        />
         <div className="cp-scroll-indicator">
           <img src={asset('scroll-down-icon.webp')} alt="" loading="lazy" decoding="async" />
         </div>

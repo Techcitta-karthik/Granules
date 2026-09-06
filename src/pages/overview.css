@@ -948,43 +948,69 @@
 .sus-jump-card {
   background: #edf5ff;
   border: 1px solid rgba(0, 97, 248, 0.08);
-  border-radius: 22px;
-  padding: 22px 20px;
-  min-height: 104px;
+  border-radius: 20px;
+  padding: 16px 18px;
+  min-height: 84px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between;
+  text-align: left;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 86, 214, 0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
   text-decoration: none;
   outline: none;
+  gap: 12px;
 }
 
 .sus-jump-card:hover,
 .sus-jump-card:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(0, 97, 248, 0.2);
+  border-color: rgba(0, 97, 248, 0.25);
   box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
   background: #e4f0ff;
 }
 
 .sus-jump-label {
-  font: 700 clamp(14px, 1.1vw, 16.5px)/1.32 'Manrope', sans-serif;
+  font: 700 clamp(11.5px, 0.82vw, 13px)/1.32 'Manrope', sans-serif;
   color: #0061f8;
   margin: 0;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
   text-transform: uppercase;
   transition: color 0.25s ease;
+  flex: 1;
+  text-align: left;
 }
 
 .sus-jump-card:hover .sus-jump-label {
+  color: #004ecc;
+}
+
+.sus-jump-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
   color: #0061f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.12);
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.sus-jump-card:hover .sus-jump-icon {
+  background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
+  color: #ffffff;
+  transform: translateY(2px) scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 64, 162, 0.35);
 }
 
 .sus-jump-card--esg {
   padding: 16px 14px;
+  justify-content: center;
 }
 
 .sus-jump-esg-img {

@@ -11,7 +11,7 @@ const heroSlides = [
     image: 'hero-1.webp',
     title: 'Globally approved. Vertically integrated. Trusted worldwide',
     cta: 'Our Products',
-    link: '#business',
+    link: '/business/generics',
   },
   {
     image: 'hero-5.webp',
@@ -125,13 +125,13 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
   const closeTimer = useRef(null);
   const links = [
     ['About Us', '/company'],
-    ['Business', '#business'],
+    ['Business', '/business/generics'],
     ['Sustainability', '/sustainability'],
     ['Community', '/community'],
-    ['Investor', '#investor'],
-    ['Media', '#media'],
-    ['Careers', '#careers'],
-    ['Contact Us', '#footer'],
+    ['Investor', '/investor'],
+    ['Media', '/media'],
+    ['Careers', '/careers'],
+    ['Contact Us', '/contact'],
   ];
   const submenuData = {
     'About Us': {
@@ -139,28 +139,66 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         {
           title: 'Overview',
           quickLinks: [
+            ['About Us', '/company'],
             ['Our Journey', '/company/milestone'],
             ['Leadership', '/company/leadership'],
+            ['Awards', '/company/awards'],
           ],
         },
         {
           title: 'Global Subsidiaries',
           quickLinks: [
+            ['Overview', '/company/global-subsidiaries'],
             ['Granules Pharmaceuticals Inc. (GPI)', 'https://www.granulespharma.com/'],
             ['Granules Life Sciences', '/company/granules-life-sciences'],
-            ['Senn Tides', '/company/ascelis-peptides'],
+            ['Senn Tides', '/company/senn-tides'],
             ['Granules CZRO', '/company/granules-czro'],
           ],
         },
       ],
+      links: [
+        ['Operational Excellence', '/company/operational-excellence'],
+      ],
+      image: 'company/values-bg-2.webp',
+    },
+    Company: {
+      sections: [
+        {
+          title: 'Overview',
+          quickLinks: [
+            ['About Us', '/company'],
+            ['Our Journey', '/company/milestone'],
+            ['Leadership', '/company/leadership'],
+            ['Awards', '/company/awards'],
+          ],
+        },
+        {
+          title: 'Global Subsidiaries',
+          quickLinks: [
+            ['Overview', '/company/global-subsidiaries'],
+            ['Granules Pharmaceuticals Inc. (GPI)', 'https://www.granulespharma.com/'],
+            ['Granules Life Sciences', '/company/granules-life-sciences'],
+            ['Senn Tides', '/company/senn-tides'],
+            ['Granules CZRO', '/company/granules-czro'],
+          ],
+        },
+      ],
+      links: [
+        ['Operational Excellence', '/company/operational-excellence'],
+      ],
       image: 'company/values-bg-2.webp',
     },
     Business: {
-      title: 'GENERICS',
-      quickLinks: [
-        ['API', '/business/api'],
-        ['PFI', '/business/pfi'],
-        ['FINISHED DOSAGES', '/business/fd'],
+      sections: [
+        {
+          title: 'GENERICS',
+          quickLinks: [
+            ['OVERVIEW', '/business/generics'],
+            ['API', '/business/api'],
+            ['PFI', '/business/pfi'],
+            ['FINISHED DOSAGES', '/business/fd'],
+          ],
+        },
       ],
       links: [
         ['Peptides CDMO', '/business/peptides'],
@@ -171,11 +209,16 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
       image: 'company/gpi-facility.webp',
     },
     Careers: {
-      title: 'Careers',
-      links: [
-        ['Overview', '/careers'],
-        ['Opportunities', '/careers/opportunities'],
+      sections: [
+        {
+          title: 'CAREERS',
+          quickLinks: [
+            ['Overview', '/careers'],
+            ['Opportunities', '/careers/opportunities'],
+          ],
+        },
       ],
+      links: [],
       image: 'company/career-bg.webp',
     },
   };
@@ -235,7 +278,7 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
                       <div className="home-nav-submenu-header-box" key={section.title || idx}>
                         {section.title && <strong>{section.title}</strong>}
                         <div className="home-nav-quick-links">
-                          {section.quickLinks.map(([subLabel, subHref]) =>
+                          {(section.quickLinks || []).map(([subLabel, subHref]) =>
                             subHref.startsWith('http') ? (
                               <a
                                 href={subHref}
@@ -306,9 +349,9 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="home-nav-submenu-thumb"
-                      title="View ESG Profile"
+                      title="View Profile"
                     >
-                      <img src={`${A}${sub.image}`} alt="ESG Profile" loading="lazy" decoding="async" />
+                      <img src={`${A}${sub.image}`} alt="" loading="lazy" decoding="async" />
                     </a>
                   ) : (
                     <div className="home-nav-submenu-thumb">
@@ -743,15 +786,6 @@ function Sustainability() {
       cta: 'Explore Granules CZRO',
       bg: `${A}sustainability.webp`,
     },
-    {
-      title: 'Pharma Pathshala',
-      body: 'Building community resilience through access to skills, knowledge and meaningful opportunity.',
-      icon: 'icon-home-sustain.svg',
-      iconType: 'circle',
-      href: '/sustainability/esg-in-action/community',
-      cta: 'Discover Community Programs',
-      bg: `${A}sustainability-pathshala.jpg`,
-    },
   ];
   const [open, setOpen] = useState(0);
   const currentBg = (open >= 0 && items[open]?.bg) ? items[open].bg : items[0].bg;
@@ -841,7 +875,7 @@ function Investor() {
           Driven by operational excellence and responsible growth, we remain focused on creating
           sustainable value for our investors.
         </p>
-        <Button href="/investor">Learn More &rarr;</Button>
+        <Button href="/investor">ABOUT INVESTORS &rarr;</Button>
       </div>
       <div className="investor-panel">
         <a
@@ -1006,11 +1040,11 @@ function Footer() {
       <div className="footer-bottom shell">
         <div>
           <span>Copyright © 2025 Granules. All rights reserved.</span>
-          <Link to="/contact">Privacy Policy</Link>
-          <Link to="/contact">Cookies Policy</Link>
-          <Link to="/contact">Disclaimer</Link>
-          <Link to="/contact">Data Protection Notice</Link>
-          <Link to="/contact">Terms & Condition</Link>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/cookie-policy">Cookies Policy</Link>
+          <Link to="/disclaimer">Disclaimer</Link>
+          <Link to="/data-protection-notice">Data Protection Notice</Link>
+          <Link to="/terms-of-use">Terms of Use</Link>
         </div>
         <div className="socials">
           {socials.map((item) => (
@@ -1029,7 +1063,7 @@ function SearchOverlay({ open, onClose }) {
   const [query, setQuery] = useState('');
   const results = [
     ['About Granules', '/company', 'Company leadership and integrated capabilities'],
-    ['Business Verticals', '#business', 'APIs, PFIs and finished dosages'],
+    ['Business Verticals', '/business/generics', 'APIs, PFIs and finished dosages'],
     ['Global Presence', '#presence', 'Locations, subsidiaries and facilities'],
     ['Sustainability', '/sustainability', 'CZRO, Net Zero and Pharma Pathshala'],
     ['Investor Relations', '/investor', 'Stock performance and annual report'],

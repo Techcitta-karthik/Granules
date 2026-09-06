@@ -41,18 +41,18 @@ type FacilityItem = { title: string; body: string; tags?: string[] };
 
 const FACILITIES: FacilityItem[] = [
   {
-    title: 'Pilot Plant – Visakhapatnam',
-    body: 'A pilot plant in Visakhapatnam, launched in 2024, has demonstrated the commercial viability of zero-carbon API production.',
-  },
-  {
     title: 'Greenfield Facility in Kakinada',
-    body: 'A 100-acre Integrated Green Pharmaceutical Zone (GPZ) is being developed in Kakinada, Andhra Pradesh.',
+    body: 'A 100-acre Integrated Green Pharmaceutical Zone (GPZ) is under development in Kakinada, Andhra Pradesh, designed to:',
     tags: [
       'Operate on round-the-clock renewable energy',
       'Produce APIs, intermediates, and KSMs without carbon emissions',
       'Minimise reliance on external inputs and natural resources',
       'Achieve Scope 1, 2, and 3 decarbonisation targets',
     ],
+  },
+  {
+    title: 'Pilot Plant – Visakhapatnam',
+    body: 'Our model is already in motion. A pilot plant in Visakhapatnam, launched in 2024, has demonstrated the commercial viability of zero-carbon API production.',
   },
 ];
 
@@ -154,6 +154,25 @@ export default function GranulesCzroPage() {
         </p>
       </div>
 
+      {/* Facility & Progress Section Pulled Up */}
+      <div className="czro-facility">
+        <img className="bg" src={`${C}facility-kakinada-bg.png`} alt="" />
+        <div className="overlay" />
+        <div className="czro-facility-grid">
+          <div className="czro-facility-head">
+            <span className="cp-section-badge" style={{ background: '#d9f4dd', color: '#197b0c', alignSelf: 'flex-start' }}>Facility &amp; Progress</span>
+            <h3>Granules CZRO Private Limited (G-CZRO)</h3>
+            <p>
+              Granules CZRO Private Limited (G-CZRO) was established to accelerate Granules
+              India&rsquo;s sustainability transformation through green chemical production and
+              climate-conscious manufacturing.
+            </p>
+          </div>
+          <FacilityAccordion />
+        </div>
+      </div>
+
+      {/* Our Capabilities Section */}
       <div className="czro-section-head">
         <div className="copy">
           <span className="cp-section-badge">Our Capabilities</span>
@@ -228,26 +247,10 @@ export default function GranulesCzroPage() {
         </div>
       </div>
 
-      <div className="czro-facility">
-        <img className="bg" src={`${C}facility-kakinada-bg.png`} alt="" />
-        <div className="overlay" />
-        <div className="czro-facility-grid">
-          <div className="czro-facility-head">
-            <span className="cp-section-badge" style={{ background: '#d9f4dd', color: '#197b0c', alignSelf: 'flex-start' }}>Facility &amp; Progress</span>
-            <h3>Granules CZRO Private Limited</h3>
-            <p>
-              Granules CZRO Private Limited (G-CZRO) was established to accelerate Granules
-              India&rsquo;s sustainability transformation through green chemical production and
-              climate-conscious manufacturing.
-            </p>
-          </div>
-          <FacilityAccordion />
-        </div>
-      </div>
-
+      {/* Strategic Partnerships Section */}
       <div className="czro-partnership">
         <div className="czro-partnership-copy">
-          <h3>Strategic partnerships for a cleaner future</h3>
+          <h3>Strategic Partnerships for a Cleaner Future</h3>
           <p>
             In partnership with Greenko, we are building India&rsquo;s first net-zero
             pharmaceutical zone that integrates renewable energy infrastructure, green molecule
@@ -261,17 +264,18 @@ export default function GranulesCzroPage() {
         </div>
       </div>
 
+      {/* CTA Section */}
       <div className="czro-cta">
         <img className="bg" src={`${C}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="czro-cta-copy">
           <h2>Driving Impact Beyond CZRO</h2>
           <p>
-            Discover the strategy powering the transition to a net-zero, circular, and
+            Discover the strategy powering our transition to a net-zero, circular, and
             future-ready pharmaceutical ecosystem.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/sustainability/strategy">Sustainability Strategy</a>
+        <a className="cp-cta-btn" href="/sustainability/strategy">Know More</a>
       </div>
 
       <CompanyFooter />

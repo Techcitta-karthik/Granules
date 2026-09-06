@@ -18,6 +18,7 @@ function ScrollHighlightManager() {
         '.gls-intro',
         '.czro-intro',
         '.asc-intro',
+        '.senn-intro',
         '.sus-intro',
         '.rd-intro',
         '.qc-intro',
@@ -29,6 +30,7 @@ function ScrollHighlightManager() {
         '.fac-intro',
         '.cp-about-desc',
         '.scroll-intro',
+        '.global-sub-intro',
       ];
       const elements = document.querySelectorAll(selectors.join(', '));
       const threshold = window.innerHeight * 0.45;
@@ -56,11 +58,13 @@ function ScrollHighlightManager() {
 
 import HomePage from './pages/HomePage.jsx';
 import CompanyPage from './pages/CompanyPage.tsx';
+import GlobalSubsidiariesPage from './pages/GlobalSubsidiariesPage.tsx';
 import MilestonePage from './pages/MilestonePage.tsx';
 import AwardsPage from './pages/AwardsPage.tsx';
 import LeadershipPage from './pages/LeadershipPage.tsx';
 import GranulesCzroPage from './pages/GranulesCzroPage.tsx';
 import AscelisPeptidesPage from './pages/AscelisPeptidesPage.tsx';
+import SennTidesPage from './pages/SennTidesPage.tsx';
 import GranulesLifeSciencesPage from './pages/GranulesLifeSciencesPage.tsx';
 import OperationalExcellencePage from './pages/OperationalExcellencePage.tsx';
 import GenericsPage from './pages/GenericsPage.tsx';
@@ -74,9 +78,9 @@ import PeptidesPage from './pages/PeptidesPage.tsx';
 import SustainabilityOverviewPage from './pages/SustainabilityOverviewPage.tsx';
 import SustainabilityStrategyPage from './pages/SustainabilityStrategyPage.tsx';
 import EsgInActionPage from './pages/EsgInActionPage.tsx';
+import EsgProfilePage from './pages/EsgProfilePage.tsx';
 import CommunityPage from './pages/CommunityPage.tsx';
 import InvestorOverviewPage from './pages/InvestorOverviewPage.tsx';
-import InvestorOverviewV2Page from './pages/InvestorOverviewV2Page.tsx';
 import InvestorAnnualReportsPage from './pages/InvestorAnnualReportsPage.tsx';
 import MediaPage from './pages/MediaPage.tsx';
 import CareerOverviewPage from './pages/CareerOverviewPage.tsx';
@@ -97,10 +101,15 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/company" element={<CompanyPage />} />
+        <Route path="/company/global-subsidiaries" element={<GlobalSubsidiariesPage />} />
+        <Route path="/company/subsidiaries" element={<GlobalSubsidiariesPage />} />
+        <Route path="/global-subsidiaries" element={<GlobalSubsidiariesPage />} />
         <Route path="/company/milestone" element={<MilestonePage />} />
         <Route path="/company/awards" element={<AwardsPage />} />
         <Route path="/company/leadership" element={<LeadershipPage />} />
         <Route path="/company/granules-czro" element={<GranulesCzroPage />} />
+        <Route path="/company/senn-tides" element={<SennTidesPage />} />
+        <Route path="/senn-tides" element={<SennTidesPage />} />
         <Route path="/company/ascelis-peptides" element={<AscelisPeptidesPage />} />
         <Route path="/company/granules-life-sciences" element={<GranulesLifeSciencesPage />} />
         <Route path="/granules-life-sciences" element={<GranulesLifeSciencesPage />} />
@@ -119,6 +128,10 @@ function App() {
         <Route path="/sustainability" element={<SustainabilityOverviewPage />} />
         <Route path="/sustainability/strategy" element={<SustainabilityStrategyPage />} />
         <Route path="/sustainability/esg-in-action" element={<EsgInActionPage />} />
+        <Route path="/sustainability/esg-profile" element={<EsgProfilePage />} />
+        <Route path="/esg-profile" element={<EsgProfilePage />} />
+        <Route path="/sustainability/esg-world" element={<EsgProfilePage />} />
+        <Route path="/esg-world" element={<EsgProfilePage />} />
         <Route path="/sustainability/esg-in-action/community" element={<CommunityPage />} />
         <Route path="/sustainability/corporate-social-responsibility" element={<CommunityPage />} />
         <Route path="/sustainability/csr" element={<CommunityPage />} />
@@ -127,7 +140,7 @@ function App() {
         <Route path="/csr" element={<CommunityPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/investor" element={<InvestorOverviewPage />} />
-        <Route path="/investor/v2" element={<InvestorOverviewV2Page />} />
+        <Route path="/investor/v2" element={<InvestorOverviewPage />} />
         <Route path="/investor/annual-reports" element={<InvestorAnnualReportsPage />} />
         <Route path="/media" element={<MediaPage />} />
         <Route path="/careers" element={<CareerOverviewPage />} />

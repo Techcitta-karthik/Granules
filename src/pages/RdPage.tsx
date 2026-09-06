@@ -203,6 +203,22 @@ export default function RdPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlideIndex((prevSlide) => {
+        const currentSlides = CENTER_TABS_DATA[activeTabIndex]?.slides || [];
+        if (prevSlide + 1 < currentSlides.length) {
+          return prevSlide + 1;
+        } else {
+          setActiveTabIndex((prevTab) => (prevTab + 1) % CENTER_TABS_DATA.length);
+          return 0;
+        }
+      });
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [activeTabIndex]);
+
   const currentTab = CENTER_TABS_DATA[activeTabIndex] || CENTER_TABS_DATA[0];
   const slides = currentTab.slides;
   const currentSlide = slides[activeSlideIndex] || slides[0];
@@ -212,7 +228,12 @@ export default function RdPage() {
   };
 
   const handleNextSlide = () => {
-    setActiveSlideIndex((prev) => (prev < slides.length - 1 ? prev + 1 : 0));
+    if (activeSlideIndex < slides.length - 1) {
+      setActiveSlideIndex((prev) => prev + 1);
+    } else {
+      setActiveTabIndex((prevTab) => (prevTab + 1) % CENTER_TABS_DATA.length);
+      setActiveSlideIndex(0);
+    }
   };
 
   return (
@@ -320,7 +341,6 @@ export default function RdPage() {
           </div>
 
           <div className="rd-centers-slide">
-            <p className="rd-slide-index">{currentSlide.index}</p>
             <h3 className="rd-slide-title">{currentSlide.title}</h3>
 
             {currentSlide.desc && (

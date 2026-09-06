@@ -62,21 +62,12 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
     logoBadge: 'company/nav-logo.webp',
   },
   {
-    fullName: 'SENN TIDES INDIA PRIVATE LIMITED',
+    fullName: 'SENN TIDES PRIVATE LIMITED',
     shortName: 'SENN TIDES',
     description:
-      'Acquired Senn Chemicals, enabling custom peptide development and commercial manufacturing for metabolic, oncology, and specialty therapies.',
+      'Integrated CDMO platform providing custom peptide development, scale-up, and commercial manufacturing across Switzerland and India.',
     image: 'ascelis/hero-banner.webp',
-    href: '/company/ascelis-peptides',
-    logoBadge: 'company/nav-logo.webp',
-  },
-  {
-    fullName: 'GRANULES USA INC., US',
-    shortName: 'GUSA-US',
-    description:
-      'Distribution and commercial headquarters serving the North American pharmaceutical and healthcare markets.',
-    image: 'company/gpi-facility.webp',
-    href: '/company',
+    href: '/company/senn-tides',
     logoBadge: 'company/nav-logo.webp',
   },
 ];
