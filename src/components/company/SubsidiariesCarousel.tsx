@@ -4,6 +4,7 @@ import { SUBSIDIARIES } from './data';
 
 export default function SubsidiariesCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const prevIndex = (activeIndex - 1 + SUBSIDIARIES.length) % SUBSIDIARIES.length;
   const nextIndex = (activeIndex + 1) % SUBSIDIARIES.length;
@@ -20,6 +21,15 @@ export default function SubsidiariesCarousel() {
     setActiveIndex((curr) => (curr + 1) % SUBSIDIARIES.length);
   }, []);
 
+  // Auto-scroll every 3 seconds (pauses on hover)
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [isPaused, handleNext]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,7 +43,15 @@ export default function SubsidiariesCarousel() {
   const getImgUrl = (path: string) => (path.startsWith('/') ? path : `/assets/${path}`);
 
   return (
-    <section className="cp-subsidiaries" id="subsidiaries" aria-label="Global Subsidiaries">
+    <section
+      className="cp-subsidiaries"
+      id="subsidiaries"
+      aria-label="Global Subsidiaries"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
       <h2>Global Subsidiaries</h2>
 
       <div className="cp-subsidiaries-stage">
@@ -77,6 +95,11 @@ export default function SubsidiariesCarousel() {
                 loading="lazy"
                 decoding="async"
               />
+              {current.logoBadge && (
+                <div className="cp-sub-logo-badge">
+                  <img src={getImgUrl(current.logoBadge)} alt="Granules Logo" />
+                </div>
+              )}
             </Link>
           </div>
         </article>

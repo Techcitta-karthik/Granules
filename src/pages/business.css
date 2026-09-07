@@ -12,6 +12,7 @@
 }
 
 .api-page-header,
+h1.api-page-header,
 h2.api-page-header,
 h3.api-page-header,
 h2.cp-page-title,
@@ -415,6 +416,77 @@ h3.cp-page-title {
    GENERICS LANDING PAGE - 3 BOX VERTICALS & THERAPY EXPANSION
    ========================================================================== */
 
+/* Intro body — match /company .cp-about-desc exactly */
+.gen-page .cp-hero .cp-page-title {
+  font: 700 clamp(36px, 4.5vw, 64px)/1.15 'Manrope', sans-serif !important;
+  letter-spacing: -0.02em !important;
+  color: var(--blue, #0061f8) !important;
+  margin: clamp(20px, 3vw, 36px) auto clamp(20px, 3vw, 36px) !important;
+}
+
+.gen-page .cp-about-desc p,
+.gen-page .cp-about-desc .part-1,
+.gen-page .cp-about-desc .part-2 {
+  font: 500 clamp(18px, 2vw, 30px)/1.3 'Manrope', sans-serif !important;
+}
+
+.gen-page .biz-section-head p,
+.gen-page .biz-cta-copy p {
+  font: 500 clamp(18px, 2vw, 30px)/1.3 'Manrope', sans-serif !important;
+  color: var(--n7);
+  letter-spacing: 0;
+}
+
+.gen-section-head {
+  margin: clamp(56px, 7vw, 90px) auto clamp(24px, 3vw, 40px) !important;
+}
+
+.gen-section-head--therapy {
+  margin-bottom: clamp(32px, 4vw, 48px) !important;
+  align-items: center !important;
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.gen-section-head--therapy .copy {
+  max-width: 905px;
+  flex: 1 1 520px;
+  gap: 24px;
+}
+
+.gen-products-btn {
+  flex-shrink: 0;
+  align-self: center;
+  white-space: nowrap;
+  margin-top: 0;
+}
+
+.gen-section-head .copy {
+  gap: 24px;
+}
+
+.gen-section-head .cp-section-badge {
+  align-self: flex-start;
+}
+
+.gen-product-grid {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(60px, 8vw, 100px) !important;
+  margin-top: 0 !important;
+}
+
+.gen-verticals-wrap .product-sheet-title {
+  font: 700 clamp(18px, 1.4vw, 22px)/1.2 'Manrope', sans-serif;
+}
+
+.gen-verticals-wrap .product-description {
+  font: 500 15px/1.5 'Manrope', sans-serif;
+}
+
+.gen-cta {
+  margin-bottom: clamp(60px, 8vw, 110px) !important;
+}
+
 .gen-boxes-grid {
   width: 85% !important;
   max-width: 85% !important;
@@ -422,6 +494,13 @@ h3.cp-page-title {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+}
+
+/* Keep the value-chain cards clear of the heading copy. The shared
+   .biz-section-head margin is !important, so the JSX's inline bottom margin
+   cannot win the cascade. */
+.gen-verticals-wrap .biz-section-head {
+  margin-bottom: clamp(24px, 3vw, 40px) !important;
 }
 
 .gen-box-card {
@@ -485,15 +564,15 @@ h3.cp-page-title {
 }
 
 .gen-box-title {
-  font: 700 clamp(20px, 1.8vw, 24px)/1.25 'Manrope', sans-serif;
-  color: #111827;
+  font: 700 clamp(20px, 1.7vw, 26px)/1.25 'Manrope', sans-serif;
+  color: var(--n9);
   letter-spacing: -0.01em;
   margin: 0;
 }
 
 .gen-box-desc {
-  font: 400 14.5px/1.6 'Manrope', sans-serif;
-  color: #475569;
+  font: 500 clamp(14px, 1vw, 16px)/1.55 'Manrope', sans-serif;
+  color: var(--n7);
   margin: 0;
   flex-grow: 1;
 }
@@ -587,14 +666,14 @@ h3.cp-page-title {
 }
 
 .gen-therapy-title {
-  font: 700 18px/1.3 'Manrope', sans-serif;
-  color: #111827;
+  font: 700 clamp(17px, 1.4vw, 20px)/1.3 'Manrope', sans-serif;
+  color: var(--n9);
   margin: 0;
 }
 
 .gen-therapy-desc {
-  font: 400 14px/1.55 'Manrope', sans-serif;
-  color: #64748b;
+  font: 500 clamp(14px, 1vw, 16px)/1.55 'Manrope', sans-serif;
+  color: var(--n7);
   margin: 0;
 }
 
@@ -615,4 +694,11 @@ h3.cp-page-title {
   .api-hero-overlay { left: 16px; right: 16px; bottom: 16px; gap: 14px; }
   .api-hero-heading { font-size: clamp(20px, 5vw, 28px); }
   .gen-therapy-grid { grid-template-columns: 1fr; }
+  .gen-section-head--therapy {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gen-section-head--therapy .gen-products-btn {
+    align-self: flex-start;
+  }
 }

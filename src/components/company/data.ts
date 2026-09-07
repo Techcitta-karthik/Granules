@@ -41,7 +41,6 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
       "R&D and manufacturing facility producing oral solid dosage forms and drives commercialisation of products manufactured at Granules' India facility.",
     image: 'company/gpi-facility.webp',
     href: '/company/facilities',
-    logoBadge: 'company/nav-logo.webp',
   },
   {
     fullName: 'GRANULES LIFE SCIENCES PRIVATE LIMITED (GLS), INDIA',
@@ -50,6 +49,7 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
       'Hyderabad facility expanding finished dosage capacity, adding significant annual volume through advanced manufacturing excellence.',
     image: 'gls/hero-banner.webp',
     href: '/company/granules-life-sciences',
+    logoBadge: 'company/nav-logo.webp',
   },
   {
     fullName: 'GRANULES CZRO PRIVATE LIMITED (G-CZRO), INDIA',
@@ -61,12 +61,13 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
     logoBadge: 'company/nav-logo.webp',
   },
   {
-    fullName: 'SENN TIDES PRIVATE LIMITED',
+    fullName: 'SENN TIDES PRIVATE LIMITED (STPL), SWITZERLAND & INDIA',
     shortName: 'SENN TIDES',
     description:
-      'Integrated CDMO platform providing custom peptide development, scale-up, and commercial manufacturing across Switzerland and India.',
+      'Acquired Senn Chemicals, enabling custom peptide development and commercial manufacturing for metabolic, oncology, and specialty therapies',
     image: 'ascelis/hero-banner.webp',
     href: '/company/senn-tides',
+    logoBadge: 'company/nav-logo.webp',
   },
 ];
 

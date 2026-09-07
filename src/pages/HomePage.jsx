@@ -143,7 +143,8 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         { label: 'Overview', href: '/company' },
         { label: 'Our Journey', href: '/company/milestone' },
         { label: 'Leadership', href: '/company/leadership' },
-        { label: 'Global Subsidaries', href: 'https://www.granulespharma.com/' },
+        { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
+        { label: 'Granules Pharmaceuticals Inc', href: 'https://www.granulespharma.com/' },
       ],
       image: 'company/values-bg-2.webp',
     },
@@ -367,7 +368,6 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         <button className="search-button" aria-label="Search the page" onClick={onSearch}>
           <img src={`${A}search.svg`} alt="" loading="lazy" decoding="async" />
         </button>
-        <span className="global">🌍 <span>Global</span></span>
       </nav>
     </header>
   );
@@ -1319,17 +1319,6 @@ export default function HomePage() {
       <div className="cp">
         <CompanyFooter />
       </div>
-      <a
-        className={progress > 8 ? 'back-to-top visible' : 'back-to-top'}
-        href="#top"
-        onClick={(e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        aria-label="Back to top"
-      >
-        <Arrow reverse />
-      </a>
     </>
   );
 }

@@ -1,0 +1,2627 @@
+{
+  "sections": [
+    "Active Pharmaceutical Ingredients",
+    "Finished Dosages",
+    "Pharmaceutical Formulation Intermediates"
+  ],
+  "therapies": [
+    "Analgesic",
+    "Anthistamine",
+    "Anti-thrombocytopenia",
+    "Anti-ulcer",
+    "Antiarrhythmic",
+    "Antibiotic",
+    "Anticancer",
+    "Anticholinergic",
+    "Anticonvulsant",
+    "Antidepressant",
+    "Antidiabetic",
+    "Antidiarrheal",
+    "Antifibrotic",
+    "Antigout",
+    "Antihistamine",
+    "Antihypertensive",
+    "Antimicrobial",
+    "Antiretroviral",
+    "Antispasmodic",
+    "Antithrombocytopenia",
+    "Antiviral",
+    "Chelating Agent",
+    "CNS depressant",
+    "CNS stimulant",
+    "Lipolytic",
+    "Mineral supplement",
+    "Mucolytic/Expectorant",
+    "Multiple sclerosis",
+    "Muscle relaxant",
+    "NSAID/S",
+    "NSAIDS",
+    "PDE Inhibitor",
+    "Uterine stimulant"
+  ],
+  "products": [
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 1,
+      "name": "Bupropion HCI",
+      "concentration": "",
+      "therapy": "Antidepressant",
+      "grade": "USP",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "CA",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 2,
+      "name": "Cetirizine Dihydrochloride",
+      "concentration": "",
+      "therapy": "Antihistamine",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "CA",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 3,
+      "name": "Dapagliflozin",
+      "concentration": "",
+      "therapy": "Antidiabetic",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 4,
+      "name": "Dasatinib Anhydrous",
+      "concentration": "",
+      "therapy": "Anticancer",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 5,
+      "name": "Dasatinib Monohydrate",
+      "concentration": "",
+      "therapy": "Anticancer",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 6,
+      "name": "Dimethyl Fumarate",
+      "concentration": "",
+      "therapy": "Multiple sclerosis",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 7,
+      "name": "Eltrombopag Olamine",
+      "concentration": "",
+      "therapy": "Antithrombocytopenia",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 8,
+      "name": "Empagliflozin",
+      "concentration": "",
+      "therapy": "Antidiabetic",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 9,
+      "name": "Esomeprazole Magnesium Trihydrate",
+      "concentration": "",
+      "therapy": "Anti-ulcer",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 10,
+      "name": "Fexofenadine",
+      "concentration": "",
+      "therapy": "Anthistamine",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 11,
+      "name": "Gabapentin",
+      "concentration": "",
+      "therapy": "Anticonvulsant",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 12,
+      "name": "Guaifenesin",
+      "concentration": "",
+      "therapy": "Mucolytic/Expectorant",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 13,
+      "name": "Levetiracetam",
+      "concentration": "",
+      "therapy": "Anticonvulsant",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 14,
+      "name": "Levocetirizine Dihydrochloride",
+      "concentration": "",
+      "therapy": "Anthistamine",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 15,
+      "name": "Linagliptin",
+      "concentration": "",
+      "therapy": "Antidiabetic",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 16,
+      "name": "Losartan Potassium",
+      "concentration": "",
+      "therapy": "Antihypertensive",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 17,
+      "name": "Metformin HCI",
+      "concentration": "",
+      "therapy": "Antidiabetic",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "CA",
+        "KR",
+        "JP",
+        "BR",
+        "MX",
+        "CN",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 18,
+      "name": "Methocarbamol",
+      "concentration": "",
+      "therapy": "Muscle relaxant",
+      "grade": "USP",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 19,
+      "name": "Metoprolol Succinate",
+      "concentration": "",
+      "therapy": "Antihypertensive",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 20,
+      "name": "Nilotinib HCI Monohydrate",
+      "concentration": "",
+      "therapy": "Anticancer",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 21,
+      "name": "Omeprazole (Base)",
+      "concentration": "",
+      "therapy": "Anti-ulcer",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "forward"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 22,
+      "name": "Omeprazole (Magnesium)",
+      "concentration": "",
+      "therapy": "Anti-ulcer",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "forward"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 23,
+      "name": "Pantoprazole Sodium Sesquihydrate",
+      "concentration": "",
+      "therapy": "Anti-ulcer",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 24,
+      "name": "Paracetamol",
+      "concentration": "",
+      "therapy": "NSAID/S",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "CA",
+        "KR",
+        "JP",
+        "BR",
+        "MX",
+        "CN",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 25,
+      "name": "Pazopanib HCI",
+      "concentration": "",
+      "therapy": "Anticancer",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 26,
+      "name": "Pirfenidone",
+      "concentration": "",
+      "therapy": "Antifibrotic",
+      "grade": "Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 27,
+      "name": "Prazosin HCI",
+      "concentration": "",
+      "therapy": "Antihypertensive",
+      "grade": "USP",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 28,
+      "name": "Rifaximin Form alpha",
+      "concentration": "",
+      "therapy": "Antimicrobial",
+      "grade": "Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 29,
+      "name": "Rifaximin Form G",
+      "concentration": "",
+      "therapy": "Antimicrobial",
+      "grade": "Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 30,
+      "name": "Sorafenib Tosylate",
+      "concentration": "",
+      "therapy": "Anticancer",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 31,
+      "name": "Tenofovir Disoproxil Succinate",
+      "concentration": "",
+      "therapy": "Antiretroviral",
+      "grade": "H",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 32,
+      "name": "Trazodone HCI",
+      "concentration": "",
+      "therapy": "Antidepressant",
+      "grade": "USP/Ph.Eur",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "EU",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Active Pharmaceutical Ingredients",
+      "segment": "API",
+      "srNo": 33,
+      "name": "Viloxazine HCI",
+      "concentration": "",
+      "therapy": "Antidepressant",
+      "grade": "IH",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 1,
+      "name": "Ciprofloxacin",
+      "concentration": "0.65",
+      "therapy": "Antibiotic",
+      "grade": "",
+      "brand": "Compresso CIP 65",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 2,
+      "name": "Esomeprazole DR Pellets",
+      "concentration": "0.2582",
+      "therapy": "Anti-ulcer",
+      "grade": "",
+      "brand": "Esomeprazole DR Pellets",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 3,
+      "name": "Gabapentin Tablet Directly Compressible",
+      "concentration": "0.7797",
+      "therapy": "Anticonvulsant",
+      "grade": "",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 4,
+      "name": "Gemfibrozil",
+      "concentration": "0.7",
+      "therapy": "Lipolytic",
+      "grade": "",
+      "brand": "Compresso GEM 70",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 5,
+      "name": "Guaifenesin",
+      "concentration": "0.95",
+      "therapy": "Mucolytic/Expectorant",
+      "grade": "",
+      "brand": "Compresso GGF 95 SA",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 6,
+      "name": "Ibuprofen",
+      "concentration": "0.9",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso IBU 90 CP",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 7,
+      "name": "Ibuprofen",
+      "concentration": "0.85",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso IBU 85",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 8,
+      "name": "Ibuprofen",
+      "concentration": "0.66",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso IBU 66",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 9,
+      "name": "Ibuprofen",
+      "concentration": "0.66",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso IBU 66 S",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 10,
+      "name": "Ibuprofen & Pseudoephedrine HCI",
+      "concentration": "56% 8.4%",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso IBU 56 SE",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "forward"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 11,
+      "name": "Levetiracetam Tablet DC",
+      "concentration": "0.939",
+      "therapy": "Anticonvulsant",
+      "grade": "",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 12,
+      "name": "Loratadine Tablets.",
+      "concentration": "0.1",
+      "therapy": "Anthistamine",
+      "grade": "",
+      "brand": "",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 13,
+      "name": "Losartan Potassium Directly Compressible",
+      "concentration": "0.33333",
+      "therapy": "Antihypertensive",
+      "grade": "",
+      "brand": "Compresso LSP 33.333",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 14,
+      "name": "Metformin**",
+      "concentration": "0.95",
+      "therapy": "Antidiabetic",
+      "grade": "",
+      "brand": "Compresso MF 95 P",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 15,
+      "name": "Metformin**",
+      "concentration": "0.9",
+      "therapy": "Antidiabetic",
+      "grade": "",
+      "brand": "Compresso MF 90 P",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 16,
+      "name": "Methocarbamol**",
+      "concentration": "0.9",
+      "therapy": "Muscle relaxant",
+      "grade": "",
+      "brand": "Metho DC 90",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 17,
+      "name": "Metoprolol Succinate Microspheres",
+      "concentration": "0.9",
+      "therapy": "Antihypertensive",
+      "grade": "",
+      "brand": "Metoprolol Succinate Microspheres",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 18,
+      "name": "Naproxen Sodium*",
+      "concentration": "0.733",
+      "therapy": "NSAID/S",
+      "grade": "",
+      "brand": "Compresso NAP 73.3",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 19,
+      "name": "Omeprazole (Base) Pellets**",
+      "concentration": "0.1289",
+      "therapy": "Anti-ulcer",
+      "grade": "",
+      "brand": "Omeprazole 21 (Base) Pellets",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 20,
+      "name": "Omeprazole Magnesium DR Pellets**",
+      "concentration": "0.1289",
+      "therapy": "Anti-ulcer",
+      "grade": "",
+      "brand": "Omeprazole Magnesiu DR Pellets",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 21,
+      "name": "Paracetamol/ Acetaminophen & Caffeine*",
+      "concentration": "77.4% 7.7%",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Paracetamol Caffeine Combo 77.4",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 22,
+      "name": "Paracetamol/ Acetaminophen & Caffeine*",
+      "concentration": "72.4% 9.4%",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Paracetamol Caffeine Combo 77.4",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 23,
+      "name": "Paracetamol/ Acetaminophen & Chlorpheniramine Maleate",
+      "concentration": "90% 0.5%",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 90 CPM",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 24,
+      "name": "Paracetamol/ Acetaminophen & Diphenhydramine",
+      "concentration": "80% 4%",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 80 DPL",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 25,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.97",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 97 S",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 26,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.96",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 96 P",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 27,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.9",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 90 CPC",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 28,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.9",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 90 CPP",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 29,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.9",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 90 CPF",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 30,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.9",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 90 CPU",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 31,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.9",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 90 CPL",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 32,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.9",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 90 P",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 33,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.87",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 87 S",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 34,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.833",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 83.3 S",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 35,
+      "name": "Paracetamol/Acetaminophen**",
+      "concentration": "0.77",
+      "therapy": "NSAIDS",
+      "grade": "",
+      "brand": "Compresso PAP 77 P/R",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "UK",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "both"
+    },
+    {
+      "section": "Pharmaceutical Formulation Intermediates",
+      "segment": "PFI",
+      "srNo": 36,
+      "name": "Venlafaxine ER Pellets*",
+      "concentration": "0.3468",
+      "therapy": "Antidepressant",
+      "grade": "",
+      "brand": "Venlafaxine ER Pellets",
+      "manufacturingUnit": "",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 1,
+      "name": "Acetaminophen + Aspirin + Caffeine Tablet IR",
+      "concentration": "250mg+250mg+65mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 2,
+      "name": "Acetaminophen RR gel caps",
+      "concentration": "500mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC Monograph",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 3,
+      "name": "Acetaminophen Tablet ER",
+      "concentration": "650mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 4,
+      "name": "Acetaminophen Tablet IR",
+      "concentration": "1000mg",
+      "therapy": "NSAID/S",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "EU",
+        "CA",
+        "UK",
+        "ZA",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 5,
+      "name": "Acetaminophen Tablet IR",
+      "concentration": "500mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC Monograph",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "EU",
+        "CA",
+        "UK",
+        "ZA",
+        "AU",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 6,
+      "name": "Acetaminophen+ Butalbital + Caffeine Capsule IR",
+      "concentration": "300mg+50mg+40mg",
+      "therapy": "NSAID/S",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "UK",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 7,
+      "name": "Acetaminophen+ Butalbital + Caffeine Tablet IR",
+      "concentration": "325mg+50mg+40mg",
+      "therapy": "NSAID/S",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 8,
+      "name": "Acetaminophen+ Caffeine Tablet IR",
+      "concentration": "500+65mg",
+      "therapy": "NSAID/S",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "UK",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 9,
+      "name": "Acetaminophen+ Ibuprofen Tablet IR",
+      "concentration": "250+125mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 10,
+      "name": "Amphetamine Sulphate Tablet IR",
+      "concentration": "5mg, 10mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "Gx Evekeo®",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 11,
+      "name": "Bupropion HCI Tablet SR",
+      "concentration": "100mg, 150mg, 200mg",
+      "therapy": "Antidepressant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 12,
+      "name": "Bupropion HCI Tablet XL",
+      "concentration": "150mg, 300mg",
+      "therapy": "Antidepressant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 13,
+      "name": "Cetirizine Tablet IR",
+      "concentration": "10mg",
+      "therapy": "Antihistamine",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 14,
+      "name": "Colchicine Tablet IR",
+      "concentration": "0.6mg",
+      "therapy": "Antigout",
+      "grade": "Rx",
+      "brand": "Gx Colcrys®",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 15,
+      "name": "Colchicine Capsules IR",
+      "concentration": "0.6mg",
+      "therapy": "Antigout",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 16,
+      "name": "Colchicine Oral Solution",
+      "concentration": "0.6mg/5ml",
+      "therapy": "Antigout",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 17,
+      "name": "Dapagliflozin Tablet IR",
+      "concentration": "5mg, 10mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 18,
+      "name": "Dexmethylphenidate Hydrochlroride Capsule ER",
+      "concentration": "5mg, 10mg, 15mg, 20mg, 25mg, 30mg, 35mg, 40mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "Gx Focalin®",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 19,
+      "name": "Diltiazem HCI Capsule ER",
+      "concentration": "120mg, 240mg, 280mg, 300mg & 360 mg",
+      "therapy": "Antihypertensive",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 20,
+      "name": "Dofetilide Capsule IR",
+      "concentration": "125mcg, 250mcg, 500mcg",
+      "therapy": "Antiarrhythmic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 21,
+      "name": "Eltrombopag Olamine PFOS",
+      "concentration": "12.5mg, 25 mg acid/Packet",
+      "therapy": "Anti-thrombocytopenia",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 22,
+      "name": "Eltrombopag Olamine Tablet IR",
+      "concentration": "12.5mg, 25mg, 50mg, 75mg",
+      "therapy": "Anti-thrombocytopenia",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "UK",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 23,
+      "name": "Empagliflozin Tablet IR",
+      "concentration": "10mg, 25mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 24,
+      "name": "Empagliflozin+Linagliptin Tablet IR",
+      "concentration": "10+5mg, 25+5mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 25,
+      "name": "Empagliflozin+Metformin IR Tablets",
+      "concentration": "5+500mg, 12.5+500mg, 5+1000mg, 5+850mg, 12.5+850mg, 12.5+1000mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 26,
+      "name": "Empagliflozin+Metformin Tablet ER",
+      "concentration": "5mg+1gm, 10mg+1gm, 12.5mg+1gm, 25mg+1gm",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 27,
+      "name": "Esomeprazole Magnesium Capsule DR",
+      "concentration": "20mg, 40mg",
+      "therapy": "Anti-ulcer",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "EU",
+        "UK",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 28,
+      "name": "Esomeprazole Magnesium Capsule DR",
+      "concentration": "20mg",
+      "therapy": "Anti-ulcer",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 29,
+      "name": "Esomeprazole Magnesium PFOS DR",
+      "concentration": "10mg, 20mg, 40mg",
+      "therapy": "Anti-ulcer",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 30,
+      "name": "Fexofenadine HCl gel Cap IR",
+      "concentration": "180mg",
+      "therapy": "Antihistamine",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "CA",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 31,
+      "name": "Fexofenadine HCI Tablet IR",
+      "concentration": "60mg, 180mg",
+      "therapy": "Antihistamine",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 32,
+      "name": "Gabapentin Capsules IR",
+      "concentration": "100mg, 300mg, 400mg",
+      "therapy": "Anticonvulsant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 33,
+      "name": "Gabapentin Tablet IR",
+      "concentration": "600mg, 800mg",
+      "therapy": "Anticonvulsant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 34,
+      "name": "Glycopyrrolate Oral Solution",
+      "concentration": "1mg/5ml",
+      "therapy": "Anticholinergic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 35,
+      "name": "Guaifenesin and Dextromethorphan Tablet ER",
+      "concentration": "600+30mg, 1200+60mg",
+      "therapy": "Mucolytic/Expectorant",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 36,
+      "name": "Guaifenesin and Pseudoephedrine Tablet ER",
+      "concentration": "1200+120mg, 600+60mg",
+      "therapy": "Mucolytic/Expectorant",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 37,
+      "name": "Guaifenesin Tablet ER",
+      "concentration": "600mg, 1200mg",
+      "therapy": "Mucolytic/Expectorant",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 38,
+      "name": "Ibuprofen (Brown) Tablet and Caplets IR",
+      "concentration": "200mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 39,
+      "name": "Ibuprofen (Orange) Tablet and Caplets IR",
+      "concentration": "200mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 40,
+      "name": "Ibuprofen Tablet IR",
+      "concentration": "200mg, 400mg, 600mg",
+      "therapy": "NSAID/S",
+      "grade": "200/400 mg - OTC, 600 mg - Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 41,
+      "name": "Ibuprofen Tablet IR",
+      "concentration": "200mg, 400mg",
+      "therapy": "NSAID/S",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 42,
+      "name": "Ibuprofen Tablet IR",
+      "concentration": "400mg, 600mg, 800mg",
+      "therapy": "NSAID/S",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 43,
+      "name": "Levetiracetam Tablet IR",
+      "concentration": "250mg, 500mg, 750mg, 1000mg",
+      "therapy": "Anticonvulsant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 44,
+      "name": "Levocetirizine Dihydrochloride Tablet IR",
+      "concentration": "5mg",
+      "therapy": "Antihistamine",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 45,
+      "name": "Linagliptin Tablet IR",
+      "concentration": "5mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 46,
+      "name": "Linagliptin+Metformin HCI Tablet IR",
+      "concentration": "2.5+500mg, 2.5+850mg, 2.5+1000mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 47,
+      "name": "Lisdexamphetamine Dimesylate Chewable Tablet",
+      "concentration": "10mg, 20mg, 30mg, 40mg, 50mg, 60 mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 48,
+      "name": "Lisdexamphetamine Dimesylate Capsule IR",
+      "concentration": "10mg, 20mg, 30mg, 40mg, 50mg, 60mg, 70 mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 49,
+      "name": "Loperamide and Simethicone Tablet IR",
+      "concentration": "2mg+125mg",
+      "therapy": "Antidiarrheal",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 50,
+      "name": "Loratadine Tablet IR",
+      "concentration": "10mg",
+      "therapy": "Antihistamine",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 51,
+      "name": "Losartan and Hydrochlorothiazide Tablet",
+      "concentration": "100+25mg, 100+12.5mg, 50+12.5mg",
+      "therapy": "Antihypertensive",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 52,
+      "name": "Losartan Potassium Tablet IR",
+      "concentration": "25mg, 50mg, 100mg",
+      "therapy": "Antihypertensive",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 53,
+      "name": "Metformin HCL Tablet ER",
+      "concentration": "500mg, 1000mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "Gx Glumetza®",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 54,
+      "name": "Metformin Tablet IR",
+      "concentration": "500mg, 850mg, 1000mg",
+      "therapy": "Antidiabetic",
+      "grade": "Rx",
+      "brand": "Gx Glucophage®",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 55,
+      "name": "Metformin Tablet XR",
+      "concentration": "500mg, 750mg",
+      "therapy": "Anti-ulcer",
+      "grade": "Rx",
+      "brand": "Gx Glucophage XR®",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 56,
+      "name": "Methocarbamol Tablet IR",
+      "concentration": "500mg, 750mg",
+      "therapy": "Muscle relaxant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 57,
+      "name": "Methylergonovine Tablet IR",
+      "concentration": "0.2mg",
+      "therapy": "Uterine stimulant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 58,
+      "name": "Methylphenidate Hydrochloride Capsule ER",
+      "concentration": "10mg, 20mg, 30mg, 40mg, 60mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "Gx Ritalin LA®",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 59,
+      "name": "Methylphenidate Hydrochloride Tablet ER",
+      "concentration": "10mg, 20mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "Gx Methylin ER/ Ritalin SR®",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 60,
+      "name": "Metoprolol Succinate Tablet ER",
+      "concentration": "25mg, 50mg, 100mg, 200mg",
+      "therapy": "Antihypertensive",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 61,
+      "name": "Mixed Amphetamines Capsule ER",
+      "concentration": "5mg, 10mg, 15mg, 20mg, 25mg, 30mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "Gx Adderall XR®",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 62,
+      "name": "Mixed Amphetamines Tablet IR",
+      "concentration": "5mg, 7.5mg, 10mg, 12.5mg, 15mg, 20mg, 30mg",
+      "therapy": "CNS stimulant",
+      "grade": "Rx",
+      "brand": "Gx Adderall®",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 63,
+      "name": "Naproxen + Diphenhydramine Tablet IR",
+      "concentration": "220mg+25mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 64,
+      "name": "Naproxen Sodium Tablet IR",
+      "concentration": "220mg",
+      "therapy": "NSAID/S",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 65,
+      "name": "Naproxen Tablet IR",
+      "concentration": "250mg, 375mg, 500mg",
+      "therapy": "NSAID/S",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 66,
+      "name": "Omeprazole (Base) Capsule DR",
+      "concentration": "10mg, 20mg, 40mg",
+      "therapy": "Anti-ulcer",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 67,
+      "name": "Omeprazole Magnesium Capsule DR Eq",
+      "concentration": "20mg",
+      "therapy": "Anti-ulcer",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 68,
+      "name": "Omeprazole Magnesium Tablet DR Eq",
+      "concentration": "20mg",
+      "therapy": "Anti-ulcer",
+      "grade": "OTC",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 69,
+      "name": "Pantoprazole sodium Tablet DR",
+      "concentration": "20mg, 40mg",
+      "therapy": "Anti-ulcer",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 70,
+      "name": "Paracetamol ER Tablet",
+      "concentration": "665mg",
+      "therapy": "Analgesic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 71,
+      "name": "Penicillamine Capsule IR",
+      "concentration": "250mg",
+      "therapy": "Chelating Agent",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 72,
+      "name": "Pirfenidone Tablet IR",
+      "concentration": "267mg, 801mg",
+      "therapy": "Antifibrotic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 73,
+      "name": "Potassium Chloride Capsule ER",
+      "concentration": "8MEQ, 10MEQ",
+      "therapy": "Mineral supplement",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 74,
+      "name": "Potassium Chloride Oral Solution",
+      "concentration": "20MEQ/15ml, 40MEQ/15ml",
+      "therapy": "Mineral supplement",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 75,
+      "name": "Potassium Chloride PFOS",
+      "concentration": "20MEQ",
+      "therapy": "Mineral supplement",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 76,
+      "name": "Potassium Chloride Tablet ER",
+      "concentration": "8, 10MEQ",
+      "therapy": "Mineral supplement",
+      "grade": "Rx",
+      "brand": "Gx Klorcon®",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 77,
+      "name": "Potassium Chloride Tablet ER",
+      "concentration": "10MEQ, 20MEQ",
+      "therapy": "Mineral supplement",
+      "grade": "Rx",
+      "brand": "Gx K-Tab®",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 78,
+      "name": "Potassium Chloride Tablet ER",
+      "concentration": "10MEQ, 20MEQ",
+      "therapy": "Mineral supplement",
+      "grade": "Rx",
+      "brand": "Gx Kloron M®",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 79,
+      "name": "Prazosin HCI Capsule IR",
+      "concentration": "1mg, 2mg, 5mg",
+      "therapy": "Antihypertensive",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 80,
+      "name": "Ramelteon Tablet IR",
+      "concentration": "8mg",
+      "therapy": "CNS depressant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 81,
+      "name": "Sertraline HCI Tablet IR",
+      "concentration": "25mg, 50mg, 100mg",
+      "therapy": "Antidepressant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 82,
+      "name": "Sildenafil Citrate PFOS Suspension",
+      "concentration": "10mg base/ml",
+      "therapy": "PDE Inhibitor",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 83,
+      "name": "Trazodone HCI Tablet IR",
+      "concentration": "50mg, 100mg, 150mg, 300mg",
+      "therapy": "Antidepressant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 84,
+      "name": "Trospium HCI Capsule ER",
+      "concentration": "60mg",
+      "therapy": "Antispasmodic",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 85,
+      "name": "Valganciclovir PFOS",
+      "concentration": "50mg/5ml",
+      "therapy": "Antiviral",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 86,
+      "name": "Venlafaxine HCI Capsule ER",
+      "concentration": "37.5mg, 75mg, 150mg",
+      "therapy": "Antidepressant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GIL",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "backward"
+    },
+    {
+      "section": "Finished Dosages",
+      "segment": "Finished Dosage",
+      "srNo": 87,
+      "name": "Vigabatrin PFOS",
+      "concentration": "500mg/Packet",
+      "therapy": "Anticonvulsant",
+      "grade": "Rx",
+      "brand": "",
+      "manufacturingUnit": "GPI",
+      "filings": [
+        "US",
+        "GLOBAL"
+      ],
+      "integration": "none"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import SustainabilityGoalsSection from '../components/sustainability/SustainabilityGoalsSection';
+import SustainabilityKpisSection from '../components/sustainability/SustainabilityKpisSection';
+import SustainabilityCarousel, { CarouselItem } from '../components/sustainability/SustainabilityCarousel';
 import '../components/company/company.css';
 import './sustainability.css';
 import './overview.css';
@@ -8,67 +11,35 @@ import './overview.css';
 const S = '/assets/sustainability/';
 const L = '/assets/leadership/';
 
-// 1. Sustainability Goals & Targets
-const GOALS_TOP = [
-  {
-    title: 'Emissions',
-    desc: 'Achieve Net Zero by 2050. Reduce Scope 1 and Scope 2 absolute emissions by 42% by FY30 from FY23 baseline. Reduce Scope 3 absolute emissions by 42% by FY30 from FY23 baseline.',
-    theme: 'teal',
-  },
-  {
-    title: 'Responsible Sourcing',
-    desc: 'Implement a supplier sustainability framework and encourage suppliers to adopt science-based targets by FY27.',
-    theme: 'blue',
-  },
-  {
-    title: 'DEI',
-    desc: 'Achieve a 100% increase in women’s employment by 2030 compared to FY24.',
-    theme: 'teal',
-  },
+// Carousels Data (Images 3 & 4 - 5s auto-scroll)
+const COMMITMENTS_CAROUSEL_ITEMS: CarouselItem[] = [
+  { img: `${S}commitments-logo-image-013.webp`, alt: 'PSCI Supplier Partner' },
+  { img: `${S}commitments-logo-image-012.webp`, alt: 'Science Based Targets' },
+  { img: `${S}commitments-logo-image-019.webp`, alt: "In support of Women's Empowerment Principles" },
+  { img: `${S}commitments-logo-image-018.webp`, alt: 'WE SUPPORT UN GLOBAL COMPACT' },
+  { img: `${S}commitments-logo-image-0167.webp`, alt: 'National Safety Council MEMBER' },
+  { img: `${S}commitments-logo-image-015.webp`, alt: 'British Safety Council Member' },
+  { img: `${S}commitments-logo-image-014.webp`, alt: 'SMETA Sedex Members Ethical Trade Audit' },
 ];
 
-const GOALS_BOTTOM = [
-  {
-    title: 'Community',
-    desc: 'Touch 1 Million+ lives through CSR programs by 2030.',
-    icon: 'community',
-  },
-  {
-    title: 'Safety',
-    desc: 'Targeting zero workplace fatality across all operations.',
-    icon: 'safety',
-  },
-  {
-    title: 'Water',
-    desc: 'Achieve Water Positivity across manufacturing by 2032.',
-    icon: 'water',
-  },
-  {
-    title: 'Waste',
-    desc: 'Achieve Zero Waste to Landfill by 2030 across facilities.',
-    icon: 'waste',
-  },
-  {
-    title: 'Energy',
-    desc: 'Sourcing 100% renewable electricity by 2030.',
-    icon: 'energy',
-  },
+const RATINGS_CAROUSEL_ITEMS: CarouselItem[] = [
+  { img: `${S}Ratings-certifications-logo-image-0113.webp`, alt: 'MSCI ESG RATINGS BB' },
+  { img: `${S}Ratings-certifications-logo-image-03.webp`, alt: 'EcoVadis GOLD Top 5%' },
+  { img: `${S}Ratings-certifications-logo-image-04.webp`, alt: 'S&P Global CSA Score 2025 62/100' },
+  { img: `${S}Ratings-certifications-logo-image-07.webp`, alt: 'Great Place To Work Certified' },
+  { img: `${S}Ratings-certifications-logo-image-06.webp`, alt: 'Sedex SUPPLIER PLUS' },
+  { img: `${S}Ratings-certifications-logo-image-09.webp`, alt: 'Bureau Veritas ZERO WASTE TO LANDFILL' },
+  { img: `${S}Ratings-certifications-logo-image-08.webp`, alt: 'CII-TRIVENI WATER INSTITUTE Aspiring Water Positive Plant' },
+  { img: `${S}Ratings-certifications-logo-image-0112.webp`, alt: 'CDP Discloser 2025' },
+  { img: `${S}Ratings-certifications-logo-image-0114.webp`, alt: 'CDP Supplier Engagement Leader A 2025' },
 ];
 
-// 2. Key Performance Indicators - Progressing With Purpose
-const KPIS = [
-  { value: '45.7%', label: 'Absolute reduction in GHG emissions (Scope 1 and 2)' },
-  { value: '98%', label: 'Of electricity consumption from renewable sources (PPA, rooftop solar, I-RECs)' },
-  { value: '~39%', label: 'Of our wastewater is recycled & reused in cooling / utilities' },
-  { value: '93%', label: 'Waste diverted from landfill across manufacturing units' },
-  { value: '82%', label: 'Vendors engaged for carbon footprint and climate commitment' },
-  { value: '6,523+', label: 'Total global workforce committed to quality and sustainability' },
-  { value: '14.1%', label: 'Female workforce across technical and operational roles' },
-  { value: '21.5%', label: 'Increase in female employees compared to previous year' },
-  { value: '100%', label: 'Return-to-work rate achieved following parental leave' },
-  { value: '1,600+', label: 'Students and youth trained through Pharma Pathshala program' },
-  { value: '0%', label: 'Confirmed cases of discrimination across all corporate facilities' },
-  { value: '27%', label: 'Women representation on the Board of Directors' },
+const PARTNERS_CAROUSEL_ITEMS: CarouselItem[] = [
+  { img: `${S}Partner-collaboration-platforms-logo-image-03.webp`, alt: 'sphera' },
+  { img: `${S}Partner-collaboration-platforms-logo-image-02.webp`, alt: 'Secaro' },
+  { img: `${S}Partner-collaboration-platforms-logo-image-05.webp`, alt: 'inspectorio' },
+  { img: `${S}Partner-collaboration-platforms-logo-image-01.webp`, alt: 'ProjectGigaton' },
+  { img: `${S}Partner-collaboration-platforms-logo-image-04.webp`, alt: 'Oren' },
 ];
 
 // 3. Sustainability Policies (12 item grid)
@@ -704,98 +675,42 @@ export default function SustainabilityOverviewPage() {
         </div>
       </section>
 
-      {/* Section: Sustainability Goals and Targets */}
-      <section className="sus-goals-section">
-        <div className="sus-section-header-center">
-          <h2>Sustainability Goals And Targets</h2>
-          <p>
-            Concrete science-based commitments across decarbonization, responsible supply chain,
-            resource conservation, and societal advancement.
-          </p>
-        </div>
+      {/* Section 1: Sustainability Goals and Targets (Image 1) */}
+      <SustainabilityGoalsSection />
 
-        {/* Top 3 Pillars */}
-        <div className="sus-goals-top-grid">
-          {GOALS_TOP.map((goal) => (
-            <div
-              key={goal.title}
-              className={`sus-goal-card${goal.theme === 'blue' ? ' sus-goal-card--blue' : ''}`}
-            >
-              <div className="sus-goal-icon-wrap">
-                <svg className="sus-goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 14 14" />
-                </svg>
-              </div>
-              <h3 className="sus-goal-title">{goal.title}</h3>
-              <p className="sus-goal-desc">{goal.desc}</p>
-            </div>
-          ))}
-        </div>
+      {/* Section 2: Key Performance Indicators - Progressing With Purpose (Image 2) */}
+      <SustainabilityKpisSection />
 
-        {/* Bottom 5 Targets */}
-        <div className="sus-goals-bottom-grid">
-          {GOALS_BOTTOM.map((goal) => (
-            <div key={goal.title} className="sus-goal-card">
-              <div className="sus-goal-icon-wrap">
-                <svg className="sus-goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
-              </div>
-              <h3 className="sus-goal-title">{goal.title}</h3>
-              <p className="sus-goal-desc">{goal.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Section 3: Commitments Carousel (Image 3) */}
+      <SustainabilityCarousel
+        title="Commitments"
+        items={COMMITMENTS_CAROUSEL_ITEMS}
+        visibleDesktop={4}
+        visibleTablet={3}
+        visibleMobile={2}
+        autoPlayInterval={5000}
+      />
 
-      {/* Section: Key Performance Indicators - Progressing With Purpose */}
-      <section className="sus-kpi-section">
-        <div className="sus-section-header-center">
-          <span style={{ font: "700 13px/1 'Manrope', sans-serif", color: '#0061f8', textTransform: 'uppercase', letterSpacing: '1px' }}>
-            Key Performance Indicators
-          </span>
-          <h2>Progressing With Purpose</h2>
-          <p>
-            Demonstrating tangible milestones in renewable power adoption, waste circularity,
-            workforce inclusivity, and community development.
-          </p>
-        </div>
+      {/* Section 4: Ratings & Certifications Carousel (Images 3 & 4) */}
+      <SustainabilityCarousel
+        title="Ratings & Certifications"
+        items={RATINGS_CAROUSEL_ITEMS}
+        visibleDesktop={6}
+        visibleTablet={4}
+        visibleMobile={2}
+        autoPlayInterval={5000}
+      />
 
-        <div className="sus-kpi-grid">
-          {KPIS.map((kpi, idx) => (
-            <div key={idx} className="sus-kpi-badge">
-              <p className="sus-kpi-value">{kpi.value}</p>
-              <p className="sus-kpi-label">{kpi.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Section 5: Partner Collaboration Platforms Carousel (Image 4) */}
+      <SustainabilityCarousel
+        title="Partner Collaboration Platforms"
+        items={PARTNERS_CAROUSEL_ITEMS}
+        visibleDesktop={4}
+        visibleTablet={3}
+        visibleMobile={2}
+        autoPlayInterval={5000}
+      />
 
-      {/* Section: Partner Collaboration Platforms */}
-      <section className="sus-partners-strip">
-        <p className="sus-partners-title">Partner Collaboration Platforms</p>
-        <div className="sus-platforms-row">
-          <div className="sus-platform-item">
-            <span className="sus-platform-dot" />
-            <span>Oren</span>
-          </div>
-          <div className="sus-platform-item">
-            <span className="sus-platform-dot" />
-            <span>sphera</span>
-          </div>
-          <div className="sus-platform-item">
-            <span className="sus-platform-dot" />
-            <span>Secaro</span>
-          </div>
-          <div className="sus-platform-item">
-            <span className="sus-platform-dot" />
-            <span>inspectorio</span>
-          </div>
-        </div>
-      </section>
 
       {/* Section 1 Anchor: Sustainability Policies */}
       <section id="sec-policies" className="sus-doc-section">

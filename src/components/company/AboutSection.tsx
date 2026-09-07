@@ -49,7 +49,6 @@ export default function AboutSection() {
         </p>
       </div>
       <div className="cp-divider" />
-      <h2 className="cp-drives-us">What Drives Us</h2>
     </>
   );
 }

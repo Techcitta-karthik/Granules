@@ -314,27 +314,6 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   display: block;
 }
 
-.cp-nav-global {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font: 600 17px/1.2 'Manrope', sans-serif;
-  color: #1e293b;
-}
-
-.cp-nav-globe {
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-
-.cp-nav-globe img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .cp-nav-toggle {
   display: none;
   flex-direction: column;
@@ -378,20 +357,6 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-nav-drawer-link.active {
   color: var(--blue-2);
   background: var(--bg-blue);
-}
-
-.cp-nav-drawer-global {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 8px;
-  font: 600 18px/1.3 'Manrope', sans-serif;
-  color: var(--n9);
-}
-
-.cp-nav-drawer-global img {
-  width: 22px;
-  height: 22px;
 }
 
 /* ---------- Hero ---------- */
@@ -562,8 +527,8 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 
 .cp-drives-us {
   text-align: center;
-  font: 500 clamp(30px, 4.5vw, 50px)/1.1 'Manrope', sans-serif;
-  margin: clamp(50px, 6vw, 88px) auto 0 !important;
+  font: 500 clamp(30px, 4.2vw, 48px)/1.15 'Manrope', sans-serif;
+  margin: clamp(48px, 6vw, 80px) auto clamp(24px, 3.5vw, 44px) !important;
   width: 85% !important;
   max-width: 85% !important;
   color: var(--n9);
@@ -573,16 +538,16 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-purpose-vision-wrap {
   position: relative;
   width: 100%;
-  padding-bottom: clamp(50px, 7vw, 100px);
+  padding-bottom: clamp(45px, 6vw, 85px);
 }
 
 .cp-pin-panel {
   width: 85% !important;
   max-width: 85% !important;
   margin-inline: auto !important;
-  aspect-ratio: 1280 / 420;
-  max-height: 420px;
-  min-height: 280px;
+  aspect-ratio: 1280 / 340;
+  max-height: 340px;
+  min-height: 230px;
   border-radius: 9999px;
   position: relative;
   overflow: hidden;
@@ -610,17 +575,17 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 /* Purpose panel (underneath layer) - pins in place */
 .cp-pin-panel--purpose {
   position: sticky;
-  top: clamp(80px, 11vh, 120px);
+  top: clamp(75px, 10vh, 105px);
   z-index: 1;
-  margin-top: clamp(30px, 4vw, 50px);
+  margin-top: clamp(24px, 3vw, 40px);
 }
 
 /* Vision panel (top layer) - scrolls up and glides directly over Purpose */
 .cp-pin-panel--vision {
   position: sticky;
-  top: clamp(80px, 11vh, 120px);
+  top: clamp(75px, 10vh, 105px);
   z-index: 2;
-  margin-top: clamp(30px, 6vh, 70px);
+  margin-top: clamp(28px, 5vh, 60px);
   box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.18), 0 20px 55px rgba(0, 0, 0, 0.22);
 }
 
@@ -630,16 +595,16 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-  padding: 24px 32px;
-  max-width: 680px;
+  gap: 16px;
+  padding: 20px 32px;
+  max-width: 660px;
 }
 
 .cp-pin-badge {
   border: 1px solid var(--n1);
   border-radius: 9999px;
-  padding: 6px 24px;
-  font: 500 clamp(12px, 1.1vw, 15px)/1.2 'Manrope', sans-serif;
+  padding: 6px 22px;
+  font: 600 clamp(12px, 1vw, 14px)/1.2 'Manrope', sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--n1);
@@ -651,10 +616,10 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 
 .cp-pin-content h3 {
-  font: 500 clamp(16px, 1.7vw, 25px)/1.35 'Manrope', sans-serif;
+  font: 500 clamp(17px, 1.55vw, 23px)/1.32 'Manrope', sans-serif;
   color: var(--n1);
   margin: 0;
-  max-width: 620px;
+  max-width: 600px;
 }
 
 .cp-pin-panel--vision .cp-pin-content h3 {
@@ -664,12 +629,12 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 /* ---------- Values / Core Principles ---------- */
 .cp-values-section {
   position: relative;
-  margin-top: clamp(40px, 6vw, 80px);
-  padding: clamp(48px, 6vh, 80px) clamp(20px, 4vw, 60px);
+  margin-top: clamp(30px, 4vw, 60px);
+  padding: clamp(44px, 5.5vh, 70px) clamp(20px, 4vw, 60px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(24px, 3vh, 36px);
+  gap: clamp(20px, 2.5vh, 28px);
 }
 .cp-values-section img.cp-bg {
   position: absolute;
@@ -708,12 +673,13 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 .cp-value-card {
   position: relative;
-  height: clamp(220px, 23vh, 260px);
+  height: clamp(240px, 26vh, 280px);
+  min-height: clamp(240px, 26vh, 280px);
   background: rgba(255, 255, 255, 0.72);
   border: 2px solid var(--n1);
   border-radius: 24px;
   backdrop-filter: blur(8px);
-  padding: 24px 26px;
+  padding: 22px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -725,13 +691,21 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 .cp-value-card:hover,
 .cp-value-card:focus-visible {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.95);
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(0, 47, 255, 0.14);
 }
+
+.cp-value-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
 .cp-value-icon {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0065f8, #0099ff);
   display: flex;
@@ -739,46 +713,95 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0, 101, 248, 0.24);
+  transition: transform 0.3s ease;
+}
+.cp-value-card:hover .cp-value-icon,
+.cp-value-card:focus-visible .cp-value-icon {
+  transform: scale(1.02);
 }
 .cp-value-icon img {
   width: 22px;
   height: 22px;
   object-fit: contain;
 }
+
+/* Top title: hidden by default, smoothly appears beside the icon on hover */
+.cp-value-title-top {
+  margin: 0;
+  font: 600 clamp(16px, 1.2vw, 19px)/1.25 'Manrope', sans-serif;
+  color: var(--blue-2);
+  opacity: 0;
+  transform: translateX(-10px);
+  max-width: 0;
+  overflow: hidden;
+  white-space: normal;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              max-width 0.35s ease;
+}
+
+.cp-value-card:hover .cp-value-title-top,
+.cp-value-card:focus-visible .cp-value-title-top {
+  opacity: 1;
+  transform: translateX(0);
+  max-width: calc(100% - 62px);
+  pointer-events: auto;
+}
+
 .cp-value-body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-top: auto;
+  width: 100%;
 }
-.cp-value-card h4 {
+
+/* Bottom title: visible by default, collapses smoothly on hover */
+.cp-value-title-bottom {
   margin: 0;
   font: 600 clamp(19px, 1.55vw, 24px)/1.22 'Manrope', sans-serif;
   color: var(--blue-2);
-  transition: margin-bottom 0.3s ease;
+  opacity: 1;
+  max-height: 80px;
+  transform: translateY(0);
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              max-height 0.35s ease,
+              margin 0.3s ease;
 }
-.cp-value-card p {
+
+.cp-value-card:hover .cp-value-title-bottom,
+.cp-value-card:focus-visible .cp-value-title-bottom {
+  opacity: 0;
+  max-height: 0;
   margin: 0;
-  font: 400 clamp(11.5px, 0.82vw, 13px)/1.42 'Manrope', sans-serif;
-  color: #505c6d;
+  transform: translateY(-8px);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Body description: hidden by default, expands in larger size on hover */
+.cp-value-desc {
+  margin: 0;
+  font: 500 clamp(12.5px, 0.88vw, 14.5px)/1.46 'Manrope', sans-serif;
+  color: #1a2538;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transform: translateY(12px);
-  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), max-height 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.35s ease;
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              max-height 0.4s ease,
+              transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
 }
 
-/* On hover / focus: reveal the description data */
-.cp-value-card:hover h4,
-.cp-value-card:focus-visible h4 {
-  margin-bottom: 8px;
-}
-.cp-value-card:hover p,
-.cp-value-card:focus-visible p {
+.cp-value-card:hover .cp-value-desc,
+.cp-value-card:focus-visible .cp-value-desc {
   opacity: 1;
-  max-height: 160px;
+  max-height: 220px;
   transform: translateY(0);
-  margin-top: 4px;
+  pointer-events: auto;
 }
 
 /* ---------- Leadership speaks ---------- */
@@ -875,16 +898,20 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-sub-featured-card {
   flex: 0 1 960px;
   width: min(960px, 100%);
+  height: clamp(390px, 40vh, 430px);
+  min-height: clamp(390px, 40vh, 430px);
+  max-height: clamp(390px, 40vh, 430px);
   background: var(--n1);
   border-radius: 32px;
   padding: clamp(24px, 3.5vw, 44px);
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: clamp(24px, 3vw, 44px);
-  align-items: center;
+  align-items: stretch;
   box-shadow: 0 14px 40px rgba(0, 47, 255, 0.07), 0 2px 10px rgba(0, 0, 0, 0.03);
   animation: cp-sub-fade-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 @keyframes cp-sub-fade-in {
@@ -901,17 +928,20 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-sub-featured-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: clamp(14px, 1.8vw, 22px);
   height: 100%;
-  min-height: 240px;
 }
 
 .cp-sub-featured-info h3 {
   margin: 0;
-  font: 700 clamp(20px, 1.8vw, 28px)/1.25 'Manrope', sans-serif;
+  font: 700 clamp(20px, 1.7vw, 26px)/1.25 'Manrope', sans-serif;
   text-transform: uppercase;
   color: var(--blue);
   letter-spacing: -0.01em;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
 }
 
 .cp-sub-featured-info h3 a {
@@ -925,9 +955,10 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 
 .cp-sub-featured-info p {
-  margin: 24px 0 0;
-  font: 400 clamp(14px, 1vw, 16px)/1.6 'Manrope', sans-serif;
+  margin: 0;
+  font: 400 clamp(13.5px, 0.95vw, 15.5px)/1.6 'Manrope', sans-serif;
   color: #64748b;
+  line-height: 1.6;
 }
 
 /* Featured Image */
@@ -935,7 +966,11 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 22px;
 }
 
 .cp-sub-img-link {
@@ -945,7 +980,6 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   height: 100%;
   border-radius: 22px;
   overflow: hidden;
-  aspect-ratio: 16 / 11;
   background: #edf4fa;
 }
 
@@ -953,6 +987,7 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -966,25 +1001,31 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   right: 14px;
   bottom: 14px;
   background: rgba(255, 255, 255, 0.96);
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: 9999px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(4px);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .cp-sub-logo-badge img {
-  height: 20px;
+  height: 18px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 /* Preview Cards (Left and Right) */
 .cp-sub-preview-card {
   flex: 0 0 clamp(180px, 18vw, 280px);
+  width: clamp(180px, 18vw, 280px);
   height: clamp(160px, 18vh, 220px);
+  min-height: clamp(160px, 18vh, 220px);
+  max-height: clamp(160px, 18vh, 220px);
   background: var(--n1);
   border: none;
   border-radius: 24px;
@@ -1081,29 +1122,12 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   margin-top: clamp(50px, 6vw, 80px);
   padding: clamp(38px, 4vw, 54px) 0 20px;
   position: relative;
-  color: #ffffff;
   overflow: hidden;
   width: 100%;
-  background: linear-gradient(90deg, #009d9a 0%, #007bf2 25%, #0062f5 60%, #0050e6 100%);
-}
-
-.cp-footer-bg-wrap {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.cp-footer img.cp-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+  background:
+    radial-gradient(ellipse at 0% 100%, #009d9a 0%, rgba(0, 157, 154, 0) 62%),
+    linear-gradient(165deg, #007dab 0%, #0061e8 42%, #0046e2 100%);
+  color: #ffffff;
 }
 
 .cp-footer-inner {
@@ -1155,7 +1179,7 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-footer-brand p {
   margin: 0;
   font: 400 14px/1.6 'Manrope', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
   letter-spacing: 0;
 }
 
@@ -1226,16 +1250,16 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   gap: clamp(16px, 2.5vw, 32px);
   font: 500 12.5px/1.5 'Manrope', sans-serif;
   letter-spacing: 0.2px;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   margin: 0;
 }
 
 .cp-footer-legal .cp-legal-copy {
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
 }
 
 .cp-footer-legal a {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.2s ease;
 }

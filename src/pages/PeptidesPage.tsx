@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
 import './business.css';
 import './senn-tides.css';
@@ -147,6 +149,18 @@ const FOOTPRINT_ITEMS = [
 
 export default function PeptidesPage() {
   const [openCard, setOpenCard] = useState<number>(-1);
+  const {
+    swipeProps,
+    isDragging,
+    scrollProgress,
+    canScrollLeft,
+    canScrollRight,
+    thumbWidth,
+    scroll,
+  } = useSwipeScroll();
+
+  const introRef = useRef<HTMLDivElement>(null);
+  const [isIntroScrolled, setIsIntroScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     document.title = 'Peptides | Senn Tides CDMO Platform | Granules India';
@@ -176,109 +190,176 @@ export default function PeptidesPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!introRef.current) return;
+      const rect = introRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const triggerPoint = viewportHeight * 0.45;
+      setIsIntroScrolled(rect.top < triggerPoint);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="cp">
       <NavBar />
 
-      {/* Breadcrumb Navigation */}
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
-        <span className="sep">›</span>
-        <a href="/business/generics">BUSINESS</a>
-        <span className="sep">›</span>
-        <span className="current">PEPTIDES</span>
-      </p>
+      {/* Hero Section matching CompanyPage / Overview / Generics standard */}
+      <section className="cp-hero">
+        <p className="cp-breadcrumb">
+          <Link to="/">HOME</Link>
+          <span className="sep">›</span>
+          <Link to="/business">BUSINESS</Link>
+          <span className="sep">›</span>
+          <span className="current">PEPTIDES</span>
+        </p>
 
-      {/* Page Title & Tagline */}
-      <h1 className="cp-page-title" style={{ textTransform: 'uppercase' }}>PEPTIDES</h1>
-      <h2 className="api-page-header">Custom peptide development and manufacturing, from feasibility to commercial supply</h2>
+        <h1 className="cp-page-title">Peptides</h1>
 
-      {/* Hero Visual Banner */}
-      <div className="senn-hero-wrap">
-        <div className="cp-hero-banner">
-          <img
-            src="/assets/peptides/hero-banner.webp"
-            alt="Custom peptide development and manufacturing, from feasibility to commercial supply"
-            loading="eager"
-            decoding="async"
+        <div className="cp-hero-panel">
+          <video
+            className="senn-hero-video"
+            src="/assets/peptides/hero-banner.mp4"
+            poster="/assets/peptides/hero-banner-poster.webp"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            aria-label="Custom peptide development and manufacturing, from feasibility to commercial supply"
           />
-          <div className="senn-hero-scrim" />
-          <div className="senn-hero-overlay">
-            <span className="senn-hero-badge">Senn Tides CDMO</span>
-            <h2 className="senn-hero-heading">
-              Custom peptide development and manufacturing, from feasibility to commercial supply
-            </h2>
+          <div className="cp-hero-badge">Senn Tides CDMO</div>
+          <div className="cp-scroll-indicator">
+            <img src="/assets/oe/scroll-down-icon.webp" alt="" loading="lazy" decoding="async" />
           </div>
         </div>
+      </section>
+
+      {/* About Description with Scroll Highlight - matching About Us / Overview */}
+      <div
+        ref={introRef}
+        className={`cp-about-desc${isIntroScrolled ? ' is-scrolled' : ''}`}
+      >
+        <p>
+          <span className="part-1">
+            Senn Tides is Granules India&rsquo;s dedicated peptide CDMO platform, with an established foundation in Swiss peptide chemistry and complementary large-scale manufacturing infrastructure in India.
+          </span>{' '}
+          <span className="part-2">
+            Operating across Zurich, Switzerland, and Hyderabad, India, we support global innovators and pharmaceutical developers from early route scouting and process development through scale-up, validation, and commercial supply.
+          </span>
+        </p>
+        <p className="part-2">
+          Combining over 60 years of Swiss peptide synthesis heritage with multi-ton industrial scale, continuous flow technology, and green chemistry, Senn Tides provides an integrated, one-partner lifecycle for complex peptide therapeutics, fragments, amino acid derivatives, and advanced modalities.
+        </p>
       </div>
 
       {/* Highlight Statistics */}
       <div className="peptides-stats-grid">
         <div className="peptides-stat-card">
-          <span className="peptides-stat-val">60+ YEARS</span>
-          <span className="peptides-stat-label">of peptide synthesis</span>
+          <span className="peptides-stat-val">60+</span>
+          <span className="peptides-stat-label">Years of Peptide Synthesis</span>
         </div>
         <div className="peptides-stat-card">
           <span className="peptides-stat-val">2,500 L</span>
-          <span className="peptides-stat-label">maximum reactor capacity</span>
+          <span className="peptides-stat-label">Maximum Reactor Capacity</span>
+        </div>
+        <div className="peptides-stat-card">
+          <span className="peptides-stat-val">190+</span>
+          <span className="peptides-stat-label">Catalogue Amino Acid Derivatives</span>
+        </div>
+        <div className="peptides-stat-card">
+          <span className="peptides-stat-val">2 Continents</span>
+          <span className="peptides-stat-label">Integrated Swiss &amp; India Network</span>
         </div>
       </div>
 
-      {/* Senn Tides: an integrated CDMO platform */}
-      <section className="senn-intro" aria-label="Senn Tides: an integrated CDMO platform">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <h2 style={{ margin: 0, font: "700 clamp(26px, 3.5vw, 40px)/1.2 'Manrope', sans-serif", color: '#0f172a' }}>
-            Senn Tides: an integrated CDMO platform
-          </h2>
-          <p style={{ margin: 0, font: "600 clamp(19px, 2.2vw, 26px)/1.35 'Manrope', sans-serif", color: '#0061f8' }}>
-            An established peptide foundation, with expansion into oligonucleotides and antibody-drug conjugates underway.
-          </p>
-        </div>
-        <p style={{ margin: 0, font: "400 clamp(16px, 1.4vw, 19px)/1.7 'Manrope', sans-serif", color: '#334155' }}>
-          Senn Tides is a wholly owned subsidiary of Granules India and its integrated CDMO platform, with an established foundation in peptides and expansion into oligonucleotides and antibody-drug conjugates underway. Through Senn Chemicals AG and our India operations, we support peptide programs from route selection and process development through scale-up, validation and commercial supply.
-        </p>
-      </section>
+      <div className="cp-divider" />
 
       {/* Our portfolio Section */}
       <section className="senn-section-head" aria-label="Our portfolio">
         <div className="copy">
           <span className="cp-section-badge">Portfolio</span>
           <h2>Our portfolio</h2>
+          <p>
+            Custom peptide APIs, catalogue building blocks, and emerging modalities supporting development from feasibility to commercial supply.
+          </p>
         </div>
       </section>
 
-      {/* Portfolio Cards Grid */}
-      <div className="senn-capabilities-grid">
-        {PORTFOLIO_ITEMS.map((card, idx) => {
-          const isOpen = openCard === idx;
-          return (
-            <article
-              className={`biz-card senn-cap-article${isOpen ? ' is-open' : ''}`}
-              key={card.title}
-              onMouseEnter={() => setOpenCard(idx)}
-              onMouseLeave={() => setOpenCard(-1)}
-              onClick={() => setOpenCard(isOpen ? -1 : idx)}
+      {/* Portfolio Carousel */}
+      <div className="biz-carousel senn-portfolio-carousel">
+        <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
+          {PORTFOLIO_ITEMS.map((card, idx) => {
+            const isOpen = openCard === idx;
+            return (
+              <article
+                className={`biz-card senn-cap-article${isOpen ? ' is-open' : ''}`}
+                key={card.title}
+                onMouseEnter={() => setOpenCard(idx)}
+                onMouseLeave={() => setOpenCard(-1)}
+                onClick={() => {
+                  if (isDragging) return;
+                  setOpenCard(isOpen ? -1 : idx);
+                }}
+              >
+                <img className="bg" src={card.image} alt={card.title} loading="lazy" decoding="async" />
+                <div className="biz-sheet">
+                  <div className="biz-sheet-head">
+                    <span className="biz-sheet-title">{card.title}</span>
+                    <span className="biz-sheet-symbol" aria-hidden="true">
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </div>
+                  <div className="biz-sheet-body">
+                    <p className="biz-sheet-desc">{card.desc}</p>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Dynamic progress bar and smooth arrow navigation */}
+        <div className="biz-carousel-controls">
+          <div className="biz-progress-track">
+            <div
+              className="biz-progress-bar"
+              style={{
+                width: `${thumbWidth}%`,
+                left: `${scrollProgress * (100 - thumbWidth)}%`,
+              }}
+            />
+          </div>
+          <div className="biz-carousel-arrows">
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(-1)}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
             >
-              <img className="bg" src={card.image} alt={card.title} loading="lazy" decoding="async" />
-              <div className="biz-sheet">
-                <div className="biz-sheet-head">
-                  <span className="biz-sheet-title">{card.title}</span>
-                  <span className="biz-sheet-symbol" aria-hidden="true">
-                    {isOpen ? '−' : '+'}
-                  </span>
-                </div>
-                <div className="biz-sheet-body">
-                  <p className="biz-sheet-desc">{card.desc}</p>
-                </div>
-              </div>
-            </article>
-          );
-        })}
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              type="button"
+              className="biz-arrow-btn"
+              onClick={() => scroll(1)}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+            >
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Four synthesis routes Section */}
       <section className="senn-routes-section" aria-label="Four synthesis routes">
-        <div className="senn-section-head" style={{ width: '100%', margin: 0 }}>
+        <div className="senn-section-head">
           <div className="copy">
             <span className="cp-section-badge">Synthesis Methodologies</span>
             <h2>Four synthesis routes</h2>
@@ -330,7 +411,7 @@ export default function PeptidesPage() {
 
       {/* From feasibility to commercial supply */}
       <section className="senn-phases-section" aria-label="From feasibility to commercial supply">
-        <div className="senn-section-head" style={{ width: '100%', margin: 0 }}>
+        <div className="senn-section-head">
           <div className="copy">
             <span className="cp-section-badge">Lifecycle Progression</span>
             <h2>From feasibility to commercial supply</h2>
@@ -353,10 +434,13 @@ export default function PeptidesPage() {
 
       {/* Manufacturing and development capabilities */}
       <section className="senn-capacity-section" aria-label="Manufacturing and development capabilities">
-        <div className="senn-section-head" style={{ width: '100%', margin: 0 }}>
+        <div className="senn-section-head">
           <div className="copy">
             <span className="cp-section-badge">Infrastructure &amp; Capabilities</span>
             <h2>Manufacturing and development capabilities</h2>
+            <p>
+              Scalable equipment trains engineered for small-scale development, kilo-scale pilot trials, and commercial cGMP campaigns.
+            </p>
           </div>
         </div>
 
@@ -364,36 +448,64 @@ export default function PeptidesPage() {
           {CAPABILITIES.map((cap) => (
             <div className="senn-capacity-card" key={cap.title}>
               <h3>
-                {cap.icon}
+                <span className="senn-capacity-icon-badge">{cap.icon}</span>
                 {cap.title}
               </h3>
-              <p style={{ margin: 0, font: "400 15.5px/1.65 'Manrope', sans-serif", color: '#334155' }}>
-                {cap.desc}
-              </p>
+              <p>{cap.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Quality and compliance */}
-      <section className="senn-analytical-section" style={{ background: '#ffffff', marginTop: 'clamp(50px, 7vw, 80px)' }} aria-label="Quality and compliance">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <span className="cp-section-badge" style={{ width: 'fit-content' }}>Standards &amp; Regulatory</span>
-          <h2 style={{ margin: 0, font: "700 clamp(26px, 3.5vw, 42px)/1.2 'Manrope', sans-serif", color: '#0f172a' }}>
-            Quality and compliance
-          </h2>
+      <section className="senn-compliance-section" aria-label="Quality and compliance">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">Standards &amp; Regulatory</span>
+            <h2>Quality and compliance</h2>
+            <p>
+              Quality systems, documentation practices, and change-control processes designed to support customer filings in the United States, Europe, and other regulated markets.
+            </p>
+          </div>
         </div>
 
-        <div className="senn-compliance-grid" style={{ gridTemplateColumns: '1fr', marginTop: '10px' }}>
-          <div className="senn-compliance-card" style={{ padding: '32px 30px' }}>
+        <div className="senn-compliance-grid">
+          <div className="senn-compliance-card">
             <h4>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
-              ISO 9001:2015 &amp; Swissmedic cGMP
+              ISO 9001 &amp; Swissmedic cGMP
             </h4>
-            <p style={{ margin: 0, font: "400 16.5px/1.7 'Manrope', sans-serif", color: '#334155' }}>
-              Senn Chemicals is ISO 9001:2015 certified and authorized by Swissmedic for cGMP manufacturing. Quality systems, documentation practices and change-control processes are designed to support customer filings in the United States, Europe and other regulated markets.
+            <p>
+              Senn Chemicals is ISO 9001:2015 certified and authorized by Swissmedic for cGMP manufacturing of peptide APIs and specialized derivatives.
+            </p>
+          </div>
+
+          <div className="senn-compliance-card">
+            <h4>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+              Switzerland–US GMP MRA
+            </h4>
+            <p>
+              Operations align with the Switzerland–United States GMP Mutual Recognition Agreement, facilitating seamless regulatory recognition for US programs.
+            </p>
+          </div>
+
+          <div className="senn-compliance-card">
+            <h4>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 11 12 14 22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
+              Global Filings &amp; Audits
+            </h4>
+            <p>
+              Comprehensive DMF submission support, full analytical batch data, and a 60-year successful track record of customer and regulatory audits.
             </p>
           </div>
         </div>
@@ -401,10 +513,13 @@ export default function PeptidesPage() {
 
       {/* Switzerland and India footprint */}
       <section className="senn-footprint-section" aria-label="Switzerland and India footprint">
-        <div className="senn-section-head" style={{ width: '100%', margin: 0 }}>
+        <div className="senn-section-head">
           <div className="copy">
             <span className="cp-section-badge">Global Footprint</span>
             <h2>Switzerland and India footprint</h2>
+            <p>
+              Combining over 60 years of Swiss peptide synthesis heritage with multi-ton industrial scale and R&amp;D infrastructure in India.
+            </p>
           </div>
         </div>
 
@@ -428,18 +543,24 @@ export default function PeptidesPage() {
           </p>
         </div>
 
-        <a
-          href="http://www.sennchem.com"
-          target="_blank"
-          rel="noreferrer"
-          className="senn-cta-btn"
-        >
-          <span>Visit Senn Chemicals</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="7" y1="17" x2="17" y2="7" />
-            <polyline points="7 7 17 7 17 17" />
-          </svg>
-        </a>
+        <div className="senn-cta-actions">
+          <Link to="/contact" className="senn-cta-btn senn-cta-btn--primary">
+            <span>Contact Our Team</span>
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+          <a
+            href="http://www.sennchem.com"
+            target="_blank"
+            rel="noreferrer"
+            className="senn-cta-btn senn-cta-btn--secondary"
+          >
+            <span>Visit Senn Chemicals</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
+        </div>
       </section>
 
       <CompanyFooter />

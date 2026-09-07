@@ -151,6 +151,37 @@
   text-transform: uppercase;
 }
 
+.fac-category-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font: 700 11.5px/1.2 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.fac-card-caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.fac-cap-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font: 600 12px/1.2 'Manrope', sans-serif;
+  color: #0f172a;
+}
+
 .fac-card-icon {
   width: 42px;
   height: 42px;
@@ -170,6 +201,127 @@
 .fac-card-icon img {
   width: 18px;
   height: 18px;
+}
+
+/* Manufacturing Network Table Section */
+.fac-network-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(50px, 7vw, 80px) auto 0 !important;
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 24px rgba(0, 50, 100, 0.04);
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.fac-network-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.fac-network-header h2 {
+  margin: 0;
+  font: 700 clamp(26px, 3.2vw, 36px)/1.2 'Manrope', sans-serif;
+  color: var(--blue-2);
+}
+.fac-network-header p {
+  margin: 0;
+  font: 500 clamp(15px, 1.5vw, 17px)/1.5 'Manrope', sans-serif;
+  color: var(--n7);
+  max-width: 680px;
+}
+
+.fac-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.fac-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: 'Manrope', sans-serif;
+  min-width: 680px;
+}
+
+.fac-table thead th {
+  background: #f0f7ff;
+  color: #0061f8;
+  font: 700 13px/1.3 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 16px 20px;
+  border-bottom: 2px solid #d0e3ff;
+  white-space: nowrap;
+}
+
+.fac-table tbody td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #edf2f7;
+  color: #1e293b;
+  font-size: 14.5px;
+  vertical-align: middle;
+}
+
+.fac-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fac-table tbody tr:hover:not(.fac-table-group-row) {
+  background: #f8fbff;
+}
+
+.fac-table-group-row td {
+  background: #f8fafc;
+  padding: 10px 20px !important;
+  border-top: 1.5px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.fac-group-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font: 700 11.5px/1.2 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+.fac-group-badge--formulations {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+.fac-group-badge--api {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.fac-group-badge--cdmo {
+  background: #f3e8ff;
+  color: #7e22ce;
+  border: 1px solid #e9d5ff;
+}
+
+.fac-table-loc strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+.fac-table-val {
+  font-weight: 700;
+  color: #0061f8;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.fac-table-dash {
+  color: #94a3b8;
+  font-weight: 500;
 }
 
 /* CTA */

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './business.css';
@@ -96,15 +97,15 @@ const STRATEGIC_PRIORITIES: InfoItem[] = [
     body: 'Strengthen Scientific Capabilities to deepen expertise across chemistry, formulation and process sciences.',
   },
   {
-    title: 'Building a differentiated product pipeline',
+    title: 'Building a Differentiated Product Pipeline',
     body: 'Building a differentiated product pipeline focused on complex generics, oncology, CNS and peptides.',
   },
   {
-    title: 'Accelerate product development',
+    title: 'Accelerate Product Development',
     body: 'Accelerate product development to reduce time-to-market through integrated development and digital tools.',
   },
   {
-    title: 'Advance future-ready technologies',
+    title: 'Advance Future-Ready Technologies',
     body: 'Advance future-ready technologies through biocatalysis, particle engineering, peptides and digital R&D.',
   },
 ];
@@ -241,19 +242,16 @@ export default function RdPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/business/api">BUSINESS</a>
+        <Link to="/business/api">BUSINESS</Link>
         <span className="sep">›</span>
         <span className="current">RESEARCH &amp; DEVELOPMENT</span>
       </p>
-      <h1 className="cp-page-title">R&amp;D and Innovation</h1>
+      <h1 className="cp-page-title">Accelerating Innovation Through Integration and Digitalization</h1>
       <div className="cp-hero-banner">
         <img src={`${R}hero-banner.png`} alt="Granules R&D laboratory" />
         <div className="rd-hero-scrim" />
-        <div className="rd-hero-overlay">
-          <h2 className="rd-hero-heading">Accelerating Innovation Through Integration and Digitalization</h2>
-        </div>
       </div>
 
       <div className="rd-intro">
@@ -274,7 +272,9 @@ export default function RdPage() {
 
       {/* R&D Strategic Priorities */}
       <div className="rd-priorities">
-        <h2>R&amp;D Strategic Priorities</h2>
+        <div className="rd-priorities-head">
+          <h2>R&amp;D Strategic Priorities</h2>
+        </div>
         <div className="rd-priorities-grid">
           {STRATEGIC_PRIORITIES.map((item, i) => (
             <div className="rd-info-card" key={item.title}>

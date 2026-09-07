@@ -2074,3 +2074,377 @@
     width: auto !important;
   }
 }
+
+/* ---------- Careers Overview: Extended Consistent UI Styles ---------- */
+
+/* Career Areas Grid */
+.car-areas-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(60px, 8vw, 100px);
+}
+
+.car-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
+}
+
+.car-area-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 97, 248, 0.14);
+  border-radius: 28px;
+  padding: clamp(28px, 3vw, 40px) clamp(24px, 2.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 24px rgba(0, 20, 60, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.car-area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0, 97, 248, 0.1);
+  border-color: #0061f8;
+}
+
+.car-area-card.wide {
+  grid-column: 1 / -1;
+}
+
+.car-area-tag {
+  align-self: flex-start;
+  background: rgba(0, 97, 248, 0.08);
+  color: #0061f8;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font: 700 12px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.car-area-title {
+  margin: 0;
+  font: 700 clamp(19px, 1.6vw, 23px)/1.3 'Manrope', sans-serif;
+  color: #0c2340;
+}
+
+.car-area-desc {
+  margin: 0;
+  font: 400 clamp(14.5px, 1.1vw, 16px)/1.6 'Manrope', sans-serif;
+  color: #475569;
+}
+
+/* Learning & Mobility Spotlight Card */
+.car-learning-spotlight {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(60px, 8vw, 100px);
+  background: linear-gradient(145deg, #ffffff 0%, #f3f8fe 100%);
+  border: 1.5px solid rgba(0, 97, 248, 0.2);
+  border-radius: 36px;
+  padding: clamp(36px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(32px, 4vw, 56px);
+  align-items: center;
+  box-shadow: 0 12px 40px rgba(0, 20, 60, 0.06);
+}
+
+.car-learning-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.car-learning-copy h3 {
+  margin: 0;
+  font: 700 clamp(24px, 2.6vw, 36px)/1.2 'Manrope', sans-serif;
+  color: #0c2340;
+}
+
+.car-learning-copy p {
+  margin: 0;
+  font: 400 clamp(15px, 1.15vw, 17px)/1.65 'Manrope', sans-serif;
+  color: #475569;
+}
+
+.car-learning-image {
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: 0 16px 40px rgba(0, 20, 60, 0.1);
+}
+
+.car-learning-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Benefits Grid */
+.car-benefits-grid {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(60px, 8vw, 100px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
+}
+
+.car-benefit-card {
+  background: #f3f8fe;
+  border: 1.5px solid rgba(0, 97, 248, 0.14);
+  border-radius: 28px;
+  padding: clamp(28px, 3vw, 40px) clamp(24px, 2.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.car-benefit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 97, 248, 0.08);
+  border-color: #0061f8;
+}
+
+.car-benefit-title {
+  margin: 0;
+  font: 700 clamp(18px, 1.5vw, 21px)/1.3 'Manrope', sans-serif;
+  color: #0061f8;
+}
+
+.car-benefit-desc {
+  margin: 0;
+  font: 400 clamp(14px, 1.1vw, 16px)/1.6 'Manrope', sans-serif;
+  color: #475569;
+}
+
+/* Candidate FAQ Section */
+.car-faq-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(60px, 8vw, 100px);
+}
+
+.car-faq-wrap {
+  border-top: 1.5px solid #e2e8f0;
+  margin-top: 24px;
+}
+
+.car-faq-item {
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.car-faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: clamp(20px, 2.5vw, 28px) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  font: 700 clamp(17px, 1.35vw, 20px)/1.35 'Manrope', sans-serif;
+  color: #0c2340;
+  transition: color 0.2s ease;
+}
+
+.car-faq-question:hover {
+  color: #0061f8;
+}
+
+.car-faq-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 97, 248, 0.08);
+  color: #0061f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.car-faq-question:hover .car-faq-toggle {
+  background: #0061f8;
+  color: #ffffff;
+}
+
+.car-faq-answer {
+  padding: 0 0 clamp(20px, 2.5vw, 28px) 0;
+  font: 400 clamp(15px, 1.15vw, 16.5px)/1.65 'Manrope', sans-serif;
+  color: #475569;
+}
+
+/* Talent Community Card */
+.car-talent-wrap {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(80px, 10vw, 120px);
+}
+
+.car-talent-card {
+  background: linear-gradient(135deg, #07172f 0%, #002e75 100%);
+  border-radius: 40px;
+  padding: clamp(40px, 6vw, 68px);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 20, 60, 0.18);
+}
+
+.car-talent-card-copy {
+  max-width: 720px;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.car-talent-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font: 700 12px/1.2 'Manrope', sans-serif;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.car-talent-card-copy h2 {
+  margin: 0 0 12px 0;
+  font: 700 clamp(28px, 3.5vw, 44px)/1.2 'Manrope', sans-serif;
+  color: #ffffff;
+}
+
+.car-talent-card-copy p {
+  margin: 0;
+  font: 400 clamp(15px, 1.2vw, 17px)/1.6 'Manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.car-talent-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.car-talent-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.car-talent-field.wide {
+  grid-column: 1 / -1;
+}
+
+.car-talent-field label {
+  font: 600 13px/1 'Manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.car-talent-field input,
+.car-talent-field select {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font: 400 15px/1.4 'Manrope', sans-serif;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.car-talent-field input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.car-talent-field select option {
+  background: #07172f;
+  color: #ffffff;
+}
+
+.car-talent-field input:focus,
+.car-talent-field select:focus {
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.car-talent-consent {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
+.car-talent-consent input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #0061f8;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.car-talent-consent label {
+  font: 400 13px/1.5 'Manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+}
+
+.car-talent-btn-row {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.car-talent-submit-btn {
+  background: #ffffff;
+  color: #0061f8;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  font: 700 15px/1 'Manrope', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.car-talent-submit-btn:hover {
+  background: #f0f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.car-workday-wrap.contained {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(32px, 4vw, 48px) auto 0 !important;
+  border-radius: 40px;
+  box-shadow: 0 20px 50px rgba(0, 20, 60, 0.1);
+}
+
+.car-workday-wrap.contained .car-workday-banner {
+  border-radius: 40px;
+}
+
+@media (max-width: 900px) {
+  .car-areas-grid,
+  .car-benefits-grid,
+  .car-talent-form-grid,
+  .car-learning-spotlight {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+

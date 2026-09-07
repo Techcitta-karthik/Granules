@@ -32,7 +32,8 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Overview', href: '/company' },
       { label: 'Our Journey', href: '/company/milestone' },
       { label: 'Leadership', href: '/company/leadership' },
-      { label: 'Global Subsidaries', href: 'https://www.granulespharma.com/' },
+      { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
+      { label: 'Granules Pharmaceuticals Inc', href: 'https://www.granulespharma.com/' },
     ],
     image: 'company/values-bg-2.webp',
   },
@@ -320,9 +321,6 @@ export default function NavBar() {
                 {link.label}
               </Link>
             ))}
-            <span className="cp-nav-drawer-global">
-              <img src={asset('group-globe-1.svg')} alt="" loading="lazy" decoding="async" /> Global
-            </span>
           </div>
         )}
       </nav>

@@ -282,6 +282,8 @@
   overflow: hidden;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: #303530;
   display: grid !important;
   grid-template-columns: 0.9fr 1.25fr !important;
   gap: clamp(40px, 5vw, 96px) !important;
@@ -291,11 +293,31 @@
   box-shadow: 0 24px 64px rgba(0, 24, 70, 0.18);
 }
 
-/* sustainability-overlay matching homepage overlay with deep contrast */
+.comm-sustainability[data-photo="skill-development"],
+.comm-sustainability[data-photo="healthcare"],
+.comm-sustainability[data-photo="education"] {
+  background-position: center 65%;
+}
+
+@media (min-width: 993px) {
+  .comm-sustainability[data-photo="environment"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background-image: inherit;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Neutral shading keeps the photographs' natural colors. */
 .comm-sustainability .sustainability-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(3, 20, 52, 0.88) 0%, rgba(2, 38, 92, 0.72) 48%, rgba(0, 97, 248, 0.32) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.28) 48%, rgba(0, 0, 0, 0.06) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -370,26 +392,26 @@
 
 .comm-accordion article {
   border-radius: 24px !important;
-  background: rgba(255, 255, 255, 0.92) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(245, 250, 255, 0.52) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   padding: 22px 28px !important;
   transition: all 0.35s cubic-bezier(0.2, 0, 0.2, 1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 4px 18px rgba(0, 16, 50, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.58) !important;
+  box-shadow: 0 8px 24px rgba(0, 20, 60, 0.1) !important;
   cursor: pointer;
 }
 
 .comm-accordion article:hover {
-  background: #ffffff !important;
+  background: rgba(245, 250, 255, 0.52) !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0, 20, 60, 0.16) !important;
+  box-shadow: 0 8px 24px rgba(0, 20, 60, 0.1) !important;
 }
 
 .comm-accordion article.open {
-  background: #ffffff !important;
-  box-shadow: 0 16px 40px rgba(0, 24, 80, 0.22) !important;
-  border-color: #0061f8 !important;
+  background: rgba(245, 250, 255, 0.72) !important;
+  box-shadow: 0 8px 24px rgba(0, 20, 60, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
   transform: translateY(-2px);
 }
 
@@ -413,7 +435,7 @@
 
 .comm-accordion article.open button {
   font-size: clamp(20px, 1.5vw, 24px) !important;
-  color: #0061f8 !important;
+  color: #0048bc !important;
 }
 
 .comm-accordion .accordion-head {
@@ -447,7 +469,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -456,7 +478,7 @@
 }
 
 .comm-accordion article.open .comm-accordion-toggle-wrap {
-  background: #e0edff;
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .comm-accordion-toggle {
@@ -469,7 +491,7 @@
 .comm-accordion-body {
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid #edf2f7;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -505,20 +527,20 @@
 
 .comm-accordion-metric {
   font: 600 14px/1.2 'Manrope', sans-serif;
-  color: #475569;
+  color: #102e4a;
 }
 
 .comm-accordion-metric strong {
   font-size: 18px;
   font-weight: 800;
-  color: #0061f8;
+  color: #0048bc;
   margin-right: 4px;
 }
 
 .comm-accordion-desc {
   margin: 0;
   font: 500 14.5px/1.55 'Manrope', sans-serif !important;
-  color: #334155 !important;
+  color: #102e4a !important;
 }
 
 .comm-accordion-highlights {
@@ -535,7 +557,7 @@
   align-items: center;
   gap: 10px;
   font: 500 13px/1.45 'Manrope', sans-serif;
-  color: #475569;
+  color: #102e4a;
 }
 
 .comm-accordion-bullet {
@@ -731,6 +753,29 @@
     gap: 40px !important;
     min-height: auto !important;
     padding: 50px 36px !important;
+    background-size: 0 0 !important;
+  }
+
+  .comm-sustainability::before {
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: 18px;
+    background-image: inherit;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .comm-sustainability[data-photo="environment"]::before {
+    aspect-ratio: 2 / 3;
+  }
+
+  .comm-sustainability .sustainability-overlay {
+    display: none;
   }
 
   .comm-speech-banner-card {

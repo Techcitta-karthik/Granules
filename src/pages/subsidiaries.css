@@ -1,344 +1,277 @@
 /* ==========================================================================
-   Global Subsidiaries Page Styles
+   Global Subsidiaries Page Styles - Matching R&D Page Sizing & Architecture
    ========================================================================== */
 
+/* Hero Banner Enhancements */
+.global-sub-hero-banner {
+  box-shadow: 0 16px 40px rgba(0, 34, 90, 0.08);
+  border: 1px solid rgba(0, 97, 248, 0.08);
+  position: relative;
+}
+
+.global-sub-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 20, 60, 0.02) 0%, rgba(0, 20, 60, 0.35) 100%);
+  pointer-events: none;
+}
+
+/* Intro Scroll Highlight Section */
 .global-sub-intro {
   width: 85% !important;
   max-width: 85% !important;
-  margin: 40px auto 70px !important;
-  padding: 0;
-  font: 500 clamp(20px, 2.2vw, 28px)/1.45 'Manrope', sans-serif;
-  color: #94a3b8;
-  letter-spacing: -0.3px;
-  transition: color 0.4s ease;
-}
-
-.global-sub-intro.is-scrolled p span {
-  color: #0f172a;
-  transition: color 0.4s ease;
+  margin: clamp(52px, 6.5vw, 84px) auto clamp(40px, 5vw, 64px) !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .global-sub-intro p {
-  margin: 0 0 20px;
+  margin: 0;
+  font: 500 clamp(20px, 2.1vw, 29px)/1.45 'Manrope', sans-serif;
+  letter-spacing: -0.015em;
 }
 
-.global-sub-intro p:last-child {
-  margin-bottom: 0;
+.global-sub-intro .part-1,
+.global-sub-intro .part-2 {
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: color;
 }
 
-/* Featured Subsidiaries Section */
+/* Initial: Part 1 is dark (highlighted), Part 2 is dim */
+.global-sub-intro .part-1 {
+  color: var(--n9, #0b1528);
+}
+
+.global-sub-intro .part-2 {
+  color: #94a3b8;
+}
+
+/* On scroll down: Part 1 goes dim, Part 2 turns dark (highlighted) */
+.global-sub-intro.is-scrolled .part-1 {
+  color: #94a3b8;
+}
+
+.global-sub-intro.is-scrolled .part-2 {
+  color: var(--n9, #0b1528);
+}
+
+/* ==========================================================================
+   Two Independent Columns for Masonry / Diagonal Cascade (Same as R&D Page)
+   ========================================================================== */
+
 .global-sub-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: 0 auto 100px !important;
+  width: 100%;
+  margin: 0 0 clamp(80px, 10vw, 130px) 0;
   padding: 0;
 }
 
-.global-sub-section-head {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 50px;
+.global-sub-columns {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(20px, 3vw, 40px) auto 0 !important;
+  display: flex;
+  gap: clamp(32px, 4.5vw, 64px);
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
-.global-sub-section-head h2 {
-  font: 700 clamp(28px, 3.2vw, 42px)/1.2 'Manrope', sans-serif;
-  color: #0f172a;
-  letter-spacing: -0.6px;
-  margin: 14px 0 16px;
-}
-
-.global-sub-section-head p {
-  font: 400 16px/1.6 'Manrope', sans-serif;
-  color: #64748b;
-  margin: 0;
-}
-
-.global-sub-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-}
-
-@media (max-width: 900px) {
-  .global-sub-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.global-sub-card {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid rgba(0, 97, 248, 0.1);
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 32, 90, 0.04);
+.global-sub-col {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  gap: clamp(180px, 20vw, 260px); /* Generous spacing for staggered diagonal rhythm */
+}
+
+/* Stagger right column downward to create the signature diagonal staircase */
+.global-sub-col--staggered {
+  margin-top: clamp(190px, 20vw, 270px);
+}
+
+/* Large Clean Stacked Card with Rounded Top Image & Flush White Content */
+.global-sub-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0, 0.2, 1), border-color 0.35s ease;
+  will-change: transform;
+  box-sizing: border-box;
 }
 
 .global-sub-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 32, 90, 0.12);
-  border-color: rgba(0, 97, 248, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 56px rgba(0, 97, 248, 0.14), 0 4px 14px rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 97, 248, 0.25);
 }
 
+/* Large Media Container matching R&D page height (360px) */
 .global-sub-card-media {
-  position: relative;
   width: 100%;
-  height: 240px;
+  height: 360px;
   overflow: hidden;
-  background: #e2e8f0;
+  position: relative;
+  background: #edf4fa;
+  flex-shrink: 0;
 }
 
 .global-sub-card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .global-sub-card:hover .global-sub-card-media img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-.global-sub-card-badge {
+/* Sleek Floating Pill Badge on Card Image */
+.global-sub-card-index {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(0, 97, 248, 0.9);
-  backdrop-filter: blur(8px);
+  top: 20px;
+  left: 20px;
+  background: var(--blue, #0061f8);
   color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font: 700 11px/1 'Manrope', sans-serif;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  font: 700 12px/1 'Manrope', sans-serif;
+  padding: 7px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.35);
+  z-index: 2;
 }
 
-.global-sub-card-location {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(8px);
-  color: #f8fafc;
-  padding: 5px 12px;
-  border-radius: 16px;
-  font: 500 12px/1 'Manrope', sans-serif;
-}
-
-.global-sub-card-body {
-  padding: 28px;
+/* Snug Content Container matching R&D typography & layout */
+.global-sub-card-content {
+  padding: clamp(24px, 2.6vw, 32px) clamp(26px, 2.8vw, 36px) clamp(26px, 2.8vw, 34px);
+  background: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 12px;
+  justify-content: flex-start;
   flex: 1;
-  gap: 20px;
 }
 
 .global-sub-card-title {
-  font: 700 22px/1.3 'Manrope', sans-serif;
-  color: #0f172a;
-  margin: 0 0 10px;
-  letter-spacing: -0.3px;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(20px, 1.65vw, 24px);
+  line-height: 1.25;
+  color: var(--blue-2, #00225a);
+  letter-spacing: -0.2px;
+  transition: color 0.3s ease;
+}
+
+.global-sub-card:hover .global-sub-card-title {
+  color: var(--blue, #0061f8);
 }
 
 .global-sub-card-desc {
-  font: 400 15px/1.6 'Manrope', sans-serif;
-  color: #64748b;
-  margin: 0 0 18px;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: clamp(15.5px, 1.15vw, 17.5px);
+  line-height: 1.5;
+  color: #374151;
+  letter-spacing: 0;
 }
 
-.global-sub-card-tags {
+/* Action Container */
+.global-sub-card-action {
+  margin-top: 10px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
 }
 
-.global-sub-tag {
-  background: #edf5ff;
-  color: #0061f8;
-  padding: 5px 12px;
-  border-radius: 12px;
-  font: 600 12px/1 'Manrope', sans-serif;
-}
-
+/* Granules Brand Blue CTA with Arrow */
 .global-sub-card-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: 24px;
-  background: #0061f8;
+  gap: 12px;
+  padding: 8px 10px 8px 22px;
+  border-radius: 9999px;
+  background: var(--blue, #0061f8);
   color: #ffffff;
-  font: 600 14px/1 'Manrope', sans-serif;
+  font: 600 clamp(13.5px, 0.95vw, 15px)/1 'Manrope', sans-serif;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: background-color 0.3s cubic-bezier(0.2, 0, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.22);
+}
+
+.global-sub-cta-icon-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.3s ease;
 }
 
 .global-sub-card-cta:hover {
   background: #004ecc;
-  transform: translateX(3px);
-  box-shadow: 0 6px 16px rgba(0, 97, 248, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 6px 22px rgba(0, 97, 248, 0.38);
 }
 
-/* Shared Pillars Section */
-.global-sub-pillars {
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 90px 24px;
-  margin-bottom: 90px;
+.global-sub-card-cta:hover .global-sub-cta-icon-circle {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.06);
 }
 
-.global-sub-pillars-head {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 50px;
+.global-sub-card-cta svg {
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.global-sub-pillars-badge {
-  display: inline-block;
-  background: #edf5ff;
-  color: #0061f8;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font: 700 12px/1 'Manrope', sans-serif;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+.global-sub-card-cta:hover svg {
+  transform: translate(2px, -2px);
 }
 
-.global-sub-pillars-head h2 {
-  font: 700 clamp(26px, 3vw, 38px)/1.25 'Manrope', sans-serif;
-  color: #0f172a;
-  letter-spacing: -0.5px;
-  margin: 0 0 14px;
-}
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
 
-.global-sub-pillars-head p {
-  font: 400 15.5px/1.6 'Manrope', sans-serif;
-  color: #64748b;
-  margin: 0;
-}
-
-.global-sub-pillars-grid {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: 0 auto !important;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-@media (max-width: 860px) {
-  .global-sub-pillars-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.global-sub-pillar-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 32px 28px;
-  border: 1px solid rgba(0, 97, 248, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 32, 90, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.global-sub-pillar-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 32, 90, 0.08);
-}
-
-.global-sub-pillar-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: #edf5ff;
-  color: #0061f8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.global-sub-pillar-card h3 {
-  font: 700 19px/1.3 'Manrope', sans-serif;
-  color: #0f172a;
-  margin: 0 0 10px;
-}
-
-.global-sub-pillar-card p {
-  font: 400 14.5px/1.6 'Manrope', sans-serif;
-  color: #64748b;
-  margin: 0;
-}
-
-/* Bottom CTA Banner */
-.global-sub-cta {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: 0 auto 100px !important;
-  padding: 48px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #0061f8 0%, #003eab 100%);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  box-shadow: 0 20px 40px rgba(0, 97, 248, 0.25);
-}
-
-@media (max-width: 768px) {
-  .global-sub-cta {
+@media (max-width: 900px) {
+  .global-sub-columns {
     flex-direction: column;
-    text-align: center;
-    padding: 32px 24px;
+    gap: 36px;
+  }
+  .global-sub-col {
+    gap: 36px;
+  }
+  .global-sub-col--staggered {
+    margin-top: 0;
+  }
+  .global-sub-card-media {
+    height: 260px;
+  }
+  .global-sub-card-content {
+    padding: 22px 24px 26px;
   }
 }
 
-.global-sub-cta-copy h2 {
-  font: 700 clamp(24px, 2.5vw, 32px)/1.25 'Manrope', sans-serif;
-  color: #ffffff;
-  margin: 0 0 10px;
-}
-
-.global-sub-cta-copy p {
-  font: 400 15.5px/1.55 'Manrope', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  max-width: 620px;
-}
-
-.global-sub-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  background: #ffffff;
-  color: #0061f8;
-  border-radius: 30px;
-  font: 700 15px/1 'Manrope', sans-serif;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-}
-
-.global-sub-cta-btn:hover {
-  background: #f0f7ff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
-@media (max-width: 768px) {
-  .global-sub-intro,
-  .global-sub-section,
-  .global-sub-pillars-grid,
-  .global-sub-cta {
-    width: min(85%, calc(100% - 32px)) !important;
-    max-width: min(85%, calc(100% - 32px)) !important;
+@media (max-width: 560px) {
+  .global-sub-card {
+    border-radius: 24px;
+  }
+  .global-sub-card-media {
+    height: 220px;
+  }
+  .global-sub-card-content {
+    padding: 18px 20px 22px;
   }
 }
+
+
+

@@ -93,11 +93,14 @@ import CookiePolicyPage from './pages/CookiePolicyPage.tsx';
 import DisclaimerPage from './pages/DisclaimerPage.tsx';
 import DataProtectionNoticePage from './pages/DataProtectionNoticePage.tsx';
 import TermsConditionsPage from './pages/TermsConditionsPage.tsx';
+import ProductPortfolioPage from './pages/ProductPortfolioPage.tsx';
+import BackToTopButton from './components/common/BackToTopButton';
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollHighlightManager />
+      <BackToTopButton />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/company" element={<CompanyPage />} />
@@ -121,6 +124,8 @@ function App() {
         <Route path="/business/api" element={<ApiPage />} />
         <Route path="/business/pfi" element={<PfiPage />} />
         <Route path="/business/fd" element={<FdPage />} />
+        <Route path="/business/product-portfolio" element={<ProductPortfolioPage />} />
+        <Route path="/business/products" element={<ProductPortfolioPage />} />
         <Route path="/business/rd" element={<RdPage />} />
         <Route path="/business/quality-compliance" element={<QualityCompliancePage />} />
         <Route path="/company/facilities" element={<FacilitiesPage />} />
@@ -140,8 +145,11 @@ function App() {
         <Route path="/csr" element={<CommunityPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/investor" element={<InvestorOverviewPage />} />
+        <Route path="/investors" element={<InvestorOverviewPage />} />
         <Route path="/investor/v2" element={<InvestorOverviewPage />} />
         <Route path="/investor/annual-reports" element={<InvestorAnnualReportsPage />} />
+        <Route path="/investors/*" element={<InvestorOverviewPage />} />
+        <Route path="/investor/*" element={<InvestorOverviewPage />} />
         <Route path="/media" element={<MediaPage />} />
         <Route path="/careers" element={<CareerOverviewPage />} />
         <Route path="/careers/life-at-granules" element={<LifeAtGranulesPage />} />

@@ -23,6 +23,7 @@ export default function CompanyPage() {
       <NavBar />
       <HeroSection />
       <AboutSection />
+      <h2 className="cp-drives-us">What Drives Us</h2>
       <PurposeVisionSection />
       <ValuesSection />
       <LeadershipSection />

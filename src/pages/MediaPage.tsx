@@ -66,6 +66,20 @@ export default function MediaPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  // Lock body scroll and close on Escape key when modal is open
+  useEffect(() => {
+    if (!modalArticle) return undefined;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setModalArticle(null);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.classList.add('modal-open');
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.classList.remove('modal-open');
+    };
+  }, [modalArticle]);
+
   // Available years based on active tab
   const availableYears = useMemo(() => {
     if (activeTab === 'news') {
@@ -214,7 +228,20 @@ export default function MediaPage() {
                       : '/assets/news-3.webp';
 
                 return (
-                  <article className="med-news-item with-image" key={item.id || item.title}>
+                  <article
+                    className="med-news-item with-image"
+                    key={item.id || item.title}
+                    onClick={() => setModalArticle(item)}
+                    style={{ cursor: 'pointer' }}
+                    tabIndex={0}
+                    role="button"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setModalArticle(item);
+                      }
+                    }}
+                  >
                     <img
                       className="med-news-image"
                       src={item.image || fallbackImg}
@@ -238,7 +265,10 @@ export default function MediaPage() {
                       <button
                         type="button"
                         className="med-read-more"
-                        onClick={() => setModalArticle(item)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalArticle(item);
+                        }}
                       >
                         READ MORE
                       </button>
@@ -314,7 +344,20 @@ export default function MediaPage() {
           {paginatedItems.length > 0 ? (
             <div className="med-news-list">
               {paginatedItems.map((item) => (
-                <article className="med-news-item" key={item.id || item.title}>
+                <article
+                  className="med-news-item"
+                  key={item.id || item.title}
+                  onClick={() => setModalArticle(item)}
+                  style={{ cursor: 'pointer' }}
+                  tabIndex={0}
+                  role="button"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setModalArticle(item);
+                    }
+                  }}
+                >
                   <div className="med-news-body">
                     <div className="med-news-content">
                       <div className="med-news-tags">
@@ -327,7 +370,10 @@ export default function MediaPage() {
                     <button
                       type="button"
                       className="med-read-more"
-                      onClick={() => setModalArticle(item)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setModalArticle(item);
+                      }}
                     >
                       READ MORE
                     </button>
@@ -401,8 +447,14 @@ export default function MediaPage() {
 
       {/* Interactive Read Article Modal */}
       {modalArticle && (
-        <div className="med-modal-overlay" onClick={() => setModalArticle(null)}>
-          <div className="med-modal-card" onClick={(e) => e.stopPropagation()}>
+        <div className="med-modal-overlay" role="presentation" onMouseDown={() => setModalArticle(null)}>
+          <div
+            className={`med-modal-card ${modalArticle.image ? 'med-modal-card--split' : 'med-modal-card--single'}`}
+            role="dialog"
+            aria-modal="true"
+            aria-label={modalArticle.title}
+            onMouseDown={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               className="med-modal-close"
@@ -411,102 +463,108 @@ export default function MediaPage() {
             >
               ×
             </button>
+
             {modalArticle.image && (
-              <img
-                className="med-modal-image"
-                src={modalArticle.image}
-                alt={modalArticle.title}
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/assets/news-1.webp';
-                }}
-              />
+              <div className="med-modal-media-col">
+                <img
+                  className="med-modal-image"
+                  src={modalArticle.image}
+                  alt={modalArticle.title}
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/assets/news-1.webp';
+                  }}
+                />
+              </div>
             )}
-            <div className="med-news-tags" style={{ marginTop: '16px' }}>
-              <span className="med-news-tag">{modalArticle.category}</span>
-              <span className="med-news-tag">{modalArticle.date || modalArticle.year}</span>
-            </div>
-            <h2 className="med-modal-title">{modalArticle.title}</h2>
-            <p className="med-modal-body">{modalArticle.body}</p>
 
-            <div style={{ marginTop: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              {modalArticle.pdf && (
-                <a
-                  className="inv-detail-pill"
-                  href={modalArticle.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 24px',
-                    borderRadius: '24px',
-                    background: 'linear-gradient(180deg, #0061f8 0%, #0140a2 100%)',
-                    color: '#fff',
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                    fontSize: '13px',
-                    letterSpacing: '0.5px',
-                  }}
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                  </svg>
-                  DOWNLOAD DOCUMENT (PDF)
-                </a>
-              )}
+            <div className="med-modal-content-col">
+              <div className="med-news-tags">
+                <span className="med-news-tag">{modalArticle.category}</span>
+                <span className="med-news-tag">{modalArticle.date || modalArticle.year}</span>
+              </div>
+              <h2 className="med-modal-title">{modalArticle.title}</h2>
+              <p className="med-modal-body">{modalArticle.body}</p>
 
-              {modalArticle.url && (
-                <a
-                  className="inv-detail-pill"
-                  href={modalArticle.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 24px',
-                    borderRadius: '24px',
-                    background: 'linear-gradient(180deg, #0061f8 0%, #0140a2 100%)',
-                    color: '#fff',
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                    fontSize: '13px',
-                    letterSpacing: '0.5px',
-                  }}
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+              <div className="med-modal-actions">
+                {modalArticle.pdf && (
+                  <a
+                    className="inv-detail-pill"
+                    href={modalArticle.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 24px',
+                      borderRadius: '24px',
+                      background: 'linear-gradient(180deg, #0061f8 0%, #0140a2 100%)',
+                      color: '#fff',
+                      textDecoration: 'none',
+                      fontWeight: 700,
+                      fontSize: '13px',
+                      letterSpacing: '0.5px',
+                    }}
                   >
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                  VIEW FULL NEWS COVERAGE ↗
-                </a>
-              )}
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    DOWNLOAD DOCUMENT (PDF)
+                  </a>
+                )}
+
+                {modalArticle.url && (
+                  <a
+                    className="inv-detail-pill"
+                    href={modalArticle.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 24px',
+                      borderRadius: '24px',
+                      background: 'linear-gradient(180deg, #0061f8 0%, #0140a2 100%)',
+                      color: '#fff',
+                      textDecoration: 'none',
+                      fontWeight: 700,
+                      fontSize: '13px',
+                      letterSpacing: '0.5px',
+                    }}
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                    VIEW FULL NEWS COVERAGE ↗
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { asset } from '../components/company/constants';
 import '../components/company/company.css';
-import '../styles.css';
 import './business.css';
 
 const products = [
@@ -67,6 +67,8 @@ const THERAPY_EXPANSION = [
 
 export default function GenericsPage() {
   const [openProduct, setOpenProduct] = useState<number>(-1);
+  const introRef = useRef<HTMLDivElement>(null);
+  const [isIntroScrolled, setIsIntroScrolled] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -85,13 +87,26 @@ export default function GenericsPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!introRef.current) return;
+      const rect = introRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const triggerPoint = viewportHeight * 0.45;
+      setIsIntroScrolled(rect.top < triggerPoint);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="cp">
+    <div className="cp gen-page">
       <NavBar />
 
-      <main className="biz-main">
-        {/* Breadcrumb Navigation */}
-        <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <section className="cp-hero">
+        <p className="cp-breadcrumb">
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
           <Link to="/business/generics">BUSINESS</Link>
@@ -99,39 +114,51 @@ export default function GenericsPage() {
           <span className="current">GENERICS</span>
         </p>
 
-        {/* Hero / Page Main Heading */}
-        <h1 className="api-page-header">
+        <h1 className="cp-page-title">
           Advancing Healthcare through Science, Scale and Integrated Excellence
         </h1>
 
-        {/* Hero Banner */}
-        <div className="cp-hero-banner">
-          <img src="/assets/hero-1.webp" alt="Granules Generics Manufacturing" />
-          <div className="api-hero-scrim" />
-          <div className="api-hero-overlay">
-            <a className="cp-cta-btn" href="#three-verticals">Explore Generic Platforms</a>
+        <div className="cp-hero-panel">
+          <img
+            src="/assets/hero-1.webp"
+            alt="Granules Generics Manufacturing"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+          <div className="cp-scroll-indicator">
+            <img src={asset('scroll-down-icon.webp')} alt="" loading="lazy" decoding="async" />
           </div>
         </div>
+      </section>
 
-        {/* Narrative / Intro Section with interactive scroll highlight */}
-        <div className="biz-intro">
-          <p>
-            <span>
-              Granules India offers a diverse and continually evolving portfolio to the global pharmaceutical market, spanning Active Pharmaceutical Ingredients (APIs), Pharmaceutical Formulation Intermediates (PFIs), Finished Dosages (FDs) and Peptides CDMO products. Guided by science and a clear focus on advancing high-value, specialised therapies, our teams are committed to delivering safe, effective and affordable medicines that meet the expectations of partners and patients across geographies.
-            </span>
-          </p>
-          <p>
-            <span>
-              Our portfolio strategy encompasses our core strength of scale, while expanding into complex generics, controlled substances, oncology therapies, CNS/ADHD treatments, peptides and advanced drug delivery systems. Supported by a global manufacturing and R&amp;D network, Granules continues to strengthen its position as a trusted partner to customers worldwide.
-            </span>
-          </p>
-        </div>
+      <div
+        ref={introRef}
+        className={`cp-about-desc${isIntroScrolled ? ' is-scrolled' : ''}`}
+      >
+        <p>
+          <span className="part-1">
+            Granules India offers a diverse and continually evolving portfolio to the global
+            pharmaceutical market, spanning Active Pharmaceutical Ingredients (APIs), Pharmaceutical
+            Formulation Intermediates (PFIs), Finished Dosages (FDs) and Peptides CDMO products.
+          </span>{' '}
+          <span className="part-2">
+            Guided by science and a clear focus on advancing high-value, specialised therapies, our
+            teams are committed to delivering safe, effective and affordable medicines that meet the
+            expectations of partners and patients across geographies.
+          </span>
+        </p>
+        <p className="part-2">
+          Our portfolio strategy encompasses our core strength of scale, while expanding into complex
+          generics, controlled substances, oncology therapies, CNS/ADHD treatments, peptides and
+          advanced drug delivery systems. Supported by a global manufacturing and R&amp;D network,
+          Granules continues to strengthen its position as a trusted partner to customers worldwide.
+        </p>
+      </div>
+      <div className="cp-divider" />
 
-        {/* Three Boxes Section (API, PFI, FD) */}
-        <section className="gen-verticals-wrap" id="three-verticals" aria-label="Core Generic Verticals">
-          <div className="biz-section-head" style={{ width: '85%', margin: 'clamp(56px, 7vw, 90px) auto clamp(24px, 3vw, 40px)' }}>
+      <section className="gen-verticals-wrap" id="three-verticals" aria-label="Core Generic Verticals">
+          <div className="biz-section-head gen-section-head">
             <div className="copy">
-              <span className="comm-section-tag" style={{ alignSelf: 'flex-start' }}>Core Verticals</span>
+              <span className="cp-section-badge">Core Verticals</span>
               <h2>Integrated Across the Value Chain</h2>
               <p>
                 From pure API molecules to ready-to-compress PFIs and finished patient-ready dosages.
@@ -139,7 +166,7 @@ export default function GenericsPage() {
             </div>
           </div>
 
-          <div className="product-grid" style={{ width: '85%', margin: '0 auto clamp(60px, 8vw, 100px)' }}>
+          <div className="product-grid gen-product-grid">
             {products.map((product, index) => {
               const isOpen = openProduct === index;
               return (
@@ -204,14 +231,17 @@ export default function GenericsPage() {
 
         {/* Portfolio Strategy & Specialized Therapies */}
         <section className="gen-strategy-section" aria-label="Portfolio Strategy and Therapies">
-          <div className="biz-section-head" style={{ width: '85%', margin: 'clamp(56px, 7vw, 90px) auto clamp(32px, 4vw, 48px)' }}>
+          <div className="biz-section-head gen-section-head gen-section-head--therapy">
             <div className="copy">
-              <span className="comm-section-tag" style={{ alignSelf: 'flex-start' }}>Expanding Horizons</span>
+              <span className="cp-section-badge">Expanding Horizons</span>
               <h2>High-Value, Specialized Therapies</h2>
               <p>
                 Strengthening core volume strengths while accelerating complex and niche healthcare solutions.
               </p>
             </div>
+            <Link to="/business/product-portfolio" className="cp-cta-btn gen-products-btn">
+              Our Products
+            </Link>
           </div>
 
           <div className="gen-therapy-grid">
@@ -227,18 +257,7 @@ export default function GenericsPage() {
           </div>
         </section>
 
-        <div className="biz-section-head" style={{ width: '85%', margin: 'clamp(56px, 7vw, 90px) auto clamp(32px, 4vw, 48px)' }}>
-          <div className="copy">
-            <span className="comm-section-tag" style={{ alignSelf: 'flex-start' }}>Portfolio</span>
-            <h2>High-Value, Specialized Therapies</h2>
-            <p>
-              Strengthening core volume strengths while accelerating complex and niche healthcare solutions.
-            </p>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="biz-cta biz-cta--placeholder" style={{ marginBottom: 'clamp(60px, 8vw, 110px)' }}>
+        <div className="biz-cta biz-cta--placeholder gen-cta">
           <div className="biz-cta-copy">
             <h2>Partner with Granules on Generic Innovation</h2>
             <p>
@@ -247,7 +266,6 @@ export default function GenericsPage() {
           </div>
           <Link to="/contact" className="cp-cta-btn">Connect With Us</Link>
         </div>
-      </main>
 
       <CompanyFooter />
     </div>

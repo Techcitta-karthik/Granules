@@ -217,6 +217,7 @@
   .ov-goal-peek {
     display: none;
   }
+
   .ov-goal-card {
     flex: 1 1 100%;
     max-width: 700px;
@@ -229,6 +230,7 @@
     padding: 28px 20px;
     border-radius: 28px;
   }
+
   .ov-goal-image {
     min-height: 200px;
   }
@@ -710,6 +712,7 @@
   .ov-logo-grid {
     grid-template-columns: 1fr;
   }
+
   .ov-p-tabs {
     justify-content: flex-start;
     overflow-x: auto;
@@ -717,6 +720,7 @@
     padding-bottom: 8px;
     scrollbar-width: none;
   }
+
   .ov-p-tab {
     white-space: nowrap;
   }
@@ -1547,13 +1551,15 @@
    DESKTOP (1920x1080 and all desktop viewports) - LOCKED & UNCHANGING LAYOUT
    ========================================================================== */
 @media (min-width: 992px) {
+
   .sus-lead-hero-wrap,
   .sus-goals-section,
   .sus-kpi-section,
   .sus-partners-strip,
   .sus-doc-section {
     width: 85% !important;
-    max-width: 1632px !important; /* 85% of 1920px standard */
+    max-width: 1632px !important;
+    /* 85% of 1920px standard */
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -1587,6 +1593,7 @@
    MOBILE & TABLET BROWSERS ONLY (< 992px)
    ========================================================================== */
 @media (max-width: 991px) {
+
   .sus-lead-hero-wrap,
   .sus-goals-section,
   .sus-kpi-section,
@@ -1647,6 +1654,7 @@
 }
 
 @media (max-width: 640px) {
+
   .sus-lead-hero-wrap,
   .sus-goals-section,
   .sus-kpi-section,

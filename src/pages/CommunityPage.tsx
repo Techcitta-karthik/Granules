@@ -262,6 +262,7 @@ export default function CommunityPage() {
         {/* Core Focus Areas Showcase - Converted to Homepage Sustainability Layout with sustainability-overlay & Dynamic Background Switching */}
         <section
           className="sustainability comm-sustainability"
+          data-photo={CSR_FOCUS_AREAS[activeBgIndex].id}
           id="initiatives"
           style={{ backgroundImage: `url(${currentBg})` }}
           aria-label="Core Focus Areas"
