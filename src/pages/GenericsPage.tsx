@@ -227,6 +227,16 @@ export default function GenericsPage() {
           </div>
         </section>
 
+        <div className="biz-section-head" style={{ width: '85%', margin: 'clamp(56px, 7vw, 90px) auto clamp(32px, 4vw, 48px)' }}>
+          <div className="copy">
+            <span className="comm-section-tag" style={{ alignSelf: 'flex-start' }}>Portfolio</span>
+            <h2>High-Value, Specialized Therapies</h2>
+            <p>
+              Strengthening core volume strengths while accelerating complex and niche healthcare solutions.
+            </p>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div className="biz-cta biz-cta--placeholder" style={{ marginBottom: 'clamp(60px, 8vw, 110px)' }}>
           <div className="biz-cta-copy">

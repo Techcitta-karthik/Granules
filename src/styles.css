@@ -1075,6 +1075,12 @@ p {
   height: 70px;
   object-fit: contain;
   mix-blend-mode: multiply;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.cert-row img:hover {
+  transform: scale(1.08);
 }
 
 /* Mathematically seamless infinite translation */

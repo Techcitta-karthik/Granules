@@ -1,0 +1,173 @@
+/* Regulatory Logos Section Styles */
+.cp-reg-section {
+  padding: 80px 0;
+  box-sizing: border-box;
+}
+
+.cp-reg-header {
+  max-width: 780px;
+  margin-bottom: 40px;
+}
+
+.cp-reg-title {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #070707;
+  margin: 16px 0 14px 0;
+}
+
+.cp-reg-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #6a6a6a;
+  margin: 0;
+}
+
+/* Filters */
+.cp-reg-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.cp-reg-filter-btn {
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #555;
+  background: #f4f5f7;
+  border: 1px solid rgba(7, 7, 7, 0.06);
+  border-radius: 999px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cp-reg-filter-btn:hover {
+  background: #e8ecf2;
+  color: #070707;
+}
+
+.cp-reg-filter-btn.is-active {
+  background: #0061f8;
+  color: #ffffff;
+  border-color: #0061f8;
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.25);
+}
+
+/* Grid */
+.cp-reg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 24px;
+}
+
+.cp-reg-card {
+  background: #ffffff;
+  border: 1px solid rgba(7, 7, 7, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.cp-reg-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 97, 248, 0.3);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.cp-reg-logo-wrap {
+  width: 100%;
+  height: 80px;
+  background: #f9fbfd;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgba(7, 7, 7, 0.04);
+}
+
+.cp-reg-logo-img {
+  max-width: 100%;
+  max-height: 56px;
+  object-fit: contain;
+  filter: contrast(1.02);
+}
+
+.cp-reg-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cp-reg-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.cp-reg-country-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0061f8;
+  background: rgba(0, 97, 248, 0.08);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.cp-reg-status-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.cp-reg-card-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #070707;
+  margin: 0 0 6px 0;
+}
+
+.cp-reg-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #6a6a6a;
+  margin: 0;
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .cp-reg-section {
+    padding: 50px 0;
+  }
+
+  .cp-reg-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .cp-reg-card {
+    padding: 18px;
+  }
+
+  .cp-reg-logo-wrap {
+    height: 70px;
+    margin-bottom: 14px;
+  }
+}

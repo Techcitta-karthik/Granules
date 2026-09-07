@@ -50,7 +50,6 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
       'Hyderabad facility expanding finished dosage capacity, adding significant annual volume through advanced manufacturing excellence.',
     image: 'gls/hero-banner.webp',
     href: '/company/granules-life-sciences',
-    logoBadge: 'company/nav-logo.webp',
   },
   {
     fullName: 'GRANULES CZRO PRIVATE LIMITED (G-CZRO), INDIA',
@@ -68,7 +67,6 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
       'Integrated CDMO platform providing custom peptide development, scale-up, and commercial manufacturing across Switzerland and India.',
     image: 'ascelis/hero-banner.webp',
     href: '/company/senn-tides',
-    logoBadge: 'company/nav-logo.webp',
   },
 ];
 

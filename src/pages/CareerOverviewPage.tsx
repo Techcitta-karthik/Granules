@@ -112,8 +112,11 @@ export default function CareerOverviewPage() {
         <a href="/">HOME</a>
         <span className="sep">›</span>
         <span className="current">CAREERS</span>
+        <span className="sep">›</span>
+        <span className="current">Life at Granules</span>
+
       </p>
-      <h1 className="cp-page-title">Careers at Granules</h1>
+      <h1 className="cp-page-title">Life at Granules</h1>
       <p className="car-hero-tagline">Build Your Future in Science, Innovation, and Impact</p>
 
       <div className="car-hero">
@@ -153,7 +156,6 @@ export default function CareerOverviewPage() {
             <h2>Why build your career at Granules?</h2>
             <p>We invest in building a capable, resilient, and future-ready workforce through</p>
           </div>
-          <Link className="car-cta-btn" to="/careers/life-at-granules">Life at Granules</Link>
         </div>
 
         <div className="car-panel car-panel--0" style={{ '--stack-index': 0 } as React.CSSProperties}>

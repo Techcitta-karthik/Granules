@@ -27,41 +27,22 @@ type Submenu = {
 
 const SUBMENUS: Record<string, Submenu> = {
   'About Us': {
-    sections: [
-      {
-        title: 'Overview',
-        quickLinks: [
-          { label: 'OUR JOURNEY', href: '/company/milestone' },
-          { label: 'LEADERSHIP', href: '/company/leadership' },
-        ],
-      },
-      {
-        title: 'Global Subsidiaries',
-        href: '/company/global-subsidiaries',
-        quickLinks: [
-          { label: 'GRANULES PHARMACEUTICALS INC. (GPI)', href: 'https://www.granulespharma.com/' },
-          { label: 'GRANULES LIFE SCIENCES', href: '/company/granules-life-sciences' },
-          { label: 'SENN TIDES', href: '/company/senn-tides' },
-          { label: 'GRANULES CZRO', href: '/company/granules-czro' },
-        ],
-      },
+    sections: [],
+    links: [
+      { label: 'Overview', href: '/company' },
+      { label: 'Our Journey', href: '/company/milestone' },
+      { label: 'Leadership', href: '/company/leadership' },
+      { label: 'Global Subsidaries', href: 'https://www.granulespharma.com/' },
     ],
-    links: [],
     image: 'company/values-bg-2.webp',
   },
   Company: {
     sections: [
       {
-        title: 'Overview',
-        quickLinks: [
-          { label: 'OUR JOURNEY', href: '/company/milestone' },
-          { label: 'LEADERSHIP', href: '/company/leadership' },
-        ],
-      },
-      {
         title: 'Global Subsidiaries',
         href: '/company/global-subsidiaries',
         quickLinks: [
+          { label: 'LEADERSHIP', href: '/company/leadership' },
           { label: 'GRANULES PHARMACEUTICALS INC. (GPI)', href: 'https://www.granulespharma.com/' },
           { label: 'GRANULES LIFE SCIENCES', href: '/company/granules-life-sciences' },
           { label: 'SENN TIDES', href: '/company/senn-tides' },
@@ -73,18 +54,9 @@ const SUBMENUS: Record<string, Submenu> = {
     image: 'company/values-bg-2.webp',
   },
   Business: {
-    sections: [
-      {
-        title: 'GENERICS',
-        quickLinks: [
-          { label: 'OVERVIEW', href: '/business/generics' },
-          { label: 'API', href: '/business/api' },
-          { label: 'PFI', href: '/business/pfi' },
-          { label: 'FINISHED DOSAGES', href: '/business/fd' },
-        ],
-      },
-    ],
+    sections: [],
     links: [
+      { label: 'Generics', href: '/business/generics' },
       { label: 'Peptides CDMO', href: '/business/peptides' },
       { label: 'Research & Development', href: '/business/rd' },
       { label: 'Quality & Compliance', href: '/business/quality-compliance' },
@@ -97,8 +69,8 @@ const SUBMENUS: Record<string, Submenu> = {
       {
         title: 'CAREERS',
         quickLinks: [
-          { label: 'Overview', href: '/careers' },
-          { label: 'Opportunities', href: '/careers/opportunities' },
+          { label: 'Life at Granules', href: '/careers' },
+          { label: 'Current Openings', href: '/careers/opportunities' },
         ],
       },
     ],
@@ -227,7 +199,6 @@ export default function NavBar() {
                                     }}
                                   >
                                     <span>{section.title}</span>
-                                    <span className="cp-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
                                   </a>
                                 ) : (
                                   <Link
@@ -239,7 +210,6 @@ export default function NavBar() {
                                     }}
                                   >
                                     <span>{section.title}</span>
-                                    <span className="cp-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
                                   </Link>
                                 )
                               ) : (
@@ -260,7 +230,6 @@ export default function NavBar() {
                                     }}
                                   >
                                     <span>{item.label}</span>
-                                    <span className="cp-nav-arrow-diag" aria-hidden="true">↗</span>
                                   </a>
                                 ) : (
                                   <Link
@@ -272,7 +241,6 @@ export default function NavBar() {
                                     }}
                                   >
                                     <span>{item.label}</span>
-                                    <span className="cp-nav-arrow-diag" aria-hidden="true">↗</span>
                                   </Link>
                                 )
                               )}
@@ -337,13 +305,6 @@ export default function NavBar() {
             <button className="cp-nav-search" type="button" aria-label="Search">
               <img src={asset('search-icon.svg')} alt="" loading="lazy" decoding="async" />
             </button>
-
-            <span className="cp-nav-global">
-              <span className="cp-nav-globe">
-                <img src={asset('group-globe-1.svg')} alt="" loading="lazy" decoding="async" />
-              </span>
-              Global
-            </span>
           </div>
         </div>
 

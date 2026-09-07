@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import worldMapUrl from '@svg-maps/world/world.svg?url';
 import { CompanyFooter } from '../components/company';
+import { REGULATORY_LOGOS } from '../data/regulatoryLogosData';
 import '../components/company/company.css';
 
 const A = '/assets/';
@@ -133,47 +134,30 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
     ['Careers', '/careers'],
     ['Contact Us', '/contact'],
   ];
+  const resolveLink = (item) => (Array.isArray(item) ? { label: item[0], href: item[1] } : item);
+
   const submenuData = {
     'About Us': {
-      sections: [
-        {
-          title: 'Overview',
-          quickLinks: [
-            ['OUR JOURNEY', '/company/milestone'],
-            ['LEADERSHIP', '/company/leadership'],
-          ],
-        },
-        {
-          title: 'Global Subsidiaries',
-          href: '/company/global-subsidiaries',
-          quickLinks: [
-            ['GRANULES PHARMACEUTICALS INC. (GPI)', 'https://www.granulespharma.com/'],
-            ['GRANULES LIFE SCIENCES', '/company/granules-life-sciences'],
-            ['SENN TIDES', '/company/senn-tides'],
-            ['GRANULES CZRO', '/company/granules-czro'],
-          ],
-        },
+      sections: [],
+      links: [
+        { label: 'Overview', href: '/company' },
+        { label: 'Our Journey', href: '/company/milestone' },
+        { label: 'Leadership', href: '/company/leadership' },
+        { label: 'Global Subsidaries', href: 'https://www.granulespharma.com/' },
       ],
-      links: [],
       image: 'company/values-bg-2.webp',
     },
     Company: {
       sections: [
         {
-          title: 'Overview',
-          quickLinks: [
-            ['OUR JOURNEY', '/company/milestone'],
-            ['LEADERSHIP', '/company/leadership'],
-          ],
-        },
-        {
           title: 'Global Subsidiaries',
           href: '/company/global-subsidiaries',
           quickLinks: [
-            ['GRANULES PHARMACEUTICALS INC. (GPI)', 'https://www.granulespharma.com/'],
-            ['GRANULES LIFE SCIENCES', '/company/granules-life-sciences'],
-            ['SENN TIDES', '/company/senn-tides'],
-            ['GRANULES CZRO', '/company/granules-czro'],
+            { label: 'LEADERSHIP', href: '/company/leadership' },
+            { label: 'GRANULES PHARMACEUTICALS INC. (GPI)', href: 'https://www.granulespharma.com/' },
+            { label: 'GRANULES LIFE SCIENCES', href: '/company/granules-life-sciences' },
+            { label: 'SENN TIDES', href: '/company/senn-tides' },
+            { label: 'GRANULES CZRO', href: '/company/granules-czro' },
           ],
         },
       ],
@@ -181,22 +165,13 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
       image: 'company/values-bg-2.webp',
     },
     Business: {
-      sections: [
-        {
-          title: 'GENERICS',
-          quickLinks: [
-            ['OVERVIEW', '/business/generics'],
-            ['API', '/business/api'],
-            ['PFI', '/business/pfi'],
-            ['FINISHED DOSAGES', '/business/fd'],
-          ],
-        },
-      ],
+      sections: [],
       links: [
-        ['Peptides CDMO', '/business/peptides'],
-        ['Research & Development', '/business/rd'],
-        ['Quality & Compliance', '/business/quality-compliance'],
-        ['Facilities', '/company/facilities'],
+        { label: 'Generics', href: '/business/generics' },
+        { label: 'Peptides CDMO', href: '/business/peptides' },
+        { label: 'Research & Development', href: '/business/rd' },
+        { label: 'Quality & Compliance', href: '/business/quality-compliance' },
+        { label: 'Facilities', href: '/company/facilities' },
       ],
       image: 'company/gpi-facility.webp',
     },
@@ -205,8 +180,8 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
         {
           title: 'CAREERS',
           quickLinks: [
-            ['Overview', '/careers'],
-            ['Opportunities', '/careers/opportunities'],
+            { label: 'Life at Granules', href: '/careers' },
+            { label: 'Current Openings', href: '/careers/opportunities' },
           ],
         },
       ],
@@ -302,68 +277,70 @@ function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
                           )
                         )}
                         <div className="home-nav-quick-links">
-                          {(section.quickLinks || []).map(([subLabel, subHref]) =>
-                            subHref.startsWith('http') ? (
+                          {(section.quickLinks || []).map((raw) => {
+                            const item = resolveLink(raw);
+                            return item.href.startsWith('http') ? (
                               <a
-                                href={subHref}
+                                href={item.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                key={subLabel}
+                                key={item.label}
                                 onClick={() => {
                                   setHoveredMenu(null);
                                   setOpen(false);
                                 }}
                               >
-                                <span>{subLabel}</span>
+                                <span>{item.label}</span>
                                 <span className="home-nav-arrow-diag" aria-hidden="true">↗</span>
                               </a>
                             ) : (
                               <Link
-                                to={subHref}
-                                key={subLabel}
+                                to={item.href}
+                                key={item.label}
                                 onClick={() => {
                                   setHoveredMenu(null);
                                   setOpen(false);
                                 }}
                               >
-                                <span>{subLabel}</span>
+                                <span>{item.label}</span>
                                 <span className="home-nav-arrow-diag" aria-hidden="true">↗</span>
                               </Link>
-                            )
-                          )}
+                            );
+                          })}
                         </div>
                       </div>
                     ))}
 
                     {sub.links && sub.links.length > 0 && (
                       <div className="home-nav-submenu-links">
-                        {sub.links.map(([subLabel, subHref]) =>
-                          subHref.startsWith('http') ? (
+                        {sub.links.map((raw) => {
+                          const item = resolveLink(raw);
+                          return item.href.startsWith('http') ? (
                             <a
-                              href={subHref}
+                              href={item.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              key={subLabel}
+                              key={item.label}
                               onClick={() => {
                                 setHoveredMenu(null);
                                 setOpen(false);
                               }}
                             >
-                              {subLabel}
+                              {item.label}
                             </a>
                           ) : (
                             <Link
-                              to={subHref}
-                              key={subLabel}
+                              to={item.href}
+                              key={item.label}
                               onClick={() => {
                                 setHoveredMenu(null);
                                 setOpen(false);
                               }}
                             >
-                              {subLabel}
+                              {item.label}
                             </Link>
-                          )
-                        )}
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -898,7 +875,7 @@ function Presence() {
 }
 
 function Credentials() {
-  const certsGroup = [...certs, ...certs, ...certs];
+  const certsGroup = [...REGULATORY_LOGOS, ...REGULATORY_LOGOS];
 
   return (
     <section className="credentials shell">
@@ -909,11 +886,12 @@ function Credentials() {
       <div className="cert-row" aria-label="Regulatory certifications">
         <div className="cert-track">
           <div className="cert-group">
-            {certsGroup.map((logo, index) => (
+            {certsGroup.map((item, index) => (
               <img
-                src={`${A}${logo}`}
-                alt="Regulatory certification"
-                key={`primary-${logo}-${index}`}
+                src={item.image}
+                alt={`${item.name} (${item.country})`}
+                title={`${item.name} — ${item.fullName}`}
+                key={`primary-${item.id}-${index}`}
                 loading="eager"
                 decoding="async"
               />
@@ -921,11 +899,12 @@ function Credentials() {
           </div>
 
           <div className="cert-group" aria-hidden="true">
-            {certsGroup.map((logo, index) => (
+            {certsGroup.map((item, index) => (
               <img
-                src={`${A}${logo}`}
+                src={item.image}
                 alt=""
-                key={`clone-${logo}-${index}`}
+                title={`${item.name} — ${item.fullName}`}
+                key={`clone-${item.id}-${index}`}
                 loading="eager"
                 decoding="async"
               />

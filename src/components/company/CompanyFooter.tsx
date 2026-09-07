@@ -4,23 +4,25 @@ const ABOUT_LINKS = [
   { label: 'Overview', href: '/company' },
   { label: 'Our Journey', href: '/company/milestone' },
   { label: 'Leadership', href: '/company/leadership' },
-  { label: 'Awards', href: '/company/awards' },
   { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
-  { label: 'Operational Excellence', href: '/company/operational-excellence' },
 ];
 
 const SOLUTIONS_LINKS = [
-  { label: 'Products', href: '/business/api' },
-  { label: 'Quality', href: '/business/quality-compliance' },
+  { label: 'Generics', href: '/business/generics' },
+  { label: 'Peptides', href: '/business/peptides' },
   { label: 'R&D', href: '/business/rd' },
+  { label: 'Quality', href: '/business/quality-compliance' },
   { label: 'Facilities', href: '/company/facilities' },
 ];
 
 const IMPACT_LINKS = [
   { label: 'Investors', href: '/investor' },
+  { label: 'Sustainability', href: '/sustainability' },
+  { label: 'Community', href: '/community' },
   { label: 'Media', href: '/media' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact Us', href: '/contact' },
+
 ];
 
 const SOCIAL_LINKS = [

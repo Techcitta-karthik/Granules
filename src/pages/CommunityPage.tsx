@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NavBar, CompanyFooter } from '../components/company';
+import { NavBar, CompanyFooter, CareerSection } from '../components/company';
 import '../components/company/company.css';
 import '../styles.css';
 import './community.css';
@@ -187,12 +187,11 @@ export default function CommunityPage() {
           <span className="sep">›</span>
           <Link to="/sustainability">SUSTAINABILITY</Link>
           <span className="sep">›</span>
-          <span className="current">CORPORATE SOCIAL RESPONSIBILITY</span>
+          <span className="current">Community</span>
         </p>
-
         {/* Page Title */}
         <h1 className="cp-page-title" style={{ width: '85%', margin: 'clamp(20px, 2.5vw, 32px) auto clamp(24px, 3vw, 36px)' }}>
-          Corporate Social Responsibility
+          Driving Meaningful Impact, Enriching Communities
         </h1>
 
         {/* Executive Speech & Quote Banner */}
@@ -208,9 +207,6 @@ export default function CommunityPage() {
                   decoding="async"
                 />
               </div>
-              <h2 className="comm-speech-banner-headline">
-                Driving Meaningful Impact,<br />Enriching Communities
-              </h2>
             </div>
 
             <div className="comm-speech-banner-quote-col">
@@ -362,44 +358,8 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        {/* CSR Policies & Statutory Disclosures */}
-        <section className="comm-docs-section" aria-label="CSR Policies and Governance">
-          <div className="comm-section-head-simple">
-            <span className="comm-section-tag">Governance &amp; Transparency</span>
-            <h2>CSR Policies &amp; Disclosures</h2>
-            <p className="comm-section-desc">
-              Statutory documents, annual reports, and social governance standards guiding our community programs.
-            </p>
-          </div>
-
-          <div className="comm-docs-grid">
-            {CSR_DOCUMENTS.map((doc, idx) => (
-              <a
-                key={idx}
-                href={doc.pdf}
-                download={doc.filename}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="comm-doc-card"
-                title={`Download ${doc.title}`}
-              >
-                <div className="comm-doc-card-body">
-                  <span className="comm-doc-badge">{doc.badge}</span>
-                  <h3 className="comm-doc-title">{doc.title}</h3>
-                  <p className="comm-doc-meta">{doc.meta}</p>
-                </div>
-                <div className="comm-doc-card-action">
-                  <span className="comm-doc-download-btn">
-                    <span>PDF</span>
-                    <svg className="comm-doc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
+        {/* Growth Story Journey Banner */}
+        <CareerSection />
       </main>
 
       <CompanyFooter />

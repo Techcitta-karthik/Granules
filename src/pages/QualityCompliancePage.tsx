@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavBar, CompanyFooter } from '../components/company';
+import { NavBar, RegulatoryLogosSection, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './qc.css';
 
@@ -170,6 +170,8 @@ export default function QualityCompliancePage() {
           </div>
         </div>
       </div>
+
+      <RegulatoryLogosSection />
 
       <CompanyFooter />
     </div>
