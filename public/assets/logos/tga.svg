@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 160" width="100%" height="100%">
+  <!-- Background Badge -->
+  <path d="M 0,0 L 260,0 L 260,140 Q 130,165 0,140 Z" fill="#23282D" />
+  
+  <!-- TGA text -->
+  <text x="130" y="90" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="64" font-weight="900" fill="#FFFFFF" letter-spacing="-1">TGA</text>
+  
+  <!-- Australian crest wave -->
+  <path d="M 30,118 Q 130,140 230,118 Q 130,128 30,118 Z" fill="#88929A" />
+  <text x="130" y="132" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#CBD5E1" letter-spacing="0.5">Health Safety Regulation</text>
+</svg>

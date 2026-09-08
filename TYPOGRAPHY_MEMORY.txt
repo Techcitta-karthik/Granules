@@ -1,0 +1,131 @@
+GRANULES INDIA WEBSITE TYPOGRAPHY MEMORY
+========================================
+
+CORE SYSTEM
+-----------
+
+The website uses one consistent font family across every page.
+
+Primary font: "Manrope", Arial, sans-serif
+Available weights: 400, 500, 600, 700, 800
+Default text color: #3F3F3F
+Strong text: #2A2A2A
+Secondary text: #6A6A6A
+Brand/action blue: #0061F8
+
+
+MASTER TYPE SCALE
+-----------------
+
+Display / hero
+Desktop: 56 px
+Mobile: 40 px
+Weight: 500
+Line height: 120%
+
+Page title
+Desktop: 56 px
+Mobile: 40 px
+Weight: 500
+Line height: 120%
+
+Section heading
+Desktop: 48 px
+Mobile: 28 px
+Weight: 400
+Line height: 120%
+
+Feature heading
+Desktop: 32 px
+Mobile: 18 px
+Weight: 700
+Line height: 140%
+
+Subsection heading
+Desktop: 24 px
+Mobile: 20 px
+Weight: 700
+Line height: 130%
+
+Card heading
+Desktop: 20 px
+Mobile: 18 px
+Weight: 700
+Line height: 140%
+
+Intro / lead text
+Desktop: 18 px
+Mobile: 16 px
+Weight: 400-500
+Line height: 160%
+
+Standard body text
+Desktop: 16 px
+Mobile: 14 px
+Weight: 400
+Line height: 160%
+
+Small body text
+Desktop: 14 px
+Mobile: 14 px
+Weight: 400
+Line height: 150%
+
+Navigation
+Desktop: 16 px
+Mobile: 16 px
+Weight: 500
+Line height: 160%
+
+Button / call to action
+Desktop: 16 px
+Mobile: 14 px
+Weight: 700
+Line height: 160%
+
+Label / metadata
+Desktop: 14 px
+Mobile: 12 px
+Weight: 500-700
+Line height: 140%
+
+
+LETTER SPACING
+--------------
+
+Hero and page titles: -0.3 px
+Section headings: -0.5 px
+Body and intro text: -0.2 px
+Navigation and buttons: +0.2 px
+Badges and uppercase labels: up to +1 px
+Card headings: 0
+
+
+USAGE RULES
+-----------
+
+1. Hero headings use 56 px on desktop and 40 px on mobile.
+2. Section titles use 48 px on desktop and 28 px on mobile.
+3. Card titles use 20 px on desktop and 18 px on mobile.
+4. Normal paragraphs use 16 px on desktop and 14 px on mobile.
+5. Intro paragraphs use 18 px on desktop and 16 px on mobile.
+6. Navigation remains 16 px on desktop and mobile.
+7. Buttons use 16 px on desktop and 14 px on mobile.
+8. Metadata, labels, and breadcrumbs use 14 px on desktop and 12 px on mobile.
+9. Use sentence or title case for headings and buttons.
+10. Avoid page-specific font sizes unless the component represents a genuinely
+    different typography role.
+11. Page styles may control spacing and color, but typography should come from
+    the shared tokens in src/typography.css.
+
+
+CANONICAL REUSE RULE
+--------------------
+
+Use this type scale for every Granules India website page. Start with the shared
+role that best matches the content: hero, section, feature, subsection, card,
+intro, body, navigation, action, label, or metadata. Do not choose typography
+from the HTML heading level alone. Reuse the shared typography tokens so the
+same content role renders consistently across routes and screen sizes.
+
+This file is the canonical typography memory for the Granules India website.

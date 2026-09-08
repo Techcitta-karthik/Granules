@@ -698,165 +698,165 @@ function Presence() {
               viewBox="0 0 1010 666"
               preserveAspectRatio="xMidYMid meet"
             >
-            <defs>
-              {/* Glossy 3D Blue Sphere Pin Gradient */}
-              <radialGradient id="map-pin-3d" cx="35%" cy="30%" r="65%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-                <stop offset="22%" stopColor="#60a5fa" />
-                <stop offset="55%" stopColor="#0061f8" />
-                <stop offset="85%" stopColor="#003db3" />
-                <stop offset="100%" stopColor="#001d66" />
-              </radialGradient>
+              <defs>
+                {/* Glossy 3D Blue Sphere Pin Gradient */}
+                <radialGradient id="map-pin-3d" cx="35%" cy="30%" r="65%">
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+                  <stop offset="22%" stopColor="#60a5fa" />
+                  <stop offset="55%" stopColor="#0061f8" />
+                  <stop offset="85%" stopColor="#003db3" />
+                  <stop offset="100%" stopColor="#001d66" />
+                </radialGradient>
 
-              {/* Pin Drop Shadow */}
-              <filter id="map-pin-shadow" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="2.5" stdDeviation="3" floodColor="#0047cc" floodOpacity="0.4" />
-              </filter>
+                {/* Pin Drop Shadow */}
+                <filter id="map-pin-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="2.5" stdDeviation="3" floodColor="#0047cc" floodOpacity="0.4" />
+                </filter>
 
-              {/* Pill Badge Shadow */}
-              <filter id="map-pill-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#001a4d" floodOpacity="0.08" />
-              </filter>
-            </defs>
+                {/* Pill Badge Shadow */}
+                <filter id="map-pill-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#001a4d" floodOpacity="0.08" />
+                </filter>
+              </defs>
 
-            {/* ============================================================
+              {/* ============================================================
                 TAB 0: OUR LOCATIONS (WORLD VIEW)
                 ============================================================ */}
-            <g
-              className="presence-layer presence-layer-world"
-              style={{
-                opacity: active === 0 ? 1 : 0,
-                pointerEvents: active === 0 ? 'auto' : 'none',
-                transition: 'opacity 0.35s ease'
-              }}
-            >
-              {/* 1. Chantilly (Virginia) USA */}
-              <line x1="261" y1="327" x2="245" y2="248" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                <rect x="145" y="222" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                <text x="235" y="235.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                  CHANTILLY (VIRGINIA) USA
-                </text>
-              </g>
-              <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+              <g
+                className="presence-layer presence-layer-world"
+                style={{
+                  opacity: active === 0 ? 1 : 0,
+                  pointerEvents: active === 0 ? 'auto' : 'none',
+                  transition: 'opacity 0.35s ease'
+                }}
+              >
+                {/* 1. Chantilly (Virginia) USA */}
+                <line x1="261" y1="327" x2="245" y2="248" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="145" y="222" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="235" y="235.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    CHANTILLY (VIRGINIA) USA
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-              {/* 2. Switzerland */}
-              <line x1="498" y1="315" x2="498" y2="280" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                <rect x="442" y="254" width="112" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                  SWITZERLAND
-                </text>
-              </g>
-              <circle className="map-pin-dot" cx="498" cy="315" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+                {/* 2. Switzerland */}
+                <line x1="498" y1="315" x2="498" y2="280" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="442" y="254" width="112" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    SWITZERLAND
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="498" cy="315" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-              {/* 3. Pune (Maharashtra, India) */}
-              <line x1="683.5" y1="412" x2="676" y2="432" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                <rect x="620" y="420" width="56" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                <text x="648" y="432.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                  PUNE
-                </text>
-              </g>
-              <circle className="map-pin-dot" cx="683.5" cy="412" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+                {/* 3. Pune (Maharashtra, India) */}
+                <line x1="683.5" y1="412" x2="676" y2="432" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="620" y="420" width="56" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="648" y="432.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    PUNE
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="683.5" cy="412" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-              {/* 4. Hyderabad (Telangana, India) */}
-              <line x1="698" y1="413" x2="714" y2="376" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                <rect x="670" y="352" width="88" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                <text x="714" y="364.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                  HYDERABAD
-                </text>
-              </g>
-              <circle className="map-pin-dot" cx="698" cy="413" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+                {/* 4. Hyderabad (Telangana, India) */}
+                <line x1="698" y1="413" x2="714" y2="376" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="670" y="352" width="88" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="714" y="364.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    HYDERABAD
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="698" cy="413" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-              {/* 5. Visakhapatnam (Andhra Pradesh, India) */}
-              <line x1="717" y1="404" x2="722" y2="426" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                <rect x="706" y="426" width="116" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                <text x="764" y="438.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                  VISAKHAPATNAM
-                </text>
+                {/* 5. Visakhapatnam (Andhra Pradesh, India) */}
+                <line x1="717" y1="404" x2="722" y2="426" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="706" y="426" width="116" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="764" y="438.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    VISAKHAPATNAM
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="717" cy="404" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
               </g>
-              <circle className="map-pin-dot" cx="717" cy="404" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
-            </g>
 
-            {/* ============================================================
+              {/* ============================================================
                 TAB 1: OUR KEY SUBSIDIARIES (ZOOMED INDIA VIEW)
                 ============================================================ */}
-            <g
-              className="presence-layer presence-layer-subsidiaries"
-              style={{
-                opacity: active === 1 ? 1 : 0,
-                pointerEvents: active === 1 ? 'auto' : 'none',
-                transition: 'opacity 0.35s ease'
-              }}
-            >
-              {/* 3 Converging Leader Lines down to Hyderabad */}
-              <line x1="698" y1="413" x2="708" y2="352.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
-              <line x1="698" y1="413" x2="708" y2="365.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
-              <line x1="698" y1="413" x2="708" y2="378.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+              <g
+                className="presence-layer presence-layer-subsidiaries"
+                style={{
+                  opacity: active === 1 ? 1 : 0,
+                  pointerEvents: active === 1 ? 'auto' : 'none',
+                  transition: 'opacity 0.35s ease'
+                }}
+              >
+                {/* 3 Converging Leader Lines down to Hyderabad */}
+                <line x1="698" y1="413" x2="708" y2="352.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+                <line x1="698" y1="413" x2="708" y2="365.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+                <line x1="698" y1="413" x2="708" y2="378.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
 
-              {/* Stacked Pills to upper-right of Hyderabad */}
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                {/* Pill 1: Granules Life Sciences */}
-                <rect x="708" y="347" width="108" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                <text x="762" y="352.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                  GRANULES LIFE SCIENCES PRIVATE LIMITED
-                </text>
+                {/* Stacked Pills to upper-right of Hyderabad */}
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  {/* Pill 1: Granules Life Sciences */}
+                  <rect x="708" y="347" width="108" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                  <text x="762" y="352.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                    GRANULES LIFE SCIENCES PRIVATE LIMITED
+                  </text>
 
-                {/* Pill 2: Granules CZRO */}
-                <rect x="708" y="360" width="86" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                <text x="751" y="365.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                  GRANULES CZRO PRIVATE LIMITED
-                </text>
+                  {/* Pill 2: Granules CZRO */}
+                  <rect x="708" y="360" width="86" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                  <text x="751" y="365.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                    GRANULES CZRO PRIVATE LIMITED
+                  </text>
 
-                {/* Pill 3: Ascelis Peptides */}
-                <rect x="708" y="373" width="90" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                <text x="753" y="378.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                  ASCELIS PEPTIDES PRIVATE LIMITED
-                </text>
+                  {/* Pill 3: Ascelis Peptides */}
+                  <rect x="708" y="373" width="90" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                  <text x="753" y="378.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                    ASCELIS PEPTIDES PRIVATE LIMITED
+                  </text>
+                </g>
+
+                {/* Dot at Hyderabad */}
+                <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
               </g>
 
-              {/* Dot at Hyderabad */}
-              <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
-            </g>
-
-            {/* ============================================================
+              {/* ============================================================
                 TAB 2: OUR FACILITIES (ZOOMED INDIA VIEW)
                 ============================================================ */}
-            <g
-              className="presence-layer presence-layer-facilities"
-              style={{
-                opacity: active === 2 ? 1 : 0,
-                pointerEvents: active === 2 ? 'auto' : 'none',
-                transition: 'opacity 0.35s ease'
-              }}
-            >
-              {/* Hyderabad */}
-              <line x1="698" y1="413" x2="685" y2="394" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                <rect x="660" y="383" width="42" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                <text x="681" y="388.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                  HYDERABAD
-                </text>
-              </g>
-              <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+              <g
+                className="presence-layer presence-layer-facilities"
+                style={{
+                  opacity: active === 2 ? 1 : 0,
+                  pointerEvents: active === 2 ? 'auto' : 'none',
+                  transition: 'opacity 0.35s ease'
+                }}
+              >
+                {/* Hyderabad */}
+                <line x1="698" y1="413" x2="685" y2="394" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="660" y="383" width="42" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                  <text x="681" y="388.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                    HYDERABAD
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-              {/* Visakhapatnam */}
-              <line x1="717" y1="404" x2="728" y2="388" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
-              <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                <rect x="715" y="377" width="52" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                <text x="741" y="382.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                  VISHAKHPATNAM
-                </text>
+                {/* Visakhapatnam */}
+                <line x1="717" y1="404" x2="728" y2="388" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="715" y="377" width="52" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                  <text x="741" y="382.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                    VISHAKHPATNAM
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="717" cy="404" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
               </g>
-              <circle className="map-pin-dot" cx="717" cy="404" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
-            </g>
-          </svg>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
 
       <div className="presence-tabs shell">
         {tabs.map((tab, index) => (

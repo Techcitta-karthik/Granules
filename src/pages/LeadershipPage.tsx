@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import {
   BOARD_OF_DIRECTORS,
@@ -16,23 +17,18 @@ export default function LeadershipPage() {
 
   const activeMembers = activeTab === 'board' ? BOARD_OF_DIRECTORS : MANAGEMENT_TEAM;
 
-  // Sync document title and URL hash
+  // Sync document title, scroll, and URL hash
   useEffect(() => {
     if (selectedMember) {
       document.title = `${selectedMember.name} — Leadership — Granules India`;
       window.history.replaceState(null, '', `#${selectedMember.id}`);
-      document.body.style.overflow = 'hidden';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       document.title = 'Leadership Team — Granules India';
       if (window.location.hash) {
         window.history.replaceState(null, '', window.location.pathname);
       }
-      document.body.style.overflow = '';
     }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [selectedMember]);
 
   // Handle hash on initial load
@@ -55,55 +51,141 @@ export default function LeadershipPage() {
     setSelectedMember(member);
   };
 
-  const handleCloseModal = useCallback(() => {
+  const handleBack = useCallback(() => {
     setSelectedMember(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  // Modal Next / Previous Navigation
-  const currentIndex = selectedMember
-    ? activeMembers.findIndex((m) => m.id === selectedMember.id)
-    : -1;
+  // ---- PROFILE VIEW ----
+  if (selectedMember) {
+    const currentIndex = activeMembers.findIndex((m) => m.id === selectedMember.id);
+    const hasPrev = currentIndex > 0;
+    const hasNext = currentIndex >= 0 && currentIndex < activeMembers.length - 1;
 
-  const handlePrevMember = useCallback(() => {
-    if (currentIndex > 0) {
-      setSelectedMember(activeMembers[currentIndex - 1]);
-    }
-  }, [currentIndex, activeMembers]);
+    const pronoun =
+      selectedMember.name.startsWith('Mrs.') || selectedMember.name.startsWith('Ms.')
+        ? 'Her'
+        : 'His';
 
-  const handleNextMember = useCallback(() => {
-    if (currentIndex >= 0 && currentIndex < activeMembers.length - 1) {
-      setSelectedMember(activeMembers[currentIndex + 1]);
-    }
-  }, [currentIndex, activeMembers]);
+    return (
+      <div className="cp">
+        <NavBar />
 
-  // Keyboard navigation (ESC, ArrowLeft, ArrowRight)
-  useEffect(() => {
-    if (!selectedMember) return;
+        <div className="ld-profile-view">
+          {/* Breadcrumb */}
+          <p className="cp-breadcrumb ld-profile-breadcrumb">
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOME</Link>
+            <span className="sep">›</span>
+            <Link to="/company" style={{ color: 'inherit', textDecoration: 'none' }}>ABOUT US</Link>
+            <span className="sep">›</span>
+            <button type="button" className="ld-breadcrumb-btn" onClick={handleBack}>LEADERSHIP</button>
+            <span className="sep">›</span>
+            <span className="current" style={{ color: '#0061f8', fontWeight: 700 }}>
+              {selectedMember.name.toUpperCase()}
+            </span>
+          </p>
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        handleCloseModal();
-      } else if (e.key === 'ArrowLeft') {
-        handlePrevMember();
-      } else if (e.key === 'ArrowRight') {
-        handleNextMember();
-      }
-    };
+          {/* Photo */}
+          <div className="ld-profile-hero">
+            <div className="ld-profile-photo-card">
+              <img
+                src={`${L}${selectedMember.image}`}
+                alt={selectedMember.name}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedMember, handleCloseModal, handlePrevMember, handleNextMember]);
+          {/* Name + Role + Bio */}
+          <div className="ld-profile-details">
+            <h1 className="ld-profile-name">{selectedMember.name}</h1>
+            <p className="ld-profile-role">{selectedMember.role}</p>
+            <div className="ld-profile-divider" />
 
+            <div className="ld-profile-body">
+              {selectedMember.profile && selectedMember.profile.length > 0 ? (
+                selectedMember.profile.map((paragraph, idx) => (
+                  <p className="ld-profile-paragraph" key={idx}>{paragraph}</p>
+                ))
+              ) : (
+                <p className="ld-profile-paragraph">
+                  {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
+                </p>
+              )}
+
+              {selectedMember.directorships && selectedMember.directorships.length > 0 && (
+                <div className="ld-profile-directorships">
+                  <p className="ld-profile-directorships-title">
+                    {pronoun} directorships and other full-time positions in bodies corporate are as follows:
+                  </p>
+                  <ul className="ld-profile-directorships-list">
+                    {selectedMember.directorships.map((dir, idx) => (
+                      <li key={idx}>
+                        <span className="ld-profile-bullet">◆</span>
+                        <span>{dir}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Navigation between members */}
+              <div className="ld-profile-nav-row">
+                {hasPrev && (
+                  <button
+                    type="button"
+                    className="ld-profile-nav-btn"
+                    onClick={() => setSelectedMember(activeMembers[currentIndex - 1])}
+                  >
+                    ‹ Previous
+                  </button>
+                )}
+                {hasNext && (
+                  <button
+                    type="button"
+                    className="ld-profile-nav-btn"
+                    onClick={() => setSelectedMember(activeMembers[currentIndex + 1])}
+                  >
+                    Next ›
+                  </button>
+                )}
+              </div>
+
+              <button type="button" className="ld-back-btn" onClick={handleBack}>
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="ld-bottom-divider" />
+
+        <div className="ld-cta">
+          <img className="cp-bg" src={`${L}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
+          <div className="cp-bg-overlay" />
+          <div className="ld-cta-copy">
+            <h2>Find your next role at Granules</h2>
+            <p>Join us in shaping the future of sustainable healthcare.</p>
+          </div>
+          <a className="ld-cta-btn" href="/careers">CAREERS</a>
+        </div>
+
+        <CompanyFooter />
+      </div>
+    );
+  }
+
+  // ---- GRID VIEW (default) ----
   return (
     <div className="cp">
       <NavBar />
 
-      {/* Main Leadership Overview & Grid View */}
       <div className="ld-main-view">
         <p className="cp-breadcrumb ld-main-breadcrumb">
-          <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOME</a>
+          <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>HOME</Link>
           <span className="sep">›</span>
-          <a href="/company" style={{ color: 'inherit', textDecoration: 'none' }}>ABOUT US</a>
+          <Link to="/company" style={{ color: 'inherit', textDecoration: 'none' }}>ABOUT US</Link>
           <span className="sep">›</span>
           <span className="current">LEADERSHIP</span>
         </p>
@@ -115,7 +197,7 @@ export default function LeadershipPage() {
           </h1>
           <p className="ld-main-desc">
             Granules India is led by a team of seasoned professionals of the pharmaceutical industry. Each leader
-            brings in-depth expertise and a modern outlook to tackle the challenges of today’s dynamic business.
+            brings in-depth expertise and a modern outlook to tackle the challenges of today's dynamic business.
             Collectively, the Granules leadership chalks out strategies that help in building organisational
             capability while delivering sustainable growth.
           </p>
@@ -128,10 +210,7 @@ export default function LeadershipPage() {
               role="tab"
               aria-selected={activeTab === 'board'}
               className={`ld-tab-nav-btn ${activeTab === 'board' ? 'active' : ''}`}
-              onClick={() => {
-                setActiveTab('board');
-                setSelectedMember(null);
-              }}
+              onClick={() => setActiveTab('board')}
             >
               <span>BOARD OF DIRECTORS</span>
               {activeTab === 'board' && <span className="ld-active-bar" />}
@@ -141,10 +220,7 @@ export default function LeadershipPage() {
               role="tab"
               aria-selected={activeTab === 'management'}
               className={`ld-tab-nav-btn ${activeTab === 'management' ? 'active' : ''}`}
-              onClick={() => {
-                setActiveTab('management');
-                setSelectedMember(null);
-              }}
+              onClick={() => setActiveTab('management')}
             >
               <span>MANAGEMENT TEAM</span>
               {activeTab === 'management' && <span className="ld-active-bar" />}
@@ -190,112 +266,6 @@ export default function LeadershipPage() {
           ))}
         </div>
       </div>
-
-      {/* ==========================================================================
-          LEADER PROFILE DETAILS MODAL (Overlay Dialog)
-          ========================================================================== */}
-      {selectedMember && (
-        <div
-          className="ld-modal-backdrop"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) handleCloseModal();
-          }}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="ld-modal-title"
-        >
-          <div className="ld-modal-dialog">
-            <header className="ld-modal-header">
-              <span className="ld-modal-badge">
-                {activeTab === 'board' ? 'Board of Directors' : 'Management Team'}
-              </span>
-
-              <div className="ld-modal-actions">
-                <button
-                  type="button"
-                  className="ld-modal-nav-btn"
-                  onClick={handlePrevMember}
-                  disabled={currentIndex <= 0}
-                  aria-label="Previous leader"
-                  title="Previous leader (Left Arrow)"
-                >
-                  ‹
-                </button>
-                <button
-                  type="button"
-                  className="ld-modal-nav-btn"
-                  onClick={handleNextMember}
-                  disabled={currentIndex >= activeMembers.length - 1}
-                  aria-label="Next leader"
-                  title="Next leader (Right Arrow)"
-                >
-                  ›
-                </button>
-                <button
-                  type="button"
-                  className="ld-modal-close-btn"
-                  onClick={handleCloseModal}
-                  aria-label="Close modal"
-                  title="Close (Esc)"
-                >
-                  ✕
-                </button>
-              </div>
-            </header>
-
-            <div className="ld-modal-content">
-              <div className="ld-modal-hero">
-                <div className="ld-modal-avatar">
-                  <img
-                    src={`${L}${selectedMember.image}`}
-                    alt={selectedMember.name}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="ld-modal-meta">
-                  <h2 className="ld-modal-title" id="ld-modal-title">
-                    {selectedMember.name}
-                  </h2>
-                  <p className="ld-modal-role">{selectedMember.role}</p>
-                </div>
-              </div>
-
-              <div className="ld-modal-body-text">
-                {selectedMember.profile && selectedMember.profile.length > 0 ? (
-                  selectedMember.profile.map((paragraph, idx) => (
-                    <p className="ld-modal-p" key={idx}>
-                      {paragraph}
-                    </p>
-                  ))
-                ) : (
-                  <p className="ld-modal-p">
-                    {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
-                  </p>
-                )}
-
-                {selectedMember.directorships && selectedMember.directorships.length > 0 && (
-                  <div className="ld-modal-directorships">
-                    <p className="ld-modal-directorships-title">
-                      {selectedMember.name.startsWith('Mrs.') || selectedMember.name.startsWith('Ms.')
-                        ? 'Her'
-                        : 'His'}{' '}
-                      directorships and other positions in bodies corporate:
-                    </p>
-                    <ul className="ld-modal-directorships-list">
-                      {selectedMember.directorships.map((dir, idx) => (
-                        <li key={idx}>
-                          <span>{dir}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       <div className="ld-bottom-divider" />
 

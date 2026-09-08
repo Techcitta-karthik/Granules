@@ -42,7 +42,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'Santé Canada / Health Canada',
     country: 'Canada',
     region: 'North America',
-    image: '/assets/logos/health-canada.jpg',
+    image: '/assets/logos/health-canada.svg',
     badge: 'DEL Compliance',
   },
   {
@@ -51,7 +51,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'Therapeutic Goods Administration',
     country: 'Australia',
     region: 'Asia-Pacific',
-    image: '/assets/logos/tga.jpeg',
+    image: '/assets/logos/tga.svg',
     badge: 'GMP Clearance',
   },
   {
@@ -60,7 +60,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'Pharmaceuticals and Medical Devices Agency',
     country: 'Japan',
     region: 'Asia-Pacific',
-    image: '/assets/logos/pmda.jpeg',
+    image: '/assets/logos/pmda.svg',
     badge: 'Accredited Foreign Mfg',
   },
   {
@@ -105,7 +105,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'Saudi Food and Drug Authority',
     country: 'Saudi Arabia',
     region: 'Middle East',
-    image: '/assets/logos/sfda.jpg',
+    image: '/assets/logos/sfda.svg',
     badge: 'GCC GMP Approved',
   },
   {
@@ -114,7 +114,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'South African Health Products Regulatory Authority',
     country: 'South Africa',
     region: 'Africa',
-    image: '/assets/logos/sahpra.jpeg',
+    image: '/assets/logos/sahpra.svg',
     badge: 'GMP Approved',
   },
   {

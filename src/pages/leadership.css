@@ -387,7 +387,7 @@
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -399,6 +399,40 @@
   background: #004ecc;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 97, 248, 0.35);
+}
+
+/* Profile page nav between members */
+.ld-profile-nav-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.ld-profile-nav-btn {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font: 600 14px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ld-profile-nav-btn:hover {
+  background: #0061f8;
+  color: #ffffff;
+  border-color: #0061f8;
+  transform: translateY(-1px);
+}
+
+/* Override bullet style for profile view */
+.ld-profile-directorships-list li .ld-profile-bullet {
+  font-size: 8px;
+  color: #0061f8;
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
 /* ==========================================================================
