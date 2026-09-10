@@ -245,7 +245,6 @@ export default function CareerOverviewPage() {
 
         {/* Page Main Header */}
         <h1 className="cp-page-title">Make Better Health. Build a Bolder Career.</h1>
-        <p className="car-hero-tagline">Careers at Granules</p>
 
         {/* Hero Visual Banner */}
         <div className="car-hero">

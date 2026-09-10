@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="100%" height="100%">
+  <!-- SAHPRA Wordmark -->
+  <text x="10" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="115" font-weight="900" fill="#009688" letter-spacing="-2">SA</text>
+  <line x1="190" y1="20" x2="190" y2="185" stroke="#00796B" stroke-width="18" stroke-linecap="square" />
+  <text x="215" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="115" font-weight="900" fill="#00796B" letter-spacing="-2">HPRA</text>
+
+  <!-- Subtitle -->
+  <text x="220" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#004D40">South African</text>
+  <text x="220" y="166" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#004D40">Health Products</text>
+  <text x="220" y="194" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#004D40">Regulatory Authority</text>
+</svg>

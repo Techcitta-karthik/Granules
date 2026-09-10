@@ -68,10 +68,144 @@ const SYNTHESIS_ROUTES = [
   },
 ];
 
+const PHASES_DATA = [
+  {
+    phase: '1',
+    quantity: 'Under 1 g',
+    stage: 'Feasibility & Scouting',
+    activity: 'Feasibility, analytical sample, route finding',
+  },
+  {
+    phase: '2',
+    quantity: 'Under 100 g',
+    stage: 'Process Development',
+    activity: 'Process and purification development, representative sample',
+  },
+  {
+    phase: '3',
+    quantity: '1 to 10 kg',
+    stage: 'Scale-Up & Pilot',
+    activity: 'Scale-up, pilot or initial production batch',
+  },
+  {
+    phase: '4',
+    quantity: 'Above 10 kg',
+    stage: 'Commercial Production',
+    activity: 'Commercial production with capability extending to ton scale',
+  },
+];
+
+const MANUFACTURING_DATA = [
+  {
+    category: 'GMP Manufacturing, Dielsdorf',
+    badge: 'Switzerland Facility',
+    description: 'Commercial and pilot cGMP production hub with comprehensive synthesis, purification, and isolation suites.',
+    items: [
+      'Stainless steel reactor 2,500 L, operating from -20 °C to 150 °C',
+      'Glass-lined reactors range from 100 to 2,500 L, operating from -20 °C to 150 °C',
+      'Hydrogenation reactors range from 20 to 2,500 L, operating at pressures up to 6 bar',
+      'SPPS synthesizer, with capacity for up to 12 kg of resin',
+      'Preparative HPLC chromatography using DAC columns up to 30 cm internal diameter',
+      'Filtration using Nutsche and pressurised filters, together with centrifugation under nitrogen',
+      'Vacuum tray drying, filter drying and lyophilisation with an ice-condensing capacity of up to 20 kg',
+    ],
+  },
+  {
+    category: 'Kilo Laboratory',
+    badge: 'Pilot & Scale-Up',
+    description: 'Specialized kilo-scale pilot plant for process optimization and mid-scale intermediate development.',
+    items: [
+      'Jacketed glass reactors range from 10 to 30 L',
+      'Hydrogenation reactors up to 20 L',
+      'Purification by ion exchange, reversed phase HPLC and normal phase chromatography',
+    ],
+  },
+  {
+    category: 'Small-Scale GMP Laboratory',
+    badge: 'Clinical Supply',
+    description: 'Controlled cGMP environment designed for early-phase clinical batches and precision aliquoting.',
+    items: [
+      'LPPS from mg to 0.5 kg, SPPS at 0.5, 2 and 5 L',
+      'Double-jacketed glass reactors, 0.25 to 5 L, -40 °C to 180 °C',
+      'API aliquoting into vials, up to 2,000 vials per batch',
+      'Open product handling under laminar airflow within a Grade D equivalent environment',
+    ],
+  },
+];
+
+const ANALYTICAL_CAPABILITIES = [
+  'Physical characterisation',
+  'Impurity identification',
+  'Residual-solvent testing',
+  'Pharmacopeial testing',
+  'Chromatographic assays',
+  'Enantiomeric-purity analysis',
+  'Spectrometric techniques',
+  'HPLC and GC',
+  'Potentiometric titration',
+  'Karl Fischer water determination',
+  'LC-MS',
+  'Circular dichroism',
+  'MALS',
+];
+
+const COMPLIANCE_PILLARS = [
+  {
+    title: 'ISO 9001:2015 & Swissmedic cGMP',
+    badge: 'Authorized Compliance',
+    text: 'Senn Chemicals is ISO 9001:2015 certified and authorized by Swissmedic for cGMP manufacturing of peptide APIs and custom derivatives.',
+  },
+  {
+    title: 'Switzerland–United States GMP MRA',
+    badge: 'Mutual Recognition',
+    text: 'The site operates within the regulatory context of the Switzerland–United States GMP Mutual Recognition Agreement for streamlined global filings.',
+  },
+  {
+    title: 'Global Filing & Audit Readiness',
+    badge: 'Worldwide Markets',
+    text: 'We operate quality systems, documentation practices and change-control processes designed to support customer filings in the United States, Europe and other regulated markets.',
+  },
+];
+
+const FOOTPRINT_LIST = [
+  {
+    country: 'Switzerland',
+    location: 'Senn Chemicals AG, Dielsdorf, Zurich',
+    details: 'R&D, kilo-scale development, GMP production, QC, QA and warehousing. The site employs more than 80 people and has been operational since 1963.',
+  },
+  {
+    country: 'India',
+    location: 'Development Centre, Hyderabad',
+    details: 'Development, process optimisation, structural characterisation and analytical capabilities at Technology Research Park, IIT Hyderabad.',
+  },
+  {
+    country: 'India',
+    location: 'Manufacturing Facility, Vizag',
+    details: 'Large-scale peptide manufacturing facility under development on a 283,000 sq. ft. site, with completion expected by December 2027.',
+  },
+];
+
+const LEADERSHIP_TEAM = [
+  {
+    name: 'Sanjay Kumar',
+    title: 'Chief Executive Officer',
+  },
+  {
+    name: 'Frédéric Besançon',
+    title: 'Chief Executive Officer, Senn Chemicals',
+  },
+  {
+    name: 'Dr Srinivas PV',
+    title: 'Chief Scientific Officer',
+  },
+  {
+    name: 'Markus Löweneck',
+    title: 'Head of Corporate R&D',
+  },
+];
 
 export default function SennTidesPage() {
   const [openCard, setOpenCard] = useState<number>(-1);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const {
     swipeProps,
     isDragging,
@@ -96,29 +230,7 @@ export default function SennTidesPage() {
     }
     metaDescription.setAttribute('content', descriptionContent);
 
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute(
-      'content',
-      'peptide CDMO Switzerland and India, custom peptide synthesis, peptide API manufacturer, amino acid derivatives, LPPS peptide manufacturing, Senn Chemicals'
-    );
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      setIsScrolled(scrollY > 220);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
     window.scrollTo(0, 0);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, []);
 
   return (
@@ -139,7 +251,7 @@ export default function SennTidesPage() {
       {/* Page Title */}
       <h1 className="senn-page-header">Senn Tides Private Limited</h1>
 
-      {/* Hero Visual Banner */}
+      {/* Hero Banner */}
       <div className="senn-hero-wrap">
         <div className="cp-hero-banner">
           <img
@@ -161,22 +273,17 @@ export default function SennTidesPage() {
         </div>
       </div>
 
-      {/* Overview Section */}
-      <section className={`senn-intro ${isScrolled ? 'is-scrolled' : ''}`} aria-label="Overview">
-        <p>
-          <span>
-            Senn Tides is a wholly owned subsidiary of Granules India and its integrated CDMO platform, with an established foundation in peptides and expansion into oligonucleotides and antibody-drug conjugates underway.{' '}
-          </span>
-          <span className="muted">
-            It was incorporated in June 2025 following Granules India&rsquo;s acquisition of Senn Chemicals AG, a Swiss peptide CDMO founded in Dielsdorf, Zurich, in 1963.
-          </span>
-        </p>
-        <p>
+      {/* Overview Intro */}
+      <section className="senn-intro" aria-label="Overview">
+        <h4>
+          Senn Tides is a wholly owned subsidiary of Granules India and its integrated CDMO platform, with an established foundation in peptides and expansion into oligonucleotides and antibody-drug conjugates underway. It was incorporated in June 2025 following Granules India&rsquo;s acquisition of Senn Chemicals AG, a Swiss peptide CDMO founded in Dielsdorf, Zurich, in 1963.
+        </h4>
+        <h4>
           We operate development and manufacturing capabilities across Dielsdorf, Switzerland, and Hyderabad, India. Zurich operations form the core of our CDMO offerings, with a long track record in R&amp;D, process development and small-scale manufacturing of peptide APIs, peptide fragments and protected AADs for pharmaceutical innovators, cosmetic companies and theranostic developers. Building on this Swiss foundation, Senn Tides is developing a two-continent operating model, with complementary large-scale infrastructure, R&amp;D and manufacturing in India.
-        </p>
-        <p>
+        </h4>
+        <h4>
           Customers are supported by one integrated platform and project team across both geographies.
-        </p>
+        </h4>
       </section>
 
       {/* What We Do Section */}
@@ -184,11 +291,11 @@ export default function SennTidesPage() {
         <div className="copy">
           <span className="cp-section-badge">What We Do</span>
           <h2>What We Do</h2>
-          <p>
+          <h4>
             We provide custom development and manufacturing services for peptide ingredients, from route selection and process development through scale-up, validation and commercial supply.
-          </p>
+          </h4>
         </div>
-        <a className="cp-cta-btn" href="http://www.sennchem.com" target="_blank" rel="noreferrer">
+        <a className="cp-cta-btn" href="https://www.sennchem.com" target="_blank" rel="noreferrer">
           Visit Senn Chemicals ↗
         </a>
       </section>
@@ -227,7 +334,7 @@ export default function SennTidesPage() {
           })}
         </div>
 
-        {/* Dynamic progress bar and smooth arrow navigation */}
+        {/* Carousel Controls */}
         <div className="biz-carousel-controls">
           <div className="biz-progress-track">
             <div
@@ -275,19 +382,18 @@ export default function SennTidesPage() {
         </p>
       </div>
 
-      {/* Four Synthesis Routes Section */}
+      {/* Four Synthesis Routes Table */}
       <section className="senn-routes-section" aria-label="Four Synthesis Routes">
         <div className="senn-section-head">
           <div className="copy">
             <span className="cp-section-badge">Synthesis Methodologies</span>
             <h2>Four Synthesis Routes</h2>
-            <p>
+            <h4>
               Most peptide manufacturers run one synthesis platform and fit every molecule to it. Our platform brings together four synthesis approaches, enabling route selection based on the molecule, target scale and purification requirements.
-            </p>
+            </h4>
           </div>
         </div>
 
-        {/* Synthesis Table */}
         <div className="senn-routes-table-wrap">
           <table className="senn-routes-table">
             <thead>
@@ -311,32 +417,249 @@ export default function SennTidesPage() {
           </table>
         </div>
 
-        {/* Why Liquid Phase Matters Hero Callout */}
+        {/* Why Liquid Phase Matters Callout */}
         <div className="senn-lpps-callout">
-          <h4>
+          <h3 className="callout-title">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />
               <line x1="12" y1="16" x2="12" y2="12" />
               <line x1="12" y1="8" x2="12.01" y2="8" />
             </svg>
             Why Liquid Phase Matters
+          </h3>
+          <h4>
+            For suitable molecules, LPPS can offer substantially lower process mass intensity than SPPS and may reduce or eliminate chromatography, supporting the commercial viability of large-scale peptide manufacturing.
           </h4>
-          <p>
-            For suitable molecules, LPPS can offer substantially lower process mass intensity than SPPS and may reduce or eliminate chromatography. This can materially improve the commercial viability of large-scale peptide manufacturing. It is where Senn Chemicals built its reputation and it remains our core strength.
-          </p>
+        </div>
+      </section>
+
+      {/* From Feasibility to Commercial Supply (Signature Ice-Blue Boxes Grid) */}
+      <section className="senn-block-section" aria-label="From Feasibility to Commercial Supply">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">Development Lifecycle</span>
+            <h2>From Feasibility to Commercial Supply</h2>
+            <h4>
+              Programs can progress from feasibility to commercial supply within the same CDMO platform, reducing the need for an external vendor transfer.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-stat-grid-4">
+          {PHASES_DATA.map((p) => (
+            <article className="senn-stat-card" key={p.phase}>
+              <span className="senn-stat-num">{p.quantity}</span>
+              <span className="senn-stat-tag">Phase {p.phase} &bull; {p.stage}</span>
+              <p className="senn-stat-text">{p.activity}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Manufacturing Capacity (Signature Ice-Blue Cards Grid) */}
+      <section className="senn-block-section" aria-label="Manufacturing Capacity">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">Infrastructure &amp; Scale</span>
+            <h2>Manufacturing Capacity</h2>
+            <h4>
+              Comprehensive pilot, clinical, and commercial equipment trains operating under Swissmedic cGMP standards.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-mfg-grid-3">
+          {MANUFACTURING_DATA.map((block) => (
+            <article className="senn-mfg-box" key={block.category}>
+              <div className="senn-mfg-box-head">
+                <span className="senn-stat-tag">{block.badge}</span>
+                <h3 className="senn-mfg-box-title">{block.category}</h3>
+                <p className="senn-mfg-box-desc">{block.description}</p>
+              </div>
+              <ul className="senn-mfg-box-list">
+                {block.items.map((item, idx) => (
+                  <li key={idx}>
+                    <span className="senn-box-bullet" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Development and Analytical Support */}
+      <section className="senn-block-section" aria-label="Development and Analytical Support">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">R&amp;D &amp; Analytics</span>
+            <h2>Development and Analytical Support</h2>
+            <h4>
+              An experienced R&amp;D team, including doctoral-level scientists, provides route scouting, process development, analytical method development and validation, stability studies, DMF preparation and technology-transfer support.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-analytics-card">
+          <div className="senn-analytics-intro">
+            <span className="senn-stat-tag">Analytical Suite</span>
+            <h3 className="senn-analytics-heading">Specialized Testing &amp; Structural Characterization</h3>
+            <p>
+              Our comprehensive testing protocols ensure complete impurity identification, purity profiling, and regulatory readiness across all synthesis pathways:
+            </p>
+          </div>
+          <div className="senn-pills-wrap">
+            {ANALYTICAL_CAPABILITIES.map((cap) => (
+              <span className="senn-blue-pill" key={cap}>{cap}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quality and Compliance (Ice-Blue 3-Card Grid) */}
+      <section className="senn-block-section" aria-label="Quality and Compliance">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">Quality Systems</span>
+            <h2>Quality and Compliance</h2>
+            <h4>
+              Operating to the highest global standards with authorization from Swissmedic and alignment with international regulatory frameworks.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-grid-3">
+          {COMPLIANCE_PILLARS.map((pillar) => (
+            <article className="senn-feature-card" key={pillar.title}>
+              <span className="senn-stat-tag">{pillar.badge}</span>
+              <h3 className="senn-feature-title">{pillar.title}</h3>
+              <p className="senn-feature-desc">{pillar.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Footprint (Ice-Blue 3-Card Grid) */}
+      <section className="senn-block-section" aria-label="Global Footprint">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">Locations</span>
+            <h2>Footprint</h2>
+            <h4>
+              Operating across Switzerland and India with established European facilities and major capacity additions underway.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-grid-3">
+          {FOOTPRINT_LIST.map((loc, i) => (
+            <article className="senn-feature-card" key={i}>
+              <span className="senn-stat-tag">{loc.country}</span>
+              <h3 className="senn-feature-title">{loc.location}</h3>
+              <p className="senn-feature-desc">{loc.details}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Building Capacity in India (Ice-Blue 2-Card Grid) */}
+      <section className="senn-block-section" aria-label="Building Capacity in India">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">India Expansion</span>
+            <h2>Building Capacity in India</h2>
+            <h4>
+              Scaling next-generation development infrastructure and commercial manufacturing in India.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-grid-2">
+          <article className="senn-feature-card">
+            <span className="senn-stat-tag">IIT Hyderabad &bull; R&amp;D Centre</span>
+            <h3 className="senn-feature-title">Technology Research Park Development Centre</h3>
+            <p className="senn-feature-desc">
+              Dedicated development centre at IIT Hyderabad supporting route scouting, process optimization, and structural characterization across LPPS, SPPS, hybrid, and tag-assisted synthesis with comprehensive LC-MS, CD, MALS, and HPLC testing suites.
+            </p>
+          </article>
+          <article className="senn-feature-card">
+            <span className="senn-stat-tag">Vizag Site &bull; 283,000 Sq. Ft.</span>
+            <h3 className="senn-feature-title">Commercial Manufacturing Facility (Dec 2027)</h3>
+            <p className="senn-feature-desc">
+              Large-scale multi-ton peptide manufacturing facility under construction across a 283,000 sq. ft. campus in Visakhapatnam. Scheduled for completion by December 2027 to deliver commercial-scale peptide and oligonucleotide CDMO supply.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      {/* Leadership (Ice-Blue 4-Card Grid) */}
+      <section className="senn-block-section" aria-label="Leadership">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">Leadership</span>
+            <h2>Executive Leadership</h2>
+            <h4>
+              Guided by experienced scientific and commercial leaders driving peptide CDMO innovation worldwide.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-lead-grid-4">
+          {LEADERSHIP_TEAM.map((leader) => (
+            <article className="senn-lead-stat-card" key={leader.name}>
+              <h3 className="senn-lead-stat-name">{leader.name}</h3>
+              <span className="senn-stat-tag">{leader.title}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Locations (Ice-Blue 2-Card Grid) */}
+      <section className="senn-block-section" aria-label="Contact">
+        <div className="senn-section-head">
+          <div className="copy">
+            <span className="cp-section-badge">Contact</span>
+            <h2>Connect with Our CDMO Team</h2>
+            <h4>
+              Discuss your development and manufacturing program with Senn Tides across our Swiss and Indian headquarters.
+            </h4>
+          </div>
+        </div>
+
+        <div className="senn-grid-2">
+          <article className="senn-feature-card">
+            <span className="senn-stat-tag">Switzerland Headquarters</span>
+            <h3 className="senn-feature-title">Senn Chemicals AG</h3>
+            <address className="senn-address-text">
+              Industriestrasse 12<br />
+              CH-8157 Dielsdorf, Zurich<br />
+              Switzerland
+            </address>
+          </article>
+          <article className="senn-feature-card">
+            <span className="senn-stat-tag">India Headquarters</span>
+            <h3 className="senn-feature-title">Senn Tides Private Limited</h3>
+            <address className="senn-address-text">
+              15th Floor, Granules Tower,<br />
+              Botanical Garden Road, Kondapur,<br />
+              Hyderabad 500084, Telangana<br />
+              India
+            </address>
+          </article>
         </div>
       </section>
 
       {/* Bottom CTA Banner */}
-      <section className="senn-cta" aria-label="Discuss your development and manufacturing program">
+      <section className="senn-cta" aria-label="Connect with Senn Tides">
         <div className="senn-cta-copy">
           <h2>Discuss Your Development and Manufacturing Program with Senn Tides</h2>
-          <p>
+          <h4>
             Connect with our CDMO team for peptide feasibility, process development, scale-up or commercial supply.
-          </p>
+          </h4>
           <div className="senn-cta-links">
             <span>Email: <a href="mailto:sales@sennchem.com">sales@sennchem.com</a></span>
-            <span>Web: <a href="http://www.sennchem.com" target="_blank" rel="noreferrer">www.sennchem.com</a></span>
+            <span>Web: <a href="https://www.sennchem.com" target="_blank" rel="noreferrer">www.sennchem.com</a></span>
           </div>
         </div>
 
@@ -346,7 +669,7 @@ export default function SennTidesPage() {
             <span aria-hidden="true">&rarr;</span>
           </Link>
           <a
-            href="http://www.sennchem.com"
+            href="https://www.sennchem.com"
             target="_blank"
             rel="noreferrer"
             className="senn-cta-btn senn-cta-btn--secondary"

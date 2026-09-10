@@ -95,11 +95,6 @@ export default function SubsidiariesCarousel() {
                 loading="lazy"
                 decoding="async"
               />
-              {current.logoBadge && (
-                <div className="cp-sub-logo-badge">
-                  <img src={getImgUrl(current.logoBadge)} alt="Granules Logo" />
-                </div>
-              )}
             </Link>
           </div>
         </article>

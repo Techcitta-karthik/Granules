@@ -12,75 +12,22 @@ const SUBJECT_OPTIONS = [
   'Research & Development',
   'Business Development',
   'Drugs Safety — For Reporting Adverse Effects',
-  'Product',
-  'Queries',
+  'Product Queries',
   'Careers',
   'Others',
 ];
 
-function toTelHref(value: string) {
-  return value.replace(/[^0-9+]/g, '');
-}
-
+function toTelHref(v: string) { return v.replace(/[^0-9+]/g, ''); }
 function generateCaptcha() {
-  const a = Math.floor(Math.random() * 10) + 1;
-  const b = Math.floor(Math.random() * 10) + 1;
+  const a = Math.floor(Math.random() * 9) + 1;
+  const b = Math.floor(Math.random() * 9) + 1;
   return { a, b, answer: a + b };
 }
 
-/* -------- Small inline icon helpers -------- */
-
-const PhoneIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-
-const MailIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <polyline points="22,6 12,13 2,6" />
-  </svg>
-);
-
-const LinkPillIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-    <polyline points="15 3 21 3 21 9" />
-    <line x1="10" y1="14" x2="21" y2="3" />
-  </svg>
-);
-
-const PhoneInputIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-
-const ShieldIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-  </svg>
-);
-
-const LockIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-  </svg>
-);
-
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<'corporate' | 'enquiries' | 'investor'>('corporate');
-  const [formData, setFormData] = useState({
-    fullName: '',
-    designation: '',
-    email: '',
-    contactNumber: '',
-    subject: '',
-    message: '',
-  });
-  const [messageLength, setMessageLength] = useState(0);
+  const [form, setForm] = useState({ fullName: '', designation: '', email: '', contactNumber: '', subject: '', message: '' });
+  const [msgLen, setMsgLen] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [captcha, setCaptcha] = useState(generateCaptcha);
   const [captchaInput, setCaptchaInput] = useState('');
@@ -91,550 +38,325 @@ export default function ContactPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const val = e.target.value;
-    if (val.length <= 1000) {
-      setFormData((prev) => ({ ...prev, message: val }));
-      setMessageLength(val.length);
+  const handleMsg = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (e.target.value.length <= 1000) {
+      setForm(p => ({ ...p, message: e.target.value }));
+      setMsgLen(e.target.value.length);
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    const captchaCorrect = parseInt(captchaInput, 10) === captcha.answer;
-
+    const ok = parseInt(captchaInput, 10) === captcha.answer;
     setCaptcha(generateCaptcha());
     setCaptchaInput('');
-
-    if (!captchaCorrect) {
-      setCaptchaError(true);
-      return;
-    }
-
+    if (!ok) { setCaptchaError(true); return; }
     setCaptchaError(false);
     setSubmitted(true);
     setTimeout(() => {
-      setFormData({ fullName: '', designation: '', email: '', contactNumber: '', subject: '', message: '' });
-      setMessageLength(0);
+      setForm({ fullName: '', designation: '', email: '', contactNumber: '', subject: '', message: '' });
+      setMsgLen(0);
       setSubmitted(false);
     }, 4000);
   };
 
   return (
-    <div className="cp ct-page-wrap">
+    <div className="cp ct-page">
       <NavBar />
 
-      <main className="ct-main-content">
-        {/* Top Hero + Floating Form Section */}
-        <section className="ct-hero-form-section">
-          <div className="ct-hero-bg-container">
-            <img src={`${A}hero-photo.png`} alt="Granules India team" className="ct-hero-bg-img" />
+      {/* ═══════════════════════════════════════════════
+          ABOVE THE FOLD — Hero + Floating Form Card
+      ═══════════════════════════════════════════════ */}
+      <section className="ct-hero-wrap">
+        {/* photo + overlay */}
+        <div className="ct-hero-photo">
+          <img src={`${A}hero-photo.webp`} alt="" aria-hidden="true" />
+          <div className="ct-hero-veil" />
+        </div>
 
-            <div className="ct-hero-text-overlay">
-              <h1 className="ct-hero-heading">Contact Us</h1>
-              <p className="ct-hero-desc">
-                We’re here to help and answer any questions you may have.
-              </p>
-              <div className="ct-hero-underline" />
-            </div>
+        {/* content row */}
+        <div className="ct-hero-inner">
+
+          {/* left — brand copy */}
+          <div className="ct-hero-copy">
+            <span className="ct-label">Contact Us</span>
+            <h1 className="ct-hero-h1">We're here<br />to help.</h1>
+            <p className="ct-hero-p">
+              Reach our teams for business enquiries, investor relations,
+              regulatory support, media, or pharmacovigilance.
+            </p>
+            {/* Key contacts — scannable */}
+            <ul className="ct-contact-list" aria-label="Key contact details">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href={`tel:${toTelHref('+91 40 69043500')}`}>+91 40 69043500</a>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:mail@granulesindia.com">mail@granulesindia.com</a>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>15th Floor, Granules Tower, Kondapur, Hyderabad – 500084</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Right Floating Form Card */}
-          <div className="ct-form-floating-card">
-            <h2 className="ct-form-card-title">Send us a Message</h2>
+          {/* right — contact form card */}
+          <div className="ct-form-card" role="region" aria-label="Send us a message">
 
             {submitted ? (
-              <div className="ct-form-success-box">
-                <div className="ct-form-success-icon">✓</div>
+              <div className="ct-success" role="status">
+                <span className="ct-success-badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <div>
-                  <h4>Message Sent Successfully</h4>
-                  <p>Thank you for reaching out. Our team will contact you shortly.</p>
+                  <strong>Message sent successfully</strong>
+                  <p>Thank you — our team will be in touch shortly.</p>
                 </div>
               </div>
             ) : (
-              <form className="ct-card-form" onSubmit={handleSubmit}>
-                <div className="ct-form-grid-row">
-                  {/* Your Name */}
-                  <div className="ct-form-input-box">
-                    <span className="ct-input-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                      </svg>
-                    </span>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your Name *"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      aria-label="Your Name (required)"
-                    />
-                  </div>
+              <form className="ct-form" onSubmit={handleSubmit} noValidate>
 
-                  {/* Designation */}
-                  <div className="ct-form-input-box">
-                    <span className="ct-input-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                      </svg>
-                    </span>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Designation *"
-                      value={formData.designation}
-                      onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
-                      aria-label="Designation (required)"
-                    />
-                  </div>
-                </div>
-
-                <div className="ct-form-grid-row">
-                  {/* Email address */}
-                  <div className="ct-form-input-box">
-                    <span className="ct-input-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" />
-                      </svg>
-                    </span>
-                    <input
-                      type="email"
-                      required
-                      placeholder="Email Address *"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      aria-label="Email Address (required)"
-                    />
-                  </div>
-
-                  {/* Contact Number (not mandatory) */}
-                  <div className="ct-form-input-box">
-                    <span className="ct-input-icon">
-                      <PhoneInputIcon />
-                    </span>
-                    <input
-                      type="tel"
-                      placeholder="Contact number (not mandatory)"
-                      value={formData.contactNumber}
-                      onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                      aria-label="Contact number (not mandatory)"
-                    />
-                  </div>
-                </div>
-
-                {/* Choose subject */}
-                <div className="ct-form-input-box select-box">
-                  <span className="ct-input-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                      <polyline points="10 9 9 9 8 9" />
-                    </svg>
-                  </span>
-                  <select
-                    required
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    aria-label="Choose Subject (required)"
-                  >
-                    <option value="" disabled>Choose Subject *</option>
-                    {SUBJECT_OPTIONS.map((option) => (
-                      <option key={option} value={option}>{option}</option>
-                    ))}
-                  </select>
-                  <span className="ct-select-chevron">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </div>
-
-                {/* Message Textarea */}
-                <div className="ct-form-textarea-box">
-                  <span className="ct-textarea-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                    </svg>
-                  </span>
-                  <textarea
-                    required
-                    placeholder="Your message *"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleMessageChange}
-                    aria-label="Your message (required)"
+                <div className="ct-form-row">
+                  <input
+                    type="text" required
+                    className="ct-field" placeholder="Full Name"
+                    value={form.fullName}
+                    onChange={e => setForm({ ...form, fullName: e.target.value })}
+                    aria-label="Full Name (required)"
                   />
-                  <span className="ct-char-count">{messageLength} / 1000</span>
+                  <input
+                    type="text" required
+                    className="ct-field" placeholder="Designation"
+                    value={form.designation}
+                    onChange={e => setForm({ ...form, designation: e.target.value })}
+                    aria-label="Designation (required)"
+                  />
                 </div>
 
-                {/* Captcha */}
-                <div className="ct-form-grid-row ct-captcha-grid-row">
-                  <div className="ct-captcha-prompt">
-                    <span className="ct-input-icon">
-                      <ShieldIcon />
-                    </span>
-                    <span>
-                      What is {captcha.a} + {captcha.b}? <span className="ct-required-mark">*</span>
-                    </span>
-                  </div>
-                  <div className="ct-form-input-box">
-                    <span className="ct-input-icon">
-                      <LockIcon />
-                    </span>
-                    <input
-                      type="text"
-                      inputMode="numeric"
-                      pattern="[0-9]*"
-                      required
-                      placeholder="Captcha answer *"
-                      value={captchaInput}
-                      onChange={(e) => {
-                        setCaptchaInput(e.target.value);
-                        setCaptchaError(false);
-                      }}
-                      aria-label={`Captcha: what is ${captcha.a} plus ${captcha.b}? (required)`}
-                    />
-                  </div>
+                <div className="ct-form-row">
+                  <input
+                    type="email" required
+                    className="ct-field" placeholder="Email address"
+                    value={form.email}
+                    onChange={e => setForm({ ...form, email: e.target.value })}
+                    aria-label="Email address (required)"
+                  />
+                  <input
+                    type="text" required
+                    className="ct-field" placeholder="Choose subject"
+                    value={form.subject}
+                    onChange={e => setForm({ ...form, subject: e.target.value })}
+                    aria-label="Subject (required)"
+                  />
                 </div>
-                {captchaError && (
-                  <p className="ct-captcha-error" role="alert">
-                    Incorrect captcha answer. Please try again.
-                  </p>
-                )}
 
-                {/* Submit Button */}
-                <div className="ct-form-btn-row">
-                  <button type="submit" className="ct-submit-pill-btn">
-                    <span>Submit</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="22" y1="2" x2="11" y2="13" />
-                      <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                  </button>
+                <div className="ct-textarea-wrap">
+                  <textarea
+                    required rows={5}
+                    className="ct-field ct-textarea"
+                    placeholder="Write your message here."
+                    value={form.message}
+                    onChange={handleMsg}
+                    aria-label="Message (required)"
+                  />
                 </div>
+
+                <button type="submit" className="ct-submit-btn">
+                  SEND MESSAGE
+                </button>
+
               </form>
             )}
           </div>
-        </section>
 
-        {/* Bottom Details Section */}
-        <section className="ct-bottom-unified-card">
-          {/* Tabs Header */}
-          <div className="ct-bottom-tabs-header">
-            <button
-              type="button"
-              className={`ct-bottom-tab ${activeTab === 'corporate' ? 'active' : ''}`}
-              onClick={() => setActiveTab('corporate')}
-            >
-              CORPORATE OFFICE
-            </button>
-            <button
-              type="button"
-              className={`ct-bottom-tab ${activeTab === 'enquiries' ? 'active' : ''}`}
-              onClick={() => setActiveTab('enquiries')}
-            >
-              GENERAL &amp; MEDIA ENQUIRIES
-            </button>
-            <button
-              type="button"
-              className={`ct-bottom-tab ${activeTab === 'investor' ? 'active' : ''}`}
-              onClick={() => setActiveTab('investor')}
-            >
-              INVESTOR RELATIONS CONTACT
-            </button>
-          </div>
+        </div>
+      </section>
 
-          {/* Tab 1: Corporate Office Address */}
+      {/* ═══════════════════════════════════════════
+          CONTACT INFO TABS
+      ═══════════════════════════════════════════ */}
+      <section className="ct-info-section cp-shell">
+
+        {/* Tab strip — KEY CONTACTS / BUSINESS CONTACTS / INVESTOR RELATION CONTACT */}
+        <div className="ct-tabs" role="tablist" aria-label="Contact sections">
+          <button role="tab" type="button"
+            aria-selected={activeTab === 'corporate'}
+            className={`ct-tab${activeTab === 'corporate' ? ' is-active' : ''}`}
+            onClick={() => setActiveTab('corporate')}>
+            KEY CONTACTS
+          </button>
+          <button role="tab" type="button"
+            aria-selected={activeTab === 'enquiries'}
+            className={`ct-tab${activeTab === 'enquiries' ? ' is-active' : ''}`}
+            onClick={() => setActiveTab('enquiries')}>
+            BUSINESS CONTACTS
+          </button>
+          <button role="tab" type="button"
+            aria-selected={activeTab === 'investor'}
+            className={`ct-tab${activeTab === 'investor' ? ' is-active' : ''}`}
+            onClick={() => setActiveTab('investor')}>
+            INVESTOR RELATION CONTACT
+          </button>
+        </div>
+
+        {/* Panel content */}
+        <div className="ct-panel" role="tabpanel">
+
+          {/* KEY CONTACTS */}
           {activeTab === 'corporate' && (
-            <div className="ct-stacked-block">
-              <h3 className="ct-stacked-heading">Corporate Office Address</h3>
-              <div className="ct-address-text-block">
-                <p className="ct-address-line">
-                  15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India.
-                </p>
-                <p className="ct-address-cin">CIN: L24110TG1991PLC012471</p>
-              </div>
-
-              <div className="ct-action-pills-row">
-                <a href={`tel:${toTelHref('+91 40 69043500')}`} className="ct-action-pill">
-                  <span className="ct-pill-icon"><PhoneIcon /></span>
-                  <span>Telephone: +91 40 69043500</span>
+            <div className="ct-panel-body">
+              <h2 className="ct-panel-heading">Corporate Office Address</h2>
+              <p className="ct-panel-addr">
+                15th Floor, Granules Tower, Botanical Garden Road, Kondapur,<br />
+                Hyderabad – 500084, Telangana, India.
+              </p>
+              <p className="ct-panel-cin">CIN: L24110TG1991PLC012471</p>
+              <div className="ct-contact-chips">
+                <a href={`tel:${toTelHref('+91 40 69043500')}`} className="ct-contact-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  +91 40 69043500
                 </a>
-                <a href={`tel:${toTelHref('+91 40 23115145')}`} className="ct-action-pill">
-                  <span className="ct-pill-icon">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-                      <line x1="6" y1="6" x2="6.01" y2="6" />
-                      <line x1="6" y1="18" x2="6.01" y2="18" />
-                    </svg>
-                  </span>
-                  <span>Fax: +91 40 23115145</span>
+                <a href={`tel:${toTelHref('+91 40 23115145')}`} className="ct-contact-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 17 22 11 16 5 5 5 5 17"/><rect x="2" y="17" width="20" height="5" rx="1"/><rect x="16" y="5" width="6" height="6"/></svg>
+                  +91 40 23115145
                 </a>
-                <a href="mailto:mail@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>Email id: mail@granulesindia.com</span>
+                <a href="mailto:mail@granulesindia.com" className="ct-contact-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  mail@granulesindia.com
                 </a>
               </div>
             </div>
           )}
 
-          {/* Tab 2: Enquiries (Business, General, Media) */}
+          {/* BUSINESS CONTACTS — divided sub-sections like reference */}
           {activeTab === 'enquiries' && (
-            <div className="ct-investor-tab-content">
-              <div className="ct-stacked-block">
-                <h3 className="ct-stacked-heading">For Business Enquiries</h3>
-                <a href="mailto:sales@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>sales@granulesindia.com</span>
-                </a>
+            <div className="ct-panel-body">
+
+              <div className="ct-subsection">
+                <h3 className="ct-sub-heading">General Enquiries</h3>
+                <div className="ct-contact-chips">
+                  <a href="mailto:mail@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
+                    mail@granulesindia.com
+                  </a>
+                </div>
               </div>
 
-              <hr className="ct-section-divider" />
+              <hr className="ct-divider" />
 
-              <div className="ct-stacked-block">
-                <h3 className="ct-stacked-heading">For General Enquiries</h3>
-                <a href="mailto:mail@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>mail@granulesindia.com</span>
-                </a>
+              <div className="ct-subsection">
+                <h3 className="ct-sub-heading">Business Enquiries</h3>
+                <div className="ct-contact-chips">
+                  <a href="mailto:sales@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
+                    sales@granulesindia.com
+                  </a>
+                </div>
               </div>
 
-              <hr className="ct-section-divider" />
+              <hr className="ct-divider" />
 
-              <div className="ct-stacked-block">
-                <h3 className="ct-stacked-heading">For Media Enquiries</h3>
-                <a href="mailto:Priyanka.Chawla@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>Priyanka.Chawla@granulesindia.com</span>
-                </a>
+              <div className="ct-subsection">
+                <h3 className="ct-sub-heading">Media Enquiries</h3>
+                <div className="ct-contact-chips">
+                  <a href="mailto:Priyanka.Chawla@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
+                    Priyanka.Chawla@granulesindia.com
+                  </a>
+                </div>
               </div>
+
             </div>
           )}
 
-          {/* Tab 3: Investor Relations Contact */}
+          {/* INVESTOR RELATION CONTACT — divided sub-sections */}
           {activeTab === 'investor' && (
-            <div className="ct-investor-tab-content">
-              <div className="ct-investor-subsection">
-                <a
-                  href="https://granulesindia.com/investors/investor-relation-contact/#tab-1-1-content"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ct-action-pill"
-                >
-                  <span className="ct-pill-icon"><LinkPillIcon /></span>
-                  <span>Investor Relations Contact Page ↗</span>
-                </a>
-              </div>
+            <div className="ct-panel-body">
 
-              <hr className="ct-section-divider" />
-
-              {/* Institutional Investors & Financial Analysts */}
-              <div className="ct-investor-subsection">
-                <h4 className="ct-investor-subheading">For Institutional Investors &amp; Financial Analysts</h4>
-                <div className="ct-action-pills-row">
-                  <a href={`tel:${toTelHref('+040-69043500')}`} className="ct-action-pill">
-                    <span className="ct-pill-icon"><PhoneIcon /></span>
-                    <span>Tel: +040-69043500</span>
+              <div className="ct-subsection">
+                <h3 className="ct-sub-heading">Investor Relations</h3>
+                <div className="ct-contact-chips">
+                  <a href={`tel:${toTelHref('+040-69043500')}`} className="ct-contact-chip ct-contact-chip--phone">
+                    +040-69043500
                   </a>
-                  <a href="mailto:investorrelations@granulesindia.com" className="ct-action-pill">
-                    <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>investorrelations@granulesindia.com</span>
-                  </a>
-                  <a href="mailto:irfan.raeen@linkintime.co.in" className="ct-action-pill">
-                    <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>irfan.raeen@linkintime.co.in</span>
+                  <a href="mailto:investorrelations@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
+                    investorrelations@granulesindia.com
                   </a>
                 </div>
               </div>
 
-              <hr className="ct-section-divider" />
+              <hr className="ct-divider" />
 
-              {/* Registrar and Transfer Agent */}
-              <div className="ct-investor-subsection">
-                <h4 className="ct-investor-subheading">Registrar and Transfer Agent</h4>
-                <div className="ct-address-text-block">
-                  <p className="ct-address-line"><strong>M/s. KFin Technologies Limited</strong></p>
-                  <p className="ct-address-line">
-                    Selenium Tower B, Plot 31-32, Gachibowli, Financial District, Nanakramguda, Hyderabad – 500 032.
-                  </p>
-                </div>
-                <div className="ct-action-pills-row">
-                  <a href={`tel:${toTelHref('1-800-309-4001')}`} className="ct-action-pill">
-                    <span className="ct-pill-icon"><PhoneIcon /></span>
-                    <span>Toll Free No.: 1-800-309-4001</span>
-                  </a>
-                  <a href="mailto:einward.ris@kfintech.com" className="ct-action-pill">
-                    <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>Investor Grievance ID: einward.ris@kfintech.com</span>
-                  </a>
-                  <a href="https://www.kfintech.com/" target="_blank" rel="noopener noreferrer" className="ct-action-pill">
-                    <span className="ct-pill-icon"><LinkPillIcon /></span>
-                    <span>Website: www.kfintech.com</span>
+              <div className="ct-subsection">
+                <h3 className="ct-sub-heading">Retail Investors &amp; Grievance</h3>
+                <p className="ct-sub-desc">Ms. Chaitanya Tummala — Company Secretary &amp; Nodal Officer</p>
+                <div className="ct-contact-chips">
+                  <a href="mailto:chaitanya.tummala@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
+                    chaitanya.tummala@granulesindia.com
                   </a>
                 </div>
               </div>
 
-              <hr className="ct-section-divider" />
+              <hr className="ct-divider" />
 
-              {/* Retail Investors and Grievance */}
-              <div className="ct-investor-subsection">
-                <h4 className="ct-investor-subheading">For Retail Investors and Grievance</h4>
-                <div className="ct-address-text-block">
-                  <p className="ct-address-line">
-                    <strong>Ms. Chaitanya Tummala</strong><br />
-                    Company Secretary, Compliance Officer and Nodal Officer<br />
-                    Granules India Limited
-                  </p>
-                  <p className="ct-address-line">
-                    15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India
-                  </p>
-                </div>
-                <div className="ct-action-pills-row">
-                  <a href={`tel:${toTelHref('+91 40 69043500')}`} className="ct-action-pill">
-                    <span className="ct-pill-icon"><PhoneIcon /></span>
-                    <span>Tel: +91 40 69043500</span>
+              <div className="ct-subsection">
+                <h3 className="ct-sub-heading">Registrar — KFin Technologies</h3>
+                <p className="ct-sub-desc">Selenium Tower B, Gachibowli, Financial District, Hyderabad – 500 032.</p>
+                <div className="ct-contact-chips">
+                  <a href="tel:18003094001" className="ct-contact-chip ct-contact-chip--phone">
+                    1-800-309-4001 (Toll Free)
                   </a>
-                  <a href={`tel:${toTelHref('+91 40 23115145')}`} className="ct-action-pill">
-                    <span className="ct-pill-icon">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-                        <line x1="6" y1="6" x2="6.01" y2="6" />
-                        <line x1="6" y1="18" x2="6.01" y2="18" />
-                      </svg>
-                    </span>
-                    <span>Fax: +91 40 23115145</span>
-                  </a>
-                  <a href="mailto:chaitanya.tummala@granulesindia.com" className="ct-action-pill">
-                    <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>Email id: chaitanya.tummala@granulesindia.com</span>
-                  </a>
-                  <a href="mailto:investorrelations@granulesindia.com" className="ct-action-pill">
-                    <span className="ct-pill-icon"><MailIcon /></span>
-                    <span>Write to us at: investorrelations@granulesindia.com</span>
+                  <a href="mailto:einward.ris@kfintech.com" className="ct-contact-chip ct-contact-chip--email">
+                    einward.ris@kfintech.com
                   </a>
                 </div>
               </div>
+
             </div>
           )}
 
-          {/* Quick Enquiries Summary in All Tabs */}
-          {activeTab === 'corporate' && (
-            <>
-              <hr className="ct-section-divider" />
-              <div className="ct-stacked-block">
-                <h3 className="ct-stacked-heading">For Business Enquiries</h3>
-                <a href="mailto:sales@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>sales@granulesindia.com</span>
-                </a>
-              </div>
+        </div>
+      </section>
 
-              <hr className="ct-section-divider" />
-              <div className="ct-stacked-block">
-                <h3 className="ct-stacked-heading">For General Enquiries</h3>
-                <a href="mailto:mail@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>mail@granulesindia.com</span>
-                </a>
-              </div>
 
-              <hr className="ct-section-divider" />
-              <div className="ct-stacked-block">
-                <h3 className="ct-stacked-heading">For Media Enquiries</h3>
-                <a href="mailto:Priyanka.Chawla@granulesindia.com" className="ct-action-pill">
-                  <span className="ct-pill-icon"><MailIcon /></span>
-                  <span>Priyanka.Chawla@granulesindia.com</span>
-                </a>
-              </div>
-            </>
-          )}
-        </section>
-
-        {/* Adverse Event Reporting Card */}
-        <section className="ct-adverse-section">
-          <div className="ct-adverse-card">
-            <h3 className="ct-adverse-title">For Adverse Event Reporting</h3>
-            <p className="ct-adverse-desc">
-              To report an adverse experience with a specific Granules drug product, please call Granules Pharmacovigilance Team at 1-877-770-3183 Or Email:
-            </p>
-            <div className="ct-adverse-pills-row">
-              <a href="tel:18777703183" className="ct-adverse-pill">
-                <span className="ct-pill-icon"><PhoneIcon /></span>
-                <span>1-877-770-3183</span>
-              </a>
-              <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-pill">
-                <span className="ct-pill-icon"><MailIcon /></span>
-                <span>drugs.safety@granulesindia.com</span>
-              </a>
-            </div>
+      {/* ═══════════════════════════════════════════════
+          ADVERSE EVENT REPORTING  — white card style
+      ═══════════════════════════════════════════════ */}
+      <section className="ct-adverse-section cp-shell">
+        <div className="ct-adverse-card">
+          <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-title-link">For Adverse Event Reporting</a>
+          <p className="ct-adverse-p">
+            To report an adverse experience with a specific Granules drug product,
+            please call or mail Granules Pharmacovigilance Team
+          </p>
+          <div className="ct-adverse-pills">
+            <a href="tel:18777703183" className="ct-adverse-contact-pill">1-877-770-3183</a>
+            <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-contact-pill">drugs.safety@granulesindia.com</a>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Follow Us Section with Horizontal Top Divider & Solid Blue Circular Buttons */}
-        <section className="ct-follow-us-section">
-          <h2 className="ct-follow-us-heading">
-            Follow us for updates<br />and company news
-          </h2>
-          <div className="ct-follow-circles-list">
-            <a
-              href="https://www.linkedin.com/company/granules-india-limited"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ct-follow-circle-btn"
-              aria-label="LinkedIn"
-            >
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-              </svg>
+      {/* ═══════════════════════════════════════════════
+          FOLLOW US  — solid blue circles
+      ═══════════════════════════════════════════════ */}
+      <section className="ct-social-section cp-shell">
+        <div className="ct-social-inner">
+          <h2 className="ct-social-h2">Follow us for updates<br />and company news</h2>
+          <div className="ct-social-icons">
+            <a href="https://www.linkedin.com/company/granules-india-limited" target="_blank" rel="noopener noreferrer" className="ct-sicon" aria-label="LinkedIn">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
             </a>
-
-            <a
-              href="https://x.com/GranulesIndia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ct-follow-circle-btn"
-              aria-label="X (Twitter)"
-            >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
+            <a href="https://x.com/GranulesIndia" target="_blank" rel="noopener noreferrer" className="ct-sicon" aria-label="X">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-
-            <a
-              href="https://www.facebook.com/share/1BSgd7PiTC/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ct-follow-circle-btn"
-              aria-label="Facebook"
-            >
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
-              </svg>
+            <a href="https://www.facebook.com/share/1BSgd7PiTC/" target="_blank" rel="noopener noreferrer" className="ct-sicon" aria-label="Facebook">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
             </a>
-
-            <a
-              href="https://www.instagram.com/granulesindialimited_official/followers/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ct-follow-circle-btn"
-              aria-label="Instagram"
-            >
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
+            <a href="https://www.instagram.com/granulesindialimited_official/" target="_blank" rel="noopener noreferrer" className="ct-sicon" aria-label="Instagram">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
       <CompanyFooter />
     </div>

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { asset } from './constants';
 import { NAV_LINKS } from './data';
@@ -21,8 +21,6 @@ type Submenu = {
   quickLinks?: QuickLink[];
   sections?: SubmenuSection[];
   links?: { label: string; href: string }[];
-  image: string;
-  imageHref?: string;
 };
 
 const SUBMENUS: Record<string, Submenu> = {
@@ -33,9 +31,7 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Our Journey', href: '/company/milestone' },
       { label: 'Leadership', href: '/company/leadership' },
       { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
-      { label: 'Granules Pharmaceuticals Inc', href: 'https://www.granulespharma.com/' },
     ],
-    image: 'company/values-bg-2.webp',
   },
   Company: {
     sections: [
@@ -52,7 +48,6 @@ const SUBMENUS: Record<string, Submenu> = {
       },
     ],
     links: [],
-    image: 'company/values-bg-2.webp',
   },
   Business: {
     sections: [],
@@ -63,12 +58,10 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Quality & Compliance', href: '/business/quality-compliance' },
       { label: 'Facilities', href: '/company/facilities' },
     ],
-    image: 'company/gpi-facility.webp',
   },
   Careers: {
     sections: [
       {
-        title: 'CAREERS',
         quickLinks: [
           { label: 'Life at Granules', href: '/careers' },
           { label: 'Current Openings', href: '/careers/opportunities' },
@@ -76,11 +69,13 @@ const SUBMENUS: Record<string, Submenu> = {
       },
     ],
     links: [],
-    image: 'company/career-bg.webp',
   },
 };
 
-function isActive(link: NavLinkItem, pathname: string) {
+function isActive(link: NavLinkItem, pathname: string, activeSection?: string | null) {
+  if (pathname === '/' || pathname === '') {
+    return !!activeSection && link.label === activeSection;
+  }
   if (link.label === 'About Us' || link.label === 'Company') {
     return (
       pathname.startsWith('/company') ||
@@ -125,11 +120,96 @@ function isActive(link: NavLinkItem, pathname: string) {
   return !!link.matchPrefix && pathname.startsWith(link.matchPrefix);
 }
 
-export default function NavBar() {
+export default function NavBar({
+  onSearch,
+  activeSectionOverride,
+}: {
+  onSearch?: () => void;
+  activeSectionOverride?: string | null;
+} = {}) {
   const [open, setOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Homepage scroll-spy to glow current section in navbar
+  useEffect(() => {
+    if (pathname !== '/' && pathname !== '') {
+      setActiveSection(null);
+      return;
+    }
+
+    const SECTIONS = [
+      { id: 'about', label: 'About Us' },
+      { id: 'business', label: 'Business' },
+      { id: 'sustainability', label: 'Sustainability' },
+      { id: 'investor', label: 'Investor' },
+      { id: 'media', label: 'Media' },
+      { id: 'careers', label: 'Careers' },
+    ];
+
+    const handleScrollSpy = () => {
+      if (window.scrollY < 200) {
+        setActiveSection(null);
+        return;
+      }
+
+      const scrollBottom = window.innerHeight + window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      if (docHeight - scrollBottom < 100) {
+        setActiveSection('Careers');
+        return;
+      }
+
+      const mid = window.innerHeight * 0.38;
+      let matchedLabel: string | null = null;
+
+      for (let i = SECTIONS.length - 1; i >= 0; i--) {
+        const sec = SECTIONS[i];
+        const el = document.getElementById(sec.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= mid) {
+            matchedLabel = sec.label;
+            break;
+          }
+        }
+      }
+
+      if (matchedLabel === 'Sustainability' && activeSectionOverride) {
+        matchedLabel = activeSectionOverride;
+      }
+
+      setActiveSection(matchedLabel);
+    };
+
+    handleScrollSpy();
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, [pathname, activeSectionOverride]);
+
+  useEffect(() => {
+    if (pathname === '/' || pathname === '') {
+      const el = document.getElementById('sustainability');
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= 120) {
+          setActiveSection(activeSectionOverride || 'Sustainability');
+        }
+      }
+    }
+  }, [activeSectionOverride, pathname]);
 
   const showMenu = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -141,8 +221,8 @@ export default function NavBar() {
   };
 
   return (
-    <div className="cp-nav-wrap">
-      <nav className={`cp-nav${open ? ' cp-nav--open' : ''}`} aria-label="Primary navigation">
+    <div className={`cp-nav-wrap${scrolled ? ' is-scrolled' : ''}`}>
+      <nav className={`cp-nav${open ? ' cp-nav--open' : ''}${scrolled ? ' is-scrolled' : ''}`} aria-label="Primary navigation">
         <div className="cp-nav-bar">
           <Link to="/" className="cp-nav-logo" aria-label="Granules home" onClick={() => setOpen(false)}>
             <img src={asset('nav-logo.webp')} alt="Granules" loading="eager" decoding="async" />
@@ -163,7 +243,7 @@ export default function NavBar() {
           <div className="cp-nav-links" onMouseLeave={hideMenu}>
             {NAV_LINKS.map((link) => {
               const submenu = SUBMENUS[link.label];
-              const active = isActive(link, pathname);
+              const active = isActive(link, pathname, activeSection);
               return (
                 <div
                   className={`cp-nav-item${active ? ' is-active' : ''}`}
@@ -281,29 +361,13 @@ export default function NavBar() {
                           </div>
                         )}
                       </div>
-
-                      {submenu.imageHref ? (
-                        <a
-                          href={submenu.imageHref}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="cp-nav-submenu-thumb"
-                          title="View Profile"
-                        >
-                          <img src={asset(submenu.image)} alt="" loading="lazy" decoding="async" />
-                        </a>
-                      ) : (
-                        <div className="cp-nav-submenu-thumb">
-                          <img src={asset(submenu.image)} alt="" loading="lazy" decoding="async" />
-                        </div>
-                      )}
                     </div>
                   )}
                 </div>
               );
             })}
 
-            <button className="cp-nav-search" type="button" aria-label="Search">
+            <button className="cp-nav-search" type="button" aria-label="Search" onClick={onSearch}>
               <img src={asset('search-icon.svg')} alt="" loading="lazy" decoding="async" />
             </button>
           </div>
@@ -315,7 +379,7 @@ export default function NavBar() {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`cp-nav-drawer-link${isActive(link, pathname) ? ' active' : ''}`}
+                className={`cp-nav-drawer-link${isActive(link, pathname, activeSection) ? ' active' : ''}`}
                 onClick={() => setOpen(false)}
               >
                 {link.label}

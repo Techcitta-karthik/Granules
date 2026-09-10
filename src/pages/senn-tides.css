@@ -60,12 +60,10 @@ h1.senn-page-header {
 .senn-hero-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(4, 16, 40, 0.7) 0%,
-    rgba(4, 16, 40, 0.3) 50%,
-    rgba(4, 16, 40, 0.08) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(4, 16, 40, 0.7) 0%,
+      rgba(4, 16, 40, 0.3) 50%,
+      rgba(4, 16, 40, 0.08) 100%);
   z-index: 1;
 }
 
@@ -119,37 +117,28 @@ h1.senn-page-header {
 .senn-intro {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(40px, 5.5vw, 68px) auto 0 !important;
+  margin: 75px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+.senn-intro h4,
 .senn-intro p,
-.senn-intro span {
+.senn-intro span,
+.senn-intro .muted,
+.senn-intro .part-1,
+.senn-intro .part-2,
+.senn-intro.is-scrolled h4,
+.senn-intro.is-scrolled p,
+.senn-intro.is-scrolled span,
+.senn-intro.is-scrolled .muted,
+.senn-intro.is-scrolled .part-1,
+.senn-intro.is-scrolled .part-2 {
   margin: 0;
-  font: 500 clamp(16.5px, 1.8vw, 24px)/1.4 'Manrope', sans-serif;
-  transition: color 0.4s cubic-bezier(0.2, 0, 0.2, 1);
-}
-
-.senn-intro p:first-child span:first-child {
-  color: #0f172a;
-}
-
-.senn-intro p:first-child .muted,
-.senn-intro p:nth-child(2),
-.senn-intro p:last-child {
-  color: #94a3b8;
-}
-
-.senn-intro.is-scrolled p:first-child span:first-child {
-  color: #94a3b8;
-}
-
-.senn-intro.is-scrolled p:first-child .muted,
-.senn-intro.is-scrolled p:nth-child(2),
-.senn-intro.is-scrolled p:last-child {
-  color: #0f172a;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: var(--n9, #0f172a) !important;
+  letter-spacing: -0.2px !important;
 }
 
 /* ==========================================================================
@@ -158,7 +147,7 @@ h1.senn-page-header {
 .senn-section-head {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
+  margin: 75px auto 0 !important;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -170,7 +159,13 @@ h1.senn-page-header {
   max-width: 860px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
+}
+
+.senn-section-head .cp-section-badge {
+  align-self: flex-start;
+  margin: 0;
 }
 
 .senn-section-head h2 {
@@ -180,19 +175,22 @@ h1.senn-page-header {
   letter-spacing: -0.02em;
 }
 
+.senn-section-head h4,
 .senn-section-head p {
   margin: 0;
-  font: 400 clamp(14.5px, 1.1vw, 16.5px)/1.6 'Manrope', sans-serif;
-  color: #475569;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: #6a6a6a !important;
+  letter-spacing: -0.2px !important;
 }
 
-.senn-routes-section > .senn-section-head,
-.senn-phases-section > .senn-section-head,
-.senn-capacity-section > .senn-section-head,
-.senn-compliance-section > .senn-section-head,
-.senn-footprint-section > .senn-section-head,
-.senn-leadership-section > .senn-section-head,
-.senn-expansion-section > .senn-section-head {
+.senn-routes-section>.senn-section-head,
+.senn-phases-section>.senn-section-head,
+.senn-capacity-section>.senn-section-head,
+.senn-compliance-section>.senn-section-head,
+.senn-footprint-section>.senn-section-head,
+.senn-leadership-section>.senn-section-head,
+.senn-expansion-section>.senn-section-head,
+.senn-block-section>.senn-section-head {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
@@ -277,6 +275,7 @@ h1.senn-page-header {
 }
 
 @media (max-width: 680px) {
+
   .senn-portfolio-carousel .senn-cap-article,
   .biz-track .senn-cap-article {
     width: 82vw !important;
@@ -356,13 +355,17 @@ h1.senn-page-header {
 .senn-routes-section {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
+  margin: 75px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .senn-routes-table-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
   overflow-x: auto;
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -389,8 +392,11 @@ h1.senn-page-header {
 }
 
 .senn-routes-table td {
-  padding: 16px 22px;
-  font: 500 14px/1.5 'Manrope', sans-serif;
+  padding: 18px 24px;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(16px, 1.2vw, 19px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
   color: #1e293b;
   border-bottom: 1px solid #f1f5f9;
   transition: background-color 0.15s ease;
@@ -407,7 +413,7 @@ h1.senn-page-header {
 .senn-route-name {
   font-weight: 700 !important;
   color: var(--blue, #0061f8) !important;
-  font-size: 15px !important;
+  font-size: clamp(17px, 1.25vw, 20px) !important;
 }
 
 .senn-route-scale {
@@ -415,15 +421,19 @@ h1.senn-page-header {
   align-items: center;
   background: #f1f5f9;
   color: #334155;
-  padding: 4px 12px;
+  padding: 6px 16px;
   border-radius: 9999px;
-  font: 600 12px/1.3 'Manrope', sans-serif;
+  font: 600 clamp(14px, 1vw, 16px)/1.3 'Manrope', sans-serif !important;
   border: 1px solid #e2e8f0;
   white-space: nowrap;
 }
 
 /* Why Liquid Phase Matters - Light Luxury Callout */
 .senn-lpps-callout {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
   background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
   border: 1px solid #bfdbfe;
   border-radius: 18px;
@@ -435,557 +445,351 @@ h1.senn-page-header {
   box-shadow: 0 3px 12px rgba(0, 97, 248, 0.05);
 }
 
-.senn-lpps-callout h4 {
-  margin: 0;
-  font: 700 16px/1.3 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
+.senn-lpps-callout h3,
+.senn-lpps-callout .callout-title {
+  margin: 0 !important;
+  font: 700 clamp(18px, 1.4vw, 22px)/1.3 'Manrope', sans-serif !important;
+  color: var(--blue, #0061f8) !important;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+.senn-lpps-callout h4,
 .senn-lpps-callout p {
-  margin: 0;
-  font: 400 14px/1.65 'Manrope', sans-serif;
-  color: #334155;
-  max-width: 960px;
+  margin: 0 !important;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: #334155 !important;
+  letter-spacing: -0.2px !important;
+  max-width: 100%;
 }
 
 /* ==========================================================================
-   Feasibility to Commercial Supply Pipeline
+   Signature Granules Ice-Blue Card & Grid System (Aligned with Homepage Stats)
    ========================================================================== */
-.senn-phases-section {
+
+.senn-block-section {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
+  margin: 75px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.senn-phases-grid {
+/* 4-Column Stat Grid (Phases / Feasibility) */
+.senn-stat-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-top: 24px;
+  width: 100%;
+  align-items: stretch;
 }
 
 @media (max-width: 1080px) {
-  .senn-phases-grid {
+  .senn-stat-grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .senn-phases-grid {
+  .senn-stat-grid-4 {
     grid-template-columns: 1fr;
   }
 }
 
-.senn-phase-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 22px 20px;
+.senn-stat-card {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 24px 20px;
+  min-height: 140px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  justify-content: flex-start;
+  gap: 4px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-.senn-phase-card:hover {
-  background: #ffffff;
-  border-color: var(--blue, #0061f8);
+.senn-stat-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 97, 248, 0.08);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
-.senn-phase-num-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font: 700 11px/1 'Manrope', sans-serif;
+.senn-stat-num {
+  font: 800 clamp(36px, 3.2vw, 50px)/1.05 'Manrope', sans-serif;
   color: var(--blue, #0061f8);
-  background: #eef6ff;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  width: fit-content;
+  letter-spacing: -0.02em;
+}
+
+.senn-stat-tag {
+  font: 700 12.5px/1.35 'Manrope', sans-serif;
   text-transform: uppercase;
+  color: var(--blue, #0061f8);
   letter-spacing: 0.05em;
-  border: 1px solid rgba(0, 97, 248, 0.15);
+  margin-top: 2px;
+  display: block;
 }
 
-.senn-phase-qty {
-  font: 700 18px/1.2 'Manrope', sans-serif;
-  color: #0f172a;
+.senn-stat-text {
+  margin: 6px 0 0 0;
+  font: 500 13.5px/1.55 'Manrope', sans-serif;
+  color: #334155;
 }
 
-.senn-phase-act {
-  margin: 0;
-  font: 400 13.5px/1.55 'Manrope', sans-serif;
-  color: #64748b;
-}
-
-/* ==========================================================================
-   Manufacturing Capacity Specs
-   ========================================================================== */
-.senn-capacity-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
-}
-
-.senn-capacity-grid {
+/* 3-Column Manufacturing Capacity Grid */
+.senn-mfg-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
-  margin-top: 24px;
+  width: 100%;
+  align-items: stretch;
 }
 
 @media (max-width: 1080px) {
-  .senn-capacity-grid {
+  .senn-mfg-grid-3 {
     grid-template-columns: 1fr;
   }
 }
 
-.senn-capacity-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 24px 20px;
+.senn-mfg-box {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 26px 22px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-.senn-capacity-card:hover {
-  border-color: var(--blue, #0061f8);
+.senn-mfg-box:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 97, 248, 0.08);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
-.senn-capacity-card h3 {
-  margin: 0;
-  font: 700 16.5px/1.3 'Manrope', sans-serif;
-  color: #0f172a;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #f1f5f9;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.senn-capacity-card p {
-  margin: 0;
-  font: 400 14px/1.6 'Manrope', sans-serif;
-  color: #475569;
-}
-
-.senn-capacity-icon-badge {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: #eef6ff;
-  border: 1px solid rgba(0, 97, 248, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.senn-capacity-card:hover .senn-capacity-icon-badge {
-  background: var(--blue, #0061f8);
-  transform: scale(1.05);
-}
-
-.senn-capacity-card:hover .senn-capacity-icon-badge svg {
-  stroke: #ffffff;
-}
-
-.senn-capacity-list {
+.senn-mfg-box-head {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  gap: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 97, 248, 0.12);
 }
 
-.senn-capacity-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font: 400 13.5px/1.55 'Manrope', sans-serif;
+.senn-mfg-box-title {
+  margin: 0;
+  font: 700 clamp(18px, 1.6vw, 20px)/1.25 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+}
+
+.senn-mfg-box-desc {
+  margin: 0;
+  font: 500 13px/1.5 'Manrope', sans-serif;
   color: #475569;
 }
 
-.senn-capacity-check {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #eef6ff;
-  color: var(--blue, #0061f8);
+.senn-mfg-box-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 10px;
-  font-weight: 700;
-  margin-top: 2px;
-  border: 1px solid rgba(0, 97, 248, 0.2);
+  flex-direction: column;
+  gap: 9px;
 }
 
-/* ==========================================================================
-   Analytical Support & Tag Cloud
-   ========================================================================== */
-.senn-analytical-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
+.senn-mfg-box-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font: 500 13px/1.5 'Manrope', sans-serif;
+  color: #334155;
+}
+
+.senn-box-bullet {
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: var(--blue, #0061f8);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* Specialized Analytics Card */
+.senn-analytics-card {
+  background: #edf5ff;
+  border-radius: 24px;
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-.senn-analytical-lead {
-  font: 500 15px/1.65 'Manrope', sans-serif;
-  color: #1e293b; /* Clean neutral, NOT blue */
-  margin: 0;
-  max-width: 940px;
+.senn-analytics-card:hover {
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
-.senn-analytical-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 24px 22px;
+.senn-analytics-intro {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  gap: 6px;
 }
 
-.senn-analytical-sub {
+.senn-analytics-heading {
   margin: 0;
-  font: 400 14px/1.65 'Manrope', sans-serif;
+  font: 700 clamp(19px, 1.8vw, 23px)/1.3 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+}
+
+.senn-analytics-intro p {
+  margin: 0;
+  font: 500 14px/1.55 'Manrope', sans-serif;
   color: #475569;
 }
 
-.senn-tags-wrap {
+.senn-pills-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 9px;
 }
 
-.senn-tech-tag {
+.senn-blue-pill {
   background: #ffffff;
-  border: 1px solid #cbd5e1;
-  color: #334155;
-  font: 500 12.5px/1.3 'Manrope', sans-serif;
-  padding: 6px 14px;
+  color: var(--blue, #0061f8);
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  padding: 9px 17px;
   border-radius: 9999px;
+  border: 1px solid rgba(0, 97, 248, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 97, 248, 0.04);
   transition: all 0.2s ease;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
 }
 
-.senn-tech-tag:hover {
+.senn-blue-pill:hover {
   background: var(--blue, #0061f8);
   color: #ffffff;
   border-color: var(--blue, #0061f8);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 97, 248, 0.25);
 }
 
-/* ==========================================================================
-   Quality & Compliance Standards
-   ========================================================================== */
-.senn-compliance-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
-}
-
-.senn-compliance-grid {
+/* Reusable 3-Column & 2-Column Ice-Blue Grids */
+.senn-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
-  margin-top: 24px;
+  width: 100%;
+  align-items: stretch;
 }
 
 @media (max-width: 960px) {
-  .senn-compliance-grid {
+  .senn-grid-3 {
     grid-template-columns: 1fr;
   }
 }
 
-.senn-compliance-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.senn-compliance-card:hover {
-  border-color: var(--blue, #0061f8);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.08);
-}
-
-.senn-compliance-card h4 {
-  margin: 0;
-  font: 700 16px/1.3 'Manrope', sans-serif;
-  color: #0f172a;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.senn-compliance-card p {
-  margin: 0;
-  font: 400 13.5px/1.6 'Manrope', sans-serif;
-  color: #475569;
-}
-
-/* ==========================================================================
-   Two-Continent Footprint
-   ========================================================================== */
-.senn-footprint-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
-}
-
-.senn-footprint-grid {
+.senn-grid-2 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
-  margin-top: 24px;
+  width: 100%;
+  align-items: stretch;
 }
 
-@media (max-width: 1080px) {
-  .senn-footprint-grid {
+@media (max-width: 768px) {
+  .senn-grid-2 {
     grid-template-columns: 1fr;
   }
 }
 
-.senn-footprint-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 24px 20px;
+.senn-feature-card {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 24px 22px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  justify-content: flex-start;
+  gap: 6px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-.senn-footprint-card:hover {
-  border-color: var(--blue, #0061f8);
+.senn-feature-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.08);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
-.senn-footprint-country {
-  font: 700 11px/1 'Manrope', sans-serif;
-  text-transform: uppercase;
+.senn-feature-title {
+  margin: 2px 0 6px 0;
+  font: 700 clamp(18px, 1.6vw, 20px)/1.3 'Manrope', sans-serif;
   color: var(--blue, #0061f8);
-  background: #eef6ff;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  width: fit-content;
-  letter-spacing: 0.05em;
-  border: 1px solid rgba(0, 97, 248, 0.15);
 }
 
-.senn-footprint-card h3 {
+.senn-feature-desc {
   margin: 0;
-  font: 700 17px/1.3 'Manrope', sans-serif;
-  color: #0f172a;
+  font: 500 13.5px/1.55 'Manrope', sans-serif;
+  color: #334155;
 }
 
-.senn-footprint-card p {
-  margin: 0;
-  font: 400 13.5px/1.6 'Manrope', sans-serif;
-  color: #475569;
+.senn-address-text {
+  font-style: normal;
+  font: 500 14px/1.6 'Manrope', sans-serif;
+  color: #334155;
+  margin: 4px 0 0 0;
 }
 
-/* ==========================================================================
-   Expansion: Building Capacity in India
-   ========================================================================== */
-.senn-expansion-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.senn-expansion-lead {
-  font: 500 15px/1.65 'Manrope', sans-serif;
-  color: #1e293b;
-  margin: 0;
-}
-
-.senn-expansion-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 22px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-}
-
-.senn-expansion-box h4 {
-  margin: 0;
-  font: 700 16px/1.3 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.senn-expansion-box p {
-  margin: 0;
-  font: 400 14px/1.65 'Manrope', sans-serif;
-  color: #475569;
-}
-
-/* ==========================================================================
-   Executive Leadership
-   ========================================================================== */
-.senn-leadership-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
-}
-
-.senn-leadership-grid {
+/* 4-Column Leadership Grid */
+.senn-lead-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-top: 24px;
+  width: 100%;
+  align-items: stretch;
 }
 
-@media (max-width: 1080px) {
-  .senn-leadership-grid {
+@media (max-width: 960px) {
+  .senn-lead-grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
-  .senn-leadership-grid {
+@media (max-width: 540px) {
+  .senn-lead-grid-4 {
     grid-template-columns: 1fr;
   }
 }
 
-.senn-lead-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 24px 18px;
+.senn-lead-stat-card {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 22px 18px;
+  min-height: 110px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  text-align: center;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.senn-lead-card:hover {
-  border-color: var(--blue, #0061f8);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.08);
-}
-
-.senn-lead-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #eef6ff;
-  color: var(--blue, #0061f8);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font: 700 18px/1 'Manrope', sans-serif;
-  margin-bottom: 4px;
-  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.1);
-  border: 2px solid rgba(0, 97, 248, 0.2);
+  gap: 4px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-.senn-lead-card h3 {
-  margin: 0;
-  font: 700 16px/1.25 'Manrope', sans-serif;
-  color: #0f172a;
-}
-
-.senn-lead-card p {
-  margin: 0;
-  font: 600 12.5px/1.4 'Manrope', sans-serif;
-  color: var(--blue, #0061f8);
-}
-
-/* ==========================================================================
-   Contact Locations Section
-   ========================================================================== */
-.senn-contact-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(44px, 5.5vw, 68px) auto 0 !important;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-@media (max-width: 900px) {
-  .senn-contact-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-.senn-contact-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 24px 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.senn-contact-box:hover {
-  border-color: var(--blue, #0061f8);
+.senn-lead-stat-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.08);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
-.senn-contact-box h3 {
+.senn-lead-stat-name {
   margin: 0;
-  font: 700 17px/1.3 'Manrope', sans-serif;
-  color: #0f172a;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.senn-contact-box address {
-  font-style: normal;
-  font: 400 14px/1.65 'Manrope', sans-serif;
-  color: #475569;
-  margin: 0;
+  font: 700 clamp(17px, 1.5vw, 20px)/1.25 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
 }
 
 /* ==========================================================================
@@ -994,7 +798,7 @@ h1.senn-page-header {
 .senn-cta {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(48px, 6vw, 80px) auto !important;
+  margin: 75px auto 75px !important;
   border-radius: 36px;
   padding: clamp(32px, 4vw, 56px);
   position: relative;
@@ -1025,10 +829,12 @@ h1.senn-page-header {
   letter-spacing: -0.02em;
 }
 
+.senn-cta-copy h4,
 .senn-cta-copy p {
   margin: 0;
-  font: 500 clamp(15px, 1.2vw, 18px)/1.55 'Manrope', sans-serif;
-  color: var(--n9, #1e293b);
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: var(--n9, #1e293b) !important;
+  letter-spacing: -0.2px !important;
 }
 
 .senn-cta-links {
@@ -1122,7 +928,7 @@ h1.senn-page-header {
 .peptides-stats-grid {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(32px, 4vw, 48px) auto 0 !important;
+  margin: 75px auto 0 !important;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(14px, 1.8vw, 20px);
@@ -1141,45 +947,300 @@ h1.senn-page-header {
 }
 
 .peptides-stat-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 22px 20px;
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 24px 20px;
+  min-height: 130px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: all 0.25s ease;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .peptides-stat-card:hover {
-  border-color: var(--blue, #0061f8);
   transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 97, 248, 0.08);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
 }
 
 .peptides-stat-val {
-  font: 800 clamp(28px, 3vw, 38px)/1.1 'Manrope', sans-serif;
+  font: 800 clamp(38px, 3.4vw, 54px)/1.05 'Manrope', sans-serif;
   color: var(--blue, #0061f8);
   letter-spacing: -0.02em;
 }
 
 .peptides-stat-label {
-  font: 600 12px/1.4 'Manrope', sans-serif;
-  color: #64748b;
+  font: 700 13px/1.35 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
+}
+
+/* Peptides Phases & Capacity Grids */
+.senn-phases-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 1.6vw, 22px);
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: clamp(24px, 3vw, 36px) 0 0 0 !important;
+  align-items: stretch;
+}
+
+@media (max-width: 1080px) {
+  .senn-phases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .senn-phases-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.senn-phase-card {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 24px 20px;
+  min-height: 160px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.senn-phase-card:hover {
+  transform: translateY(-3px);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
+}
+
+.senn-phase-num-badge {
+  font: 700 12px/1.2 'Manrope', sans-serif;
+  text-transform: uppercase;
+  color: var(--blue, #0061f8);
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+.senn-phase-qty {
+  font: 800 clamp(24px, 2vw, 32px)/1.15 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+  letter-spacing: -0.02em;
+  margin: 2px 0 6px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.senn-phase-act {
+  margin: 0;
+  font: 500 13.5px/1.55 'Manrope', sans-serif;
+  color: #334155;
+  flex: 1 1 auto;
 }
 
 .peptides-capacity-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 24px;
+  gap: 20px;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: clamp(24px, 3vw, 36px) 0 0 0 !important;
+  align-items: stretch;
 }
 
 @media (max-width: 860px) {
   .peptides-capacity-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.senn-capacity-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 75px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.senn-capacity-card {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.senn-capacity-card:hover {
+  transform: translateY(-3px);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
+}
+
+.senn-capacity-card h3 {
+  margin: 0;
+  font: 700 20px/1.3 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.senn-capacity-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.1);
+}
+
+.senn-capacity-card p {
+  margin: 0;
+  font: 500 14.5px/1.6 'Manrope', sans-serif;
+  color: #334155;
+}
+
+/* ==========================================================================
+   Phases, Compliance & Footprint Sections
+   ========================================================================== */
+.senn-phases-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 75px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.senn-compliance-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 75px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.senn-compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .senn-compliance-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.senn-compliance-card {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.senn-compliance-card:hover {
+  transform: translateY(-3px);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
+}
+
+.senn-compliance-card h4 {
+  margin: 0;
+  font: 700 18px/1.3 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.senn-compliance-card p {
+  margin: 0;
+  font: 500 14px/1.6 'Manrope', sans-serif;
+  color: #334155;
+}
+
+.senn-footprint-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 75px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.senn-footprint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .senn-footprint-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.senn-footprint-card {
+  background: #edf5ff;
+  border-radius: 22px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.senn-footprint-card:hover {
+  transform: translateY(-3px);
+  background: #e4f0ff;
+  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
+}
+
+.senn-footprint-country {
+  font: 700 12px/1 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--blue, #0061f8);
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  width: fit-content;
+  border: 1px solid rgba(0, 97, 248, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 97, 248, 0.04);
+}
+
+.senn-footprint-card h3 {
+  margin: 0;
+  font: 700 20px/1.3 'Manrope', sans-serif;
+  color: var(--blue, #0061f8);
+}
+
+.senn-footprint-card p {
+  margin: 0;
+  font: 500 14px/1.6 'Manrope', sans-serif;
+  color: #334155;
 }

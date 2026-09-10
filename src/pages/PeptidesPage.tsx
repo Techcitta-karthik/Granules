@@ -282,7 +282,7 @@ export default function PeptidesPage() {
       {/* Our portfolio Section */}
       <section className="senn-section-head" aria-label="Our portfolio">
         <div className="copy">
-          <span className="cp-section-badge">Portfolio</span>
+          <span className="cp-section-badge">Our Portfolio</span>
           <h2>Our portfolio</h2>
           <p>
             Custom peptide APIs, catalogue building blocks, and emerging modalities supporting development from feasibility to commercial supply.

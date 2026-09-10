@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 140" width="100%" height="100%">
+  <!-- Flag Symbol -->
+  <g transform="translate(10, 15)">
+    <!-- Flag background / side bands -->
+    <rect x="0" y="0" width="55" height="110" fill="#E31837" rx="4" />
+    <rect x="55" y="0" width="110" height="110" fill="#FFFFFF" />
+    <rect x="165" y="0" width="55" height="110" fill="#E31837" rx="4" />
+    <!-- Center Maple Leaf -->
+    <path fill="#E31837" d="M 110,18 L 114.5,33.5 L 120.5,32.5 L 119,40 L 127,38 L 129,43 L 145.5,44.5 L 141.5,52.5 L 149,57.5 L 145.5,64 L 156,70 L 153.5,75 L 146,74 L 148,80 L 140.5,79.5 L 137.5,88.5 L 132.5,87.5 L 129.5,92 L 126.5,90 L 119,105 L 113,105 L 113.5,120 L 106.5,120 L 107,105 L 101,105 L 93.5,90 L 90.5,92 L 87.5,87.5 L 82.5,88.5 L 79.5,79.5 L 72,80 L 74,74 L 66.5,75 L 64,70 L 74.5,64 L 71,57.5 L 78.5,52.5 L 74.5,44.5 L 91,43 L 93,38 L 101,40 L 99.5,32.5 L 105.5,33.5 Z" />
+  </g>
+
+  <!-- Wordmark Text -->
+  <text x="248" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="700" fill="#231F20" letter-spacing="-0.5">Health</text>
+  <text x="248" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="700" fill="#231F20" letter-spacing="-0.5">Canada</text>
+</svg>

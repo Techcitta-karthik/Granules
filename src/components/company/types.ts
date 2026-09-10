@@ -4,6 +4,7 @@ export type ValueItem = {
   icon: string;
   title: string;
   body: string;
+  image?: string;
 };
 
 export type SubsidiaryCard = {

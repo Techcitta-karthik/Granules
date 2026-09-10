@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
@@ -35,11 +35,11 @@ const SUBSIDIARY_ITEMS: SubsidiaryItem[] = [
   },
   {
     index: '03',
-    name: 'Granules Pharmaceuticals Inc',
+    name: 'Granules Pharmaceuticals Inc.',
     image: '/assets/company/gpi-facility.webp',
     description:
-      'Strengthening patient access in North America through direct commercial presence and manufacturing base',
-    ctaText: 'Learn More',
+      "R&D and manufacturing facility producing oral solid dosage forms and drives commercialisation of products manufactured at Granules' India facility.",
+    ctaText: 'Visit Website',
     ctaHref: 'https://www.granulespharma.com/',
     isExternal: true,
   },
@@ -55,9 +55,6 @@ const SUBSIDIARY_ITEMS: SubsidiaryItem[] = [
 ];
 
 export default function GlobalSubsidiariesPage() {
-  const introRef = useRef<HTMLDivElement>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
     document.title = 'Global Subsidiaries — Granules India';
 
@@ -70,35 +67,22 @@ export default function GlobalSubsidiariesPage() {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', descriptionContent);
-
-    const handleScroll = () => {
-      if (!introRef.current) return;
-      const rect = introRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-      const triggerPoint = viewportHeight * 0.45;
-      setIsScrolled(rect.top < triggerPoint);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
     window.scrollTo(0, 0);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, []);
 
-  const renderCard = (sub: SubsidiaryItem) => (
-    <article className="global-sub-card" key={sub.name}>
-      <div className="global-sub-card-media">
-        <img
-          src={sub.image}
-          alt={`${sub.name} facility`}
-          loading="lazy"
-          decoding="async"
-        />
-        <span className="global-sub-card-index">{sub.index}</span>
-      </div>
+  const renderCard = (sub?: SubsidiaryItem) => {
+    if (!sub) return null;
+    return (
+      <article className="global-sub-card" key={sub.name}>
+        <div className="global-sub-card-media">
+          <img
+            src={sub.image}
+            alt={`${sub.name} facility`}
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="global-sub-card-index">{sub.index}</span>
+        </div>
 
       <div className="global-sub-card-content">
         <h2 className="global-sub-card-title">{sub.name}</h2>
@@ -154,14 +138,15 @@ export default function GlobalSubsidiariesPage() {
         </div>
       </div>
     </article>
-  );
+    );
+  };
 
   return (
     <div className="cp">
       <NavBar />
 
       {/* Breadcrumb Navigation */}
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 16px' }}>
         <Link to="/">HOME</Link>
         <span className="sep">›</span>
         <Link to="/company">ABOUT US</Link>
@@ -183,19 +168,14 @@ export default function GlobalSubsidiariesPage() {
         <div className="global-sub-hero-overlay" />
       </div>
 
-      {/* Intro Scroll Highlight Section */}
-      <div
-        ref={introRef}
-        className={`global-sub-intro ${isScrolled ? 'is-scrolled' : ''}`}
-      >
-        <p>
-          <span className="part-1">
-            With strategically differentiated offerings, our subsidiaries play a vital role in enabling us to deliver high-quality, affordable, and sustainable healthcare solutions to patients worldwide.
-          </span>{' '}
-          <span className="part-2">
-            Beyond driving business growth, our subsidiaries help drive a shared commitment to common values, consistent standards, and a collective focus on creating long-term value for patients, partners, communities, and the planet.
-          </span>
-        </p>
+      {/* Intro Section - identical to /company/milestone */}
+      <div className="cp-about-desc global-sub-intro">
+        <h4>
+          With strategically differentiated offerings, our subsidiaries play a vital role in enabling us to deliver high-quality, affordable, and sustainable healthcare solutions to patients worldwide.
+        </h4>
+        <h4>
+          Beyond driving business growth, our subsidiaries help drive a shared commitment to common values, consistent standards, and a collective focus on creating long-term value for patients, partners, communities, and the planet.
+        </h4>
       </div>
 
       {/* 4 Featured Subsidiaries Showcase - Staggered Columns matching R&D page */}
@@ -209,6 +189,19 @@ export default function GlobalSubsidiariesPage() {
           </div>
         </div>
       </section>
+
+      {/* CTA Banner Section */}
+      <div className="cp-career" style={{ width: 'min(85%, 1632px)', margin: '75px auto 0' }}>
+        <img className="cp-bg" src="/assets/company/career-bg.webp" alt="" loading="lazy" decoding="async" />
+        <div className="cp-bg-overlay" />
+        <div className="cp-career-copy">
+          <Link className="cp-cta-btn" to="/business/generics">GENERICS &rarr;</Link>
+          <h2>Advancing Healthcare Through Science &amp; Scale</h2>
+          <p>
+            Advancing healthcare through a growing portfolio of complex, high-value pharmaceutical products.
+          </p>
+        </div>
+      </div>
 
       <CompanyFooter />
     </div>

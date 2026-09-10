@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './milestone.css';
@@ -38,10 +39,10 @@ export default function MilestonePage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+      <p className="cp-breadcrumb">
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/company">ABOUT US</a>
+        <Link to="/company">ABOUT US</Link>
         <span className="sep">›</span>
         <span className="current">OUR JOURNEY</span>
       </p>
@@ -50,23 +51,23 @@ export default function MilestonePage() {
         <img src={`${M}hero-banner.png`} alt="Granules India facility" />
       </div>
 
-      <div className="ms-intro">
-        <p>
+      <div className="cp-about-desc ms-intro">
+        <h4>
           Granules India has been redefining pharmaceutical manufacturing since 1984. What began
           as a single facility in Hyderabad has evolved into a global leader in APIs, PFIs, and
           finished dosages, driven by scientific innovation, operational scale, and regulatory
           excellence.
-        </p>
-        <p>
+        </h4>
+        <h4>
           From pioneering PFIs in India to establishing U.S. front-end operations and building
           ESG-aligned infrastructure, every milestone reflects our commitment to quality, access,
           and resilient global supply chains.
-        </p>
+        </h4>
       </div>
 
       <div className="ms-systems">
         <div className="ms-systems-head">
-          <span className="cp-section-badge" style={{ alignSelf: 'flex-start', background: '#fff' }}>Our Journey</span>
+          <span className="cp-section-badge">Our Journey</span>
           <h2>Four decades of innovation and scale</h2>
         </div>
 
@@ -78,16 +79,18 @@ export default function MilestonePage() {
               key={entry.year}
               style={{
                 zIndex: index + 1,
-                top: 'clamp(120px, 15vh, 145px)',
+                top: 'clamp(100px, 12vh, 130px)',
               }}
             >
-              <div className="ms-card-copy">
+              <div className="ms-card-content">
                 {entry.eyebrow && <span className="ms-card-eyebrow">{entry.eyebrow}</span>}
-                <h3 className="ms-card-year">{entry.year}</h3>
+                <div className="ms-card-media">
+                  <img src={`${M}${entry.image}`} alt={`Granules milestone ${entry.year}`} />
+                </div>
                 <p className="ms-card-caption">{entry.caption}</p>
               </div>
-              <div className="ms-card-media">
-                <img src={`${M}${entry.image}`} alt={`Granules milestone ${entry.year}`} />
+              <div className="ms-card-year-wrap">
+                <h3 className="ms-card-year">{entry.year}</h3>
               </div>
             </div>
           );
@@ -98,13 +101,13 @@ export default function MilestonePage() {
             <img className="cp-bg" src={`${M}achievements-cta-bg.webp`} alt="" loading="lazy" decoding="async" />
             <div className="cp-bg-overlay" />
             <div className="ms-leadership-copy">
+              <Link className="cp-cta-btn" to="/company/leadership">OUR LEADERSHIP &rarr;</Link>
               <h2>Meet the leadership shaping our future</h2>
               <p>
                 Discover the people leading Granules with purpose, innovation, and a commitment to
                 excellence.
               </p>
             </div>
-            <a className="cp-cta-btn" href="/company/leadership">Our Leadership &rarr;</a>
           </div>
         </div>
       </div>
@@ -113,4 +116,3 @@ export default function MilestonePage() {
     </div>
   );
 }
-

@@ -102,7 +102,7 @@
 
 .ov-goal-stat-val {
   margin: 0 0 10px;
-  font: 400 clamp(48px, 5.5vw, 76px)/1 'Manrope', sans-serif;
+  font: 800 clamp(52px, 6vw, 84px)/1 'Manrope', sans-serif !important;
   color: #111827;
   letter-spacing: -2px;
   animation: sus-fade-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -237,14 +237,13 @@
 }
 
 .ov-leadership {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
   position: relative;
-  border-radius: clamp(36px, 4vw, 48px);
+  border-radius: clamp(34px, 3.8vw, 48px);
   overflow: hidden;
-  aspect-ratio: 16 / 9;
-  min-height: 480px;
+  aspect-ratio: 2.1 / 1;
+  min-height: 520px;
   max-height: 640px;
   background: #edf3f8;
   box-shadow: 0 20px 50px rgba(0, 34, 90, 0.08);
@@ -257,23 +256,23 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: blur(5.5px);
-  transform: scale(1.04);
+  filter: blur(6px);
+  transform: scale(1.05);
   border-radius: inherit;
 }
 
 .ov-leadership-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0.3) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.2) 100%);
   z-index: 1;
 }
 
 .ov-leadership-person {
   position: absolute;
-  right: clamp(40px, 8vw, 150px);
-  top: 5%;
-  height: 190%;
+  right: clamp(20px, 6vw, 100px);
+  top: 2%;
+  height: 182%;
   max-height: none;
   width: auto;
   object-fit: contain;
@@ -286,47 +285,113 @@
 .ov-quote-card {
   position: absolute;
   z-index: 3;
-  left: clamp(24px, 4vw, 56px);
-  bottom: clamp(24px, 4vw, 44px);
-  width: min(480px, calc(100% - 48px));
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  left: clamp(28px, 4vw, 64px);
+  bottom: clamp(28px, 4vw, 52px);
+  width: clamp(380px, 48vw, 580px);
+  max-width: calc(100% - 48px);
+  background: #ffffff;
   border: 1.5px solid #0061f8;
-  border-radius: 28px;
-  padding: clamp(24px, 2.8vw, 36px);
-  box-shadow: 0 16px 40px rgba(0, 34, 90, 0.1);
+  border-radius: clamp(24px, 2.5vw, 32px);
+  padding: clamp(26px, 3vw, 40px) clamp(26px, 3.2vw, 44px);
+  box-shadow: 0 16px 44px rgba(0, 34, 90, 0.09);
 }
 
 .ov-quote-mark {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .ov-quote-mark svg {
   display: block;
 }
 
-.ov-quote-text {
+/* Bold Quote Text */
+.ov-quote-text,
+.ov-quote-text.p4 {
   margin: 0;
-  font: 500 clamp(15px, 1.2vw, 18px)/1.45 'Manrope', sans-serif;
-  color: #111111;
-  letter-spacing: -0.01em;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(16px, 1.25vw, 18.5px) !important;
+  font-weight: 700 !important;
+  line-height: 1.52 !important;
+  color: #111827 !important;
+  letter-spacing: -0.01em !important;
 }
 
-.ov-quote-name {
-  margin: 20px 0 0;
-  font: 700 16px/1.2 'Manrope', sans-serif;
-  color: #0061f8;
+/* Bold Author Name */
+.ov-quote-name,
+.ov-quote-name.p3 {
+  margin: 20px 0 0 !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(17px, 1.3vw, 20px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #0061f8 !important;
+  letter-spacing: 0 !important;
 }
 
-.ov-quote-role {
-  margin: 4px 0 0;
-  font: 600 11px/1.2 'Manrope', sans-serif;
-  color: #64748b;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
+/* Bold Role / Designation */
+.ov-quote-role,
+.ov-quote-role.p4 {
+  margin: 5px 0 0 !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(12.5px, 0.95vw, 13.5px) !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  color: #64748b !important;
+  letter-spacing: 0.7px !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 960px) {
+  .ov-leadership {
+    aspect-ratio: auto;
+    min-height: auto;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 24px;
+  }
+
+  .ov-leadership-person {
+    position: relative;
+    right: auto;
+    top: auto;
+    height: 340px;
+    margin: 20px auto 0;
+    object-position: top center;
+  }
+
+  .ov-quote-card {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: calc(100% - 40px);
+    max-width: 100%;
+    margin: 16px auto 0;
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ov-leadership {
+    border-radius: 24px;
+  }
+
+  .ov-leadership-person {
+    height: 280px;
+  }
+
+  .ov-quote-card {
+    width: calc(100% - 24px);
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .ov-quote-text {
+    font-size: 15px;
+    line-height: 1.48;
+  }
 }
 
 /* Journey Section with Outline Watermarks and Timeline */
@@ -1043,25 +1108,28 @@
 }
 
 .sus-section-header-center {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: left !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
   gap: 12px;
+  width: 100%;
 }
 
 .sus-section-header-center h2 {
   margin: 0;
-  font: 700 clamp(28px, 3.5vw, 44px)/1.2 'Manrope', sans-serif;
+  font: 700 clamp(28px, 3.5vw, 44px)/1.2 'Manrope', sans-serif !important;
   color: #0f172a;
   letter-spacing: -0.5px;
+  text-align: left !important;
 }
 
 .sus-section-header-center p {
   margin: 0;
-  font: 400 16px/1.6 'DM Sans', sans-serif;
+  font: 400 16px/1.6 'Manrope', sans-serif !important;
   color: #64748b;
   max-width: 860px;
+  text-align: left !important;
 }
 
 .sus-goals-top-grid {
@@ -1287,7 +1355,7 @@
 .sus-doc-section {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(70px, 8vw, 110px) auto 0 !important;
+  margin: 75px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 36px;

@@ -4,8 +4,6 @@ import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './investor.css';
 
-const A = '/assets/investor/';
-
 const REPORTS = [
   { year: 'FY24-25', pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf', visit: false },
   { year: 'FY23-24', pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf', visit: true },
@@ -50,31 +48,54 @@ export default function InvestorAnnualReportsPage() {
 
       <div className="inv-detail-head">
         <h1>Annual Reports</h1>
-        <a
-          className="inv-detail-download"
-          href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
-          download="Granules_Integrated-Report-2024-25.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download Latest
-        </a>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <a
+            className="inv-action-link"
+            href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View Latest Annual Report in new tab"
+          >
+            VIEW LATEST
+          </a>
+          <span className="inv-action-slash">/</span>
+          <a
+            className="inv-action-link"
+            href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+            download="Granules_Integrated-Report-2024-25.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Download Latest Annual Report"
+          >
+            DOWNLOAD LATEST
+          </a>
+        </div>
       </div>
 
       <div className="inv-detail-list">
         {REPORTS.map((report) => (
           <div className="inv-detail-row" key={report.year}>
             <p>Annual Report - {report.year}</p>
-            <div className="inv-detail-actions">
+            <div className="inv-detail-actions" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
               <a
-                className="inv-detail-pill"
+                className="inv-action-link"
+                href={report.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`View Annual Report ${report.year} in new tab`}
+              >
+                VIEW
+              </a>
+              <span className="inv-action-slash">/</span>
+              <a
+                className="inv-action-link"
                 href={report.pdf}
                 download={`Annual-Report-${report.year}.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={`Download Annual Report ${report.year}`}
               >
-                PDF
-                <img src={`${A}pdf-icon.svg`} alt="" loading="lazy" decoding="async" />
+                DOWNLOAD
               </a>
             </div>
           </div>

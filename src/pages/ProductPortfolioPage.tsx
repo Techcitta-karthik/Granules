@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
@@ -50,6 +50,41 @@ const FILING_LABELS: Record<Filing, string> = {
 };
 
 const LEGEND_FILINGS: Filing[] = ['US', 'EU', 'CA', 'KR', 'JP', 'BR', 'MX', 'CN', 'UK', 'ZA', 'AU', 'GLOBAL'];
+
+function matchesSearchQuery(text: string, rawQuery: string) {
+  if (!text || !rawQuery) return false;
+  const cleanQ = rawQuery.toLowerCase().replace(/[*+\\?^$\[\]{}()|]+/g, ' ').trim();
+  if (!cleanQ) return false;
+
+  const target = text.toLowerCase();
+  if (target.includes(cleanQ)) return true;
+
+  const searchWords = cleanQ.split(/\s+/).filter(Boolean);
+  if (searchWords.length === 0) return false;
+
+  const targetWords = target.split(/[\s,/\-\(\)\.]+/).filter(Boolean);
+  return searchWords.every((sw) =>
+    target.includes(sw) || targetWords.some((tw) => tw.startsWith(sw))
+  );
+}
+
+function matchesProduct(product: Product, rawQuery: string) {
+  if (!rawQuery || !rawQuery.trim()) return true;
+  const q = rawQuery.trim();
+  if (
+    matchesSearchQuery(product.name, q) ||
+    matchesSearchQuery(product.therapy, q) ||
+    matchesSearchQuery(product.brand, q) ||
+    matchesSearchQuery(product.grade, q) ||
+    matchesSearchQuery(product.segment, q)
+  ) {
+    return true;
+  }
+  const combined = [product.name, product.therapy, product.brand, product.grade, product.segment]
+    .filter(Boolean)
+    .join(' ');
+  return matchesSearchQuery(combined, q);
+}
 
 function formatConcentration(value: string) {
   if (!value) return '—';
@@ -210,10 +245,26 @@ function IntegrationMark({ type }: { type: Integration }) {
 export default function ProductPortfolioPage() {
   const [segment, setSegment] = useState<Segment>('All');
   const [therapy, setTherapy] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [visibleCount, setVisibleCount] = useState(10);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const tableWrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Our Products | APIs, PFIs & Finished Dosages | Granules India';
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const therapies = useMemo(() => {
@@ -232,14 +283,120 @@ export default function ProductPortfolioPage() {
     }
   }, [therapies, therapy]);
 
-  const filtered = useMemo(
-    () =>
-      PRODUCTS.filter((product) => {
-        const segmentMatch = segment === 'All' || product.segment === segment;
-        const therapyMatch = therapy === 'All' || product.therapy === therapy;
-        return segmentMatch && therapyMatch;
-      }),
-    [segment, therapy],
+  useEffect(() => {
+    setVisibleCount(10);
+    if (tableWrapRef.current) {
+      tableWrapRef.current.scrollTop = 0;
+    }
+  }, [segment, therapy, searchQuery]);
+
+  const handleSelectSuggestion = (selectedText: string) => {
+    setSearchQuery(selectedText);
+    setShowSuggestions(false);
+
+    const matchingProducts = PRODUCTS.filter((p) => matchesProduct(p, selectedText));
+    if (matchingProducts.length > 0) {
+      const matchesCurrentFilters = matchingProducts.some(
+        (p) => (segment === 'All' || p.segment === segment) && (therapy === 'All' || p.therapy === therapy)
+      );
+      if (!matchesCurrentFilters) {
+        setSegment('All');
+        setTherapy('All');
+      }
+    }
+  };
+
+  const suggestions = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return [];
+
+    const matches: { text: string; category: string }[] = [];
+    const seen = new Set<string>();
+
+    PRODUCTS.forEach((p) => {
+      if (matchesSearchQuery(p.name, q)) {
+        if (!seen.has(p.name.toLowerCase())) {
+          seen.add(p.name.toLowerCase());
+          matches.push({ text: p.name, category: 'Product' });
+        }
+      }
+    });
+
+    PRODUCTS.forEach((p) => {
+      if (p.therapy && matchesSearchQuery(p.therapy, q)) {
+        if (!seen.has(p.therapy.toLowerCase())) {
+          seen.add(p.therapy.toLowerCase());
+          matches.push({ text: p.therapy, category: 'Therapy' });
+        }
+      }
+    });
+
+    PRODUCTS.forEach((p) => {
+      if (p.grade && matchesSearchQuery(p.grade, q)) {
+        if (!seen.has(p.grade.toLowerCase())) {
+          seen.add(p.grade.toLowerCase());
+          matches.push({ text: p.grade, category: 'Grade' });
+        }
+      }
+    });
+
+    PRODUCTS.forEach((p) => {
+      if (p.brand && matchesSearchQuery(p.brand, q)) {
+        if (!seen.has(p.brand.toLowerCase())) {
+          seen.add(p.brand.toLowerCase());
+          matches.push({ text: p.brand, category: 'Brand' });
+        }
+      }
+    });
+
+    return matches.slice(0, 8);
+  }, [searchQuery]);
+
+  const filtered = useMemo(() => {
+    const q = searchQuery.trim();
+    return PRODUCTS.filter((product) => {
+      const segmentMatch = segment === 'All' || product.segment === segment;
+      const therapyMatch = therapy === 'All' || product.therapy === therapy;
+      const queryMatch = !q || matchesProduct(product, q);
+      return segmentMatch && therapyMatch && queryMatch;
+    });
+  }, [segment, therapy, searchQuery]);
+
+  useEffect(() => {
+    const tableEl = tableWrapRef.current;
+    if (!tableEl) return;
+
+    const handleTableScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = tableEl;
+      if (scrollTop + clientHeight >= scrollHeight - 80) {
+        setVisibleCount((prev) => (prev < filtered.length ? Math.min(prev + 10, filtered.length) : prev));
+      }
+    };
+
+    tableEl.addEventListener('scroll', handleTableScroll, { passive: true });
+
+    let observer: IntersectionObserver | null = null;
+    if (sentinelRef.current && typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setVisibleCount((prev) => (prev < filtered.length ? Math.min(prev + 10, filtered.length) : prev));
+          }
+        },
+        { rootMargin: '300px' }
+      );
+      observer.observe(sentinelRef.current);
+    }
+
+    return () => {
+      tableEl.removeEventListener('scroll', handleTableScroll);
+      if (observer) observer.disconnect();
+    };
+  }, [filtered.length]);
+
+  const visibleProducts = useMemo(
+    () => filtered.slice(0, visibleCount),
+    [filtered, visibleCount],
   );
 
   const useSectionSrNo = segment !== 'All' && therapy === 'All';
@@ -274,7 +431,63 @@ export default function ProductPortfolioPage() {
       </div>
       <div className="cp-divider" />
 
+      <div className="biz-section-head pp-section-head">
+        <div className="copy">
+          <span className="cp-section-badge">Our Portfolio</span>
+          <h2>{TABLE_TITLES[segment]}</h2>
+        </div>
+      </div>
+
       <div className="pp-filters">
+        <label className="pp-select" style={{ position: 'relative' }}>
+          <span>Search Product / Molecule</span>
+          <div className="pp-search-box" ref={searchRef}>
+            <svg className="pp-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search by name, therapy, grade..."
+              value={searchQuery}
+              onFocus={() => setShowSuggestions(true)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSuggestions(true);
+              }}
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="pp-search-clear"
+                onClick={() => {
+                  setSearchQuery('');
+                  setShowSuggestions(false);
+                }}
+                aria-label="Clear search query"
+              >
+                ✕
+              </button>
+            )}
+            {showSuggestions && suggestions.length > 0 && (
+              <ul className="pp-suggestions">
+                {suggestions.map((item) => (
+                  <li
+                    key={`${item.category}-${item.text}`}
+                    className="pp-suggestion-item"
+                    onMouseDown={() => {
+                      handleSelectSuggestion(item.text);
+                    }}
+                  >
+                    <span>{item.text}</span>
+                    <span className="pp-suggestion-type">{item.category}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </label>
+
         <label className="pp-select">
           <span>Segment</span>
           <select value={segment} onChange={(e) => setSegment(e.target.value as Segment)}>
@@ -298,22 +511,15 @@ export default function ProductPortfolioPage() {
         </label>
       </div>
 
-      <div className="biz-section-head pp-section-head">
-        <div className="copy">
-          <span className="cp-section-badge">Portfolio</span>
-          <h2>{TABLE_TITLES[segment]}</h2>
-          <p>{filtered.length} products listed</p>
-        </div>
-      </div>
-
       {filtered.length > 0 ? (
         <>
-          <div className="pp-table-wrap">
+          <div className="pp-table-wrap" ref={tableWrapRef}>
             <table className="pp-table">
               <thead>
                 <tr>
                   <th scope="col">Sr. No</th>
                   <th scope="col">Product</th>
+                  <th scope="col">Segment</th>
                   {showConcentration && <th scope="col">Concentration / Strength</th>}
                   <th scope="col">Therapeutic Category</th>
                   {showGrade && <th scope="col">Pharmacopeia Grade / Rx-OTC</th>}
@@ -323,12 +529,13 @@ export default function ProductPortfolioPage() {
                 </tr>
               </thead>
               <tbody>
-                {filtered.map((product, index) => (
+                {visibleProducts.map((product, index) => (
                   <tr key={`${product.segment}-${product.name}-${product.srNo}-${index}`}>
                     <td className="pp-sr-no">
                       {useSectionSrNo ? product.srNo : index + 1}
                     </td>
                     <td className="pp-product">{product.name}</td>
+                    <td>{product.segment || '—'}</td>
                     {showConcentration && <td>{formatConcentration(product.concentration)}</td>}
                     <td>{product.therapy || '—'}</td>
                     {showGrade && <td>{product.grade || '—'}</td>}
@@ -376,9 +583,30 @@ export default function ProductPortfolioPage() {
             force. All third party trade marks belong to the respective owners and have been used here
             for illustrative purposes only.
           </p>
+
+          {visibleCount < filtered.length && (
+            <div ref={sentinelRef} className="pp-scroll-sentinel" aria-hidden="true">
+              <div className="pp-loading-dots">
+                <span /><span /><span />
+              </div>
+            </div>
+          )}
         </>
       ) : (
-        <p className="pp-empty">No products match this combination. Try another filter.</p>
+        <div className="pp-empty-wrap">
+          <p className="pp-empty">No products match your search or filter combination.</p>
+          <button
+            type="button"
+            className="pp-clear-btn"
+            onClick={() => {
+              setSearchQuery('');
+              setSegment('All');
+              setTherapy('All');
+            }}
+          >
+            Reset Search &amp; Filters
+          </button>
+        </div>
       )}
 
       <div className="biz-cta biz-cta--placeholder pp-cta">

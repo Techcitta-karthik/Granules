@@ -143,11 +143,6 @@ export default function MediaPage() {
           loading="eager"
           decoding="async"
         />
-        <div className="med-hero-overlay" />
-        <div className="med-hero-content">
-          <span className="med-hero-tag">NEWSROOM & PRESS</span>
-          <h2 className="med-hero-heading">Press Releases & In the News</h2>
-        </div>
       </div>
 
       {/* Tab Switcher & Year Filter */}
@@ -570,6 +565,84 @@ export default function MediaPage() {
         </div>
       )}
 
+      {/* Media Contact Us Section */}
+      <section className="med-contact-section" aria-label="Media Contacts">
+        <div className="med-contact-head">
+          <span className="cp-section-badge">Media Contact</span>
+          <h2>Media &amp; Press Enquiries</h2>
+          <h4>
+            For journalist inquiries, interview requests, official statements, and corporate media information, our communications team is here to assist you.
+          </h4>
+        </div>
+
+        <div className="med-contact-grid">
+          {/* Card 1: Corporate Communications */}
+          <div className="med-contact-card">
+            <div className="med-contact-card-header">
+              <div className="med-contact-card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div className="med-contact-card-info">
+                <h3>Priyanka Chawla</h3>
+                <p className="med-contact-role">Corporate Communications &amp; Media Relations</p>
+              </div>
+            </div>
+            <p className="med-contact-card-desc">
+              Direct media queries, press releases, leadership interviews, and editorial coordination.
+            </p>
+            <div className="med-contact-actions">
+              <a href="mailto:Priyanka.Chawla@granulesindia.com" className="med-contact-chip">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>Priyanka.Chawla@granulesindia.com</span>
+              </a>
+              <a href="tel:+914069043500" className="med-contact-chip">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span>+91 40 69043500</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Card 2: Global Media Desk */}
+          <div className="med-contact-card">
+            <div className="med-contact-card-header">
+              <div className="med-contact-card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+              </div>
+              <div className="med-contact-card-info">
+                <h3>Global Media Desk</h3>
+                <p className="med-contact-role">Granules India Corporate Headquarters</p>
+              </div>
+            </div>
+            <p className="med-contact-card-desc">
+              15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India.
+            </p>
+            <div className="med-contact-actions">
+              <a href="mailto:mail@granulesindia.com" className="med-contact-chip">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>mail@granulesindia.com</span>
+              </a>
+              <a href="/contact" className="med-contact-chip">
+                <span>General Enquiries Page &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2026 Integrated Annual Report Banner */}
       <div className="med-report-section">
         <div className="med-report-card">
@@ -605,59 +678,7 @@ export default function MediaPage() {
         </div>
       </div>
 
-      {/* Media Kit Section */}
-      <div className="med-kit">
-        <h2>Media kit</h2>
-        <div className="med-kit-grid">
-          <button
-            type="button"
-            className="med-kit-item"
-            onClick={() => alert('Downloading Granules India Brand Logos...')}
-          >
-            <div className="med-kit-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm0 14H5V8h14v10z" />
-              </svg>
-            </div>
-            <div className="med-kit-text">
-              <p className="name">Logos</p>
-              <p className="action">DOWNLOAD ASSET</p>
-            </div>
-          </button>
 
-          <button
-            type="button"
-            className="med-kit-item"
-            onClick={() => alert('Downloading Leadership High-Res Photos...')}
-          >
-            <div className="med-kit-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-              </svg>
-            </div>
-            <div className="med-kit-text">
-              <p className="name">Leadership</p>
-              <p className="action">DOWNLOAD ASSET</p>
-            </div>
-          </button>
-
-          <button
-            type="button"
-            className="med-kit-item"
-            onClick={() => alert('Downloading Global Facilities & Offices Images...')}
-          >
-            <div className="med-kit-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
-              </svg>
-            </div>
-            <div className="med-kit-text">
-              <p className="name">Offices Images</p>
-              <p className="action">DOWNLOAD ASSET</p>
-            </div>
-          </button>
-        </div>
-      </div>
 
       {/* Social Follow Banner */}
       <div className="med-follow">

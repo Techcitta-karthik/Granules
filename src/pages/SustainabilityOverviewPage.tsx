@@ -644,33 +644,34 @@ export default function SustainabilityOverviewPage() {
           </Link>
         </div>
 
-        {/* Demonstrating Resilience, Emerging Stronger Speech Banner */}
-        <div className="sus-speech-banner-card">
-          <div className="sus-speech-banner-left">
-            <div className="sus-speech-banner-img-frame">
-              <img
-                className="sus-speech-banner-img"
-                src="/assets/chair-pic.png"
-                alt="Dr. Krishna Prasad Chigurupati delivering keynote address"
-                loading="eager"
-                decoding="async"
-              />
+        {/* Leadership Speech Banner matching reference image */}
+        <div className="ov-leadership" style={{ width: '100%', maxWidth: '100%', margin: '0' }}>
+          <img
+            className="ov-leadership-bg"
+            src="/assets/sustainability/leadership-bg.webp"
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+          <div className="ov-leadership-overlay" />
+          <img
+            className="ov-leadership-person"
+            src="/assets/sustainability/leadership-portrait.webp"
+            alt="Dr. Krishna Prasad Chigurupati"
+            loading="eager"
+            decoding="async"
+          />
+          <div className="ov-quote-card">
+            <div className="ov-quote-mark" aria-hidden="true">
+              <svg width="38" height="28" viewBox="0 0 36 28" fill="#0061f8">
+                <path d="M0 16.5C0 7.387 6.188 0 15.188 0v6.188c-4.95 0-7.875 3.375-8.438 7.312h8.438V28H0V16.5zm20.812 0C20.812 7.387 27 0 36 0v6.188c-4.95 0-7.875 3.375-8.438 7.312H36V28H20.812V16.5z" />
+              </svg>
             </div>
-            <h2 className="sus-speech-banner-headline">
-              Demonstrating Resilience,<br />Emerging Stronger
-            </h2>
-          </div>
-          <div className="sus-speech-banner-quote-col">
-            <svg className="sus-speech-quote-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            <p className="sus-speech-quote-text">
-              &ldquo;The pharmaceutical industry has a dual responsibility: to heal lives and to heal the planet. Through innovative strategies and sustainable practices, we can drive our industry towards decarbonization and contribute significantly to a carbon-neutral future.&rdquo;
+            <p className="ov-quote-text p4">
+              The pharmaceutical industry has a dual responsibility: to heal lives and the planet. At Granules, sustainability is not an add-on. It is the core of our business.
             </p>
-            <div className="sus-speech-author">
-              <p className="sus-speech-name">Dr. Krishna Prasad Chigurupati</p>
-              <p className="sus-speech-role">Chairman and Managing Director</p>
-            </div>
+            <p className="ov-quote-name p3">Dr. Krishna Prasad Chigurupati</p>
+            <p className="ov-quote-role p4">CHAIRMAN AND MANAGING DIRECTOR</p>
           </div>
         </div>
       </section>

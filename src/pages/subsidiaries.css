@@ -16,44 +16,26 @@
   pointer-events: none;
 }
 
-/* Intro Scroll Highlight Section */
+/* Intro Section Typography & Spacing - identical to /company/milestone .ms-intro */
 .global-sub-intro {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(52px, 6.5vw, 84px) auto clamp(40px, 5vw, 64px) !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: clamp(60px, 8vw, 118px) auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  box-sizing: border-box;
 }
 
+.global-sub-intro h4,
 .global-sub-intro p {
   margin: 0;
-  font: 500 clamp(20px, 2.1vw, 29px)/1.45 'Manrope', sans-serif;
-  letter-spacing: -0.015em;
-}
-
-.global-sub-intro .part-1,
-.global-sub-intro .part-2 {
-  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: color;
-}
-
-/* Initial: Part 1 is dark (highlighted), Part 2 is dim */
-.global-sub-intro .part-1 {
-  color: var(--n9, #0b1528);
-}
-
-.global-sub-intro .part-2 {
-  color: #94a3b8;
-}
-
-/* On scroll down: Part 1 goes dim, Part 2 turns dark (highlighted) */
-.global-sub-intro.is-scrolled .part-1 {
-  color: #94a3b8;
-}
-
-.global-sub-intro.is-scrolled .part-2 {
-  color: var(--n9, #0b1528);
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: clamp(18px, 1.3vw, 22px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--track-body, -0.2px) !important;
+  color: var(--n9, #070707) !important;
 }
 
 /* ==========================================================================
@@ -62,14 +44,14 @@
 
 .global-sub-section {
   width: 100%;
-  margin: 0 0 clamp(80px, 10vw, 130px) 0;
+  margin: 0;
   padding: 0;
 }
 
 .global-sub-columns {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(20px, 3vw, 40px) auto 0 !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 75px auto 0 !important;
   display: flex;
   gap: clamp(32px, 4.5vw, 64px);
   align-items: flex-start;
@@ -163,27 +145,27 @@
 
 .global-sub-card-title {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(20px, 1.65vw, 24px);
-  line-height: 1.25;
-  color: var(--blue-2, #00225a);
-  letter-spacing: -0.2px;
+  font-family: var(--font-primary, 'Manrope', sans-serif);
+  font-weight: 700;
+  font-size: var(--fs-card, 20px);
+  line-height: 1.35;
+  color: #0061f8;
+  letter-spacing: 0;
   transition: color 0.3s ease;
 }
 
 .global-sub-card:hover .global-sub-card-title {
-  color: var(--blue, #0061f8);
+  color: #004ecc;
 }
 
 .global-sub-card-desc {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;
-  font-size: clamp(15.5px, 1.15vw, 17.5px);
-  line-height: 1.5;
-  color: #374151;
-  letter-spacing: 0;
+  font-family: var(--font-primary, 'Manrope', sans-serif);
+  font-weight: 400;
+  font-size: var(--fs-body, 16px);
+  line-height: 1.55;
+  color: #4b5563;
+  letter-spacing: -0.1px;
 }
 
 /* Action Container */
@@ -202,7 +184,9 @@
   border-radius: 9999px;
   background: var(--blue, #0061f8);
   color: #ffffff;
-  font: 600 clamp(13.5px, 0.95vw, 15px)/1 'Manrope', sans-serif;
+  font: 700 clamp(12.5px, 0.9vw, 14px)/1 var(--font-primary, 'Manrope', sans-serif);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
   text-decoration: none;
   transition: background-color 0.3s cubic-bezier(0.2, 0, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0, 0.2, 1);
   box-shadow: 0 4px 16px rgba(0, 97, 248, 0.22);

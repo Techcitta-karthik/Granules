@@ -7,13 +7,14 @@ export default function CareerSection() {
       <img className="cp-bg" src={asset('career-bg.webp')} alt="" loading="lazy" decoding="async" />
       <div className="cp-bg-overlay" />
       <div className="cp-career-copy">
+        <Link className="cp-cta-btn" to="/company/milestone">OUR JOURNEY &rarr;</Link>
         <h2>Discover our growth story</h2>
         <p>
           Explore the milestones that shaped Granules into a trusted name in global pharma
           manufacturing.
         </p>
       </div>
-      <Link className="cp-cta-btn" to="/company/milestone">Our Journey &rarr;</Link>
     </div>
   );
 }
+

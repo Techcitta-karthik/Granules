@@ -74,7 +74,7 @@ export default function ApiPage() {
         <span className="sep">›</span>
         <span className="current">ACTIVE PHARMACEUTICAL INGREDIENTS</span>
       </p>
-      <h2 className="api-page-header">Built for Scale. Engineered for Precision. Committed to Global Compliance.</h2>
+      <h2 className="api-page-header">Built for Scale. Driven by Value.</h2>
       <div className="cp-hero-banner">
         <img src={`${A}hero-banner.png`} alt="Granules API manufacturing facility" />
         <div className="api-hero-scrim" />

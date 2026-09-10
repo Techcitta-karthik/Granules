@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 220" width="100%" height="100%">
+  <!-- Red Card -->
+  <rect x="10" y="10" width="140" height="130" fill="#dc2626" rx="4" />
+  <text x="25" y="44" font-family="'Manrope', sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="-0.5">Great</text>
+  <text x="25" y="68" font-family="'Manrope', sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="-0.5">Place</text>
+  <text x="25" y="92" font-family="'Manrope', sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="-0.5">To</text>
+  <text x="25" y="116" font-family="'Manrope', sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="-0.5">Work®</text>
+  <!-- Blue Certified Bottom Ribbon -->
+  <path d="M 10 140 L 150 140 L 150 190 L 80 215 L 10 190 Z" fill="#1e3a8a" />
+  <text x="80" y="165" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="14" font-weight="800" fill="#ffffff">Certified</text>
+  <text x="80" y="180" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="8" font-weight="700" fill="#ffffff" letter-spacing="0.2">FEB 2025-FEB 2026</text>
+  <text x="80" y="195" text-anchor="middle" font-family="'Manrope', sans-serif" font-size="9" font-weight="800" fill="#ffffff">INDIA</text>
+</svg>

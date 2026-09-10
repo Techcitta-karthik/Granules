@@ -130,7 +130,6 @@ export default function QualityCompliancePage() {
       <div className="qc-systems">
         <div className="qc-systems-head">
           <span className="cp-section-badge" style={{ alignSelf: 'flex-start', background: '#fff' }}>Our Quality Systems</span>
-          <h2>Quality Systems that Deliver Confidence</h2>
         </div>
 
         {STORIES.map((story, index) => (
@@ -140,7 +139,7 @@ export default function QualityCompliancePage() {
           >
             <div className="qc-card-copy">
               <h3>{story.title}</h3>
-              <p>{story.body}</p>
+              <h4>{story.body}</h4>
               {story.highlights && (
                 <ul className="qc-card-highlights">
                   {story.highlights.map((highlight) => (
@@ -163,9 +162,9 @@ export default function QualityCompliancePage() {
             <div className="qc-certs-badge">
               <span className="cp-section-badge" style={{ alignSelf: 'flex-start', background: '#fff' }}>Certifications</span>
               <h3>Certified to Global Standards</h3>
-              <p>
+              <h4>
                 Strict adherence to international standards governing quality management, environmental stewardship, and workplace safety.
-              </p>
+              </h4>
             </div>
             <ul className="qc-certs-icons">
               {CERTIFICATIONS.map((cert) => (
@@ -192,9 +191,9 @@ export default function QualityCompliancePage() {
         <div className="overlay" />
         <div className="qc-cta-copy">
           <h2>Partner with Granules for Uncompromised Quality &amp; Regulatory Excellence</h2>
-          <p>
+          <h4>
             Connect with our global quality and regulatory affairs teams to discuss audits, filings, and supply partnerships across 80+ markets.
-          </p>
+          </h4>
         </div>
         <div className="qc-cta-actions">
           <Link to="/contact" className="qc-cta-btn qc-cta-btn--primary">

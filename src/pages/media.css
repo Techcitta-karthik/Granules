@@ -515,11 +515,169 @@
 }
 
 /* --------------------------------------------------------------------------
-   5. 2024 INTEGRATED ANNUAL REPORT BANNER (Matching Investor section)
+   5. MEDIA CONTACT US SECTION
+   -------------------------------------------------------------------------- */
+.med-contact-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 75px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4vw, 44px);
+}
+
+.med-contact-head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 860px;
+}
+
+.med-contact-head .cp-section-badge {
+  align-self: flex-start;
+  display: inline-block;
+  background: #e1f0fe;
+  color: #0061f8;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font: 700 13px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.med-contact-head h2 {
+  margin: 0;
+  font: 700 clamp(28px, 4vw, 48px)/1.15 'Manrope', sans-serif;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.med-contact-head h4 {
+  margin: 0;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: #475569 !important;
+  letter-spacing: -0.2px !important;
+}
+
+.med-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 3vw, 36px);
+}
+
+.med-contact-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 97, 248, 0.12);
+  border-radius: 28px;
+  padding: clamp(28px, 3.5vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 10px 30px rgba(0, 30, 90, 0.04);
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.med-contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 97, 248, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 97, 248, 0.1);
+}
+
+.med-contact-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.med-contact-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #eef5ff;
+  color: #0061f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.med-contact-card:hover .med-contact-card-icon {
+  background: #0061f8;
+  color: #ffffff;
+}
+
+.med-contact-card-info h3 {
+  margin: 0 0 6px 0;
+  font: 700 clamp(20px, 1.8vw, 24px)/1.3 'Manrope', sans-serif;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.med-contact-role {
+  margin: 0;
+  font: 600 14px/1.4 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.2px;
+}
+
+.med-contact-card-desc {
+  margin: 0;
+  font: 500 15px/1.6 'Manrope', sans-serif;
+  color: #64748b;
+}
+
+.med-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.med-contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font: 600 14px/1 'Manrope', sans-serif;
+  color: #1e293b;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.med-contact-chip svg {
+  color: #0061f8;
+  transition: color 0.2s ease;
+}
+
+.med-contact-chip:hover {
+  background: #0061f8;
+  border-color: #0061f8;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.25);
+}
+
+.med-contact-chip:hover svg {
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .med-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. 2024 INTEGRATED ANNUAL REPORT BANNER (Matching Investor section)
    -------------------------------------------------------------------------- */
 .med-report-section {
   width: 100%;
-  margin: clamp(80px, 10vw, 120px) 0 0 0;
+  margin: 75px 0 0 0 !important;
   position: relative;
   background-color: #eef2fb;
   background-image: url('/assets/investor/quarterly-bg.webp');

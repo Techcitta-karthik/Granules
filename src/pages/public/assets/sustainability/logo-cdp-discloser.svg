@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="4" fill="#181e28" />
+  <!-- Red top-right triangle -->
+  <polygon points="120,0 200,0 200,80" fill="#e01a4f" />
+  <!-- CDP Logo -->
+  <text x="35" y="105" font-family="'Manrope', sans-serif" font-size="34" font-weight="900" fill="#ffffff" letter-spacing="-1">NCDP</text>
+  <text x="35" y="135" font-family="'Manrope', sans-serif" font-size="18" font-weight="600" fill="#ffffff">Discloser</text>
+  <text x="35" y="162" font-family="'Manrope', sans-serif" font-size="22" font-weight="700" fill="#ffffff">2024</text>
+</svg>

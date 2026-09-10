@@ -413,56 +413,33 @@ export default function InvestorFilteredSection({
                   <td className="inv-table-detail-cell">{doc.scope}</td>
                   <td className="inv-table-period-cell">{doc.period}</td>
                   <td className="inv-table-action-cell">
-                    {doc.webUrl ? (
-                      <a
-                        className="inv-table-btn"
-                        href={doc.webUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title={`View ${doc.title}`}
-                      >
-                        <span>View</span>
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
+                    {doc.webUrl || doc.pdf ? (
+                      <div className="inv-table-actions">
+                        <a
+                          className="inv-action-link"
+                          href={doc.webUrl || doc.pdf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={`View ${doc.title} in a new tab`}
                         >
-                          <line x1="7" y1="17" x2="17" y2="7" />
-                          <polyline points="7 7 17 7 17 17" />
-                        </svg>
-                      </a>
-                    ) : doc.pdf ? (
-                      <a
-                        className="inv-table-btn"
-                        href={doc.pdf}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        download={`${doc.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
-                        title={`Download ${doc.title}`}
-                      >
-                        <span>Download</span>
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                          <polyline points="7 10 12 15 17 10" />
-                          <line x1="12" y1="15" x2="12" y2="3" />
-                        </svg>
-                      </a>
+                          VIEW
+                        </a>
+                        {doc.pdf && (
+                          <>
+                            <span className="inv-action-slash">/</span>
+                            <a
+                              className="inv-action-link"
+                              href={doc.pdf}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              download={`${doc.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
+                              title={`Download ${doc.title}`}
+                            >
+                              DOWNLOAD
+                            </a>
+                          </>
+                        )}
+                      </div>
                     ) : (
                       <span className="inv-table-btn inv-table-btn--disabled">Available Soon</span>
                     )}

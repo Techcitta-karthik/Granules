@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import worldMapUrl from '@svg-maps/world/world.svg?url';
-import { CompanyFooter } from '../components/company';
+import { NavBar, CompanyFooter } from '../components/company';
 import { REGULATORY_LOGOS } from '../data/regulatoryLogosData';
 import '../components/company/company.css';
 
@@ -9,33 +9,33 @@ const A = '/assets/';
 
 const heroSlides = [
   {
-    image: 'hero-1.webp',
+    image: 'Home/1.jpg',
     title: 'Globally approved. Vertically integrated. Trusted worldwide',
     cta: 'Our Products',
     link: '/business/generics',
   },
   {
-    image: 'hero-5.webp',
+    image: 'Home/2.jpg',
     title: 'Driving innovation in peptides and custom manufacturing solutions',
-    cta: 'Peptides & CDMO Business',
+    cta: 'Peptide CDMO',
     link: '/business/peptides',
   },
   {
-    image: 'hero-4.webp',
+    image: 'Home/3.jpg',
     title: 'Setting global standards in quality, safety, and compliance',
     cta: 'Quality & compliance',
     link: '/business/quality-compliance',
   },
   {
-    image: 'hero-3.webp',
+    image: 'Home/4.jpg',
     title: 'Innovating for health. Committed to the planet',
     cta: 'Sustainability',
     link: '/sustainability',
   },
   {
-    image: 'hero-2.webp',
+    image: 'Home/5.jpg',
     title: 'Accelerating Innovation Through Integration and Digitalization',
-    cta: 'R&D',
+    cta: 'Research & Development',
     link: '/business/rd',
   },
 ];
@@ -118,258 +118,6 @@ function Button({ children, href = '#', className = '', onClick }) {
     <a className={`button ${className}`} href={href} onClick={handleClick}>
       {children}
     </a>
-  );
-}
-
-function Header({ open, setOpen, activeSection, onSearch, scrolled }) {
-  const [hoveredMenu, setHoveredMenu] = useState(null);
-  const closeTimer = useRef(null);
-  const links = [
-    ['About Us', '/company'],
-    ['Business', '/business/generics'],
-    ['Sustainability', '/sustainability'],
-    ['Community', '/community'],
-    ['Investor', '/investor'],
-    ['Media', '/media'],
-    ['Careers', '/careers'],
-    ['Contact Us', '/contact'],
-  ];
-  const resolveLink = (item) => (Array.isArray(item) ? { label: item[0], href: item[1] } : item);
-
-  const submenuData = {
-    'About Us': {
-      sections: [],
-      links: [
-        { label: 'Overview', href: '/company' },
-        { label: 'Our Journey', href: '/company/milestone' },
-        { label: 'Leadership', href: '/company/leadership' },
-        { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
-        { label: 'Granules Pharmaceuticals Inc', href: 'https://www.granulespharma.com/' },
-      ],
-      image: 'company/values-bg-2.webp',
-    },
-    Company: {
-      sections: [
-        {
-          title: 'Global Subsidiaries',
-          href: '/company/global-subsidiaries',
-          quickLinks: [
-            { label: 'LEADERSHIP', href: '/company/leadership' },
-            { label: 'GRANULES PHARMACEUTICALS INC. (GPI)', href: 'https://www.granulespharma.com/' },
-            { label: 'GRANULES LIFE SCIENCES', href: '/company/granules-life-sciences' },
-            { label: 'SENN TIDES', href: '/company/senn-tides' },
-            { label: 'GRANULES CZRO', href: '/company/granules-czro' },
-          ],
-        },
-      ],
-      links: [],
-      image: 'company/values-bg-2.webp',
-    },
-    Business: {
-      sections: [],
-      links: [
-        { label: 'Generics', href: '/business/generics' },
-        { label: 'Peptides CDMO', href: '/business/peptides' },
-        { label: 'Research & Development', href: '/business/rd' },
-        { label: 'Quality & Compliance', href: '/business/quality-compliance' },
-        { label: 'Facilities', href: '/company/facilities' },
-      ],
-      image: 'company/gpi-facility.webp',
-    },
-    Careers: {
-      sections: [
-        {
-          title: 'CAREERS',
-          quickLinks: [
-            { label: 'Life at Granules', href: '/careers' },
-            { label: 'Current Openings', href: '/careers/opportunities' },
-          ],
-        },
-      ],
-      links: [],
-      image: 'company/career-bg.webp',
-    },
-  };
-
-  const showMenu = (label) => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setHoveredMenu(label);
-  };
-
-  const hideMenu = () => {
-    closeTimer.current = setTimeout(() => setHoveredMenu(null), 200);
-  };
-
-  const handleSmoothAnchor = (e, href) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setOpen(false);
-    }
-  };
-
-  return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
-      <a className="brand" href="#top" onClick={(e) => handleSmoothAnchor(e, '#top')} aria-label="Granules home">
-        <img src={`${A}logo.webp`} alt="Granules" loading="eager" decoding="async" />
-      </a>
-      <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open}>Menu</button>
-      <nav className={open ? 'open' : ''} aria-label="Primary navigation">
-        {links.map(([label, href]) => {
-          const sub = submenuData[label];
-          return (
-            <div className="home-nav-item" key={label} onMouseEnter={() => sub && showMenu(label)} onMouseLeave={hideMenu}>
-              {href.startsWith('#') ? (
-                <a
-                  className={activeSection === href.slice(1) ? 'active' : ''}
-                  aria-current={activeSection === href.slice(1) ? 'page' : undefined}
-                  href={href}
-                  onClick={(e) => handleSmoothAnchor(e, href)}
-                >
-                  {label}
-                </a>
-              ) : (
-                <Link
-                  className={activeSection === href.slice(1) ? 'active' : ''}
-                  aria-current={activeSection === href.slice(1) ? 'page' : undefined}
-                  to={href}
-                  onClick={() => setOpen(false)}
-                >
-                  {label}
-                </Link>
-              )}
-              {sub && (
-                <div className={`home-nav-submenu${hoveredMenu === label ? ' is-open' : ''}`} onMouseEnter={() => showMenu(label)}>
-                  <div className="home-nav-submenu-copy">
-                    {(sub.sections || (sub.title && sub.quickLinks ? [{ title: sub.title, href: sub.href, quickLinks: sub.quickLinks }] : [])).map((section, idx) => (
-                      <div className="home-nav-submenu-header-box" key={section.title || idx}>
-                        {section.title && (
-                          section.href ? (
-                            section.href.startsWith('http') ? (
-                              <a
-                                href={section.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="home-nav-submenu-title"
-                                onClick={() => {
-                                  setHoveredMenu(null);
-                                  setOpen(false);
-                                }}
-                              >
-                                <strong>{section.title}</strong>
-                                <span className="home-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
-                              </a>
-                            ) : (
-                              <Link
-                                to={section.href}
-                                className="home-nav-submenu-title"
-                                onClick={() => {
-                                  setHoveredMenu(null);
-                                  setOpen(false);
-                                }}
-                              >
-                                <strong>{section.title}</strong>
-                                <span className="home-nav-arrow-diag" aria-hidden="true" style={{ fontSize: '13px', marginLeft: '6px' }}>↗</span>
-                              </Link>
-                            )
-                          ) : (
-                            <strong>{section.title}</strong>
-                          )
-                        )}
-                        <div className="home-nav-quick-links">
-                          {(section.quickLinks || []).map((raw) => {
-                            const item = resolveLink(raw);
-                            return item.href.startsWith('http') ? (
-                              <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                key={item.label}
-                                onClick={() => {
-                                  setHoveredMenu(null);
-                                  setOpen(false);
-                                }}
-                              >
-                                <span>{item.label}</span>
-                                <span className="home-nav-arrow-diag" aria-hidden="true">↗</span>
-                              </a>
-                            ) : (
-                              <Link
-                                to={item.href}
-                                key={item.label}
-                                onClick={() => {
-                                  setHoveredMenu(null);
-                                  setOpen(false);
-                                }}
-                              >
-                                <span>{item.label}</span>
-                                <span className="home-nav-arrow-diag" aria-hidden="true">↗</span>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    ))}
-
-                    {sub.links && sub.links.length > 0 && (
-                      <div className="home-nav-submenu-links">
-                        {sub.links.map((raw) => {
-                          const item = resolveLink(raw);
-                          return item.href.startsWith('http') ? (
-                            <a
-                              href={item.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              key={item.label}
-                              onClick={() => {
-                                setHoveredMenu(null);
-                                setOpen(false);
-                              }}
-                            >
-                              {item.label}
-                            </a>
-                          ) : (
-                            <Link
-                              to={item.href}
-                              key={item.label}
-                              onClick={() => {
-                                setHoveredMenu(null);
-                                setOpen(false);
-                              }}
-                            >
-                              {item.label}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                  {sub.imageHref ? (
-                    <a
-                      href={sub.imageHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="home-nav-submenu-thumb"
-                      title="View Profile"
-                    >
-                      <img src={`${A}${sub.image}`} alt="" loading="lazy" decoding="async" />
-                    </a>
-                  ) : (
-                    <div className="home-nav-submenu-thumb">
-                      <img src={`${A}${sub.image}`} alt="" loading="lazy" decoding="async" />
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          );
-        })}
-        <button className="search-button" aria-label="Search the page" onClick={onSearch}>
-          <img src={`${A}search.svg`} alt="" loading="lazy" decoding="async" />
-        </button>
-      </nav>
-    </header>
   );
 }
 
@@ -563,25 +311,25 @@ function About() {
     <section className="section shell about" id="about">
       <div className="about-copy">
         <h2>Driving global healthcare through scalable pharma leadership</h2>
-        <p>
+        <h4>
           With over four decades of industry leadership, Granules India is committed to delivering
           high-quality, affordable medicines globally, through an integrated manufacturing platform.
           We offer end-to-end solutions for global healthcare needs, built on compliance,
           innovation, and operational scale, across Active Pharmaceutical Ingredients (APIs),
           Pharmaceutical Formulation Intermediates (PFIs), Finished Dosage Forms (FDFs), and Peptide CDMO.
-        </p>
+        </h4>
         <div className="about-cta-wrap">
           <Button href="/company">ABOUT GRANULES &rarr;</Button>
         </div>
       </div>
       <div className="about-stats-wrap">
         <div className="stats">
-          <article className="stat"><CountUp to={80} suffix="+" /><span>Countries served</span></article>
-          <article className="stat"><CountUp to={40} suffix="+" /><span>Years of excellence</span></article>
-          <article className="stat"><CountUp to={10} /><span>Manufacturing facilities<br />across India, US & Europe</span></article>
-          <article className="stat"><CountUp to={6} /><span>R&D centers of excellence</span></article>
-          <article className="stat"><CountUp to={150} suffix="+" /><span>Dossiers</span></article>
-          <article className="stat"><CountUp to={100} suffix="+" /><span>DMFs</span></article>
+          <article className="stat"><CountUp to={80} suffix="+" /><span>COUNTRIES SERVED</span></article>
+          <article className="stat"><CountUp to={40} suffix="+" /><span>YEARS OF EXCELLENCE</span></article>
+          <article className="stat"><CountUp to={10} /><span>MANUFACTURING FACILITIES<br />ACROSS INDIA, US &amp; EUROPE</span></article>
+          <article className="stat"><CountUp to={6} /><span>R&amp;D CENTERS OF EXCELLENCE</span></article>
+          <article className="stat"><CountUp to={150} suffix="+" /><span>DOSSIERS</span></article>
+          <article className="stat"><CountUp to={100} suffix="+" /><span>DMFS</span></article>
         </div>
       </div>
     </section>
@@ -593,20 +341,20 @@ function Business() {
   const navigate = useNavigate();
 
   return (
-    <section className="section shell ruled" id="business">
+    <section className="section shell" id="business">
       <Tag>Business Verticals</Tag>
       <div className="section-heading split-heading">
         <div>
           <h2>Delivering Impact Across Pharmaceutical Value Chain</h2>
-          <p>
+          <h4>
             We serve patients and our partners across the globe with a vertically integrated model
             that brings together innovation, manufacturing excellence, and compliance at scale. With
             established capabilities across APIs, PFIs, finished dosages and peptide CDMO, we are
             also strengthening our portfolio complexity across therapies with high-barrier, early to
             market opportunities in Central Nervous System (CNS), oncology and metabolic disorders.
-          </p>
+          </h4>
         </div>
-        <Button href="/business/api">Products &rarr;</Button>
+        <Button href="/business">Generics &rarr;</Button>
       </div>
 
       <div className="product-grid">
@@ -670,7 +418,7 @@ function Business() {
 }
 
 function Presence() {
-  const tabs = ['Our Locations', 'Our Key Subsidiaries', 'Our Facilities'];
+  const tabs = ['Our Locations', 'Our Global Subsidiaries'];
   const [active, setActive] = useState(0);
 
   return (
@@ -916,46 +664,53 @@ function Credentials() {
   );
 }
 
-function Sustainability() {
+function Sustainability({ open = 0, setOpen }) {
   const items = [
     {
       title: 'Target to achieve Net Zero by 2050',
+      tag: 'Sustainability',
+      heading: 'Where science acts responsibly',
+      heroBody: 'From reducing our carbon footprint and investing in clean energy to building community resilience through skill development, we are shaping a healthier, more sustainable world.',
+      href: '/sustainability',
       body: 'We are committed to science-based decarbonization, with SBTi-validated targets guiding our journey toward Net Zero emissions.',
       icon: 'icon-recycle-leaf.svg',
       iconType: 'plain',
-      href: '/sustainability/strategy',
+      linkHref: '/sustainability',
       cta: 'View Decarbonisation Strategy',
       bg: `${A}sustainability-net-zero.jpg`,
     },
     {
-      title: 'Granules CZRO',
-      body: 'Our greenfield manufacturing unit leads the way in energy-efficient operations and low-emission processes, redefining what large-scale green pharma looks like.',
+      title: 'Community',
+      tag: 'Community',
+      heading: 'Driving meaningful impact, enriching communities',
+      heroBody: 'Guided by empathy and responsibility, we support healthcare access, quality education, rural development, and specialised skill training at Pharma Patashala to transform lives.',
+      href: '/community',
+      body: 'Through healthcare initiatives, education, and skill development at Pharma Patashala, we empower underserved communities and create long-term social value.',
       icon: 'icon-windmill-sustain.svg',
       iconType: 'circle',
-      href: '/company/granules-czro',
-      cta: 'Explore Granules CZRO',
+      linkHref: '/community',
+      cta: 'Explore Community Initiatives',
       bg: `${A}sustainability.webp`,
     },
   ];
-  const [open, setOpen] = useState(0);
-  const currentBg = (open >= 0 && items[open]?.bg) ? items[open].bg : items[0].bg;
+
+  const activeIndex = open >= 0 && open < items.length ? open : 0;
+  const currentItem = items[activeIndex];
+  const currentBg = currentItem.bg;
 
   return (
     <section className="sustainability" id="sustainability" style={{ backgroundImage: `url(${currentBg})` }}>
       <div className="sustainability-overlay" />
-      <div className="sustainability-copy">
-        <Tag>Sustainability</Tag>
-        <h2>Where science acts responsibly</h2>
-        <p>
-          From reducing our carbon footprint and investing in clean energy to building community
-          resilience through skill development, we are shaping a healthier, more sustainable world.
-        </p>
-        <Button href="/sustainability" className="green">Learn More &rarr;</Button>
+      <div className="sustainability-copy" key={currentItem.tag}>
+        <Tag>{currentItem.tag}</Tag>
+        <h2>{currentItem.heading}</h2>
+        <h4>{currentItem.heroBody}</h4>
+        <Button href={currentItem.href} className="green">Learn More &rarr;</Button>
       </div>
       <div className="accordion">
         {items.map((item, index) => (
           <article className={open === index ? 'open' : ''} key={item.title}>
-            <button onClick={() => setOpen(open === index ? -1 : index)}>
+            <button onClick={() => setOpen && setOpen(index)}>
               <span className="accordion-head">
                 <i className={`accordion-icon accordion-icon-${item.iconType}`}>
                   <img src={`${A}${item.icon}`} alt="" loading="lazy" decoding="async" />
@@ -974,7 +729,7 @@ function Sustainability() {
               <div style={{ marginTop: '16px' }}>
                 <p>{item.body}</p>
                 <Link
-                  to={item.href}
+                  to={item.linkHref}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -1035,7 +790,7 @@ function Investor() {
     <section className="section shell investor" id="investor">
       <div className="investor-copy">
         <Tag>Investor Relations</Tag>
-        <h2>Transparent. Trusted. Future-focused.</h2>
+        <h2>Transparent. Trusted. Future focused.</h2>
         <p>
           Driven by operational excellence and responsible growth, we remain focused on creating
           sustainable value for our investors.
@@ -1060,19 +815,39 @@ function Investor() {
         <div className="investor-side">
           <div className="investor-docs">
             {docs.map((doc) => (
-              <a
-                className="investor-doc"
-                href={doc.href}
-                download={doc.download}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={doc.title}
-              >
-                <span>{doc.title}</span>
-                <i className="download-badge">
-                  <img src={`${A}investor/pdf-icon.svg`} alt="" loading="lazy" decoding="async" />
-                </i>
-              </a>
+              <div className="investor-doc" key={doc.title}>
+                <a
+                  className="investor-doc-title"
+                  href={doc.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`Open ${doc.title} in a new tab`}
+                >
+                  {doc.title}
+                </a>
+                <div className="investor-doc-actions">
+                  <a
+                    className="investor-action-link"
+                    href={doc.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`View ${doc.title} in a new tab`}
+                  >
+                    View
+                  </a>
+                  <span className="investor-action-slash">/</span>
+                  <a
+                    className="investor-action-link"
+                    href={doc.href}
+                    download={doc.download}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`Download ${doc.title}`}
+                  >
+                    Download
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -1085,10 +860,10 @@ function Media() {
   const [selected, setSelected] = useState(null);
   return (
     <>
-      <section className="section shell ruled media" id="media">
+      <section className="section shell media" id="media">
         <div className="split-heading">
           <div>
-            <Tag>Newsroom</Tag>
+            <Tag>Media</Tag>
             <h2>What’s new at Granules</h2>
           </div>
           <Button href="/media">View all &rarr;</Button>
@@ -1136,8 +911,8 @@ function Careers() {
       <div>
         <h2>Shape healthcare with Granules</h2>
         <p>Every role here strengthens access to affordable treatment for millions.</p>
+        <Button href="/careers">Explore Careers &rarr;</Button>
       </div>
-      <Button href="/careers">Explore Careers &rarr;</Button>
     </section>
   );
 }
@@ -1273,37 +1048,31 @@ function SearchOverlay({ open, onClose }) {
 }
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('top');
   const [progress, setProgress] = useState(0);
-  const [navCompressed, setNavCompressed] = useState(false);
+  const [sustainabilityTab, setSustainabilityTab] = useState(0);
+
+  const activeNavSection = sustainabilityTab === 1 ? 'Community' : 'Sustainability';
+
   useEffect(() => {
     const sections = [...document.querySelectorAll('main > section:not(.hero), footer')];
     sections.forEach((section) => section.classList.add('reveal-ready'));
     const reveal = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('revealed')), { threshold: .08 });
     sections.forEach((section) => reveal.observe(section));
-    const active = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.id && setActiveSection(entry.target.id)), { rootMargin: '-35% 0px -55%', threshold: 0 });
-    [...document.querySelectorAll('[id="about"],[id="business"],[id="presence"],[id="sustainability"],[id="investor"],[id="media"],[id="careers"],[id="footer"]')].forEach((section) => active.observe(section));
+
     const onScroll = () => {
-      const current = Math.max(0, scrollY);
-      setProgress(Math.min(100, (current / (document.documentElement.scrollHeight - innerHeight)) * 100));
-      setNavCompressed(current > 72);
+      const current = Math.max(0, window.scrollY);
+      setProgress(Math.min(100, (current / (document.documentElement.scrollHeight - window.innerHeight)) * 100));
     };
-    addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => { reveal.disconnect(); active.disconnect(); removeEventListener('scroll', onScroll); };
+    return () => { reveal.disconnect(); window.removeEventListener('scroll', onScroll); };
   }, []);
+
   return (
     <>
       <div className="scroll-progress" style={{ width: `${progress}%` }} />
-      <Header
-        open={menuOpen}
-        setOpen={setMenuOpen}
-        activeSection={activeSection}
-        scrolled={navCompressed}
-        onSearch={() => { setMenuOpen(false); setSearchOpen(true); }}
-      />
+      <NavBar onSearch={() => setSearchOpen(true)} activeSectionOverride={activeNavSection} />
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
       <main>
         <Hero />
@@ -1311,7 +1080,7 @@ export default function HomePage() {
         <Business />
         <Presence />
         <Credentials />
-        <Sustainability />
+        <Sustainability open={sustainabilityTab} setOpen={setSustainabilityTab} />
         <Investor />
         <Media />
         <Careers />

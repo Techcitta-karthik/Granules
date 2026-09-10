@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './business.css';
@@ -58,10 +59,10 @@ export default function FdPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+      <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/business/api">BUSINESS</a>
+        <Link to="/business/generics">BUSINESS</Link>
         <span className="sep">›</span>
         <span className="current">FINISHED DOSAGE FORMULATIONS</span>
       </p>
@@ -71,12 +72,12 @@ export default function FdPage() {
         <div className="api-hero-scrim" />
         <div className="api-hero-overlay">
           <h2 className="api-hero-heading">Bringing Affordable Medicines to Patients Worldwide</h2>
-          <a className="cp-cta-btn" href="/contact">Explore Partnership Opportunities</a>
+          <Link className="cp-cta-btn" to="/contact">Explore Partnership Opportunities</Link>
         </div>
       </div>
 
       <div className="biz-intro">
-        <p>
+        <h4>
           At Granules, we are committed to improving access to high-quality medicines for patients
           around the world. Through our own commercial presence and strategic partnerships with
           pharmaceutical companies, we develop, manufacture, and supply a broad range of oral dosage
@@ -86,7 +87,7 @@ export default function FdPage() {
           that improve patient outcomes at scale. Our flexible business model allows us to support
           partners across the product lifecycle while ensuring reliable access to medicines in
           diverse markets worldwide.
-        </p>
+        </h4>
       </div>
 
       <div className="biz-panel">
@@ -151,7 +152,7 @@ export default function FdPage() {
         <div className="biz-cta-copy">
           <h2>Driving Innovation in Sustainable and Complex Formulations</h2>
         </div>
-        <a className="cp-cta-btn" href="/business/rd">Explore Our R&amp;D Capabilities &rarr;</a>
+        <Link className="cp-cta-btn" to="/business/rd">Explore Our R&amp;D Capabilities &rarr;</Link>
       </div>
 
       <CompanyFooter />

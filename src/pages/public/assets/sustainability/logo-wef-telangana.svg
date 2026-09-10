@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="100%" height="100%">
+  <rect width="280" height="80" rx="4" fill="#0066cc" />
+  <!-- Left: World Economic Forum -->
+  <text x="18" y="32" font-family="'Manrope', sans-serif" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.5">WORLD</text>
+  <text x="18" y="48" font-family="'Manrope', sans-serif" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.5">ECONOMIC</text>
+  <text x="18" y="64" font-family="'Manrope', sans-serif" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.5">FORUM</text>
+  <!-- Vertical Divider Line -->
+  <line x1="102" y1="14" x2="102" y2="68" stroke="#ffffff" stroke-width="1.5" />
+  <!-- Right: Telangana C4IR -->
+  <text x="112" y="32" font-family="'Manrope', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Telangana</text>
+  <text x="112" y="47" font-family="'Manrope', sans-serif" font-size="9.5" font-weight="500" fill="#ffffff">Centre for the</text>
+  <text x="112" y="59" font-family="'Manrope', sans-serif" font-size="9.5" font-weight="500" fill="#ffffff">Fourth Industrial</text>
+  <text x="112" y="70" font-family="'Manrope', sans-serif" font-size="9.5" font-weight="500" fill="#ffffff">Revolution</text>
+</svg>

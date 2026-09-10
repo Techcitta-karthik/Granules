@@ -1,9 +1,21 @@
 import { asset } from './constants';
 import type { ValueItem } from './types';
 
-export default function ValueCard({ icon, title, body }: ValueItem) {
+export default function ValueCard({ icon, title, body, image }: ValueItem) {
   return (
-    <article className="cp-value-card" tabIndex={0}>
+    <article className={`cp-value-card${image ? ' cp-value-card--has-image' : ''}`} tabIndex={0}>
+      {image && (
+        <>
+          <img
+            className="cp-value-card-bg"
+            src={asset(image)}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="cp-value-card-overlay" />
+        </>
+      )}
       <div className="cp-value-header">
         <span className="cp-value-icon">
           <img src={asset(icon)} alt="" loading="lazy" decoding="async" />

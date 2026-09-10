@@ -118,28 +118,32 @@ export default function InvestorOverviewPage() {
               <td className="inv-table-period-cell">{row.period}</td>
               <td className="inv-table-action-cell">
                 {row.href ? (
-                  <Link className="inv-table-btn" to={row.href}>
-                    <span>View</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <line x1="7" y1="17" x2="17" y2="7" />
-                      <polyline points="7 7 17 7 17 17" />
-                    </svg>
+                  <Link className="inv-action-link" to={row.href} title={`View ${row.title}`}>
+                    VIEW
                   </Link>
                 ) : row.pdf ? (
-                  <a
-                    className="inv-table-btn"
-                    href={row.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download={row.download || `${row.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
-                  >
-                    <span>Download</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
-                  </a>
+                  <div className="inv-table-actions">
+                    <a
+                      className="inv-action-link"
+                      href={row.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`View ${row.title} in a new tab`}
+                    >
+                      VIEW
+                    </a>
+                    <span className="inv-action-slash">/</span>
+                    <a
+                      className="inv-action-link"
+                      href={row.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download={row.download || `${row.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
+                      title={`Download ${row.title}`}
+                    >
+                      DOWNLOAD
+                    </a>
+                  </div>
                 ) : (
                   <span className="inv-table-btn inv-table-btn--disabled">Available Soon</span>
                 )}
@@ -198,14 +202,14 @@ export default function InvestorOverviewPage() {
         />
         <div className="inv-hero-overlay">
           <div className="inv-hero-content">
-            <h2 className="inv-hero-title">Annual Report FY25-26</h2>
+            <h2 className="inv-hero-title">Integrated Annual Report- FY 25-26</h2>
             <a
               href="https://granules-26.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="inv-hero-cta"
             >
-              READ ARTICLE
+              READ MORE
             </a>
           </div>
         </div>

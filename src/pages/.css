@@ -1,0 +1,912 @@
+/* Shared primitives across Sustainability Overview / Strategy / ESG pages */
+/* Strict 85% sides edge spacing for all sustainability pages */
+
+.cp-page-title,
+.cp-hero-banner,
+.cp-video-banner,
+.biz-panel {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.sus-intro {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sus-intro p,
+.sus-intro span {
+  margin: 0;
+  font: 500 clamp(18px, 2vw, 30px)/1.2 'Manrope', sans-serif;
+  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.sus-intro p {
+  color: var(--n9);
+}
+
+.sus-intro .muted,
+.sus-intro p.muted {
+  color: var(--n5);
+}
+
+.sus-intro.is-scrolled p {
+  color: var(--n5);
+}
+
+.sus-intro.is-scrolled .muted,
+.sus-intro.is-scrolled p.muted {
+  color: var(--n9);
+}
+
+.sus-section-head {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 90px) auto 0 !important;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.sus-section-head .copy {
+  max-width: 904px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sus-section-head h2 {
+  margin: 0;
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--n9);
+}
+
+.sus-section-head p {
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif;
+  color: var(--n7);
+  letter-spacing: 0.22px;
+}
+
+/* Interactive ESG Pillar Cards (Smooth Sliding Flow matching Product Cards) */
+.sus-pillar-grid {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.sus-pillar-card {
+  position: relative;
+  overflow: hidden;
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
+  border-radius: 40px !important;
+  color: white;
+  background: #edf3f5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.sus-pillar-card:hover,
+.sus-pillar-card:focus-visible,
+.sus-pillar-card.is-open {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 40, 100, 0.18);
+}
+
+.sus-pillar-img-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sus-pillar-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+
+.sus-pillar-card:hover .sus-pillar-bg,
+.sus-pillar-card.is-open .sus-pillar-bg {
+  transform: scale(1.08);
+}
+
+/* Sliding Color Drawer Sheet (Identical to homepage product cards) */
+.sus-pillar-sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px 36px 40px 40px;
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 2;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.14);
+  /* The smooth bottom drawer sliding up */
+  transform: translateY(calc(100% - 100px));
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.4s ease;
+  will-change: transform;
+}
+
+.sus-pillar-card:hover .sus-pillar-sheet,
+.sus-pillar-card.is-open .sus-pillar-sheet {
+  transform: translateY(0);
+  border-radius: 40px;
+}
+
+.sus-pillar-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+}
+
+.sus-pillar-sheet-title {
+  font: 700 clamp(20px, 1.6vw, 26px)/1.15 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+
+.sus-pillar-symbol {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sus-pillar-card:hover .sus-pillar-symbol,
+.sus-pillar-card.is-open .sus-pillar-symbol {
+  transform: rotate(90deg) scale(1.06);
+}
+
+.sus-pillar-sheet-body {
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.08s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.sus-pillar-card:hover .sus-pillar-sheet-body,
+.sus-pillar-card.is-open .sus-pillar-sheet-body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sus-pillar-sheet-desc {
+  margin: 0;
+  font: 500 clamp(16px, 1.2vw, 20px)/1.45 'Manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.2px;
+}
+
+.sus-pillar-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font: 700 13px/1 'Manrope', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.25s ease;
+}
+
+.sus-pillar-learn:hover {
+  background: #ffffff;
+  color: #070707;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 1080px) {
+  .sus-pillar-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .sus-pillar-bg {
+    height: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+  .sus-pillar-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Generic stat display: big number + uppercase label */
+.sus-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sus-stat-value {
+  margin: 0;
+  font: 800 clamp(52px, 6.2vw, 92px)/1.02 'Manrope', sans-serif !important;
+}
+
+.sus-stat-label {
+  margin: 0;
+  font: 700 18px/24px 'Manrope', sans-serif;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+/* Pillar deep-dive event card (Strategy + ESG) */
+.sus-event {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(40px, 5vw, 60px) auto 0 !important;
+  border-radius: 40px;
+  padding: clamp(30px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sus-event-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sus-event-badge {
+  align-self: flex-start;
+  border-radius: 24px;
+  padding: 10px 26px;
+  font: 600 15px/24px 'Manrope', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: #fff;
+  border: 1px solid currentColor;
+}
+
+.sus-event-title {
+  margin: 0;
+  font: 600 clamp(24px, 3vw, 38px)/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.sus-event-desc {
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif;
+  color: var(--n9);
+  letter-spacing: 0.22px;
+}
+
+.sus-event-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 40px;
+  margin-top: 8px;
+}
+
+.sus-event-image {
+  border-radius: 40px;
+  overflow: hidden;
+  aspect-ratio: 720 / 560;
+  position: relative;
+}
+
+.sus-event-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sus-event-image .arrow-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sus-pillar-tabs {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto clamp(20px, 2.5vw, 32px) !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #edf5ff;
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 97, 248, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.05);
+  box-sizing: border-box;
+  gap: 6px;
+}
+
+.sus-pillar-tab {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 13px 20px;
+  text-align: center;
+  font: 700 clamp(13px, 1.1vw, 15px)/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #0061f8;
+  cursor: pointer;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  user-select: none;
+  opacity: 0.75;
+}
+
+.sus-pillar-tab:hover {
+  opacity: 1;
+  background: rgba(0, 97, 248, 0.08);
+  color: #0061f8;
+}
+
+.sus-pillar-tab.active {
+  background: #0061f8 !important;
+  color: #ffffff !important;
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.35);
+}
+
+.sus-cta {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
+  border-radius: 40px;
+  padding: clamp(30px, 4vw, 60px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 240px;
+}
+
+.sus-cta img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.sus-cta .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(89deg, rgba(190, 237, 250, 0.9) 35%, rgba(0, 186, 234, 0) 69%);
+}
+
+.sus-cta-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 843px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sus-cta-copy h2 {
+  margin: 0;
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
+  color: var(--blue-2);
+}
+
+.sus-cta-copy p {
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif;
+  color: var(--n9);
+  letter-spacing: 0.22px;
+}
+
+.sus-cta .cp-cta-btn {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .sus-event {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ESG World Logo Badge */
+.sus-esg-world-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  text-decoration: none;
+}
+
+.sus-esg-world-badge:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.sus-esg-world-img {
+  height: clamp(34px, 3.5vw, 44px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   IMAGE 1: SUSTAINABILITY GOALS AND TARGETS
+   ========================================================================== */
+.sus-goals-sec-img1 {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.sus-goals-title-img1 {
+  font-family: 'Rajdhani', 'Manrope', sans-serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: #16148F;
+  text-align: center;
+  margin: 0 0 clamp(24px, 3vw, 36px);
+  letter-spacing: -0.5px;
+}
+
+.sus-goals-row-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.sus-goals-row-bottom {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.sus-goal-card-img1 {
+  background-image: linear-gradient(180deg, #01CD9E 0%, #16148F 76%);
+  border-radius: 15px;
+  padding: clamp(24px, 2.5vw, 30px) 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(22, 20, 143, 0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 220px;
+  box-sizing: border-box;
+}
+
+.sus-goal-card-img1:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(22, 20, 143, 0.24);
+}
+
+.sus-goal-card-img1-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.sus-goal-card-img1-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #ffffff;
+}
+
+.sus-goal-card-img1-title {
+  font-family: 'Rajdhani', 'Manrope', sans-serif;
+  font-size: clamp(20px, 1.6vw, 24px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+
+.sus-goal-card-img1-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(12.5px, 0.95vw, 13.5px);
+  font-weight: 500;
+  line-height: 1.45;
+  color: #ffffff;
+  margin: 0;
+  white-space: pre-line;
+  opacity: 0.95;
+}
+
+@media (max-width: 1100px) {
+  .sus-goals-row-bottom {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sus-goals-row-top {
+    grid-template-columns: 1fr;
+  }
+
+  .sus-goals-row-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   IMAGE 2: KEY PERFORMANCE INDICATORS - PROGRESSING WITH PURPOSE
+   ========================================================================== */
+.sus-kpi-sec-img2 {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sus-kpi-eyebrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 6px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.sus-kpi-eyebrow-line {
+  flex: 1;
+  height: 1.5px;
+  background: #94a3b8;
+}
+
+.sus-kpi-eyebrow-star {
+  color: #334155;
+  font-size: 15px;
+}
+
+.sus-kpi-eyebrow-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  margin: 0 0 4px;
+}
+
+.sus-kpi-title-img2 {
+  font-family: 'Rajdhani', 'Manrope', sans-serif;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 800;
+  color: #16148F;
+  margin: 0 0 clamp(28px, 3.5vw, 44px);
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.sus-kpi-rows-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sus-kpi-row-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.sus-kpi-card-img2 {
+  background: #ffffff;
+  border: 1.5px solid #8d97cb;
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  min-height: 110px;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.sus-kpi-card-img2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(22, 20, 143, 0.1);
+  border-color: #16148F;
+}
+
+.sus-kpi-card-img2-icon {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.sus-kpi-card-img2-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sus-kpi-card-img2-val {
+  font-family: 'Rajdhani', 'Manrope', sans-serif;
+  font-size: clamp(28px, 2.4vw, 36px);
+  font-weight: 800;
+  color: #00A896;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.sus-kpi-card-img2-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(12.5px, 0.95vw, 14px);
+  line-height: 1.35;
+  color: #2d3748;
+  font-weight: 500;
+  margin: 0;
+}
+
+.sus-kpi-row-divider {
+  width: 100%;
+  height: 1.5px;
+  background: #d5dbed;
+  margin: 6px 0;
+}
+
+@media (max-width: 980px) {
+  .sus-kpi-row-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sus-kpi-row-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   IMAGES 3 & 4: HATCHED HEADINGS AND 3 5-SECOND AUTO-SCROLLING CAROUSELS
+   ========================================================================== */
+.sus-hatched-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  margin: clamp(48px, 6vw, 70px) auto clamp(24px, 3vw, 32px);
+  box-sizing: border-box;
+}
+
+.sus-hatched-line {
+  flex: 1;
+  height: 15px;
+  background-image: repeating-linear-gradient(-45deg,
+      #16148F,
+      #16148F 1.5px,
+      transparent 1.5px,
+      transparent 7px);
+  opacity: 0.65;
+}
+
+.sus-hatched-title {
+  margin: 0;
+  font-family: 'Rajdhani', 'Manrope', sans-serif;
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 800;
+  color: #16148F;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+}
+
+.sus-carousel-section {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto clamp(20px, 3vw, 40px) !important;
+}
+
+.sus-carousel-outer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sus-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 2px;
+}
+
+.sus-carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.sus-carousel-slide {
+  flex-shrink: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.sus-carousel-card {
+  background: #ffffff;
+  border: 1.5px solid #8d97cb;
+  border-radius: 14px;
+  height: 180px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sus-carousel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(22, 20, 143, 0.12);
+  border-color: #16148F;
+}
+
+.sus-carousel-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.03));
+}
+
+.sus-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #8d97cb;
+  color: #16148F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sus-carousel-arrow:hover {
+  background: #16148F;
+  color: #ffffff;
+  border-color: #16148F;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.sus-carousel-arrow--prev {
+  left: -20px;
+}
+
+.sus-carousel-arrow--next {
+  right: -20px;
+}
+
+@media (max-width: 768px) {
+  .sus-carousel-arrow--prev {
+    left: -10px;
+  }
+
+  .sus-carousel-arrow--next {
+    right: -10px;
+  }
+}
+
+.sus-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.sus-carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16148F;
+  opacity: 0.35;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sus-carousel-dot.active {
+  background: #01CD9E;
+  opacity: 1;
+  transform: scale(1.35);
+}

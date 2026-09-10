@@ -31,20 +31,28 @@ export default function LeadershipPage() {
     }
   }, [selectedMember]);
 
-  // Handle hash on initial load
+  // Handle hash on initial load & on hashchange
   useEffect(() => {
-    const hash = window.location.hash.replace(/^#/, '');
-    if (hash) {
-      const allMembers = [...BOARD_OF_DIRECTORS, ...MANAGEMENT_TEAM];
-      const match = allMembers.find((m) => m.id === hash);
-      if (match) {
-        const isManagement = MANAGEMENT_TEAM.some((m) => m.id === hash);
-        if (isManagement && !BOARD_OF_DIRECTORS.some((m) => m.id === hash)) {
-          setActiveTab('management');
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace(/^#/, '');
+      if (hash) {
+        const allMembers = [...BOARD_OF_DIRECTORS, ...MANAGEMENT_TEAM];
+        const match = allMembers.find((m) => m.id === hash);
+        if (match) {
+          const isManagement = MANAGEMENT_TEAM.some((m) => m.id === hash);
+          if (isManagement && !BOARD_OF_DIRECTORS.some((m) => m.id === hash)) {
+            setActiveTab('management');
+          }
+          setSelectedMember(match);
         }
-        setSelectedMember(match);
+      } else {
+        setSelectedMember(null);
       }
-    }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const handleSelectMember = (member: LeadershipMember) => {
@@ -56,12 +64,25 @@ export default function LeadershipPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, name: string) => {
+    const initials = name
+      .replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.)\s*/i, '')
+      .split(' ')
+      .map((n) => n[0])
+      .filter(Boolean)
+      .slice(0, 2)
+      .join('');
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+      <rect width="100%" height="100%" fill="#f1f5f9"/>
+      <circle cx="200" cy="190" r="75" fill="#dbeafe"/>
+      <path d="M100 390 C100 290, 300 290, 300 390 Z" fill="#dbeafe"/>
+      <text x="200" y="205" font-family="sans-serif" font-size="48" font-weight="bold" fill="#0061f8" text-anchor="middle" dominant-baseline="middle">${initials}</text>
+    </svg>`;
+    e.currentTarget.src = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+  };
+
   // ---- PROFILE VIEW ----
   if (selectedMember) {
-    const currentIndex = activeMembers.findIndex((m) => m.id === selectedMember.id);
-    const hasPrev = currentIndex > 0;
-    const hasNext = currentIndex >= 0 && currentIndex < activeMembers.length - 1;
-
     const pronoun =
       selectedMember.name.startsWith('Mrs.') || selectedMember.name.startsWith('Ms.')
         ? 'Her'
@@ -80,81 +101,67 @@ export default function LeadershipPage() {
             <span className="sep">›</span>
             <button type="button" className="ld-breadcrumb-btn" onClick={handleBack}>LEADERSHIP</button>
             <span className="sep">›</span>
-            <span className="current" style={{ color: '#0061f8', fontWeight: 700 }}>
+            <span className="current">
               {selectedMember.name.toUpperCase()}
             </span>
           </p>
 
-          {/* Photo */}
-          <div className="ld-profile-hero">
-            <div className="ld-profile-photo-card">
-              <img
-                src={`${L}${selectedMember.image}`}
-                alt={selectedMember.name}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-
-          {/* Name + Role + Bio */}
-          <div className="ld-profile-details">
-            <h1 className="ld-profile-name">{selectedMember.name}</h1>
-            <p className="ld-profile-role">{selectedMember.role}</p>
-            <div className="ld-profile-divider" />
-
-            <div className="ld-profile-body">
-              {selectedMember.profile && selectedMember.profile.length > 0 ? (
-                selectedMember.profile.map((paragraph, idx) => (
-                  <p className="ld-profile-paragraph" key={idx}>{paragraph}</p>
-                ))
-              ) : (
-                <p className="ld-profile-paragraph">
-                  {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
-                </p>
-              )}
-
-              {selectedMember.directorships && selectedMember.directorships.length > 0 && (
-                <div className="ld-profile-directorships">
-                  <p className="ld-profile-directorships-title">
-                    {pronoun} directorships and other full-time positions in bodies corporate are as follows:
-                  </p>
-                  <ul className="ld-profile-directorships-list">
-                    {selectedMember.directorships.map((dir, idx) => (
-                      <li key={idx}>
-                        <span className="ld-profile-bullet">◆</span>
-                        <span>{dir}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Navigation between members */}
-              <div className="ld-profile-nav-row">
-                {hasPrev && (
-                  <button
-                    type="button"
-                    className="ld-profile-nav-btn"
-                    onClick={() => setSelectedMember(activeMembers[currentIndex - 1])}
-                  >
-                    ‹ Previous
-                  </button>
-                )}
-                {hasNext && (
-                  <button
-                    type="button"
-                    className="ld-profile-nav-btn"
-                    onClick={() => setSelectedMember(activeMembers[currentIndex + 1])}
-                  >
-                    Next ›
-                  </button>
-                )}
+          {/* Photo Banner with Image on Left & Text Content on Banner */}
+          <div className="ld-profile-banner">
+            <div className="ld-profile-banner-left">
+              <div className={`ld-profile-img-frame ld-profile-img--${selectedMember.id}`}>
+                <img
+                  src={`${L}${encodeURIComponent(selectedMember.image).replace(/%2F/g, '/')}`}
+                  alt={selectedMember.name}
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => handleImageError(e, selectedMember.name)}
+                />
               </div>
+            </div>
 
-              <button type="button" className="ld-back-btn" onClick={handleBack}>
-                Back
-              </button>
+            <div className="ld-profile-banner-right">
+              <h1 className="ld-profile-name">{selectedMember.name}</h1>
+              <p className="ld-profile-role">{selectedMember.role.toUpperCase()}</p>
+              <div className="ld-profile-divider" />
+
+              <div className="ld-profile-body">
+                {selectedMember.profile && selectedMember.profile.length > 0 ? (
+                  selectedMember.profile.map((paragraph, idx) => (
+                    <p className="ld-profile-paragraph" key={idx}>{paragraph}</p>
+                  ))
+                ) : (
+                  <p className="ld-profile-paragraph">
+                    {selectedMember.name} serves as {selectedMember.role} at Granules India Limited.
+                  </p>
+                )}
+
+                {selectedMember.directorships && selectedMember.directorships.length > 0 && (
+                  <div className="ld-profile-directorships">
+                    <p className="ld-profile-directorships-title">
+                      {pronoun} directorships and other full-time positions in bodies corporate are as follows :
+                    </p>
+                    <ul className="ld-profile-directorships-list">
+                      {selectedMember.directorships.map((dir, idx) => (
+                        <li key={idx}>
+                          <span className="ld-profile-bullet-icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect width="18" height="18" rx="4" fill="#0061F8" />
+                              <circle cx="9" cy="9" r="3.5" stroke="white" strokeWidth="1.5" />
+                              <circle cx="9" cy="9" r="1.5" fill="white" />
+                            </svg>
+                          </span>
+                          <span className="ld-profile-directorship-text">{dir}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <button type="button" className="ld-back-btn" onClick={handleBack}>
+                  BACK
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -165,10 +172,10 @@ export default function LeadershipPage() {
           <img className="cp-bg" src={`${L}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
           <div className="cp-bg-overlay" />
           <div className="ld-cta-copy">
+            <Link className="cp-cta-btn" to="/careers">CAREERS &rarr;</Link>
             <h2>Find your next role at Granules</h2>
             <p>Join us in shaping the future of sustainable healthcare.</p>
           </div>
-          <a className="ld-cta-btn" href="/careers">CAREERS</a>
         </div>
 
         <CompanyFooter />
@@ -191,16 +198,17 @@ export default function LeadershipPage() {
         </p>
 
         <div className="ld-hero">
-          <h1 className="ld-main-title">
-            <span>Making Granules</span>
-            <span>Future-Ready</span>
-          </h1>
-          <p className="ld-main-desc">
-            Granules India is led by a team of seasoned professionals of the pharmaceutical industry. Each leader
-            brings in-depth expertise and a modern outlook to tackle the challenges of today's dynamic business.
-            Collectively, the Granules leadership chalks out strategies that help in building organisational
-            capability while delivering sustainable growth.
-          </p>
+          <h1 className="ld-main-title">Making Granules Future-Ready</h1>
+          <div className="ld-main-desc cp-about-desc">
+            <p>
+              Granules India is led by a team of seasoned professionals of the pharmaceutical industry. Each leader
+              brings in-depth expertise and a modern outlook to tackle the challenges of today's dynamic business.
+            </p>
+            <p>
+              Collectively, the Granules leadership chalks out strategies that help in building organisational
+              capability while delivering sustainable growth.
+            </p>
+          </div>
         </div>
 
         <div className="ld-tabs-container">
@@ -244,12 +252,13 @@ export default function LeadershipPage() {
               }}
               aria-label={`View profile for ${member.name}`}
             >
-              <div className="ld-photo">
+              <div className={`ld-photo ld-photo--${member.id}`}>
                 <img
-                  src={`${L}${member.image}`}
+                  src={`${L}${encodeURIComponent(member.image).replace(/%2F/g, '/')}`}
                   alt={member.name}
                   loading="lazy"
                   decoding="async"
+                  onError={(e) => handleImageError(e, member.name)}
                 />
                 <div className="ld-photo-badge">
                   <span>View Profile</span>
@@ -273,10 +282,10 @@ export default function LeadershipPage() {
         <img className="cp-bg" src={`${L}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="cp-bg-overlay" />
         <div className="ld-cta-copy">
+          <Link className="cp-cta-btn" to="/careers">CAREERS &rarr;</Link>
           <h2>Find your next role at Granules</h2>
           <p>Join us in shaping the future of sustainable healthcare.</p>
         </div>
-        <a className="ld-cta-btn" href="/careers">CAREERS</a>
       </div>
 
       <CompanyFooter />

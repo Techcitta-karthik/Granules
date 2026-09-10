@@ -5,7 +5,6 @@ const ABOUT_LINKS = [
   { label: 'Our Journey', href: '/company/milestone' },
   { label: 'Leadership', href: '/company/leadership' },
   { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
-  { label: 'Granules Pharmaceuticals Inc', href: 'https://www.granulespharma.com/' },
 ];
 
 const SOLUTIONS_LINKS = [
@@ -85,7 +84,8 @@ export default function CompanyFooter() {
               </div>
             </div>
 
-            <div className="cp-footer-col cp-footer-impact">
+            <div className="cp-footer-col">
+              <h5>Quick Links</h5>
               <div className="cp-footer-link-group">
                 {IMPACT_LINKS.map((link) => (
                   <Link to={link.href} key={link.label}>

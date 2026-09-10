@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" width="100%" height="100%">
+  <!-- Sedex -->
+  <text x="15" y="46" font-family="'Manrope', sans-serif" font-size="28" font-weight="900" fill="#dc2626" letter-spacing="-0.5">Sedex</text>
+  <circle cx="106" cy="42" r="3.5" fill="#dc2626" />
+  
+  <!-- Divider -->
+  <line x1="124" y1="18" x2="124" y2="52" stroke="#cbd5e1" stroke-width="1.5" />
+  
+  <!-- SMETA -->
+  <text x="136" y="46" font-family="'Manrope', sans-serif" font-size="26" font-weight="900" fill="#1e293b" letter-spacing="1">SMETA</text>
+  <!-- Colorful dot cluster -->
+  <circle cx="236" cy="32" r="5" fill="#e11d48" />
+  <circle cx="246" cy="40" r="4" fill="#94a3b8" />
+  <circle cx="238" cy="46" r="3" fill="#cbd5e1" />
+</svg>

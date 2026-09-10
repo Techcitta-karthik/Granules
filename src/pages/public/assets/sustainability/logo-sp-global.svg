@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" width="100%" height="100%">
+  <rect width="220" height="180" rx="8" fill="#d0dde5" />
+  <text x="20" y="32" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#334155">Granules India Limited</text>
+  <text x="20" y="44" font-family="'Manrope', sans-serif" font-size="8" font-weight="500" fill="#64748b">Pharmaceuticals</text>
+  <text x="20" y="68" font-family="'Manrope', sans-serif" font-size="11" font-weight="800" fill="#1e293b">S&amp;P Global CSA Score 2024</text>
+  <text x="20" y="78" font-family="'Manrope', sans-serif" font-size="7" font-weight="500" fill="#64748b">A key component of the S&amp;P Global ESG Score</text>
+  <!-- Big Score -->
+  <text x="20" y="145" font-family="'Manrope', sans-serif" font-size="54" font-weight="800" fill="#0f172a" letter-spacing="-1">59</text>
+  <text x="96" y="130" font-family="'Manrope', sans-serif" font-size="20" font-weight="700" fill="#475569">/100</text>
+</svg>

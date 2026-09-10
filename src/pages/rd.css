@@ -19,6 +19,7 @@
   background: linear-gradient(180deg, rgba(4, 12, 32, 0.55) 0%, rgba(4, 12, 32, 0.08) 45%, rgba(4, 12, 32, 0.04) 100%);
   z-index: 1;
 }
+
 .rd-hero-overlay {
   position: absolute;
   top: clamp(28px, 4.5vw, 56px);
@@ -26,6 +27,7 @@
   max-width: min(620px, 82%);
   z-index: 2;
 }
+
 .rd-hero-heading {
   margin: 0;
   font: 700 clamp(24px, 3.6vw, 46px)/1.18 'Manrope', sans-serif;
@@ -37,31 +39,28 @@
 .rd-intro {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+  margin: 75px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.rd-intro p,
-.rd-intro span {
-  margin: 0;
-  font: 500 clamp(18px, 2vw, 30px)/1.2 'Manrope', sans-serif;
-  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
-}
-.rd-intro p:first-child {
-  color: var(--n9);
-}
-.rd-intro p:last-child,
-.rd-intro .muted {
-  color: var(--n5);
-}
 
-.rd-intro.is-scrolled p:first-child {
-  color: var(--n5);
-}
-.rd-intro.is-scrolled p:last-child,
-.rd-intro.is-scrolled .muted {
-  color: var(--n9);
+.rd-intro h4,
+.rd-intro p,
+.rd-intro span,
+.rd-intro .muted,
+.rd-intro .part-1,
+.rd-intro .part-2,
+.rd-intro.is-scrolled h4,
+.rd-intro.is-scrolled p,
+.rd-intro.is-scrolled span,
+.rd-intro.is-scrolled .muted,
+.rd-intro.is-scrolled .part-1,
+.rd-intro.is-scrolled .part-2 {
+  margin: 0;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: var(--n9, #0f172a) !important;
+  letter-spacing: -0.2px !important;
 }
 
 /* Shared small info-card used by Strategic Priorities and
@@ -84,6 +83,27 @@
   transform: translateY(-4px);
   border-color: rgba(0, 97, 248, 0.35);
   box-shadow: 0 14px 32px rgba(0, 97, 248, 0.1);
+}
+
+.rd-info-card-media {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  margin-bottom: 4px;
+}
+
+.rd-info-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.rd-info-card:hover .rd-info-card-media img {
+  transform: scale(1.04);
 }
 
 .rd-info-index {
@@ -111,17 +131,20 @@
 .rd-priorities {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  margin: 75px auto 0 !important;
 }
+
 .rd-priorities-head {
   margin-bottom: clamp(28px, 3.5vw, 40px);
 }
+
 .rd-priorities-head h2 {
   margin: 0;
   font: 700 clamp(28px, 4vw, 48px)/1.15 'Manrope', sans-serif;
   color: var(--n9, #0f172a);
   letter-spacing: -0.02em;
 }
+
 .rd-priorities-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -132,7 +155,7 @@
 .rd-centers {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(60px, 8vw, 100px) auto 0 !important;
+  margin: 75px auto 0 !important;
   min-height: 660px;
   border-radius: 40px;
   position: relative;
@@ -168,10 +191,10 @@
   height: 100%;
   z-index: 0;
   background-color: #989898;
-  background-image: 
-    linear-gradient(45deg, #848484 25%, transparent 25%), 
-    linear-gradient(-45deg, #848484 25%, transparent 25%), 
-    linear-gradient(45deg, transparent 75%, #848484 75%), 
+  background-image:
+    linear-gradient(45deg, #848484 25%, transparent 25%),
+    linear-gradient(-45deg, #848484 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #848484 75%),
     linear-gradient(-45deg, transparent 75%, #848484 75%);
   background-size: 80px 80px;
   background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
@@ -212,16 +235,7 @@
   text-transform: uppercase;
 }
 
-.rd-clarity-badge {
-  background: #ffffff;
-  color: #1a1a1a;
-  padding: 8px 18px;
-  border-radius: 6px;
-  font: 600 14px/1.3 'Manrope', sans-serif;
-  letter-spacing: -0.1px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  white-space: nowrap;
-}
+
 
 .rd-centers-content h2 {
   margin: 18px 0 0;
@@ -395,6 +409,7 @@
 .rd-centers-nav--prev {
   left: clamp(16px, 3vw, 40px);
 }
+
 .rd-centers-nav--next {
   right: clamp(16px, 3vw, 40px);
 }
@@ -413,6 +428,7 @@
   border-radius: 20px;
   padding: clamp(16px, 2vw, 22px) clamp(24px, 3vw, 32px);
 }
+
 .rd-iit-badge {
   flex-shrink: 0;
   display: inline-flex;
@@ -426,12 +442,14 @@
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
+
 .rd-iit-note p {
   margin: 0;
   font: 600 clamp(15px, 1.3vw, 18px)/1.45 'Manrope', sans-serif;
   color: #0f2a4a;
   letter-spacing: 0.1px;
 }
+
 .rd-iit-note p strong {
   color: #0061f8;
 }
@@ -440,8 +458,9 @@
 .rd-tech {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(70px, 9vw, 110px) auto 0 !important;
+  margin: 75px auto 0 !important;
 }
+
 .rd-tech-head {
   display: flex;
   flex-direction: column;
@@ -449,18 +468,22 @@
   gap: 16px;
   max-width: 900px;
 }
+
 .rd-tech-head h2 {
   margin: 0;
   font: 700 clamp(28px, 4vw, 48px)/1.15 'Manrope', sans-serif;
   color: var(--n9, #0f172a);
   letter-spacing: -0.02em;
 }
+
+.rd-tech-head h4,
 .rd-tech-head p {
   margin: 0;
-  font: 500 clamp(15px, 1.2vw, 18px)/1.5 'Manrope', sans-serif;
-  color: #475569;
-  letter-spacing: 0.05px;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: #475569 !important;
+  letter-spacing: -0.2px !important;
 }
+
 .rd-tech-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -475,11 +498,11 @@
 .rd-green-wrapper {
   position: relative;
   width: 100%;
-  margin-top: clamp(80px, 10vw, 130px);
-  padding: clamp(60px, 8vw, 110px) 0 clamp(100px, 12vw, 160px);
+  margin-top: 75px;
+  padding: 0 0 clamp(40px, 5vw, 64px);
   background: radial-gradient(ellipse 75% 55% at 72% 32%, rgba(188, 246, 214, 0.65) 0%, rgba(220, 252, 236, 0.35) 42%, rgba(255, 255, 255, 0) 75%),
-              radial-gradient(ellipse 65% 50% at 22% 68%, rgba(208, 248, 227, 0.4) 0%, rgba(255, 255, 255, 0) 70%),
-              #ffffff;
+    radial-gradient(ellipse 65% 50% at 22% 68%, rgba(208, 248, 227, 0.4) 0%, rgba(255, 255, 255, 0) 70%),
+    #ffffff;
   overflow: hidden;
 }
 
@@ -491,20 +514,24 @@
   position: relative;
   z-index: 1;
 }
+
 .rd-green-section h2 {
   margin: 0;
   font: 700 clamp(36px, 5.5vw, 76px)/1.15 'Manrope', sans-serif;
   color: var(--secondary-green, #197b0c);
   letter-spacing: -1px;
 }
+
+.rd-green-section h4,
 .rd-green-section p {
-  margin: clamp(24px, 3vw, 40px) auto 0;
+  margin: clamp(20px, 2.5vw, 32px) auto 0;
   max-width: 1080px;
-  font: 500 clamp(18px, 2.2vw, 28px)/1.35 'Manrope', sans-serif;
-  color: #393939;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: #393939 !important;
+  letter-spacing: -0.2px !important;
 }
 
-/* Two independent columns for masonry cascade — ensures generous breathing room */
+/* Two independent columns for masonry cascade */
 .rd-green-columns {
   width: 85% !important;
   max-width: 85% !important;
@@ -521,12 +548,12 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(200px, 22vw, 300px); /* Generous space below 1st image & below 2nd image */
+  gap: clamp(180px, 20vw, 260px);
 }
 
-/* Stagger right column downward */
+/* Stagger right column downward to create diagonal staircase */
 .rd-green-col--staggered {
-  margin-top: clamp(220px, 22vw, 290px);
+  margin-top: clamp(190px, 20vw, 270px);
 }
 
 /* Clean stacked card with rounded top image and flush white bottom content container */
@@ -602,53 +629,40 @@
   letter-spacing: 0;
 }
 
-/* Eco-Scale Framework note with scroll reveal */
+/* Eco-Scale Framework note - uniform green */
 .rd-eco-note {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(70px, 9vw, 110px) auto 0 !important;
-  text-align: center;
-  font: 600 clamp(22px, 3vw, 40px)/1.3 'Manrope', sans-serif;
-  letter-spacing: -0.5px;
-}
-.rd-eco-note .part-1 {
-  color: #197b0c;
-  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
-}
-.rd-eco-note .part-2,
-.rd-eco-note .muted {
-  color: rgba(25, 123, 12, 0.35);
-  font-weight: 500;
-  transition: color 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+  width: min(85%, 1120px) !important;
+  max-width: 1120px !important;
+  margin: 75px auto 0 !important;
+  text-align: center !important;
+  font: 600 clamp(24px, 2.4vw, 38px)/1.35 'Manrope', sans-serif !important;
+  letter-spacing: -0.02em !important;
+  color: #0b6b24 !important;
 }
 
-.rd-eco-note.is-scrolled .part-1 {
-  color: rgba(25, 123, 12, 0.35);
-  font-weight: 500;
-}
-.rd-eco-note.is-scrolled .part-2,
-.rd-eco-note.is-scrolled .muted {
-  color: #197b0c;
-  font-weight: 600;
+.rd-eco-note,
+.rd-eco-note * {
+  color: #0b6b24 !important;
 }
 
 /* Bottom CTA section */
 .rd-cta {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(80px, 10vw, 130px) auto 0 !important;
+  margin: 75px auto 75px !important;
   border-radius: 40px;
   padding: clamp(36px, 5vw, 64px);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 28px;
-  min-height: 240px;
+  min-height: 250px !important;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
 }
+
 .rd-cta img.bg {
   position: absolute;
   inset: 0;
@@ -657,12 +671,14 @@
   object-fit: cover;
   z-index: 0;
 }
+
 .rd-cta .overlay {
   position: absolute;
   inset: 0;
   z-index: 0;
   background: linear-gradient(88deg, rgba(190, 237, 250, 0.92) 42%, rgba(0, 186, 234, 0.15) 80%), rgba(0, 0, 0, 0.05);
 }
+
 .rd-cta-copy {
   position: relative;
   z-index: 1;
@@ -671,27 +687,32 @@
   flex-direction: column;
   gap: 20px;
 }
+
 .rd-cta-copy h2 {
   margin: 0;
   font: 600 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
   color: var(--blue-2);
   letter-spacing: -0.5px;
 }
+
 .rd-cta-copy p {
   margin: 0;
   font: 500 clamp(17px, 1.8vw, 22px)/1.35 'Manrope', sans-serif;
   color: var(--n9);
   letter-spacing: 0.15px;
 }
+
 .rd-cta .cp-cta-btn {
   position: relative;
   z-index: 1;
 }
+
 .rd-cta-links {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
 }
+
 .rd-cta-links .rd-know-more-btn {
   box-shadow: 0 4px 16px rgba(0, 97, 248, 0.28);
 }
@@ -705,35 +726,45 @@
     flex-direction: column;
     gap: 36px;
   }
+
   .rd-green-col {
     gap: 36px;
   }
+
   .rd-green-col--staggered {
     margin-top: 0;
   }
+
   .rd-green-card-media {
     height: 260px;
   }
+
   .rd-green-card-content {
     padding: 20px 24px 24px;
   }
+
   .rd-centers {
     padding: 36px 24px 32px;
     min-height: auto;
   }
+
   .rd-centers-tabs {
     flex-direction: column;
   }
+
   .rd-centers-tab {
     width: 100%;
     flex: 1 1 100%;
   }
+
   .rd-priorities-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .rd-tech-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .rd-iit-note {
     flex-direction: column;
     align-items: flex-start;
@@ -745,8 +776,8 @@
   .rd-priorities-grid {
     grid-template-columns: 1fr;
   }
+
   .rd-tech-grid {
     grid-template-columns: 1fr;
   }
 }
-
