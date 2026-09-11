@@ -443,9 +443,9 @@ export default function RdPage() {
         <img className="bg" src={`${R}cta-bg.png`} alt="" />
         <div className="overlay" />
         <div className="rd-cta-copy">
-          <h2>Discover Our Innovation Platforms</h2>
+          <h2>Discover Our Product Portfolio</h2>
           <div className="rd-cta-links">
-            <Link className="rd-know-more-btn" to="/business/generics">Visit</Link>
+            <Link className="rd-know-more-btn" to="/business/generics">Generics</Link>
           </div>
         </div>
       </div>

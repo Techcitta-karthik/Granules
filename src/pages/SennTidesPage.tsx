@@ -782,10 +782,6 @@ export default function SennTidesPage() {
         </div>
 
         <div className="senn-cta-actions">
-          <Link to="/contact" className="senn-cta-btn senn-cta-btn--primary">
-            <span>Connect With Us</span>
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
           <a
             href="https://www.sennchem.com"
             target="_blank"

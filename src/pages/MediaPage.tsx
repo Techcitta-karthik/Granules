@@ -136,7 +136,7 @@ export default function MediaPage() {
 
       <div className="med-hero">
         <img
-          src="/assets/media/hero-banner.webp"
+          src="/assets/media/banner.webp"
           alt="Granules Global Media and Communications"
           className="med-hero-img"
           loading="eager"
@@ -569,76 +569,11 @@ export default function MediaPage() {
         <div className="med-contact-head">
           <span className="cp-section-badge">Get in Touch</span>
           <h2>Media Contact</h2>
-          <h4>
-            For journalist inquiries, interview requests, official statements, and corporate media information, our communications team is here to assist you.
-          </h4>
         </div>
 
         <div className="med-contact-grid">
-          {/* Card 1: Corporate Communications */}
-          <div className="med-contact-card">
-            <div className="med-contact-card-header">
-              <div className="med-contact-card-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
-              <div className="med-contact-card-info">
-                <h3>Priyanka Chawla</h3>
-                <p className="med-contact-role">Corporate Communications &amp; Media Relations</p>
-              </div>
-            </div>
-            <p className="med-contact-card-desc">
-              Direct media queries, press releases, leadership interviews, and editorial coordination.
-            </p>
-            <div className="med-contact-actions">
-              <a href="mailto:Priyanka.Chawla@granulesindia.com" className="med-contact-chip">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <span>Priyanka.Chawla@granulesindia.com</span>
-              </a>
-              <a href="tel:+914069043500" className="med-contact-chip">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                <span>+91 40 69043500</span>
-              </a>
-            </div>
-          </div>
+          <h2>Email</h2>
 
-          {/* Card 2: Global Media Desk */}
-          <div className="med-contact-card">
-            <div className="med-contact-card-header">
-              <div className="med-contact-card-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                </svg>
-              </div>
-              <div className="med-contact-card-info">
-                <h3>Global Media Desk</h3>
-                <p className="med-contact-role">Granules India Corporate Headquarters</p>
-              </div>
-            </div>
-            <p className="med-contact-card-desc">
-              15th Floor, Granules Tower, Botanical Garden Road, Kondapur, Hyderabad – 500084, Telangana, India.
-            </p>
-            <div className="med-contact-actions">
-              <a href="mailto:mail@granulesindia.com" className="med-contact-chip">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <span>mail@granulesindia.com</span>
-              </a>
-              <a href="/contact" className="med-contact-chip">
-                <span>General Enquiries Page &rarr;</span>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -666,8 +601,8 @@ export default function MediaPage() {
             <div className="med-report-device">
               <div className="med-report-screen">
                 <img
-                  src="/assets/investor-report-cover.webp"
-                  alt="Expanding Horizons - 2024 Integrated Annual Report"
+                  src="/assets/investor-report-cover.webp?v=2026"
+                  alt="Granules India Integrated Annual Report FY 2025-26"
                   loading="lazy"
                   decoding="async"
                 />

@@ -22,7 +22,7 @@ export const BOARD_OF_DIRECTORS: LeadershipMember[] = [
     directorships: [
       'Granules Life Sciences Private Limited, Director',
       'Granules CZRO Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
+      'Senn Tides India Private Limited, Director',
       'Senn Chemicals A.G., Director',
       'Chigurupati Vineyards Private Limited, Director',
       'CEO Clubs India, Director',
@@ -46,7 +46,7 @@ export const BOARD_OF_DIRECTORS: LeadershipMember[] = [
     ],
     directorships: [
       'Granules Life Sciences Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
+      'Senn Tides India Private Limited, Director',
       'Tyche Investments Private Limited, Director',
       'KRSMA Vineyards Private Limited, Director',
       'KRSMA Estates Private Limited, Director',
@@ -177,7 +177,7 @@ export const BOARD_OF_DIRECTORS: LeadershipMember[] = [
     ],
     directorships: [
       'Granules Life Sciences Private Limited, Independent Director',
-      'Ascelis Peptides Private Limited, Independent Director',
+      'Senn Tides India Private Limited, Independent Director',
       'Daiwat Chemicals (India), Founder & Managing Director',
       'Sudaiwa (UAE, Singapore), Founder & Managing Partner',
       'Matal (Singapore), Managing Director',
@@ -225,7 +225,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     directorships: [
       'Granules Life Sciences Private Limited, Director',
       'Granules CZRO Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
+      'Senn Tides India Private Limited, Director',
       'Senn Chemicals A.G., Director',
       'Chigurupati Vineyards Private Limited, Director',
       'CEO Clubs India, Director',
@@ -249,7 +249,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     ],
     directorships: [
       'Granules Life Sciences Private Limited, Director',
-      'Ascelis Peptides Private Limited, Director',
+      'Senn Tides India Private Limited, Director',
       'Tyche Investments Private Limited, Director',
       'KRSMA Vineyards Private Limited, Director',
       'KRSMA Estates Private Limited, Director',
@@ -352,7 +352,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     role: 'Chief Executive Officer, Senn Tides India Private Limited',
     profile: [
       'Sanjay Kumar holds a B.Tech from IIT Kanpur and an MBA from IIM Bangalore, where he was on the Directors Merit List. He has completed the CFA Program (CFA Institute, USA) and attended the Stanford Graduate School of Business. He brings over 20 years of experience in corporate strategy, M&A, investor relations, and business transformation across global pharmaceutical organisations.',
-      'Sanjay is the Chief Executive Officer of Ascelis Peptides, Granules Indias peptide CDMO subsidiary. Previously, he served as Chief Strategy Officer and Chief Sustainability Officer at Granules India and was responsible for driving enterprise strategy, evaluating growth opportunities, leading mergers and acquisitions, managing investor relations, and advancing the companys sustainability agenda. Under his leadership, Granules corporate sustainability programme earned top industry recognitions.',
+      'Sanjay is the Chief Executive Officer of Senn Tides India Private Limited, Granules India’s peptide CDMO subsidiary. Previously, he served as Chief Strategy Officer and Chief Sustainability Officer at Granules India and was responsible for driving enterprise strategy, evaluating growth opportunities, leading mergers and acquisitions, managing investor relations, and advancing the company’s sustainability agenda. Under his leadership, Granules corporate sustainability programme earned top industry recognitions.',
     ],
   },
   {

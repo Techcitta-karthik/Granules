@@ -59,13 +59,10 @@ export default function GranulesLifeSciencesPage() {
         <span className="sep">›</span>
         <span className="current">GRANULES LIFE SCIENCES</span>
       </p>
-      <h2 className="gls-page-header">Engineered for the Future of Oral Solid Dosage Manufacturing</h2>
+      <h2 className="gls-page-header">GRANULES LIFE SCIENCES</h2>
       <div className="cp-hero-banner">
         <img src={`${G}hero-banner.png`} alt="Granules Life Sciences facility" />
         <div className="api-hero-scrim" />
-        <div className="api-hero-overlay">
-          <a className="cp-cta-btn" href="/contact">Explore Partnership Opportunities</a>
-        </div>
       </div>
 
       <div className="cp-about-desc gls-intro">

@@ -163,9 +163,9 @@ export default function InvestorOverviewPage() {
         <p className="cp-breadcrumb">
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
-          <span className="current">INVESTOR OVERVIEW</span>
+          <span className="current">INVESTOR</span>
         </p>
-        <h1 className="cp-page-title">Investor overview</h1>
+        <h1 className="cp-page-title">Investor</h1>
       </div>
 
       {/* 7 Navigation Jump Boxes at Top of Banner */}
@@ -202,7 +202,7 @@ export default function InvestorOverviewPage() {
         />
         <div className="inv-hero-overlay">
           <div className="inv-hero-content">
-            <h2 className="inv-hero-title">Integrated Annual Report- FY 25-26</h2>
+            <h2 className="inv-hero-title">Where strategy meets<br />Evolving Healthcare,<br />Needs, Science & Sustainability</h2>
             <a
               href="https://granules-26.vercel.app/"
               target="_blank"

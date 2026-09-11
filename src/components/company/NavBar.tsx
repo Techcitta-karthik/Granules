@@ -46,7 +46,7 @@ const SUBMENUS: Record<string, Submenu> = {
     sections: [],
     links: [
       { label: 'Generics', href: '/business/generics' },
-      { label: 'Peptides CDMO', href: '/business/peptides' },
+      { label: 'Peptide CDMO', href: '/business/peptides' },
       { label: 'Research & Development', href: '/business/rd' },
       { label: 'Quality & Compliance', href: '/business/quality-compliance' },
       { label: 'Facilities', href: '/business/facilities' },
@@ -68,9 +68,9 @@ function isActive(link: NavLinkItem, pathname: string, activeSection?: string | 
   if (link.label === 'About Us' || link.label === 'Company') {
     return (
       (pathname.startsWith('/company') ||
-      pathname.startsWith('/global-subsidiaries') ||
-      pathname.startsWith('/granules-life-sciences') ||
-      pathname.startsWith('/gls')) &&
+        pathname.startsWith('/global-subsidiaries') ||
+        pathname.startsWith('/granules-life-sciences') ||
+        pathname.startsWith('/gls')) &&
       !pathname.startsWith('/company/facilities')
     );
   }

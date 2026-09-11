@@ -10,7 +10,7 @@ export default function SubsidiariesCarousel() {
         </h4>
         <div className="cp-sub-cta-wrap">
           <Link to="/company/global-subsidiaries" className="cp-cta-btn">
-            EXPLORE GLOBAL SUBSIDIARIES &rarr;
+            KNOW MORE &rarr;
           </Link>
         </div>
       </div>

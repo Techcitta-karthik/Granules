@@ -64,7 +64,7 @@ export default function PfiPage() {
         <img src={`${P}key-benefits-bg.png`} alt="Granules PFI manufacturing facility" />
         <div className="pfi-hero-scrim" />
         <div className="pfi-hero-overlay">
-          <h2 className="pfi-hero-heading">Simplifying Formulation. Accelerating Access.</h2>
+          <h2 className="pfi-hero-heading">Simplifying Formulation.<br />Accelerating Access.</h2>
         </div>
       </div>
 

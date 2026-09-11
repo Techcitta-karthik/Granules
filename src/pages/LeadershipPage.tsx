@@ -199,16 +199,6 @@ export default function LeadershipPage() {
 
         <div className="ld-hero">
           <h1 className="ld-main-title">Our Leadership Team</h1>
-          <div className="ld-main-desc cp-about-desc">
-            <p>
-              Granules India is led by a team of seasoned professionals of the pharmaceutical industry. Each leader
-              brings in-depth expertise and a modern outlook to tackle the challenges of today's dynamic business.
-            </p>
-            <p>
-              Collectively, the Granules leadership chalks out strategies that help in building organisational
-              capability while delivering sustainable growth.
-            </p>
-          </div>
         </div>
 
         <div className="ld-tabs-container">

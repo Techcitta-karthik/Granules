@@ -35,13 +35,9 @@ const STORIES: Story[] = [
   },
   {
     title: 'Customer Feedback, Transparency, and Trust',
-    body: 'Collaborating with over 300 global customers in more than 80 countries, we maintain robust feedback loops that drive continuous product and process improvement. Transparency and responsiveness are core to building lasting trust.',
+    body: 'Collaborating with over 300 global customers in more than 100 countries, we maintain robust feedback loops that drive continuous product and process improvement. Transparency and responsiveness are core to building lasting trust.',
     image: 'story-feedback.webp',
     reverse: true,
-    highlights: [
-      { value: '300+', label: 'global customers' },
-      { value: '80+', label: 'countries' },
-    ],
   },
 ];
 
@@ -190,22 +186,12 @@ export default function QualityCompliancePage() {
         <img className="bg" src={`${Q}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="qc-cta-copy">
-          <h2>Partner with Granules for Uncompromised Quality &amp; Regulatory Excellence</h2>
-          <h4>
-            Connect with our global quality and regulatory affairs teams to discuss audits, filings, and supply partnerships across 80+ markets.
-          </h4>
+          <h2>Ready to Partner with us?</h2>
         </div>
         <div className="qc-cta-actions">
           <Link to="/contact" className="qc-cta-btn qc-cta-btn--primary">
             <span>Contact Us</span>
             <span aria-hidden="true">&rarr;</span>
-          </Link>
-          <Link to="/business/api" className="qc-cta-btn qc-cta-btn--secondary">
-            <span>Explore Portfolio</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
           </Link>
         </div>
       </section>

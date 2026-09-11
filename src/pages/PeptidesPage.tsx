@@ -315,8 +315,8 @@ export default function PeptidesPage() {
           <span className="peptides-stat-label">Catalogue Amino Acid Derivatives</span>
         </div>
         <div className="peptides-stat-card">
-          <strong className="peptides-stat-val">2 Continents</strong>
-          <span className="peptides-stat-label">Integrated Swiss &amp; India Network</span>
+          <strong className="peptides-stat-val">2</strong>
+          <span className="peptides-stat-label">Continents Integrated Swiss &amp; India Network</span>
         </div>
       </div>
 

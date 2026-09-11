@@ -17,31 +17,31 @@ type SubsidiaryItem = {
 const SUBSIDIARY_ITEMS: SubsidiaryItem[] = [
   {
     index: '01',
-    name: 'Granules Life Sciences',
-    image: '/assets/gls/hero-banner.webp',
-    description:
-      'State-of-the-art oral solid facility designed to accelerate the next phase of growth in regulated markets through quality, innovation and manufacturing excellence.',
-    ctaText: 'Learn More',
-    ctaHref: '/company/granules-life-sciences',
-  },
-  {
-    index: '02',
     name: 'Granules Pharmaceuticals Inc.',
     image: '/assets/company/GPI-Cover.jpeg',
     description:
       "Strengthening patient access in North America through direct commercial presence and manufacturing base.",
-    ctaText: 'Visit Website',
+    ctaText: 'Know More',
     ctaHref: 'https://www.granulespharma.com/',
     isExternal: true,
   },
   {
-    index: '03',
+    index: '02',
     name: 'Senn Tides India Private Limited',
-    image: '/assets/ascelis/hero-banner.webp',
+    image: '/assets/facilities/Senn Chem.png',
     description:
       'Advancing peptide-based therapies through specialized CDMO capabilities.',
-    ctaText: 'Learn More',
+    ctaText: 'Know More',
     ctaHref: '/company/senn-tides',
+  },
+  {
+    index: '03',
+    name: 'Granules Life Sciences',
+    image: '/assets/gls/hero-banner.webp',
+    description:
+      'State-of-the-art oral solid facility designed to accelerate the next phase of growth in regulated markets through quality, innovation and manufacturing excellence.',
+    ctaText: 'Know More',
+    ctaHref: '/company/granules-life-sciences',
   },
   {
     index: '04',
@@ -156,17 +156,6 @@ export default function GlobalSubsidiariesPage() {
 
       {/* Page Title */}
       <h1 className="cp-page-title">Expanding Horizons. Enhancing Access</h1>
-
-      {/* Hero Visual Banner */}
-      <div className="cp-hero-banner global-sub-hero-banner">
-        <img
-          src="/assets/company/values-bg-2.webp"
-          alt="Granules India Global Subsidiaries"
-          loading="eager"
-          decoding="async"
-        />
-        <div className="global-sub-hero-overlay" />
-      </div>
 
       {/* Intro Section - identical to /company/milestone */}
       <div className="cp-about-desc global-sub-intro">

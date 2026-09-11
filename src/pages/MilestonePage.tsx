@@ -46,31 +46,15 @@ export default function MilestonePage() {
         <span className="sep">›</span>
         <span className="current">OUR JOURNEY</span>
       </p>
-      <h1 className="cp-page-title">Our Journey</h1>
-      <div className="cp-hero-banner">
-        <img src={`${M}hero-banner.png`} alt="Granules India facility" />
-      </div>
+      <h1 className="cp-page-title">A Journey of Progress and Purpose</h1>
 
       <div className="cp-about-desc ms-intro">
         <h4>
-          Granules India has been redefining pharmaceutical manufacturing since 1984. What began
-          as a single facility in Hyderabad has evolved into a global leader in APIs, PFIs, and
-          finished dosages, driven by scientific innovation, operational scale, and regulatory
-          excellence.
-        </h4>
-        <h4>
-          From pioneering PFIs in India to establishing U.S. front-end operations and building
-          ESG-aligned infrastructure, every milestone reflects our commitment to quality, access,
-          and resilient global supply chains.
+          What began as a focused API manufacturer has transformed into a diversified pharmaceutical company with capabilities spanning APIs, PFIs, Finished Dosages, Peptide CDMO services, and global market access. Each milestone represents a step forward in our mission to improve lives through affordable and accessible healthcare.
         </h4>
       </div>
 
       <div className="ms-systems">
-        <div className="ms-systems-head">
-          <span className="cp-section-badge">Our Journey</span>
-          <h2>Four decades of innovation and scale</h2>
-        </div>
-
         {MILESTONES.map((entry, index) => {
           const isReverse = index % 2 === 1;
           return (
@@ -102,9 +86,9 @@ export default function MilestonePage() {
             <div className="cp-bg-overlay" />
             <div className="ms-leadership-copy">
               <Link className="cp-cta-btn" to="/company/leadership">OUR LEADERSHIP &rarr;</Link>
-              <h2>Meet the leadership shaping our future</h2>
+              <h2>Meet the Leadership Shaping our Future</h2>
               <p>
-                Discover the people leading Granules with purpose, innovation, and a commitment to
+                Discover the team leading Granules with purpose, innovation, and a commitment to
                 excellence.
               </p>
             </div>

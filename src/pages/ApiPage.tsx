@@ -23,6 +23,12 @@ type ScaleItem = { title: string; body: string; icon: string; image?: string | n
 
 const SCALE_ITEMS: ScaleItem[] = [
   {
+    title: 'Portfolio Breadth Across Wide Therapeutic Segments',
+    body: 'Diverse portfolio of 100+ DMFs across wide range of therapeutic areas including Anti-diabetics, Anti-inflammatories, CNS/ADHD, Oncology, Gastroenterology, Anti-histamines, Anti-coagulants, Anti-hypertensives, and others.',
+    icon: 'icon-globe.svg',
+    image: '/assets/facilities/bonthapally-2.png',
+  },
+  {
     title: 'Manufacturing Infrastructure Supporting Global Scale',
     body: '40,000 TPA installed capacity across four specialized facilities, with seamless vertical integration from key starting materials and intermediates to downstream PFI and Finished Dosage operations, enhancing supply security and cost competitiveness.',
     icon: 'icon-capacity.svg',
@@ -74,12 +80,11 @@ export default function ApiPage() {
         <span className="sep">›</span>
         <span className="current">ACTIVE PHARMACEUTICAL INGREDIENTS</span>
       </p>
-      <h2 className="api-page-header">Built for Scale. Driven by Value.</h2>
+      <h2 className="api-page-header">Built for Scale. Engineered for Precision. Committed to Global Compliance.</h2>
       <div className="cp-hero-banner">
         <img src={`${A}hero-banner.png`} alt="Granules API manufacturing facility" />
         <div className="api-hero-scrim" />
         <div className="api-hero-overlay">
-          <a className="cp-cta-btn" href="/contact">Explore Partnership Opportunities</a>
         </div>
       </div>
 
@@ -92,26 +97,6 @@ export default function ApiPage() {
           regulatory execution. Our integrated API platform supports both internal formulation
           requirements and external customer demand across regulated and semi-regulated markets.
         </p>
-      </div>
-
-      <div className="biz-section-head">
-        <div className="copy">
-          <h2>Portfolio Breadth Across Wide Therapeutic Segments</h2>
-          <p>
-            Diverse portfolio of 100+ DMFs across wide range of therapeutic areas including
-            Anti-diabetics, Anti-inflammatories, CNS/ADHD, Oncology, Gastroenterology,
-            Anti-histamines, Anti-coagulants, Anti-hypertensives, and others.
-          </p>
-        </div>
-      </div>
-
-      <div className="biz-tag-grid">
-        {THERAPEUTIC_AREAS.map((area) => (
-          <div className="biz-tag" key={area.label}>
-            <img src={`${A}${area.icon}`} alt="" />
-            <span>{area.label}</span>
-          </div>
-        ))}
       </div>
 
       <div className="biz-panel">

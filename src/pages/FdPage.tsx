@@ -39,12 +39,6 @@ const BENEFITS: BenefitItem[] = [
     icon: 'icon-box.svg',
     image: '/assets/fd/partnership-bg.png',
   },
-  {
-    title: 'Technology-Enabled by Digitalisation',
-    body: 'From digitally enabled product development and data-driven formulation design to electronic quality management systems and industry 4.0 manufacturing platforms, we are leveraging technology to accelerate innovation, strengthen data integrity, improve operational excellence, and support scalable, compliant delivery of high-quality medicines.',
-    icon: '/assets/pfi/icon-production-belt.svg',
-    image: '/assets/fd/hero-banner.png',
-  },
 ];
 
 export default function FdPage() {
@@ -72,12 +66,11 @@ export default function FdPage() {
         <div className="api-hero-scrim" />
         <div className="api-hero-overlay">
           <h2 className="api-hero-heading">Bringing Affordable Medicines to Patients Worldwide</h2>
-          <Link className="cp-cta-btn" to="/contact">Explore Partnership Opportunities</Link>
         </div>
       </div>
 
       <div className="biz-intro">
-        <h4>
+        <p>
           At Granules, we are committed to improving access to high-quality medicines for patients
           around the world. Through our own commercial presence and strategic partnerships with
           pharmaceutical companies, we develop, manufacture, and supply a broad range of oral dosage
@@ -87,7 +80,7 @@ export default function FdPage() {
           that improve patient outcomes at scale. Our flexible business model allows us to support
           partners across the product lifecycle while ensuring reliable access to medicines in
           diverse markets worldwide.
-        </h4>
+        </p>
       </div>
 
       <div className="biz-panel">
@@ -146,13 +139,6 @@ export default function FdPage() {
         >
           View Product List &rarr;
         </a>
-      </div>
-
-      <div className="biz-cta biz-cta--placeholder">
-        <div className="biz-cta-copy">
-          <h2>Driving Innovation in Sustainable and Complex Formulations</h2>
-        </div>
-        <Link className="cp-cta-btn" to="/business/rd">Explore Our R&amp;D Capabilities &rarr;</Link>
       </div>
 
       <CompanyFooter />

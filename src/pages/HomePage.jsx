@@ -10,19 +10,19 @@ const A = '/assets/';
 const heroSlides = [
   {
     image: 'Home/1.jpg',
-    title: 'Globally approved. Vertically integrated. Trusted worldwide',
+    title: 'Globally approved.\nVertically integrated.\nTrusted worldwide',
     cta: 'Generics',
     link: '/business/generics',
   },
   {
     image: 'Home/2.jpg',
-    title: 'Driving innovation in peptides and custom manufacturing solutions',
+    title: 'Driving Innovation in Peptide and Custom Manufacturing Solutions',
     cta: 'Peptide CDMO',
     link: '/business/peptides',
   },
   {
     image: 'Home/3.jpg',
-    title: 'Setting global standards in quality, safety, and compliance',
+    title: 'Setting Global Standards in Quality, Safety, and Compliance',
     cta: 'Quality & compliance',
     link: '/business/quality-compliance',
   },
@@ -34,7 +34,7 @@ const heroSlides = [
   },
   {
     image: 'Home/4.jpg',
-    title: 'Innovating for health. Committed to the planet',
+    title: 'Innovating for Health. \nCommitted to the Planet',
     cta: 'Sustainability',
     link: '/sustainability',
   },
@@ -42,11 +42,11 @@ const heroSlides = [
 
 const products = [
   {
-    image: 'api.webp',
-    title: 'Active Pharmaceutical Ingredients (APIs)',
-    eyebrow: 'API',
-    body: 'Large-scale manufacturing capabilities, integrated operations, and strong process optimization.',
-    href: '/business/api',
+    image: 'finished-dosage.webp',
+    title: 'Finished Dosages (FDs)',
+    eyebrow: 'FD',
+    body: 'Scale and complexity supported by multi-site supply capabilities.',
+    href: '/business/fd',
   },
   {
     image: 'pfi.webp',
@@ -56,11 +56,11 @@ const products = [
     href: '/business/pfi',
   },
   {
-    image: 'finished-dosage.webp',
-    title: 'Finished Dosages (FDs)',
-    eyebrow: 'FD',
-    body: 'Scale and complexity supported by multi-site supply capabilities.',
-    href: '/business/fd',
+    image: 'api.webp',
+    title: 'Active Pharmaceutical Ingredients (APIs)',
+    eyebrow: 'API',
+    body: 'Large-scale manufacturing capabilities, integrated operations, and strong process optimization.',
+    href: '/business/api',
   },
 ];
 
@@ -310,7 +310,7 @@ function About() {
   return (
     <section className="section shell about" id="about">
       <div className="about-copy">
-        <h2>Global healthcare through scalable pharma leadership</h2>
+        <h2>Global Healthcare through Integrated Excellence</h2>
         <h4>
           With over four decades of industry leadership, Granules India is committed to delivering
           high-quality, affordable medicines globally, through an integrated manufacturing platform.
@@ -418,14 +418,14 @@ function Business() {
 }
 
 function Presence() {
-  const tabs = ['Our Locations', 'Our Global Subsidiaries'];
+  const tabs = ['Our Global Subsidiaries', 'Our Manufacturing Facilities', 'Our R&D Facilities'];
   const [active, setActive] = useState(0);
 
   return (
     <section className={`presence presence-state-${active}`} id="presence">
       <div className="presence-copy">
         <Tag>Our Presence</Tag>
-        <h2>Trusted healthcare partner in 100+ countries</h2>
+        <h2>Global Footprint Across Three Continents</h2>
       </div>
 
       <div className="map-wrap">
@@ -562,7 +562,13 @@ function Presence() {
                   {/* Pill 3: Ascelis Peptides */}
                   <rect x="708" y="373" width="90" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
                   <text x="753" y="378.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                    ASCELIS PEPTIDES PRIVATE LIMITED
+                    SENN TIDES INDIA PRIVATE LIMITED
+                  </text>
+
+                  {/* Pill 4: GRANULES PI */}
+                  <rect x="708" y="386" width="90" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
+                  <text x="753" y="391.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
+                    GRANULES PHARMACEUTICALS INC
                   </text>
                 </g>
 
@@ -685,6 +691,7 @@ function Sustainability({ open = 0, setOpen }) {
       tag: 'Community',
       heading: 'Purpose Beyond Business',
       heroBody: 'Guided by our responsibility to society, we support initiatives that improve access to healthcare, enable education, enhance employability, and promote environmental awareness, helping create stronger and more resilient communities.',
+      goal: 'Our Goal is to positively impact 1 million lives by 2030.',
       href: '/community',
       icon: 'icon-windmill-sustain.svg',
       iconType: 'circle',
@@ -723,6 +730,9 @@ function Sustainability({ open = 0, setOpen }) {
         <Tag className={isCommunity ? 'tag-teal' : ''}>{currentItem.tag}</Tag>
         <h2>{currentItem.heading}</h2>
         <h4>{currentItem.heroBody}</h4>
+        {currentItem.goal && (
+          <p className="sustainability-goal">{currentItem.goal}</p>
+        )}
         <Button href={currentItem.href} className={isCommunity ? 'teal' : 'green'}>Learn More &rarr;</Button>
       </div>
       {/* Bottom Corner Icon Toggles */}
@@ -804,8 +814,8 @@ function Investor() {
           aria-label="View Annual Reports"
         >
           <img
-            src={`${A}investor-report-cover.webp`}
-            alt="Granules India Integrated Annual Report"
+            src={`${A}investor-report-cover.webp?v=2026`}
+            alt="Granules India Integrated Annual Report FY 2025-26: Where Strategy Meets Evolving Healthcare Needs, Science & Sustainability"
             loading="lazy"
             decoding="async"
           />
@@ -862,7 +872,7 @@ function Media() {
         <div className="split-heading">
           <div>
             <Tag>Media</Tag>
-            <h2>What’s new at Granules</h2>
+            <h2>What’s New at Granules</h2>
           </div>
           <Button href="/media">View all &rarr;</Button>
         </div>
@@ -907,7 +917,7 @@ function Careers() {
   return (
     <section className="careers shell" id="careers" style={{ backgroundImage: `url(${A}career.webp)` }}>
       <div>
-        <h2>Shape healthcare with Granules</h2>
+        <h2>Shape Healthcare with Granules</h2>
         <p>Every role here strengthens access to affordable healthcare for millions.</p>
         <Button href="/careers">Careers &rarr;</Button>
       </div>
