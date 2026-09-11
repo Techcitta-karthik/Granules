@@ -7,10 +7,10 @@
    1. HERO BANNER
    -------------------------------------------------------------------------- */
 .med-hero {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(30px, 4vw, 46px) auto 0;
-  border-radius: 40px;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 20px auto 0 !important;
+  border-radius: 36px;
   min-height: 380px;
   position: relative;
   aspect-ratio: 1828 / 572;
@@ -24,7 +24,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center center;
 }
 
 .med-hero-overlay {
@@ -71,8 +71,8 @@
    2. TABS & YEAR FILTER
    -------------------------------------------------------------------------- */
 .med-tabs-container {
-  width: 85% !important;
-  max-width: 85% !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
   margin: clamp(48px, 6vw, 76px) auto 0 !important;
   position: relative;
 }
@@ -518,8 +518,8 @@
    5. MEDIA CONTACT US SECTION
    -------------------------------------------------------------------------- */
 .med-contact-section {
-  width: 85% !important;
-  max-width: 85% !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
   margin: 75px auto 0 !important;
   display: flex;
   flex-direction: column;

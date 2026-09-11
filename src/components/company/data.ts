@@ -46,7 +46,7 @@ export const SUBSIDIARIES: SubsidiaryCard[] = [
     description:
       "R&D and manufacturing facility producing oral solid dosage forms and drives commercialisation of products manufactured at Granules' India facility.",
     image: 'company/gpi-facility.webp',
-    href: '/company/facilities',
+    href: '/business/facilities',
   },
   {
     fullName: 'GRANULES LIFE SCIENCES PRIVATE LIMITED (GLS), INDIA',

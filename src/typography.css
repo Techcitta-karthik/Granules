@@ -148,6 +148,34 @@ h4, h5, h6 {
   font-weight: 700 !important;
 }
 
+.cp-about-desc h4,
+.rd-intro h4,
+.car-intro-copy h4,
+.senn-intro h4,
+.fac-intro h4,
+.global-sub-intro h4,
+.about-copy h4,
+.section-heading h4,
+.gls-intro h4,
+.gls-intro p,
+.gls-intro span {
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: clamp(18px, 1.3vw, 22px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--track-body, -0.2px) !important;
+  color: var(--n9, #070707) !important;
+}
+
+.sustainability-copy h4 {
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: clamp(18px, 1.3vw, 22px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--track-body, -0.2px) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
 p, li, dd, dt {
   font-size: var(--fs-body) !important;
   line-height: var(--lh-body) !important;
@@ -192,7 +220,11 @@ input, textarea, select {
 .credentials h2,
 .sustainability-copy h2,
 .investor-copy h2,
-.careers h2 {
+.careers h2,
+.car-why-copy h2,
+.car-why-head h2,
+.car-discover-copy h2,
+.car-practice-headline {
   font-size: var(--fs-section) !important;
   line-height: var(--lh-section) !important;
   font-weight: 700 !important;
@@ -215,7 +247,6 @@ input, textarea, select {
 .fac-stat-card,
 .peptides-stat-card,
 .senn-stat-card,
-.car-ov-stat-card,
 .qc-metric-card,
 [class*='stat-card'],
 [class*='metric-card'] {
@@ -237,7 +268,6 @@ input, textarea, select {
 .fac-stat-card:hover,
 .peptides-stat-card:hover,
 .senn-stat-card:hover,
-.car-ov-stat-card:hover,
 .qc-metric-card:hover,
 [class*='stat-card']:hover,
 [class*='metric-card']:hover {
@@ -249,7 +279,6 @@ input, textarea, select {
 .fac-stat-card strong,
 .peptides-stat-val,
 .senn-stat-num,
-.car-ov-stat-value,
 .qc-metric-value,
 .esg-env-stat-val,
 .sus-stat-value,
@@ -274,7 +303,6 @@ input, textarea, select {
 .fac-stat-card span,
 .peptides-stat-label,
 .senn-stat-tag,
-.car-ov-stat-label,
 .qc-metric-label,
 .sus-stat-label,
 [class*='stat-label'],
@@ -290,7 +318,7 @@ input, textarea, select {
 }
 
 /* ==========================================================================
-   HOMEPAGE ABOUT STATS GRID (Bigger, more prominent layout)
+   HOMEPAGE ABOUT & CAREERS IMPACT STATS GRID (Exact same box size & styling)
    ========================================================================== */
 .about .stats {
   display: grid !important;
@@ -299,7 +327,8 @@ input, textarea, select {
   width: 100% !important;
 }
 
-.about .stat {
+.about .stat,
+.car-ov-stat-card {
   background: #edf5ff !important;
   border-radius: 26px !important;
   border: none !important;
@@ -316,13 +345,15 @@ input, textarea, select {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease !important;
 }
 
-.about .stat:hover {
+.about .stat:hover,
+.car-ov-stat-card:hover {
   transform: translateY(-2px) !important;
   background: #e3efff !important;
   box-shadow: 0 8px 20px rgba(0, 97, 248, 0.1) !important;
 }
 
-.about .stat strong {
+.about .stat strong,
+.car-ov-stat-value {
   font-family: 'Manrope', sans-serif !important;
   font-size: clamp(48px, 3.8vw, 64px) !important;
   line-height: 1 !important;
@@ -333,7 +364,8 @@ input, textarea, select {
   margin: 0 !important;
 }
 
-.about .stat span {
+.about .stat span,
+.car-ov-stat-label {
   font-family: 'Manrope', sans-serif !important;
   font-size: clamp(12.5px, 0.95vw, 14.5px) !important;
   line-height: 1.4 !important;

@@ -1,0 +1,1006 @@
+/* ==========================================================================
+   MEDIA / NEWSROOM PAGE STYLES (src/pages/media.css)
+   Clean, modern styling matching the Granules India design system.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO BANNER
+   -------------------------------------------------------------------------- */
+.med-hero {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 20px auto 0 !important;
+  border-radius: 36px;
+  min-height: 380px;
+  position: relative;
+  aspect-ratio: 1828 / 572;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 30, 80, 0.08);
+}
+
+.med-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.med-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 18, 38, 0.5) 0%, rgba(4, 18, 38, 0.15) 50%, rgba(4, 18, 38, 0.7) 100%);
+  pointer-events: none;
+}
+
+.med-hero-content {
+  position: absolute;
+  bottom: clamp(32px, 4vw, 56px);
+  left: clamp(32px, 4.5vw, 64px);
+  right: clamp(32px, 4.5vw, 64px);
+  z-index: 2;
+  max-width: 860px;
+}
+
+.med-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  padding: 6px 18px;
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.med-hero-heading {
+  margin: 0;
+  font: 700 clamp(26px, 3.5vw, 44px)/1.2 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   2. TABS & YEAR FILTER
+   -------------------------------------------------------------------------- */
+.med-tabs-container {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: clamp(48px, 6vw, 76px) auto 0 !important;
+  position: relative;
+}
+
+.med-tabs-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 40% 1fr;
+  align-items: center;
+}
+
+.med-tab-left {
+  justify-self: center;
+  text-align: center;
+}
+
+.med-tab-center {
+  justify-self: center;
+  text-align: center;
+}
+
+.med-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: 700 clamp(16px, 1.4vw, 20px)/1.2 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #0061f8;
+  opacity: 0.45;
+  padding: 8px 0;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.med-tab:hover {
+  opacity: 0.85;
+}
+
+.med-tab.active {
+  opacity: 1;
+}
+
+/* Year dropdown pill */
+.med-year-wrap {
+  justify-self: end;
+  position: relative;
+}
+
+.med-year {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.med-year:hover {
+  background: rgba(0, 97, 248, 0.06);
+}
+
+.med-year span {
+  font: 700 clamp(16px, 1.4vw, 20px)/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.med-year svg {
+  color: #0061f8;
+}
+
+.med-year-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 30, 90, 0.14);
+  border: 1px solid #e2e8f0;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 50;
+  min-width: 90px;
+}
+
+.med-year-option {
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font: 600 15px 'Manrope', sans-serif;
+  color: #334155;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.med-year-option:hover,
+.med-year-option.active {
+  background: #0061f8;
+  color: #ffffff;
+}
+
+/* Full-width track with animated gradient indicator underline */
+.med-tabs-track {
+  width: 100%;
+  margin-top: 16px;
+  height: 2px;
+  background: #eaeaea;
+  position: relative;
+}
+
+.med-tabs-indicator {
+  position: absolute;
+  top: -1.5px;
+  left: 0;
+  width: 40%;
+  height: 5px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #4dc9f6 0%, #38b34a 50%, #016ef7 100%);
+  transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.med-tabs-indicator.press {
+  left: 40%;
+  width: 40%;
+}
+
+/* --------------------------------------------------------------------------
+   3. NEWS & PRESS RELEASE LIST ITEMS
+   -------------------------------------------------------------------------- */
+.med-news-list {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 16px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-news-item {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3vw, 44px);
+  padding: clamp(30px, 3.4vw, 44px) 0;
+  border-bottom: 1px solid #e8ecf2;
+}
+
+.med-news-item:last-child {
+  border-bottom: 1px solid #e8ecf2;
+}
+
+.med-news-image {
+  flex-shrink: 0;
+  width: clamp(260px, 20vw, 320px);
+  height: clamp(140px, 11vw, 175px);
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+.med-news-body {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(24px, 2.5vw, 40px);
+}
+
+.med-news-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 auto;
+}
+
+.med-news-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.med-news-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #0061f8;
+  border-radius: 999px;
+  padding: 4px 16px;
+  font: 700 11px/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.med-news-title {
+  margin: 0;
+  font: 600 clamp(20px, 1.6vw, 24px)/1.32 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: -0.015em;
+  max-width: 860px;
+}
+
+.med-news-item:not(.with-image) .med-news-title {
+  max-width: 960px;
+}
+
+/* "Read More" solid blue pill button */
+.med-read-more {
+  flex-shrink: 0;
+  background: #0061f8;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 30px;
+  color: #ffffff;
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.28);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.med-read-more:hover {
+  background: #004ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.38);
+}
+
+.med-read-more:active {
+  transform: scale(0.96);
+}
+
+/* --------------------------------------------------------------------------
+   4. PAGINATION
+   -------------------------------------------------------------------------- */
+.med-pagination {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 48px auto 0 !important;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-page-btn {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 15px 'Manrope', sans-serif;
+  color: #0061f8;
+  transition: all 0.2s ease;
+}
+
+.med-page-btn:hover {
+  border-color: #0061f8;
+  background: #f0f6ff;
+}
+
+.med-page-btn.active {
+  background: #0061f8;
+  border-color: #0061f8;
+  color: #ffffff;
+}
+
+.med-page-btn.nav {
+  padding: 0 12px;
+}
+
+.med-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.med-empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  font: 500 16px/1.5 'Manrope', sans-serif;
+  color: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   MODAL OVERLAY FOR READING ARTICLES
+   -------------------------------------------------------------------------- */
+.med-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  animation: medFadeIn 0.25s ease-out;
+}
+
+.med-modal-card {
+  background: #ffffff;
+  border-radius: 28px;
+  width: min(760px, 100%);
+  max-height: min(720px, 90vh);
+  overflow-y: auto;
+  padding: clamp(28px, 4vw, 44px);
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+  animation: medSlideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.med-modal-card--split {
+  width: min(980px, 100%);
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.med-modal-media-col {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background: #f1f5f9;
+}
+
+.med-modal-media-col .med-modal-image {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  border-radius: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.med-modal-content-col {
+  padding: clamp(32px, 4.5vw, 54px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.med-modal-card--single {
+  width: min(760px, 100%);
+}
+
+.med-modal-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .med-modal-card--split {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .med-modal-media-col {
+    min-height: 240px;
+    max-height: 280px;
+  }
+  .med-modal-media-col .med-modal-image {
+    min-height: 240px;
+    max-height: 280px;
+  }
+}
+
+.med-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  line-height: 1;
+  color: #1e293b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.med-modal-close:hover {
+  background: #f1f5f9;
+  transform: scale(1.08);
+}
+
+.med-modal-image {
+  width: 100%;
+  max-height: 320px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.med-modal-title {
+  margin: 16px 0 14px;
+  font: 700 clamp(22px, 2.2vw, 32px)/1.25 'Manrope', sans-serif;
+  color: #0f172a;
+}
+
+.med-modal-body {
+  margin: 0;
+  font: 500 16.5px/1.65 'Manrope', sans-serif;
+  color: #475569;
+}
+
+@keyframes medFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes medSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   5. MEDIA CONTACT US SECTION
+   -------------------------------------------------------------------------- */
+.med-contact-section {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 75px auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4vw, 44px);
+}
+
+.med-contact-head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 860px;
+}
+
+.med-contact-head .cp-section-badge {
+  align-self: flex-start;
+  display: inline-block;
+  background: #e1f0fe;
+  color: #0061f8;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font: 700 13px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.med-contact-head h2 {
+  margin: 0;
+  font: 700 clamp(28px, 4vw, 48px)/1.15 'Manrope', sans-serif;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.med-contact-head h4 {
+  margin: 0;
+  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
+  color: #475569 !important;
+  letter-spacing: -0.2px !important;
+}
+
+.med-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 3vw, 36px);
+}
+
+.med-contact-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 97, 248, 0.12);
+  border-radius: 28px;
+  padding: clamp(28px, 3.5vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 10px 30px rgba(0, 30, 90, 0.04);
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.med-contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 97, 248, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 97, 248, 0.1);
+}
+
+.med-contact-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.med-contact-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #eef5ff;
+  color: #0061f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.med-contact-card:hover .med-contact-card-icon {
+  background: #0061f8;
+  color: #ffffff;
+}
+
+.med-contact-card-info h3 {
+  margin: 0 0 6px 0;
+  font: 700 clamp(20px, 1.8vw, 24px)/1.3 'Manrope', sans-serif;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.med-contact-role {
+  margin: 0;
+  font: 600 14px/1.4 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.2px;
+}
+
+.med-contact-card-desc {
+  margin: 0;
+  font: 500 15px/1.6 'Manrope', sans-serif;
+  color: #64748b;
+}
+
+.med-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.med-contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font: 600 14px/1 'Manrope', sans-serif;
+  color: #1e293b;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.med-contact-chip svg {
+  color: #0061f8;
+  transition: color 0.2s ease;
+}
+
+.med-contact-chip:hover {
+  background: #0061f8;
+  border-color: #0061f8;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.25);
+}
+
+.med-contact-chip:hover svg {
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .med-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. 2024 INTEGRATED ANNUAL REPORT BANNER (Matching Investor section)
+   -------------------------------------------------------------------------- */
+.med-report-section {
+  width: 100%;
+  margin: 75px 0 0 0 !important;
+  position: relative;
+  background-color: #eef2fb;
+  background-image: url('/assets/investor/quarterly-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.med-report-card {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: 0 auto !important;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 4.5vw, 64px);
+  align-items: end;
+  padding: clamp(60px, 6.5vw, 96px) 0 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+.med-report-copy {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: clamp(60px, 6.5vw, 96px);
+  position: relative;
+  z-index: 1;
+}
+
+.med-report-copy h2 {
+  margin: 0 0 clamp(24px, 3vw, 36px);
+  font: 600 clamp(34px, 3.8vw, 50px)/1.15 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: -0.01em;
+}
+
+.med-report-btn {
+  align-self: flex-start;
+  background: #0061f8;
+  border-radius: 999px;
+  padding: 12px 32px;
+  color: #ffffff;
+  font: 700 13px/1 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.28);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.med-report-btn:hover {
+  background: #004ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.38);
+}
+
+.med-report-device-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.med-report-device {
+  width: 100%;
+  max-width: 540px;
+  height: 340px;
+  background: #111827;
+  border-radius: 24px 24px 0 0;
+  padding: 16px 16px 0 16px;
+  box-shadow: 0 -8px 30px rgba(0, 20, 60, 0.18), 0 25px 60px rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.med-report-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.med-report-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.22);
+  transform-origin: center 34%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.med-report-device:hover .med-report-screen img {
+  transform: scale(1.26);
+}
+
+/* --------------------------------------------------------------------------
+   6. MEDIA KIT SECTION
+   -------------------------------------------------------------------------- */
+.med-kit {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.med-kit h2 {
+  margin: 0;
+  font: 600 clamp(30px, 3.2vw, 42px)/1.2 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: -0.01em;
+}
+
+.med-kit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+}
+
+@media (max-width: 768px) {
+  .med-kit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.med-kit-item {
+  background: #ffffff;
+  border: 1.5px solid #eef2f6;
+  border-radius: 18px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.28s cubic-bezier(0.2, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.med-kit-item:hover,
+.med-kit-item:focus-visible {
+  border-color: #0061f8;
+  box-shadow: 0 10px 28px rgba(0, 97, 248, 0.12);
+  transform: translateY(-3px);
+}
+
+.med-kit-icon {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: #eaf4ff;
+  display: grid;
+  place-items: center;
+  color: #0061f8;
+  transition: all 0.28s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.med-kit-item:hover .med-kit-icon,
+.med-kit-item:focus-visible .med-kit-icon {
+  background: #0061f8;
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+.med-kit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.med-kit-text p {
+  margin: 0;
+}
+
+.med-kit-text .name {
+  font: 600 19px/1.25 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: -0.01em;
+}
+
+.med-kit-text .action {
+  font: 700 12px/1 'Manrope', sans-serif;
+  color: #0061f8;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   7. SOCIAL MEDIA FOLLOW BANNER
+   -------------------------------------------------------------------------- */
+.med-follow {
+  width: 85% !important;
+  max-width: 85% !important;
+  margin: clamp(80px, 10vw, 120px) auto 0 !important;
+  border-top: 1.5px solid #bfdbfe;
+  padding-top: clamp(48px, 6vw, 72px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.med-follow h2 {
+  margin: 0;
+  max-width: 440px;
+  font: 600 clamp(28px, 3.2vw, 42px)/1.2 'Manrope', sans-serif;
+  color: #070707;
+  letter-spacing: -0.015em;
+}
+
+.med-follow-icons {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 22px);
+  flex-wrap: wrap;
+}
+
+.med-follow-icon {
+  width: clamp(48px, 4vw, 56px);
+  height: clamp(48px, 4vw, 56px);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0080ff 0%, #0056eb 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.28);
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.35s ease;
+  text-decoration: none;
+}
+
+/* Dynamic Green/Cyan/Blue gradient overlay on hover */
+.med-follow-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e 0%, #38b34a 32%, #48cae4 70%, #0061f8 100%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.med-follow-icon:hover::before {
+  opacity: 1;
+}
+
+.med-follow-icon:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 24px rgba(56, 179, 74, 0.35);
+}
+
+.med-follow-icon svg {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.med-follow-icon:hover svg {
+  transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .med-news-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .med-news-image {
+    width: 100%;
+    max-width: 100%;
+    height: 180px;
+  }
+
+  .med-news-body {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .med-news-title {
+    max-width: 100%;
+  }
+
+  .med-read-more {
+    align-self: flex-start;
+  }
+
+  .med-report-copy {
+    margin-left: 0;
+  }
+
+  .med-follow-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .med-follow-icon img {
+    width: 34px;
+    height: 34px;
+  }
+}

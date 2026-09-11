@@ -62,6 +62,7 @@ export default defineConfig({
         '**/public/**',
         '**/dist/**',
         '**/.git/**',
+        '**/friend/**',
         '**/*.png',
         '**/*.jpg',
         '**/*.jpeg',

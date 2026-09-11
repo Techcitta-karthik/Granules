@@ -44,7 +44,7 @@ const FACILITIES: Facility[] = [
     fdCapacity: '1.1 Bn',
   },
   {
-    name: 'GLS (Granules Life Sciences)',
+    name: 'Granules Life Sciences',
     location: 'HYDERABAD, TELANGANA',
     category: 'Formulations',
     country: 'India',
@@ -117,7 +117,7 @@ const FACILITIES: Facility[] = [
     category: 'CDMO',
     country: 'Switzerland',
     countryCode: 'CH',
-    image: 'senn-chemicals-dielsdorf.jpg',
+    image: 'Senn Chem.png',
     specialization: 'Peptide CDMO',
   },
 ];

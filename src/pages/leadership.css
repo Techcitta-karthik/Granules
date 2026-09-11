@@ -137,14 +137,14 @@
   background: linear-gradient(90deg, #66cef5 0%, #38b34a 45%, #0061f8 100%);
 }
 
-/* Leader Cards Grid (3 cards per row in both Board of Directors and Management Team) */
+/* Leader Cards Grid (3 cards per row for clean, well-proportioned corporate cards) */
 .ld-grid {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
   margin: clamp(36px, 4vw, 56px) auto 0 !important;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(36px, 4vw, 56px) clamp(24px, 2.5vw, 36px);
+  gap: clamp(32px, 3.5vw, 52px) clamp(24px, 2.5vw, 36px);
 }
 
 .ld-card {
@@ -172,7 +172,7 @@
   aspect-ratio: 1 / 1 !important;
   border-radius: 20px;
   overflow: hidden;
-  background: #f1f5f9;
+  background: #ffffff;
   position: relative;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -189,7 +189,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center center;
   display: block;
   transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
 }
@@ -199,14 +199,13 @@
 }
 
 /* Individual passport-style headshot calibration & proportion alignments */
-.ld-photo--sankar-rao img,
-.ld-profile-img--sankar-rao img {
+.ld-photo--krishna-prasad img,
+.ld-profile-img--krishna-prasad img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
-.ld-card:hover .ld-photo--sankar-rao img {
+.ld-card:hover .ld-photo--krishna-prasad img {
   transform: scale(1.03) !important;
 }
 
@@ -214,65 +213,9 @@
 .ld-profile-img--uma-devi img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--uma-devi img {
-  transform: scale(1.03) !important;
-}
-
-.ld-photo--saumen-chakraborty img,
-.ld-profile-img--saumen-chakraborty img {
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform: none !important;
-}
-
-.ld-card:hover .ld-photo--saumen-chakraborty img {
-  transform: scale(1.03) !important;
-}
-
-.ld-photo--kapil-mehan img,
-.ld-profile-img--kapil-mehan img {
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform: none !important;
-}
-
-.ld-card:hover .ld-photo--kapil-mehan img {
-  transform: scale(1.03) !important;
-}
-
-.ld-photo--sethurathnam-ravi img,
-.ld-profile-img--sethurathnam-ravi img {
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform: none !important;
-}
-
-.ld-card:hover .ld-photo--sethurathnam-ravi img {
-  transform: scale(1.03) !important;
-}
-
-.ld-photo--pv-srinivas img,
-.ld-profile-img--pv-srinivas img {
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform: none !important;
-}
-
-.ld-card:hover .ld-photo--pv-srinivas img {
-  transform: scale(1.03) !important;
-}
-
-.ld-photo--harsha img,
-.ld-profile-img--harsha img {
-  object-fit: cover !important;
-  object-position: center center !important;
-  transform: none !important;
-}
-
-.ld-card:hover .ld-photo--harsha img {
   transform: scale(1.03) !important;
 }
 
@@ -280,21 +223,29 @@
 .ld-profile-img--priyanka img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--priyanka img {
   transform: scale(1.03) !important;
 }
 
-.ld-photo--krishna-prasad img,
-.ld-profile-img--krishna-prasad img {
+.ld-photo--harsha img,
+.ld-profile-img--harsha img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
-.ld-card:hover .ld-photo--krishna-prasad img {
+.ld-card:hover .ld-photo--harsha img {
+  transform: scale(1.03) !important;
+}
+
+.ld-photo--sankar-rao img,
+.ld-profile-img--sankar-rao img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.ld-card:hover .ld-photo--sankar-rao img {
   transform: scale(1.03) !important;
 }
 
@@ -302,47 +253,98 @@
 .ld-profile-img--arun-sawhney img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--arun-sawhney img {
   transform: scale(1.03) !important;
 }
 
+.ld-photo--saumen-chakraborty img,
+.ld-profile-img--saumen-chakraborty img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.ld-card:hover .ld-photo--saumen-chakraborty img {
+  transform: scale(1.03) !important;
+}
+
 .ld-photo--sucharita-palepu img,
 .ld-profile-img--sucharita-palepu img {
   object-fit: cover !important;
-  object-position: center 12% !important;
+  object-position: center 8% !important;
+}
+
+.ld-card:hover .ld-photo--sucharita-palepu img {
+  transform: scale(1.03) !important;
+}
+
+.ld-photo--kapil-mehan img,
+.ld-profile-img--kapil-mehan img {
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: scale(0.92);
+  transform-origin: center center;
+}
+
+.ld-card:hover .ld-photo--kapil-mehan img {
+  transform: scale(0.95) !important;
 }
 
 .ld-photo--rajiv-kakodkar img,
 .ld-profile-img--rajiv-kakodkar img {
   object-fit: cover !important;
-  object-position: center 12% !important;
+  object-position: center 8% !important;
+}
+
+.ld-card:hover .ld-photo--rajiv-kakodkar img {
+  transform: scale(1.03) !important;
+}
+
+.ld-photo--sethurathnam-ravi img,
+.ld-profile-img--sethurathnam-ravi img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.ld-card:hover .ld-photo--sethurathnam-ravi img {
+  transform: scale(1.03) !important;
 }
 
 .ld-photo--mukesh-surana img,
 .ld-profile-img--mukesh-surana img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--mukesh-surana img {
   transform: scale(1.03) !important;
 }
 
+.ld-photo--pv-srinivas img,
+.ld-profile-img--pv-srinivas img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.ld-card:hover .ld-photo--pv-srinivas img {
+  transform: scale(1.03) !important;
+}
+
 .ld-photo--vinodkumar-parur img,
 .ld-profile-img--vinodkumar-parur img {
   object-fit: cover !important;
-  object-position: center 12% !important;
+  object-position: center 8% !important;
+}
+
+.ld-card:hover .ld-photo--vinodkumar-parur img {
+  transform: scale(1.03) !important;
 }
 
 .ld-photo--ramraj-rangarajalu img,
 .ld-profile-img--ramraj-rangarajalu img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--ramraj-rangarajalu img {
@@ -352,14 +354,17 @@
 .ld-photo--manikandan-ramalingam img,
 .ld-profile-img--manikandan-ramalingam img {
   object-fit: cover !important;
-  object-position: center 12% !important;
+  object-position: center 8% !important;
+}
+
+.ld-card:hover .ld-photo--manikandan-ramalingam img {
+  transform: scale(1.03) !important;
 }
 
 .ld-photo--sanjay-kumar img,
 .ld-profile-img--sanjay-kumar img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--sanjay-kumar img {
@@ -370,7 +375,6 @@
 .ld-profile-img--baskaran-pn img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--baskaran-pn img {
@@ -381,7 +385,6 @@
 .ld-profile-img--vijay-raghavan img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--vijay-raghavan img {
@@ -392,7 +395,6 @@
 .ld-profile-img--rajesh-kapoor img {
   object-fit: cover !important;
   object-position: center center !important;
-  transform: none !important;
 }
 
 .ld-card:hover .ld-photo--rajesh-kapoor img {

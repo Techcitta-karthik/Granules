@@ -132,12 +132,11 @@ export default function MediaPage() {
           <span className="sep">›</span>
           <span className="current">MEDIA</span>
         </p>
-        <h1 className="cp-page-title">Media</h1>
       </div>
 
       <div className="med-hero">
         <img
-          src="/assets/media/media-hero-banner.jpg"
+          src="/assets/media/hero-banner.webp"
           alt="Granules Global Media and Communications"
           className="med-hero-img"
           loading="eager"
@@ -568,8 +567,8 @@ export default function MediaPage() {
       {/* Media Contact Us Section */}
       <section className="med-contact-section" aria-label="Media Contacts">
         <div className="med-contact-head">
-          <span className="cp-section-badge">Media Contact</span>
-          <h2>Media &amp; Press Enquiries</h2>
+          <span className="cp-section-badge">Get in Touch</span>
+          <h2>Media Contact</h2>
           <h4>
             For journalist inquiries, interview requests, official statements, and corporate media information, our communications team is here to assist you.
           </h4>

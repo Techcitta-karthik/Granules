@@ -351,9 +351,8 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     name: 'Mr. Sanjay Kumar',
     role: 'Chief Executive Officer, Senn Tides India Private Limited',
     profile: [
-      'Sanjay is a B.Tech from IIT Kanpur and holds an MBA from IIM Bangalore. He is a qualified CFA and has done courses in Business Analytics and Corporate Business Strategy.',
-      'Sanjay has over 20 years of experience in Corporate Strategy, Budgeting & Planning process, Performance management, Capital Projects Evaluations, Business case and Financial Modelling. He has worked closely with senior leadership teams in various Organizations to enable decision making and execution of key programs.',
-      'In Granules, Sanjay focuses on Corporate Strategy Planning, Growth Levers identification, Due Diligence of New Business and Ventures opportunities, and Annual Business Planning & Review. He was earlier associated with organizations such as Viatris (formerly Mylan), Granules India, Wanbury, and Indian Engineering Services (Civil Services).',
+      'Sanjay Kumar holds a B.Tech from IIT Kanpur and an MBA from IIM Bangalore, where he was on the Directors Merit List. He has completed the CFA Program (CFA Institute, USA) and attended the Stanford Graduate School of Business. He brings over 20 years of experience in corporate strategy, M&A, investor relations, and business transformation across global pharmaceutical organisations.',
+      'Sanjay is the Chief Executive Officer of Ascelis Peptides, Granules Indias peptide CDMO subsidiary. Previously, he served as Chief Strategy Officer and Chief Sustainability Officer at Granules India and was responsible for driving enterprise strategy, evaluating growth opportunities, leading mergers and acquisitions, managing investor relations, and advancing the companys sustainability agenda. Under his leadership, Granules corporate sustainability programme earned top industry recognitions.',
     ],
   },
   {

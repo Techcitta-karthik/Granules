@@ -9,8 +9,8 @@ type SubsidiaryItem = {
   name: string;
   image: string;
   description: string;
-  ctaText: string;
-  ctaHref: string;
+  ctaText?: string;
+  ctaHref?: string;
   isExternal?: boolean;
 };
 
@@ -26,31 +26,29 @@ const SUBSIDIARY_ITEMS: SubsidiaryItem[] = [
   },
   {
     index: '02',
-    name: 'Granules CZRO',
-    image: '/assets/czro/hero-banner.webp',
-    description:
-      'Integrating sustainability through green chemistry, circular manufacturing, and net-zero innovation.',
-    ctaText: 'Learn More',
-    ctaHref: '/company/granules-czro',
-  },
-  {
-    index: '03',
     name: 'Granules Pharmaceuticals Inc.',
-    image: '/assets/company/gpi-facility.webp',
+    image: '/assets/company/GPI-Cover.jpeg',
     description:
-      "R&D and manufacturing facility producing oral solid dosage forms and drives commercialisation of products manufactured at Granules' India facility.",
+      "Strengthening patient access in North America through direct commercial presence and manufacturing base.",
     ctaText: 'Visit Website',
     ctaHref: 'https://www.granulespharma.com/',
     isExternal: true,
   },
   {
-    index: '04',
+    index: '03',
     name: 'Senn Tides India Private Limited',
     image: '/assets/ascelis/hero-banner.webp',
     description:
       'Advancing peptide-based therapies through specialized CDMO capabilities.',
     ctaText: 'Learn More',
     ctaHref: '/company/senn-tides',
+  },
+  {
+    index: '04',
+    name: 'Granules CZRO',
+    image: '/assets/czro/hero-banner.webp',
+    description:
+      "Integrating sustainability through green chemistry, circular manufacturing, and net-zero innovation.",
   },
 ];
 
@@ -84,60 +82,62 @@ export default function GlobalSubsidiariesPage() {
           <span className="global-sub-card-index">{sub.index}</span>
         </div>
 
-      <div className="global-sub-card-content">
-        <h2 className="global-sub-card-title">{sub.name}</h2>
-        <p className="global-sub-card-desc">{sub.description}</p>
+        <div className="global-sub-card-content">
+          <h2 className="global-sub-card-title">{sub.name}</h2>
+          <p className="global-sub-card-desc">{sub.description}</p>
 
-        <div className="global-sub-card-action">
-          {sub.isExternal ? (
-            <a
-              href={sub.ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="global-sub-card-cta"
-            >
-              <span>{sub.ctaText}</span>
-              <span className="global-sub-cta-icon-circle">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
+          {sub.ctaHref && (
+            <div className="global-sub-card-action">
+              {sub.isExternal ? (
+                <a
+                  href={sub.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="global-sub-card-cta"
                 >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </span>
-            </a>
-          ) : (
-            <Link to={sub.ctaHref} className="global-sub-card-cta">
-              <span>{sub.ctaText}</span>
-              <span className="global-sub-cta-icon-circle">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </span>
-            </Link>
+                  <span>{sub.ctaText}</span>
+                  <span className="global-sub-cta-icon-circle">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </span>
+                </a>
+              ) : (
+                <Link to={sub.ctaHref} className="global-sub-card-cta">
+                  <span>{sub.ctaText}</span>
+                  <span className="global-sub-cta-icon-circle">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </span>
+                </Link>
+              )}
+            </div>
           )}
         </div>
-      </div>
-    </article>
+      </article>
     );
   };
 
@@ -155,7 +155,7 @@ export default function GlobalSubsidiariesPage() {
       </p>
 
       {/* Page Title */}
-      <h1 className="cp-page-title">Global Subsidiaries</h1>
+      <h1 className="cp-page-title">Expanding Horizons. Enhancing Access</h1>
 
       {/* Hero Visual Banner */}
       <div className="cp-hero-banner global-sub-hero-banner">

@@ -1152,10 +1152,9 @@ p {
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  display: grid;
-  grid-template-columns: .95fr 1.2fr;
-  gap: 60px;
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
   color: white;
   transition: background-image 0.5s ease-in-out;
 }
@@ -1166,13 +1165,10 @@ p {
   background: linear-gradient(90deg, rgba(0, 76, 111, .64), rgba(0, 137, 183, .08));
 }
 
-.sustainability-copy,
-.accordion {
-  position: relative;
-  z-index: 1;
-}
-
 .sustainability-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
   animation: sustain-copy-fade 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -1198,6 +1194,7 @@ p {
   font-size: clamp(28px, 2.2vw, 40px);
   font-weight: 700;
   line-height: 1.15;
+  color: #ffffff !important;
 }
 
 .sustainability-copy h4,
@@ -1209,20 +1206,114 @@ p {
   line-height: 1.5 !important;
   letter-spacing: .01em;
   margin-top: 14px;
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .sustainability-copy .button {
   margin-top: 18px;
 }
 
+.sustainability.theme-community .sustainability-overlay {
+  background: linear-gradient(90deg, rgba(0, 75, 100, .72), rgba(0, 140, 160, .14));
+}
+
+.sustainability.theme-community .sustainability-copy .tag,
+.tag.tag-teal {
+  background: #d4f7f5 !important;
+  color: #00827b !important;
+}
+
 .button.green {
   background: linear-gradient(#00c21c, #008714);
+}
+
+.button.teal {
+  background: linear-gradient(135deg, #0ea5a0 0%, #0d9488 50%, #0f766e 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+
+.button.teal:hover {
+  background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.45);
+}
+
+/* Sustainability Bottom Corner Icon Toggles */
+.sustainability-toggles {
+  position: absolute;
+  bottom: 50px;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 3;
+}
+
+.sustain-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0.65;
+  transform: scale(0.94);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sustain-toggle-btn:hover {
+  opacity: 1;
+  transform: scale(1.06);
+  border-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.sustain-toggle-btn.active {
+  opacity: 1;
+  transform: scale(1.12);
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 6px 22px rgba(0, 0, 0, 0.35);
+}
+
+.sustain-toggle-btn .accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sustain-toggle-btn .accordion-icon-plain {
+  width: 38px;
+  height: 38px;
+}
+
+.sustain-toggle-btn .accordion-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%) !important;
+}
+
+.sustain-toggle-btn .accordion-icon-circle img {
+  width: 55%;
+  height: 55%;
 }
 
 .accordion {
   display: grid;
   gap: 16px;
   color: var(--green);
+}
+
+.sustainability.theme-community .accordion {
+  color: #0d9488;
 }
 
 .accordion article {
@@ -1236,6 +1327,10 @@ p {
 .accordion article.open {
   background: #f2fff3;
   backdrop-filter: none;
+}
+
+.sustainability.theme-community .accordion article.open {
+  background: #f0fdfa;
 }
 
 .accordion button {
@@ -1254,8 +1349,16 @@ p {
   color: var(--green);
 }
 
+.sustainability.theme-community .accordion button {
+  color: #0d9488;
+}
+
 .accordion article.open button {
   font-size: 26px;
+}
+
+.sustainability.theme-community .accordion article.open button {
+  color: #0f766e;
 }
 
 .accordion-head {
@@ -1276,6 +1379,10 @@ p {
   height: 40px;
   border-radius: 24px;
   background: linear-gradient(#6cff81, #19c308);
+}
+
+.sustainability.theme-community .accordion-icon-circle {
+  background: linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%);
 }
 
 article.open .accordion-icon-circle {
@@ -1313,10 +1420,14 @@ article.open .accordion-icon-circle {
   color: var(--green);
 }
 
+.sustainability.theme-community .accordion p {
+  color: #0f766e;
+}
+
 .investor {
   display: grid;
-  grid-template-columns: .95fr 1.05fr;
-  gap: clamp(40px, 6vw, 100px);
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(36px, 4.5vw, 72px);
   align-items: center;
 }
 
@@ -1352,14 +1463,14 @@ article.open .accordion-icon-circle {
 
 .investor-panel {
   display: flex;
-  gap: 24px;
+  gap: clamp(20px, 2.5vw, 36px);
   align-items: stretch;
 }
 
 .investor-cover {
-  flex: 0 0 clamp(260px, 22vw, 340px);
-  width: clamp(260px, 22vw, 340px);
-  min-height: 380px;
+  flex: 0 0 clamp(230px, 18vw, 290px);
+  width: clamp(230px, 18vw, 290px);
+  aspect-ratio: 1 / 1.26;
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 34, 90, 0.08);
@@ -1381,93 +1492,18 @@ article.open .accordion-icon-circle {
 }
 
 .investor-side {
-  flex: 1 1 320px;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  justify-content: space-between;
-}
-
-.stock-price-card {
-  box-sizing: border-box;
-  padding: 22px 26px;
-  border-radius: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  background: #edf5ff;
-  border: 1px solid rgba(0, 97, 248, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 86, 214, 0.05);
-  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
-}
-
-.stock-price-card:hover {
-  transform: translateY(-2px);
-  background: #e4f0ff;
-  box-shadow: 0 10px 24px rgba(0, 86, 214, 0.12);
-}
-
-.stock-price-card>span {
-  font-family: 'Manrope', sans-serif;
-  font-size: 13px;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #0061f8;
-}
-
-.exchange-links {
-  display: flex;
-  gap: 12px;
-}
-
-.exchange-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 42px;
-  padding: 0 22px;
-  border-radius: 9999px;
-  background: #ffffff;
-  color: #0061f8;
-  border: 1.5px solid rgba(0, 97, 248, 0.22);
-  font-family: 'Manrope', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.06);
-  transition: all .25s cubic-bezier(0.2, 0, 0.2, 1);
-}
-
-.exchange-pill .arrow-ne {
-  width: 12px;
-  height: 12px;
-  transform: rotate(45deg);
-  transition: transform .2s ease, filter .2s ease;
-}
-
-.exchange-pill:hover {
-  background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
-  color: #ffffff;
-  border-color: #0061f8;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 64, 162, 0.35);
-}
-
-.exchange-pill:hover .arrow-ne {
-  filter: brightness(0) invert(1);
-  transform: rotate(45deg) translate(2px, -2px);
 }
 
 .investor-docs {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1;
 }
 
 .investor-doc {
@@ -1475,12 +1511,17 @@ article.open .accordion-icon-circle {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 12px 16px;
-  border-radius: 14px;
+  padding: 0 16px;
+  border-radius: 12px;
   border-bottom: 1px solid #edf2f7;
   color: #0f172a;
   font-family: 'Manrope', sans-serif;
   transition: all .2s ease;
+  flex: 1;
+}
+
+.investor-doc:last-child {
+  border-bottom: none;
 }
 
 .investor-doc:hover {
@@ -1491,13 +1532,16 @@ article.open .accordion-icon-circle {
 .investor-doc-title {
   color: #0f172a;
   font-family: 'Manrope', sans-serif;
-  font-size: 16px;
+  font-size: clamp(14px, 0.95vw, 15.5px);
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -.01em;
   text-decoration: none;
   transition: color .2s ease;
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .investor-doc:hover .investor-doc-title,
@@ -1508,7 +1552,7 @@ article.open .accordion-icon-circle {
 .investor-doc-actions {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
@@ -1520,7 +1564,7 @@ article.open .accordion-icon-circle {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-radius: 6px;
   transition: all 0.2s ease;
 }
@@ -2161,9 +2205,12 @@ footer[id] {
   }
 
   .sustainability {
-    grid-template-columns: 1fr 1.2fr;
     padding: 55px;
-    gap: 45px;
+  }
+
+  .sustainability-toggles {
+    bottom: 45px;
+    right: 55px;
   }
 
   .accordion button {
@@ -2394,11 +2441,17 @@ footer[id] {
   .sustainability {
     width: calc(100% - 24px);
     min-height: auto;
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 55px;
     padding: 42px 28px;
-    gap: 42px;
     border-radius: 22px;
+  }
+
+  .sustainability-toggles {
+    position: static;
+    margin-top: 28px;
+    justify-content: flex-start;
   }
 
   .accordion button {
@@ -2411,7 +2464,22 @@ footer[id] {
   }
 
   .investor-panel {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .investor-cover {
+    width: 250px;
+    max-width: 100%;
+  }
+
+  .investor-side {
+    width: 100%;
+  }
+
+  .investor-doc {
+    padding: 12px 10px;
   }
 
   .news-grid {

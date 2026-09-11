@@ -26,7 +26,7 @@ const MILESTONES: MilestoneEntry[] = [
   { year: '2023', image: 'y2023.png', caption: 'Set up GPAK, a ~80,000 sq. ft. packaging facility with four packaging suites and a warehousing facility; Established new purpose, mission and values.' },
   { year: '2024', image: 'y2024.png', caption: 'Granules Life Sciences (GLS) successfully commenced operations with a planned FD capacity of 10 billion dosages annually; Granules CZRO pilot plant commenced operations.' },
   { year: '2025', image: 'y2025.png', caption: 'Successfully acquired Switzerland’s peptide CDMO firm Senn Chemicals AG; Inaugurated phase-II of GLS expanding dosage capacity to 10bn dosages.' },
-  { year: '2026', image: 'hero-banner.png', caption: 'Expanded innovation capabilities through new R&D centres at IIT Hyderabad dedicated to peptide development and particle engineering' },
+  { year: '2026', image: '2026.jpg', caption: 'Expanded innovation capabilities through new R&D centres at IIT Hyderabad dedicated to peptide development and particle engineering' },
 ];
 
 export default function MilestonePage() {

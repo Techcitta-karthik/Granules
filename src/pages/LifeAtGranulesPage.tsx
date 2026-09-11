@@ -64,8 +64,8 @@ const PEOPLE_SLIDES = [
   },
   {
     id: 'people-team',
-    image: 'hero-real.png',
-    alt: 'Granules India colleagues sharing a laugh in the workplace',
+    image: 'life-people-team.jpg',
+    alt: 'Granules India colleagues collaborating and sharing ideas in the workplace',
   },
 ];
 

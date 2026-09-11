@@ -11,7 +11,7 @@ const heroSlides = [
   {
     image: 'Home/1.jpg',
     title: 'Globally approved. Vertically integrated. Trusted worldwide',
-    cta: 'Our Products',
+    cta: 'Generics',
     link: '/business/generics',
   },
   {
@@ -27,16 +27,16 @@ const heroSlides = [
     link: '/business/quality-compliance',
   },
   {
-    image: 'Home/4.jpg',
-    title: 'Innovating for health. Committed to the planet',
-    cta: 'Sustainability',
-    link: '/sustainability',
-  },
-  {
     image: 'Home/5.jpg',
     title: 'Accelerating Innovation Through Integration and Digitalization',
     cta: 'Research & Development',
     link: '/business/rd',
+  },
+  {
+    image: 'Home/4.jpg',
+    title: 'Innovating for health. Committed to the planet',
+    cta: 'Sustainability',
+    link: '/sustainability',
   },
 ];
 
@@ -310,7 +310,7 @@ function About() {
   return (
     <section className="section shell about" id="about">
       <div className="about-copy">
-        <h2>Driving global healthcare through scalable pharma leadership</h2>
+        <h2>Global healthcare through scalable pharma leadership</h2>
         <h4>
           With over four decades of industry leadership, Granules India is committed to delivering
           high-quality, affordable medicines globally, through an integrated manufacturing platform.
@@ -324,7 +324,7 @@ function About() {
       </div>
       <div className="about-stats-wrap">
         <div className="stats">
-          <article className="stat"><CountUp to={80} suffix="+" /><span>COUNTRIES SERVED</span></article>
+          <article className="stat"><CountUp to={100} suffix="+" /><span>COUNTRIES SERVED</span></article>
           <article className="stat"><CountUp to={40} suffix="+" /><span>YEARS OF EXCELLENCE</span></article>
           <article className="stat"><CountUp to={10} /><span>MANUFACTURING FACILITIES<br />ACROSS INDIA, US &amp; EUROPE</span></article>
           <article className="stat"><CountUp to={6} /><span>R&amp;D CENTERS OF EXCELLENCE</span></article>
@@ -349,9 +349,9 @@ function Business() {
           <h4>
             We serve patients and our partners across the globe with a vertically integrated model
             that brings together innovation, manufacturing excellence, and compliance at scale. With
-            established capabilities across APIs, PFIs, finished dosages and peptide CDMO, we are
+            established capabilities across APIs, PFIs, Finished Dosages and Peptide CDMO, we are
             also strengthening our portfolio complexity across therapies with high-barrier, early to
-            market opportunities in Central Nervous System (CNS), oncology and metabolic disorders.
+            market opportunities in (CNS), oncology and metabolic disorders.
           </h4>
         </div>
         <Button href="/business">Generics &rarr;</Button>
@@ -425,7 +425,7 @@ function Presence() {
     <section className={`presence presence-state-${active}`} id="presence">
       <div className="presence-copy">
         <Tag>Our Presence</Tag>
-        <h2>Trusted healthcare partner in 80+ countries</h2>
+        <h2>Trusted healthcare partner in 100+ countries</h2>
       </div>
 
       <div className="map-wrap">
@@ -665,89 +665,87 @@ function Credentials() {
 }
 
 function Sustainability({ open = 0, setOpen }) {
+  const [isPaused, setIsPaused] = useState(false);
+
   const items = [
     {
-      title: 'Target to achieve Net Zero by 2050',
+      title: open === 0 ? 'Target to achieve Net Zero by 2050' : 'Sustainability',
       tag: 'Sustainability',
       heading: 'Where science acts responsibly',
-      heroBody: 'From reducing our carbon footprint and investing in clean energy to building community resilience through skill development, we are shaping a healthier, more sustainable world.',
+      heroBody: 'We are committed to science-based decarbonization, with SBTi-validated targets guiding our journey toward Net Zero emissions..',
       href: '/sustainability',
-      body: 'We are committed to science-based decarbonization, with SBTi-validated targets guiding our journey toward Net Zero emissions.',
       icon: 'icon-recycle-leaf.svg',
       iconType: 'plain',
       linkHref: '/sustainability',
-      cta: 'View Decarbonisation Strategy',
+      cta: 'Learn More',
       bg: `${A}sustainability-net-zero.jpg`,
     },
     {
       title: 'Community',
       tag: 'Community',
-      heading: 'Driving meaningful impact, enriching communities',
-      heroBody: 'Guided by empathy and responsibility, we support healthcare access, quality education, rural development, and specialised skill training at Pharma Patashala to transform lives.',
+      heading: 'Purpose Beyond Business',
+      heroBody: 'Guided by our responsibility to society, we support initiatives that improve access to healthcare, enable education, enhance employability, and promote environmental awareness, helping create stronger and more resilient communities.',
       href: '/community',
-      body: 'Through healthcare initiatives, education, and skill development at Pharma Patashala, we empower underserved communities and create long-term social value.',
       icon: 'icon-windmill-sustain.svg',
       iconType: 'circle',
       linkHref: '/community',
-      cta: 'Explore Community Initiatives',
+      cta: 'Learn More',
       bg: `${A}sustainability.webp`,
     },
   ];
 
+  // Auto-shift between Sustainability and Community every 5 seconds (pauses on hover)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setOpen?.((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, setOpen]);
+
   const activeIndex = open >= 0 && open < items.length ? open : 0;
   const currentItem = items[activeIndex];
   const currentBg = currentItem.bg;
+  const isCommunity = activeIndex === 1;
 
   return (
-    <section className="sustainability" id="sustainability" style={{ backgroundImage: `url(${currentBg})` }}>
+    <section
+      className={`sustainability ${isCommunity ? 'theme-community' : ''}`}
+      id="sustainability"
+      style={{ backgroundImage: `url(${currentBg})` }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
       <div className="sustainability-overlay" />
       <div className="sustainability-copy" key={currentItem.tag}>
-        <Tag>{currentItem.tag}</Tag>
+        <Tag className={isCommunity ? 'tag-teal' : ''}>{currentItem.tag}</Tag>
         <h2>{currentItem.heading}</h2>
         <h4>{currentItem.heroBody}</h4>
-        <Button href={currentItem.href} className="green">Learn More &rarr;</Button>
+        <Button href={currentItem.href} className={isCommunity ? 'teal' : 'green'}>Learn More &rarr;</Button>
       </div>
-      <div className="accordion">
-        {items.map((item, index) => (
-          <article className={open === index ? 'open' : ''} key={item.title}>
-            <button onClick={() => setOpen && setOpen(index)}>
-              <span className="accordion-head">
-                <i className={`accordion-icon accordion-icon-${item.iconType}`}>
-                  <img src={`${A}${item.icon}`} alt="" loading="lazy" decoding="async" />
-                </i>
-                <span>{item.title}</span>
-              </span>
-              <img
-                className="accordion-toggle"
-                src={`${A}${open === index ? 'icon-minus-round.svg' : 'icon-plus-round.svg'}`}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+      {/* Bottom Corner Icon Toggles */}
+      <div className="sustainability-toggles" role="tablist" aria-label="Select sustainability topic">
+        {items.map((item, index) => {
+          const isActive = open === index;
+          return (
+            <button
+              key={item.tag}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              aria-label={`Switch to ${item.tag}`}
+              title={item.tag}
+              className={`sustain-toggle-btn ${isActive ? 'active' : ''} sustain-toggle-${item.tag.toLowerCase()}`}
+              onClick={() => setOpen && setOpen(index)}
+            >
+              <i className={`accordion-icon accordion-icon-${item.iconType}`}>
+                <img src={`${A}${item.icon}`} alt="" loading="lazy" decoding="async" />
+              </i>
             </button>
-            {open === index && (
-              <div style={{ marginTop: '16px' }}>
-                <p>{item.body}</p>
-                <Link
-                  to={item.linkHref}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    marginTop: '12px',
-                    color: 'var(--green)',
-                    fontWeight: 700,
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <span>{item.cta}</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </div>
-            )}
-          </article>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
@@ -756,9 +754,9 @@ function Sustainability({ open = 0, setOpen }) {
 function Investor() {
   const docs = [
     {
-      title: 'Integrated annual report 2024-25',
-      href: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
-      download: 'Granules_Integrated_Annual_Report_2024-25.pdf',
+      title: 'Integrated annual report 2025-26',
+      href: '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf',
+      download: 'Granules_Annual_Report_FY26.pdf',
     },
     {
       title: 'Q2 Results for 2026',
@@ -795,11 +793,11 @@ function Investor() {
           Driven by operational excellence and responsible growth, we remain focused on creating
           sustainable value for our investors.
         </p>
-        <Button href="/investor">ABOUT INVESTORS &rarr;</Button>
+        <Button href="/investor">INVESTORS &rarr;</Button>
       </div>
       <div className="investor-panel">
         <a
-          href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+          href="/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="investor-cover"
@@ -910,8 +908,8 @@ function Careers() {
     <section className="careers shell" id="careers" style={{ backgroundImage: `url(${A}career.webp)` }}>
       <div>
         <h2>Shape healthcare with Granules</h2>
-        <p>Every role here strengthens access to affordable treatment for millions.</p>
-        <Button href="/careers">Explore Careers &rarr;</Button>
+        <p>Every role here strengthens access to affordable healthcare for millions.</p>
+        <Button href="/careers">Careers &rarr;</Button>
       </div>
     </section>
   );

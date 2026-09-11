@@ -27,15 +27,6 @@ const CAPABILITY_CARDS: CapabilityCard[] = [
   },
 ];
 
-const RESPONSIBILITY_ITEMS = [
-  'Sustainable design & green manufacturing systems',
-  'Energy-efficient systems & low-emission footprint',
-  'Advanced safety protocols & workforce standards',
-  'GMP-compliant infrastructure & USFDA approvals',
-  'Advanced automation & high-throughput robotics',
-  'Digital oversight & end-to-end quality assurance',
-];
-
 export default function GranulesLifeSciencesPage() {
   const [openCard, setOpenCard] = useState(-1);
 
@@ -43,7 +34,7 @@ export default function GranulesLifeSciencesPage() {
     document.title = 'Granules Life Sciences | Pharmaceutical Manufacturing in India';
 
     const descriptionContent =
-      'A state-of-the-art vertically integrated manufacturing facility in Genome Valley, Hyderabad, capable of producing 10 billion oral solid dosage units annually.';
+      'A state-of-the-art vertically integrated manufacturing facility in Genome Valley, Hyderabad, capable of delivering 10 billion oral solid dosage units annually.';
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
@@ -77,24 +68,28 @@ export default function GranulesLifeSciencesPage() {
         </div>
       </div>
 
-      <div className="gls-intro">
+      <div className="cp-about-desc gls-intro">
         <p>
-          <span>Granules Life Sciences (GLS) is a wholly owned subsidiary of Granules India, located in Genome Valley, Hyderabad. GLS is a state-of-the-art vertically integrated manufacturing facility capable of producing <strong>10 billion oral solid dosage (OSD) units annually</strong>, </span>
-          <span className="muted">approved by the USFDA and with EU GMP certification underway.</span>
+          <span>Granules Life Sciences (GLS) is a wholly owned subsidiary of Granules India, located in Genome Valley, Hyderabad. GLS is a state-of-the-art formulations manufacturing facility capable of delivering <strong>10 billion oral solid dosage (OSD) units annually</strong>. </span>
+          <span>This facility is approved by the USFDA and with EU GMP certification underway.</span>
         </p>
         <p>
           Strategically designed layout in five acres of land to produce 10 billion oral solid dosages/annum, with additional 14 acres of land reserved for future expansion—ensuring we are equipped to meet growing global demand with speed, flexibility, and compliance. With advanced automation, GMP-compliant infrastructure, and green manufacturing systems at its core, GLS is built for precision, reliability, and sustained growth.
+        </p>
+        <p>
+          We have developed a state-of-the-art pharmaceutical manufacturing facility capable of delivering 10 billion dosage units annually in 5 acres out of 19.6 acres layout. This site is approved by USFDA and we are in a process of obtaining EU GMP certification in this calendar year. The remaining 14.6 acres have been strategically reserved for future expansion, ensuring scalability and long-term growth potential.
         </p>
       </div>
 
       <div className="gls-section">
         <div className="gls-section-head">
-          <span className="cp-section-badge">Operational Excellence</span>
+          <span className="cp-section-badge" style={{ alignSelf: 'flex-start', width: 'fit-content' }}>Operational Excellence</span>
           <h2>High-Performance Formulation Manufacturing</h2>
           <p>
             With automated production lines, lean process design, and digital oversight, we deliver
             consistent quality with high throughput and shorter lead time for supplies into regulated markets.
           </p>
+          <p>Built for long-term responsibility, the site integrates sustainable design, energy-efficient systems, and advanced safety protocols, ensuring operational excellence without compromising environmental or workforce safety standards. GLS reflects our commitment to building a future-ready pharmaceutical supply chain. </p>
         </div>
         <div className="gls-cards-grid">
           {CAPABILITY_CARDS.map((card, idx) => {
@@ -121,35 +116,6 @@ export default function GranulesLifeSciencesPage() {
               </article>
             );
           })}
-        </div>
-      </div>
-
-      <div className="gls-culture">
-        <img className="bg" src={`${G}culture-of-action-bg.png`} alt="" />
-        <div className="overlay" />
-        <div className="gls-culture-inner">
-          <h3>Built for Long-Term Responsibility</h3>
-          <div className="gls-culture-card">
-            <p>
-              Built for long-term responsibility, the site integrates sustainable design, energy-efficient
-              systems, and advanced safety protocols, ensuring operational excellence without compromising
-              environmental or workforce safety standards. GLS reflects our commitment to building a
-              future-ready pharmaceutical supply chain.
-            </p>
-            <div className="gls-culture-list">
-              {RESPONSIBILITY_ITEMS.map((item) => (
-                <div className="gls-culture-list-item" key={item}>
-                  <span className="gls-culture-bullet">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5">
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="4" fill="#0061f8" />
-                    </svg>
-                  </span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 

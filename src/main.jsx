@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import '@fontsource/manrope/400.css';
 import '@fontsource/manrope/500.css';
 import '@fontsource/manrope/600.css';
@@ -80,7 +80,9 @@ function App() {
         <Route path="/business/products" element={<ProductPortfolioPage />} />
         <Route path="/business/rd" element={<RdPage />} />
         <Route path="/business/quality-compliance" element={<QualityCompliancePage />} />
-        <Route path="/company/facilities" element={<FacilitiesPage />} />
+        <Route path="/business/facilities" element={<FacilitiesPage />} />
+        <Route path="/facilities" element={<FacilitiesPage />} />
+        <Route path="/company/facilities" element={<Navigate to="/business/facilities" replace />} />
         <Route path="/business/peptides" element={<PeptidesPage />} />
         <Route path="/sustainability" element={<SustainabilityOverviewPage />} />
         <Route path="/sustainability/strategy" element={<SustainabilityStrategyPage />} />

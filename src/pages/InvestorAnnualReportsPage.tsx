@@ -5,6 +5,7 @@ import '../components/company/company.css';
 import './investor.css';
 
 const REPORTS = [
+  { year: 'FY25-26', pdf: '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf', visit: false },
   { year: 'FY24-25', pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf', visit: false },
   { year: 'FY23-24', pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf', visit: true },
   { year: 'FY22-23', pdf: '/documents/Granules-AR-2022-23-532f737451a2.pdf', visit: true },
@@ -51,7 +52,7 @@ export default function InvestorAnnualReportsPage() {
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
           <a
             className="inv-action-link"
-            href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+            href="/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf"
             target="_blank"
             rel="noopener noreferrer"
             title="View Latest Annual Report in new tab"
@@ -61,8 +62,8 @@ export default function InvestorAnnualReportsPage() {
           <span className="inv-action-slash">/</span>
           <a
             className="inv-action-link"
-            href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
-            download="Granules_Integrated-Report-2024-25.pdf"
+            href="/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf"
+            download="Granules_Annual-Report-FY26.pdf"
             target="_blank"
             rel="noopener noreferrer"
             title="Download Latest Annual Report"

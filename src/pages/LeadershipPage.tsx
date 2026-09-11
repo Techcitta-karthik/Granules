@@ -198,7 +198,7 @@ export default function LeadershipPage() {
         </p>
 
         <div className="ld-hero">
-          <h1 className="ld-main-title">Making Granules Future-Ready</h1>
+          <h1 className="ld-main-title">Our Leadership Team</h1>
           <div className="ld-main-desc cp-about-desc">
             <p>
               Granules India is led by a team of seasoned professionals of the pharmaceutical industry. Each leader

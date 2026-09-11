@@ -34,20 +34,13 @@ const SUBMENUS: Record<string, Submenu> = {
     ],
   },
   Company: {
-    sections: [
-      {
-        title: 'Global Subsidiaries',
-        href: '/company/global-subsidiaries',
-        quickLinks: [
-          { label: 'LEADERSHIP', href: '/company/leadership' },
-          { label: 'GRANULES PHARMACEUTICALS INC. (GPI)', href: 'https://www.granulespharma.com/' },
-          { label: 'GRANULES LIFE SCIENCES', href: '/company/granules-life-sciences' },
-          { label: 'SENN TIDES', href: '/company/senn-tides' },
-          { label: 'GRANULES CZRO', href: '/company/granules-czro' },
-        ],
-      },
+    sections: [],
+    links: [
+      { label: 'Overview', href: '/company' },
+      { label: 'Our Journey', href: '/company/milestone' },
+      { label: 'Leadership', href: '/company/leadership' },
+      { label: 'Global Subsidiaries', href: '/company/global-subsidiaries' },
     ],
-    links: [],
   },
   Business: {
     sections: [],
@@ -56,19 +49,15 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Peptides CDMO', href: '/business/peptides' },
       { label: 'Research & Development', href: '/business/rd' },
       { label: 'Quality & Compliance', href: '/business/quality-compliance' },
-      { label: 'Facilities', href: '/company/facilities' },
+      { label: 'Facilities', href: '/business/facilities' },
     ],
   },
   Careers: {
-    sections: [
-      {
-        quickLinks: [
-          { label: 'Life at Granules', href: '/careers' },
-          { label: 'Current Openings', href: '/careers/opportunities' },
-        ],
-      },
+    sections: [],
+    links: [
+      { label: 'Overview', href: '/careers' },
+      { label: 'Current Openings', href: 'https://careers.mygranules.com' },
     ],
-    links: [],
   },
 };
 
@@ -78,14 +67,20 @@ function isActive(link: NavLinkItem, pathname: string, activeSection?: string | 
   }
   if (link.label === 'About Us' || link.label === 'Company') {
     return (
-      pathname.startsWith('/company') ||
+      (pathname.startsWith('/company') ||
       pathname.startsWith('/global-subsidiaries') ||
       pathname.startsWith('/granules-life-sciences') ||
-      pathname.startsWith('/gls')
+      pathname.startsWith('/gls')) &&
+      !pathname.startsWith('/company/facilities')
     );
   }
   if (link.label === 'Business') {
-    return pathname.startsWith('/business') || pathname.startsWith('/generics');
+    return (
+      pathname.startsWith('/business') ||
+      pathname.startsWith('/generics') ||
+      pathname.startsWith('/facilities') ||
+      pathname.startsWith('/company/facilities')
+    );
   }
   if (link.label === 'Sustainability') {
     return (
@@ -199,17 +194,6 @@ export default function NavBar({
     return () => window.removeEventListener('scroll', handleScrollSpy);
   }, [pathname, activeSectionOverride]);
 
-  useEffect(() => {
-    if (pathname === '/' || pathname === '') {
-      const el = document.getElementById('sustainability');
-      if (el) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= 120) {
-          setActiveSection(activeSectionOverride || 'Sustainability');
-        }
-      }
-    }
-  }, [activeSectionOverride, pathname]);
 
   const showMenu = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
