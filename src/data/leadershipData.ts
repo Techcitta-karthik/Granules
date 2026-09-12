@@ -269,8 +269,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     name: 'Ms. Priyanka Chigurupati',
     role: 'Executive Director',
     profile: [
-      'Ms. Priyanka Chigurupati, Executive Director, Granules India Limited, is responsible for Global Sales & Marketing and Portfolio amongst other roles in the Company. She has been with Granules for over 14 years and has served in various capacities across multiple divisions. She is currently also serving as Director at Granules Pharmaceuticals Inc., where she served as Executive Director from 2017-2024.',
-      'Priyanka holds a Bachelor of Science in Business Management from Case Western Reserve University in Cleveland, Ohio, and has an Executive Leadership degree from Harvard Business School, Boston, Massachusetts.',
+      'Ms. Priyanka Chigurupati, Executive Director, Granules India Limited leads Global Sales, Strategy and Quality Compliance, among other roles within the Company. She has been with Granules for over 15 years and has contributed across multiple divisions, serving in various leadership capacities. She is currently also serving as a Director at Granules Pharmaceuticals Inc., where she held the position of Executive Director from 2017 to 2024. Priyanka holds a Bachelor of Science in Business Management from Case Western Reserve University in Cleveland, Ohio, and has completed an Executive Leadership Program at Harvard Business School, Boston, Massachusetts.',
     ],
     directorships: [
       'Granules CZRO Private Limited, Director',
@@ -285,8 +284,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     name: 'Mr. Harsha Chigurupati',
     role: 'Executive Director',
     profile: [
-      'Mr. Harsha Chigurupati holds a bachelor’s degree of science in Business Administration from Boston University, USA. He has two decades of entrepreneurial experience in marketing, product development, customer relationship management & operations. He also has in-depth knowledge and experience in various fields of research and development, clinical trials, regulatory and legal framework navigation, patents, and peer-reviewed journal publications.',
-      'Mr. Chigurupati has been with Granules since 2005 in various capacities. He was instrumental in commercialising the Company’s Finished Dosage Division and transitioning the Company’s customer base towards brand loyalists. As an Executive Director, he is responsible for the standalone Operations and P&L of the Company.',
+      'Mr. Harsha Chigurupati has been with Granules India since 2006 and was operational in multiple departments across the company. Over the years he has focused on driving transformation, innovation, and long-term strategic growth across the pharmaceutical and healthcare sectors. With leadership responsibilities spanning technology, transformation, and organizational development, He is particularly passionate about leveraging emerging technologies, artificial intelligence, and advanced manufacturing to create scalable, globally competitive businesses. Combining an entrepreneurial mindset with a strong emphasis on accountability, agility, and execution, he continues to champion initiatives that strengthen organizational capabilities, foster innovation, and position the company for sustained global growth.',
     ],
     directorships: [
       'Chigurupati Technologies FZE, Director',
@@ -304,17 +302,20 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     name: 'Mr. Mukesh Surana',
     role: 'Chief Financial Officer',
     profile: [
-      'Mukesh is a Chartered Accountant by qualification and a seasoned finance professional with over two decades of global experience. He has rich experience in the areas of finance, taxation, transformation, risk management, projects management, mergers and acquisitions, investor relations, legal, secretarial, commercial, procurement, and IT. In the past he has worked with reputed organizations including Garware Technical Fibers, Kalpataru Power Transmission, Asian Paints and SRF. He is recognized as top CFO by various bodies including Business World, CEO Insights, White Page International, StartupLanes and CFO India.',
+      'Mukesh Surana is a Chartered Accountant with All India ranks in both CA Final and Intermediate examinations. He brings over two and a half decades of diverse global experience across pharmaceuticals, manufacturing, infrastructure, commodities, global supply chains, and fast-moving consumer businesses. Prior to joining Granules India, he has worked with leading organizations including Garware Technical Fibres, Kalpataru Projects International and Asian Paints, where he built deep expertise in strategy, finance, transformation, and business operations.',
+      'In his current role as CFO of Granules India Ltd., he leads finance, treasury, taxation, risk management, investor relations, legal, and governance functions across the Company’s global operations. He plays a key role in strengthening financial discipline, capital allocation, enterprise risk management, and investor engagement, while supporting the Company’s strategic transformation and global growth agenda.',
+      'His contributions include strategic M&A, robust cash-flow and balance sheet management, and implementation of governance and risk frameworks. He has received several industry recognitions, including CII CFO Excellence Award in 2024 and Best CFO Award – Business World in 2022, and is widely regarded as a strategic finance leader with deep expertise in business transformation, governance, and value creation.',
     ],
   },
   {
     id: 'pv-srinivas',
     image: 'Dr PV.jpg',
-    name: 'Dr. PV Srinivas',
+    name: 'Mr. PV Srinivas',
     role: 'Chief Technology Officer',
     profile: [
-      'Dr Srinivas is a PhD in Organic Chemistry from Osmania University & a Post Doctorate from the University of Mississippi, USA.',
-      'He comes with over 30 years of experience in R&D and Portfolio selection, synthetic chemistry, fermentation technology and downstream processing. He was responsible for developing various projects, scaling them and commercializing. He has expertise in generic API development and end to end execution of projects from conceptualization till commercialization. Dr Srinivas has filed more than 100 patents and has 53 paper publications. He is a fellow of the Royal Society of Chemistry. He has worked in organizations with PI Industries, IICT, Biocon, & Cipla in his earlier assignments.',
+      'Dr. Srinivas is a PhD in Organic Chemistry from Osmania University & a Post Doctorate from the University of Mississippi, USA.',
+      'He comes with over 35 years of experience in R&D and Portfolio selection, synthetic chemistry, fermentation technology and downstream processing. He was responsible for developing various projects, scaling them and commercializing. He has expertise in generic API development and end to end execution of projects from conceptualization till commercialization.',
+      'Dr. Srinivas has filed more than 100 patents and has 53 paper publications. He is a Fellow of Royal society of Chemistry (FRSC) and Member research council of Indian Institute of Chemical Technology (IICT, Hyderabad). He is also an adjunct professor at department of chemistry, IIT, Hyderabad. He has worked with Organisations such as IICT, Biocon, Cipla & PI Industries in his earlier assignments.',
     ],
   },
   {
@@ -332,7 +333,9 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     name: 'Mr. Ramraj Rangarajalu',
     role: 'President and Head - Formulations Operations',
     profile: [
-      'Ramraj Rangarajulu holds an M.Pharm degree from the Tamil Nadu Dr. MGR Medical University. He brings nearly three decades of expertise in formulation manufacturing, plant management, quality and regulatory compliance, operational excellence, new product scale-up, and product launches. Throughout his career, Mr. Rangarajulu has worked on various dosage forms, including oral solid dosage (OSD), small volume parenteral, and topical formulations, at leading pharmaceutical companies such as Zydus Life Sciences, Granules India Limited, Aurobindo Pharma, and Dr. Reddy’s Laboratories. At Granules, Ramraj will oversee the formulation manufacturing sites in India.',
+      'Mr. Ramraj Rangarajalu holds an M.Pharm degree from Tamil Nadu Dr. MGR Medical University and brings nearly three decades of distinguished leadership experience in pharmaceutical operations. As President – Operations, he drives end-to-end formulation manufacturing strategy, encompassing large-scale plant operations, quality and regulatory excellence, operational transformation, and enterprise-wide productivity enhancement.',
+      'He has a proven track record in steering complex manufacturing networks, accelerating new product scale-ups, and delivering sustainable business outcomes through robust execution and governance. His expertise spans multiple dosage forms, including oral solid dosage, small volume parenterals, and topical formulations.',
+      'Over his career, Mr. Ramraj has held key leadership roles at leading pharmaceutical organizations such as Zydus Life Sciences, Granules India Limited, Aurobindo Pharma, and Dr. Reddy’s Laboratories. At Granules India, he leads formulation manufacturing operations across multiple sites in India, driving operational excellence, compliance rigor, cost optimization, and capacity expansion aligned with the company’s growth agenda.',
     ],
   },
   {
@@ -341,7 +344,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     name: 'Mr. Manikandan Ramalingam',
     role: 'Senior Vice President & Head Formulation R&D',
     profile: [
-      'Mr. ManiKandan Ramalingam is a pharmaceutical technologist with 25 years of experience and holds M. Pharma Tech from NIPER (Mohali) and Master black belt in six sigma. In his experience, worked in providing technical, strategic, and functional leadership in uniquely challenging positions in Pharmaceutical Research. Worked at Sun Pharma and Dr. Reddy’s prior to joining Granules; and served as functional head of Product development Research and subject matter expert for formulation at Dr.Reddys.',
+      'Mr. ManiKandan Ramalingam is a pharmaceutical technologist with 27 years of experience and holds M. Pharma Tech from NIPER (Mohali), PhD in Pharmaceutical Sciences and Master black belt in six sigma. In his experience, worked in providing technical, strategic, and functional leadership in uniquely challenging positions in Pharmaceutical Research. Worked at Sun Pharma and Dr. Reddy’s prior to joining Granules; and served as functional head of Product development Research and subject matter expert for formulation at Dr.Reddy’s.',
       'Has expertise in API Assessment for FD design & API – FD integration, Pre-formulation, Formulation design (different types of dosage forms), Biopharmaceutics and pharmacokinetics, New Technology adoption and Product Scale up and manufacturing. Also served in leading cross functional research team, change management, Training and team building, Regulatory risk management, product selection assessment, Contract research management, thereby ensuring successful translation of products from Ideation to the Market.',
     ],
   },
@@ -361,8 +364,8 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     name: 'Dr. Baskaran PN',
     role: 'President & Head - API Operations',
     profile: [
-      'Dr. Baskaran PN holds a Doctorate in Chemical Engineering from Annamalai University and brings over 30 years of leadership experience in API, PFI, and FD operations. He has vast experience in operations management, supply chain, engineering projects, EHS, operational excellence, automation, and regulatory compliance.',
-      'Dr. Baskaran has held key leadership roles at various pharmaceutical and chemical companies, including Sekhmet, Lupin, Hetero, Granules, Cipla, and JK Pharma. He joined Granules on 2 April 2025 and is responsible for API manufacturing operations in India.',
+      'Dr. Baskaran P.N. holds a Doctorate in Chemical Engineering from Annamalai University and brings over three decades of leadership experience across API, PFI, and FD operations. He possesses deep expertise in manufacturing operations, supply chain management, engineering projects, EHS, automation, and regulatory compliance. Currently serving as President & Head – API Operations at Granules India Limited, he leads end-to-end API manufacturing operations across India, driving performance, compliance, and strategic growth.',
+      'Dr. Baskaran is recognized for his ability to combine strategic leadership with strong shop-floor execution, effectively translating business objectives into operational outcomes. His experience spans complex, regulated environments, including high-potent and large-scale manufacturing. He has a proven track record in cost optimization, productivity improvement, audit readiness, and building high-performing teams. His leadership approach is rooted in data-driven decision-making, disciplined execution, and cross-functional collaboration, enabling sustainable value creation and operational excellence at scale.',
     ],
   },
   {

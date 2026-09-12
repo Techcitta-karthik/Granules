@@ -12,12 +12,12 @@ type CapabilityCard = { title: string; image: string; desc: string };
 const CAPABILITY_CARDS: CapabilityCard[] = [
   {
     title: 'Automated Production',
-    image: 'card-automated-production.png',
+    image: 'card-lean-process.png',
     desc: 'Advanced automated production lines and high-speed encapsulation delivering 10 billion oral solid dosages annually.',
   },
   {
     title: 'Lean Process Design',
-    image: 'card-lean-process.png',
+    image: '43.webp',
     desc: 'Optimized material flows, zero-defect quality systems, and shortened lead times for supplies into regulated markets.',
   },
   {
@@ -59,10 +59,13 @@ export default function GranulesLifeSciencesPage() {
         <span className="sep">›</span>
         <span className="current">GRANULES LIFE SCIENCES</span>
       </p>
-      <h2 className="gls-page-header">GRANULES LIFE SCIENCES</h2>
+      <h1 className="gls-page-header">GRANULES LIFE SCIENCES</h1>
       <div className="cp-hero-banner">
         <img src={`${G}hero-banner.png`} alt="Granules Life Sciences facility" />
-        <div className="api-hero-scrim" />
+        <div className="gls-hero-scrim" />
+        <div className="gls-hero-overlay">
+          <h2 className="gls-hero-heading">Engineered for the Future of Oral Solid Dosage Manufacturing</h2>
+        </div>
       </div>
 
       <div className="cp-about-desc gls-intro">

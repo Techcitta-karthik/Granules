@@ -2326,6 +2326,8 @@ h4.senn-cap-banner-text {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  filter: blur(5px);
+  transform: scale(1.05);
 }
 
 .senn-stack-panel .senn-stack-overlay {

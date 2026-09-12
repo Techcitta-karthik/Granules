@@ -11,13 +11,13 @@ export const VALUES: ValueItem[] = [
     icon: 'icon-idea.svg',
     title: 'Futuristic Thinking',
     body: 'We think about tomorrow and beyond. Our actions and efforts must have a positive and transformative impact for a long time to come, and everything we do is evaluated through this prism.',
-    image: 'futuristic-thinking.webp',
+    image: '2.png',
   },
   {
     icon: 'icon-user-solid.svg',
     title: 'Customer Driven',
     body: 'Being driven by the customer’s best interests is a way of life for us. It fuels our passion to develop tailored solutions that prioritize customer preferences. It inspires us to go above and beyond and forge lasting, meaningful relationships.',
-    image: 'customer-driven.webp',
+    image: '3.png',
   },
   {
     icon: 'icon-hand-fist.svg',
@@ -29,13 +29,13 @@ export const VALUES: ValueItem[] = [
     icon: 'icon-production-belt.svg',
     title: 'Quality Everywhere',
     body: 'Quality excellence is not just a goal, but a relentless pursuit embedded in our DNA. We are driven by an approach to achieve ‘best-in-class’ across our products, operations, processes, and conduct. We believe this is the only way to go further, be a preferred partner for our customers, and inspire confidence and ambition in all stakeholders.',
-    image: 'quality-everywhere.webp',
+    image: '4.png',
   },
   {
     icon: 'icon-leaf.svg',
     title: 'Environmental Stewardship',
     body: 'Being a positive force for the planet and its preservation is a fundamental duty that we fulfil through our efforts in green science, responsible practices, and a trusteeship approach. Long term success is based on our ability to partner in fostering a harmonious relationship with the planet and caring for it for the benefit of future generations.',
-    image: 'environmental-stewardship.webp',
+    image: '5.png',
   },
 ];
 

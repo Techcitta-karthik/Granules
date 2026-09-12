@@ -13,31 +13,31 @@ const BENEFITS: BenefitItem[] = [
     title: 'Expanding Access to Diverse Therapeutic Segments',
     body: 'Broad portfolio across wide range of therapeutic areas including Anti-diabetics, CNS/ADHD, Oncology, Gastroenterology, and others, made accessible to millions of patients globally through a combination of commercial capabilities, strategic partnerships, and reliable supply networks.',
     icon: 'icon-circles.svg',
-    image: '/assets/fd/hero-banner.png',
+    image: '/assets/fd/2.jpg',
   },
   {
     title: 'Reliable Supply Through Vertical Integration',
     body: '40+ Bn units annual capacity across five manufacturing facilities supported by backward integrated model, with dedicated infrastructure for controlled substances and oncology, strengthening quality, supply continuity, and operational efficiency.',
     icon: '/assets/pfi/icon-manufacturing.svg',
-    image: '/assets/fd/partnership-bg.png',
+    image: '/assets/fd/3.jpg',
   },
   {
     title: 'Formulation Expertise in Complex Generics',
     body: 'We offer patient-centric solutions through a wide range of capabilities across modified-release formulations, MUPS technologies, controlled substances, chewable dosage forms, oncology products and complex oral solids.',
     icon: 'icon-test-tube.svg',
-    image: '/assets/facilities/cta-bg.png',
+    image: '/assets/fd/4.jpg',
   },
   {
     title: 'Global Reach with Local Customization',
     body: 'With approvals from global regulatory authorities, including USFDA, EDQM, EU-GMP, ANVISA, COFEPRIS, WHO-GMP, TGA, KFDA, DEA, and others, we enable market-specific solutions that address diverse healthcare and compliance needs worldwide.',
     icon: 'icon-globe.svg',
-    image: '/assets/fd/cta-bg.png',
+    image: '/assets/fd/6.png',
   },
   {
     title: 'Flexible Partnership Models',
     body: 'Whether through dossier licensing, contract manufacturing, development collaborations, or commercialization partnerships, we create solutions aligned to our partners\' strategic objectives.',
     icon: 'icon-box.svg',
-    image: '/assets/fd/partnership-bg.png',
+    image: '/assets/fd/7.jpg',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function FdPage() {
   }, []);
 
   return (
-    <div className="cp">
+    <div className="cp fd-page">
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
@@ -62,7 +62,7 @@ export default function FdPage() {
       </p>
       <h1 className="cp-page-title">Finished Dosage Formulations</h1>
       <div className="cp-hero-banner">
-        <img src={`${F}hero-banner.png`} alt="Granules finished dosages manufacturing" />
+        <img src={`${F}5.jpg`} alt="Granules finished dosages manufacturing" />
         <div className="api-hero-scrim" />
         <div className="api-hero-overlay">
           <h2 className="api-hero-heading">Bringing Affordable Medicines to Patients Worldwide</h2>

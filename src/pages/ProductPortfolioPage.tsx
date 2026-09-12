@@ -517,7 +517,7 @@ export default function ProductPortfolioPage() {
             <table className="pp-table">
               <thead>
                 <tr>
-                  <th scope="col">Sr. No</th>
+                  <th scope="col">S.No</th>
                   <th scope="col">Product</th>
                   <th scope="col">Segment</th>
                   {showConcentration && <th scope="col">Concentration / Strength</th>}

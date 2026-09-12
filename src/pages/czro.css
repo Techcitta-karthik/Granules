@@ -468,6 +468,9 @@
 .czro-cta .cp-cta-btn {
   position: relative;
   z-index: 1;
+  align-self: flex-end !important;
+  margin-left: auto;
+  margin-bottom: clamp(6px, 1vw, 14px);
 }
 
 @media (max-width: 900px) {

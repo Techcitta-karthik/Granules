@@ -564,12 +564,14 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  filter: blur(6px);
+  transform: scale(1.06);
 }
 
 .cp-pin-panel .cp-pin-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.48) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.58) 100%);
 }
 
 /* Purpose panel (underneath layer) - pins in place */

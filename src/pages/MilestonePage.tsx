@@ -23,7 +23,7 @@ const MILESTONES: MilestoneEntry[] = [
   { year: '2015', image: 'y2015.png', caption: 'Laid the foundation for our Oncology API and OSD plant and a multiple product API plant in Visakhapatnam.' },
   { year: '2019', image: 'y2019.png', caption: 'Entered the frontend business for the sale of Rx Products in the US under the GPI label.' },
   { year: '2021', image: 'y2021.png', caption: 'Set up the largest single-site manufacturing unit for multi-unit pellet systems at Gagillapur.' },
-  { year: '2023', image: 'y2023.png', caption: 'Set up GPAK, a ~80,000 sq. ft. packaging facility with four packaging suites and a warehousing facility; Established new purpose, mission and values.' },
+  { year: '2023', image: 'y2023.jpg', caption: 'Set up GPAK, a ~80,000 sq. ft. packaging facility with four packaging suites and a warehousing facility; Established new purpose, mission and values.' },
   { year: '2024', image: 'y2024.png', caption: 'Granules Life Sciences (GLS) successfully commenced operations with a planned FD capacity of 10 billion dosages annually; Granules CZRO pilot plant commenced operations.' },
   { year: '2025', image: 'y2025.png', caption: 'Successfully acquired Switzerland’s peptide CDMO firm Senn Chemicals AG; Inaugurated phase-II of GLS expanding dosage capacity to 10bn dosages.' },
   { year: '2026', image: '2026.jpg', caption: 'Expanded innovation capabilities through new R&D centres at IIT Hyderabad dedicated to peptide development and particle engineering' },
@@ -36,7 +36,7 @@ export default function MilestonePage() {
   }, []);
 
   return (
-    <div className="cp">
+    <div className="cp ms-page">
       <NavBar />
 
       <p className="cp-breadcrumb">
@@ -47,11 +47,10 @@ export default function MilestonePage() {
         <span className="current">OUR JOURNEY</span>
       </p>
       <h1 className="cp-page-title">A Journey of Progress and Purpose</h1>
-
       <div className="cp-about-desc ms-intro">
-        <h4>
+        <h3>
           What began as a focused API manufacturer has transformed into a diversified pharmaceutical company with capabilities spanning APIs, PFIs, Finished Dosages, Peptide CDMO services, and global market access. Each milestone represents a step forward in our mission to improve lives through affordable and accessible healthcare.
-        </h4>
+        </h3>
       </div>
 
       <div className="ms-systems">

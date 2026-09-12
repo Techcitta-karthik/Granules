@@ -190,7 +190,7 @@
   max-height: 566px;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 20, 60, 0.06);
-  border: 1px solid #d5dde4;
+  border: 1px solid #e2e8f0;
   position: relative;
 }
 
@@ -205,7 +205,6 @@
 .pp-table td {
   text-align: left;
   padding: 14px 16px;
-  border: 1px solid #d5dde4;
   vertical-align: middle;
 }
 
@@ -213,10 +212,11 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #4b5e6b;
+  background: #00225a;
   color: #ffffff;
   font: 700 clamp(12px, 0.9vw, 13px)/1.25 'Manrope', sans-serif;
   letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
@@ -224,9 +224,20 @@
   background: #ffffff;
   font: 500 clamp(14px, 1vw, 16px)/1.45 'Manrope', sans-serif;
   color: var(--n7);
+  border: 1px solid #edf2f7;
 }
 
-.pp-table th:first-child,
+.pp-table tbody tr:hover td {
+  background: #f8fbff;
+}
+
+.pp-table th:first-child {
+  text-align: center;
+  width: 72px;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
 .pp-table td.pp-sr-no {
   text-align: center;
   width: 72px;
@@ -292,12 +303,13 @@
 }
 
 .pp-legend {
-  width: 85% !important;
-  max-width: 85% !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
   margin: 20px auto 0 !important;
   padding: 16px 18px;
-  border: 1px solid #c5e4f2;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
+  background: #f8fbff;
   display: flex;
   flex-wrap: wrap;
   gap: 16px 28px;

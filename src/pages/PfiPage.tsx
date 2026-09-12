@@ -12,31 +12,31 @@ const BENEFITS: BenefitItem[] = [
     title: 'Unmatched Scale and Reliability',
     body: 'Backward integrated and high-volume manufacturing assures consistent quality, dependable supply, and efficient commercial-scale production.',
     icon: 'icon-manufacturing.svg',
-    image: '/assets/pfi/key-benefits-bg.png',
+    image: '/assets/pfi/1.png',
   },
   {
     title: 'Simplifying Supply Chain Complexity',
     body: 'Our proprietary “Drum to Hopper” model enables direct compression with minimal development effort, helping customers streamline supply chain steps and inventory pressure',
     icon: 'icon-box.svg',
-    image: '/assets/pfi/cta-bg.png',
+    image: '/assets/pfi/2.png',
   },
   {
     title: 'Supporting Asset-Light Market Entry',
     body: 'PFIs replicate more than 80% of the infrastructure required in a conventional oral solid dosage facility, reducing the need for significant capital investment.',
     icon: 'icon-production-belt.svg',
-    image: '/assets/facilities/bonthapally-2.png',
+    image: '/assets/pfi/3.png',
   },
   {
     title: 'Customized Formulation Solutions',
     body: 'Tailor-made PFIs support complex formulations, fixed-dose combinations, and homogeneous blending with other APIs.',
     icon: 'icon-test-tube.svg',
-    image: '/assets/qc/hero-banner.png',
+    image: '/assets/pfi/4.png',
   },
   {
     title: 'Global Regulatory Adaptability',
     body: 'With approvals from global regulatory authorities, our PFI platform can be tailored to meet market-specific regulatory requirements across global markets.',
     icon: 'icon-circles.svg',
-    image: '/assets/api/scale-bg.png',
+    image: '/assets/pfi/5.png',
   },
 ];
 
@@ -64,7 +64,11 @@ export default function PfiPage() {
         <img src={`${P}key-benefits-bg.png`} alt="Granules PFI manufacturing facility" />
         <div className="pfi-hero-scrim" />
         <div className="pfi-hero-overlay">
-          <h2 className="pfi-hero-heading">Simplifying Formulation.<br />Accelerating Access.</h2>
+          <h2 className="pfi-hero-heading">
+            <span style={{ whiteSpace: 'nowrap' }}>Simplifying Formulation.</span>
+            <br />
+            <span style={{ whiteSpace: 'nowrap' }}>Accelerating Access.</span>
+          </h2>
         </div>
       </div>
 

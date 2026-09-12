@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
@@ -9,7 +10,7 @@ import './senn-tides.css';
 interface CapabilityCard {
   title: string;
   image: string;
-  desc: string;
+  desc: ReactNode;
 }
 
 const CAPABILITY_CARDS: CapabilityCard[] = [
@@ -41,7 +42,14 @@ const CAPABILITY_CARDS: CapabilityCard[] = [
   {
     title: 'Oligonucleotides and Antibody-Drug Conjugates',
     image: '/assets/rd/priority-scientific-capabilities.webp',
-    desc: 'Expansion is underway.',
+    desc: (
+      <>
+        <strong>Expansion is underway.</strong>
+        <br />
+        <br />
+        We work with pharmaceutical innovators, cosmetic brand owners and specialty therapeutic developers.
+      </>
+    ),
   },
 ];
 
@@ -320,6 +328,7 @@ export default function SennTidesPage() {
 
       {/* Overview Intro */}
       <section className="senn-intro" aria-label="Overview">
+        <h2>Overview</h2>
         <h4>
           Senn Tides is a wholly owned subsidiary of Granules India and its integrated CDMO platform, with an established foundation in peptides and expansion into oligonucleotides and antibody-drug conjugates underway. It was incorporated in June 2025 following Granules India&rsquo;s acquisition of Senn Chemicals AG, a Swiss peptide CDMO founded in Dielsdorf, Zurich, in 1963.
         </h4>
@@ -334,7 +343,6 @@ export default function SennTidesPage() {
       {/* What We Do Section */}
       <section className="senn-section-head" aria-label="What We Do">
         <div className="copy">
-          <span className="cp-section-badge">What We Do</span>
           <h2>What We Do</h2>
           <h4>
             We provide custom development and manufacturing services for peptide ingredients, from route selection and process development through scale-up, validation and commercial supply.
@@ -413,25 +421,10 @@ export default function SennTidesPage() {
         </div>
       </div>
 
-      <div className="senn-audience-note">
-        <div className="senn-audience-note-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-          </svg>
-        </div>
-        <p>
-          We work with pharmaceutical innovators, cosmetic brand owners and specialty therapeutic developers.
-        </p>
-      </div>
-
       {/* Four Synthesis Routes Table */}
       <section className="senn-routes-section" aria-label="Four Synthesis Routes">
         <div className="senn-section-head">
           <div className="copy">
-            <span className="cp-section-badge">Synthesis Methodologies</span>
             <h2>Four Synthesis Routes</h2>
             <h4>
               Most peptide manufacturers run one synthesis platform and fit every molecule to it. Our platform brings together four synthesis approaches, enabling route selection based on the molecule, target scale and purification requirements.
@@ -546,9 +539,8 @@ export default function SennTidesPage() {
                 }
               }}
               tabIndex={0}
-              role="region"
-              aria-label={`${block.category} capabilities - Click or hover to flip`}
-            >
+              role="region">
+
               <div className="senn-mfg-flip-inner">
                 {/* Front Face with Image and Summary Header */}
                 <div className="senn-mfg-card-front">
@@ -558,12 +550,6 @@ export default function SennTidesPage() {
                     <span className="senn-front-badge">{block.badge}</span>
                     <h3 className="senn-mfg-front-title">{block.category}</h3>
                     <p className="senn-mfg-front-desc">{block.description}</p>
-                    <div className="senn-mfg-flip-hint">
-                      <span>Hover / Tap to view equipment</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-                      </svg>
-                    </div>
                   </div>
                 </div>
 
@@ -591,14 +577,9 @@ export default function SennTidesPage() {
 
       {/* Development & Analytics + Quality & Compliance Sticky Overlapping Stack */}
       <section className="senn-stack-wrap" aria-label="Development, Analytics, Quality & Compliance">
-        <div className="senn-section-head">
-          <div className="copy">
-            <span className="cp-section-badge">Development &amp; Analytics</span>
-          </div>
-        </div>
 
         <div className="senn-stack-panel senn-stack-panel--dev">
-          <img src="/assets/company/vision-bg.webp" alt="Development and analytical support" loading="lazy" decoding="async" />
+          <img src="/assets/company/vision-bg.png" alt="Development and analytical support" loading="lazy" decoding="async" />
           <div className="senn-stack-overlay" />
           <div className="senn-stack-content">
             <span className="senn-stack-badge">DEVELOPMENT &amp; ANALYTICS</span>
@@ -740,7 +721,7 @@ export default function SennTidesPage() {
             </address>
             <div className="senn-contact-img-wrap">
               <img
-                src="/assets/peptides/footprint-dielsdorf.jpg"
+                src="/assets/peptides/card-contract-services.png"
                 alt="Senn Chemicals AG - Dielsdorf, Zurich, Switzerland"
                 loading="lazy"
                 decoding="async"
@@ -758,7 +739,7 @@ export default function SennTidesPage() {
             </address>
             <div className="senn-contact-img-wrap">
               <img
-                src="/assets/peptides/footprint-hyderabad.jpg"
+                src="/assets/peptides/images.jpg"
                 alt="Senn Tides Private Limited - Hyderabad, India"
                 loading="lazy"
                 decoding="async"

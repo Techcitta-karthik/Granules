@@ -42,7 +42,7 @@ const heroSlides = [
 
 const products = [
   {
-    image: 'finished-dosage.webp',
+    image: 'pfi.webp',
     title: 'Finished Dosages (FDs)',
     eyebrow: 'FD',
     body: 'Scale and complexity supported by multi-site supply capabilities.',

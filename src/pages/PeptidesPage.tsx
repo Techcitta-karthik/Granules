@@ -293,10 +293,7 @@ export default function PeptidesPage() {
       {/* About Description matching standard business typography */}
       <div className="cp-about-desc senn-intro">
         <h4>
-          Senn Tides is Granules India&rsquo;s dedicated peptide CDMO platform, with an established foundation in Swiss peptide chemistry and complementary large-scale manufacturing infrastructure in India. Operating across Zurich, Switzerland, and Hyderabad, India, we support global innovators and pharmaceutical developers from early route scouting and process development through scale-up, validation, and commercial supply.
-        </h4>
-        <h4>
-          Combining over 60 years of Swiss peptide synthesis heritage with multi-ton industrial scale, continuous flow technology, and green chemistry, Senn Tides provides an integrated, one-partner lifecycle for complex peptide therapeutics, fragments, amino acid derivatives, and advanced modalities.
+          Senn Tides is a wholly owned subsidiary of Granules India and its integrated CDMO platform, with an established foundation in peptides and expansion into oligonucleotides and antibody-drug conjugates underway. Through Senn Chemicals AG and our India operations, we support peptide programs from route selection and process development through scale-up, validation and commercial supply.
         </h4>
       </div>
 

@@ -25,9 +25,9 @@ export default function PurposeVisionSection() {
   return (
     <section className="cp-purpose-vision-wrap" aria-label="Our Purpose and Vision">
       <PinPanel variant="purpose" image="purpose-bg.webp" badge="OUR PURPOSE">
-        Healing lives responsibly through pioneering green science
+        <h3>Healing lives responsibly through pioneering green science</h3>
       </PinPanel>
-      <PinPanel variant="vision" image="vision-bg.webp" badge="OUR VISION">
+      <PinPanel variant="vision" image="8.png" badge="OUR VISION">
         To establish ourselves as a world leader in the green chemical and pharmaceutical industry
         by harnessing cutting-edge technologies to enhance the quality of life
       </PinPanel>

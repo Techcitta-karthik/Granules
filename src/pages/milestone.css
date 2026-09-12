@@ -7,17 +7,22 @@
   margin-inline: auto !important;
 }
 
-/* Intro Section Typography & Spacing - identical to /company .cp-about-desc */
+.ms-page .cp-page-title {
+  margin-bottom: 0 !important;
+}
+
+/* Intro Section Typography & Spacing - 40px gap from page title */
 .ms-intro {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+  margin: 40px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
   box-sizing: border-box;
 }
 
+.ms-intro h3,
 .ms-intro h4,
 .ms-intro p {
   margin: 0;
@@ -29,6 +34,7 @@
   color: var(--n9, #070707) !important;
 }
 
+.ms-intro.is-scrolled h3,
 .ms-intro.is-scrolled h4,
 .ms-intro.is-scrolled p,
 .ms-intro.is-scrolled p:first-child,
@@ -41,9 +47,9 @@
 .ms-systems {
   position: relative;
   background: #f3f8fe;
-  padding-top: 0;
+  padding-top: 75px;
   padding-bottom: 0;
-  margin-top: clamp(48px, 6vw, 72px);
+  margin-top: 75px;
   display: flex;
   flex-direction: column;
 }
@@ -199,8 +205,8 @@
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   margin-top: 0;
-  padding-top: clamp(60px, 7vw, 90px);
-  padding-bottom: clamp(60px, 7vw, 90px);
+  padding-top: 75px;
+  padding-bottom: 75px;
   box-shadow: 0 -12px 40px rgba(0, 30, 80, 0.04) !important;
   border-top: 1px solid rgba(0, 97, 248, 0.12);
 }
@@ -209,7 +215,7 @@
 .ms-leadership {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: 75px auto 0 !important;
+  margin: 0 auto !important;
   border-radius: 28px !important;
   padding: 32px clamp(30px, 4vw, 60px) !important;
   position: relative;
@@ -221,6 +227,10 @@
   box-sizing: border-box;
   box-shadow: 0 16px 44px -12px rgba(0, 34, 90, 0.1) !important;
   border: none;
+}
+
+.ms-page .cp-footer {
+  margin-top: 0 !important;
 }
 
 .ms-leadership img.cp-bg {

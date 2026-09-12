@@ -139,7 +139,11 @@ h3.cp-page-title {
 .biz-cta .cp-cta-btn {
   position: relative;
   z-index: 1;
+  align-self: flex-end !important;
+  margin-left: auto;
+  margin-bottom: clamp(6px, 1vw, 14px);
 }
+
 
 /* PFI hero tagline overlay (mirrors .czro-hero-scrim/-overlay/-heading in czro.css
    and .gls-hero-scrim/-overlay/-heading in gls.css, applied on top of the shared
@@ -155,31 +159,31 @@ h3.cp-page-title {
   position: absolute;
   top: clamp(28px, 4.5vw, 56px);
   left: clamp(28px, 4.5vw, 64px);
-  max-width: min(620px, 82%);
+  max-width: min(860px, 85%);
   z-index: 2;
 }
 
 .pfi-hero-heading {
   margin: 0;
-  font: 700 clamp(24px, 3.6vw, 46px)/1.18 'Manrope', sans-serif;
+  font: 700 clamp(20px, 1.7vw, 30px)/1.25 'Manrope', sans-serif;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.3px;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
 }
 
-/* API hero overlay heading + CTA, positioned over .cp-hero-banner (already position: relative) */
+/* API & FD hero overlay heading, positioned over .cp-hero-banner (already position: relative) */
 .api-hero-scrim {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 20, 60, 0.05) 0%, rgba(0, 20, 60, 0.65) 100%);
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.12) 0%, rgba(4, 12, 32, 0.35) 45%, rgba(4, 12, 32, 0.82) 100%);
 }
 
 .api-hero-overlay {
   position: absolute;
   left: clamp(20px, 4vw, 64px);
   right: clamp(20px, 4vw, 64px);
-  bottom: clamp(20px, 4vw, 56px);
+  bottom: clamp(24px, 4vw, 56px);
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -187,12 +191,16 @@ h3.cp-page-title {
   gap: clamp(16px, 2vw, 28px);
 }
 
-.api-hero-heading {
+.api-hero-heading,
+.api-hero-overlay-title,
+.api-hero-overlay h2,
+.api-hero-overlay h3 {
   margin: 0;
-  max-width: 900px;
-  font: 600 clamp(22px, 3.2vw, 42px)/1.25 'Manrope', sans-serif;
-  color: #ffffff;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  max-width: 960px;
+  font: 700 clamp(20px, 2.2vw, 32px)/1.3 'Manrope', sans-serif !important;
+  color: #ffffff !important;
+  letter-spacing: -0.2px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75);
 }
 
 .api-hero-overlay .cp-cta-btn {
@@ -541,29 +549,36 @@ h3.cp-page-title {
 }
 
 .biz-accordion-item {
-  background: rgba(255, 255, 255, 0.92);
-  border: none;
-  border-radius: 20px;
-  padding: 16px 24px;
+  background: rgba(245, 250, 255, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+  padding: 14px 22px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   cursor: pointer;
   text-align: left;
   width: 100%;
-  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  backdrop-filter: blur(10px);
+  transition: all 0.35s cubic-bezier(0.2, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 8px 24px rgba(0, 20, 60, 0.1);
   box-sizing: border-box;
 }
 
 .biz-accordion-item:hover {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 8px 24px rgba(0, 47, 255, 0.08);
+  background: rgba(245, 250, 255, 0.62);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 20, 60, 0.14);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .biz-accordion-item:not(.collapsed) {
-  background: rgba(238, 248, 255, 0.97);
-  box-shadow: 0 12px 32px rgba(0, 47, 255, 0.12);
+  background: rgba(245, 250, 255, 0.78);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 32px rgba(0, 20, 60, 0.16);
+  transform: translateY(-2px);
+  border-radius: 20px;
 }
 
 .biz-accordion-head {
@@ -604,6 +619,7 @@ h3.cp-page-title {
   width: 22px;
   height: 22px;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .biz-accordion-title {
@@ -628,11 +644,13 @@ h3.cp-page-title {
 }
 
 .biz-accordion-body {
-  margin: 0;
+  margin: 4px 0 0;
   font: 500 clamp(14px, 1vw, 16px)/1.5 'Manrope', sans-serif;
-  color: #393939;
+  color: #102e4a;
   letter-spacing: 0.1px;
   padding-left: 58px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 34, 90, 0.08);
 }
 
 /* ==========================================================================
@@ -645,6 +663,30 @@ h3.cp-page-title {
   letter-spacing: -0.02em !important;
   color: var(--blue, #0061f8) !important;
   margin: clamp(20px, 3vw, 36px) auto clamp(20px, 3vw, 36px) !important;
+}
+
+/* Generics Hero Banner Overlay & Scrim */
+.gen-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.65) 0%, rgba(4, 12, 32, 0.25) 50%, rgba(4, 12, 32, 0.05) 100%);
+  z-index: 1;
+}
+
+.gen-hero-overlay {
+  position: absolute;
+  top: clamp(28px, 4.5vw, 56px);
+  left: clamp(28px, 4.5vw, 64px);
+  max-width: min(740px, 85%);
+  z-index: 2;
+}
+
+.gen-hero-heading {
+  margin: 0;
+  font: 600 clamp(18px, 1.2vw, 22px)/1.35 'Manrope', sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
 /* 1. Gap: Hero to Intro Description = 75px */

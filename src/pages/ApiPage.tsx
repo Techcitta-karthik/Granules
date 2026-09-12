@@ -26,19 +26,19 @@ const SCALE_ITEMS: ScaleItem[] = [
     title: 'Portfolio Breadth Across Wide Therapeutic Segments',
     body: 'Diverse portfolio of 100+ DMFs across wide range of therapeutic areas including Anti-diabetics, Anti-inflammatories, CNS/ADHD, Oncology, Gastroenterology, Anti-histamines, Anti-coagulants, Anti-hypertensives, and others.',
     icon: 'icon-globe.svg',
-    image: '/assets/facilities/bonthapally-2.png',
+    image: '/assets/api/1.jpg',
   },
   {
     title: 'Manufacturing Infrastructure Supporting Global Scale',
     body: '40,000 TPA installed capacity across four specialized facilities, with seamless vertical integration from key starting materials and intermediates to downstream PFI and Finished Dosage operations, enhancing supply security and cost competitiveness.',
     icon: 'icon-capacity.svg',
-    image: '/assets/api/scale-bg.png',
+    image: '/assets/api/2.png',
   },
   {
     title: 'Quality, Compliance & Global Regulatory Reach',
     body: 'Global regulatory accreditations enabling supplies to 80+ countries, supported by industry-leading practices including Quality by Design (QbD), closed-loop operations, robust GMP systems, data integrity controls, and a deeply embedded safety culture.',
     icon: 'icon-globe.svg',
-    image: '/assets/facilities/bonthapally-2.png',
+    image: '/assets/api/8.jpg',
   },
   {
     title: 'Innovation-led, Technology-Driven, Sustainability-Focused',
@@ -80,11 +80,14 @@ export default function ApiPage() {
         <span className="sep">›</span>
         <span className="current">ACTIVE PHARMACEUTICAL INGREDIENTS</span>
       </p>
-      <h2 className="api-page-header">Built for Scale. Engineered for Precision. Committed to Global Compliance.</h2>
+      <h1 className="api-page-header">Active Pharmaceutical Ingredients</h1>
       <div className="cp-hero-banner">
         <img src={`${A}hero-banner.png`} alt="Granules API manufacturing facility" />
         <div className="api-hero-scrim" />
         <div className="api-hero-overlay">
+          <div className="api-hero-overlay-content">
+            <h2 className="api-hero-heading api-hero-overlay-title">Built for Scale. Engineered for Precision. Committed to Global Compliance.</h2>
+          </div>
         </div>
       </div>
 

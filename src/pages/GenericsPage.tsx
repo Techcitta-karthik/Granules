@@ -475,7 +475,7 @@ export default function GenericsPage() {
         </p>
 
         <h1 className="cp-page-title">
-          Science, Scale and Integrated Excellence
+          Generics
         </h1>
 
         <div className="cp-hero-panel">
@@ -484,6 +484,10 @@ export default function GenericsPage() {
             alt="Granules Generics Manufacturing"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
+          <div className="gen-hero-scrim" />
+          <div className="gen-hero-overlay">
+            <h2 className="gen-hero-heading">Science, Scale and Integrated Excellence</h2>
+          </div>
           <div className="cp-scroll-indicator">
             <img src={asset('scroll-down-icon.webp')} alt="" loading="lazy" decoding="async" />
           </div>
@@ -674,7 +678,7 @@ export default function GenericsPage() {
               <table className="pp-table">
                 <thead>
                   <tr>
-                    <th scope="col">Sr. No</th>
+                    <th scope="col">S.No</th>
                     <th scope="col">Product</th>
                     <th scope="col">Segment</th>
                     {showConcentration && <th scope="col">Concentration / Strength</th>}
@@ -741,13 +745,6 @@ export default function GenericsPage() {
               for illustrative purposes only.
             </p>
 
-            {visibleCount < filteredPortfolio.length && (
-              <div ref={sentinelRef} className="pp-scroll-sentinel" aria-hidden="true">
-                <div className="pp-loading-dots">
-                  <span /><span /><span />
-                </div>
-              </div>
-            )}
           </>
         ) : (
           <div className="pp-empty-wrap">
