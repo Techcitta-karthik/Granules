@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
-import { NavBar, CompanyFooter } from '../components/company';
+import { NavBar, CompanyFooter, CareerSection } from '../components/company';
 import '../components/company/company.css';
 import './media.css';
 import { MEDIA_DATA, MediaArticle } from '../data/mediaData';
@@ -652,6 +652,8 @@ export default function MediaPage() {
           ))}
         </div>
       </div>
+
+      <CareerSection />
 
       <CompanyFooter />
     </div>

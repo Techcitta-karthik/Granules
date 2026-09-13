@@ -814,7 +814,7 @@ function Investor() {
           aria-label="View Annual Reports"
         >
           <img
-            src={`${A}investor-report-cover.webp?v=2026`}
+            src={`${A}investor-report-cover.webp?v=clean`}
             alt="Granules India Integrated Annual Report FY 2025-26: Where Strategy Meets Evolving Healthcare Needs, Science & Sustainability"
             loading="lazy"
             decoding="async"

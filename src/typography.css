@@ -577,3 +577,106 @@ h3.ms-card-year {
     padding: 28px 20px !important;
   }
 }
+
+/* ==========================================================================
+   Global Top Banner Standards (Excluding Sustainability & Community)
+   ========================================================================== */
+.cp-hero-banner,
+.cp-hero-panel,
+.car-hero,
+.car-hero-photo,
+.med-hero,
+.inv-hero,
+.senn-hero-wrap,
+.senn-hero-wrap .cp-hero-banner {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin-inline: auto !important;
+  border-radius: 40px !important;
+  aspect-ratio: 1828 / 572 !important;
+  min-height: clamp(280px, 28vw, 420px) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Standard Top-Left Banner Overlay Positioning */
+.cp-hero-overlay,
+.car-hero-overlay,
+.czro-hero-overlay,
+.gls-hero-overlay,
+.rd-hero-overlay,
+.qc-hero-overlay,
+.pfi-hero-overlay,
+.api-hero-overlay,
+.gen-hero-overlay,
+.senn-hero-overlay {
+  position: absolute !important;
+  top: clamp(28px, 4.5vw, 56px) !important;
+  left: clamp(28px, 4.5vw, 64px) !important;
+  right: auto !important;
+  bottom: auto !important;
+  max-width: min(860px, 85%) !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: clamp(14px, 1.8vw, 24px) !important;
+  pointer-events: none !important;
+}
+
+/* Standard Top Banner Heading Typography */
+.cp-hero-heading,
+.car-hero-heading,
+.czro-hero-heading,
+.gls-hero-heading,
+.rd-hero-heading,
+.qc-hero-heading,
+.pfi-hero-heading,
+.api-hero-heading,
+.api-hero-overlay-title,
+.api-hero-overlay h2,
+.api-hero-overlay h3,
+.gen-hero-heading,
+.senn-hero-heading,
+.peptides-hero-heading,
+.inv-hero-title {
+  margin: 0 !important;
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: clamp(24px, 3.6vw, 46px) !important;
+  font-weight: 700 !important;
+  line-height: 1.18 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55) !important;
+}
+
+.cp-hero-overlay a,
+.car-hero-overlay a,
+.api-hero-overlay a,
+.inv-hero a,
+.senn-hero-overlay a,
+.cp-hero-overlay button,
+.car-hero-overlay button,
+.api-hero-overlay button,
+.inv-hero button,
+.senn-hero-overlay button {
+  pointer-events: auto !important;
+}
+
+@media (max-width: 768px) {
+  .cp-hero-overlay,
+  .car-hero-overlay,
+  .czro-hero-overlay,
+  .gls-hero-overlay,
+  .rd-hero-overlay,
+  .qc-hero-overlay,
+  .pfi-hero-overlay,
+  .api-hero-overlay,
+  .gen-hero-overlay,
+  .senn-hero-overlay {
+    top: clamp(20px, 5vw, 32px) !important;
+    left: clamp(20px, 5vw, 32px) !important;
+    max-width: calc(100% - 40px) !important;
+  }
+}
+

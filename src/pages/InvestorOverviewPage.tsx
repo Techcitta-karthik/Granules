@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NavBar, CompanyFooter } from '../components/company';
+import { NavBar, CompanyFooter, CareerSection } from '../components/company';
 import InvestorFilteredSection from '../components/investor/InvestorFilteredSection';
 import { INVESTOR_SECTIONS_DATA } from '../data/investorData';
 import '../components/company/company.css';
@@ -280,6 +280,8 @@ export default function InvestorOverviewPage() {
       <section id="sec-investor-contact" className="inv-doc-section">
         <InvestorFilteredSection category={investorContactCat} />
       </section>
+
+      <CareerSection />
 
       <CompanyFooter />
     </div>

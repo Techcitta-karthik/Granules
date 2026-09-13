@@ -265,10 +265,10 @@ export default function CareerOverviewPage() {
 
         {/* Hero Visual Banner */}
         <div className="car-hero">
-          <img src="/assets/media/67.jpg" alt="Granules India scientist working on high-impact pharmaceutical formulations" />
+          <img src="/assets/career.webp" alt="Granules India scientist working on high-impact pharmaceutical formulations" />
           <div className="car-hero-scrim" />
           <div className="car-hero-overlay">
-            <h2 className="car-hero-heading">Make Better Health. Build a Bolder Career.</h2>
+            <h2 className="car-hero-heading">Make Better Health.<br />Build a Bolder Career.</h2>
           </div>
         </div>
 

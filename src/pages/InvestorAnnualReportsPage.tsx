@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { NavBar, CompanyFooter } from '../components/company';
+import { NavBar, CompanyFooter, CareerSection } from '../components/company';
 import '../components/company/company.css';
 import './investor.css';
 
@@ -111,6 +111,8 @@ export default function InvestorAnnualReportsPage() {
           <span>BACK TO INVESTOR</span>
         </Link>
       </div>
+
+      <CareerSection />
 
       <CompanyFooter />
     </div>

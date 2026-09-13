@@ -290,7 +290,7 @@ export default function PeptidesPage() {
             </h3>
           </div>
           <div className="cp-scroll-indicator">
-            <img src="/assets/oe/scroll-down-icon.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/company/scroll-down-icon.webp" alt="" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>

@@ -53,16 +53,17 @@
   position: absolute;
   top: clamp(28px, 4.5vw, 56px);
   left: clamp(28px, 4.5vw, 64px);
-  max-width: min(620px, 82%);
+  max-width: min(860px, 85%);
   z-index: 2;
+  pointer-events: none;
 }
 
 .czro-hero-heading {
   margin: 0;
-  font: 700 clamp(24px, 3.6vw, 46px)/1.18 'Manrope', sans-serif;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  font: 700 clamp(24px, 3.6vw, 46px)/1.18 var(--font-primary, 'Manrope', sans-serif) !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55) !important;
 }
 
 .czro-intro {

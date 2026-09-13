@@ -64,7 +64,7 @@ const PEOPLE_SLIDES = [
   },
   {
     id: 'people-team',
-    image: 'life-people-team.jpg',
+    image: 'panel-people-first.png',
     alt: 'Granules India colleagues collaborating and sharing ideas in the workplace',
   },
 ];

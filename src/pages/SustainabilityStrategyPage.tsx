@@ -185,11 +185,22 @@ type GreenItem = { title: string; body?: string; tags?: string[]; icon?: string 
 const GREEN_ITEMS: GreenItem[] = [
   {
     title: 'CZRO: India’s Green Pharma Manufacturing Hub',
-    tags: ['100% by Renewable Energy', 'Built with Circularity-first Design Principles', 'Uses Green Molecules: Hydrogen, Ammonia, Methanol'],
-    icon: 'icon-windmill.svg',
+    body: 'First-of-its-kind green pharmaceutical manufacturing hub powered 100% by renewable energy and green molecules including hydrogen, ammonia, and methanol, built with circularity-first design principles.',
+    tags: ['100% Renewable Energy', 'Circularity-first Design', 'Green Molecules: H2, NH3, MeOH'],
+    icon: '/assets/strategy/icon-windmill.svg',
   },
-  { title: 'Green Chemistry' },
-  { title: 'Sustainable Formulations' },
+  {
+    title: 'Green Chemistry Innovation',
+    body: 'Pioneering enzymatic catalysis, solvent recovery, and atom-efficient synthesis pathways to minimize chemical waste and eliminate hazardous effluents at the source.',
+    tags: ['Enzymatic Catalysis', 'Solvent Recovery & Reduction', 'Atom-Efficient Synthesis'],
+    icon: '/assets/fd/icon-test-tube.svg',
+  },
+  {
+    title: 'Sustainable Formulations & Packaging',
+    body: 'Designing low-carbon oral solid dosage delivery systems, utilizing bio-based excipients, and transitioning to 100% recyclable blister and secondary packaging materials.',
+    tags: ['Low-Carbon Formulations', 'Bio-based Excipients', 'Recyclable Packaging'],
+    icon: '/assets/fd/icon-box.svg',
+  },
 ];
 
 function CarbonStatsCarousel() {
@@ -403,23 +414,23 @@ export default function SustainabilityStrategyPage() {
                   type="button"
                   className={`biz-accordion-item${isOpen ? '' : ' collapsed'}`}
                   onClick={() => setOpen(isOpen ? -1 : index)}
-                  style={isOpen && item.tags ? { background: '#f2fff3' } : undefined}
                 >
                   <div className="biz-accordion-head">
                     <div className="biz-accordion-icon-row">
-                      {item.icon && isOpen && (
-                        <span className="biz-accordion-icon" style={{ background: 'linear-gradient(180deg, #6cff81, #19c308)' }}>
-                          <img src={`${S}${item.icon}`} alt="" loading="lazy" decoding="async" />
+                      {item.icon && (
+                        <span className="biz-accordion-icon">
+                          <img src={item.icon} alt="" loading="lazy" decoding="async" />
                         </span>
                       )}
-                      <p className="biz-accordion-title" style={{ color: isOpen && item.tags ? '#197b0c' : 'var(--blue)' }}>{item.title}</p>
+                      <p className="biz-accordion-title">{item.title}</p>
                     </div>
                     <span className="biz-accordion-toggle">
                       <img src={`${S}${isOpen ? 'icon-minus.svg' : 'icon-plus.svg'}`} alt="" loading="lazy" decoding="async" />
                     </span>
                   </div>
+                  {isOpen && item.body && <p className="biz-accordion-body">{item.body}</p>}
                   {isOpen && item.tags && (
-                    <div className="strat-tags">
+                    <div className="strat-tags" style={{ paddingLeft: '58px', marginTop: '6px' }}>
                       {item.tags.map((tag) => (
                         <span className="strat-tag" key={tag}>{tag}</span>
                       ))}
