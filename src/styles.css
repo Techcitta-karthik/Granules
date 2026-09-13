@@ -2296,6 +2296,10 @@ footer[id] {
     background-position: center center;
   }
 
+  .hero-image {
+    background-position: center 25% !important;
+  }
+
   .hero-image-current.is-transitioning {
     animation: hero-image-fade-mobile 0.65s ease both;
   }
@@ -2659,8 +2663,11 @@ footer[id] {
   }
 
   .back-to-top {
-    right: 16px;
-    bottom: 16px;
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    width: 42px;
+    height: 42px;
+    z-index: 998;
   }
 }
 

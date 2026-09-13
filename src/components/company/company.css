@@ -1836,22 +1836,63 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
     min-height: 240px;
   }
 
+  .cp-nav-wrap {
+    width: calc(100% - 24px) !important;
+    top: 8px !important;
+  }
+
+  .cp-nav.is-scrolled {
+    width: 100% !important;
+    padding: 8px 18px !important;
+  }
+
   .cp-leadership-banner {
-    min-height: clamp(520px, 65vh, 580px);
-    border-radius: 24px;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: auto !important;
+    height: auto !important;
+    border-radius: 28px !important;
+    background: #0b1b3a !important;
+    overflow: hidden !important;
+  }
+
+  .cp-leadership-banner-img {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 330px !important;
+    min-height: 330px !important;
+    max-height: 330px !important;
+    object-fit: cover !important;
+    object-position: center 12% !important;
+    display: block !important;
   }
 
   .cp-leadership-overlay-block {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    padding: 16px 16px 24px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    align-items: stretch !important;
+    gap: 16px !important;
   }
 
   .cp-quote-card {
-    width: 100%;
-    max-width: 100%;
-    padding: 24px 20px;
-    border-radius: 20px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 20px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .cp-cta-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    align-self: stretch !important;
   }
 
   .cp-quote-card p.cp-quote-text {

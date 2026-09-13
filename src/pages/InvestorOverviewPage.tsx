@@ -52,7 +52,7 @@ export default function InvestorOverviewPage() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -90; // Offset for fixed top navbar
+      const yOffset = window.innerWidth <= 960 ? -125 : -90; // Generous clearance for fixed floating navbar
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }

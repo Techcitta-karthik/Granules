@@ -786,12 +786,13 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    aspect-ratio: 3 / 2;
-    border-radius: 18px;
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
     background-image: inherit;
-    background-size: contain;
-    background-position: center;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   }
 
 

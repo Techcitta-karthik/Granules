@@ -358,18 +358,22 @@
     right: auto;
     top: auto;
     height: 340px;
-    margin: 20px auto 0;
+    margin: 20px auto -36px;
     object-position: top center;
+    z-index: 2;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
   }
 
   .ov-quote-card {
     position: relative;
+    z-index: 3;
     left: auto;
     bottom: auto;
     width: calc(100% - 40px);
     max-width: 100%;
-    margin: 16px auto 0;
+    margin: 0 auto 0;
     padding: 28px 24px;
+    box-shadow: 0 16px 40px rgba(0, 20, 60, 0.12);
   }
 }
 
@@ -379,13 +383,14 @@
   }
 
   .ov-leadership-person {
-    height: 280px;
+    height: 290px !important;
+    margin: 16px auto -36px !important;
   }
 
   .ov-quote-card {
-    width: calc(100% - 24px);
-    padding: 24px 20px;
-    border-radius: 20px;
+    width: calc(100% - 24px) !important;
+    padding: 24px 20px !important;
+    border-radius: 20px !important;
   }
 
   .ov-quote-text {
@@ -743,8 +748,12 @@
   .ov-leadership {
     aspect-ratio: auto;
     min-height: 0;
+    max-height: none !important;
+    height: auto !important;
     overflow: hidden;
-    padding-bottom: 24px;
+    padding-bottom: 28px;
+    display: flex;
+    flex-direction: column;
   }
 
   .ov-leadership-bg {
@@ -758,18 +767,22 @@
     position: relative;
     top: auto;
     right: auto;
-    height: 320px;
+    height: clamp(280px, 68vw, 340px) !important;
     align-self: center;
-    margin-bottom: 12px;
+    margin: 20px auto -38px !important;
+    z-index: 2 !important;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.16));
   }
 
   .ov-quote-card {
-    position: static;
-    transform: none;
-    width: calc(100% - 32px);
-    margin: 16px auto 0;
-    padding: 24px;
-    border-radius: 22px;
+    position: relative !important;
+    z-index: 3 !important;
+    transform: none !important;
+    width: calc(100% - 32px) !important;
+    margin: 0 auto 0 !important;
+    padding: 24px !important;
+    border-radius: 22px !important;
+    box-shadow: 0 16px 40px rgba(0, 20, 60, 0.12) !important;
   }
 }
 

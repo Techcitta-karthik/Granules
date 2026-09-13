@@ -2871,7 +2871,62 @@
 
   .car-panel,
   .car-panel.reverse {
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    margin-bottom: 32px !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+  }
+
+  .car-panel-image,
+  .car-panel:not(.reverse) .car-panel-image,
+  .car-panel.reverse .car-panel-image {
+    width: 100% !important;
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+    order: 1 !important;
+    border-radius: 26px 26px 0 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    background: linear-gradient(180deg, #f0f7ff 0%, #e1effe 100%) !important;
+  }
+
+  .car-panel-image img,
+  .car-panel:not(.reverse) .car-panel-image img,
+  .car-panel.reverse .car-panel-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center bottom !important;
+    border-radius: 26px 26px 0 0 !important;
+  }
+
+  .car-panel-copy,
+  .car-panel:not(.reverse) .car-panel-copy,
+  .car-panel.reverse .car-panel-copy {
+    width: 100% !important;
+    order: 2 !important;
+    padding: 24px 20px 28px !important;
+    gap: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .car-panel-copy h3 {
+    font-size: clamp(22px, 5.5vw, 28px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .car-panel-copy p {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
   }
 
   .car-panel-image.split {
@@ -2893,6 +2948,10 @@
     max-height: none !important;
     padding: 36px 24px !important;
     border-radius: 28px !important;
+  }
+
+  .car-cta-photo img.bg {
+    object-position: 80% bottom !important;
   }
 
   .car-cta-copy h2 {
