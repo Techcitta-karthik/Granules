@@ -965,18 +965,39 @@
 }
 
 @media (max-width: 768px) {
+  .sus-carousel-section,
+  .sus-marquee-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 16px;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
   .sus-cert-row {
-    padding: 12px 0 !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 10px 0 !important;
+    overflow: hidden !important;
   }
 
   .sus-cert-row .cert-track {
-    --cert-gap: 32px;
+    --cert-gap: 24px;
+    animation-duration: 75s;
+  }
+
+  .sus-cert-row .cert-track:active {
+    animation-play-state: paused;
   }
 
   .sus-cert-row img {
-    height: clamp(60px, 13vw, 80px) !important;
-    max-width: 200px !important;
+    height: clamp(40px, 9vw, 52px) !important;
+    max-width: 125px !important;
     filter: none !important;
     opacity: 1 !important;
+    mix-blend-mode: normal;
   }
 }

@@ -2886,4 +2886,20 @@
   .car-job-info span {
     width: auto !important;
   }
+
+  .car-cta-photo {
+    height: auto !important;
+    min-height: 250px !important;
+    max-height: none !important;
+    padding: 36px 24px !important;
+    border-radius: 28px !important;
+  }
+
+  .car-cta-copy h2 {
+    font-size: clamp(22px, 5.5vw, 32px) !important;
+  }
+
+  .car-cta-copy p {
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+  }
 }

@@ -28,12 +28,16 @@ h6 {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 170px;
+  overflow-x: clip;
+  max-width: 100vw;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100vw;
+  position: relative;
 }
 
 body.modal-open {
@@ -418,6 +422,16 @@ img {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes hero-image-fade-mobile {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -1681,10 +1695,12 @@ article.open .accordion-icon-circle {
   transition: transform .4s, filter .4s;
 }
 
-.news-card:hover>button>img,
-.news-card:hover>a>img {
-  transform: translateY(-5px);
-  filter: saturate(1.12);
+@media (hover: hover) and (pointer: fine) {
+  .news-card:hover>button>img,
+  .news-card:hover>a>img {
+    transform: translateY(-5px);
+    filter: saturate(1.12);
+  }
 }
 
 .news-meta {
@@ -2275,18 +2291,24 @@ footer[id] {
   }
 
   .hero {
-    height: 760px;
-    min-height: 760px;
-    background-position: 58% center;
+    height: min(650px, 86vh);
+    min-height: 540px;
+    background-position: center center;
+  }
+
+  .hero-image-current.is-transitioning {
+    animation: hero-image-fade-mobile 0.65s ease both;
   }
 
   .hero-content {
-    padding-top: 270px;
+    padding-top: clamp(125px, 23vh, 180px);
   }
 
   .hero h1 {
-    font-size: 42px;
-    line-height: 1.14;
+    font-size: clamp(28px, 6.8vw, 38px);
+    line-height: 1.18;
+    margin: 10px 0 24px;
+    max-width: 100%;
   }
 
   .hero-controls {
@@ -2362,6 +2384,13 @@ footer[id] {
     grid-template-columns: 1fr;
   }
 
+  .news-card>button>img,
+  .news-card>a>img {
+    aspect-ratio: 16/9;
+    border-radius: 16px;
+    transform: none !important;
+  }
+
   .product-grid {
     gap: 18px;
   }
@@ -2413,8 +2442,8 @@ footer[id] {
   }
 
   .presence {
-    min-height: 760px;
-    height: clamp(760px, 100vh, 880px);
+    min-height: 720px;
+    height: clamp(720px, 100vh, 840px);
   }
 
   .presence-copy {
@@ -2427,9 +2456,14 @@ footer[id] {
   }
 
   .map-wrap {
-    inset: 150px 0 200px;
-    width: auto;
+    inset: 160px 0 160px;
+    width: 100%;
     margin: 0;
+    overflow: hidden;
+  }
+
+  .map-plane.focus-india {
+    transform: scale(1.85) translate(-4%, -2%);
   }
 
   .presence-tabs {
@@ -2454,18 +2488,29 @@ footer[id] {
   }
 
   .cert-row {
-    margin-top: 36px;
-    padding: 12px 0;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 28px;
+    padding: 10px 0;
+    overflow: hidden !important;
   }
 
   .cert-track {
-    --cert-gap: 32px;
-    animation-duration: 40s;
+    --cert-gap: 24px;
+    animation-duration: 75s;
+  }
+
+  .cert-track:active {
+    animation-play-state: paused;
   }
 
   .cert-row img {
-    height: clamp(52px, 11vw, 64px);
-    max-width: 160px;
+    height: clamp(40px, 8.5vw, 50px);
+    max-width: 120px;
+    mix-blend-mode: normal;
   }
 
   .sustainability {
