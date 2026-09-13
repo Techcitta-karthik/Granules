@@ -166,7 +166,7 @@ export default function CommunityPage() {
             <div className="ov-leadership-overlay" />
             <div className="ov-quote-card">
               <div className="ov-quote-mark" aria-hidden="true">
-                <svg width="38" height="28" viewBox="0 0 36 28" fill="#0061f8">
+                <svg width="46" height="34" viewBox="0 0 36 28" fill="#0061f8">
                   <path d="M0 16.5C0 7.387 6.188 0 15.188 0v6.188c-4.95 0-7.875 3.375-8.438 7.312h8.438V28H0V16.5zm20.812 0C20.812 7.387 27 0 36 0v6.188c-4.95 0-7.875 3.375-8.438 7.312H36V28H20.812V16.5z" />
                 </svg>
               </div>

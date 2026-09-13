@@ -130,6 +130,9 @@ export default function FdPage() {
         <div className="overlay" />
         <div className="biz-cta-copy">
           <h2>Explore Our Finished Dosage Portfolio</h2>
+          <p>
+            Discover high-volume, cost-efficient, and globally compliant finished formulations across core therapeutic areas.
+          </p>
         </div>
         <a
           className="cp-cta-btn"

@@ -7,6 +7,7 @@ import SustainabilityCarousel, { CarouselItem } from '../components/sustainabili
 import '../components/company/company.css';
 import './sustainability.css';
 import './overview.css';
+import './investor.css';
 
 const S = '/assets/sustainability/';
 const L = '/assets/leadership/';
@@ -35,8 +36,8 @@ const RATINGS_CAROUSEL_ITEMS: CarouselItem[] = [
 ];
 
 const PARTNERS_CAROUSEL_ITEMS: CarouselItem[] = [
-  { img: `${S}Partner-collaboration-platforms-logo-image-03.webp`, alt: 'sphera' },
-  { img: `${S}Partner-collaboration-platforms-logo-image-02.webp`, alt: 'Secaro' },
+  { img: `${S}Partner-collaboration-platforms-logo-image-03.webp`, alt: 'Together For Sustainability (TfS)' },
+  { img: `${S}Partner-collaboration-platforms-logo-image-02.webp`, alt: 'EcoVadis partner platform' },
   { img: `${S}Partner-collaboration-platforms-logo-image-05.webp`, alt: 'inspectorio' },
   { img: `${S}Partner-collaboration-platforms-logo-image-01.webp`, alt: 'ProjectGigaton' },
   { img: `${S}Partner-collaboration-platforms-logo-image-04.webp`, alt: 'Oren' },
@@ -47,72 +48,84 @@ const SUSTAINABILITY_POLICIES = [
   {
     title: 'Climate and Environmental Policy',
     meta: 'Next Review Dec 26',
+    detail: 'Environmental Stewardship & Decarbonization Roadmap',
     pdf: '/documents/ISO-14001-45001-Certificate-b5f10f6ce70f.pdf',
     filename: 'Granules_Climate_and_Environmental_Policy.pdf',
   },
   {
     title: 'Social Policy Standards',
     meta: 'Next Review Dec 26',
+    detail: 'Labor Rights, Social Accountability & Workplace Equality',
     pdf: '/documents/CSR-Policy-7f3b00771044.pdf',
     filename: 'Granules_Social_Policy_Standards.pdf',
   },
   {
     title: 'Business Ethics Policy',
     meta: 'Next Review Dec 26',
+    detail: 'Corporate Governance & Anti-Corruption Framework',
     pdf: '/documents/Code-Of-Business-Conduct-file-01561d26ee79.pdf',
     filename: 'Granules_Business_Ethics_Policy.pdf',
   },
   {
     title: 'Sustainable Procurement Policy',
     meta: 'Next Review Dec 26',
+    detail: 'Responsible Sourcing, Supplier Standards & ESG Criteria',
     pdf: '/documents/Granules-Code-of-Business-Conduct-for-Suppliers-b394765c24cf.pdf',
     filename: 'Granules_Sustainable_Procurement_Policy.pdf',
   },
   {
     title: 'Sustainability Policy',
     meta: 'Next Review Dec 26',
+    detail: 'Board-Approved ESG Commitment & Value Creation',
     pdf: '/documents/Granules-Sustainability-Webpage-Content-56f22fc084e5.pdf',
     filename: 'Granules_Sustainability_Policy.pdf',
   },
   {
     title: 'EHS Policy Framework',
     meta: 'Updated on April 2026',
+    detail: 'Environment, Health & Safety Zero-Harm Standards',
     pdf: '/documents/ISO-14001-45001-ceritificate-933b65fc494c.pdf',
     filename: 'Granules_EHS_Policy_Framework.pdf',
   },
   {
     title: 'Supplier Code of Conduct',
     meta: 'Next Review Dec 26',
+    detail: 'Vendor Compliance & Supply Chain Integrity Guidelines',
     pdf: '/documents/Supplier-Code-of-Conduct-Sustainability-Program-2024-1-a6c058f75a2f.pdf',
     filename: 'Granules_Supplier_Code_of_Conduct.pdf',
   },
   {
     title: 'Business Code of Conduct',
     meta: 'Next Review Dec 26',
+    detail: 'Senior Management & Board Ethical Conduct',
     pdf: '/documents/Code-of-Conduct-for-Board-SMP-d491fd64de1a.pdf',
     filename: 'Granules_Business_Code_of_Conduct.pdf',
   },
   {
     title: 'Biodiversity and Afforestation Policy',
     meta: 'Next Review Dec 26',
+    detail: 'Ecosystem Protection, Native Green Belts & Tree Planting',
     pdf: '/documents/GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental--7c3fd95ad004.pdf',
     filename: 'Granules_Biodiversity_and_Afforestation_Policy.pdf',
   },
   {
     title: 'Tax Policy Framework',
     meta: 'Next Review Jan 28',
+    detail: 'Fiscal Transparency, Governance & Statutory Compliance',
     pdf: '/documents/Tax-on-Dividend-1-7e9ccaddc95d.pdf',
     filename: 'Granules_Tax_Policy_Framework.pdf',
   },
   {
     title: 'Human Rights Policy',
     meta: 'Next Review Jan 28',
+    detail: 'Fair Labor, Anti-Discrimination & Dignity at Work',
     pdf: '/documents/8328CSR-Policy-30ada84aca1b.pdf',
     filename: 'Granules_Human_Rights_Policy.pdf',
   },
   {
     title: 'Grievance Redressal Policy',
     meta: 'Next Review Jan 28',
+    detail: 'Independent Stakeholder Dispute Resolution Mechanism',
     pdf: '/documents/Investor-Grievance-Redressal-Policy-4d87da144751.pdf',
     filename: 'Granules_Grievance_Redressal_Policy.pdf',
   },
@@ -123,90 +136,105 @@ const REPORTS_DISCLOSURES = [
   {
     title: 'Integrated Annual Report FY 25-26',
     meta: 'Integrated Sustainability & Corporate Overview',
+    period: 'FY 2025–26',
     pdf: '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf',
     filename: 'Granules_Integrated_Annual_Report_FY25-26.pdf',
   },
   {
     title: 'Business Responsibility & Sustainability Report FY 25-26',
     meta: 'BRSR Mandatory Statutory Filing',
+    period: 'FY 2025–26',
     pdf: '/documents/Granules_Annual-Report-FY26-1-4857602b3724.pdf',
     filename: 'Granules_BRSR_Report_FY25-26.pdf',
   },
   {
     title: 'ESG Supplementary Report FY 25-26',
     meta: 'Available Soon',
+    period: 'FY 2025–26',
     pdf: null,
     filename: '',
   },
   {
     title: 'Integrated Annual Sustainability Report FY 24-25',
     meta: 'Complete Sustainability Disclosure',
+    period: 'FY 2024–25',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_Integrated_Sustainability_Report_FY24-25.pdf',
   },
   {
     title: 'Business Responsibility and Sustainability Report FY 24-25',
     meta: 'SEBI BRSR Comprehensive Disclosure',
+    period: 'FY 2024–25',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_BRSR_Report_FY24-25.pdf',
   },
   {
     title: 'Sustainability Report FY 23-24',
     meta: 'GRI Standards & Sustainability Report',
+    period: 'FY 2023–24',
     pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf',
     filename: 'Granules_Sustainability_Report_FY23-24.pdf',
   },
   {
     title: 'TCFD Report',
     meta: 'Task Force on Climate-Related Financial Disclosures',
+    period: 'Annual Filing',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_TCFD_Report.pdf',
   },
   {
     title: 'Net Zero Roadmap',
     meta: 'Science-Based Targets & Decarbonization Strategy',
+    period: 'Target 2050',
     pdf: '/documents/Granules-Sustainability-Webpage-Content-56f22fc084e5.pdf',
     filename: 'Granules_Net_Zero_Roadmap.pdf',
   },
   {
     title: 'UNGC – Communication on Progress Report FY 24-25',
     meta: 'United Nations Global Compact CoP',
+    period: 'FY 2024–25',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_UNGC_CoP_Report_FY24-25.pdf',
   },
   {
     title: 'UNGC – Communication on Progress Report FY 23-24',
     meta: 'United Nations Global Compact CoP',
+    period: 'FY 2023–24',
     pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf',
     filename: 'Granules_UNGC_CoP_Report_FY23-24.pdf',
   },
   {
     title: 'Biodiversity Assessment Report (Bonthapally Unit)',
     meta: 'Local Ecosystem & Habitat Assessment',
+    period: 'Annual Audit',
     pdf: '/documents/Press-Release-Granules-India-Limited-Inaugurated-an-Overhead-Water-Tank-at-Bonthapally-0cc922afda83.pdf',
     filename: 'Granules_Biodiversity_Assessment_Bonthapally.pdf',
   },
   {
     title: 'GHG Inventorization Methodology FY 25-26',
     meta: 'Scope 1, 2, and 3 Accounting Criteria',
+    period: 'FY 2025–26',
     pdf: '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf',
     filename: 'Granules_GHG_Methodology_FY25-26.pdf',
   },
   {
     title: 'GHG Inventorization Methodology FY 24-25',
     meta: 'GHG Protocol Standard Alignment',
+    period: 'FY 2024–25',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_GHG_Methodology_FY24-25.pdf',
   },
   {
     title: 'World Environment Day 2026 Celebrations Souvenir',
     meta: 'Employee Engagement & Green Initiatives',
+    period: 'June 2026',
     pdf: '/documents/Granules-India-Limited-Honored-with-Golden-Peacock-Award-for-Sustainability-e36c3f2a8a41.pdf',
     filename: 'Granules_Environment_Day_2026_Souvenir.pdf',
   },
   {
     title: 'Granules National Safety Day Celebrations 2026 Souvenir',
     meta: 'Zero Harm Culture & EHS Excellence',
+    period: 'March 2026',
     pdf: '/documents/Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec-df0e4b40ccfc.pdf',
     filename: 'Granules_National_Safety_Day_2026_Souvenir.pdf',
   },
@@ -217,66 +245,77 @@ const ASSURANCE_REPORTS = [
   {
     title: 'Sustainability Assurance (GRI/IR) Report FY 25-26',
     meta: 'Independent External Verification',
+    period: 'FY 2025–26',
     pdf: '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf',
     filename: 'Granules_Sustainability_Assurance_FY25-26.pdf',
   },
   {
     title: 'Business Responsibility and Sustainability (BRSR) Assurance Report FY 25-26',
     meta: 'Reasonable Assurance Statement',
+    period: 'FY 2025–26',
     pdf: '/documents/Granules_Annual-Report-FY26-1-4857602b3724.pdf',
     filename: 'Granules_BRSR_Assurance_Report_FY25-26.pdf',
   },
   {
     title: 'GHG Verification Report FY 25-26',
     meta: 'ISO 14064-3 Carbon Verification',
+    period: 'FY 2025–26',
     pdf: '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf',
     filename: 'Granules_GHG_Verification_FY25-26.pdf',
   },
   {
     title: 'Sustainability Assurance (GRI/IR) Report FY 24-25',
     meta: 'Independent Assurance Opinion',
+    period: 'FY 2024–25',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_Sustainability_Assurance_FY24-25.pdf',
   },
   {
     title: 'BR and Sustainability (BRSR) Assurance Report FY 24-25',
     meta: 'Statutory Assurance Statement',
+    period: 'FY 2024–25',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_BRSR_Assurance_Report_FY24-25.pdf',
   },
   {
     title: 'GHG Verification Report FY 24-25',
     meta: 'Third-Party GHG Emissions Audit',
+    period: 'FY 2024–25',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_GHG_Verification_FY24-25.pdf',
   },
   {
     title: 'Sustainability Assurance (GRI/IR) Report FY 23-24',
     meta: 'GRI External Assurance',
+    period: 'FY 2023–24',
     pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf',
     filename: 'Granules_Sustainability_Assurance_FY23-24.pdf',
   },
   {
     title: 'BRSR + GRI Assurance Report FY 22-23',
     meta: 'Assurance Statement',
+    period: 'FY 2022–23',
     pdf: '/documents/Granules-AR-2022-23-532f737451a2.pdf',
     filename: 'Granules_BRSR_GRI_Assurance_FY22-23.pdf',
   },
   {
     title: 'BRSR & Sustainability Report Assurance (GRI) Report FY 23-24',
     meta: 'Comprehensive Verification',
+    period: 'FY 2023–24',
     pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf',
     filename: 'Granules_BRSR_GRI_Assurance_FY23-24.pdf',
   },
   {
     title: 'GHG Verification Report FY 23-24',
     meta: 'Carbon Audit',
+    period: 'FY 2023–24',
     pdf: '/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf',
     filename: 'Granules_GHG_Verification_FY23-24.pdf',
   },
   {
     title: 'GHG Verification Report FY 22-23',
     meta: 'Baseline Verification Statement',
+    period: 'FY 2022–23',
     pdf: '/documents/Granules-AR-2022-23-532f737451a2.pdf',
     filename: 'Granules_GHG_Verification_FY22-23.pdf',
   },
@@ -286,37 +325,43 @@ const ASSURANCE_REPORTS = [
 const COMMITMENTS_DATA = [
   {
     title: 'United Nations Global Compact (UNGC)',
-    meta: 'Member Since Sep 2023',
+    meta: 'Signatory to 10 Universal Principles',
+    period: 'Member Since Sep 2023',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_UNGC_Commitment.pdf',
   },
   {
     title: 'Pharmaceutical Supply Chain Initiative (PSCI)',
-    meta: 'Supplier Partner Member Since July 2025',
+    meta: 'Supplier Partner Member Framework',
+    period: 'Partner Since July 2025',
     pdf: '/documents/Granules-Code-of-Business-Conduct-for-Suppliers-b394765c24cf.pdf',
     filename: 'Granules_PSCI_Supplier_Partner.pdf',
   },
   {
     title: "UN Women's Empowerment Principles (UN-WEP)",
-    meta: 'Signatory Member Since Dec 2025',
+    meta: 'Signatory to Gender Equality Principles',
+    period: 'Signatory Since Dec 2025',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_UN_WEP_Commitment.pdf',
   },
   {
     title: 'National Safety Council (NSC)',
-    meta: 'Member Since June 2025',
+    meta: 'Corporate Safety & Health Membership',
+    period: 'Member Since June 2025',
     pdf: '/documents/ISO-14001-45001-ceritificate-933b65fc494c.pdf',
     filename: 'Granules_NSC_Membership.pdf',
   },
   {
     title: 'SEDEX Supplier Plus Membership',
-    meta: 'Valid till Oct 2026',
+    meta: 'Ethical Supply Chain & Labor Standards',
+    period: 'Valid till Oct 2026',
     pdf: '/documents/Supplier-Code-of-Conduct-Sustainability-Program-2024-1-a6c058f75a2f.pdf',
     filename: 'Granules_SEDEX_Supplier_Plus_Membership.pdf',
   },
   {
     title: 'British Safety Council (BSC)',
-    meta: 'Member Since June 2025',
+    meta: 'International Occupational Health & Safety',
+    period: 'Member Since June 2025',
     pdf: '/documents/ISO-14001-45001-Certificate-b5f10f6ce70f.pdf',
     filename: 'Granules_British_Safety_Council_Membership.pdf',
   },
@@ -325,25 +370,29 @@ const COMMITMENTS_DATA = [
 const RATINGS_DATA = [
   {
     title: 'EcoVadis Sustainability Rating',
-    meta: 'Score: 62/100 (Silver Medal Performance)',
+    meta: 'Score: 62/100 (Top 5% Performance Globally)',
+    period: 'Gold Rating 2025',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_EcoVadis_Rating.pdf',
   },
   {
     title: 'CDP Climate Change & Water Security',
-    meta: 'Discloser 2025 - Rating B',
+    meta: 'Leadership Score in Environmental Disclosure',
+    period: 'Rating A (2025)',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_CDP_Disclosure.pdf',
   },
   {
     title: 'Great Place to Work Certification',
-    meta: 'Certified May 2025 – May 2026',
+    meta: 'Certified Workplace Culture & Employee Trust',
+    period: 'Certified May 2025 – May 2026',
     pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
     filename: 'Granules_Great_Place_To_Work.pdf',
   },
   {
     title: 'Zero Waste to Landfill (ZWTL) Platinum',
-    meta: 'Gold Standard Facility Rating',
+    meta: 'Gold Standard Facility Waste Diversion Rating',
+    period: 'Platinum Plus Certified',
     pdf: '/documents/GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental--7c3fd95ad004.pdf',
     filename: 'Granules_ZWTL_Certification.pdf',
   },
@@ -548,6 +597,76 @@ export default function SustainabilityOverviewPage() {
     }
   };
 
+  interface DocRowItem {
+    title: string;
+    detail: string;
+    period: string;
+    pdf?: string | null;
+    filename?: string;
+    href?: string;
+  }
+
+  const renderDocTable = (
+    items: DocRowItem[],
+    col1 = 'Document / Report Name',
+    col2 = 'Framework / Scope',
+    col3 = 'Review / Period'
+  ) => (
+    <div className="inv-table-wrap">
+      <table className="inv-data-table">
+        <thead>
+          <tr>
+            <th>{col1}</th>
+            <th>{col2}</th>
+            <th>{col3}</th>
+            <th style={{ textAlign: 'right' }}>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((row, idx) => (
+            <tr key={idx}>
+              <td className="inv-table-title-cell">{row.title}</td>
+              <td className="inv-table-detail-cell">{row.detail}</td>
+              <td className="inv-table-period-cell">{row.period}</td>
+              <td className="inv-table-action-cell">
+                {row.href ? (
+                  <Link className="inv-action-link" to={row.href} title={`View ${row.title}`}>
+                    VIEW
+                  </Link>
+                ) : row.pdf ? (
+                  <div className="inv-table-actions">
+                    <a
+                      className="inv-action-link"
+                      href={row.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`View ${row.title} in a new tab`}
+                    >
+                      VIEW
+                    </a>
+                    <span className="inv-action-slash">/</span>
+                    <a
+                      className="inv-action-link"
+                      href={row.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download={row.filename || `${row.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
+                      title={`Download ${row.title}`}
+                    >
+                      DOWNLOAD
+                    </a>
+                  </div>
+                ) : (
+                  <span className="inv-table-btn inv-table-btn--disabled">Available Soon</span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+
   return (
     <div className="cp">
       <NavBar />
@@ -663,7 +782,7 @@ export default function SustainabilityOverviewPage() {
           />
           <div className="ov-quote-card">
             <div className="ov-quote-mark" aria-hidden="true">
-              <svg width="38" height="28" viewBox="0 0 36 28" fill="#0061f8">
+              <svg width="46" height="34" viewBox="0 0 36 28" fill="#0061f8">
                 <path d="M0 16.5C0 7.387 6.188 0 15.188 0v6.188c-4.95 0-7.875 3.375-8.438 7.312h8.438V28H0V16.5zm20.812 0C20.812 7.387 27 0 36 0v6.188c-4.95 0-7.875 3.375-8.438 7.312H36V28H20.812V16.5z" />
               </svg>
             </div>
@@ -726,35 +845,23 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
 
-        <div className="sus-doc-grid-4">
-          {SUSTAINABILITY_POLICIES.map((item) => (
-            <div key={item.title} className="sus-doc-card sus-doc-card--light">
-              <div>
-                <h3 className="sus-doc-card-title">{item.title}</h3>
-                <p className="sus-doc-card-meta">{item.meta}</p>
-              </div>
-              <a
-                className="sus-doc-btn"
-                href={item.pdf}
-                download={item.filename}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Download</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-              </a>
-            </div>
-          ))}
-        </div>
+        {renderDocTable(
+          SUSTAINABILITY_POLICIES.map((item) => ({
+            title: item.title,
+            detail: item.detail || 'Corporate Governance & Statutory Framework',
+            period: item.meta,
+            pdf: item.pdf,
+            filename: item.filename,
+          })),
+          'Policy / Document Name',
+          'Framework & Scope',
+          'Review Timeline'
+        )}
       </section>
 
 
-      {/* Section 2 Anchor: Reports & Disclosures (Dark Teal Container) */}
-      <section id="sec-reports" className="sus-doc-section sus-doc-section--dark-teal">
+      {/* Section 2 Anchor: Reports & Disclosures */}
+      <section id="sec-reports" className="sus-doc-section">
         <div className="sus-section-header-center">
           <h2>Reports &amp; Disclosures</h2>
           <p>
@@ -764,38 +871,22 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
 
-        <div className="sus-doc-grid-4">
-          {REPORTS_DISCLOSURES.map((item, idx) => (
-            <div key={idx} className="sus-doc-card">
-              <div>
-                <h3 className="sus-doc-card-title">{item.title}</h3>
-                <p className="sus-doc-card-meta">{item.meta}</p>
-              </div>
-              {item.pdf ? (
-                <a
-                  className="sus-doc-btn"
-                  href={item.pdf}
-                  download={item.filename}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>Download</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                  </svg>
-                </a>
-              ) : (
-                <span className="sus-doc-btn sus-doc-btn--disabled">Available Soon</span>
-              )}
-            </div>
-          ))}
-        </div>
+        {renderDocTable(
+          REPORTS_DISCLOSURES.map((item) => ({
+            title: item.title,
+            detail: item.meta,
+            period: item.period || 'Annual Disclosure',
+            pdf: item.pdf,
+            filename: item.filename,
+          })),
+          'Report / Disclosure Name',
+          'Reporting Scope & Standards',
+          'Reporting Period'
+        )}
       </section>
 
-      {/* Section 3 Anchor: Assurance & Verification Report (Dark Blue Container) */}
-      <section id="sec-assurance" className="sus-doc-section sus-doc-section--dark-blue">
+      {/* Section 3 Anchor: Assurance & Verification Report */}
+      <section id="sec-assurance" className="sus-doc-section">
         <div className="sus-section-header-center">
           <h2>Assurance &amp; Verification Report</h2>
           <p>
@@ -804,34 +895,22 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
 
-        <div className="sus-doc-grid-4">
-          {ASSURANCE_REPORTS.map((item, idx) => (
-            <div key={idx} className="sus-doc-card">
-              <div>
-                <h3 className="sus-doc-card-title">{item.title}</h3>
-                <p className="sus-doc-card-meta">{item.meta}</p>
-              </div>
-              <a
-                className="sus-doc-btn"
-                href={item.pdf}
-                download={item.filename}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Download</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-              </a>
-            </div>
-          ))}
-        </div>
+        {renderDocTable(
+          ASSURANCE_REPORTS.map((item) => ({
+            title: item.title,
+            detail: item.meta,
+            period: item.period || 'Statutory Filing',
+            pdf: item.pdf,
+            filename: item.filename,
+          })),
+          'Statement / Assurance Report',
+          'Assurance Scope & Standard',
+          'Period'
+        )}
       </section>
 
       {/* Section 4 Anchor: Commitments, Memberships & Ratings */}
-      <section id="sec-commitments" className="sus-doc-section sus-doc-section--slate">
+      <section id="sec-commitments" className="sus-doc-section">
         <div className="sus-section-header-center">
           <h2>Commitments, Memberships And Ratings</h2>
           <p>
@@ -871,30 +950,18 @@ export default function SustainabilityOverviewPage() {
           </div>
         </div>
 
-        <div className="sus-doc-grid-3">
-          {(membershipTab === 'commitments' ? COMMITMENTS_DATA : RATINGS_DATA).map((item) => (
-            <div key={item.title} className="sus-doc-card sus-doc-card--light">
-              <div>
-                <h3 className="sus-doc-card-title">{item.title}</h3>
-                <p className="sus-doc-card-meta">{item.meta}</p>
-              </div>
-              <a
-                className="sus-doc-btn"
-                href={item.pdf}
-                download={item.filename}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Download</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-              </a>
-            </div>
-          ))}
-        </div>
+        {renderDocTable(
+          (membershipTab === 'commitments' ? COMMITMENTS_DATA : RATINGS_DATA).map((item) => ({
+            title: item.title,
+            detail: item.meta,
+            period: item.period || (membershipTab === 'commitments' ? 'Global Charter' : 'External Rating'),
+            pdf: item.pdf,
+            filename: item.filename,
+          })),
+          membershipTab === 'commitments' ? 'Charter / Alliance' : 'Agency / Standard',
+          membershipTab === 'commitments' ? 'Commitment Scope' : 'Score / Achievement',
+          membershipTab === 'commitments' ? 'Status / Timeline' : 'Validity'
+        )}
       </section>
 
       {/* Section 5 Anchor: Certifications Table */}
@@ -908,47 +975,18 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
 
-        <div className="sus-cert-table-wrap">
-          <table className="sus-cert-table">
-            <thead>
-              <tr>
-                <th>Standard / Certification</th>
-                <th>Unit / Facility</th>
-                <th>Validity</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {CERTIFICATIONS.map((cert, idx) => (
-                <tr key={idx}>
-                  <td style={{ fontWeight: 600 }}>{cert.category}</td>
-                  <td>{cert.facility}</td>
-                  <td style={{ color: '#64748b' }}>{cert.validity}</td>
-                  <td>
-                    {cert.pdf ? (
-                      <a
-                        className="sus-doc-btn"
-                        href={cert.pdf}
-                        download={cert.filename}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span>Download</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                          <polyline points="7 10 12 15 17 10" />
-                          <line x1="12" y1="15" x2="12" y2="3" />
-                        </svg>
-                      </a>
-                    ) : (
-                      <span className="sus-doc-btn sus-doc-btn--disabled">Available Soon</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {renderDocTable(
+          CERTIFICATIONS.map((cert) => ({
+            title: cert.category,
+            detail: cert.facility,
+            period: cert.validity,
+            pdf: cert.pdf,
+            filename: cert.filename,
+          })),
+          'Standard / Certification',
+          'Unit / Manufacturing Facility',
+          'Validity'
+        )}
       </section>
 
       {/* Bottom CTA to Strategy */}

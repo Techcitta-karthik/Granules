@@ -136,7 +136,7 @@ export default function MediaPage() {
 
       <div className="med-hero">
         <img
-          src="/assets/media/banner.webp"
+          src="/assets/media/67.jpg"
           alt="Granules Global Media and Communications"
           className="med-hero-img"
           loading="eager"
@@ -236,16 +236,29 @@ export default function MediaPage() {
                       }
                     }}
                   >
-                    <img
-                      className="med-news-image"
-                      src={item.image || fallbackImg}
-                      alt={item.title}
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = fallbackImg;
-                      }}
-                    />
+                    <div className="med-news-thumb-box">
+                      <img
+                        className="med-news-thumb-backdrop"
+                        src={item.image || fallbackImg}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = fallbackImg;
+                        }}
+                      />
+                      <img
+                        className="med-news-image"
+                        src={item.image || fallbackImg}
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = fallbackImg;
+                        }}
+                      />
+                    </div>
 
                     <div className="med-news-body">
                       <div className="med-news-content">
@@ -564,16 +577,16 @@ export default function MediaPage() {
         </div>
       )}
 
-      {/* Media Contact Us Section */}
-      <section className="med-contact-section" aria-label="Media Contacts">
-        <div className="med-contact-head">
-          <span className="cp-section-badge">Get in Touch</span>
-          <h2>Media Contact</h2>
-        </div>
-
-        <div className="med-contact-grid">
-          <h2>Email</h2>
-
+      {/* Media Enquiries Section */}
+      <section className="med-enquiries-section" aria-label="Media Enquiries">
+        <h2 className="med-enquiries-title">Media Enquiries</h2>
+        <div className="med-enquiries-action">
+          <a
+            href="mailto:Priyanka.Chawla@granulesindia.com"
+            className="med-enquiries-email-btn"
+          >
+            Priyanka.Chawla@granulesindia.com
+          </a>
         </div>
       </section>
 
@@ -581,11 +594,14 @@ export default function MediaPage() {
       <div className="med-report-section">
         <div className="med-report-card">
           <div className="med-report-copy">
-            <h2>
+            <h1 className="med-report-heading">
               Integrated Annual Report
               <br />
               FY 25-26
-            </h2>
+            </h1>
+            <p className="med-report-sub">
+              Where strategy meets evolving healthcare needs, science, and sustainability.
+            </p>
             <a
               className="med-report-btn"
               href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"

@@ -184,11 +184,11 @@ export default function GlobalSubsidiariesPage() {
         <img className="cp-bg" src="/assets/company/values-bg.png" alt="" loading="lazy" decoding="async" />
         <div className="cp-bg-overlay" />
         <div className="cp-career-copy">
-          <Link className="cp-cta-btn" to="/business/generics">GENERICS &rarr;</Link>
           <h2>Advancing Healthcare Through Science &amp; Scale</h2>
           <p>
             Advancing healthcare through a growing portfolio of complex, high-value pharmaceutical products.
           </p>
+          <Link className="cp-cta-btn" to="/business/generics">GENERICS &rarr;</Link>
         </div>
       </div>
 

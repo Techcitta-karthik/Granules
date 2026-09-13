@@ -136,6 +136,20 @@ h2 {
   letter-spacing: var(--track-section) !important;
 }
 
+.qc-card-title,
+.qc-card-copy h1,
+.qc-stack-card .qc-card-copy h1,
+.qc-card-copy h2,
+.qc-stack-card .qc-card-copy h2 {
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: clamp(44px, 3.8vw, 58px) !important;
+  line-height: 1.12 !important;
+  font-weight: 700 !important;
+  color: var(--text-brand, #0061f8) !important;
+  letter-spacing: -0.025em !important;
+  max-width: 520px !important;
+}
+
 h3 {
   font-size: var(--fs-subsection) !important;
   line-height: 1.3 !important;
@@ -265,6 +279,12 @@ input, textarea, select {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease !important;
 }
 
+.peptides-stat-card {
+  align-items: center !important;
+  text-align: center !important;
+  justify-content: center !important;
+}
+
 .fac-stat-card:hover,
 .peptides-stat-card:hover,
 .senn-stat-card:hover,
@@ -315,6 +335,12 @@ input, textarea, select {
   letter-spacing: 0.4px !important;
   color: #0061f8 !important;
   margin: 0 !important;
+}
+
+.peptides-stat-val,
+.peptides-stat-label {
+  text-align: center !important;
+  margin: 0 auto !important;
 }
 
 /* ==========================================================================
@@ -467,4 +493,87 @@ h3.ms-card-year {
   }
 
   input, textarea, select { font-size: 14px !important; }
+}
+
+/* ==========================================================================
+   UNIFIED BOTTOM CTA BOX SIZING (250px default, up to 300px if content is large)
+   ========================================================================== */
+.sus-cta,
+.car-cta-photo,
+.car-cta,
+.cp-career,
+.ld-cta,
+.ms-leadership,
+.aw-cta,
+.biz-cta,
+.rd-cta,
+.qc-cta,
+.fac-cta,
+.senn-cta,
+.czro-cta,
+.gls-cta,
+.oe-cta,
+.careers,
+.inv-contact-cta,
+.esg-dashboard-cta {
+  height: 250px !important;
+  min-height: 250px !important;
+  max-height: 300px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 14px !important;
+  padding: 28px clamp(24px, 4vw, 56px) !important;
+}
+
+.sus-cta-copy,
+.car-cta-copy,
+.cp-career-copy,
+.ld-cta-copy,
+.ms-leadership-copy,
+.aw-cta-copy,
+.biz-cta-copy,
+.rd-cta-copy,
+.qc-cta-copy,
+.fac-cta-copy,
+.senn-cta-copy,
+.czro-cta-copy,
+.gls-cta-copy,
+.oe-cta-copy,
+.careers > div,
+.inv-contact-copy,
+.esg-dashboard-copy {
+  flex: 0 1 auto !important;
+  max-width: 800px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+@media (max-width: 768px) {
+  .sus-cta,
+  .car-cta-photo,
+  .car-cta,
+  .cp-career,
+  .ld-cta,
+  .ms-leadership,
+  .aw-cta,
+  .biz-cta,
+  .rd-cta,
+  .qc-cta,
+  .fac-cta,
+  .senn-cta,
+  .czro-cta,
+  .gls-cta,
+  .oe-cta,
+  .careers,
+  .inv-contact-cta,
+  .esg-dashboard-cta {
+    height: auto !important;
+    min-height: 250px !important;
+    max-height: none !important;
+    padding: 28px 20px !important;
+  }
 }

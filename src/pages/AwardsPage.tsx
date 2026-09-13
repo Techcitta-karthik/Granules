@@ -102,13 +102,12 @@ export default function AwardsPage() {
         <img className="cp-bg" src={`${AW}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="cp-bg-overlay" />
         <div className="aw-cta-copy">
-          <h2>Lorem ipsum mattis viverra tortor</h2>
+          <h2>Recognised for Global Excellence &amp; Innovation</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur. At malesuada at sed phasellus. Ipsum posuere
-            aliquam dignissim suspendisse arcu tellus.
+            Explore how our commitment to quality, sustainability, and operational scale continues to shape award-winning pharmaceutical benchmarks worldwide.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/company">Lorem ipsum</a>
+        <a className="cp-cta-btn" href="/company">ABOUT GRANULES &rarr;</a>
       </div>
 
       <CompanyFooter />

@@ -770,42 +770,45 @@
 
 /* ---------- Contact CTA ---------- */
 .inv-contact-cta {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(80px, 10vw, 120px) auto 0 !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 75px auto 75px !important;
   border-radius: 40px;
-  padding: 60px;
+  padding: 36px clamp(24px, 4.5vw, 60px) !important;
   background: linear-gradient(89.4deg, #beedfa 42.3%, rgba(0, 186, 234, 0) 75.4%);
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(16px, 2vw, 22px);
+  min-height: 250px;
+  box-sizing: border-box;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
 }
 
 .inv-contact-copy {
-  flex: 1 1 480px;
-  max-width: 843px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 
 .inv-contact-copy h2 {
   margin: 0;
-  font: 500 clamp(30px, 4vw, 50px)/1.1 'Manrope', sans-serif;
-  color: #002fff;
+  font: 700 clamp(26px, 3.2vw, 44px)/1.15 'Manrope', sans-serif;
+  color: var(--blue-2, #0061f8);
 }
 
 .inv-contact-copy p {
   margin: 0;
-  font: 500 22px/1.3 'Manrope', sans-serif;
-  color: #070707;
-  letter-spacing: 0.22px;
+  font: 500 clamp(16px, 1.2vw, 20px)/1.35 'Manrope', sans-serif;
+  color: var(--n9, #1e293b);
+  letter-spacing: 0.15px;
 }
 
 .inv-contact-btn {
-  flex-shrink: 0;
+  align-self: flex-start !important;
+  margin: 0 !important;
   background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
   border-radius: 9999px;
   padding: 13px 34px;

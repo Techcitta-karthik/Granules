@@ -186,7 +186,7 @@ const FOOTPRINT_LIST = [
     country: 'Switzerland',
     location: 'Senn Chemicals AG, Dielsdorf, Zurich',
     details: 'R&D, kilo-scale development, GMP production, QC, QA and warehousing. The site employs more than 80 people and has been operational since 1963.',
-    image: '/assets/peptides/footprint-dielsdorf.jpg',
+    image: '/assets/facilities/Senn Chem.png',
     flag: (
       <svg width="22" height="22" viewBox="0 0 512 512" style={{ borderRadius: '6px', flexShrink: 0 }}>
         <rect width="512" height="512" fill="#d52b1e" />
@@ -199,7 +199,7 @@ const FOOTPRINT_LIST = [
     country: 'India',
     location: 'Hyderabad',
     details: 'Development, process optimisation, structural characterisation and analytical capabilities.',
-    image: '/assets/peptides/footprint-hyderabad.jpg',
+    image: '/assets/facilities/gagillapur.png',
     flag: (
       <svg width="22" height="22" viewBox="0 0 512 512" style={{ borderRadius: '6px', flexShrink: 0 }}>
         <rect width="512" height="170.7" fill="#ff9933" />
@@ -214,7 +214,7 @@ const FOOTPRINT_LIST = [
     country: 'India',
     location: 'Vizag',
     details: 'Large-scale peptide manufacturing facility under development, with completion expected by December 2027.',
-    image: '/assets/peptides/footprint-vizag.jpg',
+    image: '/assets/facilities/vizag-unit5.webp',
     flag: (
       <svg width="22" height="22" viewBox="0 0 512 512" style={{ borderRadius: '6px', flexShrink: 0 }}>
         <rect width="512" height="170.7" fill="#ff9933" />

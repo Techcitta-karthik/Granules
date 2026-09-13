@@ -193,15 +193,32 @@
 
 .ct-select {
   appearance: none;
-  padding-right: 34px;
+  -webkit-appearance: none;
+  padding-right: 32px;
   cursor: pointer;
   /* show placeholder colour until a real option selected */
-  color: #94a3b8;
+  color: #8da5c4;
+  background-color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.ct-select:focus,
+.ct-select.has-value,
+.ct-select:focus {
+  color: #070707;
+}
+
 .ct-select option {
   color: #070707;
+  background-color: #fff;
+  padding: 8px 12px;
+  font-family: var(--font-primary, 'Manrope', sans-serif);
+  font-size: 13px;
+}
+
+.ct-select option[disabled] {
+  color: #8da5c4;
 }
 
 .ct-chevron {
@@ -211,6 +228,9 @@
   transform: translateY(-50%);
   pointer-events: none;
   color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Textarea */

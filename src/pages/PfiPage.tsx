@@ -136,6 +136,9 @@ export default function PfiPage() {
         <div className="overlay" />
         <div className="biz-cta-copy">
           <h2>Explore Our Full PFI Product Portfolio</h2>
+          <p>
+            Industry-leading pharmaceutical formulation intermediates engineered for superior compressibility and flowability.
+          </p>
         </div>
         <a
           className="cp-cta-btn"

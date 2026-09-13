@@ -125,7 +125,7 @@ const CAPABILITIES = [
     title: 'GMP Manufacturing',
     desc: 'Glass-lined and hydrogenation reactors up to 2,500 L, with SPPS capacity for up to 12 kg of resin.',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       </svg>
@@ -136,7 +136,7 @@ const CAPABILITIES = [
     title: 'Purification and Isolation',
     desc: 'Preparative HPLC using DAC columns up to 30 cm internal diameter, filtration, centrifugation, drying and lyophilisation.',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0" />
       </svg>
     ),
@@ -146,7 +146,7 @@ const CAPABILITIES = [
     title: 'Development Support',
     desc: 'Route scouting, process development, analytical method development and validation, stability studies, DMF preparation and technology-transfer support.',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
@@ -156,7 +156,7 @@ const CAPABILITIES = [
     title: 'Analytical Support',
     desc: 'Physical characterisation, impurity identification, residual-solvent and pharmacopeial testing, chromatographic assays, enantiomeric-purity analysis, spectrometric techniques, HPLC, GC, potentiometric titration and Karl Fischer water determination.',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <line x1="22" y1="12" x2="18" y2="12" />
         <line x1="6" y1="12" x2="2" y2="12" />
@@ -173,7 +173,7 @@ const FOOTPRINT_ITEMS = [
     country: 'Switzerland',
     title: 'Dielsdorf, Switzerland',
     desc: 'R&D, kilo-scale development, GMP production, QC, QA and warehousing. The site has been operational since 1963 and employs more than 80 people.',
-    image: '/assets/peptides/footprint-dielsdorf.jpg',
+    image: '/assets/facilities/Senn Chem.png',
     flag: (
       <svg width="22" height="22" viewBox="0 0 512 512" style={{ borderRadius: '6px', flexShrink: 0 }}>
         <rect width="512" height="512" fill="#d52b1e" />
@@ -186,7 +186,7 @@ const FOOTPRINT_ITEMS = [
     country: 'India',
     title: 'Hyderabad, India',
     desc: 'Development, process optimisation, structural characterisation, analytical capabilities and access to large-scale manufacturing.',
-    image: '/assets/peptides/footprint-hyderabad.jpg',
+    image: '/assets/facilities/gagillapur.png',
     flag: (
       <svg width="22" height="22" viewBox="0 0 512 512" style={{ borderRadius: '6px', flexShrink: 0 }}>
         <rect width="512" height="170.7" fill="#ff9933" />
@@ -201,7 +201,7 @@ const FOOTPRINT_ITEMS = [
     country: 'India',
     title: 'Vizag, India',
     desc: 'A large-scale peptide manufacturing facility is being developed on a 283,000 sq. ft. site, with completion expected by December 2027.',
-    image: '/assets/peptides/footprint-vizag.jpg',
+    image: '/assets/facilities/vizag-unit5.png',
     flag: (
       <svg width="22" height="22" viewBox="0 0 512 512" style={{ borderRadius: '6px', flexShrink: 0 }}>
         <rect width="512" height="170.7" fill="#ff9933" />
@@ -283,7 +283,12 @@ export default function PeptidesPage() {
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             aria-label="Custom peptide development and manufacturing, from feasibility to commercial supply"
           />
-          <div className="cp-hero-badge">Senn Tides CDMO</div>
+          <div className="senn-hero-scrim" />
+          <div className="senn-hero-overlay">
+            <h3 className="peptides-hero-heading">
+              Custom Peptide Development and Manufacturing, from Feasibility to Commercial Supply
+            </h3>
+          </div>
           <div className="cp-scroll-indicator">
             <img src="/assets/oe/scroll-down-icon.webp" alt="" loading="lazy" decoding="async" />
           </div>
@@ -499,12 +504,13 @@ export default function PeptidesPage() {
           <span className="cp-section-badge">Infrastructure &amp; Capabilities</span>
         </div>
 
-        <div
-          className="peptides-capabilities-hero"
-          style={{
-            backgroundImage: `url(${CAPABILITIES[openCapability]?.bg || CAPABILITIES[0].bg})`,
-          }}
-        >
+        <div className="peptides-capabilities-hero">
+          <div
+            className="peptides-cap-bg"
+            style={{
+              backgroundImage: `url(${CAPABILITIES[openCapability]?.bg || CAPABILITIES[0].bg})`,
+            }}
+          />
           <div className="peptides-cap-overlay" />
           <div className="peptides-cap-copy">
             <h2>Manufacturing and Development Capabilities</h2>
@@ -605,22 +611,10 @@ export default function PeptidesPage() {
         </div>
 
         <div className="senn-cta-actions">
-          <Link to="/contact" className="senn-cta-btn senn-cta-btn--primary">
-            <span>Contact Our Team</span>
+          <Link to="https://sennchemicals.com" target="_blank" rel="noopener noreferrer" className="senn-cta-btn senn-cta-btn--primary">
+            <span> Visit Senn Chemicals</span>
             <span aria-hidden="true">&rarr;</span>
           </Link>
-          <a
-            href="http://www.sennchem.com"
-            target="_blank"
-            rel="noreferrer"
-            className="senn-cta-btn senn-cta-btn--secondary"
-          >
-            <span>Visit Senn Chemicals</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </a>
         </div>
       </section>
 

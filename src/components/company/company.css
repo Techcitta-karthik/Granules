@@ -481,6 +481,32 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   pointer-events: none;
 }
 
+.cp-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 32, 0.58) 0%, rgba(4, 12, 32, 0.16) 50%, rgba(4, 12, 32, 0.04) 100%);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 36px;
+}
+
+.cp-hero-overlay {
+  position: absolute;
+  top: clamp(28px, 4.5vw, 56px);
+  left: clamp(28px, 4.5vw, 64px);
+  max-width: min(780px, 86%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cp-hero-heading {
+  margin: 0;
+  font: 700 clamp(24px, 3.6vw, 46px)/1.18 var(--font-primary, 'Manrope', sans-serif) !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
 .cp-scroll-indicator img {
   width: 32px;
   height: 32px;
@@ -1312,9 +1338,11 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-career-copy .cp-cta-btn {
   position: relative;
   z-index: 1;
-  margin-bottom: 2px;
-  padding: 7px 20px;
-  font: 700 clamp(10.5px, 0.75vw, 12px)/1 var(--font-primary, 'Manrope', sans-serif);
+  margin-top: 8px;
+  margin-bottom: 0;
+  align-self: flex-start !important;
+  padding: 8px 24px;
+  font: 700 clamp(11px, 0.8vw, 13px)/1 var(--font-primary, 'Manrope', sans-serif);
   letter-spacing: 0.8px;
 }
 

@@ -6,12 +6,10 @@ import './contact.css';
 const A = '/assets/contact/';
 
 const SUBJECT_OPTIONS = [
-  'API',
-  'PFI',
-  'Formulation Development',
+  'API & Formulation Development',
   'Research & Development',
   'Business Development',
-  'Drugs Safety — For Reporting Adverse Effects',
+  'Drugs Safety – For Reporting Adverse Effects',
   'Product Queries',
   'Careers',
   'Others',
@@ -137,13 +135,25 @@ export default function ContactPage() {
                     onChange={e => setForm({ ...form, email: e.target.value })}
                     aria-label="Email address (required)"
                   />
-                  <input
-                    type="text" required
-                    className="ct-field" placeholder="Choose subject"
-                    value={form.subject}
-                    onChange={e => setForm({ ...form, subject: e.target.value })}
-                    aria-label="Subject (required)"
-                  />
+                  <div className="ct-select-wrap">
+                    <select
+                      required
+                      className={`ct-field ct-select${form.subject ? ' has-value' : ''}`}
+                      value={form.subject}
+                      onChange={e => setForm({ ...form, subject: e.target.value })}
+                      aria-label="Choose subject (required)"
+                    >
+                      <option value="" disabled>Choose subject</option>
+                      {SUBJECT_OPTIONS.map(opt => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                    <span className="ct-chevron" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
 
                 <div className="ct-textarea-wrap">

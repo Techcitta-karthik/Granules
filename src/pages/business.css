@@ -84,17 +84,19 @@ h3.cp-page-title {
   max-width: 1632px !important;
   margin: 75px auto 75px !important;
   border-radius: 40px;
-  padding: 30px clamp(24px, 4.5vw, 60px) !important;
+  padding: 28px clamp(24px, 4vw, 56px) !important;
   height: 250px !important;
   min-height: 250px !important;
+  max-height: 300px !important;
   box-sizing: border-box !important;
   position: relative;
   overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 14px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
 }
 
 .biz-cta img.bg {
@@ -110,7 +112,7 @@ h3.cp-page-title {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(89deg, rgba(190, 237, 250, 0.9) 40%, rgba(0, 186, 234, 0) 80%);
+  background: linear-gradient(89deg, rgba(190, 237, 250, 0.92) 40%, rgba(0, 186, 234, 0) 75%);
 }
 
 .biz-cta--placeholder {
@@ -120,7 +122,7 @@ h3.cp-page-title {
 .biz-cta-copy {
   position: relative;
   z-index: 1;
-  max-width: 905px;
+  max-width: 800px;
 }
 
 .biz-cta-copy h2 {
@@ -130,7 +132,7 @@ h3.cp-page-title {
 }
 
 .biz-cta-copy p {
-  margin: 16px 0 0;
+  margin: 12px 0 0;
   font: 500 clamp(16px, 1.2vw, 20px)/1.4 'Manrope', sans-serif;
   color: var(--n9);
   letter-spacing: 0.15px;
@@ -139,9 +141,8 @@ h3.cp-page-title {
 .biz-cta .cp-cta-btn {
   position: relative;
   z-index: 1;
-  align-self: flex-end !important;
-  margin-left: auto;
-  margin-bottom: clamp(6px, 1vw, 14px);
+  align-self: flex-start !important;
+  margin: 0 !important;
 }
 
 

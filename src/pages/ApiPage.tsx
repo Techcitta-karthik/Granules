@@ -26,13 +26,13 @@ const SCALE_ITEMS: ScaleItem[] = [
     title: 'Portfolio Breadth Across Wide Therapeutic Segments',
     body: 'Diverse portfolio of 100+ DMFs across wide range of therapeutic areas including Anti-diabetics, Anti-inflammatories, CNS/ADHD, Oncology, Gastroenterology, Anti-histamines, Anti-coagulants, Anti-hypertensives, and others.',
     icon: 'icon-globe.svg',
-    image: '/assets/api/1.jpg',
+    image: '/assets/facilities/bonthapally-2.png',
   },
   {
     title: 'Manufacturing Infrastructure Supporting Global Scale',
     body: '40,000 TPA installed capacity across four specialized facilities, with seamless vertical integration from key starting materials and intermediates to downstream PFI and Finished Dosage operations, enhancing supply security and cost competitiveness.',
     icon: 'icon-capacity.svg',
-    image: '/assets/api/2.png',
+    image: '/assets/api/2.jpg',
   },
   {
     title: 'Quality, Compliance & Global Regulatory Reach',
@@ -44,7 +44,7 @@ const SCALE_ITEMS: ScaleItem[] = [
     title: 'Innovation-led, Technology-Driven, Sustainability-Focused',
     body: 'Our API operations are enabled by advanced Industry 4.0 technologies, including PLC, DCS, and Electronic Batch Manufacturing Records, while embedding Green Chemistry and sustainable innovation into R&D and manufacturing to improve yields, reduce waste, and enhance operational efficiency.',
     icon: 'icon-manufacturing.svg',
-    image: '/assets/api/hero-banner.png',
+    image: '/assets/api/5.png',
   },
 ];
 

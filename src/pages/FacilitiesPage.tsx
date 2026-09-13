@@ -6,10 +6,13 @@ import './facilities.css';
 
 const F = '/assets/facilities/';
 
+type FacilityCategory = 'Formulations' | 'API' | 'PFI' | 'CDMO';
+
 type Facility = {
   name: string;
   location: string;
   category: 'Formulations' | 'API' | 'CDMO';
+  categories?: FacilityCategory[];
   country: 'India' | 'USA' | 'Switzerland';
   countryCode: 'IN' | 'US' | 'CH';
   image: string;
@@ -27,6 +30,7 @@ const FACILITIES: Facility[] = [
     name: 'Gagillapur',
     location: 'HYDERABAD, TELANGANA',
     category: 'Formulations',
+    categories: ['Formulations', 'PFI'],
     country: 'India',
     countryCode: 'IN',
     image: 'gagillapur.webp',
@@ -37,6 +41,7 @@ const FACILITIES: Facility[] = [
     name: 'Unit-V, Vizag (ONCO)',
     location: 'VISAKHAPATNAM, ANDHRA PRADESH',
     category: 'Formulations',
+    categories: ['Formulations', 'API'],
     country: 'India',
     countryCode: 'IN',
     image: 'vizag-unit5.webp',
@@ -47,6 +52,7 @@ const FACILITIES: Facility[] = [
     name: 'Granules Life Sciences',
     location: 'HYDERABAD, TELANGANA',
     category: 'Formulations',
+    categories: ['Formulations'],
     country: 'India',
     countryCode: 'IN',
     image: 'gls.webp',
@@ -56,15 +62,17 @@ const FACILITIES: Facility[] = [
     name: 'Granules Pharmaceuticals, Inc.',
     location: 'CHANTILLY, VIRGINIA',
     category: 'Formulations',
+    categories: ['Formulations'],
     country: 'USA',
     countryCode: 'US',
-    image: 'gpi-chantilly.webp',
+    image: 'GPI-Cover.jpeg',
     fdCapacity: '2 Bn',
   },
   {
     name: 'GPAK (Packaging & Distribution)',
     location: 'MANASSAS, VIRGINIA',
     category: 'Formulations',
+    categories: ['Formulations'],
     country: 'USA',
     countryCode: 'US',
     image: 'granules-manassas.jpg',
@@ -76,6 +84,7 @@ const FACILITIES: Facility[] = [
     name: 'Bonthapally (Unit I)',
     location: 'HYDERABAD, TELANGANA',
     category: 'API',
+    categories: ['API'],
     country: 'India',
     countryCode: 'IN',
     image: 'bonthapally.webp',
@@ -85,6 +94,7 @@ const FACILITIES: Facility[] = [
     name: 'Jeedimetla',
     location: 'HYDERABAD, TELANGANA',
     category: 'API',
+    categories: ['API', 'PFI'],
     country: 'India',
     countryCode: 'IN',
     image: 'jeedimetla.webp',
@@ -95,6 +105,7 @@ const FACILITIES: Facility[] = [
     name: 'Bonthapally (Unit II)',
     location: 'HYDERABAD, TELANGANA',
     category: 'API',
+    categories: ['API'],
     country: 'India',
     countryCode: 'IN',
     image: 'bonthapally-2.webp',
@@ -104,6 +115,7 @@ const FACILITIES: Facility[] = [
     name: 'Unit-IV, Vizag',
     location: 'VISAKHAPATNAM, ANDHRA PRADESH',
     category: 'API',
+    categories: ['API'],
     country: 'India',
     countryCode: 'IN',
     image: 'vizag-unit4.webp',
@@ -115,6 +127,7 @@ const FACILITIES: Facility[] = [
     name: 'Senn Chemicals AG (Zurich)',
     location: 'DIELSDORF, ZURICH, SWITZERLAND',
     category: 'CDMO',
+    categories: ['CDMO'],
     country: 'Switzerland',
     countryCode: 'CH',
     image: 'Senn Chem.png',
@@ -122,7 +135,19 @@ const FACILITIES: Facility[] = [
   },
 ];
 
-const FILTERS = ['All', 'Formulations', 'API', 'CDMO'] as const;
+const getFacilityCategories = (facility: Facility): FacilityCategory[] => {
+  if (facility.categories && facility.categories.length > 0) {
+    return facility.categories;
+  }
+  const tags: FacilityCategory[] = [];
+  if (facility.category === 'Formulations' || facility.fdCapacity) tags.push('Formulations');
+  if (facility.category === 'API' || facility.apiCapacity) tags.push('API');
+  if (facility.pfiCapacity) tags.push('PFI');
+  if (facility.category === 'CDMO') tags.push('CDMO');
+  return Array.from(new Set(tags));
+};
+
+const FILTERS = ['All', 'Formulations', 'API', 'PFI', 'CDMO'] as const;
 type Filter = (typeof FILTERS)[number];
 
 export default function FacilitiesPage() {
@@ -133,7 +158,10 @@ export default function FacilitiesPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const facilities = filter === 'All' ? FACILITIES : FACILITIES.filter((f) => f.category === filter);
+  const facilities =
+    filter === 'All'
+      ? FACILITIES
+      : FACILITIES.filter((f) => getFacilityCategories(f).includes(filter));
 
   return (
     <div className="cp fac-page">
@@ -181,10 +209,16 @@ export default function FacilitiesPage() {
             <article className="fac-card" key={facility.name}>
               <div className="fac-card-image">
                 <img src={`${F}${facility.image}`} alt={facility.name} loading="lazy" decoding="async" />
+                <div className="fac-card-tags">
+                  {getFacilityCategories(facility).map((cat) => (
+                    <span className="fac-category-tag" key={cat}>
+                      {cat}
+                    </span>
+                  ))}
+                </div>
                 <span className="fac-country-badge">
                   <span className="fac-country-code">{facility.countryCode}</span> {facility.country}
                 </span>
-                <span className="fac-category-tag">{facility.category}</span>
               </div>
               <div className="fac-card-info">
                 <div>

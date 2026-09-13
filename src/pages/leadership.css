@@ -775,13 +775,15 @@
 .ld-cta-copy .cp-cta-btn {
   position: relative;
   z-index: 1;
-  margin-bottom: 2px;
-  padding: 7px 20px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  align-self: flex-start !important;
+  padding: 8px 24px;
   background: #0061f8;
   color: #ffffff;
   border-radius: 50px;
   text-decoration: none;
-  font: 700 clamp(10.5px, 0.75vw, 12px)/1 var(--font-primary, 'Manrope', sans-serif);
+  font: 700 clamp(11px, 0.8vw, 13px)/1 var(--font-primary, 'Manrope', sans-serif);
   letter-spacing: 0.8px;
   text-transform: uppercase;
   display: inline-flex;

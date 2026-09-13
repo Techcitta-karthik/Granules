@@ -261,11 +261,15 @@ export default function CareerOverviewPage() {
         </p>
 
         {/* Page Main Header */}
-        <h1 className="cp-page-title">Make Better Health. Build a Bolder Career.</h1>
+        <h1 className="cp-page-title">Careers</h1>
 
         {/* Hero Visual Banner */}
         <div className="car-hero">
-          <img src="/assets/career.png" alt="Granules India scientist working on high-impact pharmaceutical formulations" />
+          <img src="/assets/media/67.jpg" alt="Granules India scientist working on high-impact pharmaceutical formulations" />
+          <div className="car-hero-scrim" />
+          <div className="car-hero-overlay">
+            <h2 className="car-hero-heading">Make Better Health. Build a Bolder Career.</h2>
+          </div>
         </div>
 
         {/* Narrative / Intro Section */}
