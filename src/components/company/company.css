@@ -1347,9 +1347,10 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 
 /* ---------- Universal Footer ---------- */
+/* ---------- Universal Footer ---------- */
 .cp-footer {
   margin-top: 75px;
-  padding: clamp(56px, 6vw, 76px) 0 28px;
+  padding: clamp(38px, 3.6vw, 48px) 0 20px;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -1372,21 +1373,21 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-footer-top {
   display: grid;
   grid-template-columns: 1.4fr repeat(3, 1fr);
-  gap: clamp(28px, 4vw, 68px);
+  gap: clamp(24px, 3.5vw, 56px);
   align-items: start;
 }
 
 .cp-footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   max-width: 440px;
 }
 
 .cp-footer-logo-badge {
   background: #ffffff;
-  border-radius: 14px;
-  padding: 8px 20px;
+  border-radius: 12px;
+  padding: 6px 16px;
   width: fit-content;
   display: inline-flex;
   align-items: center;
@@ -1400,14 +1401,14 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 
 .cp-footer-logo-badge img {
-  height: 42px;
+  height: 36px;
   width: auto;
   display: block;
 }
 
 .cp-footer-brand p {
   margin: 0;
-  font: 400 14px/1.65 'Manrope', sans-serif;
+  font: 400 13.5px/1.55 'Manrope', sans-serif;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0;
 }
@@ -1422,8 +1423,8 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 
 .cp-footer-col h5 {
-  margin: 0 0 16px;
-  font: 700 15px/1.2 'Manrope', sans-serif;
+  margin: 0 0 12px;
+  font: 700 14.5px/1.2 'Manrope', sans-serif;
   letter-spacing: 0.3px;
   color: #ffffff;
 }
@@ -1431,11 +1432,11 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-footer-link-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 
 .cp-footer-col a {
-  font: 500 14px/1.45 'Manrope', sans-serif;
+  font: 500 13.5px/1.35 'Manrope', sans-serif;
   color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
@@ -1451,14 +1452,14 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   height: 1px;
   background: rgba(255, 255, 255, 0.22);
   width: 100%;
-  margin: 36px 0 22px;
+  margin: 24px 0 16px;
 }
 
 .cp-footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -1466,8 +1467,8 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: clamp(14px, 2vw, 24px);
-  font: 600 11.5px/1.5 'Manrope', sans-serif;
+  gap: clamp(12px, 1.8vw, 20px);
+  font: 600 11.5px/1.4 'Manrope', sans-serif;
   letter-spacing: 0.4px;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
@@ -1490,7 +1491,7 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 .cp-footer-socials {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .cp-footer-socials a {
@@ -1505,27 +1506,27 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
 }
 
 .cp-footer-socials img {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   display: block;
 }
 
 @media (max-width: 960px) {
   .cp-footer-top {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 24px;
   }
 
   .cp-footer-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 20px;
   }
 
   .cp-footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 18px;
+    gap: 14px;
   }
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import CustomSelect from '../components/common/CustomSelect';
 import { asset } from '../components/company/constants';
 import '../components/company/company.css';
 import './business.css';
@@ -649,27 +650,25 @@ export default function GenericsPage() {
             </div>
           </label>
 
-          <label className="pp-select">
-            <span>Segment</span>
-            <select value={segment} onChange={(e) => setSegment(e.target.value as Segment)}>
-              {SEGMENTS.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </label>
+          <div className="pp-select">
+            <span className="pp-select-label">Segment</span>
+            <CustomSelect
+              value={segment}
+              options={SEGMENTS}
+              onChange={(val) => setSegment(val as Segment)}
+              ariaLabel="Select Segment"
+            />
+          </div>
 
-          <label className="pp-select">
-            <span>Therapeutic category</span>
-            <select value={therapy} onChange={(e) => setTherapy(e.target.value)}>
-              {therapies.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </label>
+          <div className="pp-select">
+            <span className="pp-select-label">Therapeutic category</span>
+            <CustomSelect
+              value={therapy}
+              options={therapies}
+              onChange={(val) => setTherapy(val)}
+              ariaLabel="Select Therapeutic category"
+            />
+          </div>
         </div>
 
         {filteredPortfolio.length > 0 ? (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './contact.css';
@@ -30,10 +30,31 @@ export default function ContactPage() {
   const [captcha, setCaptcha] = useState(generateCaptcha);
   const [captchaInput, setCaptchaInput] = useState('');
   const [captchaError, setCaptchaError] = useState(false);
+  const [isSubjectOpen, setIsSubjectOpen] = useState(false);
+  const selectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Contact Us — Granules India';
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
+        setIsSubjectOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsSubjectOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const handleMsg = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -135,24 +156,53 @@ export default function ContactPage() {
                     onChange={e => setForm({ ...form, email: e.target.value })}
                     aria-label="Email address (required)"
                   />
-                  <div className="ct-select-wrap">
-                    <select
-                      required
-                      className={`ct-field ct-select${form.subject ? ' has-value' : ''}`}
-                      value={form.subject}
-                      onChange={e => setForm({ ...form, subject: e.target.value })}
+                  <div className={`ct-select-wrap ${isSubjectOpen ? 'is-open' : ''}`} ref={selectRef}>
+                    <button
+                      type="button"
+                      className={`ct-field ct-custom-select-trigger${form.subject ? ' has-value' : ''}`}
+                      onClick={() => setIsSubjectOpen(p => !p)}
+                      aria-haspopup="listbox"
+                      aria-expanded={isSubjectOpen}
                       aria-label="Choose subject (required)"
                     >
-                      <option value="" disabled>Choose subject</option>
-                      {SUBJECT_OPTIONS.map(opt => (
-                        <option key={opt} value={opt}>{opt}</option>
-                      ))}
-                    </select>
-                    <span className="ct-chevron" aria-hidden="true">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                    </span>
+                      <span className="ct-custom-select-text">
+                        {form.subject || 'Choose subject'}
+                      </span>
+                      <span className={`ct-chevron ${isSubjectOpen ? 'is-open' : ''}`} aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </span>
+                    </button>
+
+                    <input type="hidden" name="subject" value={form.subject} required />
+
+                    {isSubjectOpen && (
+                      <ul className="ct-custom-dropdown" role="listbox" aria-label="Choose subject options">
+                        {SUBJECT_OPTIONS.map(opt => {
+                          const isSelected = form.subject === opt;
+                          return (
+                            <li
+                              key={opt}
+                              role="option"
+                              aria-selected={isSelected}
+                              className={`ct-custom-option${isSelected ? ' is-selected' : ''}`}
+                              onClick={() => {
+                                setForm(prev => ({ ...prev, subject: opt }));
+                                setIsSubjectOpen(false);
+                              }}
+                            >
+                              <span>{opt}</span>
+                              {isSelected && (
+                                <svg className="ct-option-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                  <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
                   </div>
                 </div>
 
