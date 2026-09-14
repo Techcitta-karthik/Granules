@@ -357,11 +357,11 @@
     position: relative;
     right: auto;
     top: auto;
-    height: 340px;
-    margin: 20px auto -36px;
+    height: 380px;
+    margin: 20px auto -125px;
     object-position: top center;
     z-index: 2;
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.12));
   }
 
   .ov-quote-card {
@@ -383,8 +383,8 @@
   }
 
   .ov-leadership-person {
-    height: 290px !important;
-    margin: 16px auto -36px !important;
+    height: 360px !important;
+    margin: 16px auto -115px !important;
   }
 
   .ov-quote-card {
@@ -767,11 +767,11 @@
     position: relative;
     top: auto;
     right: auto;
-    height: clamp(280px, 68vw, 340px) !important;
+    height: 380px !important;
     align-self: center;
-    margin: 20px auto -38px !important;
+    margin: 20px auto -125px !important;
     z-index: 2 !important;
-    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.16));
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.12));
   }
 
   .ov-quote-card {
@@ -783,6 +783,13 @@
     padding: 24px !important;
     border-radius: 22px !important;
     box-shadow: 0 16px 40px rgba(0, 20, 60, 0.12) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ov-leadership-person {
+    height: 360px !important;
+    margin: 16px auto -115px !important;
   }
 }
 

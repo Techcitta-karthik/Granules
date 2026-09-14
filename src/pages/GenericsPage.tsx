@@ -489,9 +489,6 @@ export default function GenericsPage() {
           <div className="gen-hero-overlay">
             <h2 className="gen-hero-heading">Science, Scale and Integrated Excellence</h2>
           </div>
-          <div className="cp-scroll-indicator">
-            <img src={asset('scroll-down-icon.webp')} alt="" loading="lazy" decoding="async" />
-          </div>
         </div>
       </section>
 

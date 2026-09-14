@@ -468,31 +468,46 @@
   grid-template-areas: "copy media";
 }
 
-/* Sticky top offsets with generous clearance below floating header matching Quality page */
+/* Sticky top offsets with progressive clearance for all 7 value proposition panels */
 .car-panel--0 {
-  top: clamp(120px, 15vh, 145px);
+  top: clamp(100px, 12vh, 120px);
   z-index: 1;
 }
 
 .car-panel--1 {
-  top: clamp(140px, 17.5vh, 165px);
+  top: clamp(115px, 14vh, 135px);
   z-index: 2;
 }
 
 .car-panel--2 {
-  top: clamp(160px, 20vh, 185px);
+  top: clamp(130px, 16vh, 150px);
   z-index: 3;
 }
 
 .car-panel--3 {
-  top: clamp(180px, 22.5vh, 205px);
+  top: clamp(145px, 18vh, 165px);
   z-index: 4;
 }
 
-/* Below-Stack Container: Scrolls ON TOP of all 4 sticky cards like a curtain */
+.car-panel--4 {
+  top: clamp(160px, 20vh, 180px);
+  z-index: 5;
+}
+
+.car-panel--5 {
+  top: clamp(175px, 22vh, 195px);
+  z-index: 6;
+}
+
+.car-panel--6 {
+  top: clamp(190px, 24vh, 210px);
+  z-index: 7;
+}
+
+/* Below-Stack Container: Scrolls ON TOP of all 7 sticky cards like a curtain */
 .car-below-stack {
   position: relative;
-  z-index: 10;
+  z-index: 12;
   background: #ffffff;
   border-top-left-radius: 44px;
   border-top-right-radius: 44px;

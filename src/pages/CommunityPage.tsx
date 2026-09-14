@@ -141,7 +141,7 @@ export default function CommunityPage() {
         </p>
         {/* Page Title */}
         <h1 className="cp-page-title" style={{ width: '85%', margin: 'clamp(20px, 2.5vw, 32px) auto clamp(24px, 3vw, 36px)' }}>
-          Driving Meaningful Impact, Enriching Communities
+          Community
         </h1>
 
         {/* Executive Leadership Quote Card */}

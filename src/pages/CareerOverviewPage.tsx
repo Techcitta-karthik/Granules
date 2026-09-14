@@ -377,7 +377,7 @@ export default function CareerOverviewPage() {
             </div>
           </div>
 
-          {/* Panel 0: Your work matters */}
+          {/* Panel 0: Your Work Matters */}
           <div className="car-panel car-panel--0" style={{ '--stack-index': 0 } as React.CSSProperties}>
             <div className="car-panel-image">
               <img src={`${A}panel-people-first.webp`} alt="Your work matters" />
@@ -390,63 +390,73 @@ export default function CareerOverviewPage() {
             </div>
           </div>
 
-          {/* Panel 1: Learn by doing & Own the outcome */}
-          <div className="car-panel car-panel--1" style={{ '--stack-index': 1 } as React.CSSProperties}>
+          {/* Panel 1: Learn by Doing */}
+          <div className="car-panel car-panel--1 reverse" style={{ '--stack-index': 1 } as React.CSSProperties}>
+            <div className="car-panel-copy">
+              <h3>Learn by Doing</h3>
+              <p>
+                Grow through meaningful assignments, hands-on problem solving, cross-functional collaboration and exposure across the pharmaceutical value chain.
+              </p>
+            </div>
             <div className="car-panel-image">
               <img src={`${A}panel-grow-purpose.webp`} alt="Learn by doing" />
             </div>
+          </div>
+
+          {/* Panel 2: Own the Outcome */}
+          <div className="car-panel car-panel--2" style={{ '--stack-index': 2 } as React.CSSProperties}>
+            <div className="car-panel-image">
+              <img src={`${A}practice-slide-3.webp`} alt="Own the outcome" />
+            </div>
             <div className="car-panel-copy">
-              <h3>Learn by Doing</h3>
-              <p>Grow through meaningful assignments, hands-on problem solving, cross-functional collaboration and exposure across the pharmaceutical value chain.</p>
-              <div className="car-panel-list">
-                <div className="car-panel-list-item">
-                  <span className="car-panel-bullet">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5">
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="4" fill="#0061f8" />
-                    </svg>
-                  </span>
-                  <p><strong>Own the outcome:</strong> Clear expectations and real responsibility give you room to make decisions, improve how work gets done and follow ideas through to impact.</p>
-                </div>
-                <div className="car-panel-list-item">
-                  <span className="car-panel-bullet">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5">
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="4" fill="#0061f8" />
-                    </svg>
-                  </span>
-                  <p><strong>Grow in more than one direction:</strong> Deepen your expertise, broaden your experience or explore a new path as the business evolves. Career stories should show real moves across roles, teams and geographies.</p>
-                </div>
-              </div>
+              <h3>Own the Outcome</h3>
+              <p>
+                Clear expectations and real responsibility give you room to make decisions, improve how work gets done and follow ideas through to impact.
+              </p>
             </div>
           </div>
 
-          {/* Panel 2: Join responsible innovation & Belong to a team that delivers */}
-          <div className="car-panel car-panel--2 reverse" style={{ '--stack-index': 2 } as React.CSSProperties}>
+          {/* Panel 3: Grow in More Than One Direction */}
+          <div className="car-panel car-panel--3 reverse" style={{ '--stack-index': 3 } as React.CSSProperties}>
             <div className="car-panel-copy">
-              <h3>Join Responsible<br />Innovation</h3>
+              <h3>Grow in More Than One Direction</h3>
+              <p>
+                Deepen your expertise, broaden your experience or explore a new path as the business evolves. Career stories should show real moves across roles, teams and geographies.
+              </p>
+            </div>
+            <div className="car-panel-image">
+              <img src={`${A}hero-real.webp`} alt="Grow in more than one direction" />
+            </div>
+          </div>
+
+          {/* Panel 4: Join Responsible Innovation */}
+          <div className="car-panel car-panel--4" style={{ '--stack-index': 4 } as React.CSSProperties}>
+            <div className="car-panel-image">
+              <img src={`${A}panel-innovation.webp`} alt="Join responsible innovation" />
+            </div>
+            <div className="car-panel-copy">
+              <h3>Join Responsible Innovation</h3>
               <p>
                 Help advance green science, biocatalysis and continuous manufacturing while contributing to a more sustainable future for healthcare.
               </p>
-              <div className="car-panel-list">
-                <div className="car-panel-list-item">
-                  <span className="car-panel-bullet">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.5">
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="4" fill="#0061f8" />
-                    </svg>
-                  </span>
-                  <p><strong>Belong to a team that delivers:</strong> Work with people who share knowledge, challenge respectfully and support one another to achieve stronger outcomes.</p>
-                </div>
-              </div>
-            </div>
-            <div className="car-panel-image">
-              <img src={`${A}panel-innovation.webp`} alt="Responsible innovation" />
             </div>
           </div>
 
-          {/* Panel 3: Care Beyond Careers */}
-          <div className="car-panel car-panel--3" style={{ '--stack-index': 3 } as React.CSSProperties}>
+          {/* Panel 5: Belong to a Team That Delivers */}
+          <div className="car-panel car-panel--5 reverse" style={{ '--stack-index': 5 } as React.CSSProperties}>
+            <div className="car-panel-copy">
+              <h3>Belong to a Team That Delivers</h3>
+              <p>
+                Work with people who share knowledge, challenge respectfully and support one another to achieve stronger outcomes.
+              </p>
+            </div>
+            <div className="car-panel-image">
+              <img src={`${A}panel-science-2.webp`} alt="Belong to a team that delivers" />
+            </div>
+          </div>
+
+          {/* Panel 6: Care Beyond Careers */}
+          <div className="car-panel car-panel--6" style={{ '--stack-index': 6 } as React.CSSProperties}>
             <div className="car-panel-image">
               <img src={`${A}panel-science-1.webp`} alt="Care beyond careers" />
             </div>

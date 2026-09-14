@@ -289,9 +289,6 @@ export default function PeptidesPage() {
               Custom Peptide Development and Manufacturing, from Feasibility to Commercial Supply
             </h3>
           </div>
-          <div className="cp-scroll-indicator">
-            <img src="/assets/company/scroll-down-icon.webp" alt="" loading="lazy" decoding="async" />
-          </div>
         </div>
       </section>
 

@@ -617,13 +617,6 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
 }
 
-.cp-scroll-indicator img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 97, 248, 0.5));
-}
-
 /* ---------- About description ---------- */
 .cp-about-desc {
   width: min(85%, 1632px) !important;
