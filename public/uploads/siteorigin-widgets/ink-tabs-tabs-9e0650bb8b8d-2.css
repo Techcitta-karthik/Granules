@@ -1,0 +1,28 @@
+.so-widget-ink-tabs-tabs-9e0650bb8b8d-2 .iw-so-tabs .iw-so-tabs-content {
+  background: transparent;
+}
+.so-widget-ink-tabs-tabs-9e0650bb8b8d-2 .iw-so-tabs .iw-so-tab-title {
+  margin-right: 3px;
+}
+.so-widget-ink-tabs-tabs-9e0650bb8b8d-2 .iw-so-tabs .iw-so-tab-title a {
+  color: #222222;
+  font-size: '';
+  background: #ffffff;
+}
+.so-widget-ink-tabs-tabs-9e0650bb8b8d-2 .iw-so-tabs .iw-so-tab-title a [class^="sow-icon-"] {
+  font-size: 1.5em;
+  height: 1em;
+  width: 1em;
+  float: left;
+  margin: 0.1em 0.75em -0.2em 0em;
+  display: block;
+  color: inherit;
+}
+.so-widget-ink-tabs-tabs-9e0650bb8b8d-2 .iw-so-tabs .iw-so-tab-title a:hover,
+.so-widget-ink-tabs-tabs-9e0650bb8b8d-2 .iw-so-tabs .iw-so-tab-title a:focus {
+  color: #666666;
+}
+.so-widget-ink-tabs-tabs-9e0650bb8b8d-2 .iw-so-tabs .iw-so-tab-title.iw-so-tab-active a {
+  background: #666666;
+  color: #ffffff;
+}
