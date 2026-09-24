@@ -10,7 +10,7 @@
   flex: 1 0 auto;
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(120px, 14vw, 175px) auto clamp(60px, 8vw, 100px) !important;
+  margin: 112px auto clamp(40px, 6vw, 80px) !important;
   padding: 0;
   box-sizing: border-box;
 }

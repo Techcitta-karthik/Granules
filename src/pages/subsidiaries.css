@@ -20,7 +20,7 @@
 .global-sub-intro {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+  margin: clamp(16px, 2vw, 24px) auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 16px;

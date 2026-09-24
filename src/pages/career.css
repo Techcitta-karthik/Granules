@@ -2,13 +2,18 @@
 .car-hero {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: clamp(30px, 4vw, 46px) auto 0;
+  margin: 0 auto 0 !important;
   border-radius: 40px;
   background: rgba(0, 97, 248, 0.06);
   min-height: 320px;
   overflow: hidden;
   position: relative;
   aspect-ratio: 1828 / 572;
+}
+
+/* Tighten Careers page title vertical spacing */
+.cp-page-title {
+  margin: clamp(14px, 1.8vw, 20px) auto clamp(16px, 2vw, 24px) !important;
 }
 
 .car-hero img {
@@ -512,52 +517,118 @@
   border-top-left-radius: 44px;
   border-top-right-radius: 44px;
   margin-top: 0;
-  padding-top: 100px !important;
+  padding-top: 75px !important;
   padding-bottom: 0 !important;
   box-shadow: 0 -28px 60px rgba(0, 20, 60, 0.08);
 }
 
-/* Left/Right Image Container - Flush to outer border and bottom curved corner */
+/* Left/Right Image Container - Flush to outer border and curved corners */
 .car-panel-image {
   grid-area: media;
   width: 100%;
   height: 100%;
-  min-height: 380px;
+  min-height: 440px;
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
+  display: block;
   background: linear-gradient(160deg, #f0f7ff, #f8fbff);
-  padding: 32px 0 0 0;
+  padding: 0 !important;
 }
 
 .car-panel-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left bottom;
+  object-position: center center;
   display: block;
+  transform: scale(1.22);
+  transform-origin: center center;
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-/* Standard cards (1, 2, 4): image on left */
+.car-panel:hover .car-panel-image img {
+  transform: scale(1.28);
+}
+
+/* Specific framing & zoom optimizations per panel (0 to 6) */
+.car-panel--0 .car-panel-image img {
+  object-position: center 25%;
+  transform: scale(1.22);
+}
+.car-panel--0:hover .car-panel-image img {
+  transform: scale(1.28);
+}
+
+.car-panel--1 .car-panel-image img {
+  object-position: center 28%;
+  transform: scale(1.22);
+}
+.car-panel--1:hover .car-panel-image img {
+  transform: scale(1.28);
+}
+
+.car-panel--2 .car-panel-image img {
+  object-position: center 52%;
+  transform: scale(1.44);
+}
+.car-panel--2:hover .car-panel-image img {
+  transform: scale(1.5);
+}
+
+.car-panel--3 .car-panel-image img {
+  object-position: center 25%;
+  transform: scale(1.22);
+}
+.car-panel--3:hover .car-panel-image img {
+  transform: scale(1.28);
+}
+
+.car-panel--4 .car-panel-image img {
+  object-position: center 25%;
+  transform: scale(1.2);
+}
+.car-panel--4:hover .car-panel-image img {
+  transform: scale(1.26);
+}
+
+.car-panel--5 .car-panel-image img {
+  object-position: 58% 35%;
+  transform: scale(1.22);
+}
+.car-panel--5:hover .car-panel-image img {
+  transform: scale(1.28);
+}
+
+.car-panel--6 .car-panel-image img {
+  object-position: center 30%;
+  transform: scale(1.22);
+}
+.car-panel--6:hover .car-panel-image img {
+  transform: scale(1.28);
+}
+
+/* Standard cards: image on left */
 .car-panel:not(.reverse) .car-panel-image {
+  border-top-left-radius: 44px;
   border-bottom-left-radius: 44px;
   padding-left: 0;
 }
 
 .car-panel:not(.reverse) .car-panel-image img {
+  border-top-left-radius: 44px;
   border-bottom-left-radius: 44px;
 }
 
-/* Reverse card (3): image on right */
+/* Reverse card: image on right */
 .car-panel.reverse .car-panel-image {
+  border-top-right-radius: 44px;
   border-bottom-right-radius: 44px;
   padding-right: 0;
 }
 
 .car-panel.reverse .car-panel-image img {
+  border-top-right-radius: 44px;
   border-bottom-right-radius: 44px;
-  object-position: right bottom;
 }
 
 /* Copy Column */
@@ -1213,9 +1284,9 @@
 
 /* ---------- Way in Practice (Interactive 5-Slide Banner with Real HTML Boxes) ---------- */
 .car-practice-wrap {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: 0 auto !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 75px auto 0 !important;
   position: relative;
   border-radius: 40px;
   overflow: hidden;
@@ -1365,7 +1436,7 @@
   justify-content: center;
   gap: 14px !important;
   padding: 28px clamp(24px, 4vw, 56px) !important;
-  background: linear-gradient(90deg, #cbefff 0%, #d8f4ff 35%, rgba(216, 244, 255, 0.6) 100%);
+  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
   box-sizing: border-box !important;
 }
@@ -2067,6 +2138,107 @@
   background-position: right 20px center;
   padding-right: 46px;
   cursor: pointer;
+}
+
+.car-talent-phone-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.car-talent-dial-select {
+  flex: 0 0 clamp(110px, 35%, 130px) !important;
+  width: clamp(110px, 35%, 130px) !important;
+  padding: 15px 12px !important;
+  padding-right: 32px !important;
+  background-position: right 12px center !important;
+  font-weight: 600 !important;
+}
+
+.car-talent-phone-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.car-talent-field--full {
+  grid-column: 1 / -1;
+}
+
+.car-talent-file-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.car-talent-file-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.car-talent-file-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #ffffff;
+  border: 1.5px dashed #b8d2f2;
+  border-radius: 16px;
+  padding: 13px 20px;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.car-talent-file-wrap:hover .car-talent-file-custom,
+.car-talent-file-input:focus + .car-talent-file-custom {
+  border-color: #0061f8;
+  background: #f8fbff;
+  box-shadow: 0 0 0 3px rgba(0, 97, 248, 0.12);
+}
+
+.car-talent-file-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.car-talent-file-name {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: clamp(14.5px, 1.1vw, 16px) !important;
+  color: #94a3b8;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.car-talent-file-name.has-file {
+  color: #0061f8 !important;
+  font-weight: 700;
+}
+
+.car-talent-file-btn {
+  flex-shrink: 0;
+  background: #edf5ff;
+  color: #0061f8;
+  border: 1px solid rgba(0, 97, 248, 0.2);
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease;
+}
+
+.car-talent-file-wrap:hover .car-talent-file-btn {
+  background: #0061f8;
+  color: #ffffff;
 }
 
 .car-talent-consent {
@@ -2920,8 +3092,14 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center bottom !important;
+    object-position: center 30% !important;
+    transform: scale(1.15) !important;
     border-radius: 26px 26px 0 0 !important;
+  }
+
+  .car-panel--2 .car-panel-image img {
+    object-position: center 50% !important;
+    transform: scale(1.3) !important;
   }
 
   .car-panel-copy,
@@ -2955,6 +3133,31 @@
 
   .car-job-info span {
     width: auto !important;
+  }
+
+  .car-discover-banner {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 32px 24px !important;
+    min-height: auto !important;
+    border-radius: 28px !important;
+  }
+
+  .car-great-place {
+    flex-direction: column;
+    gap: 20px;
+    margin: 48px auto 60px !important;
+  }
+
+  .car-great-place-copy {
+    padding: 36px 24px;
+    border-radius: 28px;
+    min-height: auto;
+  }
+
+  .car-great-place-image {
+    border-radius: 28px;
+    min-height: 200px;
   }
 
   .car-cta-photo {

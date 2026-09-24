@@ -19,7 +19,7 @@ type Certification = { name: string; category: string; image: string };
 const STORIES: Story[] = [
   {
     title: 'Quality Systems that Deliver Confidence',
-    body: 'From molecule to market, our digital-first, risk-based Quality Management System (QMS) ensures consistent, compliant, and audit-ready operations worldwide. Designed to scale rapidly and meet the most rigorous global standards, our integrated QMS goes beyond compliance—it’s a competitive advantage built on trust, transparency, and relentless pursuit of excellence. We also integrate environmental responsibility and safety-first practices, ensuring sustainability coexists seamlessly with quality at every stage.',
+    body: 'From molecule to market, our digital-first, risk-based Quality Management System (QMS) ensures consistent, compliant, and audit-ready operations worldwide. Designed to scale rapidly and meet the most rigorous global standards, our integrated QMS goes beyond compliance to become a competitive advantage built on trust, transparency, and relentless pursuit of excellence. We also integrate environmental responsibility and safety-first practices, ensuring sustainability coexists seamlessly with quality at every stage.',
     image: '1.png',
   },
   {
@@ -68,10 +68,10 @@ export default function QualityCompliancePage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <Link to="/business/api">BUSINESS</Link>
+        <span className="cp-breadcrumb-plain">BUSINESS</span>
         <span className="sep">›</span>
         <span className="current">QUALITY &amp; COMPLIANCE</span>
       </p>
@@ -185,30 +185,43 @@ export default function QualityCompliancePage() {
         ))}
 
         <div className="qc-below-stack">
-          <div className="qc-certs">
-            <div className="qc-certs-badge">
-              <span className="cp-section-badge" style={{ alignSelf: 'flex-start', background: '#fff' }}>Certifications</span>
-              <h3>Certified to Global Standards</h3>
-              <h4>
-                Strict adherence to international standards governing quality management, environmental stewardship, and workplace safety.
-              </h4>
+          <div className="rd-cert-banner-wrap qc-cert-banner-wrap" aria-label="Quality certifications">
+            <div className="rd-cert-banner-inner">
+              <div className="rd-cert-lead-card">
+                <h3 className="rd-cert-lead-title">
+                  Certified to<br />
+                  global quality<br />
+                  standards
+                </h3>
+              </div>
+
+              <div className="rd-cert-badges-card">
+                <div className="rd-cert-badge-tile">
+                  <img
+                    src={`${Q}cert-1.webp`}
+                    alt="ISO 9001:2015 Quality Management System Certification"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="rd-cert-badge-tile">
+                  <img
+                    src={`${Q}cert-2.webp`}
+                    alt="ISO 14001:2015 Environmental Management Company Certification"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="rd-cert-badge-tile">
+                  <img
+                    src={`${Q}cert-3.webp`}
+                    alt="ISO 45001 Occupational Health and Safety Certification"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
             </div>
-            <ul className="qc-certs-icons">
-              {CERTIFICATIONS.map((cert) => (
-                <li className="qc-cert-tile" key={cert.name}>
-                  <div className="qc-cert-img-wrap">
-                    <img
-                      src={`${Q}${cert.image}`}
-                      alt={`${cert.name} ${cert.category} certification`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <p className="qc-cert-name">{cert.name}</p>
-                  <p className="qc-cert-category">{cert.category}</p>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

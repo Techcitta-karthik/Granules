@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter, StockVideoBanner } from '../components/company';
 import '../components/company/company.css';
 import '../pages/business.css';
@@ -340,9 +341,9 @@ export default function SustainabilityStrategyPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/sustainability">SUSTAINABILITY</a>
+        <Link to="/sustainability">SUSTAINABILITY</Link>
         <span className="sep">›</span>
         <span className="current">SUSTAINABILITY STRATEGY</span>
       </p>

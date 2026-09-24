@@ -19,7 +19,7 @@ type Facility = {
   apiCapacity?: string;
   fdCapacity?: string;
   pfiCapacity?: string;
-  packaging?: string;
+  packaging?: string | string[];
   specialization?: string;
 };
 
@@ -34,7 +34,7 @@ const FACILITIES: Facility[] = [
     country: 'India',
     countryCode: 'IN',
     image: 'gagillapur.webp',
-    fdCapacity: '2.7 Bn',
+    fdCapacity: '27 Bn',
     pfiCapacity: '23 KTPA',
   },
   {
@@ -76,7 +76,7 @@ const FACILITIES: Facility[] = [
     country: 'USA',
     countryCode: 'US',
     image: 'granules-manassas.jpg',
-    packaging: '2 OTC Lines | 1 Rx Line',
+    packaging: ['2 OTC Lines', '1 Rx Line'],
   },
 
   // API
@@ -87,11 +87,11 @@ const FACILITIES: Facility[] = [
     categories: ['API'],
     country: 'India',
     countryCode: 'IN',
-    image: 'bonthapally.webp',
+    image: 'bonthapally-2.webp',
     apiCapacity: '35 KTPA',
   },
   {
-    name: 'Jeedimetla',
+    name: 'Jeedimetla (Unit II)',
     location: 'HYDERABAD, TELANGANA',
     category: 'API',
     categories: ['API', 'PFI'],
@@ -102,13 +102,13 @@ const FACILITIES: Facility[] = [
     pfiCapacity: '1,440 TPA',
   },
   {
-    name: 'Bonthapally (Unit II)',
+    name: 'Bonthapally (Unit III)',
     location: 'HYDERABAD, TELANGANA',
     category: 'API',
     categories: ['API'],
     country: 'India',
     countryCode: 'IN',
-    image: 'bonthapally-2.webp',
+    image: 'bonthapally-unit3.jpg',
     apiCapacity: '62 KLPA',
   },
   {
@@ -167,10 +167,10 @@ export default function FacilitiesPage() {
     <div className="cp fac-page">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <Link to="/business">BUSINESS</Link>
+        <span className="cp-breadcrumb-plain">BUSINESS</span>
         <span className="sep">›</span>
         <span className="current">FACILITIES</span>
       </p>
@@ -178,14 +178,10 @@ export default function FacilitiesPage() {
 
       <div className="fac-intro">
         <p>
-          Granules India operates 10 specialized manufacturing bases across India, the United States, and Switzerland,
-          serving North America, Europe, India, Latin America, and emerging markets. Our vertical
-          integration&mdash;from raw materials to finished formulations&mdash;ensures speed to
-          market, tight quality control, and supply resilience.
+          Granules’ global manufacturing network of 10 facilities spanning India, the United States, and Switzerland, is designed to deliver quality, scale, and supply reliability across pharmaceutical markets worldwide. This vertically integrated platform enhances supply security, product quality, and speed to market while providing the flexibility to support both high-volume products and complex, differentiated therapies.
         </p>
         <p>
-          With specialized R&amp;D hubs, advanced packaging lines, and regulatory-aligned plants worldwide, Granules delivers on its
-          promise of affordable, high-quality, chronic care innovation at scale.
+          Supported by global regulatory accreditations, harmonized quality standards, and multi-site manufacturing capabilities, our facilities enable us in delivering our promise of affordable, high-quality, healthcare innovation at scale.
         </p>
       </div>
 
@@ -235,7 +231,13 @@ export default function FacilitiesPage() {
                       <span className="fac-cap-pill">PFI: {facility.pfiCapacity}</span>
                     )}
                     {facility.packaging && (
-                      <span className="fac-cap-pill">{facility.packaging}</span>
+                      Array.isArray(facility.packaging) ? (
+                        facility.packaging.map((pkg) => (
+                          <span className="fac-cap-pill" key={pkg}>{pkg}</span>
+                        ))
+                      ) : (
+                        <span className="fac-cap-pill">{facility.packaging}</span>
+                      )
                     )}
                     {facility.specialization && (
                       <span className="fac-cap-pill">{facility.specialization}</span>
@@ -252,13 +254,12 @@ export default function FacilitiesPage() {
         <img className="bg" src={`${F}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
         <div className="overlay" />
         <div className="fac-cta-copy">
-          <h2>World-Class Global Manufacturing &amp; Supply Resilience</h2>
-          <p>
-            Operating 10 state-of-the-art facilities across India, North America, and Switzerland,
-            Granules empowers worldwide healthcare with unmatched pharmaceutical excellence.
-          </p>
+          <h2>Discover Our Intregrated R&D Ecosystem</h2>
+          <h4>
+            Advancing complex generics, oncology, CNS/ADHD, peptide CDMO, and next-gen drug delivery systems.
+          </h4>
         </div>
-        <Link className="cp-cta-btn" to="/company/global-presence">Global Presence</Link>
+        <Link className="cp-cta-btn" to="/business/rd">Research & Development</Link>
       </div>
 
       <CompanyFooter />

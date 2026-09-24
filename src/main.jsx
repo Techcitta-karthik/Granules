@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import '@fontsource/manrope/400.css';
@@ -32,13 +32,13 @@ import SustainabilityOverviewPage from './pages/SustainabilityOverviewPage.tsx';
 import SustainabilityStrategyPage from './pages/SustainabilityStrategyPage.tsx';
 import EsgInActionPage from './pages/EsgInActionPage.tsx';
 import EsgProfilePage from './pages/EsgProfilePage.tsx';
+import EhsSubmissionsPage from './pages/EhsSubmissionsPage.tsx';
 import CommunityPage from './pages/CommunityPage.tsx';
 import InvestorOverviewPage from './pages/InvestorOverviewPage.tsx';
 import InvestorAnnualReportsPage from './pages/InvestorAnnualReportsPage.tsx';
 import MediaPage from './pages/MediaPage.tsx';
 import CareerOverviewPage from './pages/CareerOverviewPage.tsx';
 import LifeAtGranulesPage from './pages/LifeAtGranulesPage.tsx';
-import CareerOpportunitiesPage from './pages/CareerOpportunitiesPage.tsx';
 import ContactPage from './pages/ContactPage.tsx';
 import NotFoundPage from './pages/NotFoundPage.tsx';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage.tsx';
@@ -48,11 +48,22 @@ import DataProtectionNoticePage from './pages/DataProtectionNoticePage.tsx';
 import TermsConditionsPage from './pages/TermsConditionsPage.tsx';
 import ProductPortfolioPage from './pages/ProductPortfolioPage.tsx';
 import BackToTopButton from './components/common/BackToTopButton';
+import CookieConsent from './components/common/CookieConsent';
+import { ChatbotWidget } from './components/chatbot';
+
+function ExternalRedirect({ to }) {
+  useEffect(() => {
+    window.location.replace(to);
+  }, [to]);
+  return null;
+}
 
 function App() {
   return (
     <BrowserRouter>
       <BackToTopButton />
+      <CookieConsent />
+      <ChatbotWidget />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/company" element={<CompanyPage />} />
@@ -91,6 +102,12 @@ function App() {
         <Route path="/esg-profile" element={<EsgProfilePage />} />
         <Route path="/sustainability/esg-world" element={<EsgProfilePage />} />
         <Route path="/esg-world" element={<EsgProfilePage />} />
+        <Route path="/sustainability/ehs-submissions" element={<EhsSubmissionsPage />} />
+        <Route path="/sustainability/ehs-documents" element={<EhsSubmissionsPage />} />
+        <Route path="/ehs-submissions" element={<EhsSubmissionsPage />} />
+        <Route path="/ehs-documents" element={<EhsSubmissionsPage />} />
+        <Route path="/investors/ehs-documents" element={<EhsSubmissionsPage />} />
+        <Route path="/investor/ehs-documents" element={<EhsSubmissionsPage />} />
         <Route path="/sustainability/esg-in-action/community" element={<CommunityPage />} />
         <Route path="/sustainability/corporate-social-responsibility" element={<CommunityPage />} />
         <Route path="/sustainability/csr" element={<CommunityPage />} />
@@ -107,11 +124,15 @@ function App() {
         <Route path="/media" element={<MediaPage />} />
         <Route path="/careers" element={<CareerOverviewPage />} />
         <Route path="/careers/life-at-granules" element={<LifeAtGranulesPage />} />
-        <Route path="/careers/opportunities" element={<CareerOpportunitiesPage />} />
-        <Route path="/careers/current-openings" element={<CareerOpportunitiesPage />} />
-        <Route path="/careers/openings" element={<CareerOpportunitiesPage />} />
-        <Route path="/careers/career-opportunities" element={<CareerOpportunitiesPage />} />
-        <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
+        <Route path="/careers/opportunities" element={<ExternalRedirect to="https://careers.mygranules.com/" />} />
+        <Route path="/careers/work-with-us" element={<ExternalRedirect to="https://careers.mygranules.com/" />} />
+        <Route path="/work-with-us" element={<ExternalRedirect to="https://careers.mygranules.com/" />} />
+        <Route path="/careers/current-openings" element={<ExternalRedirect to="https://careers.mygranules.com/" />} />
+        <Route path="/careers/openings" element={<ExternalRedirect to="https://careers.mygranules.com/" />} />
+        <Route path="/careers/career-opportunities" element={<ExternalRedirect to="https://careers.mygranules.com/" />} />
+        <Route path="/career-opportunities" element={<ExternalRedirect to="https://careers.mygranules.com/" />} />
+        <Route path="/careers/our-culture-values" element={<Navigate to="/careers#culture-values" replace />} />
+        <Route path="/careers/culture-values" element={<Navigate to="/careers#culture-values" replace />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />

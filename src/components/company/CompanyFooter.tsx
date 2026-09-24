@@ -9,9 +9,9 @@ const ABOUT_LINKS = [
 
 const SOLUTIONS_LINKS = [
   { label: 'Generics', href: '/business/generics' },
-  { label: 'Peptides', href: '/business/peptides' },
+  { label: 'Peptide CDMO', href: '/business/peptides' },
   { label: 'R&D', href: '/business/rd' },
-  { label: 'Quality', href: '/business/quality-compliance' },
+  { label: 'Quality & Compliance', href: '/business/quality-compliance' },
   { label: 'Facilities', href: '/business/facilities' },
 ];
 
@@ -42,12 +42,9 @@ export default function CompanyFooter() {
             <Link to="/" className="cp-footer-logo-badge" aria-label="Granules Homepage">
               <img src="/assets/footer-logo.webp" alt="Granules" loading="eager" decoding="async" />
             </Link>
-            <p>
-              Granules India, headquartered in Hyderabad, India is a vertically integrated pharma
-              manufacturer delivering APIs, PFIs, FDs and Peptides CDMO globally with
-              regulatory-compliant operations in India, U.S. and Europe, ensuring quality, scale,
-              and sustainability.
-            </p>
+            <span style={{ fontSize: '14px' }}>
+              Granules India Limited, headquartered in Hyderabad, India, is a vertically integrated pharma company delivering healthcare solutions across the value chain globally with regulatory-compliant operations in India, U.S. and Europe, ensuring quality, scale, and sustainability.
+            </span>
           </div>
 
           <div className="cp-footer-cols">

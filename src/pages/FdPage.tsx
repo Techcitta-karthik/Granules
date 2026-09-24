@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 import './business.css';
 
@@ -23,7 +24,7 @@ const BENEFITS: BenefitItem[] = [
   },
   {
     title: 'Formulation Expertise in Complex Generics',
-    body: 'We offer patient-centric solutions through a wide range of capabilities across modified-release formulations, MUPS technologies, controlled substances, chewable dosage forms, oncology products and complex oral solids.',
+    body: 'We offer patient-centric solutions through a wide range of capabilities across modified-release formulations, MUPS technologies, controlled substances, chewable dosage forms, oncology products and complex oral solids. Formulation capability includes sachet and liquid filling lines.',
     icon: 'icon-test-tube.svg',
     image: '/assets/fd/4.jpg',
   },
@@ -38,6 +39,12 @@ const BENEFITS: BenefitItem[] = [
     body: 'Whether through dossier licensing, contract manufacturing, development collaborations, or commercialization partnerships, we create solutions aligned to our partners\' strategic objectives.',
     icon: 'icon-box.svg',
     image: '/assets/fd/7.jpg',
+  },
+  {
+    title: 'Technology-Enabled by Digitalisation',
+    body: 'From digitally enabled product development and data-driven formulation design to electronic quality management systems and industry 4.0 manufacturing platforms, we are leveraging technology to accelerate innovation, strengthen data integrity, improve operational excellence, and support scalable, compliant delivery of high-quality medicines.',
+    icon: 'icon-digital.svg',
+    image: '/assets/api/5.png',
   },
 ];
 
@@ -56,7 +63,9 @@ export default function FdPage() {
       <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <Link to="/business/generics">BUSINESS</Link>
+        <span className="cp-breadcrumb-plain">BUSINESS</span>
+        <span className="sep">›</span>
+        <Link to="/business/generics">GENERICS</Link>
         <span className="sep">›</span>
         <span className="current">FINISHED DOSAGE FORMULATIONS</span>
       </p>
@@ -136,7 +145,7 @@ export default function FdPage() {
         </div>
         <a
           className="cp-cta-btn"
-          href="/documents/GIL_Product_Brochure_May_20_2025_Master_FD-9f15994d9ad2.pdf"
+          href={getAssetUrl('pdfs/2025/06/GIL_Product_Brochure_May_20_2025_Master_FD.pdf')}
           target="_blank"
           rel="noopener noreferrer"
         >

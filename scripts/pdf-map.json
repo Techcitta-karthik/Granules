@@ -1,0 +1,492 @@
+{
+  "matched": [
+    {
+      "doc": "/documents/03-01-2022-NSEBSE-5f23fc10d148.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/02/03-01-2022-NSEBSE.pdf",
+      "filename": "03-01-2022-NSEBSE.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/1121Transfer-of-Physical-Shares-in-Demat-Mode-only-5dacd41e988f.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/1121TransferofPhysicalSharesinDematModeonly.pdf",
+      "filename": "1121TransferofPhysicalSharesinDematModeonly.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/1322Intimation-of-Trading-Window-Closure-2824434a88d6.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/notice/1322IntimationofTradingWindowClosure.pdf",
+      "filename": "1322IntimationofTradingWindowClosure.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/185924th-AGM-Voting-Results-93df2c5c6b2c.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/185924thAGMVotingResults.pdf",
+      "filename": "185924thAGMVotingResults.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2027Annual-Report---FY13-14-6e22e01460e9.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/2027AnnualReport-FY13-14.pdf",
+      "filename": "2027AnnualReport-FY13-14.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2157Annual-Report---FY07-08-b0699957797f.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/2157AnnualReport-FY07-08.pdf",
+      "filename": "2157AnnualReport-FY07-08.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2198AR2016-17-1ab38b383c01.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/2198AR2016-17.pdf",
+      "filename": "2198AR2016-17.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2202EGM-voting-results-00b30443ad19.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/2202EGMvotingresults.pdf",
+      "filename": "2202EGMvotingresults.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2342Granules-India-Limited---Dispatch-Advertisement-e2e7cd7fceb8.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/2342GranulesIndiaLimited-DispatchAdvertisement.pdf",
+      "filename": "2342GranulesIndiaLimited-DispatchAdvertisement.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2427Annual-Report---FY14-15-9d8526bf403c.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/2427AnnualReport-FY14-15.pdf",
+      "filename": "2427AnnualReport-FY14-15.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2668Annual-Report-2015-2016-053d09b9dde9.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/2668AnnualReport2015-2016.pdf",
+      "filename": "2668AnnualReport2015-2016.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/2960Granules-India-Conference-Call-Hosted-by-Edelweiss-Securities---June-02-1cd554a67bf9.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/notice/2960GranulesIndiaConferenceCall,HostedbyEdelweissSecurities-June02....pdf",
+      "filename": "2960GranulesIndiaConferenceCall,HostedbyEdelweissSecurities-June02....pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/3127Annual-Report---FY18-19-c9cc39471683.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/3127AnnualReport-FY18-19.pdf",
+      "filename": "3127AnnualReport-FY18-19.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/3268Annual-Report---FY10-11-0dd6a2bd1a12.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/3268AnnualReport-FY10-11.pdf",
+      "filename": "3268AnnualReport-FY10-11.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/3280BSE-Observation-Letter-d63a8e7e0e09.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/3280BSEObservationLetter.pdf",
+      "filename": "3280BSEObservationLetter.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/3616Clause-24F-documents-Complaint-Report-d7ff29ce5373.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/3616Clause24FdocumentsComplaintReport.pdf",
+      "filename": "3616Clause24FdocumentsComplaintReport.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/3913High-Court-Order-of-Amalgamation-2eda882af1c6.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/3913HighCourtOrderofAmalgamation.pdf",
+      "filename": "3913HighCourtOrderofAmalgamation.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/4106Oral-order-of-Amalgamation-4c3c2b7db5dc.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/4106OralorderofAmalgamation.pdf",
+      "filename": "4106OralorderofAmalgamation.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/4531Buyback---Granules-f663d4a3d5eb.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/notice/4531Buyback-Granules.pdf",
+      "filename": "4531Buyback-Granules.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/4679NSE-Observation-Letter-ded00e005836.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/4679NSEObservationLetter.pdf",
+      "filename": "4679NSEObservationLetter.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/5329BSE-Approval-Part-B-reg-Scheme-of-Amalgamation-d2a343ccd484.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/5329BSEApproval-PartBregSchemeofAmalgamation.pdf",
+      "filename": "5329BSEApproval-PartBregSchemeofAmalgamation.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/5667Outcome-of-23rd-AGM-of-Granules-India-Limited-a96461187983.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/5667Outcomeof23rdAGMofGranulesIndiaLimited.pdf",
+      "filename": "5667Outcomeof23rdAGMofGranulesIndiaLimited.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/6127Annual-Report---FY11-12-b035b60a4347.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/6127AnnualReport-FY11-12.pdf",
+      "filename": "6127AnnualReport-FY11-12.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/6181Annual-Report---FY09-10-7d097d5806ea.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/6181AnnualReport-FY09-10.pdf",
+      "filename": "6181AnnualReport-FY09-10.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/6249Annual-Report---FY06-07-480c9456423e.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/6249AnnualReport-FY06-07.pdf",
+      "filename": "6249AnnualReport-FY06-07.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/6708Reply-to-Bombay-Stock-Exchange-9f900bae1b3d.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/6708ReplytoBombayStockExchange.pdf",
+      "filename": "6708ReplytoBombayStockExchange.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/6994Annual-Report---FY08-09-188f254a3537.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/6994AnnualReport-FY08-09.pdf",
+      "filename": "6994AnnualReport-FY08-09.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/8058Annual-Report---FY17-18-0e6badda55f0.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/8058AnnualReport-FY17-18.pdf",
+      "filename": "8058AnnualReport-FY17-18.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/8742Annual-Report---FY12-13-5012f3f34ee5.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/8742AnnualReport-FY12-13.pdf",
+      "filename": "8742AnnualReport-FY12-13.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/8938Intimation-of-Schedule-of-the-Non-Deal-Road-Show-bca671f2cc3d.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/notice/8938IntimationofScheduleoftheNonDealRoadShow.pdf",
+      "filename": "8938IntimationofScheduleoftheNonDealRoadShow.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/9853GOPL-Financials-17-18-min-c7cdaee4f683.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/Annual-Accounts-of-Subsidiaries/9853GOPLFinancials17-18-min.pdf",
+      "filename": "9853GOPLFinancials17-18-min.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Annual-Report-2019-20-2e269e7676d8.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/09/Annual-Report-2019-20.pdf",
+      "filename": "Annual-Report-2019-20.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Annual-Report-2020-21-7948a9c23581.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/09/Annual-Report-2020-21.pdf",
+      "filename": "Annual-Report-2020-21.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Annual-Report-2021-22-ce6deff6f867.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/09/Annual-Report-2021-22.pdf",
+      "filename": "Annual-Report-2021-22.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Annual-return-website-24-25-80a7926488aa.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/07/Annual-return-website-24-25.pdf",
+      "filename": "Annual-return-website-24-25.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Appointment-of-Independent-Directors-9c78611c8cf7.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2024/04/Appointment-of-Independent-Directors.pdf",
+      "filename": "Appointment-of-Independent-Directors.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/BSENSEINTIMATION-f14353e32d64.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/05/BSENSEINTIMATION.pdf",
+      "filename": "BSENSEINTIMATION.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/CSR-Policy-7f3b00771044.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/CSR-Policy.pdf",
+      "filename": "CSR-Policy.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Code-Of-Business-Conduct-file-01561d26ee79.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2024/12/Code-Of-Business-Conduct-file.pdf",
+      "filename": "Code-Of-Business-Conduct-file.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Code-of-Conduct-for-Board-SMP-d491fd64de1a.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Code-of-Conduct-for-Board-SMP.pdf",
+      "filename": "Code-of-Conduct-for-Board-SMP.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Committees-of-the-Board-as-on-01.08.2025-ceb2be8520eb.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/08/Committees-of-the-Board-as-on-01.08.2025.pdf",
+      "filename": "Committees-of-the-Board-as-on-01.08.2025.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Details-Of-Share-Transferred-To-The-Iepf-Authority-5f861d461def.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Details-Of-Share-Transferred-To-The-Iepf-Authority.pdf",
+      "filename": "Details-Of-Share-Transferred-To-The-Iepf-Authority.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/ESOP-Schemes-c6f2c928720f.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/04/ESOP-Schemes.pdf",
+      "filename": "ESOP-Schemes.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Earnings-Presentation-Q2FY26-Circulation-fb2ccd8cf24d.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Earnings-Presentation-Q2FY26-Circulation.pdf",
+      "filename": "Earnings-Presentation-Q2FY26-Circulation.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Familarisation-Programme-for-Independent-Directors-2025-26-5d9c26495637.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2026/04/Familarisation-Programme-for-Independent-Directors-2025-26.pdf",
+      "filename": "Familarisation-Programme-for-Independent-Directors-2025-26.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Financial-Result-18.05.2022-0e55e6fbe630.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/05/FinancialResult18.05.2022.pdf",
+      "filename": "FinancialResult18.05.2022.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Financials-CZRO-2023-425ee535e48e.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/investors/Financials-CZRO-2023.pdf",
+      "filename": "Financials-CZRO-2023.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Form-SH-4-16aa99502642.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/09/Form-SH-4.pdf",
+      "filename": "Form-SH-4.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/GRAN_TOP-200-AS-ON-31.03.2026-fbd278e76278.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2026/07/GRAN_TOP-200-AS-ON-31.03.2026.pdf",
+      "filename": "GRAN_TOP-200-AS-ON-31.03.2026.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Granules-AR-2022-23-532f737451a2.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/Granules-AR-2022-23.pdf",
+      "filename": "Granules-AR-2022-23.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Granules-Evoting-and-AGM-Instructions-8d59d6fa9667.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2023/07/Granules-Evoting-and-AGM-Instructions.pdf",
+      "filename": "Granules-Evoting-and-AGM-Instructions.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Granules-India-Limited_EGM-Notice_30.12.2025-V1-ec9fea7c51e6.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/Granules-India-Limited_EGM-Notice_30.12.2025-V1.pdf",
+      "filename": "Granules-India-Limited_EGM-Notice_30.12.2025-V1.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Granules-Life-Sciences-Biomedical-Waste-Annual-Report-2024-8c2630f9bdf6.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/10/Granules-Life-Sciences-Biomedical-Waste-Annual-Report-2024.pdf",
+      "filename": "Granules-Life-Sciences-Biomedical-Waste-Annual-Report-2024.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/GranulesIndia-Q2-FY26-Transcript-Clean-Version-faeecef8a9cb.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/GranulesIndia-Q2-FY26-Transcript-Clean-Version.pdf",
+      "filename": "GranulesIndia-Q2-FY26-Transcript-Clean-Version.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/GranulesIndia-limited-AR-2023-24-18f7c7ff8700.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2024/07/GranulesIndia-limited-AR-2023-24.pdf",
+      "filename": "GranulesIndia-limited-AR-2023-24.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Granules_Annual-Report-FY26-1-4857602b3724.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2026/07/Granules_Annual-Report-FY26-1.pdf",
+      "filename": "Granules_Annual-Report-FY26-1.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/07/Granules_Integrated-Report-2024-25.pdf",
+      "filename": "Granules_Integrated-Report-2024-25.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Investor-Grievance-Redressal-Policy-4d87da144751.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/03/Investor-Grievance-Redressal-Policy.pdf",
+      "filename": "Investor-Grievance-Redressal-Policy.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Notice-of-Board-Meeting-Scheduled-on-May-16-2023-97d1e47a1aee.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2023/04/Notice-of-Board-Meeting-Scheduled-on-May-16-2023.pdf",
+      "filename": "Notice-of-Board-Meeting-Scheduled-on-May-16-2023.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Post-Buyback-Public-Announcement-3046b59d85af.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/10/Post-Buyback-Public-Announcement.pdf",
+      "filename": "Post-Buyback-Public-Announcement.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Schedule-of-Analyst-and-Investor-Earnings-Conference-Call-Q4-2022-23-46bcf59128ca.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2023/04/Schedule-of-Analyst-and-Investor-Earnings-Conference-Call-Q4-2022-23.pdf",
+      "filename": "Schedule-of-Analyst-and-Investor-Earnings-Conference-Call-Q4-2022-23.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Scheme-of-Arrangement-Clause-24f-documents-700b6e8182a6.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/SchemeofArrangementClause24fdocuments.pdf",
+      "filename": "SchemeofArrangementClause24fdocuments.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Tax-on-Dividend-1-7e9ccaddc95d.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2022/02/Tax-on-Dividend-1.pdf",
+      "filename": "Tax-on-Dividend-1.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Third-Quarter-SHP-2025-b306d92c9c75.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/01/Third-Quarter-SHP-2025.pdf",
+      "filename": "Third-Quarter-SHP-2025.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec-df0e4b40ccfc.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2026/05/Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec.pdf",
+      "filename": "Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/Unpaid-Final-Dividend-FY-2024-2025-07965a1cbed6.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Unpaid-Final-Dividend-FY-2024-2025.pdf",
+      "filename": "Unpaid-Final-Dividend-FY-2024-2025.pdf",
+      "alts": 1
+    },
+    {
+      "doc": "/documents/annualsecretarial-complaince-report-23-31ac1ac51554.pdf",
+      "cdn": "https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/investors/annualsecretarial-complaince-report-23.pdf",
+      "filename": "annualsecretarial-complaince-report-23.pdf",
+      "alts": 1
+    }
+  ],
+  "unmatched": [
+    {
+      "doc": "/documents/3975Granules-India-s-Revenue-increases-c3fcfefdab37.pdf",
+      "stripped": "3975Granules-India-s-Revenue-increases.pdf"
+    },
+    {
+      "doc": "/documents/8328CSR-Policy-30ada84aca1b.pdf",
+      "stripped": "8328CSR-Policy.pdf"
+    },
+    {
+      "doc": "/documents/COBC-9b98735608b9.pdf",
+      "stripped": "COBC.pdf"
+    },
+    {
+      "doc": "/documents/CSR-Annual-Report-2023-24-5d55fa4f91e9.pdf",
+      "stripped": "CSR-Annual-Report-2023-24.pdf"
+    },
+    {
+      "doc": "/documents/Form-ISR-1-For-Updating-KYC-1dce8e0ec06b.pdf",
+      "stripped": "Form-ISR-1-For-Updating-KYC.pdf"
+    },
+    {
+      "doc": "/documents/Form-ISR-4-2910e0ac2dd4.pdf",
+      "stripped": "Form-ISR-4.pdf"
+    },
+    {
+      "doc": "/documents/GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental--7c3fd95ad004.pdf",
+      "stripped": "GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental-.pdf"
+    },
+    {
+      "doc": "/documents/GIL_Product_Brochure_May_20_2025_Master_FD-9f15994d9ad2.pdf",
+      "stripped": "GIL_Product_Brochure_May_20_2025_Master_FD.pdf"
+    },
+    {
+      "doc": "/documents/GIL_Product_Brochure_May_20_2025_Master_PFI-7abcdf7c89b2.pdf",
+      "stripped": "GIL_Product_Brochure_May_20_2025_Master_PFI.pdf"
+    },
+    {
+      "doc": "/documents/Granules-Code-of-Business-Conduct-for-Suppliers-b394765c24cf.pdf",
+      "stripped": "Granules-Code-of-Business-Conduct-for-Suppliers.pdf"
+    },
+    {
+      "doc": "/documents/Granules-India-Limited-Honored-with-Golden-Peacock-Award-for-Sustainability-e36c3f2a8a41.pdf",
+      "stripped": "Granules-India-Limited-Honored-with-Golden-Peacock-Award-for-Sustainability.pdf"
+    },
+    {
+      "doc": "/documents/Granules-India-Transforms-BC-Government-Boys-Hostel-in-Parawada-ac5a57c033b8.pdf",
+      "stripped": "Granules-India-Transforms-BC-Government-Boys-Hostel-in-Parawada.pdf"
+    },
+    {
+      "doc": "/documents/Granules-Sustainability-Webpage-Content-56f22fc084e5.pdf",
+      "stripped": "Granules-Sustainability-Webpage-Content.pdf"
+    },
+    {
+      "doc": "/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf",
+      "stripped": "Granules_Annual-Report-FY26.pdf"
+    },
+    {
+      "doc": "/documents/Granules_Product_Brochure_API-2e0d50e7805c.pdf",
+      "stripped": "Granules_Product_Brochure_API.pdf"
+    },
+    {
+      "doc": "/documents/ISO-14001-45001-Certificate-b5f10f6ce70f.pdf",
+      "stripped": "ISO-14001-45001-Certificate.pdf"
+    },
+    {
+      "doc": "/documents/ISO-14001-45001-ceritificate-933b65fc494c.pdf",
+      "stripped": "ISO-14001-45001-ceritificate.pdf"
+    },
+    {
+      "doc": "/documents/Press-Release-Granules-India-Limited-Inaugurated-a-Overhead-Water-Tank-at-Bonthapally-1-254a750cb84c.pdf",
+      "stripped": "Press-Release-Granules-India-Limited-Inaugurated-a-Overhead-Water-Tank-at-Bonthapally-1.pdf"
+    },
+    {
+      "doc": "/documents/Press-Release-Granules-India-Limited-Inaugurated-an-Overhead-Water-Tank-at-Bonthapally-0cc922afda83.pdf",
+      "stripped": "Press-Release-Granules-India-Limited-Inaugurated-an-Overhead-Water-Tank-at-Bonthapally.pdf"
+    },
+    {
+      "doc": "/documents/Press-Release-Q2-FY26-07edcf6db296.pdf",
+      "stripped": "Press-Release-Q2-FY26.pdf"
+    },
+    {
+      "doc": "/documents/Supplier-Code-of-Conduct-Sustainability-Program-2024-1-a6c058f75a2f.pdf",
+      "stripped": "Supplier-Code-of-Conduct-Sustainability-Program-2024-1.pdf"
+    }
+  ]
+}

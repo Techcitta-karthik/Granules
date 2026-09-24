@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
@@ -90,9 +91,9 @@ export default function OperationalExcellencePage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/company">ABOUT US</a>
+        <Link to="/company">ABOUT US</Link>
         <span className="sep">›</span>
         <span className="current">OPERATIONAL EXCELLENCE</span>
       </p>
@@ -144,7 +145,6 @@ export default function OperationalExcellencePage() {
                     </div>
                     <div className="biz-sheet-body">
                       <p className="biz-sheet-desc">{card.desc}</p>
-                      <span className="biz-sheet-learn">LEARN MORE ↗</span>
                     </div>
                   </div>
                 </article>

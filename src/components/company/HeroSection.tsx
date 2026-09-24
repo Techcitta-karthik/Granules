@@ -12,14 +12,11 @@ export default function HeroSection() {
       </p>
       <h1 className="cp-page-title">Overview</h1>
       <div className="cp-hero-panel">
-        <video
-          src="/Video/cover-video.mp4"
-          poster="/assets/oe/hero-banner.webp"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        <img
+          src="/assets/company/hero-banner.jpg"
+          alt="Granules pharmaceutical manufacturing with quality vials on a production line"
+          loading="eager"
+          decoding="async"
         />
         <div className="cp-hero-scrim" />
         <div className="cp-hero-overlay">

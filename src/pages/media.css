@@ -25,9 +25,8 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
-  padding: clamp(20px, 2.5vw, 40px);
 }
 
 .med-hero-overlay {
@@ -329,6 +328,10 @@
 
 /* "Read More" solid blue pill button */
 .med-read-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   flex-shrink: 0;
   background: #0061f8;
   border: none;
@@ -624,14 +627,14 @@
 }
 
 .med-report-card {
-  width: 85% !important;
-  max-width: 85% !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
   margin: 0 auto !important;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: clamp(32px, 4.5vw, 64px);
-  align-items: end;
-  padding: clamp(60px, 6.5vw, 96px) 0 0 0;
+  align-items: center;
+  padding: clamp(40px, 4.5vw, 68px) 0;
   position: relative;
   z-index: 1;
 }
@@ -639,7 +642,7 @@
 .med-report-copy {
   display: flex;
   flex-direction: column;
-  padding-bottom: clamp(60px, 6.5vw, 96px);
+  padding-bottom: 0;
   position: relative;
   z-index: 1;
 }
@@ -689,13 +692,41 @@
   box-shadow: 0 6px 18px rgba(0, 97, 248, 0.38);
 }
 
+.med-report-cover-wrap,
 .med-report-device-wrap {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
   position: relative;
   z-index: 1;
+}
+
+.med-report-cover {
+  flex: 0 0 clamp(180px, 15vw, 230px);
+  width: clamp(180px, 15vw, 230px);
+  aspect-ratio: 1241 / 1754;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 34, 90, 0.15), 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 97, 248, 0.12);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
+  display: block;
+  background: transparent;
+  text-decoration: none;
+}
+
+.med-report-cover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(0, 97, 248, 0.25);
+}
+
+.med-report-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
 }
 
 .med-report-device {
@@ -921,6 +952,14 @@
     border-radius: 24px;
   }
 
+  .med-tabs-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
   .med-news-item {
     flex-direction: column;
     align-items: flex-start;
@@ -950,12 +989,10 @@
 
   .med-report-card {
     grid-template-columns: 1fr !important;
-    gap: 36px !important;
-    padding-top: 40px !important;
-    padding-bottom: 0 !important;
-    width: 92% !important;
-    max-width: 92% !important;
-    overflow: hidden !important;
+    gap: 32px !important;
+    padding: 40px 0 !important;
+    width: min(85%, 1632px) !important;
+    max-width: 1632px !important;
   }
 
   .med-report-copy {
@@ -967,11 +1004,18 @@
     font-size: clamp(26px, 6vw, 36px) !important;
   }
 
+  .med-report-cover-wrap,
   .med-report-device-wrap {
     justify-content: center !important;
     margin: 0 auto !important;
     width: 100% !important;
-    align-items: flex-end !important;
+    align-items: center !important;
+  }
+
+  .med-report-cover {
+    flex: 0 0 clamp(160px, 46vw, 210px) !important;
+    width: clamp(160px, 46vw, 210px) !important;
+    margin: 0 auto !important;
   }
 
   .med-report-device {
@@ -982,12 +1026,12 @@
   }
 
   .med-follow-icon {
-    width: 90px;
-    height: 90px;
+    width: 48px;
+    height: 48px;
   }
 
-  .med-follow-icon img {
-    width: 34px;
-    height: 34px;
+  .med-follow-icon svg {
+    width: 20px;
+    height: 20px;
   }
 }

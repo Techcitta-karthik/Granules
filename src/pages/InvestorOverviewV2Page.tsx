@@ -1,65 +1,64 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 import './investor.css';
 
 const TAB_DATA: Record<number, { label: string; href?: string; pdf?: string }[]> = {
   0: [
     { label: 'Annual Reports', href: '/investor/annual-reports' },
-    { label: 'Sustainability Reports', pdf: '/documents/Granules-Sustainability-Webpage-Content-56f22fc084e5.pdf' },
-    { label: 'Quarterly Results', pdf: '/documents/Press-Release-Q2-FY26-07edcf6db296.pdf' },
-    { label: 'Annual Accounts of Subsidiaries & JVs', pdf: '/documents/9853GOPL-Financials-17-18-min-c7cdaee4f683.pdf' },
-    { label: 'Corporate Presentation', pdf: '/documents/Earnings-Presentation-Q2FY26-Circulation-fb2ccd8cf24d.pdf' },
+    { label: 'Sustainability Reports', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/07/Granules_Integrated-Report-2024-25.pdf' },
+    { label: 'Quarterly Results', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Press-Release-Q2-FY26.pdf' },
+    { label: 'Annual Accounts of Subsidiaries & JVs', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/Annual-Accounts-of-Subsidiaries/9853GOPL Financials 17-18-min.pdf' },
+    { label: 'Corporate Presentation', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Earnings-Presentation-Q2FY26-Circulation.pdf' },
   ],
   1: [
-    { label: 'Investor Presentation', pdf: '/documents/Earnings-Presentation-Q2FY26-Circulation-fb2ccd8cf24d.pdf' },
-    { label: 'Earnings Call Transcripts', pdf: '/documents/GranulesIndia-Q2-FY26-Transcript-Clean-Version-faeecef8a9cb.pdf' },
-    { label: 'Earnings Call Recording', pdf: '/documents/Schedule-of-Analyst-and-Investor-Earnings-Conference-Call-Q4-2022-23-46bcf59128ca.pdf' },
-    { label: 'Shareholding Structure', pdf: '/documents/Third-Quarter-SHP-2025-b306d92c9c75.pdf' },
-    { label: 'Top 200 Shareholders', pdf: '/documents/GRAN_TOP-200-AS-ON-31.03.2026-fbd278e76278.pdf' },
-    { label: 'Policies', pdf: '/documents/CSR-Policy-7f3b00771044.pdf' },
-    { label: 'BSE & NSE', pdf: '/documents/03-01-2022-NSEBSE-5f23fc10d148.pdf' },
-    { label: 'Analyst Coverage', pdf: '/documents/2960Granules-India-Conference-Call-Hosted-by-Edelweiss-Securities---June-02-1cd554a67bf9.pdf' },
-    { label: 'Buyback 2022', pdf: '/documents/Post-Buyback-Public-Announcement-3046b59d85af.pdf' },
-    { label: 'Buyback 2020', pdf: '/documents/4531Buyback---Granules-f663d4a3d5eb.pdf' },
-    { label: 'Forms', pdf: '/documents/Form-ISR-1-For-Updating-KYC-1dce8e0ec06b.pdf' },
-    { label: 'Unclaimed–Dividend & Shares Transferred to IEPF', pdf: '/documents/Details-Of-Share-Transferred-To-The-Iepf-Authority-5f861d461def.pdf' },
+    { label: 'Investor Presentation', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Earnings-Presentation-Q2FY26-Circulation.pdf' },
+    { label: 'Earnings Call Transcripts', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/GranulesIndia-Q2-FY26-Transcript-Clean-Version.pdf' },
+    { label: 'Earnings Call Recording', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2023/04/Schedule-of-Analyst-and-Investor-Earnings-Conference-Call-Q4-2022-23.pdf' },
+    { label: 'Shareholding Structure', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/01/Third-Quarter-SHP-2025.pdf' },
+    { label: 'Top 200 Shareholders', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2026/07/GRAN_TOP-200-AS-ON-31.03.2026.pdf' },
+    { label: 'Policies', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/CSR-Policy.pdf' },
+    { label: 'Analyst Coverage', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/notice/2960Granules India Conference Call, Hosted by Edelweiss Securities - June 02....pdf' },
+    { label: 'Buyback 2022', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2022/10/Post-Buyback-Public-Announcement.pdf' },
+    { label: 'Forms', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2022/09/Form-SH-4.pdf' },
+    { label: 'Unclaimed–Dividend & Shares Transferred to IEPF', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Details-Of-Share-Transferred-To-The-Iepf-Authority.pdf' },
   ],
   2: [
-    { label: 'Financial Highlights', pdf: '/documents/Financial-Result-18.05.2022-0e55e6fbe630.pdf' },
-    { label: 'Revenue Breakup', pdf: '/documents/3975Granules-India-s-Revenue-increases-c3fcfefdab37.pdf' },
+    { label: 'Financial Highlights', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2022/05/Financial Result 18.05.2022.pdf' },
+    { label: 'Revenue Breakup', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2026/07/Granules_Annual-Report-FY26-1.pdf' },
   ],
   3: [
-    { label: 'Notice of Board Meetings', pdf: '/documents/Notice-of-Board-Meeting-Scheduled-on-May-16-2023-97d1e47a1aee.pdf' },
-    { label: 'Schedule Of Investor Meet', pdf: '/documents/8938Intimation-of-Schedule-of-the-Non-Deal-Road-Show-bca671f2cc3d.pdf' },
-    { label: 'Newspaper Publications', pdf: '/documents/2342Granules-India-Limited---Dispatch-Advertisement-e2e7cd7fceb8.pdf' },
-    { label: 'Secretarial Compliance Report', pdf: '/documents/annualsecretarial-complaince-report-23-31ac1ac51554.pdf' },
-    { label: 'Annual Returns', pdf: '/documents/Annual-return-website-24-25-80a7926488aa.pdf' },
-    { label: 'Other Disclosures', pdf: '/documents/BSENSEINTIMATION-f14353e32d64.pdf' },
+    { label: 'Notice of Board Meetings', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2023/04/Notice-of-Board-Meeting-Scheduled-on-May-16-2023.pdf' },
+    { label: 'Schedule Of Investor Meet', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/notice/8938Intimation of Schedule of the Non Deal Road Show.pdf' },
+    { label: 'Newspaper Publications', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/2342Granules India Limited - Dispatch Advertisement.pdf' },
+    { label: 'Secretarial Compliance Report', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/investors/annualsecretarial-complaince-report-23.pdf' },
+    { label: 'Annual Returns', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/07/Annual-return-website-24-25.pdf' },
+    { label: 'Other Disclosures', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/05/BSENSEINTIMATION.pdf' },
   ],
   4: [
-    { label: 'ESOP Scheme 2017 & 2009', pdf: '/documents/ESOP-Schemes-c6f2c928720f.pdf' },
-    { label: 'Memorandum & Articles of Association of the Company', pdf: '/documents/COBC-9b98735608b9.pdf' },
-    { label: 'Granules Evoting and AGM Instructions', pdf: '/documents/Granules-Evoting-and-AGM-Instructions-8d59d6fa9667.pdf' },
-    { label: 'Tax on Dividend', pdf: '/documents/Unpaid-Final-Dividend-FY-2024-2025-07965a1cbed6.pdf' },
-    { label: 'Committees of the Board', pdf: '/documents/Committees-of-the-Board-as-on-01.08.2025-ceb2be8520eb.pdf' },
-    { label: 'Familiarization Program for Independent Directors', pdf: '/documents/Familarisation-Programme-for-Independent-Directors-2025-26-5d9c26495637.pdf' },
-    { label: 'Appointment of Independent Directors', pdf: '/documents/Appointment-of-Independent-Directors-9c78611c8cf7.pdf' },
-    { label: 'Transfer of Physical Shares in Demat Mode only', pdf: '/documents/1121Transfer-of-Physical-Shares-in-Demat-Mode-only-5dacd41e988f.pdf' },
-    { label: 'Special Purpose consolidated financials', pdf: '/documents/Financials-CZRO-2023-425ee535e48e.pdf' },
-    { label: 'EGM voting results', pdf: '/documents/2202EGM-voting-results-00b30443ad19.pdf' },
-    { label: '24th AGM Voting Results', pdf: '/documents/185924th-AGM-Voting-Results-93df2c5c6b2c.pdf' },
-    { label: 'EGM Notice', pdf: '/documents/Granules-India-Limited_EGM-Notice_30.12.2025-V1-ec9fea7c51e6.pdf' },
-    { label: 'BSE Approval -Part B reg. Scheme of Amalgamation', pdf: '/documents/5329BSE-Approval-Part-B-reg-Scheme-of-Amalgamation-d2a343ccd484.pdf' },
-    { label: 'High Court Order of Amalgamation', pdf: '/documents/3913High-Court-Order-of-Amalgamation-2eda882af1c6.pdf' },
-    { label: 'Oral order of Amalgamation', pdf: '/documents/4106Oral-order-of-Amalgamation-4c3c2b7db5dc.pdf' },
-    { label: 'Outcome of 23rd AGM of Granules India Limited', pdf: '/documents/5667Outcome-of-23rd-AGM-of-Granules-India-Limited-a96461187983.pdf' },
-    { label: 'NSE Observation Letter', pdf: '/documents/4679NSE-Observation-Letter-ded00e005836.pdf' },
-    { label: 'BSE Observation Letter', pdf: '/documents/3280BSE-Observation-Letter-d63a8e7e0e09.pdf' },
-    { label: 'Reply to Bombay Stock Exchange', pdf: '/documents/6708Reply-to-Bombay-Stock-Exchange-9f900bae1b3d.pdf' },
-    { label: 'Clause 24(F) documents Complaint Report', pdf: '/documents/3616Clause-24F-documents-Complaint-Report-d7ff29ce5373.pdf' },
-    { label: 'Scheme of Arrangement & Clause 24(f) documents', pdf: '/documents/Scheme-of-Arrangement-Clause-24f-documents-700b6e8182a6.pdf' },
+    { label: 'ESOP Scheme 2017 & 2009', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/04/ESOP-Schemes.pdf' },
+    { label: 'Memorandum & Articles of Association of the Company', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2022/03/COBC.pdf' },
+    { label: 'Granules Evoting and AGM Instructions', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2023/07/Granules-Evoting-and-AGM-Instructions.pdf' },
+    { label: 'Tax on Dividend', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Unpaid-Final-Dividend-FY-2024-2025.pdf' },
+    { label: 'Committees of the Board', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/08/Committees-of-the-Board-as-on-01.08.2025.pdf' },
+    { label: 'Familiarization Program for Independent Directors', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2026/04/Familarisation-Programme-for-Independent-Directors-2025-26.pdf' },
+    { label: 'Appointment of Independent Directors', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2024/04/Appointment-of-Independent-Directors.pdf' },
+    { label: 'Transfer of Physical Shares in Demat Mode only', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/1121Transfer of Physical Shares in Demat Mode only.pdf' },
+    { label: 'Special Purpose consolidated financials', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/investors/Financials-CZRO-2023.pdf' },
+    { label: 'EGM voting results', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/2202EGM voting results.pdf' },
+    { label: '24th AGM Voting Results', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/185924th AGM Voting Results.pdf' },
+    { label: 'EGM Notice', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/Granules-India-Limited_EGM-Notice_30.12.2025-V1.pdf' },
+    { label: 'BSE Approval -Part B reg. Scheme of Amalgamation', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/5329BSE Approval-Part B reg Scheme of Amalgamation.pdf' },
+    { label: 'High Court Order of Amalgamation', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/3913High Court Order of Amalgamation.pdf' },
+    { label: 'Oral order of Amalgamation', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/4106Oral order of Amalgamation.pdf' },
+    { label: 'Outcome of 23rd AGM of Granules India Limited', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/5667Outcome of 23rd AGM of Granules India Limited.pdf' },
+    { label: 'NSE Observation Letter', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/4679NSE Observation Letter.pdf' },
+    { label: 'BSE Observation Letter', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/3280BSE Observation Letter.pdf' },
+    { label: 'Reply to Bombay Stock Exchange', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/6708Reply to Bombay Stock Exchange.pdf' },
+    { label: 'Clause 24(F) documents Complaint Report', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/3616Clause 24F documents Complaint Report.pdf' },
+    { label: 'Scheme of Arrangement & Clause 24(f) documents', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/Scheme of Arrangement Clause 24f documents.pdf' },
   ],
 };
 
@@ -157,7 +156,7 @@ export default function InvestorOverviewV2Page() {
             ) : row.pdf ? (
               <a
                 className="inv-data-row"
-                href={row.pdf}
+                href={getAssetUrl(row.pdf)}
                 target="_blank"
                 rel="noopener noreferrer"
                 download={`${row.label.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}

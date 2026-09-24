@@ -116,7 +116,10 @@ h3.cp-page-title {
 }
 
 .biz-cta--placeholder {
-  background: linear-gradient(89deg, var(--bg-blue) 0%, #f7fbff 100%);
+  background:
+    radial-gradient(ellipse 70% 80% at 92% 18%, rgba(0, 97, 248, 0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 70% at 8% 85%, rgba(0, 186, 234, 0.2) 0%, transparent 60%),
+    linear-gradient(115deg, #b9dcff 0%, #d8ecff 38%, #cae4ff 72%, #b5dbff 100%);
 }
 
 .biz-cta-copy {
@@ -1022,6 +1025,14 @@ h3.cp-page-title {
 }
 
 @media (max-width: 900px) {
+  .biz-cta {
+    height: auto !important;
+    min-height: 240px !important;
+    max-height: none !important;
+    padding: 32px 24px !important;
+    border-radius: 28px !important;
+  }
+
   .biz-panel {
     height: auto !important;
     min-height: 540px !important;

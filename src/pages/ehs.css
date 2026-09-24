@@ -1,0 +1,658 @@
+/* ==========================================================================
+   EHS SUBMISSIONS & STATUTORY COMPLIANCE PAGE STYLES
+   Granules India Design System
+   ========================================================================== */
+
+.ehs-root {
+  overflow-x: hidden;
+  background-color: #ffffff;
+  color: #070707;
+  min-height: 100vh;
+}
+
+.ehs-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ehs-container {
+  width: min(85%, 1632px);
+  max-width: 1632px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* ---------- Page Title & Breadcrumb Refined Sizing ---------- */
+.ehs-breadcrumb {
+  font: 600 13px/1.4 var(--font-primary, 'Manrope', sans-serif) !important;
+  letter-spacing: 0.9px !important;
+  text-transform: uppercase !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 112px auto 12px !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  padding: 0 !important;
+  flex-wrap: wrap !important;
+}
+
+@media (max-width: 768px) {
+  .ehs-breadcrumb {
+    margin: 98px auto 10px !important;
+  }
+}
+
+.ehs-page-title {
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: clamp(34px, 2.8vw, 48px) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  color: #0061f8 !important;
+  margin: 0 auto 20px !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  padding: 0 !important;
+}
+
+/* ---------- EHS Hero Banner ---------- */
+.ehs-hero-banner-wrap {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin-inline: auto !important;
+  border-radius: 36px !important;
+  aspect-ratio: 1828 / 580 !important;
+  min-height: clamp(300px, 27vw, 400px) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  box-shadow: 0 12px 40px rgba(0, 34, 90, 0.1);
+}
+
+.ehs-hero-banner-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+
+.ehs-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(1, 20, 60, 0.86) 0%,
+    rgba(1, 20, 60, 0.65) 50%,
+    rgba(1, 20, 60, 0.28) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ehs-hero-overlay {
+  position: absolute !important;
+  top: clamp(24px, 3.2vw, 44px) !important;
+  left: clamp(24px, 3.4vw, 52px) !important;
+  right: auto !important;
+  bottom: auto !important;
+  max-width: min(820px, 86%) !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: clamp(10px, 1.2vw, 15px) !important;
+  pointer-events: none !important;
+}
+
+.ehs-hero-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 5px 14px !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 9999px !important;
+  font: 700 11.5px/1 'Manrope', sans-serif !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px) !important;
+  margin-bottom: 0 !important;
+}
+
+.ehs-hero-heading {
+  margin: 0 !important;
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: clamp(20px, 2.2vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.22 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
+  max-width: 800px !important;
+}
+
+.ehs-hero-desc {
+  margin: 0 !important;
+  font: 400 clamp(13px, 0.95vw, 15px)/1.55 'Manrope', sans-serif !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  max-width: 700px !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+@media (max-width: 768px) {
+  .ehs-breadcrumb {
+    margin: 95px auto 10px !important;
+  }
+  .ehs-page-title {
+    font-size: 26px !important;
+    margin: 0 auto 18px !important;
+  }
+  .ehs-hero-banner-wrap {
+    min-height: 310px !important;
+    border-radius: 24px !important;
+  }
+  .ehs-hero-overlay {
+    top: 20px !important;
+    left: 20px !important;
+    max-width: calc(100% - 40px) !important;
+    gap: 10px !important;
+  }
+  .ehs-hero-heading {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+  .ehs-hero-desc {
+    font-size: 13px !important;
+    line-height: 1.48 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ---------- Stat Strip ---------- */
+.ehs-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 44px;
+}
+
+.ehs-stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ehs-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 97, 248, 0.08);
+  border-color: rgba(0, 97, 248, 0.2);
+}
+
+.ehs-stat-num {
+  font: 800 clamp(24px, 2.2vw, 34px)/1 'Manrope', sans-serif;
+  color: #0061f8;
+}
+
+.ehs-stat-label {
+  font: 600 12.5px/1.4 'Manrope', sans-serif;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Filter Toolbar ---------- */
+.ehs-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 24px 28px;
+  box-shadow: 0 6px 24px rgba(0, 34, 90, 0.04);
+  margin-bottom: 36px;
+}
+
+.ehs-facility-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ehs-pill-btn {
+  background: #f1f5f9;
+  border: 1px solid transparent;
+  color: #475569;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font: 600 13px/1 'Manrope', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ehs-pill-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.ehs-pill-btn.active {
+  background: #0061f8;
+  color: #ffffff;
+  border-color: #0061f8;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.28);
+}
+
+.ehs-search-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ehs-search-box {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+  max-width: 480px;
+}
+
+.ehs-search-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 18px 12px 42px;
+  border-radius: 9999px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  font: 500 14px/1 'Manrope', sans-serif;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ehs-search-box input:focus {
+  border-color: #0061f8;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 97, 248, 0.12);
+}
+
+.ehs-search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.ehs-cat-select {
+  padding: 11px 18px;
+  border-radius: 9999px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  font: 600 13px/1 'Manrope', sans-serif;
+  color: #334155;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ehs-cat-select:focus {
+  border-color: #0061f8;
+  box-shadow: 0 0 0 3px rgba(0, 97, 248, 0.12);
+}
+
+/* ---------- EHS Toolbar & Filter Bar Refinements ---------- */
+.ehs-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.ehs-filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ehs-filter-reset-btn {
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 9999px;
+  background: #edf5ff;
+  color: #0061f8;
+  border: 1.5px solid rgba(0, 97, 248, 0.25);
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.ehs-filter-reset-btn:hover {
+  background: #0061f8;
+  color: #ffffff;
+  border-color: #0061f8;
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.25);
+}
+
+.ehs-doc-count-badge {
+  font: 600 13px/1 'Manrope', sans-serif;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* ---------- Scoped Table Sizing Refinements for EHS Submissions ---------- */
+.ehs-main .inv-table-wrap {
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 34, 90, 0.04);
+  background: #ffffff;
+}
+
+.ehs-main .inv-data-table th {
+  padding: 14px 22px;
+  font: 700 12px/1 'Manrope', sans-serif;
+  letter-spacing: 0.7px;
+  color: #475569;
+  background: #f8fafc;
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.ehs-main .inv-data-table td {
+  padding: 15px 22px;
+  font: 500 14px/1.45 'Manrope', sans-serif;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ehs-main .inv-table-title-cell {
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  line-height: 1.4 !important;
+}
+
+.ehs-main .inv-table-detail-cell {
+  font-size: 13.5px !important;
+  color: #475569 !important;
+}
+
+.ehs-main .inv-table-period-cell {
+  font-size: 13.5px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+}
+
+.ehs-main .inv-action-link {
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.4px !important;
+}
+
+/* ---------- Document Table & Grid ---------- */
+.ehs-table-wrap {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 30px rgba(0, 34, 90, 0.05);
+  overflow: hidden;
+  margin-bottom: 75px;
+}
+
+.ehs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ehs-table thead th {
+  background: #f8fafc;
+  padding: 16px 20px;
+  font: 700 12px/1 'Manrope', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #64748b;
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.ehs-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+.ehs-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.ehs-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.ehs-table td {
+  padding: 18px 20px;
+  font: 500 14px/1.5 'Manrope', sans-serif;
+  color: #1e293b;
+  vertical-align: middle;
+}
+
+.ehs-doc-title {
+  font: 700 15px/1.4 'Manrope', sans-serif;
+  color: #0f172a;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ehs-doc-scope {
+  font: 400 12.5px/1.4 'Manrope', sans-serif;
+  color: #64748b;
+  display: block;
+}
+
+.ehs-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font: 700 11px/1 'Manrope', sans-serif;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.ehs-badge-facility {
+  background: #edf5ff;
+  color: #0061f8;
+  border: 1px solid rgba(0, 97, 248, 0.15);
+}
+
+.ehs-badge-cat {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.ehs-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ehs-btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: #0061f8;
+  color: #ffffff;
+  font: 700 12.5px/1 'Manrope', sans-serif;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ehs-btn-download:hover {
+  background: #004ecc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.28);
+}
+
+.ehs-empty-msg {
+  padding: 48px 24px;
+  text-align: center;
+  color: #64748b;
+  font: 500 15px/1.5 'Manrope', sans-serif;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .ehs-stat-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ehs-stat-strip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ehs-table thead {
+    display: none;
+  }
+
+  .ehs-table,
+  .ehs-table tbody,
+  .ehs-table tr,
+  .ehs-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ehs-table tr {
+    padding: 18px;
+    border-bottom: 1.5px solid #e2e8f0;
+  }
+
+  .ehs-table td {
+    padding: 6px 0;
+  }
+
+  .ehs-actions {
+    margin-top: 10px;
+  }
+}
+
+/* ---------- Bottom Call-to-Action Card ---------- */
+.ct-cta-box {
+  position: relative;
+  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat;
+  border: 1.5px solid rgba(0, 97, 248, 0.16);
+  border-radius: 28px;
+  padding: clamp(36px, 4vw, 56px) clamp(24px, 4vw, 60px);
+  color: #0f172a;
+  overflow: hidden;
+  box-shadow: 
+    0 12px 36px rgba(0, 34, 90, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  margin-top: 60px;
+  margin-bottom: 75px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ct-cta-title {
+  margin: 0 0 14px;
+  font: 700 clamp(24px, 2.4vw, 36px)/1.2 'Manrope', sans-serif;
+  color: #0061f8;
+  max-width: 780px;
+  position: relative;
+  z-index: 1;
+}
+
+.ct-cta-text {
+  margin: 0 0 28px;
+  font: 400 clamp(15px, 1.1vw, 17px)/1.6 'Manrope', sans-serif;
+  color: #334155;
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+
+.ct-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.ct-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
+  border-radius: 9999px;
+  font: 700 14px/1 'Manrope', sans-serif;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.ct-cta-btn--primary {
+  background: #0061f8;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.25);
+}
+
+.ct-cta-btn--primary:hover {
+  background: #0140a2;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.35);
+}
+
+.ct-cta-btn--secondary {
+  background: #ffffff;
+  color: #0061f8;
+  border: 1.5px solid rgba(0, 97, 248, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.ct-cta-btn--secondary:hover {
+  background: #f0f7ff;
+  border-color: #0061f8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.15);
+}

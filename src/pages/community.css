@@ -43,7 +43,7 @@
   filter: none !important;
   transform: none !important;
   object-fit: cover !important;
-  object-position: 82% 18% !important;
+  object-position: 88% 18% !important;
 }
 
 .comm-root .ov-leadership-overlay {
@@ -61,14 +61,32 @@
 
 .comm-root .ov-quote-card {
   z-index: 10 !important;
-  left: clamp(28px, 4vw, 64px) !important;
-  bottom: clamp(28px, 4vw, 52px) !important;
-  width: clamp(440px, 52vw, 680px) !important;
-  padding: clamp(34px, 3.8vw, 48px) clamp(32px, 4vw, 54px) !important;
-  border-radius: clamp(28px, 3vw, 38px) !important;
+  left: clamp(20px, 2.5vw, 48px) !important;
+  bottom: clamp(20px, 2.5vw, 44px) !important;
+  width: clamp(340px, 42vw, 500px) !important;
+  max-width: 46% !important;
+  padding: clamp(22px, 2.4vw, 36px) clamp(22px, 2.6vw, 42px) !important;
+  border-radius: clamp(22px, 2.5vw, 34px) !important;
 }
 
-@media (max-width: 960px) {
+.comm-root .ov-quote-text,
+.comm-root .ov-quote-text.p4 {
+  font-size: clamp(14px, 1.12vw, 17.5px) !important;
+  line-height: 1.5 !important;
+}
+
+.comm-root .ov-quote-name,
+.comm-root .ov-quote-name.p3 {
+  margin: clamp(14px, 1.5vw, 20px) 0 0 !important;
+  font-size: clamp(16px, 1.3vw, 20px) !important;
+}
+
+.comm-root .ov-quote-role,
+.comm-root .ov-quote-role.p4 {
+  font-size: clamp(11.5px, 0.9vw, 13.5px) !important;
+}
+
+@media (max-width: 1080px) {
   .comm-root .ov-leadership {
     display: flex !important;
     flex-direction: column !important;
@@ -849,4 +867,4 @@
   .comm-impact-val {
     font-size: 38px;
   }
-}
+}

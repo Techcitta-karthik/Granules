@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { NavBar, CompanyFooter, CareerSection } from '../components/company';
 import InvestorFilteredSection from '../components/investor/InvestorFilteredSection';
 import { INVESTOR_SECTIONS_DATA } from '../data/investorData';
+import { getAssetUrl, toCdnPdf } from '../lib/pdf';
 import '../components/company/company.css';
 import './investor.css';
 
@@ -19,7 +20,6 @@ const JUMP_SECTIONS = [
   { id: 'sec-financial-reports', label: 'Financial Reports' },
   { id: 'sec-investor-resources', label: 'Investor Resources' },
   { id: 'sec-corporate-centre', label: 'Corporate Centre' },
-  { id: 'sec-financial-highlights', label: 'Financial Highlights & Revenue Break Up' },
   { id: 'sec-notices-disclosures', label: 'Notice & Disclosures' },
   { id: 'sec-other-info', label: 'Other Information' },
   { id: 'sec-investor-contact', label: 'Investor Relations Contact' },
@@ -34,12 +34,6 @@ const CORPORATE_CENTRE: TableRowItem[] = [
   { title: 'Operational Excellence', detail: 'Manufacturing automation, quality & safety systems', period: 'Operations', href: '/company/operational-excellence' },
 ];
 
-const FINANCIAL_HIGHLIGHTS: TableRowItem[] = [
-  { title: 'Annual Financial Highlights', detail: 'Revenue, EBITDA & PAT Multi-Year Growth Metrics', period: 'FY 2022-25', pdf: '/documents/Financial-Result-18.05.2022-0e55e6fbe630.pdf' },
-  { title: 'Revenue Breakup Analysis', detail: 'API, PFI & Finished Dosages Segment Revenue', period: 'Annual Breakup', pdf: '/documents/3975Granules-India-s-Revenue-increases-c3fcfefdab37.pdf' },
-  { title: 'Quarterly Earnings Presentation', detail: 'Operational Review & Management Commentary', period: 'Q2 FY26', pdf: '/documents/Earnings-Presentation-Q2FY26-Circulation-fb2ccd8cf24d.pdf' },
-  { title: 'Quarterly Press Release', detail: 'Financial Performance Release & Results Summary', period: 'Q2 FY26', pdf: '/documents/Press-Release-Q2-FY26-07edcf6db296.pdf' },
-];
 
 export default function InvestorOverviewPage() {
   const location = useLocation();
@@ -125,7 +119,7 @@ export default function InvestorOverviewPage() {
                   <div className="inv-table-actions">
                     <a
                       className="inv-action-link"
-                      href={row.pdf}
+                      href={toCdnPdf(row.pdf)}
                       target="_blank"
                       rel="noopener noreferrer"
                       title={`View ${row.title} in a new tab`}
@@ -135,7 +129,7 @@ export default function InvestorOverviewPage() {
                     <span className="inv-action-slash">/</span>
                     <a
                       className="inv-action-link"
-                      href={row.pdf}
+                      href={toCdnPdf(row.pdf)}
                       target="_blank"
                       rel="noopener noreferrer"
                       download={row.download || `${row.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
@@ -159,7 +153,7 @@ export default function InvestorOverviewPage() {
     <div className="cp">
       <NavBar />
 
-      <div className="cp-hero-inner" style={{ paddingTop: 'clamp(18px, 2.2vw, 30px)' }}>
+      <div className="cp-hero-inner">
         <p className="cp-breadcrumb">
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
@@ -202,7 +196,7 @@ export default function InvestorOverviewPage() {
         />
         <div className="inv-hero-overlay">
           <div className="inv-hero-content">
-            <h2 className="inv-hero-title">Where strategy meets<br />Evolving Healthcare,<br />Needs, Science & Sustainability</h2>
+            <h2 className="inv-hero-title">Where strategy meets<br />evolving Healthcare<br />Needs, Science & Sustainability</h2>
             <a
               href="https://granules-26.vercel.app/"
               target="_blank"
@@ -229,6 +223,7 @@ export default function InvestorOverviewPage() {
           category={investorResourcesCat}
           defaultSubcatId={deepParams?.sectionId === 'sec-investor-resources' ? deepParams.subcatId : 'investor-presentation'}
           defaultYear={deepParams?.sectionId === 'sec-investor-resources' ? deepParams.year : '2027'}
+          hidePeriod
         />
       </section>
 
@@ -246,19 +241,6 @@ export default function InvestorOverviewPage() {
         {renderTable(CORPORATE_CENTRE, 'Corporate Hub Section', 'Strategic Focus Area', 'Classification')}
       </section>
 
-      {/* Section 4: Financial Highlights & Revenue Break Up */}
-      <section id="sec-financial-highlights" className="inv-doc-section">
-        <div className="inv-doc-section-head">
-          <div className="inv-doc-head-left">
-            <span className="inv-section-badge">Financial Performance</span>
-            <h2>FINANCIAL HIGHLIGHTS &amp; REVENUE BREAK UP</h2>
-            <p>
-              Detailed multi-year financial performance, segment revenue breakdowns, quarterly earnings presentations, and media releases.
-            </p>
-          </div>
-        </div>
-        {renderTable(FINANCIAL_HIGHLIGHTS, 'Statement / Presentation Title', 'Metric / Segment Scope', 'Timeline')}
-      </section>
 
       {/* Section 5: Notice & Disclosures (Screenshot 3) */}
       <section id="sec-notices-disclosures" className="inv-doc-section">

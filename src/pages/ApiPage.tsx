@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 import './business.css';
 
@@ -73,10 +75,12 @@ export default function ApiPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+      <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/business/api">BUSINESS</a>
+        <span className="cp-breadcrumb-plain">BUSINESS</span>
+        <span className="sep">›</span>
+        <Link to="/business/generics">GENERICS</Link>
         <span className="sep">›</span>
         <span className="current">ACTIVE PHARMACEUTICAL INGREDIENTS</span>
       </p>
@@ -145,7 +149,7 @@ export default function ApiPage() {
         </div>
         <a
           className="cp-cta-btn"
-          href="/documents/Granules_Product_Brochure_API-2e0d50e7805c.pdf"
+          href={getAssetUrl('pdfs/2025/05/Granules_Product_Brochure_API.pdf')}
           target="_blank"
           rel="noopener noreferrer"
         >

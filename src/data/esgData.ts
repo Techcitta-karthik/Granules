@@ -51,8 +51,8 @@ export const ESG_FACTORS_ORDER: string[] = [
   'BRSR Section C: Principle 9',
 ];
 
-const PDF_DEFAULT = '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf';
-const ANNUAL_REPORT_PDF = '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf';
+const PDF_DEFAULT = 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/07/Granules_Integrated-Report-2024-25.pdf';
+const ANNUAL_REPORT_PDF = 'https://d16d47oyl512wy.cloudfront.net/pdfs/2026/07/Granules_Annual-Report-FY26.pdf';
 
 export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
   // ==================== MANAGEMENT APPROACH ====================
@@ -63,7 +63,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     keywords: ['Board of Directors', 'Chairman'],
     docLinks: [
       { name: 'Integrated Annual Report 2024-25', url: PDF_DEFAULT, type: 'pdf' },
-      { name: 'Sustainability Policy', url: '/documents/Granules-Sustainability-Webpage-Content-56f22fc084e5.pdf', type: 'pdf' },
+      { name: 'Sustainability Policy', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/07/Granules_Integrated-Report-2024-25.pdf', type: 'pdf' },
     ],
     highlights:
       'Dr. Krishna Prasad Chigurupati (Chairman and Managing Director): Sustainability has become an increasingly important determinant of long-term competitiveness in the pharmaceutical industry, influencing market access, stakeholder expectations and capital allocation. Our purpose of healing lives responsibly through pioneering green science is supported by SBTi-validated targets aligned with the 1.5°C pathway and our commitment to achieve net zero emissions by 2050. During FY2025–26: We earned an EcoVadis Gold rating, placing us among the top 5% globally. We received a CDP Climate Change score of ‘A’. The Gagillapur facility achieved Zero Waste to Landfill Platinum Plus certification. We became a signatory to the UN Women’s Empowerment Principles. Our S&P Corporate Sustainability Assessment score improved to 62, positioning us within the top 10% globally. These outcomes reflect the growing maturity of our sustainability journey and reinforce our standing as a responsible partner in global pharmaceutical supply chains. Senn brings decades of scientific expertise in peptide synthesis and longstanding customer relationships across the pharmaceutical and cosmetics industries. This is a deliberate step into an area of global therapeutics where scientific capability, manufacturing precision and long-term partnerships will increasingly define value creation. On the India side, our Peptides Platform, anchored by a new Centre of Excellence at IIT Hyderabad, is engaged in customer programmes in close collaboration with our Zurich team. Together, this provides us with a differentiated platform that combines Swiss scientific capability with Indian scale.',
@@ -79,7 +79,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     subfactor: 'Message from Chairperson of Sustainability Committee',
     keywords: ['Board of Directors', 'Chairman'],
     docLinks: [
-      { name: 'CSR Policy', url: '/documents/CSR-Policy-7f3b00771044.pdf', type: 'pdf' },
+      { name: 'CSR Policy', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/CSR-Policy.pdf', type: 'pdf' },
     ],
     highlights:
       'Mrs. Uma Devi Chigurupati (Executive Director): At Granules, we believe our true strength lies in our people and the communities we serve. We are committed to fostering a culture of care, inclusivity, and innovation that empowers our employees to thrive. Our focus on gender diversity, employee well-being, and professional growth ensures that every individual feels valued, supported, and inspired to excel. We actively promote learning, development, and skilling opportunities, nurturing talent to meet future challenges. Beyond our workplace, our CSR initiatives prioritize health, skilling, and well-being, driving impactful programs that uplift communities. By integrating these values into our operations and strengthening our bonds with stakeholders, we remain dedicated to healing lives responsibly and sustainably while creating a positive, enduring impact on society.',
@@ -208,7 +208,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     factor: 'Company Overview',
     subfactor: 'Supply Chain ESG Influence',
     keywords: ['Supply Chain'],
-    docLinks: [{ name: 'Supplier Code of Conduct', url: '/documents/Granules-Code-of-Business-Conduct-for-Suppliers-b394765c24cf.pdf', type: 'pdf' }],
+    docLinks: [{ name: 'Supplier Code of Conduct', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/05/Supplier-Code-of-Conduct.pdf', type: 'pdf' }],
     highlights:
       'Granules is committed to maintaining responsible procurement practices across its supply chain by implementing stringent protocols for vendor identification and approval. We ensure rigorous standards are met through periodic site audits, regulatory approval checks, and regular sample analyses to uphold the highest product quality. As part of our procurement process, suppliers and vendors undergo thorough evaluations based on material risk assessments, compliance with environmental regulations, labor laws, carbon footprint considerations, and health and safety parameters. Granules have established a Supplier Code of Conduct that articulates our vision and expectations from Manufacturers, Suppliers, Service Providers, Traders, Consultants, and Contractors (collectively referred to as "Suppliers"). Key elements of our Supplier Code of Conduct include: Ethical conduct and integrity in all business dealings. Compliance with human rights standards, ensuring the dignity and protection of employees. Adherence to all relevant environmental regulations and maintenance of necessary permits and licenses. Provision of a safe and conducive work environment with a Health and Safety Policy/Guideline that aligns with local and national regulations. Implementation of a management system to ensure compliance with laws and regulations, manage operational risks, and drive continuous improvement.',
   },
@@ -635,8 +635,8 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     subfactor: 'Amount of Hazardous Waste Generated',
     keywords: ['Metrics', 'Waste Management'],
     docLinks: [
-      { name: 'Hazardous Waste Form 4', url: '/documents/GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental--7c3fd95ad004.pdf', type: 'pdf' },
-      { name: 'Unit 4 Bio-Medical Waste Return', url: '/documents/Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec-df0e4b40ccfc.pdf', type: 'pdf' },
+      { name: 'Hazardous Waste Form 4', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2026/05/GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental-Statement-Form-V.pdf', type: 'pdf' },
+      { name: 'Unit 4 Bio-Medical Waste Return', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2026/05/Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec.pdf', type: 'pdf' },
     ],
     factsheet: 'A : 5594.5, B : 3194.38, C : 3953.5',
     highlights:
@@ -664,7 +664,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     subfactor: 'Social Strategy in Place',
     keywords: ['Strategy'],
     docLinks: [
-      { name: 'CSR Impact Strategy', url: '/documents/CSR-Policy-7f3b00771044.pdf', type: 'pdf' },
+      { name: 'CSR Impact Strategy', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/CSR-Policy.pdf', type: 'pdf' },
       { name: 'Annual Report Social Chapter', url: ANNUAL_REPORT_PDF, type: 'pdf' },
       { name: 'Social Accountability Dossier', url: PDF_DEFAULT, type: 'pdf' },
     ],
@@ -691,7 +691,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     subfactor: 'Health and Safety Policies',
     keywords: ['Employees', 'Health and Safety', 'Policies'],
     docLinks: [
-      { name: 'ISO 45001 EHS Policy', url: '/documents/ISO-14001-45001-Certificate-b5f10f6ce70f.pdf', type: 'pdf' },
+      { name: 'ISO 45001 EHS Policy', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/ISO-14001&45001-Certificate.pdf', type: 'pdf' },
       { name: 'Zero Harm Framework', url: PDF_DEFAULT, type: 'pdf' },
       { name: 'OH&S Manual', url: ANNUAL_REPORT_PDF, type: 'pdf' },
     ],
@@ -704,8 +704,8 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     subfactor: 'Supporting Protected Classes',
     keywords: ['Diversity and Equality'],
     docLinks: [
-      { name: 'CSR Annual Report 2024', url: '/documents/CSR-Annual-Report-2023-24-5d55fa4f91e9.pdf', type: 'pdf' },
-      { name: 'Parawada Model Hostel Dossier', url: '/documents/Granules-India-Transforms-BC-Government-Boys-Hostel-in-Parawada-ac5a57c033b8.pdf', type: 'pdf' },
+      { name: 'CSR Annual Report 2024', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2024/07/GranulesIndia-limited-AR-2023-24.pdf', type: 'pdf' },
+      { name: 'Parawada Model Hostel Dossier', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/08/Granules-India-Transforms-BC-Government-Boys-Hostel-in-Parawada.pdf', type: 'pdf' },
     ],
     highlights:
       'Breast Health Express - Mobile mammography and awareness initiative improving early detection and access to screening services for underserved women in rural communities, 3677 - Total Consultations, 1769 mammograms, 395 ultrasounds, 90%; Pharma Pathshala - Placement-linked skill development programme for rural youth in collaboration with Swarna Bharat Trust, 1600+ Students (Since inception in 2017) with 150+ participants in the current year, 100%; Vidya Volunteers - Deployment of dedicated volunteers to strengthen teaching support and improve learning outcomes in government schools, 600+ Students, 100%; TB Nutrition Support - Distribution of nutritional kits to TB patients to improve recovery and treatment adherence, 1,030 - Patients, 100%; BC Hostel Transformation - Renovation and infrastructure improvement of BC Welfare Hostel to create a safe learning environment, 100+ Students, 100%; Granules Vidya Scholarships - Financial aid, study materials, and mentorship were provided across Andhra Pradesh and Telangana to address financial barriers to civil service preparation, 20 - Students, 90%; In partnership with Putouchuki Somasundra Trust, a fully constructed building was donated to support educational activities for government school students in Bonthapally, providing them with essential resources and training for academic success, 70 students, 90%; Education kits were distributed to differently abled children to address lack of access to essential learning resources, 300+ Students, 100%; Eco friendly clay idols were distributed to address environmental pollution caused by traditional idols, 6,000+, 90%; A blood donation camp was organized in Gagillapur to support cancer patients, addressing healthcare needs through voluntary blood donation, 150 units, 100%; Drinking water bottles were distributed during large gatherings to ensure access to safe drinking water and address the need for reliable hydration support, 4 lakh water bottles; Education and nutrition support were provided to underprivileged children in Khammam to address educational and nutritional challenges, improving access to learning and overall well-being, 40 students, 100%; Sponsorship support was provided to promote mountaineering talent, encouraging sports development, 1, 100%; Mid-day meals were sponsored in Jinnaram, Telangana to address nutritional gaps affecting student performance, improving nutrition levels and school attendance, 300+ students, 100%; A marathon and plantation drive were organized in Hyderabad to promote environmental awareness and fitness, fostering sustainability and community engagement, 1,00,000+ participants; One of the sponsors for Examthon Marathon which was conducted with the objective of promoting stress free education for the students, 5000+ participants, 90%; Granules in association with LV Prasad Eye Institute has conducted eye screening tests to 23 government school going children, 2900+, 100%.',
@@ -716,7 +716,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     subfactor: 'Community Support Initiatives',
     keywords: ['Community', 'Initiatives'],
     docLinks: [
-      { name: 'CSR Policy Report', url: '/documents/CSR-Policy-7f3b00771044.pdf', type: 'pdf' },
+      { name: 'CSR Policy Report', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/CSR-Policy.pdf', type: 'pdf' },
       { name: 'Pharma Pathashala Announcement', url: 'https://www.linkedin.com/company/granules-india-limited/', type: 'linkedin' },
       { name: 'Breast Cancer Mobile Unit Campaign', url: 'https://www.linkedin.com/company/granules-india-limited/', type: 'linkedin' },
       { name: 'Swarna Bharat Trust Collaboration', url: 'https://www.linkedin.com/company/granules-india-limited/', type: 'linkedin' },
@@ -759,8 +759,8 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     subfactor: 'Anti Corruption Policy',
     keywords: ['Policies', 'Risk Control'],
     docLinks: [
-      { name: 'Anti-Bribery Policy (ABMS)', url: '/documents/Code-of-Conduct-for-Board-SMP-d491fd64de1a.pdf', type: 'pdf' },
-      { name: 'Supplier Code of Conduct', url: '/documents/Granules-Code-of-Business-Conduct-for-Suppliers-b394765c24cf.pdf', type: 'pdf' },
+      { name: 'Anti-Bribery Policy (ABMS)', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Code-of-Conduct-for-Board-SMP.pdf', type: 'pdf' },
+      { name: 'Supplier Code of Conduct', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/05/Supplier-Code-of-Conduct.pdf', type: 'pdf' },
       { name: 'Code of Business Conduct (COBC)', url: ANNUAL_REPORT_PDF, type: 'pdf' },
     ],
     highlights:
@@ -885,7 +885,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     keywords: ['External Validation'],
     docLinks: [
       { name: 'EHS Portal', url: '/sustainability', type: 'web' },
-      { name: 'ISO 14001 Certificate', url: '/documents/ISO-14001-45001-Certificate-b5f10f6ce70f.pdf', type: 'pdf' },
+      { name: 'ISO 14001 Certificate', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/ISO-14001&45001-Certificate.pdf', type: 'pdf' },
     ],
     highlights: 'All Granules manufacturing and R&D units are certified to ISO 14001.',
   },
@@ -907,7 +907,7 @@ export const COMPLETE_ESG_DATA: EsgSubfactorItem[] = [
     keywords: ['External Validation'],
     docLinks: [
       { name: 'Health & Safety Portal', url: '/sustainability', type: 'web' },
-      { name: 'ISO 45001 Certificate', url: '/documents/ISO-14001-45001-Certificate-b5f10f6ce70f.pdf', type: 'pdf' },
+      { name: 'ISO 45001 Certificate', url: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/other-information/ISO-14001&45001-Certificate.pdf', type: 'pdf' },
     ],
     highlights: 'All Granules manufacturing and R&D units are certified to ISO 45001.',
   },

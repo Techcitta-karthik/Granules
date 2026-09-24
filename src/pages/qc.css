@@ -328,111 +328,145 @@
   box-shadow: 0 -20px 48px rgba(0, 20, 60, 0.05);
 }
 
-.qc-certs {
-  width: 85% !important;
-  max-width: 85% !important;
+/* ==========================================================================
+   Quality Certifications Banner (Matching Global Quality Standards Layout)
+   ========================================================================== */
+.qc-cert-banner-wrap,
+.qc-below-stack .rd-cert-banner-wrap {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
   margin: 0 auto !important;
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.qc-certs-badge {
-  flex: 1 1 280px;
-  border-radius: 32px;
-  padding: clamp(32px, 4vw, 44px);
-  background: linear-gradient(135deg, #eaf5fe 0%, #edf7ff 50%, #f4f9fd 100%);
-  border: 1.5px solid rgba(0, 97, 248, 0.16);
-  box-shadow: 0 8px 24px rgba(0, 97, 248, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 14px;
-}
-
-.qc-certs-badge h3 {
-  margin: 0;
-  font: 700 clamp(24px, 2.5vw, 32px)/1.2 'Manrope', sans-serif;
-  color: var(--blue-2, #0050c7);
-  letter-spacing: -0.02em;
-}
-
-.qc-certs-badge p {
-  margin: 0;
-  font: 500 clamp(16px, 1.2vw, 18px)/1.55 'Manrope', sans-serif;
-  color: #334155;
-}
-
-.qc-certs-icons {
-  flex: 2 1 520px;
-  border-radius: 32px;
-  background: #f8fbfe;
-  border: 1.5px solid rgba(0, 97, 248, 0.12);
-  list-style: none;
-  margin: 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: clamp(24px, 3vw, 36px);
-}
-
-.qc-cert-tile {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1.5px solid rgba(0, 97, 248, 0.1);
-  padding: 24px 20px;
-  flex: 1 1 180px;
-  max-width: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 14px;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 40, 100, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.qc-cert-tile:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 97, 248, 0.3);
-  box-shadow: 0 12px 28px rgba(0, 97, 248, 0.1);
-}
-
-.qc-cert-img-wrap {
-  width: 96px;
-  height: 96px;
-  border-radius: 20px;
-  background: #f1f7fe;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
   box-sizing: border-box;
-  flex-shrink: 0;
+  display: flex !important;
+  justify-content: center !important;
 }
 
-.qc-cert-img-wrap img {
+.qc-cert-banner-inner,
+.qc-below-stack .rd-cert-banner-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  display: grid;
+  grid-template-columns: clamp(340px, 30%, 460px) 1fr;
+  gap: clamp(20px, 2.2vw, 32px);
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.qc-cert-lead-card,
+.qc-below-stack .rd-cert-lead-card {
+  background: linear-gradient(135deg, #0061f8 0%, #004ecc 100%);
+  border-radius: 36px;
+  padding: clamp(44px, 4.5vw, 64px) clamp(36px, 3.8vw, 54px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: clamp(280px, 24vw, 340px);
+  box-shadow: 0 12px 36px rgba(0, 97, 248, 0.16);
+}
+
+.qc-cert-lead-title,
+.qc-below-stack .rd-cert-lead-title {
+  margin: 0;
+  font: 700 clamp(30px, 2.6vw, 42px)/1.15 'Manrope', sans-serif !important;
+  color: #ffffff !important;
+  letter-spacing: -0.025em !important;
+}
+
+.qc-cert-badges-card,
+.qc-below-stack .rd-cert-badges-card {
+  background: #ebf7ff;
+  border: 1.5px solid rgba(0, 97, 248, 0.14);
+  border-radius: 36px;
+  padding: clamp(28px, 3vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.2vw, 32px);
+  align-items: stretch;
+  box-sizing: border-box;
+  min-height: clamp(280px, 24vw, 340px);
+  box-shadow: 0 10px 32px rgba(0, 97, 248, 0.05);
+}
+
+.qc-cert-badge-tile,
+.qc-below-stack .rd-cert-badge-tile {
+  background: #ffffff;
+  border-radius: 26px;
+  border: 1.5px solid rgba(0, 97, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 2.5vw, 36px) 24px;
+  min-height: 180px;
+  box-sizing: border-box;
+  box-shadow: 0 6px 20px rgba(0, 97, 248, 0.04);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.qc-cert-badge-tile:hover,
+.qc-below-stack .rd-cert-badge-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 97, 248, 0.12);
+}
+
+.qc-cert-badge-tile img,
+.qc-below-stack .rd-cert-badge-tile img {
   width: 100%;
-  height: 100%;
+  max-width: clamp(140px, 12vw, 180px);
+  max-height: clamp(140px, 12vw, 180px);
   object-fit: contain;
   display: block;
 }
 
-.qc-cert-name {
-  margin: 0;
-  font: 700 clamp(15px, 1.2vw, 17px)/1.3 'Manrope', sans-serif;
-  color: #0061f8;
-  letter-spacing: -0.01em;
+@media (max-width: 1024px) {
+  .qc-below-stack .rd-cert-banner-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100% !important;
+  }
+
+  .qc-below-stack .rd-cert-lead-card {
+    padding: 36px 32px;
+    border-radius: 28px;
+    min-height: auto;
+  }
+
+  .qc-below-stack .rd-cert-badges-card {
+    border-radius: 28px;
+    padding: 24px;
+    gap: 16px;
+    min-height: auto;
+  }
+
+  .qc-below-stack .rd-cert-badge-tile {
+    min-height: 150px;
+    padding: 20px 16px;
+  }
+
+  .qc-below-stack .rd-cert-badge-tile img {
+    max-width: 130px;
+    max-height: 130px;
+  }
 }
 
-.qc-cert-category {
-  margin: 0;
-  font: 600 clamp(12.5px, 1vw, 14px)/1.4 'Manrope', sans-serif;
-  color: #475569;
+@media (max-width: 640px) {
+  .qc-below-stack .rd-cert-badges-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 16px;
+  }
+
+  .qc-below-stack .rd-cert-badge-tile {
+    padding: 24px 20px;
+    min-height: 130px;
+    border-radius: 20px;
+  }
+
+  .qc-below-stack .rd-cert-badge-tile img {
+    max-width: 120px;
+    max-height: 120px;
+  }
 }
 
 /* Bottom CTA Banner - Signature Granules Light Aesthetic */

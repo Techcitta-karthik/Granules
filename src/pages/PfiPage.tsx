@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 import './business.css';
 
@@ -12,23 +14,23 @@ const BENEFITS: BenefitItem[] = [
     title: 'Unmatched Scale and Reliability',
     body: 'Backward integrated and high-volume manufacturing assures consistent quality, dependable supply, and efficient commercial-scale production.',
     icon: 'icon-manufacturing.svg',
-    image: '/assets/pfi/1.png',
+    image: '/assets/pfi/1.jpg',
   },
   {
     title: 'Simplifying Supply Chain Complexity',
     body: 'Our proprietary “Drum to Hopper” model enables direct compression with minimal development effort, helping customers streamline supply chain steps and inventory pressure',
     icon: 'icon-box.svg',
-    image: '/assets/pfi/2.png',
+    image: '/assets/pfi/2.jpg',
   },
   {
     title: 'Supporting Asset-Light Market Entry',
-    body: 'PFIs replicate more than 80% of the infrastructure required in a conventional oral solid dosage facility, reducing the need for significant capital investment.',
+    body: 'PFIs replicate more than 80% of the infrastructure required in a conventional oral solid dosage facility, reducing the need for significant capital investment for our customers.',
     icon: 'icon-production-belt.svg',
     image: '/assets/pfi/3.png',
   },
   {
     title: 'Customized Formulation Solutions',
-    body: 'Tailor-made PFIs support complex formulations, fixed-dose combinations, and homogeneous blending with other APIs.',
+    body: 'Tailor-made PFIs support complex formulations, fixed-dose combinations, and homogeneous blending with other APIs. Flexibility of batch size upto 6000 Kg based on customer requirement.',
     icon: 'icon-test-tube.svg',
     image: '/assets/pfi/4.png',
   },
@@ -52,10 +54,12 @@ export default function PfiPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+      <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/business/api">BUSINESS</a>
+        <span className="cp-breadcrumb-plain">BUSINESS</span>
+        <span className="sep">›</span>
+        <Link to="/business/generics">GENERICS</Link>
         <span className="sep">›</span>
         <span className="current">PHARMACEUTICAL FORMULATION INTERMEDIATES</span>
       </p>
@@ -142,7 +146,7 @@ export default function PfiPage() {
         </div>
         <a
           className="cp-cta-btn"
-          href="/documents/GIL_Product_Brochure_May_20_2025_Master_PFI-7abcdf7c89b2.pdf"
+          href={getAssetUrl('pdfs/2025/06/GIL_Product_Brochure_May_20_2025_Master_PFI.pdf')}
           target="_blank"
           rel="noopener noreferrer"
         >

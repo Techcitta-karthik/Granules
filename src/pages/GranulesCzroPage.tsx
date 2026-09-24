@@ -208,7 +208,6 @@ export default function GranulesCzroPage() {
                   </div>
                   <div className="biz-sheet-body">
                     <p className="biz-sheet-desc">{card.desc}</p>
-                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
                   </div>
                 </div>
               </article>

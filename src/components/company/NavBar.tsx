@@ -55,8 +55,8 @@ const SUBMENUS: Record<string, Submenu> = {
   Careers: {
     sections: [],
     links: [
-      { label: 'Overview', href: '/careers' },
-      { label: 'Current Openings', href: 'https://careers.mygranules.com' },
+      { label: 'Life at Granules', href: '/careers#culture-values' },
+      { label: 'Work with us', href: 'https://careers.mygranules.com/' },
     ],
   },
 };
@@ -107,7 +107,7 @@ function isActive(link: NavLinkItem, pathname: string, activeSection?: string | 
     return pathname.startsWith('/media');
   }
   if (link.label === 'Careers') {
-    return pathname.startsWith('/careers');
+    return pathname.startsWith('/career') || pathname.startsWith('/work-with-us');
   }
   if (link.label === 'Contact Us') {
     return pathname.startsWith('/contact');
@@ -123,12 +123,37 @@ export default function NavBar({
   activeSectionOverride?: string | null;
 } = {}) {
   const [open, setOpen] = useState(false);
-  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState<Record<string, boolean>>({});
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
+
+  // Close dropdown on click outside or Escape
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenMenu(null);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpenMenu(null);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  // Close dropdown on route changes
+  useEffect(() => {
+    setOpenMenu(null);
+  }, [pathname]);
 
   // Auto-expand the active section's submenu when mobile drawer opens
   useEffect(() => {
@@ -148,6 +173,12 @@ export default function NavBar({
       ...prev,
       [label]: !prev[label],
     }));
+  };
+
+  const toggleMenu = (label: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpenMenu((prev) => (prev === label ? null : label));
   };
 
   useEffect(() => {
@@ -215,21 +246,11 @@ export default function NavBar({
     return () => window.removeEventListener('scroll', handleScrollSpy);
   }, [pathname, activeSectionOverride]);
 
-
-  const showMenu = (label: string) => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setHoveredMenu(label);
-  };
-
-  const hideMenu = () => {
-    closeTimer.current = setTimeout(() => setHoveredMenu(null), 200);
-  };
-
   return (
-    <div className={`cp-nav-wrap${scrolled ? ' is-scrolled' : ''}`}>
+    <div className={`cp-nav-wrap${scrolled ? ' is-scrolled' : ''}`} ref={navRef}>
       <nav className={`cp-nav${open ? ' cp-nav--open' : ''}${scrolled ? ' is-scrolled' : ''}`} aria-label="Primary navigation">
         <div className="cp-nav-bar">
-          <Link to="/" className="cp-nav-logo" aria-label="Granules home" onClick={() => setOpen(false)}>
+          <Link to="/" className="cp-nav-logo" aria-label="Granules home" onClick={() => { setOpen(false); setOpenMenu(null); }}>
             <img src={asset('nav-logo.webp')} alt="Granules" loading="eager" decoding="async" />
           </Link>
 
@@ -245,28 +266,60 @@ export default function NavBar({
             <span />
           </button>
 
-          <div className="cp-nav-links" onMouseLeave={hideMenu}>
+          <div className="cp-nav-links">
             {NAV_LINKS.map((link) => {
               const submenu = SUBMENUS[link.label];
               const active = isActive(link, pathname, activeSection);
+              const isOpen = openMenu === link.label;
+
               return (
                 <div
-                  className={`cp-nav-item${active ? ' is-active' : ''}`}
+                  className={`cp-nav-item${active ? ' is-active' : ''}${isOpen ? ' is-menu-open' : ''}`}
                   key={link.label}
-                  onMouseEnter={() => showMenu(link.label)}
                 >
-                  <Link
-                    to={link.href}
-                    className={`cp-nav-link${active ? ' active' : ''}`}
-                  >
-                    <span>{link.label}</span>
-                    <span className="cp-nav-underline" />
-                  </Link>
+                  {submenu ? (
+                    <button
+                      type="button"
+                      className={`cp-nav-link${active ? ' active' : ''}${isOpen ? ' is-menu-open' : ''}`}
+                      onClick={(e) => toggleMenu(link.label, e)}
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
+                    >
+                      <span className="cp-nav-label-wrap">
+                        <span>{link.label}</span>
+                        <svg
+                          className={`cp-nav-chevron${isOpen ? ' is-open' : ''}`}
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </span>
+                      <span className="cp-nav-underline" />
+                    </button>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className={`cp-nav-link${active ? ' active' : ''}`}
+                      onClick={() => setOpenMenu(null)}
+                    >
+                      <span className="cp-nav-label-wrap">
+                        <span>{link.label}</span>
+                      </span>
+                      <span className="cp-nav-underline" />
+                    </Link>
+                  )}
 
                   {submenu && (
                     <div
-                      className={`cp-nav-submenu${hoveredMenu === link.label ? ' is-open' : ''}`}
-                      onMouseEnter={() => showMenu(link.label)}
+                      className={`cp-nav-submenu${isOpen ? ' is-open' : ''}`}
                     >
                       <div className="cp-nav-submenu-copy">
                         {(submenu.sections || (submenu.title && submenu.quickLinks ? [{ title: submenu.title, href: submenu.href, quickLinks: submenu.quickLinks }] : [])).map((section, idx) => (
@@ -280,7 +333,7 @@ export default function NavBar({
                                     rel="noopener noreferrer"
                                     className="cp-nav-submenu-title"
                                     onClick={() => {
-                                      setHoveredMenu(null);
+                                      setOpenMenu(null);
                                       setOpen(false);
                                     }}
                                   >
@@ -291,7 +344,7 @@ export default function NavBar({
                                     to={section.href}
                                     className="cp-nav-submenu-title"
                                     onClick={() => {
-                                      setHoveredMenu(null);
+                                      setOpenMenu(null);
                                       setOpen(false);
                                     }}
                                   >
@@ -311,7 +364,7 @@ export default function NavBar({
                                     rel="noopener noreferrer"
                                     key={item.label}
                                     onClick={() => {
-                                      setHoveredMenu(null);
+                                      setOpenMenu(null);
                                       setOpen(false);
                                     }}
                                   >
@@ -322,7 +375,7 @@ export default function NavBar({
                                     to={item.href}
                                     key={item.label}
                                     onClick={() => {
-                                      setHoveredMenu(null);
+                                      setOpenMenu(null);
                                       setOpen(false);
                                     }}
                                   >
@@ -344,7 +397,7 @@ export default function NavBar({
                                   rel="noopener noreferrer"
                                   key={item.label}
                                   onClick={() => {
-                                    setHoveredMenu(null);
+                                    setOpenMenu(null);
                                     setOpen(false);
                                   }}
                                 >
@@ -355,7 +408,7 @@ export default function NavBar({
                                   to={item.href}
                                   key={item.label}
                                   onClick={() => {
-                                    setHoveredMenu(null);
+                                    setOpenMenu(null);
                                     setOpen(false);
                                   }}
                                 >
@@ -372,7 +425,7 @@ export default function NavBar({
               );
             })}
 
-            <button className="cp-nav-search" type="button" aria-label="Search" onClick={onSearch}>
+            <button className="cp-nav-search" type="button" aria-label="Search" onClick={() => { setOpenMenu(null); onSearch?.(); }}>
               <img src={asset('search-icon.svg')} alt="" loading="lazy" decoding="async" />
             </button>
           </div>
@@ -394,13 +447,26 @@ export default function NavBar({
               return (
                 <div className={`cp-nav-drawer-item${hasSubmenu ? ' has-submenu' : ''}`} key={link.label}>
                   <div className="cp-nav-drawer-row">
-                    <Link
-                      to={link.href}
-                      className={`cp-nav-drawer-link${isParentActive ? ' active' : ''}`}
-                      onClick={() => setOpen(false)}
-                    >
-                      <span>{link.label}</span>
-                    </Link>
+                    {hasSubmenu ? (
+                      <button
+                        type="button"
+                        className={`cp-nav-drawer-link${isParentActive ? ' active' : ''}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleMobileMenu(link.label);
+                        }}
+                      >
+                        <span>{link.label}</span>
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className={`cp-nav-drawer-link${isParentActive ? ' active' : ''}`}
+                        onClick={() => setOpen(false)}
+                      >
+                        <span>{link.label}</span>
+                      </Link>
+                    )}
 
                     {hasSubmenu && (
                       <button

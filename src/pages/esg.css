@@ -2,7 +2,7 @@
 .esg-main-tabs-wrap {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(48px, 6vw, 72px) auto clamp(40px, 5vw, 60px) !important;
+  margin: 75px auto 0 !important;
   position: relative;
 }
 
@@ -18,7 +18,7 @@
   background: none;
   border: none;
   padding: 16px 8px 18px;
-  font: 700 clamp(14px, 1.2vw, 17px)/1.2 'Manrope', sans-serif;
+  font: 600 15px/1.2 'Manrope', sans-serif !important;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #0061f8;
@@ -34,7 +34,7 @@
 
 .esg-main-tab-btn.active {
   color: #004ecc;
-  font-weight: 800;
+  font-weight: 700 !important;
 }
 
 .esg-main-tabs-track {
@@ -58,33 +58,68 @@
 .esg-pillar-section {
   width: 85% !important;
   max-width: 85% !important;
-  margin: clamp(40px, 5vw, 60px) auto 0 !important;
+  margin: 75px auto 0 !important;
+  scroll-margin-top: 120px;
 }
 
 .esg-pillar-head {
   display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 36px;
+  gap: 16px;
+  margin: 0 0 24px;
+  max-width: 904px;
 }
 
 .esg-pillar-head h2 {
   margin: 0;
-  font: 600 clamp(28px, 3.8vw, 48px)/1.15 'Manrope', sans-serif;
-  color: #111827;
-  max-width: 720px;
-  letter-spacing: -0.5px;
+  max-width: none;
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif !important;
+  color: var(--n9, #070707) !important;
+  letter-spacing: -0.5px !important;
 }
 
 .esg-pillar-head p {
   margin: 0;
-  font: 500 clamp(16px, 1.3vw, 20px)/1.45 'Manrope', sans-serif;
-  color: #4b5563;
-  letter-spacing: 0.2px;
-  flex: 1 1 320px;
-  max-width: 620px;
+  max-width: none;
+  font: 500 22px/1.3 'Manrope', sans-serif !important;
+  color: var(--n7, #6a6a6a) !important;
+  letter-spacing: 0.22px !important;
+}
+
+.esg-pillar-section .sus-pillar-tabs {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 0 24px !important;
+}
+
+.esg-pillar-section .sus-event {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.esg-pillar-section .sus-event-title {
+  font: 700 clamp(20px, 1.7vw, 26px)/1.2 'Manrope', sans-serif !important;
+}
+
+.esg-pillar-section .sus-event-desc {
+  font: 500 22px/1.3 'Manrope', sans-serif !important;
+  color: var(--n7, #6a6a6a) !important;
+}
+
+.esg-pillar-section ~ .sus-cta {
+  margin-top: 75px !important;
+}
+
+.esg-pillar-section ~ .sus-cta h2 {
+  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif !important;
+  letter-spacing: -0.5px !important;
+}
+
+.esg-pillar-section ~ .sus-cta p {
+  font: 500 22px/1.3 'Manrope', sans-serif !important;
+  color: var(--n7, #6a6a6a) !important;
 }
 
 /* Sub Tabs Pills */
@@ -92,16 +127,16 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin: 0 0 24px;
 }
 
 .esg-sub-tab {
   background: #edf5ff;
   border: 1px solid rgba(0, 97, 248, 0.12);
   border-radius: 9999px;
-  padding: 12px 24px;
-  font: 700 12.5px/1 'Manrope', sans-serif;
-  letter-spacing: 0.6px;
+  padding: 10px 22px;
+  font: 600 13.5px/1.4 'Manrope', sans-serif !important;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #0061f8;
   cursor: pointer;
@@ -126,11 +161,11 @@
 /* Environment Interactive 2-Column Card */
 .esg-env-card {
   background: #edf5ff;
-  border-radius: 28px;
-  padding: clamp(32px, 4vw, 56px);
+  border-radius: 40px;
+  padding: clamp(32px, 4vw, 60px);
   display: grid;
   grid-template-columns: 1fr 1.05fr;
-  gap: clamp(32px, 4vw, 64px);
+  gap: 24px;
   align-items: center;
   border: 1px solid rgba(0, 97, 248, 0.08);
   box-shadow: 0 8px 28px rgba(0, 86, 214, 0.05);
@@ -141,21 +176,23 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  gap: 24px;
 }
 
 .esg-env-title {
-  margin: 0 0 14px;
-  font: 700 clamp(20px, 2vw, 26px)/1.2 'Manrope', sans-serif;
-  color: #0061f8;
-  letter-spacing: 0.5px;
+  margin: 0 0 12px;
+  font: 700 clamp(20px, 1.7vw, 26px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
 }
 
 .esg-env-desc {
-  margin: 0 0 clamp(40px, 5vw, 68px);
-  font: 500 clamp(16px, 1.2vw, 19px)/1.45 'Manrope', sans-serif;
-  color: #1f2937;
-  max-width: 480px;
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif !important;
+  color: var(--n7, #6a6a6a) !important;
+  letter-spacing: 0.22px;
+  max-width: 520px;
 }
 
 .esg-env-metric-block {
@@ -179,9 +216,9 @@
 
 .esg-env-stat-lbl {
   margin: 0 0 24px;
-  font: 700 clamp(12px, 0.9vw, 14px)/1.4 'Manrope', sans-serif;
+  font: 700 14px/1.4 'Manrope', sans-serif !important;
   color: #0061f8;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.9px;
   text-transform: uppercase;
 }
 
@@ -274,11 +311,11 @@
 /* Governance Interactive 2-Column Card */
 .esg-gov-card {
   background: #edf5ff;
-  border-radius: 28px;
-  padding: clamp(32px, 4vw, 56px);
+  border-radius: 40px;
+  padding: clamp(32px, 4vw, 60px);
   display: grid;
   grid-template-columns: 1fr 1.05fr;
-  gap: clamp(32px, 4vw, 64px);
+  gap: 24px;
   align-items: center;
   border: 1px solid rgba(0, 97, 248, 0.08);
   box-shadow: 0 8px 28px rgba(0, 86, 214, 0.05);
@@ -289,21 +326,23 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  gap: 24px;
 }
 
 .esg-gov-title {
-  margin: 0 0 14px;
-  font: 700 clamp(20px, 2vw, 26px)/1.2 'Manrope', sans-serif;
-  color: #0061f8;
-  letter-spacing: 0.5px;
+  margin: 0 0 12px;
+  font: 700 clamp(20px, 1.7vw, 26px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
 }
 
 .esg-gov-desc {
-  margin: 0 0 clamp(40px, 5vw, 68px);
-  font: 500 clamp(16px, 1.2vw, 19px)/1.45 'Manrope', sans-serif;
-  color: #1f2937;
-  max-width: 480px;
+  margin: 0;
+  font: 500 22px/1.3 'Manrope', sans-serif !important;
+  color: var(--n7, #6a6a6a) !important;
+  letter-spacing: 0.22px;
+  max-width: 520px;
 }
 
 .esg-gov-stat-wrap {
@@ -320,9 +359,9 @@
 
 .esg-gov-stat-lbl {
   margin: 0 0 24px;
-  font: 700 clamp(12px, 0.9vw, 14px)/1.4 'Manrope', sans-serif;
+  font: 700 14px/1.4 'Manrope', sans-serif !important;
   color: #0061f8;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.9px;
   text-transform: uppercase;
 }
 
@@ -363,8 +402,9 @@
 }
 
 @media (max-width: 960px) {
-  .esg-env-card, .esg-gov-card {
+  .esg-env-card,
+  .esg-gov-card {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
   }
 }

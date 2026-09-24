@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './career.css';
 
 const A = '/assets/career/';
 
-const OVERVIEW_STATS = [
-  { id: 'employees', value: '5,000+', label: 'Employees globally' },
-  { id: 'countries', value: '100+', label: 'Countries reached' },
-  { id: 'filings', value: '150+', label: 'Product filings' },
-  { id: 'students', value: '1,000+', label: 'Students educated' },
-];
 
 const CAREER_AREAS = [
   {
@@ -61,7 +55,7 @@ const GRANULES_WAY_SLIDES = [
     id: 1,
     title: 'Accountability | Own it end to end',
     body: 'Anticipate challenges, act with initiative, follow through and help the team reach the finish line.',
-    image: `${A}work-matters-bg.webp`,
+    image: `${A}granules-way-01.jpg`,
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="6" />
@@ -73,7 +67,7 @@ const GRANULES_WAY_SLIDES = [
     id: 2,
     title: 'Credibility | Make trust visible',
     body: 'Be honest, transparent and reliable. Match words with actions and uphold ethical standards.',
-    image: `${A}panel-innovation.webp`,
+    image: `${A}granules-way-02.jpg`,
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -84,7 +78,7 @@ const GRANULES_WAY_SLIDES = [
     id: 3,
     title: 'Teamwork | Share the win',
     body: 'Invite different perspectives, exchange knowledge and succeed together.',
-    image: `/assets/company/empowering-employees.png`,
+    image: `${A}granules-way-03.jpg`,
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -98,7 +92,7 @@ const GRANULES_WAY_SLIDES = [
     id: 4,
     title: 'Humility | Stay curious',
     body: 'Know your strengths, welcome feedback and keep learning without losing sight of collective success.',
-    image: `/assets/company/career-bg.png`,
+    image: `${A}granules-way-04.jpg`,
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
@@ -110,7 +104,7 @@ const GRANULES_WAY_SLIDES = [
     id: 5,
     title: 'Agility | Keep moving forward',
     body: 'Respond quickly, test better ideas and adapt with changing business needs.',
-    image: `/assets/company/values-bg-2.webp`,
+    image: `${A}granules-way-05.jpg`,
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="13 17 18 12 13 7" />
@@ -125,19 +119,19 @@ const LIFE_EVENTS = [
     id: 'family-fest',
     title: 'Family Fest',
     desc: 'A vibrant annual event where employees and families come together for culture, connection, and memorable moments beyond work.',
-    image: `/assets/company/career-bg.png`,
+    image: `${A}Granuals Festival-493.JPG`,
   },
   {
     id: 'sports-fest',
     title: 'Sports Fest + 5K Run',
     desc: 'High-energy sports events and a marathon that bring teams together, fuel healthy competition, and celebrate fitness, teamwork, and spirit.',
-    image: `/assets/company/empowering-employees.png`,
+    image: `${A}5k run.jpeg`,
   },
   {
     id: 'womens-day',
     title: 'Women’s Day',
     desc: 'A celebration of women’s achievements, voices, and impact across Granules through inspiring conversations, recognition, and events.',
-    image: `${A}panel-people-first.webp`,
+    image: `${A}Women'sday.JPG`,
   },
 ];
 
@@ -183,44 +177,25 @@ const BENEFITS = [
     id: 'health',
     title: 'Health and wellbeing',
     desc: 'We support employees through medical benefits, safe workplaces and wellbeing initiatives that help people stay healthy and perform at their best.',
-    image: '/assets/Home/5.jpg',
+    image: `${A}benefit-health.jpg`,
   },
   {
     id: 'beyond',
     title: 'Beyond the workday',
     desc: 'We bring people together through sports tournaments, festival celebrations and team events that build connection, wellbeing and a shared sense of belonging.',
-    image: '/assets/company/career-bg.png',
+    image: `${A}benefit-beyond.jpg`,
   },
   {
     id: 'learning',
     title: 'Learning and recognition',
     desc: 'We encourage continuous growth through learning opportunities, career development support and recognize meaningful contributions.',
-    image: `${A}panel-grow-purpose.webp`,
+    image: `${A}benefit-learning.jpg`,
   },
   {
     id: 'inclusion',
     title: 'Inclusion and support',
     desc: 'We foster an inclusive workplace with equal opportunity, collaboration, and safe channels for employees to raise concerns.',
-    image: '/assets/company/empowering-employees.png',
-  },
-];
-
-const CANDIDATE_FAQS = [
-  {
-    q: 'Can I apply for more than one role?',
-    a: 'Yes. Choose roles that closely match your skills and interests, and tailor your application to each opportunity.',
-  },
-  {
-    q: 'How can I check my application status?',
-    a: 'You can check your application status at careers.mygranules.com.',
-  },
-  {
-    q: 'Do you hire graduates and interns?',
-    a: 'Yes. We hire graduates and interns across relevant functions. We also run a Self-Managed Team Trainee Program for ITI, Diploma and Class 12 pass-outs, where trainees gain hands-on experience while Granules sponsors their graduation from TISS.',
-  },
-  {
-    q: 'How does Granules protect candidate data?',
-    a: 'Granules protects candidate and employee data in line with the Digital Personal Data Protection Act, 2023. We collect and use personal data only for legitimate recruitment and employment-related purposes, with appropriate safeguards for access, storage, retention and confidentiality.',
+    image: `${A}benefit-inclusion.jpg`,
   },
 ];
 
@@ -231,15 +206,27 @@ export default function CareerOverviewPage() {
   const [lifeEventIdx, setLifeEventIdx] = useState(0);
   const [openBenefit, setOpenBenefit] = useState<number>(0);
   const [activeVoiceKey, setActiveVoiceKey] = useState<string | null>(null);
-  const [openFaq, setOpenFaq] = useState<number>(0);
+  const [cvFileName, setCvFileName] = useState<string>('');
   const [talentSubmitted, setTalentSubmitted] = useState<boolean>(false);
 
   const currentAreaBg = (activeArea >= 0 && CAREER_AREAS[activeArea]?.bg) ? CAREER_AREAS[activeArea].bg : CAREER_AREAS[0].bg;
 
+  const location = useLocation();
+
   useEffect(() => {
     document.title = 'Make Better Health. Build a Bolder Career. — Careers at Granules';
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, []);
+  }, [location.hash]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -254,7 +241,7 @@ export default function CareerOverviewPage() {
 
       <main>
         {/* Breadcrumb Navigation */}
-        <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+        <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
           <span className="current">CAREERS</span>
@@ -282,18 +269,40 @@ export default function CareerOverviewPage() {
           </h4>
         </div>
 
-        {/* Impact in Numbers Stats Grid */}
-        <div className="car-ov-stats">
-          <div className="car-ov-stats-head">
-            <span className="car-why-tag">IMPACT IN NUMBERS</span>
-          </div>
-          <div className="car-ov-stats-grid">
-            {OVERVIEW_STATS.map((stat) => (
-              <div className="car-ov-stat-card" key={stat.id}>
-                <p className="car-ov-stat-value">{stat.value}</p>
-                <p className="car-ov-stat-label">{stat.label}</p>
+        {/* The Granules Way in Practice Banner */}
+        <div className="car-practice-wrap">
+          <div className="car-practice-banner">
+            {GRANULES_WAY_SLIDES.map((slide, idx) => (
+              <div
+                key={slide.id}
+                className={`car-practice-slide-layer ${idx === practiceIdx ? 'active' : ''}`}
+              >
+                <img src={slide.image} alt={slide.title} className="car-practice-bg" />
+                <div className="car-practice-overlay" />
               </div>
             ))}
+
+            <h2 className="car-practice-headline">The Granules Way</h2>
+
+            <div className="car-practice-card" key={practiceIdx}>
+              <div className="car-practice-card-icon">
+                {GRANULES_WAY_SLIDES[practiceIdx].icon}
+              </div>
+              <h3>{GRANULES_WAY_SLIDES[practiceIdx].title}</h3>
+              <p>{GRANULES_WAY_SLIDES[practiceIdx].body}</p>
+            </div>
+
+            <div className="car-practice-nav" aria-label="Slide indicators">
+              {GRANULES_WAY_SLIDES.map((slide, idx) => (
+                <button
+                  key={slide.id}
+                  type="button"
+                  className={`car-practice-nav-btn ${idx === practiceIdx ? 'active' : ''}`}
+                  onClick={() => setPracticeIdx(idx)}
+                  aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -321,9 +330,14 @@ export default function CareerOverviewPage() {
               <p>
                 Explore opportunities across our core scientific, manufacturing, and operational disciplines.
               </p>
-              <Link className="car-discover-btn" to="/careers/opportunities">
+              <a
+                className="car-discover-btn"
+                href="https://careers.mygranules.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span>DISCOVER ROLES &rarr;</span>
-              </Link>
+              </a>
             </div>
 
             {/* Right Accordion Column */}
@@ -358,6 +372,24 @@ export default function CareerOverviewPage() {
                     {isOpen && (
                       <div className="car-discover-body">
                         <p>{path.desc}</p>
+                        <a
+                          href="https://careers.mygranules.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="car-discover-area-cta"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            marginTop: '12px',
+                            color: '#0061f8',
+                            fontWeight: 700,
+                            fontSize: '14.5px',
+                            textDecoration: 'none'
+                          }}
+                        >
+                          {path.cta} &rarr;
+                        </a>
                       </div>
                     )}
                   </article>
@@ -368,7 +400,7 @@ export default function CareerOverviewPage() {
         </section>
 
         {/* WHY GRANULES? The Employee Value Proposition (Stacking Panels) */}
-        <div className="car-why">
+        <div className="car-why" id="culture-values" style={{ scrollMarginTop: '100px' }}>
           <div className="car-why-head">
             <div className="car-why-copy">
               <span className="car-why-tag">WHY GRANULES?</span>
@@ -380,7 +412,7 @@ export default function CareerOverviewPage() {
           {/* Panel 0: Your Work Matters */}
           <div className="car-panel car-panel--0" style={{ '--stack-index': 0 } as React.CSSProperties}>
             <div className="car-panel-image">
-              <img src={`${A}panel-people-first.webp`} alt="Your work matters" />
+              <img src={`${A}12.png`} alt="Your work matters" />
             </div>
             <div className="car-panel-copy">
               <h3>Your Work Matters</h3>
@@ -399,14 +431,14 @@ export default function CareerOverviewPage() {
               </p>
             </div>
             <div className="car-panel-image">
-              <img src={`${A}panel-grow-purpose.webp`} alt="Learn by doing" />
+              <img src={`${A}13.png`} alt="Learn by doing" />
             </div>
           </div>
 
           {/* Panel 2: Own the Outcome */}
           <div className="car-panel car-panel--2" style={{ '--stack-index': 2 } as React.CSSProperties}>
             <div className="car-panel-image">
-              <img src={`${A}practice-slide-3.webp`} alt="Own the outcome" />
+              <img src={`${A}14.png`} alt="Own the outcome" />
             </div>
             <div className="car-panel-copy">
               <h3>Own the Outcome</h3>
@@ -425,7 +457,7 @@ export default function CareerOverviewPage() {
               </p>
             </div>
             <div className="car-panel-image">
-              <img src={`${A}hero-real.webp`} alt="Grow in more than one direction" />
+              <img src={`${A}15.png`} alt="Grow in more than one direction" />
             </div>
           </div>
 
@@ -451,14 +483,14 @@ export default function CareerOverviewPage() {
               </p>
             </div>
             <div className="car-panel-image">
-              <img src={`${A}panel-science-2.webp`} alt="Belong to a team that delivers" />
+              <img src={`${A}16.png`} alt="Belong to a team that delivers" />
             </div>
           </div>
 
           {/* Panel 6: Care Beyond Careers */}
           <div className="car-panel car-panel--6" style={{ '--stack-index': 6 } as React.CSSProperties}>
             <div className="car-panel-image">
-              <img src={`${A}panel-science-1.webp`} alt="Care beyond careers" />
+              <img src={`${A}17.png`} alt="Care beyond careers" />
             </div>
             <div className="car-panel-copy">
               <h3>Care Beyond Careers</h3>
@@ -470,45 +502,8 @@ export default function CareerOverviewPage() {
 
           {/* Below-Stack Curtain Container */}
           <div className="car-below-stack">
-            {/* The Granules Way in Practice Banner */}
-            <div className="car-practice-wrap">
-              <div className="car-practice-banner">
-                {GRANULES_WAY_SLIDES.map((slide, idx) => (
-                  <div
-                    key={slide.id}
-                    className={`car-practice-slide-layer ${idx === practiceIdx ? 'active' : ''}`}
-                  >
-                    <img src={slide.image} alt={slide.title} className="car-practice-bg" />
-                    <div className="car-practice-overlay" />
-                  </div>
-                ))}
-
-                <h2 className="car-practice-headline">The Granules Way</h2>
-
-                <div className="car-practice-card" key={practiceIdx}>
-                  <div className="car-practice-card-icon">
-                    {GRANULES_WAY_SLIDES[practiceIdx].icon}
-                  </div>
-                  <h3>{GRANULES_WAY_SLIDES[practiceIdx].title}</h3>
-                  <p>{GRANULES_WAY_SLIDES[practiceIdx].body}</p>
-                </div>
-
-                <div className="car-practice-nav" aria-label="Slide indicators">
-                  {GRANULES_WAY_SLIDES.map((slide, idx) => (
-                    <button
-                      key={slide.id}
-                      type="button"
-                      className={`car-practice-nav-btn ${idx === practiceIdx ? 'active' : ''}`}
-                      onClick={() => setPracticeIdx(idx)}
-                      aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
             {/* Growth You Can Picture — Learning & Mobility Spotlight Card */}
-            <div className="car-why-head" style={{ width: '85%', maxWidth: '85%', margin: '75px auto 0', padding: 0 }}>
+            <div className="car-why-head" style={{ width: '85%', maxWidth: '85%', margin: '0 auto', padding: 0 }}>
               <div className="car-why-copy">
                 <span className="car-why-tag">GROWTH YOU CAN PICTURE</span>
                 <h2>Learning and Mobility</h2>
@@ -692,50 +687,7 @@ export default function CareerOverviewPage() {
               })}
             </div>
 
-            {/* Candidate FAQ */}
-            <div className="car-why-head" style={{ width: '85%', maxWidth: '85%', margin: '75px auto clamp(20px, 2.5vw, 30px)', padding: 0 }}>
-              <div className="car-why-copy">
-                <span className="car-why-tag">NEED CLARITY?</span>
-                <h2>Candidate FAQ</h2>
-              </div>
-            </div>
 
-            <div className="car-faq-section">
-              <div className="car-faq-wrap">
-                {CANDIDATE_FAQS.map((faq, idx) => {
-                  const isOpen = openFaq === idx;
-                  return (
-                    <div className="car-faq-item" key={idx}>
-                      <button
-                        type="button"
-                        className="car-faq-question"
-                        onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                        aria-expanded={isOpen}
-                      >
-                        <span className="car-faq-q-text">{faq.q}</span>
-                        <span className="car-faq-toggle">
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-                            {isOpen ? (
-                              <line x1="5" y1="12" x2="19" y2="12" />
-                            ) : (
-                              <>
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                              </>
-                            )}
-                          </svg>
-                        </span>
-                      </button>
-                      {isOpen && (
-                        <div className="car-faq-answer">
-                          <p>{faq.a}</p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
 
             {/* Join Our Talent Community (Header) */}
             <div className="car-why-head" style={{ width: '85%', maxWidth: '85%', margin: '75px auto clamp(24px, 3vw, 36px)', padding: 0 }}>
@@ -776,11 +728,52 @@ export default function CareerOverviewPage() {
                       </div>
 
                       <div className="car-talent-field">
+                        <label htmlFor="talent-mobile">Mobile No. *</label>
+                        <div className="car-talent-phone-group">
+                          <select
+                            id="talent-dial-code"
+                            name="dialCode"
+                            defaultValue="+91"
+                            className="car-talent-dial-select"
+                            aria-label="Country dial code"
+                            required
+                          >
+                            <option value="+91">IN (+91)</option>
+                            <option value="+1">US (+1)</option>
+                            <option value="+44">UK (+44)</option>
+                            <option value="+41">CH (+41)</option>
+                            <option value="+49">DE (+49)</option>
+                            <option value="+971">AE (+971)</option>
+                            <option value="+65">SG (+65)</option>
+                            <option value="+81">JP (+81)</option>
+                            <option value="+61">AU (+61)</option>
+                            <option value="+1-ca">CA (+1)</option>
+                            <option value="+33">FR (+33)</option>
+                            <option value="+39">IT (+39)</option>
+                            <option value="+34">ES (+34)</option>
+                            <option value="+86">CN (+86)</option>
+                            <option value="+82">KR (+82)</option>
+                            <option value="+55">BR (+55)</option>
+                            <option value="+27">ZA (+27)</option>
+                            <option value="+966">SA (+966)</option>
+                            <option value="+other">Other</option>
+                          </select>
+                          <input
+                            id="talent-mobile"
+                            type="tel"
+                            placeholder="e.g. 98765 43210"
+                            className="car-talent-phone-input"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="car-talent-field">
                         <label htmlFor="talent-location">Location / Preferred Hub *</label>
                         <input id="talent-location" type="text" placeholder="e.g. Hyderabad, India / Virginia, USA" required />
                       </div>
 
-                      <div className="car-talent-field">
+                      <div className="car-talent-field car-talent-field--full">
                         <label htmlFor="talent-interest">Career Interest / Function *</label>
                         <select id="talent-interest" required defaultValue="">
                           <option value="" disabled>Select your primary area of interest</option>
@@ -792,6 +785,33 @@ export default function CareerOverviewPage() {
                         </select>
                       </div>
 
+                      <div className="car-talent-field car-talent-field--full">
+                        <label htmlFor="talent-cv">Upload Resume / CV *</label>
+                        <div className="car-talent-file-wrap">
+                          <input
+                            id="talent-cv"
+                            type="file"
+                            accept=".pdf,.doc,.docx"
+                            required
+                            className="car-talent-file-input"
+                            onChange={(e) => setCvFileName(e.target.files?.[0]?.name || '')}
+                          />
+                          <div className="car-talent-file-custom">
+                            <div className="car-talent-file-left">
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+                              </svg>
+                              <span className={`car-talent-file-name ${cvFileName ? 'has-file' : ''}`}>
+                                {cvFileName ? cvFileName : 'Upload your Resume or CV (PDF, DOC, DOCX — max 5MB)'}
+                              </span>
+                            </div>
+                            <span className="car-talent-file-btn">
+                              {cvFileName ? 'Change File' : 'Browse'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
                       <div className="car-talent-consent">
                         <input id="talent-consent" type="checkbox" required />
                         <label htmlFor="talent-consent">
@@ -801,9 +821,14 @@ export default function CareerOverviewPage() {
 
                       <div className="car-talent-btn-row">
                         <button type="submit" className="car-talent-submit-btn">Join Talent Community</button>
-                        <Link to="/careers/opportunities" className="car-talent-link">
+                        <a
+                          href="https://careers.mygranules.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="car-talent-link"
+                        >
                           Or view active job openings &rarr;
-                        </Link>
+                        </a>
                       </div>
                     </>
                   )}
@@ -821,7 +846,14 @@ export default function CareerOverviewPage() {
                   Step into a career with impact. Whether you’re a scientist, operator, or strategist, your journey starts here.
                 </p>
               </div>
-              <Link className="car-cta-apply-btn" to="/careers/opportunities">Apply for Roles &rarr;</Link>
+              <a
+                className="car-cta-apply-btn"
+                href="https://careers.mygranules.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apply for Roles &rarr;
+              </a>
             </div>
           </div>
         </div>

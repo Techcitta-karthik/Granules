@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(120px, 14vw, 170px) 24px clamp(60px, 8vw, 100px);
+  padding: 112px 24px clamp(40px, 6vw, 80px);
   text-align: center;
   position: relative;
 }

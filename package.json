@@ -4,9 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
+    "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview",
+    "clean:imgs": "node scripts/clean_unused_images.mjs --delete",
+    "clean:imgs:dry": "node scripts/clean_unused_images.mjs",
+    "clean:imgs:backup": "node scripts/clean_unused_images.mjs --delete --backup",
+    "clean:imgs:all": "node scripts/clean_unused_images.mjs --target=all --delete"
   },
   "dependencies": {
     "@fontsource/manrope": "^5.2.6",
@@ -16,10 +20,13 @@
     "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "@vitejs/plugin-react": "^5.0.2",
     "playwright": "^1.62.1",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^7.1.3"
   }

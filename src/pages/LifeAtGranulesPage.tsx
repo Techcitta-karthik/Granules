@@ -33,21 +33,21 @@ const WORKDAY_TABS = [
     tabLabel: 'Granules Family Fest',
     title: 'GRANULES FAMILY FEST',
     desc: 'An annual celebration that brings together employees and their families for cultural activities and fun.',
-    image: 'beyond-workday-bg.png',
+    image: 'Granuals Festival-493.JPG',
   },
   {
     id: 'sports-fest',
     tabLabel: 'Sports Fest and 5K Run',
     title: 'SPORTS FEST AND 5K RUN',
     desc: 'A company-wide tournament that promotes health, energy, and teamwork.',
-    image: 'hero-photo.png',
+    image: '5k run.jpeg',
   },
   {
     id: 'womens-day',
     tabLabel: "Women's day Celebrations",
     title: "WOMEN'S DAY CELEBRATIONS",
     desc: 'Acknowledging the achievements of women across the organization through events, awards, and conversations.',
-    image: 'panel-people-first.png',
+    image: "Women'sday.JPG",
   },
 ];
 
@@ -144,9 +144,9 @@ export default function LifeAtGranulesPage() {
       <NavBar />
 
       <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
-        <a href="/">HOME</a>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/careers">CAREERS</a>
+        <Link to="/careers">CAREERS</Link>
         <span className="sep">›</span>
         <span className="current">LIFE AT GRANULES</span>
       </p>
@@ -184,7 +184,14 @@ export default function LifeAtGranulesPage() {
           <h2>Talent management and growth</h2>
           <p>We invest in building a capable, resilient, and future-ready workforce through</p>
         </div>
-        <Link className="car-cta-btn" to="/careers/opportunities">Explore Current Openings</Link>
+        <a
+          className="car-cta-btn"
+          href="https://careers.mygranules.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore Current Openings
+        </a>
       </div>
 
       <div className="car-stats-grid">
@@ -291,7 +298,14 @@ export default function LifeAtGranulesPage() {
       </div>
 
       <div className="car-workday-cta-row">
-        <Link className="car-cta-btn" to="/careers/opportunities">Explore Current Openings &rarr;</Link>
+        <a
+          className="car-cta-btn"
+          href="https://careers.mygranules.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore Current Openings &rarr;
+        </a>
       </div>
 
       {/* People at Granules — responsive photo slideshow reusing the same
@@ -419,7 +433,14 @@ export default function LifeAtGranulesPage() {
         </div>
         <div className="car-cta-btn-row">
           <Link className="car-cta-apply-btn" to="/careers">Careers Overview &rarr;</Link>
-          <Link className="car-cta-apply-btn" to="/careers/opportunities">Discover Roles and Apply &rarr;</Link>
+          <a
+            className="car-cta-apply-btn"
+            href="https://careers.mygranules.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discover Roles and Apply &rarr;
+          </a>
         </div>
       </div>
 

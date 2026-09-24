@@ -3,20 +3,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import worldMapUrl from '@svg-maps/world/world.svg?url';
 import { NavBar, CompanyFooter } from '../components/company';
 import { REGULATORY_LOGOS } from '../data/regulatoryLogosData';
+import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 
 const A = '/assets/';
 
 const heroSlides = [
   {
-    image: 'Home/1.jpg',
-    title: 'Globally approved.\nVertically integrated.\nTrusted worldwide',
+    image: 'Home/generics.jpg',
+    title: 'Globally Approved.\nVertically Integrated.\nTrusted Worldwide',
     cta: 'Generics',
     link: '/business/generics',
   },
   {
     image: 'Home/2.jpg',
-    title: 'Driving Innovation in Peptide and Custom Manufacturing Solutions',
+    title: 'Advancing the Future of TIDES',
     cta: 'Peptide CDMO',
     link: '/business/peptides',
   },
@@ -27,13 +28,13 @@ const heroSlides = [
     link: '/business/quality-compliance',
   },
   {
-    image: 'Home/5.jpg',
-    title: 'Accelerating Innovation Through Integration and Digitalization',
+    image: 'Home/rd.jpg',
+    title: 'Accelerating Innovation Through Integrated R&D Platform',
     cta: 'Research & Development',
     link: '/business/rd',
   },
   {
-    image: 'Home/4.jpg',
+    image: 'Home/sustainability.jpg',
     title: 'Innovating for Health. \nCommitted to the Planet',
     cta: 'Sustainability',
     link: '/sustainability',
@@ -42,7 +43,7 @@ const heroSlides = [
 
 const products = [
   {
-    image: 'pfi.webp',
+    image: 'fd/fd-card.jpg',
     title: 'Finished Dosages (FDs)',
     eyebrow: 'FD',
     body: 'Scale and complexity supported by multi-site supply capabilities.',
@@ -56,7 +57,7 @@ const products = [
     href: '/business/pfi',
   },
   {
-    image: 'api.webp',
+    image: 'api.jpg',
     title: 'Active Pharmaceutical Ingredients (APIs)',
     eyebrow: 'API',
     body: 'Large-scale manufacturing capabilities, integrated operations, and strong process optimization.',
@@ -66,26 +67,23 @@ const products = [
 
 const news = [
   {
-    image: 'news-1.webp',
-    category: 'Stories',
+    image: 'news-1.jpg',
     title: 'Granules India secures sole first-to-file status for generic drug',
     body: 'Granules India has secured sole first-to-file status for a generic drug, strengthening its position in regulated markets.',
-    href: 'https://timesofindia.indiatimes.com/city/hyderabad/granules-india-secures-sole-first-to-file-status-for-generic-drug/articleshow/132222024.cms',
+    href: 'https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr',
     external: true,
   },
   {
     image: 'news-2.webp',
-    category: 'News',
     title: 'Showcased breakthrough technologies at CPhI Worldwide 2025.',
     body: 'Granules presented integrated capabilities spanning APIs, finished dosages, peptides and next-generation manufacturing.',
-    href: '/media',
+    href: 'https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380',
   },
   {
     image: 'news-3.webp',
-    category: 'Press Release',
     title: 'Launched a dedicated peptide manufacturing unit.',
     body: 'The new facility expands our ability to support complex molecules with a scalable, quality-led development platform.',
-    href: '/media',
+    href: 'https://www.business-standard.com/markets/capital-market-news/granules-india-records-60-yoy-increase-in-q1-pat-126072100899_1.html',
   },
 ];
 
@@ -118,78 +116,6 @@ function Button({ children, href = '#', className = '', onClick }) {
     <a className={`button ${className}`} href={href} onClick={handleClick}>
       {children}
     </a>
-  );
-}
-
-function CookieConsent() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = sessionStorage.getItem('granules_cookie_consent') || localStorage.getItem('granules_cookie_consent');
-    if (!consent) {
-      const timer = setTimeout(() => setVisible(true), 500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleConsent = (choice) => {
-    try {
-      localStorage.setItem('granules_cookie_consent', choice);
-      sessionStorage.setItem('granules_cookie_consent', choice);
-    } catch {
-      // ignore
-    }
-    setVisible(false);
-  };
-
-  if (!visible) return null;
-
-  return (
-    <div className="home-cookie-card" role="dialog" aria-label="We Use Cookies">
-      <div className="home-cookie-header">
-        <div className="home-cookie-icon-wrap" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M21.5 12a9.5 9.5 0 1 1-9.5-9.5c.27 0 .54.01.8.03a1 1 0 0 1 .9.73 2.5 2.5 0 0 0 2.4 1.84h.2a1 1 0 0 1 .98.81 2.5 2.5 0 0 0 2.45 2.09h.1a1 1 0 0 1 .98.8 9.4 9.4 0 0 1 .69 3.2z"
-              fill="url(#cookie-radial-grad)"
-            />
-            <circle cx="8.5" cy="9.5" r="1.25" fill="#ffffff" />
-            <circle cx="12" cy="14.5" r="1.4" fill="#ffffff" />
-            <circle cx="7.5" cy="15.5" r="1" fill="#ffffff" />
-            <circle cx="15.5" cy="11.5" r="1.2" fill="#ffffff" />
-            <circle cx="14" cy="17" r="1" fill="#ffffff" />
-            <defs>
-              <linearGradient id="cookie-radial-grad" x1="2.5" y1="2.5" x2="21.5" y2="21.5" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#00e676" />
-                <stop offset="0.5" stopColor="#00b0ff" />
-                <stop offset="1" stopColor="#0061f8" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h3 className="home-cookie-title">We Use Cookies</h3>
-      </div>
-      <p className="home-cookie-desc">
-        We use cookies to improve your experience and analyze site usage. By clicking &quot;Accept&quot;, you agree to our use of cookies. See our{' '}
-        <a href="/legal/cookie-policy" className="home-cookie-link">Cookie Policy</a> to learn more.
-      </p>
-      <div className="home-cookie-actions">
-        <button
-          type="button"
-          className="home-cookie-btn home-cookie-accept"
-          onClick={() => handleConsent('accepted')}
-        >
-          ACCEPT
-        </button>
-        <button
-          type="button"
-          className="home-cookie-btn home-cookie-reject"
-          onClick={() => handleConsent('rejected')}
-        >
-          REJECT
-        </button>
-      </div>
-    </div>
   );
 }
 
@@ -245,7 +171,6 @@ function Hero() {
           <button onClick={() => change(1)} aria-label="Next slide"><Arrow /></button>
         </div>
       </div>
-      <CookieConsent />
     </section>
   );
 }
@@ -329,7 +254,7 @@ function About() {
           <article className="stat"><CountUp to={10} /><span>MANUFACTURING FACILITIES<br />ACROSS INDIA, US &amp; EUROPE</span></article>
           <article className="stat"><CountUp to={6} /><span>R&amp;D CENTERS OF EXCELLENCE</span></article>
           <article className="stat"><CountUp to={150} suffix="+" /><span>DOSSIERS</span></article>
-          <article className="stat"><CountUp to={100} suffix="+" /><span>DMFS</span></article>
+          <article className="stat"><CountUp to={100} suffix="+" /><span className="stat-small-s">DMF<span className="lowercase-s">s</span></span></article>
         </div>
       </div>
     </section>
@@ -347,11 +272,7 @@ function Business() {
         <div>
           <h2>Delivering Impact Across Pharmaceutical Value Chain</h2>
           <h4>
-            We serve patients and our partners across the globe with a vertically integrated model
-            that brings together innovation, manufacturing excellence, and compliance at scale. With
-            established capabilities across APIs, PFIs, Finished Dosages and Peptide CDMO, we are
-            also strengthening our portfolio complexity across therapies with high-barrier, early to
-            market opportunities in (CNS), oncology and metabolic disorders.
+            We serve patients and our partners across the globe with a vertically integrated model that brings together innovation, manufacturing excellence, and compliance at scale. With established capabilities across APIs, PFIs, Finished Dosages and Peptide CDMO, we are also strengthening our portfolio complexity with high-barrier, early to market opportunities in controlled substances, CNS/ADHD, oncology and advanced dosage forms
           </h4>
         </div>
         <Button href="/business">Generics &rarr;</Button>
@@ -765,33 +686,28 @@ function Investor() {
   const docs = [
     {
       title: 'Integrated annual report 2025-26',
-      href: '/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf',
+      href: getAssetUrl('pdfs/2026/07/Granules_Annual-Report-FY26-1.pdf'),
       download: 'Granules_Annual_Report_FY26.pdf',
     },
     {
-      title: 'Q2 Results for 2026',
-      href: '/documents/Press-Release-Q2-FY26-07edcf6db296.pdf',
-      download: 'Granules_Q2_FY26_Results.pdf',
+      title: 'Q1 Results for 2026-27',
+      href: getAssetUrl('pdfs/2026/07/FY-Result-Jun26.pdf'),
+      download: 'Granules_Q1_FY27_Results.pdf',
     },
     {
       title: 'Investor presentation',
-      href: '/documents/Earnings-Presentation-Q2FY26-Circulation-fb2ccd8cf24d.pdf',
-      download: 'Granules_Investor_Presentation.pdf',
+      href: getAssetUrl('pdfs/2026/07/Earnings-Presentation-Q1FY27vf.pdf'),
+      download: 'Granules_Investor_Presentation_Q1_FY27.pdf',
     },
     {
-      title: 'Earnings call transcript (Q2 FY26)',
-      href: '/documents/GranulesIndia-Q2-FY26-Transcript-Clean-Version-faeecef8a9cb.pdf',
-      download: 'Granules_Earnings_Call_Transcript_Q2_FY26.pdf',
+      title: 'Earnings call transcript (Q1 FY27)',
+      href: getAssetUrl('pdfs/2026/07/Q1-FY27-Concall-Transcript-Final.pdf'),
+      download: 'Granules_Earnings_Call_Transcript_Q1_FY27.pdf',
     },
     {
       title: 'Shareholding pattern',
-      href: '/documents/Third-Quarter-SHP-2025-b306d92c9c75.pdf',
-      download: 'Granules_Shareholding_Pattern.pdf',
-    },
-    {
-      title: 'Sustainability report 2024-25',
-      href: '/documents/Granules-Sustainability-Webpage-Content-56f22fc084e5.pdf',
-      download: 'Granules_Sustainability_Report_2024-25.pdf',
+      href: getAssetUrl('pdfs/2026/07/Website-SHP-1_merged.pdf'),
+      download: 'Granules_Shareholding_Pattern_Q1_FY27.pdf',
     },
   ];
   return (
@@ -803,11 +719,11 @@ function Investor() {
           Driven by operational excellence and responsible growth, we remain focused on creating
           sustainable value for our investors.
         </p>
-        <Button href="/investor">INVESTORS &rarr;</Button>
+        <Button href="/investors">INVESTORS &rarr;</Button>
       </div>
       <div className="investor-panel">
         <a
-          href="/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf"
+          href={getAssetUrl('pdfs/2026/07/Granules_Annual-Report-FY26-1.pdf')}
           target="_blank"
           rel="noopener noreferrer"
           className="investor-cover"
@@ -865,57 +781,38 @@ function Investor() {
 }
 
 function Media() {
-  const [selected, setSelected] = useState(null);
   return (
-    <>
-      <section className="section shell media" id="media">
-        <div className="split-heading">
-          <div>
-            <Tag>Media</Tag>
-            <h2>What’s New at Granules</h2>
-          </div>
-          <Button href="/media">View all &rarr;</Button>
+    <section className="section shell media" id="media">
+      <div className="split-heading">
+        <div>
+          <Tag>Media</Tag>
+          <h2>What’s New at Granules</h2>
         </div>
-        <div className="news-grid">
-          {news.map((item) => (
-            <article className="news-card" key={item.title}>
-              {item.external ? (
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Read ${item.title}`}
-                >
-                  <img src={`${A}${item.image}`} alt="" loading="lazy" decoding="async" />
-                  <div className="news-meta">
-                    <span>{item.category}</span>
-                  </div>
-                  <h3>{item.title}</h3>
-                  <span className="read-more">Read More &rarr;</span>
-                </a>
-              ) : (
-                <button onClick={() => setSelected(item)} aria-label={`Read ${item.title}`}>
-                  <img src={`${A}${item.image}`} alt="" loading="lazy" decoding="async" />
-                  <div className="news-meta">
-                    <span>{item.category}</span>
-                    <time>12 June 2024</time>
-                  </div>
-                  <h3>{item.title}</h3>
-                  <span className="read-more">Read More &rarr;</span>
-                </button>
-              )}
-            </article>
-          ))}
-        </div>
-      </section>
-      <Modal item={selected} onClose={() => setSelected(null)} label="Newsroom" />
-    </>
+        <Button href="/media">View all &rarr;</Button>
+      </div>
+      <div className="news-grid">
+        {news.map((item) => (
+          <article className="news-card" key={item.title}>
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Read ${item.title}`}
+            >
+              <img src={`${A}${item.image}`} alt="" loading="lazy" decoding="async" />
+              <h3>{item.title}</h3>
+              <span className="read-more">Read More &rarr;</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
 function Careers() {
   return (
-    <section className="careers shell" id="careers" style={{ backgroundImage: `url(${A}career.webp)` }}>
+    <section className="careers shell" id="careers">
       <div>
         <h2>Shape Healthcare with Granules</h2>
         <p>Every role here strengthens access to affordable healthcare for millions.</p>
@@ -1057,7 +954,6 @@ function SearchOverlay({ open, onClose }) {
 
 export default function HomePage() {
   const [searchOpen, setSearchOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [sustainabilityTab, setSustainabilityTab] = useState(0);
 
   const activeNavSection = sustainabilityTab === 1 ? 'Community' : 'Sustainability';
@@ -1068,18 +964,11 @@ export default function HomePage() {
     const reveal = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('revealed')), { threshold: .08 });
     sections.forEach((section) => reveal.observe(section));
 
-    const onScroll = () => {
-      const current = Math.max(0, window.scrollY);
-      setProgress(Math.min(100, (current / (document.documentElement.scrollHeight - window.innerHeight)) * 100));
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => { reveal.disconnect(); window.removeEventListener('scroll', onScroll); };
+    return () => { reveal.disconnect(); };
   }, []);
 
   return (
     <>
-      <div className="scroll-progress" style={{ width: `${progress}%` }} />
       <NavBar onSearch={() => setSearchOpen(true)} activeSectionOverride={activeNavSection} />
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
       <main>

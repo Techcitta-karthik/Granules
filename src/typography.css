@@ -19,7 +19,7 @@
   --fs-body-lg: clamp(16px, 1.05vw, 18px);
   --fs-body: 16px;
   --fs-body-sm: 14px;
-  --fs-nav: 16px;
+  --fs-nav: 16.5px;
   --fs-button: 16px;
   --fs-badge: 13.5px;
   --fs-label: 14px;
@@ -195,10 +195,11 @@ p, li, dd, dt {
   line-height: var(--lh-body) !important;
 }
 
-nav, nav a, nav button {
-  font-size: var(--fs-nav) !important;
-  line-height: var(--lh-body) !important;
-  letter-spacing: 0.2px !important;
+nav, nav a, nav button, .cp-nav-link {
+  font-size: var(--fs-nav, 16.5px) !important;
+  font-weight: 600;
+  line-height: 1.5 !important;
+  letter-spacing: 0.15px !important;
 }
 
 button, [role='button'], .btn, [class*='-btn'] {
@@ -402,6 +403,24 @@ input, textarea, select {
   margin: 0 !important;
 }
 
+.about .stat span.stat-small-s,
+.about .stat span.stat-label-dfm,
+.about .stat span.stat-label-dmf,
+.about .stat .stat-small-s,
+.about .stat .stat-label-dfm,
+.about .stat .stat-label-dmf,
+.stat-small-s,
+.stat-label-dfm,
+.stat-label-dmf {
+  text-transform: none !important;
+}
+
+.about .stat span .lowercase-s,
+.about .stat .lowercase-s,
+.lowercase-s {
+  text-transform: lowercase !important;
+}
+
 @media (max-width: 1200px) {
   .about .stats {
     grid-template-columns: repeat(3, 1fr) !important;
@@ -472,6 +491,77 @@ h3.ms-card-year {
   line-height: 1.4 !important;
 }
 
+.cp-breadcrumb,
+p.cp-breadcrumb,
+.ld-main-breadcrumb,
+.ld-profile-breadcrumb,
+.ehs-breadcrumb {
+  margin-top: 96px !important;
+  margin-bottom: 8px !important;
+  font-size: 13px !important;
+  letter-spacing: 0.9px !important;
+  text-transform: uppercase !important;
+  color: #070707 !important;
+}
+
+.cp-breadcrumb a,
+p.cp-breadcrumb a,
+.cp-breadcrumb span:not(.current),
+p.cp-breadcrumb span:not(.current),
+.cp-breadcrumb button,
+.cp-breadcrumb .sep,
+p.cp-breadcrumb .sep,
+.ld-main-breadcrumb a,
+.ld-main-breadcrumb span:not(.current),
+.ld-main-breadcrumb .sep,
+.ld-profile-breadcrumb a,
+.ld-profile-breadcrumb span:not(.current),
+.ld-profile-breadcrumb .sep,
+.ld-breadcrumb-btn,
+.ehs-breadcrumb a,
+.ehs-breadcrumb span:not(.current),
+.ehs-breadcrumb .sep {
+  color: #070707 !important;
+  text-decoration: none !important;
+}
+
+.cp-breadcrumb span:not([role="button"]),
+p.cp-breadcrumb span:not([role="button"]),
+.cp-breadcrumb .cp-breadcrumb-plain,
+p.cp-breadcrumb .cp-breadcrumb-plain {
+  cursor: default !important;
+}
+
+.cp-breadcrumb a:hover,
+p.cp-breadcrumb a:hover,
+.cp-breadcrumb button:hover,
+.ld-main-breadcrumb a:hover,
+.ld-profile-breadcrumb a:hover,
+.ld-breadcrumb-btn:hover,
+.ehs-breadcrumb a:hover {
+  color: #0061f8 !important;
+}
+
+.cp-breadcrumb .current,
+p.cp-breadcrumb .current,
+.ld-main-breadcrumb .current,
+.ld-profile-breadcrumb .current,
+.ehs-breadcrumb .current {
+  color: #0061f8 !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 768px) {
+  .cp-breadcrumb,
+  p.cp-breadcrumb,
+  .ld-main-breadcrumb,
+  .ld-profile-breadcrumb,
+  .ehs-breadcrumb {
+    margin-top: 86px !important;
+    margin-bottom: 8px !important;
+  }
+}
+
 @media (max-width: 767px) {
   :root {
     --fs-display: 36px;
@@ -496,7 +586,8 @@ h3.ms-card-year {
 }
 
 /* ==========================================================================
-   UNIFIED BOTTOM CTA BOX SIZING (250px default, up to 300px if content is large)
+   UNIFIED BOTTOM CTA / BANNER STANDARD ACROSS ALL PAGES
+   Rich blue gradient background, clean card aesthetic, and consistent typography
    ========================================================================== */
 .sus-cta,
 .car-cta-photo,
@@ -515,17 +606,70 @@ h3.ms-card-year {
 .oe-cta,
 .careers,
 .inv-contact-cta,
-.esg-dashboard-cta {
+.esg-dashboard-cta,
+.partner-banner,
+.gen-cta,
+.pp-cta,
+.ct-cta-box,
+.asc-cta {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 75px !important;
+  margin-bottom: 75px !important;
   height: 250px !important;
   min-height: 250px !important;
-  max-height: 300px !important;
+  max-height: 250px !important;
   box-sizing: border-box !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   align-items: flex-start !important;
   gap: 14px !important;
-  padding: 28px clamp(24px, 4vw, 56px) !important;
+  padding: 28px clamp(28px, 4.5vw, 64px) !important;
+  border-radius: 36px !important;
+  position: relative !important;
+  overflow: hidden !important;
+
+  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat !important;
+  border: 1.5px solid rgba(0, 97, 248, 0.16) !important;
+  box-shadow: 
+    0 12px 36px rgba(0, 34, 90, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Hide background photos and legacy overlays so the shared banner image is prominent */
+.sus-cta img.bg,
+.sus-cta .overlay,
+.car-cta-photo img.bg,
+.car-cta-photo .overlay,
+.cp-career img.cp-bg,
+.cp-career .cp-bg-overlay,
+.ld-cta .cp-bg,
+.ld-cta .cp-bg-overlay,
+.ms-leadership .cp-bg,
+.ms-leadership .cp-bg-overlay,
+.asc-cta img.bg,
+.asc-cta .overlay,
+.aw-cta img.cp-bg,
+.aw-cta .cp-bg-overlay,
+.biz-cta img.bg,
+.biz-cta .overlay,
+.rd-cta img.bg,
+.rd-cta .overlay,
+.qc-cta img.bg,
+.qc-cta .overlay,
+.fac-cta img.bg,
+.fac-cta .overlay,
+.czro-cta img.bg,
+.czro-cta .overlay,
+.gls-cta img.bg,
+.gls-cta .overlay,
+.oe-cta img.bg,
+.oe-cta .overlay {
+  display: none !important;
 }
 
 .sus-cta-copy,
@@ -544,12 +688,190 @@ h3.ms-card-year {
 .oe-cta-copy,
 .careers > div,
 .inv-contact-copy,
-.esg-dashboard-copy {
+.esg-dashboard-copy,
+.partner-banner-copy,
+.gen-cta-copy,
+.pp-cta-copy,
+.ct-cta-box .ct-cta-title,
+.ct-cta-box .ct-cta-text,
+.ct-cta-box .ct-cta-actions,
+.asc-cta-copy {
+  position: relative !important;
+  z-index: 1 !important;
   flex: 0 1 auto !important;
-  max-width: 800px !important;
+  max-width: 950px !important;
   display: flex !important;
   flex-direction: column !important;
+  gap: 6px !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Unified White Headings for Dark Banners */
+.sus-cta h2,
+.car-cta-photo h2,
+.car-cta h2,
+.ld-cta h2,
+.ms-leadership h2,
+.aw-cta h2,
+.biz-cta h2,
+.rd-cta h2,
+.qc-cta h2,
+.senn-cta h2,
+.czro-cta h2,
+.gls-cta h2,
+.oe-cta h2,
+.careers h2,
+.inv-contact-cta h2,
+.esg-dashboard-cta h2,
+.partner-banner h2,
+.ct-cta-box .ct-cta-title,
+.asc-cta h2,
+.car-cta-copy h2,
+.ld-cta-copy h2,
+.ms-leadership-copy h2,
+.aw-cta-copy h2,
+.biz-cta-copy h2,
+.rd-cta-copy h2,
+.qc-cta-copy h2,
+.senn-cta-copy h2,
+.czro-cta-copy h2,
+.gls-cta-copy h2,
+.oe-cta-copy h2,
+.inv-contact-copy h2,
+.esg-dashboard-copy h2,
+.partner-banner-copy h2,
+.asc-cta-copy h2 {
+  color: #ffffff !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(24px, 2.3vw, 38px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.3px !important;
+  margin: 0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Blue Headings for Light Banners (Matching Image 2) */
+.cp-career h2,
+.cp-career-copy h2,
+.fac-cta h2,
+.fac-cta-copy h2 {
+  color: #0061f8 !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(24px, 2.3vw, 38px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+  text-shadow: none !important;
+}
+
+/* Unified Dark High-Contrast Paragraphs */
+.sus-cta p,
+.car-cta-photo p,
+.car-cta p,
+.cp-career p,
+.ld-cta p,
+.ms-leadership p,
+.aw-cta p,
+.biz-cta p,
+.rd-cta p,
+.qc-cta p,
+.fac-cta p,
+.senn-cta p,
+.czro-cta p,
+.gls-cta p,
+.oe-cta p,
+.careers p,
+.inv-contact-cta p,
+.esg-dashboard-cta p,
+.partner-banner p,
+.ct-cta-box .ct-cta-text,
+.asc-cta p {
+  color: #1a2536 !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(14px, 1.05vw, 16px) !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0.1px !important;
+  margin: 0 !important;
+  max-width: 820px !important;
+}
+
+/* Unified Solid Blue Action Buttons */
+.sus-cta .cp-cta-btn,
+.car-cta-photo .car-cta-apply-btn,
+.car-cta-photo .car-cta-btn,
+.cp-career .cp-cta-btn,
+.ld-cta .cp-cta-btn,
+.ms-leadership .cp-cta-btn,
+.aw-cta .cp-cta-btn,
+.biz-cta .cp-cta-btn,
+.rd-cta .cp-cta-btn,
+.qc-cta .qc-cta-btn--primary,
+.fac-cta .cp-cta-btn,
+.senn-cta .senn-cta-btn--primary,
+.czro-cta .cp-cta-btn,
+.gls-cta .cp-cta-btn,
+.oe-cta .cp-cta-btn,
+.careers .button,
+.inv-contact-cta .cp-cta-btn,
+.esg-dashboard-cta .cp-cta-btn,
+.partner-banner .partner-banner-btn,
+.ct-cta-box .ct-cta-btn--primary,
+.asc-cta .cp-cta-btn {
+  position: relative !important;
+  z-index: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   gap: 8px !important;
+  background: #0061f8 !important;
+  color: #ffffff !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.7px !important;
+  padding: 12px 28px !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.35) !important;
+  border: none !important;
+  transition: transform 0.22s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.22s ease, box-shadow 0.22s ease !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  align-self: flex-start !important;
+  margin: 0 !important;
+}
+
+.sus-cta .cp-cta-btn:hover,
+.car-cta-photo .car-cta-apply-btn:hover,
+.car-cta-photo .car-cta-btn:hover,
+.cp-career .cp-cta-btn:hover,
+.ld-cta .cp-cta-btn:hover,
+.ms-leadership .cp-cta-btn:hover,
+.aw-cta .cp-cta-btn:hover,
+.biz-cta .cp-cta-btn:hover,
+.rd-cta .cp-cta-btn:hover,
+.qc-cta .qc-cta-btn--primary:hover,
+.fac-cta .cp-cta-btn:hover,
+.senn-cta .senn-cta-btn--primary:hover,
+.czro-cta .cp-cta-btn:hover,
+.gls-cta .cp-cta-btn:hover,
+.oe-cta .cp-cta-btn:hover,
+.careers .button:hover,
+.inv-contact-cta .cp-cta-btn:hover,
+.esg-dashboard-cta .cp-cta-btn:hover,
+.partner-banner .partner-banner-btn:hover,
+.ct-cta-box .ct-cta-btn--primary:hover,
+.asc-cta .cp-cta-btn:hover {
+  background: #0045c7 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 97, 248, 0.48) !important;
 }
 
 @media (max-width: 768px) {
@@ -570,11 +892,17 @@ h3.ms-card-year {
   .oe-cta,
   .careers,
   .inv-contact-cta,
-  .esg-dashboard-cta {
+  .esg-dashboard-cta,
+  .partner-banner,
+  .gen-cta,
+  .pp-cta,
+  .ct-cta-box,
+  .asc-cta {
     height: auto !important;
     min-height: 250px !important;
     max-height: none !important;
-    padding: 28px 20px !important;
+    padding: 28px 24px !important;
+    border-radius: 28px !important;
   }
 }
 
@@ -588,7 +916,8 @@ h3.ms-card-year {
 .med-hero,
 .inv-hero,
 .senn-hero-wrap,
-.senn-hero-wrap .cp-hero-banner {
+.senn-hero-wrap .cp-hero-banner,
+.ehs-hero-banner-wrap {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
   margin-inline: auto !important;

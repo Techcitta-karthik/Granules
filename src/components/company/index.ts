@@ -10,6 +10,7 @@ export { default as CareerSection } from './CareerSection';
 export { default as RegulatoryLogosSection } from './RegulatoryLogosSection';
 export { default as CompanyFooter } from './CompanyFooter';
 export { default as StockVideoBanner } from './StockVideoBanner';
+export { default as PartnerBanner } from './PartnerBanner';
 export * from './types';
 export * from './data';
 export * from './constants';

@@ -13,54 +13,96 @@ interface CapabilityCard {
   desc: ReactNode;
 }
 
-const CAPABILITY_CARDS: CapabilityCard[] = [
+const WHAT_WE_DO_CARDS: CapabilityCard[] = [
   {
-    title: 'Peptide APIs',
-    image: '/assets/rd/card-synthesis.webp',
-    desc: 'Peptides ranging from short sequences to chains exceeding 40 amino acid residues, including cyclic, bridged and lipidated structures.',
+    title: 'Pharma',
+    image: '/assets/peptides/card-contract-services.webp',
+    desc: 'Custom development and cGMP manufacturing of peptide therapeutic APIs for clinical trials and commercial supply, supporting global pharmaceutical innovators.',
   },
   {
-    title: 'Amino Acid Derivatives',
-    image: '/assets/rd/card-catalysis.webp',
-    desc: 'Senn Chemicals pioneered AAD synthesis and it remains a core capability. Our catalogue includes more than 190 SKUs, including Fmoc-, Boc- and Z-protected derivatives, beta-amino acids, N-methylated derivatives and side-chain-modified derivatives. Selected derivatives can be manufactured under the same cGMP quality systems applied to our peptide APIs.',
+    title: 'Cosmetics Peptides',
+    image: '/assets/peptides/card-cosmetic-peptides.webp',
+    desc: 'TFA-free peptide ingredients developed specifically for the European and global cosmetics market, meeting the highest purity and safety standards.',
   },
   {
-    title: 'Peptide Fragments',
-    image: '/assets/rd/card-solvents.webp',
-    desc: 'Building blocks supplied to innovators and to other peptide manufacturers.',
-  },
-  {
-    title: 'Theranostic Peptides',
-    image: '/assets/rd/priority-future-ready-technologies.webp',
-    desc: 'Linker-ready peptides, chelator conjugation, purification and characterisation. We have delivered more than ten GMP campaigns, including cold-side precursor supply at commercial scale.',
-  },
-  {
-    title: 'Cosmetic Peptides',
-    image: '/assets/rd/card-biocatalysis.webp',
-    desc: 'TFA-free peptide ingredients developed for the European cosmetics market.',
+    title: 'Theranostics Peptides',
+    image: '/assets/peptides/card-theragnostic-peptides.jpg',
+    desc: 'Linker-ready peptides, chelator conjugation, purification and characterisation, delivered across more than ten GMP campaigns including cold-side precursor supply.',
   },
   {
     title: 'Oligonucleotides and Antibody-Drug Conjugates',
     image: '/assets/rd/priority-scientific-capabilities.webp',
-    desc: (
-      <>
-        <strong>Expansion is underway.</strong>
-        <br />
-        <br />
-        We work with pharmaceutical innovators, cosmetic brand owners and specialty therapeutic developers.
-      </>
+    desc: 'Expansion is underway.',
+  },
+];
+
+
+interface WhatWeDoItem {
+  id: string;
+  title: string;
+  shortTitle: string;
+  desc: string;
+  image: string;
+  icon: React.ReactNode;
+}
+
+const WHAT_WE_DO_BANNER_ITEMS: WhatWeDoItem[] = [
+  {
+    id: 'aad',
+    title: 'Amino Acid Derivatives | 190+ Catalogue SKUs',
+    shortTitle: 'Amino Acid Derivatives',
+    image: '/assets/rd/card-catalysis.png',
+    desc: 'Pioneered AAD synthesis with a catalogue of over 190 SKUs, including Fmoc-, Boc- and Z-protected derivatives, beta-amino acids, and side-chain-modified derivatives.',
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 2v7.5L4.5 19.5A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-2.5L14 9.5V2" />
+        <line x1="8.5" y1="2" x2="15.5" y2="2" />
+        <path d="M7 16h10" />
+      </svg>
+    ),
+  },
+  {
+    id: 'fragments',
+    title: 'Peptide Fragments | High-Purity Building Blocks',
+    shortTitle: 'Peptide Fragments',
+    image: '/assets/rd/card-solvents.png',
+    desc: 'High-purity peptide building blocks and intermediate fragments supplied to pharmaceutical innovators and commercial peptide manufacturers.',
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="6" cy="6" r="3" />
+        <circle cx="18" cy="6" r="3" />
+        <circle cx="18" cy="18" r="3" />
+        <circle cx="6" cy="18" r="3" />
+        <line x1="9" y1="6" x2="15" y2="6" />
+        <line x1="18" y1="9" x2="18" y2="15" />
+        <line x1="9" y1="18" x2="15" y2="18" />
+        <line x1="6" y1="9" x2="6" y2="15" />
+      </svg>
+    ),
+  },
+  {
+    id: 'apis',
+    title: 'Peptide APIs | Custom Synthesis & cGMP Supply',
+    shortTitle: 'Peptide APIs',
+    image: '/assets/rd/card-synthesis.png',
+    desc: 'Custom peptide APIs ranging from short sequences to complex chains exceeding 40 amino acid residues, including cyclic, bridged and lipidated structures.',
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0061f8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10.5 20.5l10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+        <path d="M8.5 8.5l7 7" />
+      </svg>
     ),
   },
 ];
 
 const SYNTHESIS_ROUTES = [
   {
-    route: 'Solid phase (SPPS)',
+    route: 'Solid Phase Peptide Systhesis(SPPS)',
     scale: 'mg to a few kg',
     advantage: 'Complex and lower-volume peptides',
   },
   {
-    route: 'Liquid phase (LPPS)',
+    route: 'Liquid Phase Peptide Systhesis(LPPS)',
     scale: '5 kg to tons',
     advantage: 'Large-scale manufacturing',
   },
@@ -70,7 +112,7 @@ const SYNTHESIS_ROUTES = [
     advantage: 'Combination of SPPS and LPPS',
   },
   {
-    route: 'Tag-assisted (TAPS)',
+    route: 'Tag-Assisted Peptide Systhesis(TAPS)',
     scale: 'Project-dependent',
     advantage: 'Reduced purification burden',
   },
@@ -140,21 +182,6 @@ const PHASES_DATA = [
 
 const MANUFACTURING_DATA = [
   {
-    category: 'GMP Manufacturing, Dielsdorf',
-    badge: 'Switzerland Facility',
-    description: 'Commercial and pilot cGMP production hub with comprehensive synthesis, purification, and isolation suites.',
-    image: '/assets/peptides/footprint-dielsdorf.jpg',
-    items: [
-      'Stainless steel reactor 2,500 L, operating from -20 °C to 150 °C',
-      'Glass-lined reactors range from 100 to 2,500 L, operating from -20 °C to 150 °C',
-      'Hydrogenation reactors range from 20 to 2,500 L, operating at pressures up to 6 bar',
-      'SPPS synthesizer, with capacity for up to 12 kg of resin',
-      'Preparative HPLC chromatography using DAC columns up to 30 cm internal diameter',
-      'Filtration using Nutsche and pressurised filters, together with centrifugation under nitrogen',
-      'Vacuum tray drying, filter drying and lyophilisation with an ice-condensing capacity of up to 20 kg',
-    ],
-  },
-  {
     category: 'Kilo Laboratory',
     badge: 'Pilot & Scale-Up',
     description: 'Specialized kilo-scale pilot plant for process optimization and mid-scale intermediate development.',
@@ -177,6 +204,21 @@ const MANUFACTURING_DATA = [
       'Open product handling under laminar airflow within a Grade D equivalent environment',
     ],
   },
+  {
+    category: 'GMP Manufacturing',
+    badge: 'Switzerland Facility',
+    description: 'Commercial and pilot cGMP production hub with comprehensive synthesis, purification, and isolation suites.',
+    image: '/assets/peptides/gmp-manufacturing.jpg',
+    items: [
+      'Stainless steel reactor 2,500 L, operating from -20 °C to 150 °C',
+      'Glass-lined reactors range from 100 to 2,500 L, operating from -20 °C to 150 °C',
+      'Hydrogenation reactors range from 20 to 2,500 L, operating at pressures up to 6 bar',
+      'SPPS synthesizer, with capacity for up to 12 kg of resin',
+      'Preparative HPLC chromatography using DAC columns up to 30 cm internal diameter',
+      'Filtration using Nutsche and pressurised filters, together with centrifugation under nitrogen',
+      'Vacuum tray drying, filter drying and lyophilisation with an ice-condensing capacity of up to 20 kg',
+    ],
+  },
 ];
 
 
@@ -184,7 +226,7 @@ const MANUFACTURING_DATA = [
 const FOOTPRINT_LIST = [
   {
     country: 'Switzerland',
-    location: 'Senn Chemicals AG, Dielsdorf, Zurich',
+    location: 'Zurich',
     details: 'R&D, kilo-scale development, GMP production, QC, QA and warehousing. The site employs more than 80 people and has been operational since 1963.',
     image: '/assets/facilities/Senn Chem.png',
     flag: (
@@ -257,17 +299,20 @@ const LEADERSHIP_TEAM: LeaderMember[] = [
 ];
 
 export default function SennTidesPage() {
-  const [openCard, setOpenCard] = useState<number>(-1);
+  const [openWhatWeDo, setOpenWhatWeDo] = useState<number>(-1);
+  const [activeWhatWeDoIdx, setActiveWhatWeDoIdx] = useState<number>(0);
+  const [isWhatWeDoPaused, setIsWhatWeDoPaused] = useState<boolean>(false);
   const [flippedMfgCard, setFlippedMfgCard] = useState<number | null>(null);
-  const {
-    swipeProps,
-    isDragging,
-    scrollProgress,
-    canScrollLeft,
-    canScrollRight,
-    thumbWidth,
-    scroll,
-  } = useSwipeScroll();
+
+  const whatWeDoScroll = useSwipeScroll();
+
+  useEffect(() => {
+    if (isWhatWeDoPaused) return;
+    const timer = setInterval(() => {
+      setActiveWhatWeDoIdx((prev) => (prev + 1) % WHAT_WE_DO_BANNER_ITEMS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isWhatWeDoPaused]);
 
   useEffect(() => {
     document.title = 'Senn Tides | Peptide CDMO in Switzerland and India | Granules India';
@@ -302,16 +347,20 @@ export default function SennTidesPage() {
       </p>
 
       {/* Page Title */}
-      <h1 className="senn-page-header">Senn Tides Private Limited</h1>
+      <h1 className="senn-page-header">Senn Tides</h1>
 
       {/* Hero Banner */}
       <div className="senn-hero-wrap">
         <div className="cp-hero-banner">
-          <img
-            src="/assets/ascelis/hero-banner.webp"
-            alt="Senn Tides Integrated CDMO Facility"
-            loading="eager"
-            decoding="async"
+          <video
+            className="senn-hero-video"
+            src="/assets/senn/hero-banner.mp4"
+            poster="/assets/senn/hero-banner-poster.webp"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="Senn Tides integrated CDMO platform in Switzerland and India"
           />
           <div className="senn-hero-scrim" />
           <div className="senn-hero-overlay">
@@ -343,7 +392,7 @@ export default function SennTidesPage() {
       {/* What We Do Section */}
       <section className="senn-section-head" aria-label="What We Do">
         <div className="copy">
-          <h2>What We Do</h2>
+          <h2>Whom We Serve</h2>
           <h4>
             We provide custom development and manufacturing services for peptide ingredients, from route selection and process development through scale-up, validation and commercial supply.
           </h4>
@@ -353,20 +402,20 @@ export default function SennTidesPage() {
         </a>
       </section>
 
-      {/* Interactive Capabilities Carousel */}
+      {/* What We Do Carousel */}
       <div className="biz-carousel senn-portfolio-carousel">
-        <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
-          {CAPABILITY_CARDS.map((card, idx) => {
-            const isOpen = openCard === idx;
+        <div className={`biz-track${whatWeDoScroll.isDragging ? ' is-dragging' : ''}`} {...whatWeDoScroll.swipeProps}>
+          {WHAT_WE_DO_CARDS.map((card, idx) => {
+            const isOpen = openWhatWeDo === idx;
             return (
               <article
                 className={`biz-card senn-cap-article${isOpen ? ' is-open' : ''}`}
                 key={card.title}
-                onMouseEnter={() => setOpenCard(idx)}
-                onMouseLeave={() => setOpenCard(-1)}
+                onMouseEnter={() => setOpenWhatWeDo(idx)}
+                onMouseLeave={() => setOpenWhatWeDo(-1)}
                 onClick={() => {
-                  if (isDragging) return;
-                  setOpenCard(isOpen ? -1 : idx);
+                  if (whatWeDoScroll.isDragging) return;
+                  setOpenWhatWeDo(isOpen ? -1 : idx);
                 }}
               >
                 <img className="bg" src={card.image} alt={card.title} loading="lazy" decoding="async" />
@@ -379,7 +428,6 @@ export default function SennTidesPage() {
                   </div>
                   <div className="biz-sheet-body">
                     <p className="biz-sheet-desc">{card.desc}</p>
-                    <span className="biz-sheet-learn">LEARN MORE ↗</span>
                   </div>
                 </div>
               </article>
@@ -387,36 +435,93 @@ export default function SennTidesPage() {
           })}
         </div>
 
-        {/* Carousel Controls */}
-        <div className="biz-carousel-controls">
-          <div className="biz-progress-track">
-            <div
-              className="biz-progress-bar"
-              style={{
-                width: `${thumbWidth}%`,
-                left: `${scrollProgress * (100 - thumbWidth)}%`,
-              }}
-            />
+        {/* What We Do Carousel Controls - Only shown when scrolling is needed */}
+        {whatWeDoScroll.hasScroll && (
+          <div className="biz-carousel-controls">
+            <div className="biz-progress-track">
+              <div
+                className="biz-progress-bar"
+                style={{
+                  width: `${whatWeDoScroll.thumbWidth}%`,
+                  left: `${whatWeDoScroll.scrollProgress * (100 - whatWeDoScroll.thumbWidth)}%`,
+                }}
+              />
+            </div>
+            <div className="biz-carousel-arrows">
+              <button
+                type="button"
+                className="biz-arrow-btn"
+                onClick={() => whatWeDoScroll.scroll(-1)}
+                disabled={!whatWeDoScroll.canScrollLeft}
+                aria-label="Scroll left"
+              >
+                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+              </button>
+              <button
+                type="button"
+                className="biz-arrow-btn"
+                onClick={() => whatWeDoScroll.scroll(1)}
+                disabled={!whatWeDoScroll.canScrollRight}
+                aria-label="Scroll right"
+              >
+                <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+              </button>
+            </div>
           </div>
-          <div className="biz-carousel-arrows">
-            <button
-              type="button"
-              className="biz-arrow-btn"
-              onClick={() => scroll(-1)}
-              disabled={!canScrollLeft}
-              aria-label="Scroll left"
+        )}
+      </div>
+
+      {/* What we do Section */}
+      <section className="senn-section-head" aria-label="What We Do">
+        <div className="copy">
+          <h2>What we do</h2>
+          <h4>
+            We deliver specialised peptide solutions across the full product lifecycle — from custom Amino Acid Derivatives and building blocks to commercial-scale Active Pharmaceutical Ingredients.
+          </h4>
+        </div>
+      </section>
+
+      {/* What We Do Interactive Banner (Matching The Granules Way Practice Banner) */}
+      <div className="senn-practice-wrap">
+        <div
+          className="senn-practice-banner"
+          onMouseEnter={() => setIsWhatWeDoPaused(true)}
+          onMouseLeave={() => setIsWhatWeDoPaused(false)}
+        >
+          {WHAT_WE_DO_BANNER_ITEMS.map((item, idx) => (
+            <div
+              key={item.id}
+              className={`senn-practice-slide-layer ${idx === activeWhatWeDoIdx ? 'active' : ''}`}
+              aria-hidden={idx !== activeWhatWeDoIdx}
             >
-              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
-            </button>
-            <button
-              type="button"
-              className="biz-arrow-btn"
-              onClick={() => scroll(1)}
-              disabled={!canScrollRight}
-              aria-label="Scroll right"
-            >
-              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
-            </button>
+              <img src={item.image} alt={item.title} className="senn-practice-bg" />
+              <div className="senn-practice-overlay" />
+            </div>
+          ))}
+
+          {/* 3 Options in the Top */}
+          <div className="senn-practice-top-options" role="tablist" aria-label="What We Do categories">
+            {WHAT_WE_DO_BANNER_ITEMS.map((item, idx) => {
+              const isActive = idx === activeWhatWeDoIdx;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`senn-practice-top-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => setActiveWhatWeDoIdx(idx)}
+                >
+                  <span>{item.shortTitle}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Left Centered Text Content (Only text in white, matching img 2) */}
+          <div className="senn-practice-card" key={activeWhatWeDoIdx}>
+            <h3>{WHAT_WE_DO_BANNER_ITEMS[activeWhatWeDoIdx].title}</h3>
+            <p>{WHAT_WE_DO_BANNER_ITEMS[activeWhatWeDoIdx].desc}</p>
           </div>
         </div>
       </div>
@@ -425,7 +530,7 @@ export default function SennTidesPage() {
       <section className="senn-routes-section" aria-label="Four Synthesis Routes">
         <div className="senn-section-head">
           <div className="copy">
-            <h2>Four Synthesis Routes</h2>
+            <h2>Technologies</h2>
             <h4>
               Most peptide manufacturers run one synthesis platform and fit every molecule to it. Our platform brings together four synthesis approaches, enabling route selection based on the molecule, target scale and purification requirements.
             </h4>
@@ -483,23 +588,11 @@ export default function SennTidesPage() {
           </div>
 
           <div className="senn-staircase-track-wrap">
-            <svg className="cdmo-staircase-svg" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
-              <path
-                d="M 82,122 C 210,112 250,92 338,82 S 560,58 688,50 S 840,40 922,36"
-                fill="none"
-                stroke="#5aa6ff"
-                strokeWidth="2.75"
-                strokeDasharray="7 10"
-                strokeLinecap="round"
-              />
-            </svg>
-
             <div className="senn-staircase-grid">
               {PHASES_DATA.map((p, idx) => (
                 <div className={`cdmo-step-card step-${idx + 1}`} key={p.phase}>
                   <div className="cdmo-step-media">
                     <img src={p.image} alt={`${p.quantity} — ${p.activity}`} />
-                    <span className="cdmo-step-node" />
                   </div>
                   <div className="cdmo-step-body">
                     <div className="cdmo-step-icon-wrap">{p.icon}</div>
@@ -529,7 +622,7 @@ export default function SennTidesPage() {
         <div className="senn-mfg-grid-3">
           {MANUFACTURING_DATA.map((block, idx) => (
             <div
-              className={`senn-mfg-flip-card ${flippedMfgCard === idx ? 'flipped' : ''}`}
+              className={`senn-mfg-card ${flippedMfgCard === idx ? 'is-active' : ''}`}
               key={block.category}
               onClick={() => setFlippedMfgCard((prev) => (prev === idx ? null : idx))}
               onKeyDown={(e) => {
@@ -539,36 +632,35 @@ export default function SennTidesPage() {
                 }
               }}
               tabIndex={0}
-              role="region">
+              role="region"
+              aria-label={block.category}>
 
-              <div className="senn-mfg-flip-inner">
-                {/* Front Face with Image and Summary Header */}
-                <div className="senn-mfg-card-front">
-                  <img src={block.image} alt={block.category} className="senn-mfg-front-img" loading="lazy" decoding="async" />
-                  <div className="senn-mfg-front-overlay" />
-                  <div className="senn-mfg-front-content">
-                    <span className="senn-front-badge">{block.badge}</span>
-                    <h3 className="senn-mfg-front-title">{block.category}</h3>
-                    <p className="senn-mfg-front-desc">{block.description}</p>
-                  </div>
-                </div>
+              {/* Background Image */}
+              <img src={block.image} alt={block.category} className="senn-mfg-card-bg" loading="lazy" decoding="async" />
+              <div className="senn-mfg-card-overlay" />
 
-                {/* Back Face with Full Technical Specifications */}
-                <div className="senn-mfg-card-back">
-                  <div className="senn-mfg-box-head">
-                    <span className="senn-stat-tag">{block.badge}</span>
-                    <h3 className="senn-mfg-box-title">{block.category}</h3>
-                    <p className="senn-mfg-box-desc">{block.description}</p>
-                  </div>
-                  <ul className="senn-mfg-box-list">
-                    {block.items.map((item, itemIdx) => (
-                      <li key={itemIdx}>
-                        <span className="senn-box-bullet" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+              {/* Default Front View (Bottom scrim with badge, title, desc) */}
+              <div className="senn-mfg-card-idle">
+                <span className="senn-front-badge">{block.badge}</span>
+                <h3 className="senn-mfg-front-title">{block.category}</h3>
+                <p className="senn-mfg-front-desc">{block.description}</p>
+              </div>
+
+              {/* Hover / Active Sheet (Frosted overlay revealed without 3D rotation) */}
+              <div className="senn-mfg-card-hover-sheet">
+                <div className="senn-mfg-box-head">
+                  <span className="senn-stat-tag">{block.badge}</span>
+                  <h3 className="senn-mfg-box-title">{block.category}</h3>
+                  <p className="senn-mfg-box-desc">{block.description}</p>
                 </div>
+                <ul className="senn-mfg-box-list">
+                  {block.items.map((item, itemIdx) => (
+                    <li key={itemIdx}>
+                      <span className="senn-box-bullet" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
@@ -579,7 +671,7 @@ export default function SennTidesPage() {
       <section className="senn-stack-wrap" aria-label="Development, Analytics, Quality & Compliance">
 
         <div className="senn-stack-panel senn-stack-panel--dev">
-          <img src="/assets/company/vision-bg.png" alt="Development and analytical support" loading="lazy" decoding="async" />
+          <img src="/assets/peptides/senn-dev-analytics-bg.jpg" alt="" loading="lazy" decoding="async" aria-hidden="true" />
           <div className="senn-stack-overlay" />
           <div className="senn-stack-content">
             <span className="senn-stack-badge">DEVELOPMENT &amp; ANALYTICS</span>
@@ -590,7 +682,7 @@ export default function SennTidesPage() {
         </div>
 
         <div className="senn-stack-panel senn-stack-panel--quality">
-          <img src="/assets/peptides/quality-compliance-bg.png" alt="Quality and compliance" loading="lazy" decoding="async" />
+          <img src="/assets/peptides/senn-quality-compliance-bg.jpg" alt="" loading="lazy" decoding="async" aria-hidden="true" />
           <div className="senn-stack-overlay" />
           <div className="senn-stack-content">
             <span className="senn-stack-badge">QUALITY &amp; COMPLIANCE</span>
@@ -640,7 +732,7 @@ export default function SennTidesPage() {
           {/* Right-Side Facility Image Container (Nicely Framed & Unzoomed) */}
           <div className="senn-cap-banner-img-wrap">
             <img
-              src="/assets/peptides/iit-hyderabad-rd.jpg"
+              src="/assets/milestone/2026.jpg"
               alt="IIT Hyderabad Technology Research Park Development Centre"
               className="senn-cap-banner-bg"
               loading="lazy"

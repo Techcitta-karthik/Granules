@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { useSwipeScroll } from '../hooks/useSwipeScroll';
 import '../components/company/company.css';
 import './business.css';
 import './rd.css';
@@ -35,12 +36,20 @@ const RD_CENTERS: RdCenter[] = [
     ctaHref: '/business/rd',
   },
   {
-    id: 'pune',
+    id: 'IIT Hyderabad',
+    location: 'IITH, India',
+    title: 'IIT Hyderabad, India',
+    desc: '2 Centres of Excellence focused on Peptide Development and Particle Engineering.',
+    image: 'centers-bg.png',
+    ctaHref: '/business/rd',
+  },
+  {
+    id: 'Pune, India',
     location: 'Pune, India',
     title: 'PUNE, MAHARASHTRA',
     desc: 'New technology platforms with focus on KSM innovation and backward integration.',
-    image: 'capabilities-bg.png',
-    ctaHref: '/business/api',
+    image: 'centers-bg.png',
+    ctaHref: '/business/rd',
   },
   {
     id: 'virginia',
@@ -52,7 +61,7 @@ const RD_CENTERS: RdCenter[] = [
   },
   {
     id: 'switzerland',
-    location: 'Switzerland',
+    location: 'Zurich, Switzerland',
     title: 'SENN CHEMICALS, SWITZERLAND',
     desc: 'Peptide & CDMO innovation — decades of peptide synthesis expertise.',
     image: 'capabilities-bg.png',
@@ -70,22 +79,22 @@ const STRATEGIC_PRIORITIES: InfoItem[] = [
   {
     title: 'Strengthen Scientific Capabilities',
     body: 'Strengthen Scientific Capabilities to deepen expertise across chemistry, formulation and process sciences.',
-    image: 'priority-scientific-capabilities.webp',
+    image: 'priority-01-strengthen.jpg',
   },
   {
     title: 'Building a Differentiated Product Pipeline',
     body: 'Building a differentiated product pipeline focused on complex generics, oncology, CNS and peptides.',
-    image: 'priority-product-pipeline.webp',
+    image: 'priority-02-pipeline.jpg',
   },
   {
     title: 'Accelerate Product Development',
     body: 'Accelerate product development to reduce time-to-market through integrated development and digital tools.',
-    image: 'priority-accelerate-development.webp',
+    image: 'priority-03-accelerate.jpg',
   },
   {
     title: 'Advance Future-Ready Technologies',
     body: 'Advance future-ready technologies through biocatalysis, particle engineering, peptides and digital R&D.',
-    image: 'priority-future-ready-technologies.webp',
+    image: 'priority-04-future-tech.jpg',
   },
 ];
 
@@ -150,12 +159,12 @@ const GREEN_CARDS: GreenCard[] = [
   },
   {
     title: 'Usage of Safer Solvents',
-    body: 'Water and ethanol replace harmful chlorinated hydrocarbons',
+    body: 'Water and ethanol replace harmful chlorinated solvents are discouraged, giving emphasis to green solvents',
     image: 'card-solvents.png',
   },
   {
     title: 'Energy-efficient Synthesis Routes',
-    body: 'Reactions run at ambient temperatures and pressures',
+    body: 'Efforts are always towards running the reactions at ambient temperatures and pressures',
     image: 'card-synthesis.png',
   },
   {
@@ -168,7 +177,16 @@ const GREEN_CARDS: GreenCard[] = [
 export default function RdPage() {
   const [activeCenterIdx, setActiveCenterIdx] = useState<number>(0);
   const [openPriority, setOpenPriority] = useState<number>(-1);
-  const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
+  const {
+    swipeProps,
+    isDragging,
+    hasScroll,
+    scrollProgress,
+    canScrollLeft,
+    canScrollRight,
+    thumbWidth,
+    scroll,
+  } = useSwipeScroll();
 
   useEffect(() => {
     document.title = 'R&D and Innovation — Granules India';
@@ -195,10 +213,10 @@ export default function RdPage() {
     <div className="cp">
       <NavBar />
 
-      <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
+      <p className="cp-breadcrumb" style={{ width: 'min(85%, 1632px)', maxWidth: '1632px', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
         <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <Link to="/business/api">BUSINESS</Link>
+        <span className="cp-breadcrumb-plain">BUSINESS</span>
         <span className="sep">›</span>
         <span className="current">RESEARCH &amp; DEVELOPMENT</span>
       </p>
@@ -207,7 +225,7 @@ export default function RdPage() {
         <img src={`${R}hero-banner.png`} alt="Granules R&D laboratory" />
         <div className="rd-hero-scrim" />
         <div className="rd-hero-overlay">
-          <h2 className="rd-hero-heading">Accelerating Innovation Through Integration and Digitalization</h2>
+          <h2 className="rd-hero-heading">Accelerating Innovation Through Integrated R&D Platform</h2>
         </div>
       </div>
 
@@ -221,71 +239,90 @@ export default function RdPage() {
           Granules R&amp;D is powering the transformation of a legacy-scale generics company into
           a differentiated, science-led global pharmaceutical platform &mdash; advancing complex
           generics, oncology, CNS/ADHD, peptides and next-generation drug delivery through a
-          global network of six specialised research centres. Our R&amp;D strategy is designed to
+          global network of five specialised research centres. Our R&amp;D strategy is designed to
           strengthen these capabilities while supporting long-term growth through a diversified
           and differentiated product portfolio
         </h4>
       </div>
 
-      {/* R&D Strategic Priorities */}
+      {/* R&D Strategic Priorities — same carousel as Peptides CDMO portfolio */}
       <section className="rd-priorities" id="rd-priorities">
         <div className="rd-priorities-head">
           <h2>R&amp;D Strategic Priorities</h2>
         </div>
-        <div className="rd-priorities-grid">
-          {STRATEGIC_PRIORITIES.map((item, index) => {
-            const isOpen = openPriority === index;
-            const itemNumber = String(index + 1).padStart(2, '0');
-            return (
-              <article
-                className={`rd-priority-card${isOpen ? ' is-open' : ''}`}
-                key={item.title}
-                onMouseEnter={() => setOpenPriority(index)}
-                onMouseLeave={() => setOpenPriority(-1)}
-              >
-                <button
-                  className="rd-priority-toggle"
-                  type="button"
-                  onClick={() => setOpenPriority(isOpen ? -1 : index)}
-                  aria-expanded={isOpen}
-                  aria-label={`${isOpen ? 'Close' : 'Explore'} ${item.title}`}
+        <div className="biz-carousel rd-priorities-carousel">
+          <div className={`biz-track${isDragging ? ' is-dragging' : ''}`} {...swipeProps}>
+            {STRATEGIC_PRIORITIES.map((item, index) => {
+              const isOpen = openPriority === index;
+              return (
+                <article
+                  className={`biz-card rd-priority-slide${isOpen ? ' is-open' : ''}`}
+                  key={item.title}
+                  onMouseEnter={() => setOpenPriority(index)}
+                  onMouseLeave={() => setOpenPriority(-1)}
+                  onClick={() => {
+                    if (isDragging) return;
+                    setOpenPriority(isOpen ? -1 : index);
+                  }}
                 >
-                  {/* Background scientific graphic */}
-                  <div className="rd-priority-img-wrap">
-                    {item.image && (
-                      <img
-                        src={`${R}${item.image}`}
-                        alt={item.title}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                  </div>
-
-                  {/* Sliding Blue Drawer Sheet (Homepage Product-Bar Style) */}
-                  <div className="rd-priority-sheet">
-                    <div className="rd-priority-sheet-head">
-                      <div className="rd-priority-sheet-title-group">
-                        <span className="rd-priority-sheet-index">{itemNumber}</span>
-                        <h3 className="rd-priority-sheet-title">{item.title}</h3>
-                      </div>
-                      <span className="rd-priority-symbol" aria-hidden="true">
+                  {item.image && (
+                    <img
+                      className="bg"
+                      src={`${R}${item.image}`}
+                      alt={item.title}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                  <div className="biz-sheet">
+                    <div className="biz-sheet-head">
+                      <span className="biz-sheet-title">{item.title}</span>
+                      <span className="biz-sheet-symbol" aria-hidden="true">
                         {isOpen ? '−' : '+'}
                       </span>
                     </div>
-
-                    <div className="rd-priority-sheet-body">
-                      <p className="rd-priority-description">{item.body}</p>
-                      <div className="rd-priority-pill">
-                        <span>PRIORITY {itemNumber}</span>
-                        <span aria-hidden="true" style={{ marginLeft: '6px' }}>&rarr;</span>
-                      </div>
+                    <div className="biz-sheet-body">
+                      <p className="biz-sheet-desc">{item.body}</p>
                     </div>
                   </div>
+                </article>
+              );
+            })}
+          </div>
+
+          {hasScroll && (
+            <div className="biz-carousel-controls">
+              <div className="biz-progress-track">
+                <div
+                  className="biz-progress-bar"
+                  style={{
+                    width: `${thumbWidth}%`,
+                    left: `${scrollProgress * (100 - thumbWidth)}%`,
+                  }}
+                />
+              </div>
+              <div className="biz-carousel-arrows">
+                <button
+                  type="button"
+                  className="biz-arrow-btn"
+                  onClick={() => scroll(-1)}
+                  disabled={!canScrollLeft}
+                  aria-label="Scroll left"
+                >
+                  <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
                 </button>
-              </article>
-            );
-          })}
+                <button
+                  type="button"
+                  className="biz-arrow-btn"
+                  onClick={() => scroll(1)}
+                  disabled={!canScrollRight}
+                  aria-label="Scroll right"
+                >
+                  <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -361,74 +398,41 @@ export default function RdPage() {
         </div>
       </div>
 
-      <div className="rd-iit-note">
-        <p>
-          Complemented by Two Strategic Centres of Excellence at IIT Hyderabad, Telangana focused on Peptide Development and Particle Engineering
-        </p>
-      </div>
 
-
-      {/* Innovation Enabled by Technology */}
-      <div className="rd-tech">
-        <div className="rd-tech-head">
-          <h2>Innovation Enabled by Technology</h2>
-          <h4>
-            We are actively deploying a range of digital tools to support our integrated
-            development platform with a more connected, efficient and future-ready innovation
-            ecosystem.
-          </h4>
-        </div>
-        <div className="rd-tech-grid">
-          {TECH_ITEMS.map((item) => {
-            const hasValidImage = item.image && !imgErrors[item.image];
-            return (
-              <article
-                key={item.title}
-                className={`rd-tech-card${hasValidImage ? ' rd-tech-card--has-image' : ''}`}
-                tabIndex={0}
-              >
-                {item.image && (
-                  <>
-                    <img
-                      className="rd-tech-card-bg"
-                      src={`${R}${item.image}`}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      onError={() => {
-                        setImgErrors((prev) => ({ ...prev, [item.image]: true }));
-                      }}
-                      style={imgErrors[item.image] ? { display: 'none' } : undefined}
-                    />
-                    {hasValidImage && <div className="rd-tech-card-overlay" />}
-                  </>
-                )}
-                <div className="rd-tech-header">
-                  <span className="rd-tech-icon">
+      {/* Innovation Enabled by Technology — same panel as Company Values */}
+      <section className="cp-values-section rd-tech" aria-label="Innovation enabled by technology">
+        <img
+          className="cp-bg"
+          src="/assets/rd/tech-mesh.jpg"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="cp-values-inner">
+          <span className="cp-values-badge">Innovation</span>
+          <div className="cp-values-grid">
+            {TECH_ITEMS.map((item) => (
+              <article className="cp-value-card" tabIndex={0} key={item.title}>
+                <div className="cp-value-header">
+                  <span className="cp-value-icon">
                     <img src={item.icon} alt="" loading="lazy" decoding="async" />
                   </span>
-                  <h4 className="rd-tech-title-top">{item.title}</h4>
+                  <h4 className="cp-value-title-top">{item.title}</h4>
                 </div>
-                <div className="rd-tech-body">
-                  <h4 className="rd-tech-title-bottom" aria-hidden="true">
-                    {item.title}
-                  </h4>
-                  <p className="rd-tech-desc">{item.body}</p>
-                </div>
+                <p className="cp-value-desc">{item.body}</p>
+                <h4 className="cp-value-title-bottom" aria-hidden="true">{item.title}</h4>
               </article>
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Cascading Alternating Green Chemistry Section */}
       <div className="rd-green-wrapper">
         <div className="rd-green-section">
           <h2>Pioneering Green Pharmaceutical Solutions</h2>
           <h4>
-            At Granules India, sustainability is embedded at the molecular level. We apply green
-            chemistry principles, such as atom economy, e-factor optimization, and solvent
-            minimization, across every stage of product development. Examples include:
+            At Granules India, sustainability is embedded at the molecular level. We apply green chemistry principles, coupled with Our proprietary Eco-Scale framework to evaluate processes across 6 core parameters and 50 sub-parameters, ensuring our chemistries align with operational efficiency, global standards, and environmental stewardship.
           </h4>
         </div>
 
@@ -463,9 +467,6 @@ export default function RdPage() {
         </div>
       </div>
 
-      <h3 className="rd-eco-note">
-        Our proprietary Eco-Scale framework evaluates processes across six core parameters and 38 sub-parameters, ensuring our chemistries align with operational efficiency, global standards, and environmental stewardship.
-      </h3>
 
       {/* Built for Global Quality and Compliance */}
       <div className="biz-section-head rd-quality-head">
@@ -481,45 +482,6 @@ export default function RdPage() {
         </div>
       </div>
 
-      {/* Certified to global quality standards banner */}
-      <div className="rd-cert-banner-wrap" aria-label="Quality certifications">
-        <div className="rd-cert-banner-inner">
-          <div className="rd-cert-lead-card">
-            <h3 className="rd-cert-lead-title">
-              Certified to<br />
-              global quality<br />
-              standards
-            </h3>
-          </div>
-
-          <div className="rd-cert-badges-card">
-            <div className="rd-cert-badge-tile">
-              <img
-                src="/assets/qc/cert-1.webp"
-                alt="ISO 9001:2015 Quality Management System Certification"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className="rd-cert-badge-tile">
-              <img
-                src="/assets/qc/cert-2.webp"
-                alt="ISO 14001:2015 Environmental Management Company Certification"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className="rd-cert-badge-tile">
-              <img
-                src="/assets/qc/cert-3.webp"
-                alt="ISO 45001 Occupational Health and Safety Certification"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="rd-cta">
         <img className="bg" src={`${R}cta-bg.png`} alt="Granules Facility" />

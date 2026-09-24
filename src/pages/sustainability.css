@@ -260,6 +260,20 @@
   }
 }
 
+@media (max-width: 640px) {
+  .sus-pillar-card {
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    border-radius: 28px !important;
+  }
+
+  .sus-pillar-sheet {
+    border-radius: 24px 24px 28px 28px !important;
+    padding: 24px 20px 24px !important;
+  }
+}
+
 /* Generic stat display: big number + uppercase label */
 .sus-stat {
   display: flex;
@@ -505,301 +519,403 @@
 }
 
 /* ==========================================================================
-   IMAGE 1: SUSTAINABILITY GOALS AND TARGETS CAROUSEL
+   OUR SUSTAINABILITY GOALS — 3D COVERFLOW CAROUSEL (Matching Screenshot)
    ========================================================================== */
-.sus-goals-sec-img1 {
-  width: min(85%, 1632px) !important;
-  max-width: min(85%, 1632px) !important;
-  margin: 75px auto 0 !important;
-  display: flex;
-  flex-direction: column;
-}
-
-.sus-goals-title-img1 {
-  font-family: 'Manrope', Arial, sans-serif;
-  font-size: clamp(26px, 2.3vw, 44px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: #070707;
-  text-align: left;
-  margin: 0 0 clamp(20px, 2vw, 32px);
-  letter-spacing: -0.5px;
-}
-
-.sus-goals-carousel {
+.sus-goals-section-v2 {
   width: 100% !important;
   max-width: 100% !important;
-  margin: 0 !important;
-  overflow: visible;
-}
-
-.sus-goals-carousel .biz-track {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 8px 4px 18px 4px;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: pan-x pan-y;
-}
-
-.sus-goals-carousel .biz-track::-webkit-scrollbar {
-  display: none;
-}
-
-.sus-goals-carousel .biz-track:active,
-.sus-goals-carousel .biz-track.is-dragging {
-  cursor: grabbing;
-  scroll-behavior: auto;
-}
-
-.sus-goals-carousel .sus-goal-card {
-  flex: 0 0 clamp(270px, calc((100% - 72px) / 4), 380px);
-  width: clamp(270px, calc((100% - 72px) / 4), 380px);
-  min-width: clamp(270px, calc((100% - 72px) / 4), 380px);
-  max-width: clamp(270px, calc((100% - 72px) / 4), 380px);
-  height: 440px;
-  min-height: 440px;
-  max-height: 440px;
-  border-radius: 24px;
-  overflow: hidden;
+  margin-top: 75px !important;
+  margin-bottom: 75px !important;
   position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(210, 248, 222, 0.5) 0%, rgba(238, 252, 243, 0.3) 48%, transparent 75%);
+  padding: 48px 0 36px;
+}
+
+.sus-goals-v2-container {
+  width: min(85%, 1632px);
+  max-width: 1632px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  background: #edf4fa;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 97, 248, 0.08);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+  align-items: center;
+  position: relative;
+}
+
+.sus-goals-v2-title {
+  font-family: 'Manrope', Arial, sans-serif !important;
+  font-size: clamp(26px, 2.3vw, 44px) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: #070707 !important;
+  text-align: left !important;
+  align-self: flex-start !important;
+  width: 100% !important;
+  margin: 0 0 clamp(28px, 3vw, 40px) !important;
+  letter-spacing: -0.5px !important;
+}
+
+/* Coverflow Stage */
+.sus-goals-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+/* Active Center Card — Fixed size matching img1 */
+.sus-goals-active-card {
+  position: relative;
+  z-index: 10;
+  width: min(790px, 86%);
+  height: 346px;
+  /* Exactly locked to match img1 across all slides */
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow:
+    0 16px 44px rgba(22, 101, 52, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(22, 101, 52, 0.1);
+  padding: 28px 34px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: clamp(20px, 2.5vw, 36px);
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sus-goals-card-content {
+  flex: 1 1 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 200px;
+  box-sizing: border-box;
+}
+
+.sus-goals-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.sus-goals-year-heading,
+.sus-goals-title-heading {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 1.6vw, 26px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #166534;
+  margin: 0;
+}
+
+.sus-goals-category-pill {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #166534;
+  background: #e8f7ee;
+  border: 1px solid rgba(22, 101, 52, 0.22);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+.sus-goals-statement-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin: auto 0;
+  padding: 8px 0;
+}
+
+.sus-goals-card-desc {
+  font-family: 'Manrope', Arial, sans-serif !important;
+  font-size: clamp(13.5px, 1.05vw, 15px) !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: #070707 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  margin: 10px 0 0 !important;
+  max-width: 320px;
+}
+
+.sus-goals-card-desc--statement {
+  font-size: clamp(16px, 1.25vw, 19px) !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  color: #1a1a1a !important;
+  max-width: 340px;
+  margin: 0 !important;
+}
+
+.sus-goals-metric-block {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+  justify-content: center;
+}
+
+.sus-goals-metric {
+  font-family: 'Manrope', Arial, sans-serif !important;
+  font-size: clamp(48px, 4.4vw, 66px) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  color: #070707 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.sus-goals-metric--text {
+  font-size: clamp(32px, 2.8vw, 44px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.sus-goals-subdetails {
+  margin-top: 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.sus-goals-card-desc--sub {
+  font-size: clamp(12.5px, 0.95vw, 13.5px) !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #070707 !important;
+  margin: 0 !important;
+}
+
+/* 8-Segment Progress Bar */
+.sus-goals-segments {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.sus-goals-segment-dash {
+  height: 3px;
+  width: 24px;
+  border-radius: 9999px;
+  background: #e2e8f0;
+  border: none;
+  padding: 0;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.sus-goals-carousel .sus-goal-card:hover,
-.sus-goals-carousel .sus-goal-card.is-open {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 36px rgba(0, 97, 248, 0.14);
-  border-color: rgba(0, 97, 248, 0.22);
+.sus-goals-segment-dash.active {
+  background: #16a34a;
+  width: 32px;
 }
 
-.sus-goals-carousel .sus-goal-card img.bg {
+.sus-goals-segment-dash:hover:not(.active) {
+  background: #cbd5e1;
+}
+
+/* Right Card Image — Strict fixed dimensions matching img1 */
+.sus-goals-card-img-wrap {
+  flex: 0 0 clamp(320px, 48%, 385px);
+  width: clamp(320px, 48%, 385px);
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+  box-sizing: border-box;
+}
+
+.sus-goals-card-img-wrap img {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 20px;
+  display: block;
 }
 
-.sus-goals-carousel .sus-goal-card:hover img.bg,
-.sus-goals-carousel .sus-goal-card.is-open img.bg {
-  transform: scale(1.06);
-}
-
-/* Sliding Blue Sheet - Matches PeptidesPage / homepage product sheet */
-.sus-goals-carousel .biz-sheet {
+/* Left & Right Peek Cards */
+.sus-goals-peek-card {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px 20px 24px 24px;
-  background: #0061f8;
-  padding: 20px 22px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 -4px 20px rgba(0, 20, 80, 0.14);
-  transform: translateY(calc(100% - 84px));
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.3s ease;
-  will-change: transform;
-  z-index: 2;
-  box-sizing: border-box;
-}
-
-.sus-goals-carousel .sus-goal-card:hover .biz-sheet,
-.sus-goals-carousel .sus-goal-card.is-open .biz-sheet {
-  transform: translateY(0);
-  border-radius: 24px;
-}
-
-.sus-goals-carousel .biz-sheet-head {
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(340px, 30vw, 440px);
+  height: 275px;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(22, 101, 52, 0.08);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 44px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 4;
 }
 
-.sus-goals-carousel .biz-sheet-title {
-  font-family: 'Manrope', Arial, sans-serif;
-  font-size: clamp(16px, 1.2vw, 19px);
+.sus-goals-peek-card--left {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: clamp(24px, 3vw, 48px);
+}
+
+.sus-goals-peek-card--right {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: clamp(24px, 3vw, 48px);
+}
+
+.sus-goals-peek-card:hover {
+  border-color: rgba(22, 101, 52, 0.25);
+  box-shadow: 0 12px 32px rgba(22, 101, 52, 0.1);
+  transform: translateY(-50%) scale(1.02);
+}
+
+.sus-goals-peek-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: clamp(140px, 12vw, 170px);
+}
+
+.sus-goals-peek-card--right {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: clamp(28px, 3.5vw, 54px);
+}
+
+.sus-goals-peek-card--left {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: clamp(28px, 3.5vw, 54px);
+}
+
+.sus-goals-peek-card--right .sus-goals-peek-inner {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.sus-goals-peek-card--left .sus-goals-peek-inner {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sus-goals-peek-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 1.8vw, 26px);
   font-weight: 700;
   line-height: 1.25;
-  color: #ffffff;
-  max-width: 80%;
-  margin: 0;
+  color: #166534;
+  letter-spacing: -0.01em;
+  user-select: none;
 }
 
-.sus-goals-carousel .biz-sheet-symbol {
-  flex: 0 0 34px;
+.sus-goals-peek-cat {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(11.5px, 0.95vw, 13px);
+  font-weight: 700;
+  color: #166534;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  opacity: 0.85;
+  line-height: 1.25;
+}
+
+.sus-goals-peek-year {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(34px, 3.2vw, 50px);
+  font-weight: 700;
+  line-height: 1;
+  color: #166534;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+/* Bottom Controls */
+.sus-goals-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  position: relative;
+  z-index: 15;
+}
+
+.sus-goals-arrow-btn {
   width: 34px;
   height: 34px;
   border-radius: 50%;
   background: #ffffff;
-  display: grid;
-  place-items: center;
-  color: #0061f8;
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.sus-goals-carousel .sus-goal-card:hover .biz-sheet-symbol,
-.sus-goals-carousel .sus-goal-card.is-open .biz-sheet-symbol {
-  transform: rotate(45deg);
-}
-
-.sus-goals-carousel .biz-sheet-body {
-  flex: 1 1 auto;
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-
-.sus-goals-carousel .sus-goal-card:hover .biz-sheet-body,
-.sus-goals-carousel .sus-goal-card.is-open .biz-sheet-body {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.08s;
-}
-
-.sus-goals-carousel .biz-sheet-desc {
-  margin: 0;
-  font-family: 'Manrope', Arial, sans-serif;
-  font-size: clamp(13px, 0.95vw, 14.5px);
-  font-weight: 400;
-  line-height: 1.55;
-  color: #ffffff;
-}
-
-/* Controls: Progress bar + Arrows */
-.sus-goals-carousel .biz-carousel-controls {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 24px 0 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.sus-goals-carousel .biz-progress-track {
-  flex: 1;
-  height: 4px;
-  background: #e2e8f0;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-}
-
-.sus-goals-carousel .biz-progress-bar {
-  height: 100%;
-  background: #0061f8;
-  border-radius: 4px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: left 0.12s ease-out, width 0.12s ease-out;
-}
-
-.sus-goals-carousel .biz-carousel-arrows {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.sus-goals-carousel .biz-arrow-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid #d0d5dd;
-  background: #ffffff;
-  display: flex;
+  border: 1.5px solid #d1d5db;
+  color: #15803d;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #344054;
-  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-  padding: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  outline: none;
 }
 
-.sus-goals-carousel .biz-arrow-btn svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.sus-goals-arrow-btn:hover {
+  border-color: #16a34a;
+  background: #f0fdf4;
+  color: #166534;
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(22, 101, 52, 0.15);
 }
 
-.sus-goals-carousel .biz-arrow-btn:hover:not(:disabled) {
-  background: #0061f8;
-  border-color: #0061f8;
-  color: #ffffff;
-  transform: scale(1.05);
-}
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .sus-goals-peek-card {
+    display: none;
+  }
 
-.sus-goals-carousel .biz-arrow-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-  border-color: #e5e7eb;
-}
-
-@media (max-width: 1024px) {
-  .sus-goals-carousel .sus-goal-card {
-    flex: 0 0 clamp(270px, calc((100% - 48px) / 3), 340px);
-    width: clamp(270px, calc((100% - 48px) / 3), 340px);
-    min-width: clamp(270px, calc((100% - 48px) / 3), 340px);
-    max-width: clamp(270px, calc((100% - 48px) / 3), 340px);
-    height: 410px;
-    min-height: 410px;
+  .sus-goals-active-card {
+    width: 100%;
   }
 }
 
-@media (max-width: 680px) {
-  .sus-goals-carousel .sus-goal-card {
-    flex: 0 0 82vw;
-    width: 82vw;
-    min-width: 82vw;
-    max-width: 82vw;
-    height: 380px;
-    min-height: 380px;
-    border-radius: 20px;
+@media (max-width: 640px) {
+  .sus-goals-active-card {
+    height: auto;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
   }
 
-  .sus-goals-carousel .biz-sheet {
-    border-radius: 16px 16px 20px 20px;
-    padding: 16px 18px;
-    transform: translateY(calc(100% - 74px));
+  .sus-goals-card-content {
+    order: 2;
+    height: auto;
+    gap: 16px;
   }
 
-  .sus-goals-carousel .sus-goal-card:hover .biz-sheet,
-  .sus-goals-carousel .sus-goal-card.is-open .biz-sheet {
-    border-radius: 20px;
+  .sus-goals-card-img-wrap {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    height: 190px;
+    min-height: 190px;
+    margin-bottom: 4px;
+  }
+
+  .sus-goals-metric {
+    font-size: 42px;
   }
 }
 
@@ -965,6 +1081,7 @@
 }
 
 @media (max-width: 768px) {
+
   .sus-carousel-section,
   .sus-marquee-section {
     width: 100% !important;
@@ -999,5 +1116,123 @@
     filter: none !important;
     opacity: 1 !important;
     mix-blend-mode: normal;
+  }
+}
+
+/* ==========================================================================
+   CERTIFICATIONS GROUPED CARDS & TABLES
+   ========================================================================== */
+.sus-cert-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.sus-cert-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 34, 90, 0.04);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.sus-cert-card:hover {
+  border-color: rgba(0, 97, 248, 0.25);
+  box-shadow: 0 6px 20px rgba(0, 34, 90, 0.07);
+}
+
+.sus-cert-header {
+  background: linear-gradient(90deg, #001744 0%, #002b70 100%);
+  color: #ffffff;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.sus-cert-title {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.sus-cert-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sus-cert-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 640px;
+}
+
+.sus-cert-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.sus-cert-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sus-cert-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.sus-cert-table td {
+  padding: 15px 24px;
+  font-family: 'Manrope', sans-serif;
+  vertical-align: middle;
+}
+
+.sus-cert-facility {
+  width: 54%;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.sus-cert-validity {
+  width: 24%;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.sus-cert-actions {
+  width: 22%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.sus-cert-soon {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.2px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .sus-cert-header {
+    padding: 12px 18px;
+  }
+
+  .sus-cert-title {
+    font-size: 14px;
+  }
+
+  .sus-cert-table td {
+    padding: 12px 18px;
   }
 }

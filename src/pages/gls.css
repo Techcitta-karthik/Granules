@@ -1,23 +1,11 @@
-/* Strict 85% sides edge spacing for GLS company page */
-.gls-page-header,
-.cp-page-title,
-.cp-hero-banner,
-.cp-hero-panel,
-.cp-video-banner {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.gls-page-header,
-h1.gls-page-header,
-h2.gls-page-header {
-  font: 700 var(--fs-page-title, clamp(34px, 2.8vw, 52px))/var(--lh-page-title, 1.2) var(--font-primary, 'Manrope', sans-serif) !important;
-  letter-spacing: var(--track-page-title, -0.3px) !important;
-  color: var(--blue, #0061f8) !important;
-  margin: clamp(16px, 2vw, 28px) auto clamp(20px, 2.5vw, 32px) !important;
-  padding: 0;
+/* Strict shell alignment for GLS company page */
+.gls-page .cp-page-title,
+.gls-page .cp-hero-banner,
+.gls-page .cp-hero-panel,
+.gls-page .cp-video-banner {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin-inline: auto !important;
 }
 
 /* Scrim + heading overlay for the hero banner (matches the .car-hero-scrim /
@@ -49,7 +37,7 @@ h2.gls-page-header {
 .gls-intro {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: clamp(60px, 8vw, 118px) auto 0 !important;
+  margin: 75px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -69,9 +57,9 @@ h2.gls-page-header {
 }
 
 .gls-section {
-  width: 85% !important;
-  max-width: 85% !important;
-  margin: clamp(56px, 7vw, 90px) auto 0 !important;
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 75px auto 0 !important;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -104,11 +92,17 @@ h2.gls-page-header {
   letter-spacing: -0.02em;
 }
 
-.gls-section-head p {
+.gls-section-head p,
+.gls-section-head h3,
+.gls-section-head h4,
+.gls-section-desc {
   margin: 0;
-  font: 400 16px/1.65 'Manrope', sans-serif;
-  color: #4b5563;
-  letter-spacing: 0;
+  font-family: var(--font-primary, 'Manrope', sans-serif) !important;
+  font-size: var(--fs-subsection, clamp(18px, 1.4vw, 24px)) !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: #4b5563 !important;
+  letter-spacing: -0.2px !important;
 }
 
 .gls-cards-grid {
@@ -119,10 +113,10 @@ h2.gls-page-header {
 }
 
 .gls-card-fixed {
-  height: 520px !important;
-  min-height: 520px !important;
-  max-height: 520px !important;
-  border-radius: 40px !important;
+  height: 480px !important;
+  min-height: 480px !important;
+  max-height: 480px !important;
+  border-radius: 36px !important;
   width: 100% !important;
   max-width: 100% !important;
   flex: none !important;

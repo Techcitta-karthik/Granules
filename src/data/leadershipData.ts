@@ -82,8 +82,7 @@ export const BOARD_OF_DIRECTORS: LeadershipMember[] = [
     name: 'Mr. Harsha Chigurupati',
     role: 'Executive Director',
     profile: [
-      'Mr. Harsha Chigurupati holds a bachelor’s degree of science in Business Administration from Boston University, USA. He has two decades of entrepreneurial experience in marketing, product development, customer relationship management & operations. He also has in-depth knowledge and experience in various fields of research and development, clinical trials, regulatory and legal framework navigation, patents, and peer-reviewed journal publications.',
-      'Mr. Chigurupati has been with Granules since 2005 in various capacities. He was instrumental in commercialising the Company’s Finished Dosage Division and transitioning the Company’s customer base towards brand loyalists. As an Executive Director, he is responsible for the standalone Operations and P&L of the Company.',
+      'Mr. Harsha Chigurupati has been with Granules India since 2006 and was operational in multiple departments across the company. Over the years he has focused on driving transformation, innovation, and long-term strategic growth across the pharmaceutical and healthcare sectors. With leadership responsibilities spanning technology, transformation, and organizational development, He is particularly passionate about leveraging emerging technologies, artificial intelligence, and advanced manufacturing to create scalable, globally competitive businesses. Combining an entrepreneurial mindset with a strong emphasis on accountability, agility, and execution, he continues to champion initiatives that strengthen organizational capabilities, foster innovation, and position the company for sustained global growth.',
     ],
     directorships: [
       'Chigurupati Technologies FZE, Director',

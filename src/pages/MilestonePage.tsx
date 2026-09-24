@@ -84,12 +84,12 @@ export default function MilestonePage() {
             <img className="cp-bg" src={`${M}achievements-cta-bg.webp`} alt="" loading="lazy" decoding="async" />
             <div className="cp-bg-overlay" />
             <div className="ms-leadership-copy">
-              <h2>Meet the Leadership Shaping our Future</h2>
+              <h2>Meet Our Leadership</h2>
               <p>
-                Discover the team leading Granules with purpose, innovation, and a commitment to
+                Discover the team leading Granules with purpose, innovation, and commitment to
                 excellence.
               </p>
-              <Link className="cp-cta-btn" to="/company/leadership">OUR LEADERSHIP &rarr;</Link>
+              <Link className="cp-cta-btn" to="/company/leadership">Know More &rarr;</Link>
             </div>
           </div>
         </div>

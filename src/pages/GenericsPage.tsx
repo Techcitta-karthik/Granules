@@ -246,7 +246,7 @@ function IntegrationMark({ type }: { type: Integration }) {
 
 const products = [
   {
-    image: 'finished-dosage.webp',
+    image: 'fd/fd-card.jpg',
     title: 'Finished Dosages (FDs)',
     eyebrow: 'FD',
     body: 'Scale and complexity supported by multi-site supply capabilities, comprehensive oral solid dosage solutions engineered for affordability, patient safety, and global compliance.',
@@ -262,7 +262,7 @@ const products = [
     cta: 'Click here to know more',
   },
   {
-    image: 'api.webp',
+    image: 'api.jpg',
     title: 'Active Pharmaceutical Ingredients (APIs)',
     eyebrow: 'API',
     body: 'Large-scale manufacturing capabilities, integrated operations, and deep process chemistry delivering high-volume legacy molecules and complex niche APIs across 80+ countries.',
@@ -470,7 +470,7 @@ export default function GenericsPage() {
         <p className="cp-breadcrumb">
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
-          <Link to="/business/generics">BUSINESS</Link>
+          <span className="cp-breadcrumb-plain">BUSINESS</span>
           <span className="sep">›</span>
           <span className="current">GENERICS</span>
         </p>
@@ -735,9 +735,9 @@ export default function GenericsPage() {
             </div>
 
             <p className="pp-disclaimer">
-              All products available for Global Offering | Products listed herein may not be available
+              All products available for Global Offering. <br />Products listed herein may not be available
               for commercial use in countries where any relevant third-party intellectual property is in
-              force. All third party trade marks belong to the respective owners and have been used here
+              force.<br />All third party trade marks belong to the respective owners and have been used here
               for illustrative purposes only.
             </p>
 

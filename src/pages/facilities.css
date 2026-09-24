@@ -1,15 +1,14 @@
 /* Strict 85% sides edge spacing for Facilities company page */
-.cp-page-title,
-.cp-hero-banner,
-.cp-hero-panel,
-.cp-video-banner {
-  width: 85% !important;
-  max-width: 85% !important;
+.fac-page .cp-page-title,
+.fac-page .cp-hero-banner,
+.fac-page .cp-hero-panel,
+.fac-page .cp-video-banner {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-.cp-page-title,
 .fac-page .cp-page-title {
   font: 700 clamp(32px, 3.8vw, 54px)/1.15 'Manrope', sans-serif !important;
   letter-spacing: -0.02em !important;

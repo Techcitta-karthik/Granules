@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useMemo, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
 import './esg-profile.css';
 import { COMPLETE_ESG_DATA, ESG_FACTORS_ORDER, EsgSubfactorItem } from '../data/esgData';
+import { getAssetUrl, toCdnPdf } from '../lib/pdf';
 
 const ESG_DASHBOARD_URL =
   'https://esg.churchgatepartners.com/login/companyprofile?id=3100350036003500240024004100530048004F004B0041004E0041004E00590041004100560041004E004900410053004800570049004E00490024002400';
@@ -139,9 +141,9 @@ export default function EsgProfilePage() {
         className="cp-breadcrumb"
         style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}
       >
-        <a href="/">HOME</a>
+        <Link to="/">HOME</Link>
         <span className="sep">›</span>
-        <a href="/sustainability">SUSTAINABILITY</a>
+        <Link to="/sustainability">SUSTAINABILITY</Link>
         <span className="sep">›</span>
         <span className="current">ESG PROFILE</span>
       </p>
@@ -396,7 +398,7 @@ export default function EsgProfilePage() {
           <div className="esg-toolbar-right">
             {/* Excel Download Icon */}
             <a
-              href="/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf"
+              href={getAssetUrl('pdfs/2025/07/Granules_Integrated-Report-2024-25.pdf')}
               target="_blank"
               rel="noopener noreferrer"
               className="esg-file-btn excel"
@@ -409,7 +411,7 @@ export default function EsgProfilePage() {
 
             {/* PDF Download Icon */}
             <a
-              href="/documents/Granules_Annual-Report-FY26-8dce345b8083.pdf"
+              href={getAssetUrl('pdfs/2026/07/Granules_Annual-Report-FY26.pdf')}
               target="_blank"
               rel="noopener noreferrer"
               className="esg-file-btn pdf"
@@ -656,7 +658,7 @@ export default function EsgProfilePage() {
                   {activeModalItem.docLinks.map((doc, idx) => (
                     <a
                       key={idx}
-                      href={doc.url}
+                      href={toCdnPdf(doc.url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       download={doc.type === 'pdf'}

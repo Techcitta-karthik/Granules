@@ -101,16 +101,30 @@ export default function ContactPage() {
             {/* Key contacts — scannable */}
             <ul className="ct-contact-list" aria-label="Key contact details">
               <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                <span>15th Floor, Granules Tower, Botanical Garden Road, Kondapur,<br />
+                  Hyderabad – 500084, Telangana, India.</span>
+              </li>
+              <p className="ct-panel-cin">CIN: L24110TG1991PLC012471</p>
+              <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                <a href={`tel:${toTelHref('+91 40 23115145')}`}>+91 40 23115145</a>
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="22 17 22 11 16 5 5 5 5 17" /><rect x="2" y="17" width="20" height="5" rx="1" /><rect x="16" y="5" width="6" height="6" /></svg>
                 <a href={`tel:${toTelHref('+91 40 69043500')}`}>+91 40 69043500</a>
+              </li>
+              <li style={{ marginTop: '20px' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                <a href="mailto:mail@granulesindia.com"><strong>General Enquiries:</strong><br /> mail@granulesindia.com</a>
               </li>
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-                <a href="mailto:mail@granulesindia.com">mail@granulesindia.com</a>
+                <a href="mailto:sales@granulesindia.com"><strong>Business Enquiries:</strong><br /> sales@granulesindia.com</a>
               </li>
               <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
-                <span>15th Floor, Granules Tower, Kondapur, Hyderabad – 500084</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                <a href="mailto:GILCorporateCommunication@granulesindia.com"><strong>Media Enquiries:</strong><br /> GILCorporateCommunication@granulesindia.com</a>
               </li>
             </ul>
           </div>
@@ -233,159 +247,68 @@ export default function ContactPage() {
       ═══════════════════════════════════════════ */}
       <section className="ct-info-section cp-shell">
 
-        {/* Tab strip — KEY CONTACTS / BUSINESS CONTACTS / INVESTOR RELATION CONTACT */}
-        <div className="ct-tabs" role="tablist" aria-label="Contact sections">
-          <button role="tab" type="button"
-            aria-selected={activeTab === 'corporate'}
-            className={`ct-tab${activeTab === 'corporate' ? ' is-active' : ''}`}
-            onClick={() => setActiveTab('corporate')}>
-            KEY CONTACTS
-          </button>
-          <button role="tab" type="button"
-            aria-selected={activeTab === 'enquiries'}
-            className={`ct-tab${activeTab === 'enquiries' ? ' is-active' : ''}`}
-            onClick={() => setActiveTab('enquiries')}>
-            BUSINESS CONTACTS
-          </button>
-          <button role="tab" type="button"
-            aria-selected={activeTab === 'investor'}
-            className={`ct-tab${activeTab === 'investor' ? ' is-active' : ''}`}
-            onClick={() => setActiveTab('investor')}>
-            INVESTOR RELATION CONTACT
-          </button>
+        {/* ═══════════════════════════════════════════════
+          ADVERSE EVENT REPORTING  — white card style
+      ═══════════════════════════════════════════════ */}
+        <div className="ct-adverse-section">
+          <div className="ct-adverse-card">
+            <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-title-link">For Adverse Event Reporting</a>
+            <h4 className="ct-adverse-p">
+              To report an adverse experience with a specific Granules drug product,
+              please call or mail Granules Pharmacovigilance Team
+            </h4>
+            <div className="ct-adverse-pills">
+              <a href="tel:18777703183" className="ct-adverse-contact-pill">1-877-770-3183</a>
+              <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-contact-pill">drugs.safety@granulesindia.com</a>
+            </div>
+          </div>
         </div>
+
+        <h2><br />Investor Relations Contact</h2><br />
+        <hr className="ct-divider" />
 
         {/* Panel content */}
         <div className="ct-panel" role="tabpanel">
 
-          {/* KEY CONTACTS */}
-          {activeTab === 'corporate' && (
-            <div className="ct-panel-body">
-              <h2 className="ct-panel-heading">Corporate Office Address</h2>
-              <h4 className="ct-panel-addr">
-                15th Floor, Granules Tower, Botanical Garden Road, Kondapur,<br />
-                Hyderabad – 500084, Telangana, India.
-              </h4>
-              <p className="ct-panel-cin">CIN: L24110TG1991PLC012471</p>
-              <div className="ct-contact-chips">
-                <a href={`tel:${toTelHref('+91 40 69043500')}`} className="ct-contact-chip">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                  +91 40 69043500
-                </a>
-                <a href={`tel:${toTelHref('+91 40 23115145')}`} className="ct-contact-chip">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 17 22 11 16 5 5 5 5 17" /><rect x="2" y="17" width="20" height="5" rx="1" /><rect x="16" y="5" width="6" height="6" /></svg>
-                  +91 40 23115145
-                </a>
-                <a href="mailto:mail@granulesindia.com" className="ct-contact-chip">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-                  mail@granulesindia.com
-                </a>
-              </div>
+          <div className="ct-subsection">
+            <h3 className="ct-sub-heading">Investor Relations</h3>
+            <div className="ct-contact-chips">
+              <a href={`tel:${toTelHref('+040-69043500')}`} className="ct-contact-chip ct-contact-chip--phone">
+                +040-69043500
+              </a>
+              <a href="mailto:investorrelations@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
+                investorrelations@granulesindia.com
+              </a>
             </div>
-          )}
-
-          {/* BUSINESS CONTACTS — divided sub-sections like reference */}
-          {activeTab === 'enquiries' && (
-            <div className="ct-panel-body">
-
-              <div className="ct-subsection">
-                <h3 className="ct-sub-heading">General Enquiries</h3>
-                <div className="ct-contact-chips">
-                  <a href="mailto:mail@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
-                    mail@granulesindia.com
-                  </a>
-                </div>
-              </div>
-
-              <hr className="ct-divider" />
-
-              <div className="ct-subsection">
-                <h3 className="ct-sub-heading">Business Enquiries</h3>
-                <div className="ct-contact-chips">
-                  <a href="mailto:sales@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
-                    sales@granulesindia.com
-                  </a>
-                </div>
-              </div>
-
-              <hr className="ct-divider" />
-
-              <div className="ct-subsection">
-                <h3 className="ct-sub-heading">Media Enquiries</h3>
-                <div className="ct-contact-chips">
-                  <a href="mailto:Priyanka.Chawla@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
-                    Priyanka.Chawla@granulesindia.com
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          )}
-
-          {/* INVESTOR RELATION CONTACT — divided sub-sections */}
-          {activeTab === 'investor' && (
-            <div className="ct-panel-body">
-
-              <div className="ct-subsection">
-                <h3 className="ct-sub-heading">Investor Relations</h3>
-                <div className="ct-contact-chips">
-                  <a href={`tel:${toTelHref('+040-69043500')}`} className="ct-contact-chip ct-contact-chip--phone">
-                    +040-69043500
-                  </a>
-                  <a href="mailto:investorrelations@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
-                    investorrelations@granulesindia.com
-                  </a>
-                </div>
-              </div>
-
-              <hr className="ct-divider" />
-
-              <div className="ct-subsection">
-                <h3 className="ct-sub-heading">Retail Investors &amp; Grievance</h3>
-                <p className="ct-sub-desc">Ms. Chaitanya Tummala — Company Secretary &amp; Nodal Officer</p>
-                <div className="ct-contact-chips">
-                  <a href="mailto:chaitanya.tummala@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
-                    chaitanya.tummala@granulesindia.com
-                  </a>
-                </div>
-              </div>
-
-              <hr className="ct-divider" />
-
-              <div className="ct-subsection">
-                <h3 className="ct-sub-heading">Registrar — KFin Technologies</h3>
-                <p className="ct-sub-desc">Selenium Tower B, Gachibowli, Financial District, Hyderabad – 500 032.</p>
-                <div className="ct-contact-chips">
-                  <a href="tel:18003094001" className="ct-contact-chip ct-contact-chip--phone">
-                    1-800-309-4001 (Toll Free)
-                  </a>
-                  <a href="mailto:einward.ris@kfintech.com" className="ct-contact-chip ct-contact-chip--email">
-                    einward.ris@kfintech.com
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          )}
-
-        </div>
-      </section>
-
-
-      {/* ═══════════════════════════════════════════════
-          ADVERSE EVENT REPORTING  — white card style
-      ═══════════════════════════════════════════════ */}
-      <section className="ct-adverse-section cp-shell">
-        <div className="ct-adverse-card">
-          <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-title-link">For Adverse Event Reporting</a>
-          <h4 className="ct-adverse-p">
-            To report an adverse experience with a specific Granules drug product,
-            please call or mail Granules Pharmacovigilance Team
-          </h4>
-          <div className="ct-adverse-pills">
-            <a href="tel:18777703183" className="ct-adverse-contact-pill">1-877-770-3183</a>
-            <a href="mailto:drugs.safety@granulesindia.com" className="ct-adverse-contact-pill">drugs.safety@granulesindia.com</a>
           </div>
+
+          <hr className="ct-divider" />
+
+          <div className="ct-subsection">
+            <h3 className="ct-sub-heading">Retail Investors &amp; Grievance</h3>
+            <p className="ct-sub-desc">Ms. Chaitanya Tummala — Company Secretary &amp; Nodal Officer</p>
+            <div className="ct-contact-chips">
+              <a href="mailto:chaitanya.tummala@granulesindia.com" className="ct-contact-chip ct-contact-chip--email">
+                chaitanya.tummala@granulesindia.com
+              </a>
+            </div>
+          </div>
+
+          <hr className="ct-divider" />
+
+          <div className="ct-subsection">
+            <h3 className="ct-sub-heading">Registrar — KFin Technologies</h3>
+            <p className="ct-sub-desc">Selenium Tower B, Gachibowli, Financial District, Hyderabad – 500 032.</p>
+            <div className="ct-contact-chips">
+              <a href="tel:18003094001" className="ct-contact-chip ct-contact-chip--phone">
+                1-800-309-4001 (Toll Free)
+              </a>
+              <a href="mailto:einward.ris@kfintech.com" className="ct-contact-chip ct-contact-chip--email">
+                einward.ris@kfintech.com
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 

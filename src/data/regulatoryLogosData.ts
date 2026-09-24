@@ -51,7 +51,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'Therapeutic Goods Administration',
     country: 'Australia',
     region: 'Asia-Pacific',
-    image: '/assets/logos/tga.svg',
+    image: '/assets/logos/TGA.jpeg',
     badge: 'GMP Clearance',
   },
   {
@@ -105,7 +105,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'Saudi Food and Drug Authority',
     country: 'Saudi Arabia',
     region: 'Middle East',
-    image: '/assets/logos/sfda.svg',
+    image: '/assets/logos/sfda.jpg',
     badge: 'GCC GMP Approved',
   },
   {

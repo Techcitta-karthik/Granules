@@ -516,12 +516,19 @@
   letter-spacing: -0.2px !important;
 }
 
-/* CIN line — same blue, clean subtitle style */
+/* CIN line — white on blue hero and clean subtitle style */
 .ct-panel-cin {
   margin: 0 0 24px;
-  font: 400 clamp(16px, 1.15vw, 18px)/1.5 'Manrope', sans-serif !important;
-  color: #64748b !important;
+  font: 400 clamp(14px, 1.05vw, 16px)/1.5 'Manrope', sans-serif !important;
+  color: #ffffff !important;
   letter-spacing: -0.1px !important;
+}
+
+.ct-contact-list .ct-panel-cin {
+  margin: -2px 0 4px 23px;
+  font: 500 13.5px/1.5 'Manrope', sans-serif !important;
+  color: #ffffff !important;
+  display: block;
 }
 
 /* Contact chips row — side by side, generous spacing */
@@ -622,11 +629,12 @@
 ══════════════════════════════════════════════════════════════════ */
 
 .ct-adverse-section {
+  width: 100%;
   margin-top: 75px;
 }
 
-
 .ct-adverse-card {
+  width: 100%;
   min-height: 250px;
   box-sizing: border-box;
   display: flex;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter, CareerSection } from '../components/company';
+import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 import '../styles.css';
 import './overview.css';
@@ -92,21 +93,21 @@ const CSR_DOCUMENTS = [
   {
     title: 'Corporate Social Responsibility Policy',
     meta: 'Statutory Board-Approved Policy Framework',
-    pdf: '/documents/CSR-Policy-7f3b00771044.pdf',
+    pdf: getAssetUrl('pdfs/2025/12/CSR-Policy.pdf'),
     filename: 'Granules_CSR_Policy.pdf',
     badge: 'Policy',
   },
   {
     title: 'Social Policy & Human Rights Standards',
     meta: 'Community & Workplace Ethical Guidelines',
-    pdf: '/documents/8328CSR-Policy-30ada84aca1b.pdf',
+    pdf: getAssetUrl('pdfs/2025/12/CSR-Policy.pdf'),
     filename: 'Granules_Social_Standards_Policy.pdf',
     badge: 'Standards',
   },
   {
     title: 'Integrated Annual Report FY 24-25',
     meta: 'Comprehensive CSR & ESG Performance Disclosures',
-    pdf: '/documents/Granules_Integrated-Report-2024-25-6f0e58611b3c.pdf',
+    pdf: getAssetUrl('pdfs/2025/07/Granules_Integrated-Report-2024-25.pdf'),
     filename: 'Granules_Integrated_Annual_Report_FY24-25.pdf',
     badge: 'Annual Report',
   },
@@ -135,13 +136,11 @@ export default function CommunityPage() {
         <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
-          <Link to="/sustainability">SUSTAINABILITY</Link>
-          <span className="sep">›</span>
           <span className="current">Community</span>
         </p>
         {/* Page Title */}
         <h1 className="cp-page-title" style={{ width: '85%', margin: 'clamp(20px, 2.5vw, 32px) auto clamp(24px, 3vw, 36px)' }}>
-          Community
+          Driving Meaningful Impact, Enriching Communities.
         </h1>
 
         {/* Executive Leadership Quote Card */}

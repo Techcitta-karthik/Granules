@@ -15,7 +15,7 @@
 .ld-main-breadcrumb {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: clamp(60px, 8vw, 118px) auto 16px !important;
+  margin: 112px auto 16px !important;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -26,8 +26,14 @@
   color: #7b8898;
 }
 
+@media (max-width: 768px) {
+  .ld-main-breadcrumb {
+    margin: 98px auto 14px !important;
+  }
+}
+
 .ld-main-breadcrumb a {
-  color: #7b8898;
+  color: #070707;
   transition: color 0.2s ease;
 }
 
@@ -36,7 +42,7 @@
 }
 
 .ld-main-breadcrumb .sep {
-  color: #94a3b8;
+  color: #070707;
   font-size: 13px;
   margin: 0 2px;
 }
@@ -465,7 +471,7 @@
 .ld-profile-breadcrumb {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: clamp(60px, 8vw, 118px) auto 16px !important;
+  margin: 112px auto 16px !important;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -477,8 +483,14 @@
   color: #7b8898;
 }
 
+@media (max-width: 768px) {
+  .ld-profile-breadcrumb {
+    margin: 98px auto 14px !important;
+  }
+}
+
 .ld-profile-breadcrumb a {
-  color: #7b8898;
+  color: #070707;
   transition: color 0.2s ease;
 }
 
@@ -487,16 +499,16 @@
 }
 
 .ld-profile-breadcrumb .sep {
-  color: #7b8898;
+  color: #070707;
   font-size: 13px;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .ld-breadcrumb-btn {
   background: none;
   border: none;
   padding: 0;
-  color: #7b8898;
+  color: #070707;
   font: inherit;
   cursor: pointer;
   text-transform: uppercase;
@@ -1132,7 +1144,21 @@
   line-height: 1;
 }
 
+@media (max-width: 992px) {
+  .ld-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 28px 20px !important;
+  }
+}
+
 @media (max-width: 640px) {
+  .ld-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 420px !important;
+    margin-inline: auto !important;
+    gap: 28px !important;
+  }
+
   .ld-modal-hero {
     flex-direction: column;
     text-align: center;

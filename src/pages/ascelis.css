@@ -341,5 +341,28 @@
   .asc-motion-card {
     margin-left: 0;
     margin-top: 24px;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .asc-footprint-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .asc-footprint-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .asc-progress span {
+    width: 60px;
+  }
+
+  .asc-cta {
+    padding: 28px 24px;
+    border-radius: 28px;
   }
 }

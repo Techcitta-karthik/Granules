@@ -414,7 +414,9 @@ export default function ProductPortfolioPage() {
         <p className="cp-breadcrumb">
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
-          <Link to="/business/generics">BUSINESS</Link>
+          <span className="cp-breadcrumb-plain">BUSINESS</span>
+          <span className="sep">›</span>
+          <Link to="/business/generics">GENERICS</Link>
           <span className="sep">›</span>
           <span className="current">OUR PRODUCTS</span>
         </p>

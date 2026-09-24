@@ -3,10 +3,11 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 export function useSwipeScroll() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasScroll, setHasScroll] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [thumbWidth, setThumbWidth] = useState(30);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [thumbWidth, setThumbWidth] = useState(100);
 
   const isDown = useRef(false);
   const startX = useRef(0);
@@ -19,7 +20,8 @@ export function useSwipeScroll() {
     if (!trackRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = trackRef.current;
     const maxScroll = scrollWidth - clientWidth;
-    if (maxScroll > 0) {
+    if (maxScroll > 2) {
+      setHasScroll(true);
       const progress = Math.min(1, Math.max(0, scrollLeft / maxScroll));
       setScrollProgress(progress);
       setCanScrollLeft(scrollLeft > 2);
@@ -27,6 +29,7 @@ export function useSwipeScroll() {
       const ratio = Math.max(0.25, Math.min(0.5, clientWidth / scrollWidth));
       setThumbWidth(ratio * 100);
     } else {
+      setHasScroll(false);
       setScrollProgress(0);
       setCanScrollLeft(false);
       setCanScrollRight(false);
@@ -38,11 +41,16 @@ export function useSwipeScroll() {
     const el = trackRef.current;
     if (!el) return;
     updateProgress();
+    const timer = setTimeout(updateProgress, 100);
     el.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(updateProgress) : null;
+    if (ro) ro.observe(el);
     return () => {
+      clearTimeout(timer);
       el.removeEventListener('scroll', updateProgress);
       window.removeEventListener('resize', updateProgress);
+      if (ro) ro.disconnect();
     };
   }, [updateProgress]);
 
@@ -106,6 +114,7 @@ export function useSwipeScroll() {
   return {
     trackRef,
     isDragging,
+    hasScroll,
     scrollProgress,
     canScrollLeft,
     canScrollRight,

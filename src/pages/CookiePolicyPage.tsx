@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 import './PrivacyPolicyPage.css';
 
@@ -197,7 +198,7 @@ export default function CookiePolicyPage() {
               <p className="policy-text" style={{ color: '#1e3a8a', fontWeight: 500, margin: 0 }}>
                 You can download our scanned, signed Cookie-Policy by{' '}
                 <a
-                  href="http://granulesindia.com/wp-content/uploads/2025/08/Cookie-Policy.pdf"
+                  href={getAssetUrl('pdfs/2025/08/Cookie-Policy.pdf')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="policy-link"

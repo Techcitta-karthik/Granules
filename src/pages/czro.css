@@ -483,6 +483,19 @@
   }
 
   .czro-card {
-    width: 320px;
+    width: clamp(280px, 75vw, 360px);
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    border-radius: 28px !important;
+  }
+
+  .czro-card-label {
+    padding: 24px 20px;
+    min-height: 96px;
+  }
+
+  .czro-card-label span {
+    font-size: 20px;
   }
 }
