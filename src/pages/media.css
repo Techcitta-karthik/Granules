@@ -650,13 +650,13 @@
 .med-report-copy h1,
 .med-report-copy h2,
 .med-report-heading {
-  margin: 0 0 clamp(12px, 1.4vw, 18px);
+  margin: 0 0 clamp(12px, 1.4vw, 18px) !important;
   font-family: var(--font-primary, 'Manrope', sans-serif) !important;
-  font-size: var(--fs-page-title, clamp(34px, 2.8vw, 52px)) !important;
+  font-size: clamp(34px, 3.2vw, 50px) !important;
   font-weight: 700 !important;
-  line-height: var(--lh-page-title, 1.2) !important;
+  line-height: 1.18 !important;
   color: #0061f8 !important;
-  letter-spacing: var(--track-page-title, -0.3px) !important;
+  letter-spacing: -0.02em !important;
 }
 
 .med-report-sub {

@@ -768,63 +768,79 @@
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
   margin: 75px auto 75px !important;
-  border-radius: 40px;
-  padding: 36px clamp(24px, 4.5vw, 60px) !important;
-  background: linear-gradient(89.4deg, #beedfa 42.3%, rgba(0, 186, 234, 0) 75.4%);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: clamp(16px, 2vw, 22px);
-  min-height: 250px;
-  box-sizing: border-box;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  border-radius: 36px !important;
+  padding: 28px clamp(28px, 4.5vw, 64px) !important;
+  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat !important;
+  border: 1.5px solid rgba(0, 97, 248, 0.16) !important;
+  box-shadow: 
+    0 12px 36px rgba(0, 34, 90, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  min-height: 250px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  position: relative !important;
 }
 
 .inv-contact-copy {
-  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  max-width: 840px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
 .inv-contact-copy h2 {
-  margin: 0;
-  font: 700 clamp(26px, 3.2vw, 44px)/1.15 'Manrope', sans-serif;
-  color: var(--blue-2, #0061f8);
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: none !important;
 }
 
 .inv-contact-copy p {
-  margin: 0;
-  font: 500 clamp(16px, 1.2vw, 20px)/1.35 'Manrope', sans-serif;
-  color: var(--n9, #1e293b);
-  letter-spacing: 0.15px;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
+  letter-spacing: -0.15px !important;
+  max-width: 840px !important;
+  text-shadow: none !important;
 }
 
+.inv-contact-cta .cp-cta-btn,
 .inv-contact-btn {
   align-self: flex-start !important;
   margin: 0 !important;
-  background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
-  border-radius: 9999px;
-  padding: 13px 34px;
-  color: #fff;
-  font: 700 14px/1 'Manrope', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.28);
+  background: #0061f8 !important;
+  border-radius: 9999px !important;
+  padding: 12px 28px !important;
+  color: #ffffff !important;
+  font: 700 13.5px/1 'Manrope', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.7px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.22s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.22s ease, box-shadow 0.22s ease !important;
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.35) !important;
+  border: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
 }
 
+.inv-contact-cta .cp-cta-btn:hover,
 .inv-contact-btn:hover {
-  background: linear-gradient(180deg, #004ecc 0%, #002db3 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0, 64, 162, 0.45);
-}
-
-.inv-contact-btn:active {
-  transform: translateY(0);
+  background: #004ecc !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 78, 204, 0.45) !important;
+  color: #ffffff !important;
 }
 
 /* ---------- Detail / Inside page ---------- */

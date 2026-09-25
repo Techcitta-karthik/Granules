@@ -845,85 +845,85 @@
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
   margin: 75px auto 75px !important;
-  border-radius: 40px;
-  padding: 36px clamp(24px, 4.5vw, 60px) !important;
+  border-radius: 36px !important;
+  padding: 28px clamp(28px, 4.5vw, 64px) !important;
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: clamp(16px, 2vw, 22px);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 14px !important;
   min-height: 250px !important;
   box-sizing: border-box !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat !important;
+  border: 1.5px solid rgba(0, 97, 248, 0.16) !important;
+  box-shadow: 
+    0 12px 36px rgba(0, 34, 90, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
-.rd-cta img.bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 60%;
-  z-index: 0;
-}
-
+.rd-cta img.bg,
 .rd-cta .overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(90deg, rgba(190, 237, 250, 0.94) 0%, rgba(190, 237, 250, 0.82) 28%, rgba(190, 237, 250, 0) 48%);
+  display: none !important;
 }
 
 .rd-cta-copy {
   position: relative;
   z-index: 1;
-  max-width: 650px;
+  max-width: 840px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
 .rd-cta-copy h2 {
-  margin: 0;
-  font: 700 clamp(26px, 3.2vw, 44px)/1.15 'Manrope', sans-serif;
-  color: var(--blue-2, #0061f8);
-  letter-spacing: -0.5px;
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: none !important;
 }
 
 .rd-cta-copy p {
-  margin: 0;
-  font: 500 clamp(16px, 1.2vw, 20px)/1.35 'Manrope', sans-serif;
-  color: var(--n9, #0f172a);
-  letter-spacing: 0.15px;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
+  letter-spacing: -0.15px !important;
+  max-width: 840px !important;
+  text-shadow: none !important;
 }
 
 .rd-cta .cp-cta-btn {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #0061f8;
+  position: relative !important;
+  z-index: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: #0061f8 !important;
   color: #ffffff !important;
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-family: 'Manrope', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 97, 248, 0.35);
-  transition: all 0.3s ease;
-  white-space: nowrap;
+  padding: 12px 28px !important;
+  border-radius: 9999px !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.7px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.35) !important;
+  transition: transform 0.22s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.22s ease, box-shadow 0.22s ease !important;
+  white-space: nowrap !important;
   align-self: flex-start !important;
   margin: 0 !important;
 }
 
 .rd-cta .cp-cta-btn:hover {
-  background: #004ecc;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 97, 248, 0.45);
+  background: #004ecc !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 78, 204, 0.45) !important;
+  color: #ffffff !important;
 }
 
 .rd-cta .cp-cta-btn svg {

@@ -317,22 +317,24 @@
 }
 
 .asc-cta-copy h2 {
-  margin: 0;
-  font: 500 clamp(28px, 4vw, 50px)/1.1 'Manrope', sans-serif;
-  color: var(--blue-2);
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: -0.02em !important;
 }
 
 .asc-cta-copy p {
-  margin: 0;
-  font: 500 22px/1.3 'Manrope', sans-serif;
-  color: var(--n9);
-  letter-spacing: 0.22px;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
+  letter-spacing: -0.15px !important;
+  max-width: 840px !important;
 }
 
 .asc-cta .cp-cta-btn {
   position: relative;
   z-index: 1;
-  align-self: flex-end !important;
+  align-self: flex-start !important;
   margin-left: auto;
   margin-bottom: clamp(6px, 1vw, 14px);
 }

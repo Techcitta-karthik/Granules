@@ -256,8 +256,6 @@ export default function OperationalExcellencePage() {
       </div>
 
       <div className="oe-cta">
-        <img className="bg" src={`${OE}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
-        <div className="overlay" />
         <div className="oe-cta-copy">
           <h2>Celebrating our achievements</h2>
           <p>
@@ -265,7 +263,7 @@ export default function OperationalExcellencePage() {
             pursuit of progress.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/company/awards">Awards</a>
+        <Link className="cp-cta-btn" to="/company/awards">AWARDS</Link>
       </div>
 
       <CompanyFooter />

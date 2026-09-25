@@ -351,7 +351,7 @@ function Presence() {
 
       <div className="map-wrap">
         <div className="map-stage">
-          <div className={`map-plane${active > 0 ? ' focus-india' : ''}`}>
+          <div className="map-plane">
             {/* Base World Map Image */}
             <img
               className="map"
@@ -389,144 +389,156 @@ function Presence() {
               </defs>
 
               {/* ============================================================
-                TAB 0: OUR LOCATIONS (WORLD VIEW)
+                TAB 0: OUR GLOBAL SUBSIDIARIES
+                - Granules India Limited, India
+                - Granules Life Sciences Private Limited, India
+                - Granules CZRO Private Limited, India
+                - Senn Tides Private Limited, India
                 ============================================================ */}
               <g
-                className="presence-layer presence-layer-world"
+                className="presence-layer presence-layer-subsidiaries"
                 style={{
                   opacity: active === 0 ? 1 : 0,
                   pointerEvents: active === 0 ? 'auto' : 'none',
                   transition: 'opacity 0.35s ease'
                 }}
               >
-                {/* 1. Chantilly (Virginia) USA */}
-                <line x1="261" y1="327" x2="245" y2="248" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-                <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="145" y="222" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                  <text x="235" y="235.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    CHANTILLY (VIRGINIA) USA
-                  </text>
-                </g>
-                <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+                {/* Leader lines from Hyderabad (698, 413) to stacked pills */}
+                <line x1="698" y1="413" x2="725" y2="348" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <line x1="698" y1="413" x2="725" y2="382" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <line x1="698" y1="413" x2="725" y2="416" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <line x1="698" y1="413" x2="725" y2="450" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
 
-                {/* 2. Switzerland */}
-                <line x1="498" y1="315" x2="498" y2="280" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                {/* Stacked Pills */}
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="442" y="254" width="112" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                  <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    SWITZERLAND
+                  {/* 1. Granules India Limited, India */}
+                  <rect x="725" y="336" width="190" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="820" y="348.5" fill="#0061f8" fontSize="9.2" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.2px" textAnchor="middle" dominantBaseline="central">
+                    GRANULES INDIA LIMITED, INDIA
                   </text>
-                </g>
-                <circle className="map-pin-dot" cx="498" cy="315" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-                {/* 3. Pune (Maharashtra, India) */}
-                <line x1="683.5" y1="412" x2="676" y2="432" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-                <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="620" y="420" width="56" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                  <text x="648" y="432.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    PUNE
+                  {/* 2. Granules Life Sciences Private Limited, India */}
+                  <rect x="725" y="370" width="264" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="857" y="382.5" fill="#0061f8" fontSize="8.9" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.2px" textAnchor="middle" dominantBaseline="central">
+                    GRANULES LIFE SCIENCES PRIVATE LIMITED, INDIA
                   </text>
-                </g>
-                <circle className="map-pin-dot" cx="683.5" cy="412" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-                {/* 4. Hyderabad (Telangana, India) */}
-                <line x1="698" y1="413" x2="714" y2="376" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-                <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="670" y="352" width="88" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                  <text x="714" y="364.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    HYDERABAD
+                  {/* 3. Granules CZRO Private Limited, India */}
+                  <rect x="725" y="404" width="224" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="837" y="416.5" fill="#0061f8" fontSize="9.2" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.2px" textAnchor="middle" dominantBaseline="central">
+                    GRANULES CZRO PRIVATE LIMITED, INDIA
                   </text>
-                </g>
-                <circle className="map-pin-dot" cx="698" cy="413" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-                {/* 5. Visakhapatnam (Andhra Pradesh, India) */}
-                <line x1="717" y1="404" x2="722" y2="426" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-                <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="706" y="426" width="116" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                  <text x="764" y="438.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    VISAKHAPATNAM
+                  {/* 4. Senn Tides Private Limited, India */}
+                  <rect x="725" y="438" width="208" height="24" rx="12" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="829" y="450.5" fill="#0061f8" fontSize="9.2" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.2px" textAnchor="middle" dominantBaseline="central">
+                    SENN TIDES PRIVATE LIMITED, INDIA
                   </text>
                 </g>
-                <circle className="map-pin-dot" cx="717" cy="404" r="5.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+                {/* Dot at Hyderabad */}
+                <circle className="map-pin-dot" cx="698" cy="413" r="6.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
               </g>
 
               {/* ============================================================
-                TAB 1: OUR KEY SUBSIDIARIES (ZOOMED INDIA VIEW)
+                TAB 1: OUR MANUFACTURING FACILITIES
+                - Hyderabad, India
+                - Andhra Pradesh, India
+                - Zurich, Switzerland
                 ============================================================ */}
               <g
-                className="presence-layer presence-layer-subsidiaries"
+                className="presence-layer presence-layer-manufacturing"
                 style={{
                   opacity: active === 1 ? 1 : 0,
                   pointerEvents: active === 1 ? 'auto' : 'none',
                   transition: 'opacity 0.35s ease'
                 }}
               >
-                {/* 3 Converging Leader Lines down to Hyderabad */}
-                <line x1="698" y1="413" x2="708" y2="352.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
-                <line x1="698" y1="413" x2="708" y2="365.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
-                <line x1="698" y1="413" x2="708" y2="378.5" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
-
-                {/* Stacked Pills to upper-right of Hyderabad */}
+                {/* 1. Zurich, Switzerland */}
+                <line x1="498" y1="315" x2="498" y2="280" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  {/* Pill 1: Granules Life Sciences */}
-                  <rect x="708" y="347" width="108" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                  <text x="762" y="352.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                    GRANULES LIFE SCIENCES PRIVATE LIMITED
-                  </text>
-
-                  {/* Pill 2: Granules CZRO */}
-                  <rect x="708" y="360" width="86" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                  <text x="751" y="365.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                    GRANULES CZRO PRIVATE LIMITED
-                  </text>
-
-                  {/* Pill 3: Ascelis Peptides */}
-                  <rect x="708" y="373" width="90" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                  <text x="753" y="378.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                    SENN TIDES INDIA PRIVATE LIMITED
-                  </text>
-
-                  {/* Pill 4: GRANULES PI */}
-                  <rect x="708" y="386" width="90" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                  <text x="753" y="391.8" fill="#0061f8" fontSize="4.1" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                    GRANULES PHARMACEUTICALS INC
+                  <rect x="408" y="254" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    ZURICH, SWITZERLAND
                   </text>
                 </g>
+                <circle className="map-pin-dot" cx="498" cy="315" r="7" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-                {/* Dot at Hyderabad */}
-                <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+                {/* 2. Hyderabad, India */}
+                <line x1="698" y1="413" x2="650" y2="442" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="580" y="442" width="140" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="650" y="455.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    HYDERABAD, INDIA
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="698" cy="413" r="6.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+                {/* 3. Andhra Pradesh, India */}
+                <line x1="717" y1="404" x2="748" y2="375" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="748" y="362" width="176" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="836" y="375.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    VISAKHAPATNAM, INDIA
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="717" cy="404" r="6.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
               </g>
 
               {/* ============================================================
-                TAB 2: OUR FACILITIES (ZOOMED INDIA VIEW)
+                TAB 2: OUR R&D FACILITIES
+                - Hyderabad, India
+                - Pune, India
+                - Virginia, USA
+                - Zurich, Switzerland
                 ============================================================ */}
               <g
-                className="presence-layer presence-layer-facilities"
+                className="presence-layer presence-layer-rd"
                 style={{
                   opacity: active === 2 ? 1 : 0,
                   pointerEvents: active === 2 ? 'auto' : 'none',
                   transition: 'opacity 0.35s ease'
                 }}
               >
-                {/* Hyderabad */}
-                <line x1="698" y1="413" x2="685" y2="394" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+                {/* 1. Virginia, USA */}
+                <line x1="261" y1="327" x2="245" y2="252" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="660" y="383" width="42" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                  <text x="681" y="388.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                    HYDERABAD
+                  <rect x="175" y="226" width="140" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="245" y="239.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    VIRGINIA, USA
                   </text>
                 </g>
-                <circle className="map-pin-dot" cx="698" cy="413" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+                <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
-                {/* Visakhapatnam */}
-                <line x1="717" y1="404" x2="728" y2="388" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="0.5" strokeLinecap="round" />
+                {/* 2. Zurich, Switzerland */}
+                <line x1="498" y1="315" x2="498" y2="280" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="715" y="377" width="52" height="11" rx="5.5" fill="#ffffff" stroke="#d0e2ff" strokeWidth="0.35" />
-                  <text x="741" y="382.8" fill="#0061f8" fontSize="4.3" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.1px" textAnchor="middle" dominantBaseline="central">
-                    VISHAKHPATNAM
+                  <rect x="408" y="254" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    ZURICH, SWITZERLAND
                   </text>
                 </g>
-                <circle className="map-pin-dot" cx="717" cy="404" r="3.2" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+                <circle className="map-pin-dot" cx="498" cy="315" r="7" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+                {/* 3. Pune, India */}
+                <line x1="683.5" y1="412" x2="640" y2="442" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="580" y="442" width="120" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="640" y="455.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    PUNE, INDIA
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="683.5" cy="412" r="6" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
+
+                {/* 4. Hyderabad, India */}
+                <line x1="698" y1="413" x2="740" y2="375" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
+                <g className="map-pill-group" filter="url(#map-pill-shadow)">
+                  <rect x="740" y="362" width="150" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
+                  <text x="815" y="375.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
+                    HYDERABAD, INDIA
+                  </text>
+                </g>
+                <circle className="map-pin-dot" cx="698" cy="413" r="6" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
               </g>
             </svg>
           </div>
@@ -622,12 +634,12 @@ function Sustainability({ open = 0, setOpen }) {
     },
   ];
 
-  // Auto-shift between Sustainability and Community every 5 seconds (pauses on hover)
+  // Auto-shift between Sustainability and Community every 3 seconds (pauses on hover)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setOpen?.((prev) => (prev === 0 ? 1 : 0));
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [isPaused, setOpen]);
 
@@ -685,19 +697,9 @@ function Sustainability({ open = 0, setOpen }) {
 function Investor() {
   const docs = [
     {
-      title: 'Integrated annual report 2025-26',
-      href: getAssetUrl('pdfs/2026/07/Granules_Annual-Report-FY26-1.pdf'),
-      download: 'Granules_Annual_Report_FY26.pdf',
-    },
-    {
-      title: 'Q1 Results for 2026-27',
+      title: 'Q1 Results for FY27',
       href: getAssetUrl('pdfs/2026/07/FY-Result-Jun26.pdf'),
       download: 'Granules_Q1_FY27_Results.pdf',
-    },
-    {
-      title: 'Investor presentation',
-      href: getAssetUrl('pdfs/2026/07/Earnings-Presentation-Q1FY27vf.pdf'),
-      download: 'Granules_Investor_Presentation_Q1_FY27.pdf',
     },
     {
       title: 'Earnings call transcript (Q1 FY27)',
@@ -705,9 +707,14 @@ function Investor() {
       download: 'Granules_Earnings_Call_Transcript_Q1_FY27.pdf',
     },
     {
-      title: 'Shareholding pattern',
-      href: getAssetUrl('pdfs/2026/07/Website-SHP-1_merged.pdf'),
-      download: 'Granules_Shareholding_Pattern_Q1_FY27.pdf',
+      title: 'Investor presentation',
+      href: getAssetUrl('pdfs/2026/07/Earnings-Presentation-Q1FY27vf.pdf'),
+      download: 'Granules_Investor_Presentation_Q1_FY27.pdf',
+    },
+    {
+      title: 'Integrated annual report 2025-26',
+      href: getAssetUrl('pdfs/2026/07/Granules_Annual-Report-FY26-1.pdf'),
+      download: 'Granules_Annual_Report_FY26.pdf',
     },
   ];
   return (
@@ -719,7 +726,7 @@ function Investor() {
           Driven by operational excellence and responsible growth, we remain focused on creating
           sustainable value for our investors.
         </p>
-        <Button href="/investors">INVESTORS &rarr;</Button>
+        <Button href="/investors">INVESTOR &rarr;</Button>
       </div>
       <div className="investor-panel">
         <a

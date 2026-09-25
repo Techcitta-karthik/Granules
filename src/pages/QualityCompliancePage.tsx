@@ -133,114 +133,113 @@ export default function QualityCompliancePage() {
           <span className="cp-section-badge" style={{ alignSelf: 'flex-start', background: '#fff' }}>Our Quality Systems</span>
         </div>
 
-        {STORIES.map((story, index) => (
-          <div
-            className={`qc-stack-card qc-stack-card--${index}${story.reverse ? ' qc-stack-card--reverse' : ''}`}
-            key={story.title}
-          >
-            <div className="qc-card-copy">
-              <h1
-                className="qc-card-title"
-                style={{
-                  fontSize: 'clamp(44px, 3.8vw, 58px)',
-                  fontWeight: 700,
-                  lineHeight: 1.12,
-                  color: '#0061f8',
-                  letterSpacing: '-0.025em',
-                  margin: '0 0 24px 0',
-                  maxWidth: '520px',
-                }}
-              >
-                {story.title}
-              </h1>
-              <p
-                className="qc-card-desc"
-                style={{
-                  fontSize: 'clamp(15px, 1.05vw, 17px)',
-                  fontWeight: 400,
-                  lineHeight: 1.65,
-                  color: '#334155',
-                  letterSpacing: '-0.01em',
-                  margin: 0,
-                  maxWidth: '620px',
-                }}
-              >
-                {story.body}
-              </p>
-              {story.highlights && (
-                <ul className="qc-card-highlights">
-                  {story.highlights.map((highlight) => (
-                    <li className="qc-card-highlight" key={highlight.label}>
-                      <span className="qc-card-highlight-value">{highlight.value}</span>
-                      <span className="qc-card-highlight-label">{highlight.label}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+        {STORIES.map((story, index) => {
+          const isLast = index === STORIES.length - 1;
+          return (
+            <div
+              className={`qc-stack-card qc-stack-card--${index}${story.reverse ? ' qc-stack-card--reverse' : ''}${isLast ? ' qc-stack-card--last' : ''}`}
+              key={story.title}
+              style={{
+                top: isLast ? 'auto' : undefined,
+              }}
+            >
+              <div className="qc-card-copy">
+                <h1
+                  className="qc-card-title"
+                  style={{
+                    fontSize: 'clamp(44px, 3.8vw, 58px)',
+                    fontWeight: 700,
+                    lineHeight: 1.12,
+                    color: '#0061f8',
+                    letterSpacing: '-0.025em',
+                    margin: '0 0 24px 0',
+                    maxWidth: '520px',
+                  }}
+                >
+                  {story.title}
+                </h1>
+                <p
+                  className="qc-card-desc"
+                  style={{
+                    fontSize: 'clamp(15px, 1.05vw, 17px)',
+                    fontWeight: 400,
+                    lineHeight: 1.65,
+                    color: '#334155',
+                    letterSpacing: '-0.01em',
+                    margin: 0,
+                    maxWidth: '620px',
+                  }}
+                >
+                  {story.body}
+                </p>
+                {story.highlights && (
+                  <ul className="qc-card-highlights">
+                    {story.highlights.map((highlight) => (
+                      <li className="qc-card-highlight" key={highlight.label}>
+                        <span className="qc-card-highlight-value">{highlight.value}</span>
+                        <span className="qc-card-highlight-label">{highlight.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <div className="qc-card-media">
+                <img src={`${Q}${story.image}`} alt={story.title} loading="lazy" decoding="async" />
+              </div>
             </div>
-            <div className="qc-card-media">
-              <img src={`${Q}${story.image}`} alt={story.title} loading="lazy" decoding="async" />
-            </div>
+          );
+        })}
+      </div>
+
+      <div className="rd-cert-banner-wrap qc-cert-banner-wrap" aria-label="Quality certifications" style={{ margin: '75px auto' }}>
+        <div className="rd-cert-banner-inner qc-cert-banner-inner">
+          <div className="rd-cert-lead-card qc-cert-lead-card">
+            <h1 className="rd-cert-lead-title qc-cert-lead-title">
+              Certified to<br />
+              global quality<br />
+              standards
+            </h1>
           </div>
-        ))}
 
-        <div className="qc-below-stack">
-          <div className="rd-cert-banner-wrap qc-cert-banner-wrap" aria-label="Quality certifications">
-            <div className="rd-cert-banner-inner">
-              <div className="rd-cert-lead-card">
-                <h3 className="rd-cert-lead-title">
-                  Certified to<br />
-                  global quality<br />
-                  standards
-                </h3>
-              </div>
-
-              <div className="rd-cert-badges-card">
-                <div className="rd-cert-badge-tile">
-                  <img
-                    src={`${Q}cert-1.webp`}
-                    alt="ISO 9001:2015 Quality Management System Certification"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="rd-cert-badge-tile">
-                  <img
-                    src={`${Q}cert-2.webp`}
-                    alt="ISO 14001:2015 Environmental Management Company Certification"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="rd-cert-badge-tile">
-                  <img
-                    src={`${Q}cert-3.webp`}
-                    alt="ISO 45001 Occupational Health and Safety Certification"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
+          <div className="rd-cert-badges-card qc-cert-badges-card">
+            <div className="rd-cert-badge-tile qc-cert-badge-tile">
+              <img
+                src={`${Q}cert-1.webp?v=2`}
+                alt="ISO 9001:2015 Quality Management System Certification"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="rd-cert-badge-tile qc-cert-badge-tile">
+              <img
+                src={`${Q}cert-2.webp?v=2`}
+                alt="ISO 14001:2015 Environmental Management Company Certification"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="rd-cert-badge-tile qc-cert-badge-tile">
+              <img
+                src={`${Q}cert-3.webp?v=2`}
+                alt="ISO 45001 Occupational Health and Safety Certification"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
       </div>
 
       <section className="qc-cta" aria-label="Partner with Granules for Quality & Compliance">
-        <img className="bg" src={`${Q}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
-        <div className="overlay" />
         <div className="qc-cta-copy">
           <h2>Ready to Partner with us?</h2>
           <p>
             Connect with our quality and regulatory specialists to ensure compliant, continuous global pharmaceutical supply.
           </p>
         </div>
-        <div className="qc-cta-actions">
-          <Link to="/contact" className="qc-cta-btn qc-cta-btn--primary">
-            <span>Contact Us</span>
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
+        <Link to="/contact" className="cp-cta-btn">
+          CONNECT WITH US
+        </Link>
       </section>
 
       <CompanyFooter />

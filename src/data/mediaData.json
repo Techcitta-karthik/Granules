@@ -1419,6 +1419,36 @@
         "url": "https://www.businessworld.in/article/innovation-led-transformation-586835",
         "image": "https://d16d47oyl512wy.cloudfront.net/pdfs/2024/08/Priyanka-chigurupati.jpg",
         "body": "Innovation led transformation - Featured in news coverage on 23 January, 2026."
+      },
+      {
+        "id": "news-2026-2",
+        "year": "2026",
+        "category": "NEWS",
+        "date": "11 SEPTEMBER, 2026",
+        "title": "Granules India secures sole first-to-file status for generic drug",
+        "url": "https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr",
+        "image": "/assets/news-1.jpg",
+        "body": "Granules India has secured sole first-to-file status for a generic drug, strengthening its position in regulated markets."
+      },
+      {
+        "id": "news-2026-3",
+        "year": "2026",
+        "category": "NEWS",
+        "date": "6 JULY, 2026",
+        "title": "Showcased breakthrough technologies at CPhI Worldwide 2025.",
+        "url": "https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380",
+        "image": "/assets/news-2.webp",
+        "body": "Granules presented integrated capabilities spanning APIs, finished dosages, peptides and next-generation manufacturing."
+      },
+      {
+        "id": "news-2026-4",
+        "year": "2026",
+        "category": "NEWS",
+        "date": "21 JULY, 2026",
+        "title": "Launched a dedicated peptide manufacturing unit.",
+        "url": "https://www.business-standard.com/markets/capital-market-news/granules-india-records-60-yoy-increase-in-q1-pat-126072100899_1.html",
+        "image": "/assets/news-3.webp",
+        "body": "The new facility expands our ability to support complex molecules with a scalable, quality-led development platform."
       }
     ],
     "2025": [
@@ -3171,6 +3201,36 @@
       "url": "https://www.businessworld.in/article/innovation-led-transformation-586835",
       "image": "https://d16d47oyl512wy.cloudfront.net/pdfs/2024/08/Priyanka-chigurupati.jpg",
       "body": "Innovation led transformation - Featured in news coverage on 23 January, 2026."
+    },
+    {
+      "id": "news-2026-2",
+      "year": "2026",
+      "category": "NEWS",
+      "date": "11 SEPTEMBER, 2026",
+      "title": "Granules India secures sole first-to-file status for generic drug",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr",
+      "image": "/assets/news-1.jpg",
+      "body": "Granules India has secured sole first-to-file status for a generic drug, strengthening its position in regulated markets."
+    },
+    {
+      "id": "news-2026-3",
+      "year": "2026",
+      "category": "NEWS",
+      "date": "6 JULY, 2026",
+      "title": "Showcased breakthrough technologies at CPhI Worldwide 2025.",
+      "url": "https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380",
+      "image": "/assets/news-2.webp",
+      "body": "Granules presented integrated capabilities spanning APIs, finished dosages, peptides and next-generation manufacturing."
+    },
+    {
+      "id": "news-2026-4",
+      "year": "2026",
+      "category": "NEWS",
+      "date": "21 JULY, 2026",
+      "title": "Launched a dedicated peptide manufacturing unit.",
+      "url": "https://www.business-standard.com/markets/capital-market-news/granules-india-records-60-yoy-increase-in-q1-pat-126072100899_1.html",
+      "image": "/assets/news-3.webp",
+      "body": "The new facility expands our ability to support complex molecules with a scalable, quality-led development platform."
     },
     {
       "id": "news-2025-1",

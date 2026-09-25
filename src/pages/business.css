@@ -129,16 +129,18 @@ h3.cp-page-title {
 }
 
 .biz-cta-copy h2 {
-  margin: 0;
-  font: 700 clamp(26px, 3.2vw, 44px)/1.15 'Manrope', sans-serif;
-  color: var(--blue-2);
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: -0.02em !important;
 }
 
 .biz-cta-copy p {
-  margin: 12px 0 0;
-  font: 500 clamp(16px, 1.2vw, 20px)/1.4 'Manrope', sans-serif;
-  color: var(--n9);
-  letter-spacing: 0.15px;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
+  letter-spacing: -0.15px !important;
+  max-width: 840px !important;
 }
 
 .biz-cta .cp-cta-btn {
@@ -751,17 +753,19 @@ h3.cp-page-title {
 }
 
 .gen-page .biz-cta-copy h2 {
-  font: 700 clamp(26px, 3.2vw, 44px)/1.15 'Manrope', sans-serif !important;
-  color: var(--blue-2) !important;
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
   letter-spacing: -0.02em !important;
 }
 
 .gen-page .biz-cta-copy h4,
 .gen-page .biz-cta-copy p {
-  margin: 16px 0 0 0 !important;
-  font: 400 clamp(18px, 1.3vw, 22px)/1.5 'Manrope', sans-serif !important;
-  color: var(--n9) !important;
-  letter-spacing: -0.2px !important;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
+  letter-spacing: -0.15px !important;
+  max-width: 840px !important;
 }
 
 .gen-section-head {

@@ -411,20 +411,15 @@ export default function EhsSubmissionsPage() {
           </div>
 
           {/* Bottom Gradient Call-to-Action Banner */}
-          <div className="ct-cta-box" style={{ marginTop: '64px', marginBottom: '75px' }}>
+          <div className="ct-cta-box">
             <h2 className="ct-cta-title">Committed to Zero-Harm &amp; Sustainable Operations</h2>
             <p className="ct-cta-text">
               Discover how Granules India integrates green chemistry, energy efficiency, and community stewardship into
               every phase of our business.
             </p>
-            <div className="ct-cta-actions">
-              <Link to="/sustainability" className="ct-cta-btn ct-cta-btn--primary">
-                Explore Sustainability Overview
-              </Link>
-              <Link to="/sustainability/esg-profile" className="ct-cta-btn ct-cta-btn--secondary">
-                View ESG World Profile
-              </Link>
-            </div>
+            <Link to="/sustainability" className="cp-cta-btn">
+              EXPLORE SUSTAINABILITY
+            </Link>
           </div>
         </div>
       </main>

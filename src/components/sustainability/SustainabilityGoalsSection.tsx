@@ -27,8 +27,8 @@ export const SUSTAINABILITY_GOALS: SustainabilityGoalItem[] = [
     id: 'dei',
     title: 'DEI',
     label: 'Accelerate women’s employment and advance diversity, equity, and inclusion across our workforce',
-    image: '/assets/sustainability/sus/dei.jpg',
-    imageAlt: 'Diverse workplace and women empowerment at Granules',
+    image: '/assets/sustainability/sus/dei.jpg?v=2',
+    imageAlt: 'Women’s health awareness session at Granules',
   },
   {
     id: 'community',

@@ -153,7 +153,7 @@ export default function ApiPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Our API Portfolio &rarr;
+          VIEW OUR API PORTFOLIO
         </a>
       </div>
 

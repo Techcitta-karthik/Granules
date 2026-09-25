@@ -101,9 +101,8 @@ export default function CompanyFooter() {
             <span className="cp-legal-copy">Copyright © 2026 Granules. All rights reserved.</span>
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/cookies-policy">Cookies Policy</Link>
-            <Link to="/disclaimer">Disclaimer</Link>
-            <Link to="/data-protection-notice">Data Protection Notice</Link>
-            <Link to="/terms-conditions">Terms &amp; Conditions</Link>
+            <Link to="/data-privacy-complaint-form">Data Privacy Complaint Form</Link>
+            <Link to="/terms-conditions">Terms Of Use</Link>
           </div>
 
           <div className="cp-footer-socials">

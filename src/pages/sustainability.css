@@ -467,16 +467,18 @@
 }
 
 .sus-cta-copy h2 {
-  margin: 0;
-  font: 700 clamp(26px, 3.2vw, 44px)/1.15 'Manrope', sans-serif;
-  color: var(--blue-2);
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: -0.02em !important;
 }
 
 .sus-cta-copy p {
-  margin: 0;
-  font: 500 clamp(16px, 1.2vw, 20px)/1.35 'Manrope', sans-serif;
-  color: var(--n9);
-  letter-spacing: 0.15px;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
+  letter-spacing: -0.15px !important;
+  max-width: 840px !important;
 }
 
 .sus-cta .cp-cta-btn {

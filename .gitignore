@@ -3,6 +3,8 @@ dist/
 work/
 *.log
 .DS_Store
+.env
+scratch/
 
 # Large downloaded zip archives (>100MB GitHub limit, already unzipped in repo)
 public/uploads/pdf/gil-iar-24-25/WeSendit.zip

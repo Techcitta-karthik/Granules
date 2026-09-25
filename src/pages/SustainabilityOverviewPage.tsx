@@ -1031,16 +1031,14 @@ export default function SustainabilityOverviewPage() {
       </section>
 
       {/* Bottom CTA to Strategy */}
-      <div className="sus-cta" style={{ width: '85%', margin: 'clamp(80px, 10vw, 120px) auto 0' }}>
-        <img className="bg" src={`${S}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
-        <div className="overlay" />
+      <div className="sus-cta">
         <div className="sus-cta-copy">
           <h2>Together for Stronger Communities</h2>
           <p>
             Through focused interventions in healthcare, education, skill development, and environmental conservation, we are helping build healthier, more resilient communities.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/community">Community</a>
+        <Link className="cp-cta-btn" to="/community">COMMUNITY</Link>
       </div>
 
       <CompanyFooter />

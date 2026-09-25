@@ -616,7 +616,7 @@ export default function ProductPortfolioPage() {
           <p>Speak with the commercial team about supply and the full Granules portfolio.</p>
         </div>
         <Link className="cp-cta-btn" to="/contact">
-          Contact us
+          CONTACT US
         </Link>
       </div>
 

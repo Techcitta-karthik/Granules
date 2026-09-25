@@ -160,10 +160,7 @@ export default function GlobalSubsidiariesPage() {
       {/* Intro Section - identical to /company/milestone */}
       <div className="cp-about-desc global-sub-intro">
         <h4>
-          With strategically differentiated offerings, our subsidiaries play a vital role in enabling us to deliver high-quality, affordable, and sustainable healthcare solutions to patients worldwide.
-        </h4>
-        <h4>
-          Beyond driving business growth, our subsidiaries help drive a shared commitment to common values, consistent standards, and a collective focus on creating long-term value for patients, partners, communities, and the planet.
+          With strategically differentiated offerings, our subsidiaries play a vital role in enabling us to deliver high-quality, affordable, and sustainable healthcare solutions to patients worldwide. Beyond driving business growth, our subsidiaries help drive a shared commitment to common values, consistent standards, and a collective focus on creating long-term value for patients, partners, communities, and the planet.
         </h4>
       </div>
 
@@ -180,16 +177,14 @@ export default function GlobalSubsidiariesPage() {
       </section>
 
       {/* CTA Banner Section */}
-      <div className="cp-career" style={{ width: 'min(85%, 1632px)', margin: '75px auto 0' }}>
-        <img className="cp-bg" src="/assets/company/values-bg.png" alt="" loading="lazy" decoding="async" />
-        <div className="cp-bg-overlay" />
+      <div className="cp-career">
         <div className="cp-career-copy">
           <h2>Advancing Healthcare Through Science &amp; Scale</h2>
           <p>
             Advancing healthcare through a growing portfolio of complex, high-value pharmaceutical products.
           </p>
-          <Link className="cp-cta-btn" to="/business/generics">GENERICS &rarr;</Link>
         </div>
+        <Link className="cp-cta-btn" to="/business/generics">GENERICS</Link>
       </div>
 
       <CompanyFooter />

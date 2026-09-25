@@ -45,6 +45,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage.tsx';
 import CookiePolicyPage from './pages/CookiePolicyPage.tsx';
 import DisclaimerPage from './pages/DisclaimerPage.tsx';
 import DataProtectionNoticePage from './pages/DataProtectionNoticePage.tsx';
+import DataPrivacyComplaintFormPage from './pages/DataPrivacyComplaintFormPage.tsx';
 import TermsConditionsPage from './pages/TermsConditionsPage.tsx';
 import ProductPortfolioPage from './pages/ProductPortfolioPage.tsx';
 import BackToTopButton from './components/common/BackToTopButton';
@@ -141,6 +142,7 @@ function App() {
         <Route path="/cookies" element={<CookiePolicyPage />} />
         <Route path="/disclaimer" element={<DisclaimerPage />} />
         <Route path="/data-protection-notice" element={<DataProtectionNoticePage />} />
+        <Route path="/data-privacy-complaint-form" element={<DataPrivacyComplaintFormPage />} />
         <Route path="/data-protection" element={<DataProtectionNoticePage />} />
         <Route path="/terms-conditions" element={<TermsConditionsPage />} />
         <Route path="/terms-condition" element={<TermsConditionsPage />} />

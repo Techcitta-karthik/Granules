@@ -48,7 +48,7 @@
   position: relative;
   background: #f3f8fe;
   padding-top: 75px;
-  padding-bottom: 0;
+  padding-bottom: 75px;
   margin-top: 75px;
   display: flex;
   flex-direction: column;
@@ -106,6 +106,14 @@
 
 .ms-stack-card:hover {
   box-shadow: 0 16px 48px rgba(0, 34, 90, 0.1) !important;
+}
+
+/* Last milestone card: not stacked/frozen, scrolls up naturally with page flow */
+.ms-stack-card:last-child,
+.ms-stack-card--last {
+  position: relative !important;
+  top: auto !important;
+  margin-bottom: 0 !important;
 }
 
 .ms-stack-card--reverse {
@@ -168,6 +176,8 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  filter: none;
+  image-rendering: auto;
 }
 
 .ms-card-caption {
@@ -197,25 +207,11 @@
   user-select: none;
 }
 
-/* Below-Stack Container: Scrolls ON TOP of all sticky cards like a curtain */
-.ms-below-stack {
-  position: relative;
-  z-index: 100;
-  background: #ffffff;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  margin-top: 0;
-  padding-top: 75px;
-  padding-bottom: 75px;
-  box-shadow: 0 -12px 40px rgba(0, 30, 80, 0.04) !important;
-  border-top: 1px solid rgba(0, 97, 248, 0.12);
-}
-
 /* Leadership CTA closing the timeline section with photo background */
 .ms-leadership {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: 0 auto !important;
+  margin: 75px auto !important;
   border-radius: 28px !important;
   padding: 32px clamp(30px, 4vw, 60px) !important;
   position: relative;
@@ -327,12 +323,6 @@
   }
   .ms-card-year-wrap {
     justify-content: flex-start;
-  }
-  .ms-below-stack {
-    border-top-left-radius: 28px;
-    border-top-right-radius: 28px;
-    padding-top: 48px;
-    padding-bottom: 48px;
   }
   .ms-leadership {
     border-radius: 28px;

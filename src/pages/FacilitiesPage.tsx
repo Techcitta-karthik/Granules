@@ -38,7 +38,7 @@ const FACILITIES: Facility[] = [
     pfiCapacity: '23 KTPA',
   },
   {
-    name: 'Unit-V, Vizag (ONCO)',
+    name: 'Vizag (Unit-V) (ONCO)',
     location: 'VISAKHAPATNAM, ANDHRA PRADESH',
     category: 'Formulations',
     categories: ['Formulations', 'API'],
@@ -112,7 +112,7 @@ const FACILITIES: Facility[] = [
     apiCapacity: '62 KLPA',
   },
   {
-    name: 'Unit-IV, Vizag',
+    name: 'Vizag (Unit-IV)',
     location: 'VISAKHAPATNAM, ANDHRA PRADESH',
     category: 'API',
     categories: ['API'],
@@ -124,7 +124,7 @@ const FACILITIES: Facility[] = [
 
   // CDMO
   {
-    name: 'Senn Chemicals AG (Zurich)',
+    name: 'Senn Chemicals AG',
     location: 'DIELSDORF, ZURICH, SWITZERLAND',
     category: 'CDMO',
     categories: ['CDMO'],

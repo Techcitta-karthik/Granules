@@ -107,6 +107,137 @@
   text-decoration: underline;
 }
 
+.policy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 720px;
+}
+
+.policy-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.policy-label {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.policy-label .req {
+  color: #1e50ff;
+  margin-left: 2px;
+}
+
+.policy-input,
+.policy-select,
+.policy-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #cddcf0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px 14px;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #4b5563;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.policy-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.policy-input:focus,
+.policy-select:focus,
+.policy-textarea:focus {
+  border-color: #1e50ff;
+  box-shadow: 0 0 0 3px rgba(30, 80, 255, 0.1);
+}
+
+.policy-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+}
+
+.policy-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  font-weight: 400;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.policy-role input {
+  accent-color: #1e50ff;
+  width: 16px;
+  height: 16px;
+}
+
+.policy-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  background: #1e50ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.policy-submit:hover {
+  background: #003cdb;
+}
+
+.policy-note {
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 12px;
+  background: #f4f7ff;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.policy-note strong {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.policy-success {
+  margin: 0;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: #eef4ff;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e50ff;
+}
+
 @media (max-width: 768px) {
   .policy-main {
     width: 90% !important;
@@ -123,7 +254,15 @@
   }
 
   .policy-text,
-  .policy-list li {
-    font-size: 15px;
+  .policy-list li,
+  .policy-label,
+  .policy-input,
+  .policy-select,
+  .policy-textarea,
+  .policy-role,
+  .policy-submit,
+  .policy-note,
+  .policy-success {
+    font-size: 14px;
   }
 }

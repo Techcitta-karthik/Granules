@@ -44,7 +44,7 @@ const BENEFITS: BenefitItem[] = [
     title: 'Technology-Enabled by Digitalisation',
     body: 'From digitally enabled product development and data-driven formulation design to electronic quality management systems and industry 4.0 manufacturing platforms, we are leveraging technology to accelerate innovation, strengthen data integrity, improve operational excellence, and support scalable, compliant delivery of high-quality medicines.',
     icon: 'icon-digital.svg',
-    image: '/assets/api/5.png',
+    image: '/assets/fd/digitalisation.jpg',
   },
 ];
 
@@ -135,8 +135,6 @@ export default function FdPage() {
       </div>
 
       <div className="biz-cta">
-        <img className="bg" src={`${F}cta-bg.png`} alt="" />
-        <div className="overlay" />
         <div className="biz-cta-copy">
           <h2>Explore Our Finished Dosage Portfolio</h2>
           <p>
@@ -149,7 +147,7 @@ export default function FdPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Product List &rarr;
+          VIEW PRODUCT LIST
         </a>
       </div>
 

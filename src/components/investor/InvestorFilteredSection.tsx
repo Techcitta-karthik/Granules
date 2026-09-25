@@ -230,13 +230,71 @@ export default function InvestorFilteredSection({
     }
   }, [availableYears, selectedYear]);
 
+const MONTH_MAP: Record<string, number> = {
+  jan: 1, january: 1, feb: 2, february: 2, mar: 3, march: 3,
+  apr: 4, april: 4, may: 5, jun: 6, june: 6, jul: 7, july: 7,
+  aug: 8, august: 8, sep: 9, sept: 9, september: 9, oct: 10, october: 10,
+  nov: 11, november: 11, dec: 12, december: 12,
+};
+
+function getDocSortScore(item: InvestorDocItem): number {
+  const p = (item.period || '').trim();
+  const t = (item.title || '').trim();
+  let year = parseInt(item.year || '', 10);
+
+  const m1 = (p + ' ' + t).match(/([A-Za-z]+)\s+(\d{1,2}),?\s*(\d{4})/);
+  if (m1 && MONTH_MAP[m1[1].toLowerCase()]) {
+    return parseInt(m1[3], 10) * 10000 + MONTH_MAP[m1[1].toLowerCase()] * 100 + parseInt(m1[2], 10);
+  }
+  const m2 = (p + ' ' + t).match(/(\d{1,2})\s+([A-Za-z]+),?\s*(\d{4})/);
+  if (m2 && MONTH_MAP[m2[2].toLowerCase()]) {
+    return parseInt(m2[3], 10) * 10000 + MONTH_MAP[m2[2].toLowerCase()] * 100 + parseInt(m2[1], 10);
+  }
+  const m3 = (p + ' ' + t).match(/([A-Za-z]+)\s+(\d{4})/);
+  if (m3 && MONTH_MAP[m3[1].toLowerCase()]) {
+    return parseInt(m3[2], 10) * 10000 + MONTH_MAP[m3[1].toLowerCase()] * 100 + 15;
+  }
+
+  let qNum: number | null = null;
+  const qMatch = p.match(/Q([1-4])/i) || t.match(/Q([1-4])/i);
+  if (qMatch) qNum = parseInt(qMatch[1], 10);
+  else if (/first quarter/i.test(p) || /first quarter/i.test(t)) qNum = 1;
+  else if (/second quarter/i.test(p) || /second quarter/i.test(t)) qNum = 2;
+  else if (/third quarter/i.test(p) || /third quarter/i.test(t)) qNum = 3;
+  else if (/fourth quarter|fouth quarter/i.test(p) || /fourth quarter|fouth quarter/i.test(t)) qNum = 4;
+
+  if (isNaN(year) || !year) {
+    const ym = (p + ' ' + t + ' ' + (item.pdf || '')).match(/20\d{2}/);
+    if (ym) year = parseInt(ym[0], 10);
+  }
+
+  if (qNum && year) {
+    const calYear = qNum === 4 ? year : year - 1;
+    const mo = qNum === 4 ? 3 : qNum === 3 ? 12 : qNum === 2 ? 9 : 6;
+    return calYear * 10000 + mo * 100 + 15;
+  }
+
+  if (item.pdf) {
+    const pdfDateMatch = item.pdf.match(/\/(\d{4})\/(\d{2})\//);
+    if (pdfDateMatch) {
+      return parseInt(pdfDateMatch[1], 10) * 10000 + parseInt(pdfDateMatch[2], 10) * 100 + 10;
+    }
+  }
+
+  if (year) {
+    return year * 10000 + 600 + 1;
+  }
+
+  return 0;
+}
+
   // Filtered documents
   const filteredItems = useMemo<InvestorDocItem[]>(() => {
     let pool = activeSubcat ? activeSubcat.items : allCategoryItems;
     if (selectedYear !== 'all') {
       pool = pool.filter((item) => item.year === selectedYear);
     }
-    return pool;
+    return [...pool].sort((a, b) => getDocSortScore(b) - getDocSortScore(a));
   }, [activeSubcat, allCategoryItems, selectedYear]);
 
   // Dropdown options lists

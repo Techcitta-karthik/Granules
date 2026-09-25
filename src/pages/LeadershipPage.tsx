@@ -269,13 +269,11 @@ export default function LeadershipPage() {
       <div className="ld-bottom-divider" />
 
       <div className="ld-cta">
-        <img className="cp-bg" src={`${L}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
-        <div className="cp-bg-overlay" />
         <div className="ld-cta-copy">
           <h2>Find your next role at Granules</h2>
           <p>Join us in shaping the future of sustainable healthcare.</p>
-          <Link className="cp-cta-btn" to="/careers">CAREERS &rarr;</Link>
         </div>
+        <Link className="cp-cta-btn" to="/careers">CAREERS</Link>
       </div>
 
       <CompanyFooter />

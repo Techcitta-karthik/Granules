@@ -12,7 +12,7 @@ type CapabilityCard = { title: string; image: string; desc: string };
 const CAPABILITY_CARDS: CapabilityCard[] = [
   {
     title: 'Automated Production',
-    image: 'card-lean-process.png',
+    image: 'automated-production.jpg',
     desc: 'Advanced automated production lines and high-speed encapsulation delivering 10 billion oral solid dosages annually.',
   },
   {
@@ -118,8 +118,6 @@ export default function GranulesLifeSciencesPage() {
       </div>
 
       <div className="gls-cta">
-        <img className="bg" src={`${G}cta-bg.png`} alt="" />
-        <div className="overlay" />
         <div className="gls-cta-copy">
           <h2>Explore Our Finished Dosages Capabilities</h2>
           <p>
@@ -127,7 +125,7 @@ export default function GranulesLifeSciencesPage() {
             across global finished dosage operations.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/business/fd">Finished Dosages</a>
+        <Link className="cp-cta-btn" to="/business/fd">FINISHED DOSAGES</Link>
       </div>
 
       <CompanyFooter />

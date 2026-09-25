@@ -20,7 +20,6 @@ const TAB_DATA: Record<number, { label: string; href?: string; pdf?: string }[]>
     { label: 'Shareholding Structure', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/01/Third-Quarter-SHP-2025.pdf' },
     { label: 'Top 200 Shareholders', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2026/07/GRAN_TOP-200-AS-ON-31.03.2026.pdf' },
     { label: 'Policies', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/12/CSR-Policy.pdf' },
-    { label: 'Analyst Coverage', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/pdf/notice/2960Granules India Conference Call, Hosted by Edelweiss Securities - June 02....pdf' },
     { label: 'Buyback 2022', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2022/10/Post-Buyback-Public-Announcement.pdf' },
     { label: 'Forms', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2022/09/Form-SH-4.pdf' },
     { label: 'Unclaimed–Dividend & Shares Transferred to IEPF', pdf: 'https://d16d47oyl512wy.cloudfront.net/pdfs/2025/11/Details-Of-Share-Transferred-To-The-Iepf-Authority.pdf' },
@@ -193,7 +192,7 @@ export default function InvestorOverviewV2Page() {
             committed to transparent communication and timely responses.
           </p>
         </div>
-        <Link className="inv-contact-btn" to="/contact">Contact</Link>
+        <Link className="cp-cta-btn" to="/contact">CONTACT US</Link>
       </div>
 
       <CompanyFooter />

@@ -51,7 +51,7 @@ export const REGULATORY_LOGOS: RegulatoryLogo[] = [
     fullName: 'Therapeutic Goods Administration',
     country: 'Australia',
     region: 'Asia-Pacific',
-    image: '/assets/logos/TGA.jpeg',
+    image: '/assets/logos/tga.jpeg',
     badge: 'GMP Clearance',
   },
   {

@@ -404,17 +404,18 @@ export default function PeptidesPage() {
       <section className="senn-cta" aria-label="Discuss Your Peptide Program">
         <div className="senn-cta-copy">
           <h2>Discuss Your Peptide Program</h2>
-          <h4>
+          <p>
             Connect with our CDMO team for peptide feasibility, process development, scale-up or commercial supply.
-          </h4>
+          </p>
         </div>
-
-        <div className="senn-cta-actions">
-          <Link to="https://sennchem.com" target="_blank" rel="noopener noreferrer" className="senn-cta-btn senn-cta-btn--primary">
-            <span> Visit Senn Chemicals</span>
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
+        <a
+          href="https://sennchem.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cp-cta-btn"
+        >
+          VISIT SENN CHEMICALS
+        </a>
       </section>
 
       <CompanyFooter />

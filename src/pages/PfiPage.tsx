@@ -136,8 +136,6 @@ export default function PfiPage() {
       </div>
 
       <div className="biz-cta">
-        <img className="bg" src={`${P}cta-bg.png`} alt="" />
-        <div className="overlay" />
         <div className="biz-cta-copy">
           <h2>Explore Our Full PFI Product Portfolio</h2>
           <p>
@@ -150,7 +148,7 @@ export default function PfiPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Product List &rarr;
+          VIEW PRODUCT LIST
         </a>
       </div>
 

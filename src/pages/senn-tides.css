@@ -396,7 +396,7 @@ h1.senn-page-header {
   border: none !important;
   border-radius: 0 !important;
   padding: 0 !important;
-  max-width: clamp(480px, 68vw, 980px);
+  max-width: clamp(520px, 72vw, 1080px);
   box-shadow: none !important;
   display: flex;
   flex-direction: column;
@@ -419,16 +419,17 @@ h1.senn-page-header {
   display: none !important;
 }
 
+.senn-practice-card h2,
 .senn-practice-card h3 {
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   font-family: 'Manrope', sans-serif !important;
-  font-size: clamp(36px, 3.8vw, 54px) !important;
+  font-size: clamp(42px, 4.4vw, 64px) !important;
   font-weight: 800 !important;
-  line-height: 1.15 !important;
+  line-height: 1.12 !important;
   color: #ffffff !important;
   text-transform: uppercase !important;
   letter-spacing: -0.015em !important;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
 }
 
 .senn-practice-card p {
@@ -459,9 +460,9 @@ h1.senn-page-header {
   border: none;
   background: #ffffff;
   border-radius: 9999px;
-  padding: 10px 24px;
+  padding: 11px 26px;
   color: #0061f8;
-  font: 700 clamp(13px, 1.05vw, 14.5px)/1 'Manrope', sans-serif;
+  font: 700 clamp(14px, 1.1vw, 16px)/1 'Manrope', sans-serif;
   letter-spacing: 0.2px;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -516,9 +517,10 @@ h1.senn-page-header {
     border-radius: 0 !important;
   }
 
+  .senn-practice-card h2,
   .senn-practice-card h3 {
-    font-size: clamp(26px, 5.5vw, 36px) !important;
-    margin-bottom: 12px;
+    font-size: clamp(30px, 6vw, 42px) !important;
+    margin-bottom: 14px;
   }
 
   .senn-practice-card p {
@@ -552,8 +554,9 @@ h1.senn-page-header {
     margin-bottom: 10px;
   }
 
+  .senn-practice-card h2,
   .senn-practice-card h3 {
-    font-size: clamp(22px, 5.8vw, 28px) !important;
+    font-size: clamp(24px, 6.5vw, 30px) !important;
     margin-bottom: 10px;
   }
 
@@ -1291,7 +1294,7 @@ h1.senn-page-header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   display: block;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1523,23 +1526,26 @@ h4.senn-cap-banner-text {
 .senn-cta {
   width: min(85%, 1632px) !important;
   max-width: 1632px !important;
-  margin: clamp(40px, 4.5vw, 60px) auto clamp(40px, 4.5vw, 60px) !important;
+  margin: 75px auto !important;
   height: 250px !important;
   min-height: 250px !important;
   max-height: 250px !important;
   box-sizing: border-box !important;
-  border-radius: 28px !important;
-  padding: 24px clamp(24px, 4.5vw, 60px) !important;
+  border-radius: 36px !important;
+  padding: 28px clamp(28px, 4.5vw, 64px) !important;
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 12px;
-  background: linear-gradient(89deg, rgba(190, 237, 250, 0.9) 34.8%, rgba(234, 249, 255, 0.95) 70%, #f7fbff 100%);
-  border: 1px solid rgba(0, 97, 248, 0.15);
-  box-shadow: 0 12px 36px rgba(0, 97, 248, 0.08);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat !important;
+  border: 1.5px solid rgba(0, 97, 248, 0.16) !important;
+  box-shadow: 
+    0 12px 36px rgba(0, 34, 90, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
 .senn-cta-copy {
@@ -1552,103 +1558,58 @@ h4.senn-cap-banner-text {
 }
 
 .senn-cta-copy h2 {
-  margin: 0;
-  font: 700 clamp(20px, 1.8vw, 26px)/1.25 'Manrope', sans-serif;
-  color: var(--blue-2, #0050c7);
-  letter-spacing: -0.02em;
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: none !important;
 }
 
 .senn-cta-copy h4,
 .senn-cta-copy p {
-  margin: 0;
-  font: 400 clamp(14px, 1vw, 16px)/1.45 'Manrope', sans-serif !important;
-  color: var(--n9, #1e293b) !important;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
   letter-spacing: -0.15px !important;
+  max-width: 840px !important;
+  text-shadow: none !important;
 }
 
-.senn-cta-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
-  font: 500 13px/1 'Manrope', sans-serif;
-  margin-top: 2px;
-  color: #475569;
+.senn-cta .cp-cta-btn,
+.senn-cta .senn-cta-btn,
+.senn-cta .senn-cta-btn--primary,
+.senn-cta .senn-cta-btn--secondary {
+  position: relative !important;
+  z-index: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font: 700 13.5px/1 'Manrope', sans-serif !important;
+  padding: 12px 28px !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.7px !important;
+  background: #0061f8 !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.35) !important;
+  transition: transform 0.22s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.22s ease, box-shadow 0.22s ease !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  align-self: flex-start !important;
+  margin: 0 !important;
 }
 
-.senn-cta-links a {
-  color: var(--blue, #0061f8);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
-}
-
-.senn-cta-links a:hover {
-  color: #003db3;
-}
-
-.senn-cta-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
-}
-
-.senn-cta-btn {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font: 700 12.5px/1 'Manrope', sans-serif;
-  padding: 10px 24px;
-  border-radius: 9999px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.senn-cta-btn--primary {
-  background: linear-gradient(180deg, #0061f8 0%, #0140a2 100%);
-  color: #ffffff;
-  border: none;
-  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.28);
-}
-
-.senn-cta-btn--primary:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(180deg, #004ecc 0%, #002db3 100%);
-  box-shadow: 0 10px 28px rgba(0, 64, 162, 0.42);
-  color: #ffffff;
-}
-
-.senn-cta-btn--secondary {
-  background: #ffffff;
-  color: var(--blue, #0061f8);
-  border: 1.5px solid rgba(0, 97, 248, 0.35);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.senn-cta-btn--secondary:hover {
-  background: #eef6ff;
-  border-color: var(--blue, #0061f8);
-  color: #004ecc;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 97, 248, 0.15);
-}
-
-.senn-cta-btn svg {
-  transition: transform 0.25s ease;
-}
-
-.senn-cta-btn:hover svg {
-  transform: translate(2px, -2px);
+.senn-cta .cp-cta-btn:hover,
+.senn-cta .senn-cta-btn:hover,
+.senn-cta .senn-cta-btn--primary:hover,
+.senn-cta .senn-cta-btn--secondary:hover {
+  transform: translateY(-2px) !important;
+  background: #004ecc !important;
+  box-shadow: 0 8px 24px rgba(0, 78, 204, 0.45) !important;
+  color: #ffffff !important;
 }
 
 @media (max-width: 768px) {

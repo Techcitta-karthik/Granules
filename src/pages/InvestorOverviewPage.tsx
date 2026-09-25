@@ -196,7 +196,7 @@ export default function InvestorOverviewPage() {
         />
         <div className="inv-hero-overlay">
           <div className="inv-hero-content">
-            <h2 className="inv-hero-title">Where strategy meets<br />evolving Healthcare<br />Needs, Science & Sustainability</h2>
+            <h2 className="inv-hero-title">Where strategy meets<br />evolving Healthcare<br />needs, Science & Sustainability</h2>
             <a
               href="https://granules-26.vercel.app/"
               target="_blank"

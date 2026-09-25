@@ -573,39 +573,49 @@
 
 /* ---------- Bottom Call-to-Action Card ---------- */
 .ct-cta-box {
+  width: min(85%, 1632px) !important;
+  max-width: 1632px !important;
+  margin: 75px auto !important;
+  border-radius: 36px !important;
+  padding: 28px clamp(28px, 4.5vw, 64px) !important;
   position: relative;
-  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat;
-  border: 1.5px solid rgba(0, 97, 248, 0.16);
-  border-radius: 28px;
-  padding: clamp(36px, 4vw, 56px) clamp(24px, 4vw, 60px);
-  color: #0f172a;
   overflow: hidden;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  min-height: 250px !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+  background: url('/assets/career/careers-banner.png') center / 100% 100% no-repeat !important;
+  border: 1.5px solid rgba(0, 97, 248, 0.16) !important;
   box-shadow: 
     0 12px 36px rgba(0, 34, 90, 0.07),
     0 2px 8px rgba(0, 0, 0, 0.02),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  margin-top: 60px;
-  margin-bottom: 75px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
 .ct-cta-title {
-  margin: 0 0 14px;
-  font: 700 clamp(24px, 2.4vw, 36px)/1.2 'Manrope', sans-serif;
-  color: #0061f8;
-  max-width: 780px;
+  margin: 0 !important;
+  font: 700 clamp(24px, 2.3vw, 38px)/1.2 'Manrope', sans-serif !important;
+  color: #0061f8 !important;
+  letter-spacing: -0.02em !important;
+  text-align: left !important;
+  text-shadow: none !important;
+  max-width: 840px !important;
   position: relative;
   z-index: 1;
 }
 
 .ct-cta-text {
-  margin: 0 0 28px;
-  font: 400 clamp(15px, 1.1vw, 17px)/1.6 'Manrope', sans-serif;
-  color: #334155;
-  max-width: 680px;
+  margin: 0 !important;
+  font: 400 clamp(14px, 1.05vw, 16.5px)/1.5 'Manrope', sans-serif !important;
+  color: #1a2536 !important;
+  letter-spacing: -0.15px !important;
+  max-width: 840px !important;
+  text-align: left !important;
+  text-shadow: none !important;
   position: relative;
   z-index: 1;
 }
@@ -613,34 +623,43 @@
 .ct-cta-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 14px;
   position: relative;
   z-index: 1;
+  align-self: flex-start !important;
+  margin: 0 !important;
 }
 
+.ct-cta-box .cp-cta-btn,
 .ct-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 30px;
-  border-radius: 9999px;
-  font: 700 14px/1 'Manrope', sans-serif;
-  text-decoration: none;
-  transition: all 0.25s ease;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 12px 28px !important;
+  border-radius: 9999px !important;
+  font: 700 13.5px/1 'Manrope', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.7px !important;
+  text-decoration: none !important;
+  background: #0061f8 !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 97, 248, 0.35) !important;
+  transition: transform 0.22s cubic-bezier(0.2, 0, 0.2, 1), background-color 0.22s ease, box-shadow 0.22s ease !important;
+  white-space: nowrap !important;
+  align-self: flex-start !important;
+  margin: 0 !important;
+  cursor: pointer !important;
 }
 
-.ct-cta-btn--primary {
-  background: #0061f8;
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.25);
-}
-
-.ct-cta-btn--primary:hover {
-  background: #0140a2;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 97, 248, 0.35);
+.ct-cta-box .cp-cta-btn:hover,
+.ct-cta-btn:hover {
+  background: #004ecc !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 78, 204, 0.45) !important;
 }
 
 .ct-cta-btn--secondary {

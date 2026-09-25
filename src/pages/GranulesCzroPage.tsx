@@ -268,8 +268,6 @@ export default function GranulesCzroPage() {
 
       {/* CTA Section */}
       <div className="czro-cta">
-        <img className="bg" src={`${C}cta-bg.png`} alt="" />
-        <div className="overlay" />
         <div className="czro-cta-copy">
           <h2>Driving Impact Beyond CZRO</h2>
           <p>
@@ -277,7 +275,7 @@ export default function GranulesCzroPage() {
             future-ready pharmaceutical ecosystem.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/sustainability/strategy">Know More</a>
+        <Link className="cp-cta-btn" to="/sustainability/strategy">KNOW MORE</Link>
       </div>
 
       <CompanyFooter />

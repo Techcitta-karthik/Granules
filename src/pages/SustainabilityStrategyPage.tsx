@@ -448,8 +448,6 @@ export default function SustainabilityStrategyPage() {
       <CarbonStatsCarousel />
 
       <div className="sus-cta">
-        <img className="bg" src={`${S}cta-bg.webp`} alt="" loading="lazy" decoding="async" />
-        <div className="overlay" />
         <div className="sus-cta-copy">
           <h2>Reimagining pharma for a carbon-free future</h2>
           <p>
@@ -457,7 +455,7 @@ export default function SustainabilityStrategyPage() {
             energy, and circular pharmaceutical manufacturing.
           </p>
         </div>
-        <a className="cp-cta-btn" href="/company/granules-czro">Discover CZRO</a>
+        <Link className="cp-cta-btn" to="/company/granules-czro">DISCOVER CZRO</Link>
       </div>
 
       <CompanyFooter />

@@ -24,7 +24,7 @@ const RD_CENTERS: RdCenter[] = [
     location: 'Genome Valley, India',
     title: 'GENOME VALLEY, TELANGANA',
     desc: 'Integrated Product Development for APIs and Finished Dosages.',
-    image: 'hero-banner.png',
+    image: 'genome-valley.jpg',
     ctaHref: '/business/rd',
   },
   {
@@ -32,7 +32,7 @@ const RD_CENTERS: RdCenter[] = [
     location: 'Pragathi Nagar, India',
     title: 'PRAGATHI NAGAR, TELANGANA',
     desc: 'Centre of Excellence for Complex FD, CII API development, KSMs, and Bio Lab (enzymes & fermentation).',
-    image: 'centers-bg.png',
+    image: 'pragathi-nagar.jpg',
     ctaHref: '/business/rd',
   },
   {
@@ -40,23 +40,23 @@ const RD_CENTERS: RdCenter[] = [
     location: 'IITH, India',
     title: 'IIT Hyderabad, India',
     desc: '2 Centres of Excellence focused on Peptide Development and Particle Engineering.',
-    image: 'centers-bg.png',
+    image: 'iith.jpg',
     ctaHref: '/business/rd',
   },
   {
-    id: 'Pune, India',
+    id: 'pune',
     location: 'Pune, India',
     title: 'PUNE, MAHARASHTRA',
     desc: 'New technology platforms with focus on KSM innovation and backward integration.',
-    image: 'centers-bg.png',
-    ctaHref: '/business/rd',
+    image: 'capabilities-bg.png',
+    ctaHref: '/business/api',
   },
   {
     id: 'virginia',
     location: 'Virginia, USA',
     title: 'VIRGINIA, USA',
     desc: 'US-specific complex FD design, controlled substances and clinical support.',
-    image: '/assets/rd/vir.jpg',
+    image: 'virginia.jpg',
     ctaHref: '/business/fd',
   },
   {
@@ -64,7 +64,7 @@ const RD_CENTERS: RdCenter[] = [
     location: 'Zurich, Switzerland',
     title: 'SENN CHEMICALS, SWITZERLAND',
     desc: 'Peptide & CDMO innovation — decades of peptide synthesis expertise.',
-    image: 'capabilities-bg.png',
+    image: 'senn-zurich.jpg',
     ctaHref: '/business/peptides',
   },
 ];
@@ -239,7 +239,7 @@ export default function RdPage() {
           Granules R&amp;D is powering the transformation of a legacy-scale generics company into
           a differentiated, science-led global pharmaceutical platform &mdash; advancing complex
           generics, oncology, CNS/ADHD, peptides and next-generation drug delivery through a
-          global network of five specialised research centres. Our R&amp;D strategy is designed to
+          global network of six specialised research centres. Our R&amp;D strategy is designed to
           strengthen these capabilities while supporting long-term growth through a diversified
           and differentiated product portfolio
         </h4>
@@ -484,8 +484,6 @@ export default function RdPage() {
 
 
       <div className="rd-cta">
-        <img className="bg" src={`${R}cta-bg.png`} alt="Granules Facility" />
-        <div className="overlay" />
         <div className="rd-cta-copy">
           <h2>Discover Our Product Portfolio</h2>
           <p>
@@ -493,11 +491,7 @@ export default function RdPage() {
           </p>
         </div>
         <Link className="cp-cta-btn" to="/business/generics">
-          <span>Generics</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
+          GENERICS
         </Link>
       </div>
 
