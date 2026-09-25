@@ -9,7 +9,7 @@ export default function LeadershipSection() {
       <div className="cp-leadership-wrapper">
         <div className="cp-leadership-banner">
           <img
-            src="/assets/2.0/PDR00955.JPG"
+            src={asset('chair-pic.png?v=sharp_v4')}
             alt="Dr. Krishna Prasad Chigurupati"
             className="cp-leadership-banner-img"
             loading="eager"
