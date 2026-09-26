@@ -2,7 +2,7 @@ import type { AskApiResponse, ChatbotApiHandler } from './types';
 import { formatChatbotAnswer } from './formatChatbotAnswer';
 
 const DEFAULT_API_URL = '/api/ask';
-const DEFAULT_PROD_API_URL = 'https://guy-fang-neglector.ngrok-free.dev/ask';
+const DEFAULT_PROD_API_URL = 'http://granules-rag-alb-1919325358.ap-south-2.elb.amazonaws.com/ask';
 const DEFAULT_TOP_K = 5;
 
 function resolveTopK(): number {
@@ -20,7 +20,7 @@ function resolveApiUrl(): string {
     return DEFAULT_API_URL;
   }
 
-  // Host builds were injecting a stale VITE_CHATBOT_API_URL and skipping the ngrok endpoint.
+  // Host builds were injecting a stale VITE_CHATBOT_API_URL and skipping this endpoint.
   return DEFAULT_PROD_API_URL;
 }
 
@@ -35,7 +35,7 @@ function shouldAttachClientApiKey(apiUrl: string): boolean {
  * POST { question, top_k? } to the Granules RAG /ask endpoint.
  *
  * Dev: defaults to `/api/ask` (Vite proxy → CHATBOT_API_TARGET/ask).
- * Prod: always calls the granulesdev ngrok /ask endpoint.
+ * Prod: always calls the granulesdev load balancer /ask endpoint.
  *
  * Env:
  * - VITE_CHATBOT_API_URL  (ignored in production; local proxy uses CHATBOT_API_TARGET)
