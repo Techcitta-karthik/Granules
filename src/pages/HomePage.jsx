@@ -10,7 +10,7 @@ const A = '/assets/';
 
 const heroSlides = [
   {
-    image: 'Home/6.jpg',
+    image: 'Home/home-banner-1.jpg',
     title: 'Granules Secures Sole First-to-File ANDA Status for generic equivalent of LUMRYZ®',
     cta: 'Know More',
     link: 'https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380',
@@ -140,6 +140,16 @@ function Hero() {
   const [slide, setSlide] = useState(0);
   const [previousSlide, setPreviousSlide] = useState(null);
   useEffect(() => {
+    heroSlides.forEach((item, index) => {
+      const preload = new Image();
+      preload.decoding = 'async';
+      if (index === 0 || item.image === 'Home/home-banner-1.jpg') {
+        preload.fetchPriority = 'high';
+      }
+      preload.src = `${A}${item.image}`;
+    });
+  }, []);
+  useEffect(() => {
     const timer = setInterval(() => setSlide((current) => {
       setPreviousSlide(current);
       return (current + 1) % heroSlides.length;
@@ -155,18 +165,30 @@ function Hero() {
 
   return (
     <section className="hero" id="top">
-      {previousSlide !== null && (
-        <div
-          className="hero-image hero-image-previous"
-          style={{ backgroundImage: `url(${A}${heroSlides[previousSlide].image})` }}
+      {heroSlides.map((item, index) => (
+        <img
+          key={item.image}
+          src={`${A}${item.image}`}
+          alt=""
+          className={
+            index === slide
+              ? `hero-image hero-image-current${previousSlide !== null ? ' is-transitioning' : ''}`
+              : index === previousSlide
+                ? 'hero-image hero-image-previous'
+                : 'hero-image hero-image-idle'
+          }
+          fetchPriority={index === 0 || item.image === 'Home/home-banner-1.jpg' ? 'high' : 'auto'}
+          decoding="async"
+          onError={() => {
+            if (index === slide) {
+              setSlide((currentSlide) => (currentSlide + 1) % heroSlides.length);
+            }
+          }}
+          onAnimationEnd={() => {
+            if (index === slide) setPreviousSlide(null);
+          }}
         />
-      )}
-      <div
-        className={`hero-image hero-image-current${previousSlide !== null ? ' is-transitioning' : ''}`}
-        key={slide}
-        style={{ backgroundImage: `url(${A}${current.image})` }}
-        onAnimationEnd={() => setPreviousSlide(null)}
-      />
+      ))}
       <div className="hero-shade" />
       <div className="hero-content shell">
         <h1>{current.title}</h1>

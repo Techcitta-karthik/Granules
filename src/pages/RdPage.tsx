@@ -44,14 +44,6 @@ const RD_CENTERS: RdCenter[] = [
     ctaHref: '/business/rd',
   },
   {
-    id: 'pune',
-    location: 'Pune, India',
-    title: 'PUNE, MAHARASHTRA',
-    desc: 'New technology platforms with focus on KSM innovation and backward integration.',
-    image: 'capabilities-bg.png',
-    ctaHref: '/business/api',
-  },
-  {
     id: 'virginia',
     location: 'Virginia, USA',
     title: 'VIRGINIA, USA',
