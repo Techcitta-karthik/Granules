@@ -55,10 +55,10 @@ const LEGEND_FILINGS: Filing[] = ['US', 'EU', 'CA', 'KR', 'JP', 'BR', 'MX', 'CN'
 
 function matchesSearchQuery(text: string, rawQuery: string) {
   if (!text || !rawQuery) return false;
-  const cleanQ = rawQuery.toLowerCase().replace(/[*+\\?^$\[\]{}()|]+/g, ' ').trim();
+  const cleanQ = rawQuery.toLowerCase().replace(/[*+\\?^$\[\]{}()|]+/g, ' ').replace(/-/g, '').trim();
   if (!cleanQ) return false;
 
-  const target = text.toLowerCase();
+  const target = text.toLowerCase().replace(/-/g, '');
   if (target.includes(cleanQ)) return true;
 
   const searchWords = cleanQ.split(/\s+/).filter(Boolean);

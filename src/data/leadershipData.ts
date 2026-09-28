@@ -62,7 +62,7 @@ export const BOARD_OF_DIRECTORS: LeadershipMember[] = [
   },
   {
     id: 'priyanka',
-    image: 'Priyanka (1).jpg',
+    image: 'priyanka-v2.jpg',
     name: 'Ms. Priyanka Chigurupati',
     role: 'Executive Director',
     profile: [
@@ -264,7 +264,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
   },
   {
     id: 'priyanka',
-    image: 'Priyanka (1).jpg',
+    image: 'priyanka-v2.jpg',
     name: 'Ms. Priyanka Chigurupati',
     role: 'Executive Director',
     profile: [
