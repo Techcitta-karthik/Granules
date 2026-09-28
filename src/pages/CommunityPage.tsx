@@ -26,8 +26,8 @@ const IMPACT_GOALS: CSRStat[] = [
   {
     value: '3.5L+',
     label: 'Our Progress',
-    sublabel: '3.5+ lakhs Lives positively touched in FY26',
-    badge: 'FY26 Impact',
+    sublabel: '3.5+ lakh Lives positively touched by FY26',
+    badge: 'By Impact as on FY26',
   },
 ];
 
@@ -41,15 +41,15 @@ interface FocusArea {
 
 const CSR_FOCUS_AREAS: FocusArea[] = [
   {
-    id: 'skill-development',
-    title: 'Skill Development',
+    id: 'Pharma-Patashala',
+    title: 'Pharma Patashala',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
         <path d="M6 12v5c3 3 9 3 12 0v-5" />
       </svg>
     ),
-    desc: 'Through Pharma Patashala, our specialized technical academy established in 2017, we have trained over 1,600 individuals with hands-on pharmaceutical manufacturing and analytical curriculum, delivering 100% employment linkages and career mentorship programs.',
+    desc: 'Since 2017, our technical academy, Pharma Patashala, has trained 1,600+ individuals through hands-on manufacturing and analytical training — with 100% employment linkages and career mentorship.',
     image: 'skill-development.webp',
   },
   {
@@ -60,7 +60,7 @@ const CSR_FOCUS_AREAS: FocusArea[] = [
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
       </svg>
     ),
-    desc: 'Over 15,000 beneficiaries reached through mobile mammography early cancer detection screening, comprehensive pediatric eye examinations with prescription spectacles, and preventive health diagnostic camps across underserved communities.',
+    desc: '15,000+ beneficiaries reached through mobile mammography screening for early cancer detection, pediatric eye care with prescription spectacles, and preventive health camps in underserved communities.',
     image: 'healthcare.webp',
   },
   {
@@ -72,7 +72,7 @@ const CSR_FOCUS_AREAS: FocusArea[] = [
         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
       </svg>
     ),
-    desc: 'Empowering more than 2,000 students through Vidya Volunteers grassroots classroom mentoring, government school infrastructure refurbishment, digital learning aids, and non-profit partnerships to curb dropout rates and promote girls’ education.',
+    desc: 'Empowering 2,000+ students through Vidya Volunteers classroom mentoring, government school upgrades, digital learning aids and NGO partnerships — reducing dropouts and advancing girls education.',
     image: 'education.webp',
   },
   {
@@ -84,7 +84,7 @@ const CSR_FOCUS_AREAS: FocusArea[] = [
         <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
       </svg>
     ),
-    desc: 'Over 18,000 native trees planted across community green belts, schools, and factory buffer zones through Miyawaki dense afforestation drives, groundwater recharge structures, and rural watershed conservation initiatives.',
+    desc: '18,000+ native trees planted through Miyawaki afforestation across community green belts, schools and factory buffer zones — complemented by groundwater recharge and rural watershed conservation.',
     image: 'environment.webp',
   },
 ];
@@ -136,7 +136,7 @@ export default function CommunityPage() {
         <p className="cp-breadcrumb" style={{ width: '85%', margin: 'clamp(60px, 8vw, 118px) auto 0' }}>
           <Link to="/">HOME</Link>
           <span className="sep">›</span>
-          <span className="current">Community</span>
+          <span className="current">Corporate Social Responsibility</span>
         </p>
         {/* Page Title */}
         <h1 className="cp-page-title" style={{ width: '85%', margin: 'clamp(20px, 2.5vw, 32px) auto clamp(24px, 3vw, 36px)' }}>

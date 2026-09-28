@@ -46,21 +46,21 @@ const products = [
     image: 'fd/fd-card.jpg',
     title: 'Finished Dosages (FDs)',
     eyebrow: 'FD',
-    body: 'Scale and complexity supported by multi-site supply capabilities.',
+    body: 'Comprehensive oral solid dosage solutions engineered for affordability, patient safety, and global compliance.',
     href: '/business/fd',
   },
   {
     image: 'pfi.webp',
     title: 'Pharmaceutical Formulations Intermediates (PFIs)',
     eyebrow: 'PFI',
-    body: 'Custom pharmaceutical formulation intermediates optimized for efficiency and flexibility.',
+    body: 'Custom solutions optimized for efficiency and flexibility with proprietary "Drum to Hopper" direct compression blends that eliminate manufacturing complexity.',
     href: '/business/pfi',
   },
   {
     image: 'api.jpg',
     title: 'Active Pharmaceutical Ingredients (APIs)',
     eyebrow: 'API',
-    body: 'Large-scale manufacturing capabilities, integrated operations, and strong process optimization.',
+    body: 'Backward integration operations, flexible scale, global compliance, and deep process chemistry.',
     href: '/business/api',
   },
 ];
@@ -634,9 +634,9 @@ function Sustainability({ open = 0, setOpen }) {
       bg: `${A}sustainability-net-zero.jpg`,
     },
     {
-      title: 'Community',
-      tag: 'Community',
-      heading: 'Purpose Beyond Business',
+      title: 'CSR',
+      tag: 'CSR',
+      heading: 'Corporate Social Responsibility',
       heroBody: 'Guided by our responsibility to society, we support initiatives that improve access to healthcare, enable education, enhance employability, and promote environmental awareness, helping create stronger and more resilient communities.',
       goal: 'Our Goal is to positively impact 1 million lives by 2030.',
       href: '/community',
@@ -711,22 +711,22 @@ function Sustainability({ open = 0, setOpen }) {
 function Investor() {
   const docs = [
     {
-      title: 'Q1 Results for FY27',
+      title: 'Quaterly Results (Q1 FY27)',
       href: getAssetUrl('pdfs/2026/07/FY-Result-Jun26.pdf'),
       download: 'Granules_Q1_FY27_Results.pdf',
     },
     {
-      title: 'Earnings call transcript (Q1 FY27)',
+      title: 'Earnings Call Transcript (Q1 FY27)',
       href: getAssetUrl('pdfs/2026/07/Q1-FY27-Concall-Transcript-Final.pdf'),
       download: 'Granules_Earnings_Call_Transcript_Q1_FY27.pdf',
     },
     {
-      title: 'Investor presentation',
+      title: 'Investor Presentation (Q1 FY27)',
       href: getAssetUrl('pdfs/2026/07/Earnings-Presentation-Q1FY27vf.pdf'),
       download: 'Granules_Investor_Presentation_Q1_FY27.pdf',
     },
     {
-      title: 'Integrated annual report 2025-26',
+      title: 'Integrated Annual Report (FY25-26)',
       href: getAssetUrl('pdfs/2026/07/Granules_Annual-Report-FY26-1.pdf'),
       download: 'Granules_Annual_Report_FY26.pdf',
     },
@@ -977,7 +977,7 @@ export default function HomePage() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [sustainabilityTab, setSustainabilityTab] = useState(0);
 
-  const activeNavSection = sustainabilityTab === 1 ? 'Community' : 'Sustainability';
+  const activeNavSection = sustainabilityTab === 1 ? 'CSR' : 'Sustainability';
 
   useEffect(() => {
     const sections = [...document.querySelectorAll('main > section:not(.hero), footer')];

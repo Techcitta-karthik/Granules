@@ -26,25 +26,25 @@ type ScaleItem = { title: string; body: string; icon: string; image?: string | n
 const SCALE_ITEMS: ScaleItem[] = [
   {
     title: 'Portfolio Breadth Across Wide Therapeutic Segments',
-    body: 'Diverse portfolio of 100+ DMFs across wide range of therapeutic areas including Anti-diabetics, Anti-inflammatories, CNS/ADHD, Oncology, Gastroenterology, Anti-histamines, Anti-coagulants, Anti-hypertensives, and others.',
+    body: '100+ DMFs spanning anti-diabetics, anti-inflammatories, CNS/ADHD, oncology, gastroenterology, anti-histamines, anti-coagulants, anti-hypertensives and more.',
     icon: 'icon-globe.svg',
     image: '/assets/facilities/bonthapally-2.png',
   },
   {
     title: 'Manufacturing Infrastructure Supporting Global Scale',
-    body: '40,000 TPA installed capacity across four specialized facilities, with seamless vertical integration from key starting materials and intermediates to downstream PFI and Finished Dosage operations, enhancing supply security and cost competitiveness.',
+    body: '40,000 TPA capacity across four specialised facilities — vertically integrated from key starting materials and intermediates through to PFIs and finished dosages, for secure supply and competitive cost.',
     icon: 'icon-capacity.svg',
     image: '/assets/api/2.jpg',
   },
   {
     title: 'Quality, Compliance & Global Regulatory Reach',
-    body: 'Global regulatory accreditations enabling supplies to 80+ countries, supported by industry-leading practices including Quality by Design (QbD), closed-loop operations, robust GMP systems, data integrity controls, and a deeply embedded safety culture.',
+    body: 'Global regulatory approvals enabling supply to 80+ countries — backed by Quality by Design (QbD), closed-loop operations, robust GMP and data integrity systems, and a deeply embedded safety culture.',
     icon: 'icon-globe.svg',
     image: '/assets/api/8.jpg',
   },
   {
     title: 'Innovation-led, Technology-Driven, Sustainability-Focused',
-    body: 'Our API operations are enabled by advanced Industry 4.0 technologies, including PLC, DCS, and Electronic Batch Manufacturing Records, while embedding Green Chemistry and sustainable innovation into R&D and manufacturing to improve yields, reduce waste, and enhance operational efficiency.',
+    body: 'Green Chemistry and sustainable innovation embedded into API R&D and manufacturing to improve yields, reduce waste, and enhance operational efficiency.',
     icon: 'icon-manufacturing.svg',
     image: '/assets/api/5.png',
   },
@@ -90,19 +90,14 @@ export default function ApiPage() {
         <div className="api-hero-scrim" />
         <div className="api-hero-overlay">
           <div className="api-hero-overlay-content">
-            <h2 className="api-hero-heading api-hero-overlay-title">Built for Scale. Engineered for Precision. Committed to Global Compliance.</h2>
+            <h2 className="api-hero-heading api-hero-overlay-title">Engineered for Precision. Committed to Global Compliance.</h2>
           </div>
         </div>
       </div>
 
       <div className="biz-intro">
         <p>
-          For over four decades, Granules has been a globally trusted manufacturer of Active
-          Pharmaceutical Ingredients (APIs), delivering a diverse portfolio both high-volume legacy
-          molecules and a growing pipeline of complex, high-barrier APIs. We combine our deep process
-          chemistry know-how with modern manufacturing scale, digital quality systems and disciplined
-          regulatory execution. Our integrated API platform supports both internal formulation
-          requirements and external customer demand across regulated and semi-regulated markets.
+          For over four decades, Granules has been a trusted global API manufacturer — combining scale with a growing pipeline of complex, high-barrier APIs. Deep process chemistry, modern manufacturing scale, digital quality systems and disciplined regulatory execution power an integrated platform that serves both our own formulations and customers across regulated and semi-regulated markets.
         </p>
       </div>
 
