@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import {
   BOARD_OF_DIRECTORS,
-  MANAGEMENT_TEAM,
   LeadershipMember,
 } from '../data/leadershipData';
 import '../components/company/company.css';
@@ -12,10 +11,7 @@ import './leadership.css';
 const L = '/assets/leadership/';
 
 export default function LeadershipPage() {
-  const [activeTab, setActiveTab] = useState<'board' | 'management'>('board');
   const [selectedMember, setSelectedMember] = useState<LeadershipMember | null>(null);
-
-  const activeMembers = activeTab === 'board' ? BOARD_OF_DIRECTORS : MANAGEMENT_TEAM;
 
   // Sync document title, scroll, and URL hash
   useEffect(() => {
@@ -36,13 +32,8 @@ export default function LeadershipPage() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace(/^#/, '');
       if (hash) {
-        const allMembers = [...BOARD_OF_DIRECTORS, ...MANAGEMENT_TEAM];
-        const match = allMembers.find((m) => m.id === hash);
+        const match = BOARD_OF_DIRECTORS.find((m) => m.id === hash);
         if (match) {
-          const isManagement = MANAGEMENT_TEAM.some((m) => m.id === hash);
-          if (isManagement && !BOARD_OF_DIRECTORS.some((m) => m.id === hash)) {
-            setActiveTab('management');
-          }
           setSelectedMember(match);
         }
       } else {
@@ -206,31 +197,20 @@ export default function LeadershipPage() {
             <button
               type="button"
               role="tab"
-              aria-selected={activeTab === 'board'}
-              className={`ld-tab-nav-btn ${activeTab === 'board' ? 'active' : ''}`}
-              onClick={() => setActiveTab('board')}
+              aria-selected="true"
+              className="ld-tab-nav-btn active"
             >
               <span>BOARD OF DIRECTORS</span>
-              {activeTab === 'board' && <span className="ld-active-bar" />}
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeTab === 'management'}
-              className={`ld-tab-nav-btn ${activeTab === 'management' ? 'active' : ''}`}
-              onClick={() => setActiveTab('management')}
-            >
-              <span>MANAGEMENT TEAM</span>
-              {activeTab === 'management' && <span className="ld-active-bar" />}
+              <span className="ld-active-bar" />
             </button>
           </div>
         </div>
 
         <div className="ld-grid">
-          {activeMembers.map((member) => (
+          {BOARD_OF_DIRECTORS.map((member) => (
             <article
               className="ld-card"
-              key={`${activeTab}-${member.id}`}
+              key={member.id}
               onClick={() => handleSelectMember(member)}
               role="button"
               tabIndex={0}

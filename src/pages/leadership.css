@@ -226,9 +226,9 @@
 }
 
 .ld-photo--priyanka img,
-.ld-profile-img--priyanka img {
+.ld-profile-img-frame.ld-profile-img--priyanka img {
   object-fit: cover !important;
-  object-position: center 22% !important;
+  object-position: center top !important;
 }
 
 .ld-card:hover .ld-photo--priyanka img {
