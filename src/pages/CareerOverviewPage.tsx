@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
@@ -213,20 +213,34 @@ export default function CareerOverviewPage() {
 
   const location = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.title = 'Make Better Health. Build a Bolder Career. — Careers at Granules';
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 120);
-        return;
-      }
-    }
-    window.scrollTo(0, 0);
-  }, [location.hash]);
+    const html = document.documentElement;
+    const previous = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+
+    const hashId = location.hash.replace('#', '');
+    const hashed = hashId ? document.getElementById(hashId) : null;
+    // Drop the anchor id so the browser cannot scroll the page down to it.
+    if (hashed) hashed.removeAttribute('id');
+
+    const toTop = () => window.scrollTo(0, 0);
+    toTop();
+    const keep = window.setInterval(toTop, 50);
+    const stop = window.setTimeout(() => {
+      window.clearInterval(keep);
+      if (hashed && hashId) hashed.id = hashId;
+      toTop();
+      html.style.scrollBehavior = previous;
+    }, 800);
+
+    return () => {
+      window.clearInterval(keep);
+      window.clearTimeout(stop);
+      if (hashed && hashId) hashed.id = hashId;
+      html.style.scrollBehavior = previous;
+    };
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -399,7 +413,7 @@ export default function CareerOverviewPage() {
         </section>
 
         {/* WHY GRANULES? The Employee Value Proposition (Stacking Panels) */}
-        <div className="car-why" id="culture-values" style={{ scrollMarginTop: '100px' }}>
+        <div className="car-why" id="culture-values">
           <div className="car-why-head">
             <div className="car-why-copy">
               <span className="car-why-tag">WHY GRANULES?</span>
