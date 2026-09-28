@@ -89,6 +89,19 @@ const CSR_FOCUS_AREAS: FocusArea[] = [
   },
 ];
 
+function highlightStats(text: string) {
+  const parts = text.split(/(\d[\d,]*\+)/g);
+  return parts.map((part, index) =>
+    /^\d[\d,]*\+$/.test(part) ? (
+      <strong key={index} className="comm-stat-highlight">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+}
+
 const CSR_DOCUMENTS = [
   {
     title: 'Corporate Social Responsibility Policy',
@@ -258,7 +271,7 @@ export default function CommunityPage() {
 
                   {isOpen && (
                     <div id={`comm-pillar-panel-${item.id}`} className="comm-accordion-body">
-                      <p className="comm-accordion-desc">{item.desc}</p>
+                      <p className="comm-accordion-desc">{highlightStats(item.desc)}</p>
                     </div>
                   )}
                 </article>
