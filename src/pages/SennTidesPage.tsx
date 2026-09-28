@@ -355,7 +355,7 @@ export default function SennTidesPage() {
       </section>
 
       {/* What We Do Section */}
-      <section className="senn-section-head" aria-label="What We Do">
+      <section className="senn-section-head senn-serve-head" aria-label="What We Do">
         <div className="copy">
           <h2>Whom We Serve</h2>
           <h4>

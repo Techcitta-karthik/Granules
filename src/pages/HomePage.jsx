@@ -10,8 +10,15 @@ const A = '/assets/';
 
 const heroSlides = [
   {
+    image: 'Home/6.jpg',
+    title: 'Granules Secures Sole First-to-File ANDA Status for generic equivalent of LUMRYZ®',
+    cta: 'Know More',
+    link: 'https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380',
+    target: '_blank',
+  },
+  {
     image: 'Home/generics.jpg',
-    title: 'Globally Approved.\nVertically Integrated.\nTrusted Worldwide',
+    title: 'Expanding Healthcare Access,\nEnabling Patient Care',
     cta: 'Generics',
     link: '/business/generics',
   },
@@ -68,21 +75,21 @@ const products = [
 const news = [
   {
     image: 'news-1.jpg',
-    title: 'Granules India secures sole first-to-file status for generic drug',
-    body: 'Granules India has secured sole first-to-file status for a generic drug, strengthening its position in regulated markets.',
+    title: 'Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.',
+    body: 'Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.',
     href: 'https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr',
     external: true,
   },
   {
     image: 'news-2.webp',
-    title: 'Showcased breakthrough technologies at CPhI Worldwide 2025.',
-    body: 'Granules presented integrated capabilities spanning APIs, finished dosages, peptides and next-generation manufacturing.',
+    title: 'Granules India records 60% YoY increase in Q1 PAT.',
+    body: 'Granules India records 60% YoY increase in Q1 PAT.',
     href: 'https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380',
   },
   {
     image: 'news-3.webp',
-    title: 'Launched a dedicated peptide manufacturing unit.',
-    body: 'The new facility expands our ability to support complex molecules with a scalable, quality-led development platform.',
+    title: 'Granules India Secures Sole First-to-File Status For Generic LUMRYZ® In US.',
+    body: 'Granules India Secures Sole First-to-File Status For Generic LUMRYZ® In US.',
     href: 'https://www.business-standard.com/markets/capital-market-news/granules-india-records-60-yoy-increase-in-q1-pat-126072100899_1.html',
   },
 ];
@@ -93,19 +100,23 @@ function Arrow({ reverse = false }) {
   return <img className={`arrow-icon ${reverse ? 'reverse' : ''}`} src={`${A}hero-arrow.svg`} alt="" loading="eager" decoding="async" />;
 }
 
-function Button({ children, href = '#', className = '', onClick }) {
+function Button({ children, href = '#', className = '', onClick, target, rel }) {
+  const isExternal = typeof href === 'string' && (href.startsWith('http://') || href.startsWith('https://'));
+  const finalTarget = target || (isExternal ? '_blank' : undefined);
+  const finalRel = rel || (finalTarget === '_blank' ? 'noopener noreferrer' : undefined);
+
   const handleClick = (e) => {
     if (href && href.startsWith('#')) {
       e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetEl = document.querySelector(href);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
     if (onClick) onClick(e);
   };
 
-  if (href && href.startsWith('/')) {
+  if (href && href.startsWith('/') && !finalTarget) {
     return (
       <Link className={`button ${className}`} to={href} onClick={onClick}>
         {children}
@@ -113,7 +124,13 @@ function Button({ children, href = '#', className = '', onClick }) {
     );
   }
   return (
-    <a className={`button ${className}`} href={href} onClick={handleClick}>
+    <a
+      className={`button ${className}`}
+      href={href}
+      target={finalTarget}
+      rel={finalRel}
+      onClick={handleClick}
+    >
       {children}
     </a>
   );
@@ -153,7 +170,13 @@ function Hero() {
       <div className="hero-shade" />
       <div className="hero-content shell">
         <h1>{current.title}</h1>
-        <Button href={current.link || '#business'}>{current.cta}</Button>
+        <Button
+          href={current.link || '#business'}
+          target={current.target || (current.link?.startsWith('http') ? '_blank' : undefined)}
+          rel={current.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
+        >
+          {current.cta}
+        </Button>
       </div>
       <div className="hero-controls shell">
         <div className="progress" aria-label="Hero slides">

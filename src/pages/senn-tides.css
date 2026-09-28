@@ -203,6 +203,11 @@ h1.senn-page-header {
   max-width: 100% !important;
 }
 
+.senn-serve-head h4,
+.senn-serve-head p {
+  color: var(--n9, #0f172a) !important;
+}
+
 .senn-routes-section>.senn-section-head,
 .senn-phases-section>.senn-section-head,
 .senn-capacity-section>.senn-section-head,
