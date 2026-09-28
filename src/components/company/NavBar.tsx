@@ -90,7 +90,7 @@ function isActive(link: NavLinkItem, pathname: string, activeSection?: string | 
       !pathname.startsWith('/sustainability/corporate-social-responsibility')
     );
   }
-  if (link.label === 'Community') {
+  if (link.label === 'CSR') {
     return (
       pathname.startsWith('/community') ||
       pathname.startsWith('/csr') ||

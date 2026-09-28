@@ -3,7 +3,12 @@ import React, { useState, useRef, useCallback } from 'react';
 export interface SustainabilityGoalItem {
   id: string;
   title: string;
+  category: string;
+  yearHeading: string;
+  yearTag: string;
+  metric: string;
   label: string;
+  subdetails?: string[];
   image: string;
   imageAlt: string;
 }
@@ -12,56 +17,88 @@ export const SUSTAINABILITY_GOALS: SustainabilityGoalItem[] = [
   {
     id: 'emissions',
     title: 'Emissions',
-    label: 'Reduce Scope 1, Scope 2, and Scope 3 absolute emissions across our operations and value chain',
+    category: 'Emissions',
+    yearHeading: 'By 2030',
+    yearTag: '2030',
+    metric: '42%',
+    label: 'Achieve Net Zero by 2050. \nReduce Scope 1 and Scope 2 absolute emissions by 42% by FY30 from FY23 baseline. Reduce Scope 3 absolute emissions by 42% by FY30 from FY23 baseline.',
     image: '/assets/strategy/hero-video-poster.webp',
     imageAlt: 'Wind turbine clean renewable energy field',
   },
   {
     id: 'responsible-sourcing',
     title: 'Responsible Sourcing',
-    label: 'Implement a supplier sustainability framework and encourage suppliers to adopt science-based targets',
+    category: 'Responsible Sourcing',
+    yearHeading: 'By FY27',
+    yearTag: 'FY27',
+    metric: 'FY27',
+    label: 'Implement a supplier sustainability framework and encourage suppliers to adopt science-based targets by FY27',
     image: '/assets/sustainability/sus/2.png',
     imageAlt: 'Sustainable supply chain and responsible sourcing',
   },
   {
     id: 'dei',
     title: 'DEI',
-    label: 'Accelerate women’s employment and advance diversity, equity, and inclusion across our workforce',
+    category: 'DEI',
+    yearHeading: 'By 2030',
+    yearTag: '2030',
+    metric: '100%',
+    label: 'Achieve a 100% increase in women’s employment by 2030 compared to FY24',
     image: '/assets/sustainability/sus/dei.jpg?v=2',
     imageAlt: 'Women’s health awareness session at Granules',
   },
   {
     id: 'community',
     title: 'Community',
-    label: 'Touch 1 Million+ lives through high-impact corporate social responsibility programs',
+    category: 'Community',
+    yearHeading: 'By 2030',
+    yearTag: '2030',
+    metric: '1M+',
+    label: 'Touch 1 Million+ lives through CSR programs by 2030',
     image: '/assets/sustainability/sus/community.jpg',
     imageAlt: 'Community healthcare and rural development programs',
   },
   {
     id: 'safety',
     title: 'Safety',
-    label: 'Target zero workplace fatalities and maintain uncompromising safety standards across all facilities',
+    category: 'Safety',
+    yearHeading: 'Safety Target',
+    yearTag: 'Zero',
+    metric: 'Zero',
+    label: 'Targeting to zero workplace fatality',
     image: '/assets/company/empowering-employees.png',
     imageAlt: 'Safety and discipline across all manufacturing facilities',
   },
   {
     id: 'water',
     title: 'Water',
-    label: 'Achieve Water Positivity across all manufacturing facilities through conservation and stewardship',
+    category: 'Water',
+    yearHeading: 'By 2032',
+    yearTag: '2032',
+    metric: 'Water Positive',
+    label: 'Achieve Water Positivity by 2032',
     image: '/assets/sustainability/sus/water.jpg',
     imageAlt: 'Zero liquid discharge process water conservation',
   },
   {
     id: 'waste',
     title: 'Waste',
-    label: 'Achieve zero waste to landfill across all manufacturing sites through circular resource recovery',
+    category: 'Waste',
+    yearHeading: 'By 2030',
+    yearTag: '2030',
+    metric: 'Zero',
+    label: 'Achieve Zero waste to landfill by 2030',
     image: '/assets/sustainability/sus/waste.jpg',
     imageAlt: 'Zero waste to landfill and circular resource recovery',
   },
   {
     id: 'energy',
     title: 'Energy',
-    label: 'Transition to clean renewable electricity across our manufacturing operations',
+    category: 'Energy',
+    yearHeading: 'By 2030',
+    yearTag: '2030',
+    metric: '100%',
+    label: 'Sourcing 100% renewable electricity by 2030',
     image: '/assets/sustainability/sus/energy.jpg',
     imageAlt: 'Solar and clean renewable power across plants',
   },
@@ -140,9 +177,27 @@ export default function SustainabilityGoalsSection() {
               </div>
 
               <div className="sus-goals-statement-wrap">
-                <p className="sus-goals-card-desc sus-goals-card-desc--statement">
-                  {activeItem.label}
-                </p>
+                {activeItem.subdetails && activeItem.subdetails.length > 0 ? (
+                  <div className="sus-goals-subdetails">
+                    {activeItem.subdetails.map((sub, i) => (
+                      <p key={i} className="sus-goals-card-desc sus-goals-card-desc--statement">
+                        • {sub}
+                      </p>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="sus-goals-statement-lines">
+                    {activeItem.label.split('\n').map((line, i) => (
+                      <p
+                        key={i}
+                        className="sus-goals-card-desc sus-goals-card-desc--statement"
+                        style={{ margin: i > 0 ? '10px 0 0' : '0' }}
+                      >
+                        {line.trim()}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Progress Dashes */}
@@ -234,3 +289,4 @@ export default function SustainabilityGoalsSection() {
     </section>
   );
 }
+

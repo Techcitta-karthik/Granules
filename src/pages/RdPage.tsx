@@ -77,23 +77,23 @@ type InfoItem = {
 
 const STRATEGIC_PRIORITIES: InfoItem[] = [
   {
-    title: 'Strengthen Scientific Capabilities',
-    body: 'Strengthen Scientific Capabilities to deepen expertise across chemistry, formulation and process sciences.',
+    title: 'Patient-centric Innovation',
+    body: 'Complex generics and advanced drug delivery systems that make therapies safer, simpler and more effective.',
     image: 'priority-01-strengthen.jpg',
   },
   {
-    title: 'Building a Differentiated Product Pipeline',
-    body: 'Building a differentiated product pipeline focused on complex generics, oncology, CNS and peptides.',
+    title: 'Affordable Access through Scale & Agility',
+    body: 'Vertical integration, process innovation, and scalable processes, for wider access and to address shortages.',
     image: 'priority-02-pipeline.jpg',
   },
   {
-    title: 'Accelerate Product Development',
-    body: 'Accelerate product development to reduce time-to-market through integrated development and digital tools.',
+    title: 'Sustainable Science',
+    body: 'Green chemistry and efficient processes that lower emissions and waste, embedded from design to commercialization.',
     image: 'priority-03-accelerate.jpg',
   },
   {
-    title: 'Advance Future-Ready Technologies',
-    body: 'Advance future-ready technologies through biocatalysis, particle engineering, peptides and digital R&D.',
+    title: 'Advance Future-ready Technologies',
+    body: 'Advance future-ready technologies through biocatalysis, particle engineering, peptides, and digital R&D.',
     image: 'priority-04-future-tech.jpg',
   },
 ];
@@ -231,17 +231,7 @@ export default function RdPage() {
 
       <div className="rd-intro">
         <h4>
-          Our integrated R&amp;D ecosystem, spanning APIs, PFIs, Finished Dosages and Peptide
-          CDMO, enables us to deliver safe, effective and affordable healthcare solutions
-          worldwide.
-        </h4>
-        <h4>
-          Granules R&amp;D is powering the transformation of a legacy-scale generics company into
-          a differentiated, science-led global pharmaceutical platform &mdash; advancing complex
-          generics, oncology, CNS/ADHD, peptides and next-generation drug delivery through a
-          global network of six specialised research centres. Our R&amp;D strategy is designed to
-          strengthen these capabilities while supporting long-term growth through a diversified
-          and differentiated product portfolio
+          At Granules, R&D is focused on bringing affordable and innovative healthcare solutions to patients globally. Across our specialized R&D centres, our R&D teams are dedicated to widening access to quality medicines while addressing unmet therapeutic needs. Our R&D strategy is designed to strengthen these capabilities and build a diversified, differentiated portfolio that delivers lasting value to patients worldwide.
         </h4>
       </div>
 

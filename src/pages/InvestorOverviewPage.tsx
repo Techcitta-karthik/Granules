@@ -61,7 +61,7 @@ export default function InvestorOverviewPage() {
   const deepParams = useMemo(() => {
     const path = location.pathname.toLowerCase();
     if (path.includes('annual-reports') || path.includes('financial-reports')) {
-      return { sectionId: 'sec-financial-reports', subcatId: 'annual-reports' };
+      return { sectionId: 'sec-financial-reports', subcatId: 'annual-reports', year: '2027' };
     }
     if (path.includes('investor-presentation') || path.includes('investor-resources')) {
       return { sectionId: 'sec-investor-resources', subcatId: 'investor-presentation', year: '2027' };
@@ -214,6 +214,7 @@ export default function InvestorOverviewPage() {
         <InvestorFilteredSection
           category={financialReportsCat}
           defaultSubcatId={deepParams?.sectionId === 'sec-financial-reports' ? deepParams.subcatId : undefined}
+          defaultYear={deepParams?.sectionId === 'sec-financial-reports' ? deepParams.year : '2027'}
         />
       </section>
 
@@ -247,6 +248,7 @@ export default function InvestorOverviewPage() {
         <InvestorFilteredSection
           category={noticesDisclosuresCat}
           defaultSubcatId={deepParams?.sectionId === 'sec-notices-disclosures' ? deepParams.subcatId : undefined}
+          defaultYear={deepParams?.sectionId === 'sec-notices-disclosures' ? deepParams.year : '2027'}
         />
       </section>
 
@@ -255,6 +257,7 @@ export default function InvestorOverviewPage() {
         <InvestorFilteredSection
           category={otherInfoCat}
           defaultSubcatId={deepParams?.sectionId === 'sec-other-info' ? deepParams.subcatId : undefined}
+          defaultYear={deepParams?.sectionId === 'sec-other-info' ? deepParams.year : '2026'}
         />
       </section>
 

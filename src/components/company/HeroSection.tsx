@@ -20,7 +20,7 @@ export default function HeroSection() {
         />
         <div className="cp-hero-scrim" />
         <div className="cp-hero-overlay">
-          <h2 className="cp-hero-heading">Built for Scale. Driven by Value.</h2>
+          <h2 className="cp-hero-heading">Advancing Healthcare through Purpose-Driven Science.</h2>
         </div>
       </div>
     </section>

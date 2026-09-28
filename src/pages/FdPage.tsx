@@ -12,39 +12,33 @@ type BenefitItem = { title: string; body: string; icon: string; image?: string }
 const BENEFITS: BenefitItem[] = [
   {
     title: 'Expanding Access to Diverse Therapeutic Segments',
-    body: 'Broad portfolio across wide range of therapeutic areas including Anti-diabetics, CNS/ADHD, Oncology, Gastroenterology, and others, made accessible to millions of patients globally through a combination of commercial capabilities, strategic partnerships, and reliable supply networks.',
+    body: 'A broad portfolio spanning anti-diabetics, CNS/ADHD, oncology, gastroenterology and more — reaching millions of patients worldwide through our commercial presence, strategic partnerships and reliable supply.',
     icon: 'icon-circles.svg',
     image: '/assets/fd/2.jpg',
   },
   {
-    title: 'Reliable Supply Through Vertical Integration',
-    body: '40+ Bn units annual capacity across five manufacturing facilities supported by backward integrated model, with dedicated infrastructure for controlled substances and oncology, strengthening quality, supply continuity, and operational efficiency.',
+    title: 'Reliable Supply through Vertical Integration',
+    body: '40+ billion units of annual capacity across five backward-integrated facilities — with dedicated infrastructure for controlled substances and oncology — ensuring consistent quality, operational efficiency, and supply reliability.',
     icon: '/assets/pfi/icon-manufacturing.svg',
     image: '/assets/fd/3.jpg',
   },
   {
     title: 'Formulation Expertise in Complex Generics',
-    body: 'We offer patient-centric solutions through a wide range of capabilities across modified-release formulations, MUPS technologies, controlled substances, chewable dosage forms, oncology products and complex oral solids. Formulation capability includes sachet and liquid filling lines.',
+    body: 'Patient-centric formulations across modified-release, MUPS, chewables, controlled substances, oncology and complex oral solids — plus sachet and liquid filling capabilities.',
     icon: 'icon-test-tube.svg',
     image: '/assets/fd/4.jpg',
   },
   {
     title: 'Global Reach with Local Customization',
-    body: 'With approvals from global regulatory authorities, including USFDA, EDQM, EU-GMP, ANVISA, COFEPRIS, WHO-GMP, TGA, KFDA, DEA, and others, we enable market-specific solutions that address diverse healthcare and compliance needs worldwide.',
+    body: 'Approved by USFDA, EDQM, EU-GMP, ANVISA, COFEPRIS, WHO-GMP, TGA, KFDA, DEA and more — delivering market-specific solutions for patients worldwide.',
     icon: 'icon-globe.svg',
     image: '/assets/fd/6.png',
   },
   {
     title: 'Flexible Partnership Models',
-    body: 'Whether through dossier licensing, contract manufacturing, development collaborations, or commercialization partnerships, we create solutions aligned to our partners\' strategic objectives.',
+    body: 'Dossier licensing, contract manufacturing, co-development or commercialization — partnership models tailored to our partners goals.',
     icon: 'icon-box.svg',
     image: '/assets/fd/7.jpg',
-  },
-  {
-    title: 'Technology-Enabled by Digitalisation',
-    body: 'From digitally enabled product development and data-driven formulation design to electronic quality management systems and industry 4.0 manufacturing platforms, we are leveraging technology to accelerate innovation, strengthen data integrity, improve operational excellence, and support scalable, compliant delivery of high-quality medicines.',
-    icon: 'icon-digital.svg',
-    image: '/assets/fd/digitalisation.jpg',
   },
 ];
 
@@ -80,15 +74,8 @@ export default function FdPage() {
 
       <div className="biz-intro">
         <p>
-          At Granules, we are committed to improving access to high-quality medicines for patients
-          around the world. Through our own commercial presence and strategic partnerships with
-          pharmaceutical companies, we develop, manufacture, and supply a broad range of oral dosage
-          formulations across key therapeutic areas. Combining formulation expertise, vertically
-          integrated operations, advanced manufacturing technologies, and global regulatory
-          capabilities, we help transform scientific innovation into accessible healthcare solutions
-          that improve patient outcomes at scale. Our flexible business model allows us to support
-          partners across the product lifecycle while ensuring reliable access to medicines in
-          diverse markets worldwide.
+          At Granules, we are committed to improving access to high-quality medicines for patients around the world. Through our own commercial presence and strategic partnerships, we develop, manufacture, and supply a broad range of oral dosage medicines across key therapeutic areas.
+          Formulation expertise, vertically integrated operations, advanced manufacturing and global regulatory capabilities let us turn science into affordable treatments that improve patient outcomes at scale.
         </p>
       </div>
 

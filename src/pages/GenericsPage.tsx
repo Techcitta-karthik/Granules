@@ -249,7 +249,7 @@ const products = [
     image: 'fd/fd-card.jpg',
     title: 'Finished Dosages (FDs)',
     eyebrow: 'FD',
-    body: 'Scale and complexity supported by multi-site supply capabilities, comprehensive oral solid dosage solutions engineered for affordability, patient safety, and global compliance.',
+    body: 'Comprehensive oral solid dosage solutions engineered for affordability, patient safety, and global compliance.',
     href: '/business/fd',
     cta: 'Click here to know more',
   },
@@ -257,7 +257,7 @@ const products = [
     image: 'pfi.webp',
     title: 'Pharmaceutical Formulation Intermediates (PFIs)',
     eyebrow: 'PFI',
-    body: 'Custom pharmaceutical formulation intermediates optimized for efficiency and flexibility with proprietary "Drum to Hopper" direct compression blends that eliminate manufacturing complexity.',
+    body: 'Custom solutions optimized for efficiency and flexibility with proprietary "Drum to Hopper" direct compression blends that eliminate manufacturing complexity.',
     href: '/business/pfi',
     cta: 'Click here to know more',
   },
@@ -265,7 +265,7 @@ const products = [
     image: 'api.jpg',
     title: 'Active Pharmaceutical Ingredients (APIs)',
     eyebrow: 'API',
-    body: 'Large-scale manufacturing capabilities, integrated operations, and deep process chemistry delivering high-volume legacy molecules and complex niche APIs across 80+ countries.',
+    body: 'Backward integration operations, flexible scale, global compliance, and deep process chemistry.',
     href: '/business/api',
     cta: 'Click here to know more',
   },
@@ -487,7 +487,7 @@ export default function GenericsPage() {
           />
           <div className="gen-hero-scrim" />
           <div className="gen-hero-overlay">
-            <h2 className="gen-hero-heading">Science, Scale and Integrated Excellence</h2>
+            <h2 className="gen-hero-heading">Expanding Healthcare Access. Enabling Patient Care.</h2>
           </div>
         </div>
       </section>
@@ -498,21 +498,9 @@ export default function GenericsPage() {
       >
         <p>
           <span className="part-1">
-            Granules India offers a diverse and continually evolving portfolio to the global
-            pharmaceutical market, spanning Active Pharmaceutical Ingredients (APIs), Pharmaceutical
-            Formulation Intermediates (PFIs)and Finished Dosages (FDs).
+            Our portfolio is built on one purpose: helping patients access the medicines they need. Our integrated portfolio delivers safe, effective and affordable healthcare solutions to patients and partners across geographies.
+            With expanding capabilities across complex generics, controlled substances, peptides, and advanced drug delivery systems, we are making innovation accessible across oncology, CNS/ADHD, metabolic disorders, and other key therapeutic areas
           </span>{' '}
-          <span className="part-2">
-            Guided by science and a clear focus on advancing high-value, specialised therapies, our
-            teams are committed to delivering safe, effective and affordable medicines that meet the
-            expectations of partners and patients across geographies.
-          </span>
-        </p>
-        <p className="part-2">
-          Our portfolio strategy encompasses our core strength of scale, while expanding into complex
-          generics, controlled substances, oncology therapies, CNS/ADHD treatments, peptides and
-          advanced drug delivery systems. Supported by a global manufacturing and R&amp;D network,
-          Granules continues to strengthen its position as a trusted partner to customers worldwide.
         </p>
       </div>
       <div className="cp-divider" />
