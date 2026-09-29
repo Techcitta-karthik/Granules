@@ -90,51 +90,6 @@ const STRATEGIC_PRIORITIES: InfoItem[] = [
   },
 ];
 
-type TechItem = {
-  title: string;
-  body: string;
-  image: string;
-  icon: string;
-};
-
-const TECH_ITEMS: TechItem[] = [
-  {
-    title: 'Electronic Lab Notebooks (ELN)',
-    body: 'Electronic Lab Notebooks (ELN) for structured, traceable and searchable capture of experimental data.',
-    image: '1.png',
-    icon: '/assets/company/icon-safety-cert.svg',
-  },
-  {
-    title: 'Design of Experiments (DoE) Software',
-    body: 'Design of Experiments (DoE) Software enabling efficient exploration of critical formulation and process variables.',
-    image: '2.png',
-    icon: '/assets/company/icon-idea.svg',
-  },
-  {
-    title: 'Process Analytical Technology (PAT)',
-    body: 'Process Analytical Technology (PAT) for real-time monitoring and control of critical process parameters for Quality by Design (QbD).',
-    image: '3.png',
-    icon: '/assets/company/icon-production-belt.svg',
-  },
-  {
-    title: 'AI/ML-Assisted Formulation Development',
-    body: 'AI/ML-Assisted Formulation Development to accelerate design decisions across complex formulations and process chemistry.',
-    image: '4.png',
-    icon: '/assets/rd/icon-dna.svg',
-  },
-  {
-    title: 'Predictive Dissolution Modelling',
-    body: 'Predictive Dissolution Modelling reducing development risk through in-silico prediction of in-vitro and in-vivo outcomes.',
-    image: '5.png',
-    icon: '/assets/rd/icon-pills.svg',
-  },
-  {
-    title: 'Electronic CMC Documentation Systems',
-    body: 'Electronic CMC Documentation Systems supporting faster, more consistent regulatory dossier preparation.',
-    image: '6.png',
-    icon: '/assets/company/icon-leaf.svg',
-  },
-];
 
 
 type GreenCard = {
@@ -381,33 +336,6 @@ export default function RdPage() {
       </div>
 
 
-      {/* Innovation Enabled by Technology — same panel as Company Values */}
-      <section className="cp-values-section rd-tech" aria-label="Innovation enabled by technology">
-        <img
-          className="cp-bg"
-          src="/assets/rd/tech-mesh.jpg"
-          alt=""
-          loading="lazy"
-          decoding="async"
-        />
-        <div className="cp-values-inner">
-          <span className="cp-values-badge">Innovation</span>
-          <div className="cp-values-grid">
-            {TECH_ITEMS.map((item) => (
-              <article className="cp-value-card" tabIndex={0} key={item.title}>
-                <div className="cp-value-header">
-                  <span className="cp-value-icon">
-                    <img src={item.icon} alt="" loading="lazy" decoding="async" />
-                  </span>
-                  <h4 className="cp-value-title-top">{item.title}</h4>
-                </div>
-                <p className="cp-value-desc">{item.body}</p>
-                <h4 className="cp-value-title-bottom" aria-hidden="true">{item.title}</h4>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Cascading Alternating Green Chemistry Section */}
       <div className="rd-green-wrapper">

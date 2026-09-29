@@ -659,12 +659,6 @@
   letter-spacing: 0.1px;
 }
 
-/* Innovation Enabled by Technology — reuses Company Values panel */
-.rd-tech.cp-values-section {
-  width: 100%;
-  max-width: none;
-  margin: 75px 0 0;
-}
 
 /* =========================================================================
    Green Chemistry Cascading Alternating Layout (1st Left -> 2nd Right -> 3rd Left -> 4th Right)
