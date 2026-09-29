@@ -2103,6 +2103,7 @@
   box-shadow: 0 10px 36px rgba(0, 20, 60, 0.04);
   box-sizing: border-box;
   text-align: left;
+  overflow: hidden;
 }
 
 .car-talent-form-grid {
@@ -2110,6 +2111,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 24px clamp(20px, 2.5vw, 32px);
   width: 100%;
+  min-width: 0;
 }
 
 .car-talent-field {
@@ -2117,6 +2119,7 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  min-width: 0;
 }
 
 .car-talent-field label {
@@ -2360,8 +2363,114 @@
 }
 
 @media (max-width: 768px) {
+  .car-talent-wrap {
+    width: 92% !important;
+    max-width: 92% !important;
+  }
+
+  .car-why-head {
+    width: 92% !important;
+    max-width: 92% !important;
+  }
+
+  .car-talent-card {
+    border-radius: 24px !important;
+    padding: 28px 20px !important;
+    overflow: hidden !important;
+  }
+
   .car-talent-form-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .car-talent-field {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .car-talent-field input,
+  .car-talent-field select {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    font-size: 15px !important;
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  .car-talent-field select {
+    padding-right: 40px !important;
+  }
+
+  .car-talent-phone-group {
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .car-talent-dial-select {
+    flex: 0 0 110px !important;
+    width: 110px !important;
+    padding: 14px 10px !important;
+    padding-right: 28px !important;
+    font-size: 14px !important;
+  }
+
+  .car-talent-phone-input {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .car-talent-file-custom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  .car-talent-file-left {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .car-talent-file-name {
+    white-space: normal !important;
+    font-size: 13.5px !important;
+  }
+
+  .car-talent-file-btn {
+    align-self: flex-start !important;
+    padding: 8px 20px !important;
+  }
+
+  .car-talent-consent {
+    gap: 10px !important;
+  }
+
+  .car-talent-consent label {
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  .car-talent-btn-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+    align-items: stretch !important;
+  }
+
+  .car-talent-submit-btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .car-talent-link {
+    text-align: center !important;
   }
 }
 
