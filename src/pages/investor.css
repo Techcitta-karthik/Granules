@@ -1205,8 +1205,9 @@
   border-color: rgba(0, 97, 248, 0.25);
   color: #0061f8;
   font-weight: 700;
-  min-width: 155px;
-  padding: 0 16px 0 18px;
+  min-width: 96px;
+  gap: 8px;
+  padding: 0 14px 0 16px;
 }
 
 .inv-custom-dropdown--year .inv-custom-dropdown-trigger:hover {

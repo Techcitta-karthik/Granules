@@ -343,6 +343,79 @@
   text-transform: uppercase !important;
 }
 
+/* ==========================================================================
+   Sustainability Leadership Banner (Dr. Krishna Prasad Chigurupati - 543.png)
+   ========================================================================== */
+.ov-leadership--sustainability .ov-leadership-bg {
+  filter: none !important;
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: 12% 16% !important;
+}
+
+.ov-leadership--sustainability .ov-leadership-overlay {
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0) 70%
+  ) !important;
+}
+
+.ov-leadership--sustainability .ov-quote-card {
+  left: auto !important;
+  right: clamp(28px, 4vw, 64px) !important;
+  bottom: clamp(28px, 4vw, 52px) !important;
+  width: clamp(380px, 45vw, 600px) !important;
+  max-width: 48% !important;
+}
+
+@media (max-width: 1080px) {
+  .ov-leadership--sustainability {
+    display: flex !important;
+    flex-direction: column !important;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .ov-leadership--sustainability .ov-leadership-bg {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 380px !important;
+    object-fit: cover !important;
+    object-position: 18% 14% !important;
+  }
+
+  .ov-leadership--sustainability .ov-leadership-overlay {
+    display: none !important;
+  }
+
+  .ov-leadership--sustainability .ov-quote-card {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+    margin: 16px auto 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ov-leadership--sustainability .ov-leadership-bg {
+    height: 300px !important;
+    object-position: 20% 12% !important;
+  }
+
+  .ov-leadership--sustainability .ov-quote-card {
+    width: calc(100% - 24px) !important;
+  }
+}
+
+
 @media (max-width: 1440px) {
   .ov-quote-card {
     left: clamp(20px, 2.5vw, 44px);

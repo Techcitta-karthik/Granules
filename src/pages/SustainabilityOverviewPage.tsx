@@ -772,22 +772,15 @@ export default function SustainabilityOverviewPage() {
         </div>
 
         {/* Leadership Speech Banner matching reference image */}
-        <div className="ov-leadership" style={{ width: '100%', maxWidth: '100%', margin: '0' }}>
+        <div className="ov-leadership ov-leadership--sustainability" style={{ width: '100%', maxWidth: '100%', margin: '0' }}>
           <img
             className="ov-leadership-bg"
-            src="/assets/sustainability/leadership-bg.webp"
-            alt=""
-            loading="eager"
-            decoding="async"
-          />
-          <div className="ov-leadership-overlay" />
-          <img
-            className="ov-leadership-person"
-            src="/assets/sustainability/leadership-portrait.webp"
+            src="/assets/2.0/543.png"
             alt="Dr. Krishna Prasad Chigurupati"
             loading="eager"
             decoding="async"
           />
+          <div className="ov-leadership-overlay" />
           <div className="ov-quote-card">
             <div className="ov-quote-mark" aria-hidden="true">
               <svg width="46" height="34" viewBox="0 0 36 28" fill="#0061f8">
