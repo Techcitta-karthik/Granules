@@ -228,7 +228,7 @@ export default function InvestorOverviewPage() {
       <section id="sec-investor-resources" className="inv-doc-section">
         <InvestorFilteredSection
           category={investorResourcesCat}
-          defaultSubcatId={deepParams?.sectionId === 'sec-investor-resources' ? deepParams.subcatId : 'investor-presentation'}
+          defaultSubcatId={deepParams?.sectionId === 'sec-investor-resources' ? deepParams.subcatId : undefined}
           defaultYear={deepParams?.sectionId === 'sec-investor-resources' ? deepParams.year : '2027'}
           hidePeriod
         />
@@ -263,7 +263,7 @@ export default function InvestorOverviewPage() {
         <InvestorFilteredSection
           category={iepfCat}
           defaultSubcatId={deepParams?.sectionId === 'sec-iepf' ? deepParams.subcatId : undefined}
-          defaultYear={deepParams?.sectionId === 'sec-iepf' ? deepParams.year : undefined}
+          defaultYear={deepParams?.sectionId === 'sec-iepf' ? deepParams.year : '2027'}
         />
       </section>
 
