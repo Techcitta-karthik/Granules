@@ -179,7 +179,7 @@ export default function GlobalSubsidiariesPage() {
       {/* CTA Banner Section */}
       <div className="cp-career">
         <div className="cp-career-copy">
-          <h2>Advancing Healthcare Through Science &amp; Scale</h2>
+          <h2>Advancing Healthcare Through Integrated Excellence</h2>
           <p>
             Advancing healthcare through a growing portfolio of complex, high-value pharmaceutical products.
           </p>

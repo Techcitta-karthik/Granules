@@ -21,6 +21,7 @@ const JUMP_SECTIONS = [
   { id: 'sec-investor-resources', label: 'Investor Resources' },
   { id: 'sec-corporate-centre', label: 'Corporate Centre' },
   { id: 'sec-notices-disclosures', label: 'Notice & Disclosures' },
+  { id: 'sec-iepf', label: 'IEPF' },
   { id: 'sec-other-info', label: 'Other Information' },
   { id: 'sec-investor-contact', label: 'Investor Relations Contact' },
 ];
@@ -58,6 +59,7 @@ export default function InvestorOverviewPage() {
   //       /investors/notice-disclosures/notice-of-board-meetings/
   //       /investors/investor-relation-contact/
   //       /investors/other-information/
+  //       /investors/iepf/
   const deepParams = useMemo(() => {
     const path = location.pathname.toLowerCase();
     if (path.includes('annual-reports') || path.includes('financial-reports')) {
@@ -68,6 +70,9 @@ export default function InvestorOverviewPage() {
     }
     if (path.includes('notice-of-board-meetings') || path.includes('notice-disclosures')) {
       return { sectionId: 'sec-notices-disclosures', subcatId: 'notice-board-meetings' };
+    }
+    if (path.includes('iepf')) {
+      return { sectionId: 'sec-iepf', subcatId: 'all' };
     }
     if (path.includes('investor-relation-contact') || path.includes('investor-contact')) {
       return { sectionId: 'sec-investor-contact', subcatId: 'contact-desk' };
@@ -90,6 +95,7 @@ export default function InvestorOverviewPage() {
   const financialReportsCat = INVESTOR_SECTIONS_DATA.find((c) => c.id === 'sec-financial-reports')!;
   const investorResourcesCat = INVESTOR_SECTIONS_DATA.find((c) => c.id === 'sec-investor-resources')!;
   const noticesDisclosuresCat = INVESTOR_SECTIONS_DATA.find((c) => c.id === 'sec-notices-disclosures')!;
+  const iepfCat = INVESTOR_SECTIONS_DATA.find((c) => c.id === 'sec-iepf')!;
   const investorContactCat = INVESTOR_SECTIONS_DATA.find((c) => c.id === 'sec-investor-contact')!;
   const otherInfoCat = INVESTOR_SECTIONS_DATA.find((c) => c.id === 'sec-other-info')!;
 
@@ -249,6 +255,15 @@ export default function InvestorOverviewPage() {
           category={noticesDisclosuresCat}
           defaultSubcatId={deepParams?.sectionId === 'sec-notices-disclosures' ? deepParams.subcatId : undefined}
           defaultYear={deepParams?.sectionId === 'sec-notices-disclosures' ? deepParams.year : '2027'}
+        />
+      </section>
+
+      {/* Section: Investor Education and Protection Fund (IEPF) */}
+      <section id="sec-iepf" className="inv-doc-section">
+        <InvestorFilteredSection
+          category={iepfCat}
+          defaultSubcatId={deepParams?.sectionId === 'sec-iepf' ? deepParams.subcatId : undefined}
+          defaultYear={deepParams?.sectionId === 'sec-iepf' ? deepParams.year : undefined}
         />
       </section>
 

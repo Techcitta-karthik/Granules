@@ -297,7 +297,7 @@ function About() {
           <article className="stat"><CountUp to={100} suffix="+" /><span>COUNTRIES SERVED</span></article>
           <article className="stat"><CountUp to={40} suffix="+" /><span>YEARS OF EXCELLENCE</span></article>
           <article className="stat"><CountUp to={10} /><span>MANUFACTURING FACILITIES<br />ACROSS INDIA, US &amp; EUROPE</span></article>
-          <article className="stat"><CountUp to={6} /><span>R&amp;D CENTERS OF EXCELLENCE</span></article>
+          <article className="stat"><CountUp to={5} /><span>R&amp;D CENTERS OF EXCELLENCE</span></article>
           <article className="stat"><CountUp to={150} suffix="+" /><span>DOSSIERS</span></article>
           <article className="stat"><CountUp to={100} suffix="+" /><span className="stat-small-s">DMF<span className="lowercase-s">s</span></span></article>
         </div>
@@ -384,7 +384,7 @@ function Business() {
 }
 
 function Presence() {
-  const tabs = ['Our Global Subsidiaries', 'Our Manufacturing Facilities', 'Our R&D Facilities'];
+  const tabs = ['Our Global Subsidiaries (4)', 'Our Manufacturing Facilities (10)', 'Our R&D Facilities (5)'];
   const [active, setActive] = useState(0);
 
   return (
@@ -508,7 +508,7 @@ function Presence() {
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="175" y="226" width="140" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="245" y="239.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    VIRGINIA, USA
+                    VIRGINIA, USA (2)
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
@@ -518,7 +518,7 @@ function Presence() {
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="408" y="254" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    ZURICH, SWITZERLAND
+                    ZURICH, SWITZERLAND (1)
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="498" cy="315" r="7" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
@@ -528,7 +528,7 @@ function Presence() {
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="580" y="442" width="140" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="650" y="455.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    HYDERABAD, INDIA
+                    HYDERABAD, INDIA (5)
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="698" cy="413" r="6.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
@@ -538,7 +538,7 @@ function Presence() {
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="748" y="362" width="176" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="836" y="375.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    VISAKHAPATNAM, INDIA
+                    VISAKHAPATNAM, INDIA (2)
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="717" cy="404" r="6.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
@@ -564,7 +564,7 @@ function Presence() {
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="175" y="226" width="140" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="245" y="239.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    VIRGINIA, USA
+                    VIRGINIA, USA (1)
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
@@ -574,27 +574,17 @@ function Presence() {
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="408" y="254" width="180" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="498" y="267.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    ZURICH, SWITZERLAND
+                    ZURICH, SWITZERLAND (1)
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="498" cy="315" r="7" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
-
-                {/* 3. Pune, India */}
-                <line x1="683.5" y1="412" x2="640" y2="442" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
-                <g className="map-pill-group" filter="url(#map-pill-shadow)">
-                  <rect x="580" y="442" width="120" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
-                  <text x="640" y="455.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    PUNE, INDIA
-                  </text>
-                </g>
-                <circle className="map-pin-dot" cx="683.5" cy="412" r="6" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
 
                 {/* 4. Hyderabad, India */}
                 <line x1="698" y1="413" x2="740" y2="375" stroke="rgba(0, 97, 248, 0.45)" strokeWidth="1.2" strokeLinecap="round" />
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="740" y="362" width="150" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="815" y="375.5" fill="#0061f8" fontSize="10" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.3px" textAnchor="middle" dominantBaseline="central">
-                    HYDERABAD, INDIA
+                    HYDERABAD, INDIA (3)
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="698" cy="413" r="6" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />
@@ -679,9 +669,9 @@ function Sustainability({ open = 0, setOpen }) {
       bg: `${A}sustainability-net-zero.jpg`,
     },
     {
-      title: 'CSR',
-      tag: 'CSR',
-      heading: 'Corporate Social Responsibility',
+      title: 'Corporate Social Responsibility',
+      tag: 'Corporate Social Responsibility',
+      heading: 'Purpose Beyond Business ',
       heroBody: 'Guided by our responsibility to society, we support initiatives that improve access to healthcare, enable education, enhance employability, and promote environmental awareness, helping create stronger and more resilient communities.',
       goal: 'Our Goal is to positively impact 1 million lives by 2030.',
       href: '/community',

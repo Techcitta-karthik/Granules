@@ -41,15 +41,15 @@ interface FocusArea {
 
 const CSR_FOCUS_AREAS: FocusArea[] = [
   {
-    id: 'Pharma-Patashala',
-    title: 'Pharma Patashala',
+    id: 'Pharma-Pathashala',
+    title: 'Pharma Pathashala',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
         <path d="M6 12v5c3 3 9 3 12 0v-5" />
       </svg>
     ),
-    desc: 'Since 2017, our technical academy, Pharma Patashala, has trained 1,600+ individuals through hands-on manufacturing and analytical training — with 100% employment linkages and career mentorship.',
+    desc: 'Since 2017, our technical academy, Pharma Pathashala, has trained 1,600+ individuals through hands-on manufacturing and analytical training — with 100% employment linkages and career mentorship.',
     image: 'skill-development.webp',
   },
   {
