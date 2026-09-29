@@ -14,7 +14,7 @@ export default function HeroSection() {
       <div className="cp-hero-panel">
         <img
           src="/assets/company/hero-banner.jpg"
-          alt="Granules pharmaceutical manufacturing with quality vials on a production line"
+          alt="Granules state-of-the-art sterile pharmaceutical cleanroom and precision automated manufacturing"
           loading="eager"
           decoding="async"
         />
