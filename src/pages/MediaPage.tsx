@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter, CareerSection } from '../components/company';
 import '../components/company/company.css';
@@ -61,6 +61,7 @@ export default function MediaPage() {
   const [selectedYear, setSelectedYear] = useState('2026');
   const [yearDropdownOpen, setYearDropdownOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const tabsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Granules Newsroom — Granules India';
@@ -98,9 +99,22 @@ export default function MediaPage() {
     return currentItems.slice(start, start + ITEMS_PER_PAGE);
   }, [currentItems, currentPage]);
 
+  const scrollTabsIntoView = () => {
+    const el = tabsRef.current;
+    if (!el) return;
+
+    const nav = document.querySelector('.cp-nav-wrap');
+    const offset = (nav?.getBoundingClientRect().height ?? 72) + 12;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  };
+
   const handleTabChange = (tab: 'news' | 'press') => {
     setActiveTab(tab);
     setYearDropdownOpen(false);
+    if (tab === 'press') {
+      scrollTabsIntoView();
+    }
   };
 
   const handleYearChange = (year: string) => {
@@ -132,7 +146,7 @@ export default function MediaPage() {
       </div>
 
       {/* Tab Switcher & Year Filter */}
-      <div className="med-tabs-container">
+      <div className="med-tabs-container" ref={tabsRef}>
         <div className="med-tabs-row">
           <button
             type="button"
