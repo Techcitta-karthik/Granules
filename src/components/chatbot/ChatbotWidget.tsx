@@ -1,32 +1,42 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ChatbotMessageContent from './ChatbotMessageContent';
 import { defaultChatbotApiHandler } from './chatbotApi';
-import type { ChatMessage, ChatbotApiHandler } from './types';
+import type { AskApiSource, ChatMessage, ChatbotApiHandler } from './types';
 import './chatbot.css';
 
 const WELCOME_MESSAGE =
   "Hi, I'm the Granules assistant. Ask me anything about our company, products, careers, or sustainability.";
 
+const GENERICS_QUESTION = 'What products does Granules India manufacture?';
+const GENERICS_PATH = '/business';
+
 const SUGGESTED_QUESTIONS = [
+  GENERICS_QUESTION,
   'What does Granules India do?',
   'Where are your manufacturing facilities?',
-  'How can I apply for careers?',
 ];
 
 type ChatbotWidgetProps = {
   onSend?: ChatbotApiHandler;
 };
 
-function createMessage(role: ChatMessage['role'], content: string): ChatMessage {
+function createMessage(
+  role: ChatMessage['role'],
+  content: string,
+  sources?: AskApiSource[],
+): ChatMessage {
   return {
     id: `${role}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     role,
     content,
     createdAt: Date.now(),
+    sources,
   };
 }
 
 export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: ChatbotWidgetProps) {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -35,13 +45,24 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
     createMessage('assistant', WELCOME_MESSAGE),
   ]);
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const showSuggestions = messages.length <= 1;
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const container = messagesContainerRef.current;
+    if (!container || !isOpen) return;
+
+    const target = container.querySelector<HTMLElement>('[data-chat-anchor="latest"]');
+    if (!target) return;
+
+    const top =
+      target.getBoundingClientRect().top -
+      container.getBoundingClientRect().top +
+      container.scrollTop;
+
+    container.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
   }, [messages, isLoading, isOpen]);
 
   useEffect(() => {
@@ -130,6 +151,10 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
     const trimmed = question.trim();
     if (!trimmed || isLoading) return;
 
+    if (trimmed === GENERICS_QUESTION) {
+      navigate(GENERICS_PATH);
+    }
+
     const userMessage = createMessage('user', trimmed);
     const nextHistory = [...messages, userMessage];
 
@@ -139,12 +164,15 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
     setIsLoading(true);
 
     try {
-      const answer = await onSend({
+      const reply = await onSend({
         message: trimmed,
         history: nextHistory,
       });
 
-      setMessages((current) => [...current, createMessage('assistant', answer)]);
+      setMessages((current) => [
+        ...current,
+        createMessage('assistant', reply.answer, reply.sources),
+      ]);
     } catch (err) {
       const detail = err instanceof Error ? err.message.trim() : '';
       setError(
@@ -188,16 +216,35 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
             </button>
           </header>
 
-          <div className="chatbot-messages" role="log" aria-relevant="additions">
-            {messages.map((message) => (
+          <div ref={messagesContainerRef} className="chatbot-messages" role="log" aria-relevant="additions">
+            {messages.map((message, index) => (
               <div
                 key={message.id}
                 className={`chatbot-message chatbot-message--${message.role}`}
+                data-chat-anchor={index === messages.length - 1 ? 'latest' : undefined}
               >
                 <ChatbotMessageContent
                   content={message.content}
                   rich={message.role === 'assistant'}
                 />
+                {message.role === 'assistant' && message.sources && message.sources.length > 0 && (
+                  <div className="chatbot-sources">
+                    <span className="chatbot-sources-label">Sources</span>
+                    <ul>
+                      {message.sources.map((source) => (
+                        <li key={source.url}>
+                          <a
+                            href={source.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {source.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             ))}
 
@@ -209,7 +256,6 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
               </div>
             )}
 
-            <div ref={messagesEndRef} />
           </div>
 
           {showSuggestions && (

@@ -2,29 +2,12 @@ import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs';
-import os from 'os';
-
-function getLocalIPv4(): string | null {
-  for (const interfaces of Object.values(os.networkInterfaces())) {
-    for (const net of interfaces ?? []) {
-      if (net.family === 'IPv4' && !net.internal) {
-        return net.address;
-      }
-    }
-  }
-
-  return null;
-}
 
 function resolveChatbotTarget(env: Record<string, string>): string {
   const configured = env.CHATBOT_API_TARGET?.trim();
   if (configured) return configured;
 
-  // api.py binds 0.0.0.0:8000; another local service may own 127.0.0.1:8000.
-  const lanIp = getLocalIPv4();
-  if (lanIp) return `http://${lanIp}:8000`;
-
-  return 'http://127.0.0.1:8000';
+  return 'https://api.techcitta-works.com';
 }
 
 const MIME_TYPES: Record<string, string> = {

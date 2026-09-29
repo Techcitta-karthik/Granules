@@ -5,6 +5,7 @@ export type ChatMessage = {
   role: ChatRole;
   content: string;
   createdAt: number;
+  sources?: AskApiSource[];
 };
 
 export type ChatbotRequest = {
@@ -13,21 +14,19 @@ export type ChatbotRequest = {
 };
 
 export type AskApiSource = {
-  score?: number;
-  url?: string;
-  title?: string;
-  content_type?: string;
-  source?: string;
-  chunk_id?: string;
+  title: string;
+  url: string;
 };
 
 export type AskApiResponse = {
   question: string;
   answer: string;
   sources?: AskApiSource[];
-  chat_model?: string;
-  embed_model?: string;
-  top_k?: number;
 };
 
-export type ChatbotApiHandler = (payload: ChatbotRequest) => Promise<string>;
+export type ChatbotReply = {
+  answer: string;
+  sources: AskApiSource[];
+};
+
+export type ChatbotApiHandler = (payload: ChatbotRequest) => Promise<ChatbotReply>;
