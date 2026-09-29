@@ -456,7 +456,7 @@ img {
 .hero-content {
   position: relative;
   z-index: 1;
-  padding-top: 43vh;
+  padding-top: clamp(200px, 36vh, 460px);
 }
 
 .hero h1 {
@@ -1108,6 +1108,7 @@ p {
 .credentials {
   padding-top: 75px;
   padding-bottom: 0;
+  overflow: hidden;
 }
 
 .credentials h2 {
@@ -2288,7 +2289,7 @@ footer[id] {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   :root {
     --shell: min(85%, calc(100% - 32px));
   }

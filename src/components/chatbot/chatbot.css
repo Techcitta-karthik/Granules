@@ -1,7 +1,7 @@
 .chatbot-root {
   position: fixed;
-  right: 28px;
-  bottom: 84px;
+  right: 24px;
+  bottom: 24px;
   z-index: 1000;
   font-family: 'Manrope', Arial, sans-serif;
   transform: scale(var(--chatbot-zoom-scale, 1));
@@ -13,12 +13,12 @@
 .chatbot-panel {
   position: absolute;
   right: 0;
-  bottom: 68px;
-  width: 390px;
-  max-width: 390px;
-  height: 500px;
-  max-height: 500px;
-  min-height: 380px;
+  bottom: 64px;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  height: 485px;
+  max-height: calc(100vh - 100px);
+  min-height: 280px;
   background: #ffffff;
   border-radius: 20px;
   border: 1px solid rgba(0, 97, 248, 0.16);
@@ -420,18 +420,19 @@
   color: #004ecc;
 }
 
-/* Responsive adjustments for mobile touch devices only - never triggers on desktop Ctrl+ zoom */
-@media (max-width: 600px) and (pointer: coarse) {
+/* Responsive adjustments for mobile viewports */
+@media (max-width: 600px) {
   .chatbot-root {
     right: 14px;
-    bottom: 80px;
+    bottom: 16px;
     transform: none !important;
   }
 
   .chatbot-panel {
     width: calc(100vw - 28px);
-    max-width: 390px;
-    height: min(500px, calc(100vh - 100px));
+    max-width: calc(100vw - 28px);
+    height: min(485px, calc(100vh - 86px));
+    max-height: calc(100vh - 86px);
     bottom: 60px;
     border-radius: 18px;
   }
@@ -439,5 +440,20 @@
   .chatbot-header h3.chatbot-title,
   .chatbot-title {
     font-size: 16.5px !important;
+  }
+}
+
+/* Height safety for very compact vertical viewports */
+@media (max-height: 560px) {
+  .chatbot-root {
+    bottom: 12px;
+    right: 16px;
+  }
+
+  .chatbot-panel {
+    bottom: 58px;
+    height: min(485px, calc(100vh - 76px));
+    max-height: calc(100vh - 76px);
+    border-radius: 16px;
   }
 }

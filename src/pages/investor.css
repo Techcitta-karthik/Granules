@@ -1727,10 +1727,17 @@
 
 @media (max-width: 640px) {
   .inv-jump-nav-wrap,
-  .inv-hero,
   .inv-doc-section {
     width: 94% !important;
     max-width: 94% !important;
+  }
+
+  .inv-hero {
+    width: 94% !important;
+    max-width: 94% !important;
+    aspect-ratio: auto !important;
+    min-height: 320px !important;
+    height: auto !important;
   }
 
   .inv-hero-overlay {

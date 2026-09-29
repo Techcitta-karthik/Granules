@@ -1973,6 +1973,7 @@ button.cp-nav-drawer-link {
 
   .cp-pin-panel {
     aspect-ratio: auto;
+    height: auto !important;
     min-height: 260px;
     max-height: none;
     border-radius: 28px;

@@ -1,0 +1,671 @@
+[
+  {
+    "resolution": "1920x1080",
+    "route": "/",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 144
+      }
+    ]
+  },
+  {
+    "resolution": "1920x1080",
+    "route": "/business/rd",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      }
+    ]
+  },
+  {
+    "resolution": "1920x1080",
+    "route": "/sustainability",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 144
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 144
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 144
+      }
+    ]
+  },
+  {
+    "resolution": "1920x1080",
+    "route": "/careers",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-discover-banner",
+        "scrollHeight": 603,
+        "clientHeight": 580
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 542,
+        "clientHeight": 488
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 595,
+        "clientHeight": 488
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      }
+    ]
+  },
+  {
+    "resolution": "1440x900",
+    "route": "/",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 108
+      }
+    ]
+  },
+  {
+    "resolution": "1440x900",
+    "route": "/business/rd",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      }
+    ]
+  },
+  {
+    "resolution": "1440x900",
+    "route": "/sustainability",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 108
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 108
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 108
+      }
+    ]
+  },
+  {
+    "resolution": "1440x900",
+    "route": "/careers",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-discover-banner",
+        "scrollHeight": 629,
+        "clientHeight": 605
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 583,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      }
+    ]
+  },
+  {
+    "resolution": "1366x768",
+    "route": "/",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 102
+      }
+    ]
+  },
+  {
+    "resolution": "1366x768",
+    "route": "/business/rd",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      }
+    ]
+  },
+  {
+    "resolution": "1366x768",
+    "route": "/sustainability",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 102
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 102
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 102
+      }
+    ]
+  },
+  {
+    "resolution": "1366x768",
+    "route": "/careers",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-discover-banner",
+        "scrollHeight": 629,
+        "clientHeight": 605
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 583,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      }
+    ]
+  },
+  {
+    "resolution": "1280x720",
+    "route": "/",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 96
+      }
+    ]
+  },
+  {
+    "resolution": "1280x720",
+    "route": "/business/rd",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      }
+    ]
+  },
+  {
+    "resolution": "1280x720",
+    "route": "/sustainability",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 96
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 96
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 96
+      }
+    ]
+  },
+  {
+    "resolution": "1280x720",
+    "route": "/careers",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-discover-banner",
+        "scrollHeight": 629,
+        "clientHeight": 605
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 583,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      }
+    ]
+  },
+  {
+    "resolution": "1024x768",
+    "route": "/",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 77
+      }
+    ]
+  },
+  {
+    "resolution": "1024x768",
+    "route": "/business/rd",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      }
+    ]
+  },
+  {
+    "resolution": "1024x768",
+    "route": "/sustainability",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 77
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 77
+      },
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 77
+      }
+    ]
+  },
+  {
+    "resolution": "1024x768",
+    "route": "/careers",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-discover-banner",
+        "scrollHeight": 628,
+        "clientHeight": 604
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 583,
+        "clientHeight": 478
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 531,
+        "clientHeight": 478
+      }
+    ]
+  },
+  {
+    "resolution": "768x1024",
+    "route": "/",
+    "issues": [
+      {
+        "type": "child-exceeds-container",
+        "selector": "div.cert-row",
+        "exceedsBy": 58
+      }
+    ]
+  },
+  {
+    "resolution": "768x1024",
+    "route": "/business/rd",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 786,
+        "clientHeight": 440
+      }
+    ]
+  },
+  {
+    "resolution": "768x1024",
+    "route": "/careers",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-discover-banner",
+        "scrollHeight": 754,
+        "clientHeight": 727
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      }
+    ]
+  },
+  {
+    "resolution": "375x667",
+    "route": "/company",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.cp-pin-panel",
+        "scrollHeight": 382,
+        "clientHeight": 371
+      }
+    ]
+  },
+  {
+    "resolution": "375x667",
+    "route": "/business/rd",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 666,
+        "clientHeight": 380
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 666,
+        "clientHeight": 380
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 666,
+        "clientHeight": 380
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "article.biz-card",
+        "scrollHeight": 666,
+        "clientHeight": 380
+      }
+    ]
+  },
+  {
+    "resolution": "375x667",
+    "route": "/business/facilities",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.fac-cta",
+        "scrollHeight": 260,
+        "clientHeight": 248
+      }
+    ]
+  },
+  {
+    "resolution": "375x667",
+    "route": "/investors",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.inv-hero",
+        "scrollHeight": 416,
+        "clientHeight": 280
+      }
+    ]
+  },
+  {
+    "resolution": "375x667",
+    "route": "/careers",
+    "issues": [
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-discover-banner",
+        "scrollHeight": 871,
+        "clientHeight": 842
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      },
+      {
+        "type": "clipping-hidden-overflow",
+        "selector": "div.car-panel-image",
+        "scrollHeight": 258,
+        "clientHeight": 240
+      }
+    ]
+  }
+]

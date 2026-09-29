@@ -1,0 +1,72 @@
+{
+  "totalOverflows": 1,
+  "issues": [
+    {
+      "route": "/",
+      "resolution": "768x1024",
+      "resType": "tablet",
+      "scrollWidth": 773,
+      "winWidth": 768,
+      "diff": 5,
+      "elements": [
+        {
+          "selector": "div.cert-track",
+          "left": 0,
+          "right": 9162,
+          "width": 9162,
+          "overflowBy": 8394
+        },
+        {
+          "selector": "div.cert-group",
+          "left": 0,
+          "right": 4581,
+          "width": 4581,
+          "overflowBy": 3813
+        },
+        {
+          "selector": "img",
+          "left": 745,
+          "right": 813,
+          "width": 68,
+          "overflowBy": 45
+        },
+        {
+          "selector": "img",
+          "left": 861,
+          "right": 1005,
+          "width": 145,
+          "overflowBy": 237
+        },
+        {
+          "selector": "img",
+          "left": 1053,
+          "right": 1124,
+          "width": 70,
+          "overflowBy": 356
+        },
+        {
+          "selector": "img",
+          "left": 1172,
+          "right": 1327,
+          "width": 155,
+          "overflowBy": 559
+        },
+        {
+          "selector": "img",
+          "left": 1375,
+          "right": 1555,
+          "width": 180,
+          "overflowBy": 787
+        },
+        {
+          "selector": "img",
+          "left": 1603,
+          "right": 1783,
+          "width": 180,
+          "overflowBy": 1015
+        }
+      ]
+    }
+  ],
+  "chatbotIssues": []
+}

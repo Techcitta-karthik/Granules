@@ -433,7 +433,7 @@ input, textarea, select {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .about .stats {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 14px !important;

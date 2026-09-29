@@ -52,64 +52,54 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
 
   // Keep chatbot physically static and prevent magnification when users zoom with Ctrl+ / Ctrl-
   useEffect(() => {
-    let baseDpr = 1;
+    // Clear legacy session storage to avoid stale DPR calibration
     try {
-      const stored = window.sessionStorage?.getItem('granules_base_dpr');
-      if (stored) {
-        const parsed = parseFloat(stored);
-        if (!isNaN(parsed) && parsed >= 0.5 && parsed <= 3) {
-          baseDpr = parsed;
-        }
-      }
+      window.sessionStorage?.removeItem('granules_base_dpr');
     } catch {
       // ignore
     }
 
     const updateZoomScale = () => {
-      // Check if this is an actual mobile touch device (coarse pointer)
-      const isMobileTouch = window.matchMedia('(max-width: 600px) and (pointer: coarse)').matches;
+      // Check if viewport is mobile width
+      const isMobile = window.matchMedia('(max-width: 600px)').matches;
       const root = document.querySelector('.chatbot-root') as HTMLElement | null;
       if (!root) return;
 
-      if (isMobileTouch) {
+      if (isMobile) {
         root.style.setProperty('--chatbot-zoom-scale', '1');
         return;
       }
 
-      const currentDpr = window.devicePixelRatio || 1;
-      let widthRatio = 1;
+      // Determine browser zoom factor:
+      // In desktop browsers, window.outerWidth / window.innerWidth gives the exact page zoom level
+      let zoomFactor = 1;
       if (window.outerWidth && window.innerWidth) {
-        widthRatio = window.outerWidth / window.innerWidth;
-      }
-
-      // If outerWidth and innerWidth are within 6% of each other, browser zoom is 100%
-      if (Math.abs(widthRatio - 1) <= 0.06) {
-        baseDpr = currentDpr;
-        try {
-          window.sessionStorage?.setItem('granules_base_dpr', baseDpr.toString());
-        } catch {
-          // ignore
+        const ratio = window.outerWidth / window.innerWidth;
+        if (ratio >= 0.4 && ratio <= 4) {
+          zoomFactor = ratio;
         }
       }
 
-      let zoomRatio = currentDpr / baseDpr;
-
-      // Fallback: If baseDpr was calibrated at a zoomed state or unknown,
-      // widthRatio provides the immediate window zoom factor on desktop
-      if (Math.abs(widthRatio - 1) > 0.08 && Math.abs(zoomRatio - 1) < 0.05) {
-        zoomRatio = widthRatio;
+      // Strict sizing rules:
+      // 1. When zoomed out (75%, 67%, etc.): NEVER scale up! Keep at fixed 1.0 size like reference image.
+      // 2. When zoomed in (Ctrl+ above 100%): Counter-scale by 1 / zoomFactor so physical size stays constant.
+      let scale = 1;
+      if (zoomFactor > 1.02) {
+        scale = 1 / zoomFactor;
+      } else {
+        scale = 1;
       }
 
-      if (isNaN(zoomRatio) || zoomRatio < 0.35 || zoomRatio > 4) {
-        zoomRatio = 1;
-      }
-
-      const counterScale = 1 / zoomRatio;
-      root.style.setProperty('--chatbot-zoom-scale', counterScale.toFixed(4));
+      // Cap scale between 0.45 and 1.0 (never allow scale > 1.0)
+      scale = Math.min(1, Math.max(0.45, scale));
+      root.style.setProperty('--chatbot-zoom-scale', scale.toFixed(4));
     };
 
     updateZoomScale();
     window.addEventListener('resize', updateZoomScale, { passive: true });
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', updateZoomScale, { passive: true });
+    }
 
     const watchResolution = () => {
       try {
@@ -130,6 +120,9 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
 
     return () => {
       window.removeEventListener('resize', updateZoomScale);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', updateZoomScale);
+      }
     };
   }, []);
 
