@@ -1012,8 +1012,8 @@
 
 .inv-jump-nav-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
   width: 100%;
 }
 
@@ -1023,8 +1023,9 @@
   background: #edf5ff;
   border: 1px solid rgba(0, 97, 248, 0.08);
   border-radius: 20px;
-  padding: 16px 18px;
-  min-height: 84px;
+  padding: 14px 16px;
+  height: 72px;
+  min-height: 72px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1035,7 +1036,7 @@
   transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
   text-decoration: none;
   outline: none;
-  gap: 12px;
+  gap: 10px;
 }
 
 .inv-jump-card:hover,
@@ -1633,27 +1634,28 @@
   }
 
   .inv-jump-nav-grid {
-    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-    gap: clamp(8px, 0.9vw, 14px) !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: clamp(10px, 1vw, 16px) !important;
   }
 
   .inv-jump-card {
     min-width: 0 !important;
-    padding: 12px clamp(8px, 0.8vw, 14px) !important;
-    gap: 8px !important;
-    min-height: 76px !important;
+    padding: 12px clamp(10px, 1vw, 16px) !important;
+    gap: 10px !important;
+    height: 72px !important;
+    min-height: 72px !important;
   }
 
   .inv-jump-label {
-    font-size: clamp(10.5px, 0.76vw, 12px) !important;
+    font-size: clamp(11px, 0.78vw, 12.5px) !important;
     word-break: normal !important;
     overflow-wrap: break-word !important;
     line-height: 1.25 !important;
   }
 
   .inv-jump-icon {
-    width: 22px !important;
-    height: 22px !important;
+    width: 24px !important;
+    height: 24px !important;
     flex-shrink: 0 !important;
   }
 }
@@ -1669,13 +1671,15 @@
   }
 
   .inv-jump-nav-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 12px !important;
   }
 
   .inv-jump-card {
     min-width: 0 !important;
-    padding: 14px 14px !important;
+    padding: 14px 16px !important;
+    height: 72px !important;
+    min-height: 72px !important;
   }
 }
 
@@ -1690,6 +1694,13 @@
 
   .inv-jump-nav-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px !important;
+  }
+
+  .inv-jump-card {
+    height: 72px !important;
+    min-height: 72px !important;
+    padding: 12px 14px !important;
   }
 
   .inv-doc-head-filters {
