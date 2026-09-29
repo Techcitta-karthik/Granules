@@ -13,7 +13,7 @@ const heroSlides = [
     image: 'Home/home-banner-1.jpg',
     title: 'Granules Secures Sole First-to-File ANDA Status for generic equivalent of LUMRYZ®',
     cta: 'Know More',
-    link: 'https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380',
+    link: 'https://assets.techcitta-works.com/pdfs/2026/07/Granules-India-Limited-Secures-Sole-First-to-File-ANDA-Status-for-Sodium-Oxybate-Extended-Release-for-Oral-Suspension.pdf',
     target: '_blank',
   },
   {
@@ -74,11 +74,13 @@ const products = [
 
 const news = [
   {
-    image: 'news-1.jpg',
+    image: 'media/Home-page-media/1.png',
     title: 'Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.',
     body: 'Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.',
     href: 'https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr',
     external: true,
+    hideContext: true,
+    cta: 'Know More',
   },
   {
     image: 'news-2.webp',
@@ -614,11 +616,13 @@ function Credentials() {
   const certsGroup = [...REGULATORY_LOGOS, ...REGULATORY_LOGOS];
 
   return (
-    <section className="credentials shell">
-      <h2>
-        Our facilities are approved by key global regulatory authorities, reflecting our commitment
-        to quality systems, operational transparency, and market readiness.
-      </h2>
+    <section className="credentials" id="credentials">
+      <div className="credentials-head shell">
+        <h2>
+          Our facilities are approved by key global regulatory authorities, reflecting our commitment
+          to quality systems, operational transparency, and market readiness.
+        </h2>
+      </div>
       <div className="cert-row" aria-label="Regulatory certifications">
         <div className="cert-track">
           <div className="cert-group">
@@ -679,7 +683,7 @@ function Sustainability({ open = 0, setOpen }) {
       iconType: 'circle',
       linkHref: '/community',
       cta: 'Learn More',
-      bg: `${A}sustainability.webp`,
+      bg: `${A}csr/homepage.jpeg`,
     },
   ];
 
@@ -848,16 +852,28 @@ function Media() {
       </div>
       <div className="news-grid">
         {news.map((item) => (
-          <article className="news-card" key={item.title}>
+          <article className={`news-card ${item.hideContext ? 'news-card-media-banner' : ''}`} key={item.title}>
             <a
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Read ${item.title}`}
             >
-              <img src={`${A}${item.image}`} alt="" loading="lazy" decoding="async" />
-              <h3>{item.title}</h3>
-              <span className="read-more">Read More &rarr;</span>
+              <img
+                src={`${A}${item.image}`}
+                alt={item.title}
+                className={item.hideContext ? 'news-img-framed' : ''}
+                loading="lazy"
+                decoding="async"
+              />
+              {!item.hideContext && <h3>{item.title}</h3>}
+              {item.hideContext ? (
+                <div className="news-action">
+                  <span className="button news-btn">{item.cta || 'Know More'}</span>
+                </div>
+              ) : (
+                <span className="read-more">Read More &rarr;</span>
+              )}
             </a>
           </article>
         ))}
