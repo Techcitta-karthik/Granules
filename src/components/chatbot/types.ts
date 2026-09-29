@@ -18,15 +18,26 @@ export type AskApiSource = {
   url: string;
 };
 
+export type AskQuota = {
+  used: number;
+  limit: number;
+  resetsInSeconds: number;
+};
+
 export type AskApiResponse = {
   question: string;
   answer: string;
   sources?: AskApiSource[];
+  used?: number;
+  limit?: number;
+  resets_in_seconds?: number;
+  message?: string;
 };
 
 export type ChatbotReply = {
   answer: string;
   sources: AskApiSource[];
+  quota: AskQuota | null;
 };
 
 export type ChatbotApiHandler = (payload: ChatbotRequest) => Promise<ChatbotReply>;

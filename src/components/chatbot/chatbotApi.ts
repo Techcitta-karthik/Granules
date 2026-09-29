@@ -1,5 +1,15 @@
-import type { AskApiResponse, AskApiSource, ChatbotApiHandler } from './types';
+import type { AskApiResponse, AskApiSource, AskQuota, ChatbotApiHandler } from './types';
 import { formatChatbotAnswer } from './formatChatbotAnswer';
+
+export class ChatbotSessionLimitError extends Error {
+  readonly quota: AskQuota;
+
+  constructor(message: string, quota: AskQuota) {
+    super(message);
+    this.name = 'ChatbotSessionLimitError';
+    this.quota = quota;
+  }
+}
 
 const DEFAULT_API_URL = '/api/ask';
 const DEFAULT_PROD_API_URL = 'https://api.techcitta-works.com/ask';
@@ -58,6 +68,62 @@ function normalizeSources(sources: AskApiResponse['sources']): AskApiSource[] {
   return result;
 }
 
+function unwrapQuotaPayload(data: unknown): Record<string, unknown> | null {
+  if (!data || typeof data !== 'object') return null;
+
+  const record = data as Record<string, unknown>;
+  const detail = record.detail;
+  if (detail && typeof detail === 'object' && !Array.isArray(detail)) {
+    return detail as Record<string, unknown>;
+  }
+
+  return record;
+}
+
+function readQuota(data: unknown): AskQuota | null {
+  const payload = unwrapQuotaPayload(data);
+  if (!payload) return null;
+
+  const used = payload.used;
+  const limit = payload.limit;
+  const resetsInSeconds = payload.resets_in_seconds;
+  if (typeof used !== 'number' || typeof limit !== 'number' || typeof resetsInSeconds !== 'number') {
+    return null;
+  }
+  if (!Number.isFinite(used) || !Number.isFinite(limit) || !Number.isFinite(resetsInSeconds)) {
+    return null;
+  }
+
+  return {
+    used: Math.max(0, Math.floor(used)),
+    limit: Math.max(0, Math.floor(limit)),
+    resetsInSeconds: Math.max(0, Math.ceil(resetsInSeconds)),
+  };
+}
+
+function readLimitMessage(data: unknown): string {
+  const payload = unwrapQuotaPayload(data);
+  if (!payload) return '';
+
+  if (typeof payload.message === 'string' && payload.message.trim()) {
+    return payload.message.trim();
+  }
+
+  if (typeof payload.detail === 'string' && payload.detail.trim()) {
+    return payload.detail.trim();
+  }
+
+  return '';
+}
+
+async function readJsonBody(response: Response): Promise<unknown> {
+  try {
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
 /**
  * POST { question, top_k? } to the Granules RAG /ask endpoint.
  *
@@ -91,11 +157,23 @@ export const defaultChatbotApiHandler: ChatbotApiHandler = async ({ message }) =
   const response = await fetch(apiUrl, {
     method: 'POST',
     headers,
+    credentials: 'include',
     body: JSON.stringify({
       question: message,
       top_k: topK,
     }),
   });
+
+  if (response.status === 429) {
+    const body = await readJsonBody(response);
+    const quota = readQuota(body);
+    const messageText = readLimitMessage(body) || 'Session full. Please try again later.';
+    if (quota && quota.resetsInSeconds > 0) {
+      throw new ChatbotSessionLimitError(messageText, quota);
+    }
+
+    throw new Error(messageText);
+  }
 
   if (!response.ok) {
     if (response.status === 401) {
@@ -114,5 +192,6 @@ export const defaultChatbotApiHandler: ChatbotApiHandler = async ({ message }) =
   return {
     answer: formatChatbotAnswer(data.answer.trim()),
     sources: normalizeSources(data.sources),
+    quota: readQuota(data),
   };
 };

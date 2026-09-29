@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChatbotMessageContent from './ChatbotMessageContent';
-import { defaultChatbotApiHandler } from './chatbotApi';
+import { ChatbotSessionLimitError, defaultChatbotApiHandler } from './chatbotApi';
 import type { AskApiSource, ChatMessage, ChatbotApiHandler } from './types';
 import './chatbot.css';
 
@@ -20,6 +20,16 @@ const SUGGESTED_QUESTIONS = [
 type ChatbotWidgetProps = {
   onSend?: ChatbotApiHandler;
 };
+
+function formatResetWait(totalSeconds: number): string {
+  const seconds = Math.max(0, Math.ceil(totalSeconds));
+  if (seconds < 60) {
+    return seconds === 1 ? '1 second' : `${seconds} seconds`;
+  }
+
+  const minutes = Math.ceil(seconds / 60);
+  return minutes === 1 ? '1 minute' : `${minutes} minutes`;
+}
 
 function createMessage(
   role: ChatMessage['role'],
@@ -41,14 +51,34 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [lockedUntil, setLockedUntil] = useState<number | null>(null);
+  const [now, setNow] = useState(() => Date.now());
   const [messages, setMessages] = useState<ChatMessage[]>(() => [
     createMessage('assistant', WELCOME_MESSAGE),
   ]);
 
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const sessionFullUntilRef = useRef<number | null>(null);
 
   const showSuggestions = messages.length <= 1;
+  const secondsRemaining = lockedUntil === null ? 0 : Math.max(0, Math.ceil((lockedUntil - now) / 1000));
+  const isSessionFull = secondsRemaining > 0;
+  const quotaLabel = isSessionFull
+    ? `Session full, back in ${formatResetWait(secondsRemaining)}.`
+    : null;
+
+  const lockSession = (resetsInSeconds: number) => {
+    const until = Date.now() + resetsInSeconds * 1000;
+    sessionFullUntilRef.current = until;
+    setLockedUntil(until);
+    setNow(Date.now());
+  };
+
+  const clearSessionLock = () => {
+    sessionFullUntilRef.current = null;
+    setLockedUntil(null);
+  };
 
   useEffect(() => {
     const container = messagesContainerRef.current;
@@ -66,10 +96,30 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
   }, [messages, isLoading, isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isSessionFull) {
       inputRef.current?.focus();
     }
-  }, [isOpen]);
+  }, [isOpen, isSessionFull]);
+
+  useEffect(() => {
+    if (lockedUntil === null) return undefined;
+
+    const tick = () => {
+      const current = Date.now();
+      if (current >= lockedUntil) {
+        sessionFullUntilRef.current = null;
+        setLockedUntil(null);
+        setNow(current);
+        return;
+      }
+
+      setNow(current);
+    };
+
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, [lockedUntil]);
 
   // Keep chatbot physically static and prevent magnification when users zoom with Ctrl+ / Ctrl-
   useEffect(() => {
@@ -149,7 +199,8 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
 
   const submitQuestion = async (question: string) => {
     const trimmed = question.trim();
-    if (!trimmed || isLoading) return;
+    const sessionStillFull = sessionFullUntilRef.current !== null && Date.now() < sessionFullUntilRef.current;
+    if (!trimmed || isLoading || sessionStillFull) return;
 
     if (trimmed === GENERICS_QUESTION) {
       navigate(GENERICS_PATH);
@@ -173,7 +224,17 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
         ...current,
         createMessage('assistant', reply.answer, reply.sources),
       ]);
+      if (reply.quota && reply.quota.limit - reply.quota.used <= 0 && reply.quota.resetsInSeconds > 0) {
+        lockSession(reply.quota.resetsInSeconds);
+      } else {
+        clearSessionLock();
+      }
     } catch (err) {
+      if (err instanceof ChatbotSessionLimitError) {
+        lockSession(err.quota.resetsInSeconds);
+        return;
+      }
+
       const detail = err instanceof Error ? err.message.trim() : '';
       setError(
         detail && !detail.toLowerCase().includes('failed to fetch')
@@ -266,7 +327,7 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
                   type="button"
                   className="chatbot-suggestion"
                   onClick={() => void submitQuestion(question)}
-                  disabled={isLoading}
+                  disabled={isLoading || isSessionFull}
                 >
                   <span className="chatbot-suggestion-text">{question}</span>
                   <svg className="chatbot-suggestion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -274,6 +335,15 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
                   </svg>
                 </button>
               ))}
+            </div>
+          )}
+
+          {quotaLabel && (
+            <div
+              className="chatbot-quota"
+              role="status"
+            >
+              {quotaLabel}
             </div>
           )}
 
@@ -288,15 +358,15 @@ export default function ChatbotWidget({ onSend = defaultChatbotApiHandler }: Cha
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask a question..."
+                placeholder={isSessionFull ? 'Session full' : 'Ask a question...'}
                 aria-label="Ask a question"
-                disabled={isLoading}
+                disabled={isLoading || isSessionFull}
               />
               <button
                 type="submit"
                 className="chatbot-send"
                 aria-label="Send question"
-                disabled={isLoading || !input.trim()}
+                disabled={isLoading || isSessionFull || !input.trim()}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
