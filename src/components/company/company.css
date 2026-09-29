@@ -1144,7 +1144,7 @@ button.cp-nav-drawer-link {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: left 20%;
   display: block;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: high-quality;
@@ -1157,8 +1157,9 @@ button.cp-nav-drawer-link {
 
 .cp-leadership-overlay-block {
   position: absolute;
-  left: clamp(28px, 4vw, 64px);
-  bottom: clamp(28px, 4vw, 52px);
+  right: clamp(28px, 4vw, 64px);
+  left: auto;
+  bottom: clamp(28px, 4vw, 48px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1921,7 +1922,8 @@ button.cp-nav-drawer-link {
   }
 
   .cp-leadership-overlay-block {
-    left: clamp(16px, 3.5vw, 36px);
+    right: clamp(16px, 3.5vw, 36px);
+    left: auto;
     bottom: clamp(16px, 3.5vw, 36px);
     top: auto;
   }
