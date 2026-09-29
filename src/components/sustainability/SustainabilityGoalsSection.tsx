@@ -13,6 +13,21 @@ export interface SustainabilityGoalItem {
   imageAlt: string;
 }
 
+const GOAL_STAT_PATTERN = /(FY\d{2,4}|\d+(?:\.\d+)?%|(?:19|20)\d{2})/g;
+
+function highlightGoalStats(text: string) {
+  const parts = text.split(GOAL_STAT_PATTERN);
+  return parts.map((part, index) =>
+    /^(?:FY\d{2,4}|\d+(?:\.\d+)?%|(?:19|20)\d{2})$/.test(part) ? (
+      <strong key={index} className="sus-goals-stat-highlight">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+}
+
 export const SUSTAINABILITY_GOALS: SustainabilityGoalItem[] = [
   {
     id: 'emissions',
@@ -21,7 +36,7 @@ export const SUSTAINABILITY_GOALS: SustainabilityGoalItem[] = [
     yearHeading: 'By 2030',
     yearTag: '2030',
     metric: '42%',
-    label: 'Achieve Net Zero by 2050. \nReduce Scope 1 and Scope 2 absolute emissions by 42% by FY30 from FY23 baseline. Reduce Scope 3 absolute emissions by 42% by FY30 from FY23 baseline.',
+    label: 'Achieve Net Zero emissions by 2050.\nBy FY2030, reduce absolute Scope 1, Scope 2, and Scope 3 emissions by 42%, compared to the FY2023 baseline.',
     image: '/assets/strategy/hero-video-poster.webp',
     imageAlt: 'Wind turbine clean renewable energy field',
   },
@@ -181,7 +196,7 @@ export default function SustainabilityGoalsSection() {
                   <div className="sus-goals-subdetails">
                     {activeItem.subdetails.map((sub, i) => (
                       <p key={i} className="sus-goals-card-desc sus-goals-card-desc--statement">
-                        • {sub}
+                        • {highlightGoalStats(sub)}
                       </p>
                     ))}
                   </div>
@@ -193,7 +208,7 @@ export default function SustainabilityGoalsSection() {
                         className="sus-goals-card-desc sus-goals-card-desc--statement"
                         style={{ margin: i > 0 ? '10px 0 0' : '0' }}
                       >
-                        {line.trim()}
+                        {highlightGoalStats(line.trim())}
                       </p>
                     ))}
                   </div>

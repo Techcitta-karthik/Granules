@@ -4,7 +4,7 @@ import path from 'path';
 const UPLOADS = 'C:\\Users\\ADMIN\\Downloads\\uploads\\uploads';
 const SRC = path.resolve('src');
 const CATALOG_OUT = path.resolve('src/lib/pdf-catalog.json');
-const CDN_HOST = 'https://d16d47oyl512wy.cloudfront.net/pdfs';
+const CDN_HOST = 'https://assets.techcitta-works.com/pdfs';
 
 function decodeSegment(segment) {
   try {

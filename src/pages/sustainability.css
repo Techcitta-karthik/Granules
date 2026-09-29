@@ -661,6 +661,12 @@
   white-space: pre-line !important;
 }
 
+.sus-goals-stat-highlight {
+  color: #166534;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 .sus-goals-metric-block {
   display: flex;
   flex-direction: column;
