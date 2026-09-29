@@ -94,6 +94,7 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
+  overflow-anchor: none;
   padding: 16px 18px;
   display: flex;
   flex-direction: column;
@@ -187,6 +188,44 @@
 .chatbot-rich strong {
   font-weight: 700;
   color: #0f172a;
+}
+
+.chatbot-sources {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.chatbot-sources-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.chatbot-sources ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chatbot-sources li + li {
+  margin-top: 3px;
+}
+
+.chatbot-sources a {
+  color: #0061f8;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.chatbot-sources a:hover {
+  text-decoration: underline;
 }
 
 /* Typing indicator */

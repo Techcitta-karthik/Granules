@@ -1,4 +1,4 @@
-import type { AskApiResponse, ChatbotApiHandler } from './types';
+import type { AskApiResponse, AskApiSource, ChatbotApiHandler } from './types';
 import { formatChatbotAnswer } from './formatChatbotAnswer';
 
 const DEFAULT_API_URL = '/api/ask';
@@ -29,6 +29,33 @@ function shouldAttachClientApiKey(apiUrl: string): boolean {
     (import.meta.env.VITE_CHATBOT_API_KEY as string | undefined)?.trim()
     && !apiUrl.startsWith('/'),
   );
+}
+
+function isHttpUrl(value: string): boolean {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+function normalizeSources(sources: AskApiResponse['sources']): AskApiSource[] {
+  if (!Array.isArray(sources)) return [];
+
+  const seen = new Set<string>();
+  const result: AskApiSource[] = [];
+
+  for (const source of sources) {
+    const title = typeof source?.title === 'string' ? source.title.trim() : '';
+    const url = typeof source?.url === 'string' ? source.url.trim() : '';
+    if (!title || !isHttpUrl(url) || seen.has(url)) continue;
+
+    seen.add(url);
+    result.push({ title, url });
+  }
+
+  return result;
 }
 
 /**
@@ -84,5 +111,8 @@ export const defaultChatbotApiHandler: ChatbotApiHandler = async ({ message }) =
     throw new Error('Chatbot API returned an empty answer');
   }
 
-  return formatChatbotAnswer(data.answer.trim());
+  return {
+    answer: formatChatbotAnswer(data.answer.trim()),
+    sources: normalizeSources(data.sources),
+  };
 };

@@ -5,5 +5,6 @@ export type {
   AskApiSource,
   ChatMessage,
   ChatbotApiHandler,
+  ChatbotReply,
   ChatbotRequest,
 } from './types';
