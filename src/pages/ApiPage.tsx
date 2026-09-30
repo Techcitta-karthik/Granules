@@ -224,7 +224,7 @@ export default function ApiPage() {
         <div className="copy" style={{ width: '100%', maxWidth: '100%' }}>
           <h2 id="high-barrier-complex-molecules" className="complex-molecules-header">High-Barrier Complex Molecules Portfolio</h2>
           <span className="complex-molecules-span" style={{ display: 'block', color: 'var(--n7)', fontSize: 'clamp(17px, 1.25vw, 20px)', lineHeight: '1.5', marginTop: '8px', width: '100%', maxWidth: '100%' }}>
-            Growing Pipeline of High-barrier, Complex Molecules in Oncology, CNS/ADHD, and Cardiovascular Therapeutics with active USDMF filings.
+            Growing pipeline of high-barrier, complex molecules in oncology, CNS/ADHD, and cardiovascular therapeutics with active USDMF filings.
           </span>
         </div>
       </div>
@@ -328,7 +328,7 @@ export default function ApiPage() {
               <thead>
                 <tr>
                   <th scope="col" style={{ width: '90px', textAlign: 'center' }}>
-                    Sr. no
+                    Sr. No
                   </th>
                   <th scope="col">Product</th>
                   <th scope="col">Therapeutic Category</th>
