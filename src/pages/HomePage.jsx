@@ -11,10 +11,9 @@ const A = '/assets/';
 const heroSlides = [
   {
     image: 'Home/home-banner-1.jpg',
-    title: 'Granules Secures Sole First-to-File ANDA Status for generic equivalent of LUMRYZ®',
+    title: 'Growing Pipeline of High-barrier, Complex Molecules in Oncology and CNS/ADHD Therapeutics',
     cta: 'Know More',
-    link: 'https://assets.techcitta-works.com/pdfs/2026/07/Granules-India-Limited-Secures-Sole-First-to-File-ANDA-Status-for-Sodium-Oxybate-Extended-Release-for-Oral-Suspension.pdf',
-    target: '_blank',
+    link: '/products',
   },
   {
     image: 'Home/generics.jpg',

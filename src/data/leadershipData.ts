@@ -327,6 +327,16 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     ],
   },
   {
+    id: 'sanjay-kumar',
+    image: 'Sanjay Kumar.png',
+    name: 'Mr. Sanjay Kumar',
+    role: 'Chief Executive Officer, Senn Tides India Private Limited',
+    profile: [
+      'Sanjay Kumar holds a B.Tech from IIT Kanpur and an MBA from IIM Bangalore, where he was on the Directors Merit List. He has completed the CFA Program (CFA Institute, USA) and attended the Stanford Graduate School of Business. He brings over 20 years of experience in corporate strategy, M&A, investor relations, and business transformation across global pharmaceutical organisations.',
+      'Sanjay is the Chief Executive Officer of Senn Tides India Private Limited, Granules India’s peptide CDMO subsidiary. Previously, he served as Chief Strategy Officer and Chief Sustainability Officer at Granules India and was responsible for driving enterprise strategy, evaluating growth opportunities, leading mergers and acquisitions, managing investor relations, and advancing the company’s sustainability agenda. Under his leadership, Granules corporate sustainability programme earned top industry recognitions.',
+    ],
+  },
+  {
     id: 'vijay-ramanavarapu',
     image: 'vijay-ramanavarapu.jpg',
     name: 'Mr. Vijay Ramanavarapu',
@@ -355,16 +365,6 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     profile: [
       'Mr. ManiKandan Ramalingam is a pharmaceutical technologist with 27 years of experience and holds M. Pharma Tech from NIPER (Mohali), PhD in Pharmaceutical Sciences and Master black belt in six sigma. In his experience, worked in providing technical, strategic, and functional leadership in uniquely challenging positions in Pharmaceutical Research. Worked at Sun Pharma and Dr. Reddy’s prior to joining Granules; and served as functional head of Product development Research and subject matter expert for formulation at Dr.Reddy’s.',
       'Has expertise in API Assessment for FD design & API – FD integration, Pre-formulation, Formulation design (different types of dosage forms), Biopharmaceutics and pharmacokinetics, New Technology adoption and Product Scale up and manufacturing. Also served in leading cross functional research team, change management, Training and team building, Regulatory risk management, product selection assessment, Contract research management, thereby ensuring successful translation of products from Ideation to the Market.',
-    ],
-  },
-  {
-    id: 'sanjay-kumar',
-    image: 'Sanjay Kumar.png',
-    name: 'Mr. Sanjay Kumar',
-    role: 'Chief Executive Officer, Senn Tides India Private Limited',
-    profile: [
-      'Sanjay Kumar holds a B.Tech from IIT Kanpur and an MBA from IIM Bangalore, where he was on the Directors Merit List. He has completed the CFA Program (CFA Institute, USA) and attended the Stanford Graduate School of Business. He brings over 20 years of experience in corporate strategy, M&A, investor relations, and business transformation across global pharmaceutical organisations.',
-      'Sanjay is the Chief Executive Officer of Senn Tides India Private Limited, Granules India’s peptide CDMO subsidiary. Previously, he served as Chief Strategy Officer and Chief Sustainability Officer at Granules India and was responsible for driving enterprise strategy, evaluating growth opportunities, leading mergers and acquisitions, managing investor relations, and advancing the company’s sustainability agenda. Under his leadership, Granules corporate sustainability programme earned top industry recognitions.',
     ],
   },
   {

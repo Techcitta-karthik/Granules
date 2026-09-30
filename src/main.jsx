@@ -48,6 +48,7 @@ import DataProtectionNoticePage from './pages/DataProtectionNoticePage.tsx';
 import DataPrivacyComplaintFormPage from './pages/DataPrivacyComplaintFormPage.tsx';
 import TermsConditionsPage from './pages/TermsConditionsPage.tsx';
 import ProductPortfolioPage from './pages/ProductPortfolioPage.tsx';
+import ProductsHomepage from './pages/ProductsHomepage.tsx';
 import BackToTopButton from './components/common/BackToTopButton';
 import CookieConsent from './components/common/CookieConsent';
 import { ChatbotWidget } from './components/chatbot';
@@ -90,6 +91,8 @@ function App() {
         <Route path="/business/fd" element={<FdPage />} />
         <Route path="/business/product-portfolio" element={<ProductPortfolioPage />} />
         <Route path="/business/products" element={<ProductPortfolioPage />} />
+        <Route path="/products" element={<ProductsHomepage />} />
+        <Route path="/products-homepage" element={<ProductsHomepage />} />
         <Route path="/business/rd" element={<RdPage />} />
         <Route path="/business/quality-compliance" element={<QualityCompliancePage />} />
         <Route path="/business/facilities" element={<FacilitiesPage />} />
