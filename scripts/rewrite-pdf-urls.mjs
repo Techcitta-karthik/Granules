@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const SRC = path.resolve('src');
-const CDN = 'https://assets.techcitta-works.com/pdfs';
+const CDN = 'https://d3uvya50m9yz9t.cloudfront.net/pdfs';
 const WP_RE = /https?:\/\/(?:www\.)?granulesindia\.com\/+wp-content\/uploads/gi;
 
 const extras = {
@@ -66,7 +66,7 @@ ${mapEntries}
 /** Rewrite a WordPress or local /documents PDF path to the CloudFront CDN. */
 export function toCdnPdf(url?: string | null): string {
   if (!url) return '';
-  if (url.startsWith(PDF_CDN_BASE) || url.includes('d16d47oyl512wy.cloudfront.net')) {
+  if (url.startsWith(PDF_CDN_BASE) || url.includes('d16d47oyl512wy.cloudfront.net') || url.includes('assets.techcitta-works.com')) {
     return url.replace(/ISO-14001&amp;45001/g, 'ISO-14001&45001');
   }
   if (WP_UPLOADS.test(url)) {

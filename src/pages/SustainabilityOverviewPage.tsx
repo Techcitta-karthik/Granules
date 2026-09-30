@@ -12,7 +12,7 @@ import { toCdnPdf } from '../lib/pdf';
 
 const S = '/assets/sustainability/';
 const L = '/assets/leadership/';
-const SUS_UPLOADS = 'https://assets.techcitta-works.com/pdfs';
+const SUS_UPLOADS = 'https://d3uvya50m9yz9t.cloudfront.net/pdfs';
 
 // Carousels Data (Images 3 & 4 - 5s auto-scroll)
 const COMMITMENTS_CAROUSEL_ITEMS: CarouselItem[] = [

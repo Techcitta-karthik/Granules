@@ -47,7 +47,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Form-IV Annual Report',
     period: 'FY 2025-26',
     year: '2026',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2026/05/BPL-Bio-Medical-Waste-Form-IV-Annual-Report.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2026/05/BPL-Bio-Medical-Waste-Form-IV-Annual-Report.pdf'),
     scope: 'Bonthapally (BPL) Facility Bio-Medical Waste Annual Compliance',
   },
   {
@@ -58,7 +58,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Return',
     period: 'FY 2025',
     year: '2025',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2025/10/Gagillapur-Biomedical-Waste-Annual-Report-2024.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2025/10/Gagillapur-Biomedical-Waste-Annual-Report-2024.pdf'),
     scope: 'Bonthapally Manufacturing Site Biomedical Waste Filing',
   },
 
@@ -71,7 +71,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Form 3, 4, IV & V',
     period: 'FY 2025-26',
     year: '2026',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2026/05/GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental-Statement-Form-V.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2026/05/GGP-Annual-Returns-Hazardous-Waste-Form-4-E-Waste-Form-3-Biomedical-Waste-Form-IV-and-Environmental-Statement-Form-V.pdf'),
     scope: 'Gagillapur Comprehensive Environmental & Waste Statutory Statement',
   },
   {
@@ -82,7 +82,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Report',
     period: 'FY 2024',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2025/10/Gagillapur-Biomedical-Waste-Annual-Report-2024.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2025/10/Gagillapur-Biomedical-Waste-Annual-Report-2024.pdf'),
     scope: 'Gagillapur Site Biomedical Waste Compliance Audit',
   },
 
@@ -95,7 +95,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Form-IV Annual Report',
     period: 'FY 2025',
     year: '2025',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2026/05/JDM-Bio-Medical-Waste-Form-IV-Annual-Report-FY-2025-From-Jan-2025-to-Dec-2025.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2026/05/JDM-Bio-Medical-Waste-Form-IV-Annual-Report-FY-2025-From-Jan-2025-to-Dec-2025.pdf'),
     scope: 'Jeedimetla Plant Bio-Medical Waste Annual Filing',
   },
   {
@@ -106,7 +106,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Report',
     period: 'FY 2024',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2025/10/Jeedimetla-Biomedical-Waste-Annual-Report-2024.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2025/10/Jeedimetla-Biomedical-Waste-Annual-Report-2024.pdf'),
     scope: 'Jeedimetla Facility Statutory Waste Compliance',
   },
 
@@ -119,7 +119,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Form-IV Annual Report',
     period: 'FY 2025',
     year: '2025',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2026/05/GLS-Bio-Medical-Waste-Form-IV-Annual-Report-for-the-period-from-January-2025.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2026/05/GLS-Bio-Medical-Waste-Form-IV-Annual-Report-for-the-period-from-January-2025.pdf'),
     scope: 'GLS Finished Dosage Site Bio-Medical Waste Filing',
   },
   {
@@ -130,7 +130,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Report',
     period: 'FY 2024',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2025/10/Granules-Life-Sciences-Biomedical-Waste-Annual-Report-2024.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2025/10/Granules-Life-Sciences-Biomedical-Waste-Annual-Report-2024.pdf'),
     scope: 'GLS Manufacturing Site Annual Waste Review',
   },
 
@@ -143,7 +143,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Statutory Order',
     period: 'Regulatory Consent',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/pdf/other-information/CFE%26CFO-order.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/pdf/other-information/CFE%26CFO-order.pdf'),
     scope: 'Unit 4 Consent for Establishment & Operation from Pollution Control Board',
   },
   {
@@ -154,7 +154,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'ISO Certification',
     period: 'Environmental & Safety Standard',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/pdf/other-information/ISO-14001%2645001-Certificate.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/pdf/other-information/ISO-14001%2645001-Certificate.pdf'),
     scope: 'Occupational Health & Safety (45001) & Environmental Management (14001)',
   },
   {
@@ -165,7 +165,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Return',
     period: 'FY 2025',
     year: '2025',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2026/05/Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2026/05/Unit-4-Bio-Medical-Waste-Annual-Return-for-the-year-2025-Jan-Dec.pdf'),
     scope: 'Unit 4 Vizag Bio-Medical Waste Filing',
   },
   {
@@ -176,7 +176,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Report',
     period: 'FY 2024',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2025/10/Unit-4-Biomedical-Waste-Annual-Report-2024.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2025/10/Unit-4-Biomedical-Waste-Annual-Report-2024.pdf'),
     scope: 'Unit 4 Vizag Statutory Compliance Report',
   },
 
@@ -189,7 +189,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Establishment Consent',
     period: 'Statutory Filing',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/pdf/other-information/CFE.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/pdf/other-information/CFE.pdf'),
     scope: 'Unit 5 Consent for Establishment Approval',
   },
   {
@@ -200,7 +200,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Operation Consent',
     period: 'Statutory Filing',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/pdf/other-information/CFO.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/pdf/other-information/CFO.pdf'),
     scope: 'Unit 5 Consent for Operation Approval',
   },
   {
@@ -211,7 +211,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'ISO Certification',
     period: 'Environmental & Safety Standard',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/pdf/other-information/ISO-14001%2645001-ceritificate.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/pdf/other-information/ISO-14001%2645001-ceritificate.pdf'),
     scope: 'Unit 5 Vizag Site Certified Management Systems',
   },
   {
@@ -222,7 +222,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Return',
     period: 'FY 2025-26',
     year: '2026',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2026/05/Unit-5-Bio-Medical-Waste-E-Waste-Annual-Returns-for-the-year-2025-2026.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2026/05/Unit-5-Bio-Medical-Waste-E-Waste-Annual-Returns-for-the-year-2025-2026.pdf'),
     scope: 'Unit 5 Vizag Bio-Medical & E-Waste Compliance',
   },
   {
@@ -233,7 +233,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Annual Report',
     period: 'FY 2024',
     year: '2024',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/2025/10/Unit-V-Biomedical-Waste-Annual-Returns-2024.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/2025/10/Unit-V-Biomedical-Waste-Annual-Returns-2024.pdf'),
     scope: 'Unit 5 Vizag API Site Waste Return',
   },
 
@@ -246,7 +246,7 @@ export const EHS_DOCUMENTS: EhsDocument[] = [
     docType: 'Government Certificate',
     period: 'PLI Scheme',
     year: '2021',
-    pdf: getAssetUrl('https://assets.techcitta-works.com/pdfs/pdf/other-information/GRANULES-HCL-2021.pdf'),
+    pdf: getAssetUrl('https://d3uvya50m9yz9t.cloudfront.net/pdfs/pdf/other-information/GRANULES-HCL-2021.pdf'),
     scope: 'Department of Pharmaceuticals Government of India PLI Approval',
   },
 ];

@@ -7,7 +7,7 @@ function resolveChatbotTarget(env: Record<string, string>): string {
   const configured = env.CHATBOT_API_TARGET?.trim();
   if (configured) return configured;
 
-  return 'https://api.techcitta-works.com';
+  return 'https://d33jq5pa6sscaw.cloudfront.net';
 }
 
 const MIME_TYPES: Record<string, string> = {

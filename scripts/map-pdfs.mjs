@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const SRC = path.resolve('src');
-const CDN = 'https://assets.techcitta-works.com/pdfs';
+const CDN = 'https://d3uvya50m9yz9t.cloudfront.net/pdfs';
 const WP = /https?:\/\/(?:www\.)?granulesindia\.com\/wp-content\/uploads/gi;
 
 function walk(dir, files = []) {

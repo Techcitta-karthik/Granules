@@ -4,7 +4,7 @@ import path from 'path';
 const UPLOADS = 'C:\\Users\\ADMIN\\Downloads\\uploads\\uploads';
 const SRC = path.resolve('src');
 const CATALOG_OUT = path.resolve('src/lib/pdf-catalog.json');
-const CDN_HOST = 'https://assets.techcitta-works.com/pdfs';
+const CDN_HOST = 'https://d3uvya50m9yz9t.cloudfront.net/pdfs';
 
 function decodeSegment(segment) {
   try {
@@ -48,7 +48,7 @@ for (const rel of paths) {
 function extractRel(url) {
   const raw = String(url).replace(/&amp;/g, '&').replace(/&#039;/g, "'").trim();
   let rest = raw.split('?')[0];
-  if (/d16d47oyl512wy\.cloudfront\.net\/pdfs/i.test(rest)) {
+  if (/\/pdfs\//i.test(rest) && /^https?:\/\//i.test(rest)) {
     rest = rest.replace(/^https?:\/\/[^/]+\/pdfs\/?/i, '');
   } else if (/wp-content\/uploads/i.test(rest)) {
     rest = rest.replace(/^(?:https?:\/\/(?:www\.)?granulesindia\.com)?(?:\[home_url\])?\/+wp-content\/uploads\/?/i, '');
@@ -91,7 +91,7 @@ fs.writeFileSync(
   )
 );
 
-const CDN_RE = /https:\/\/d16d47oyl512wy\.cloudfront\.net\/pdfs\/[^"']+/g;
+const CDN_RE = /https:\/\/(?:d3uvya50m9yz9t\.cloudfront\.net|assets\.techcitta-works\.com|d16d47oyl512wy\.cloudfront\.net)\/pdfs\/[^"']+/g;
 const SRC_EXTS = /\.(ts|tsx|js|jsx|json)$/;
 
 function walkSrc(dir, files = []) {

@@ -12,7 +12,7 @@ export class ChatbotSessionLimitError extends Error {
 }
 
 const DEFAULT_API_URL = '/api/ask';
-const DEFAULT_PROD_API_URL = 'https://api.techcitta-works.com/ask';
+const DEFAULT_PROD_API_URL = 'https://d33jq5pa6sscaw.cloudfront.net/ask';
 const DEFAULT_TOP_K = 5;
 
 function resolveTopK(): number {
@@ -128,7 +128,7 @@ async function readJsonBody(response: Response): Promise<unknown> {
  * POST { question, top_k? } to the Granules RAG /ask endpoint.
  *
  * Dev: defaults to `/api/ask` (Vite proxy → CHATBOT_API_TARGET/ask).
- * Prod: always calls https://api.techcitta-works.com/ask.
+ * Prod: always calls https://d33jq5pa6sscaw.cloudfront.net/ask.
  *
  * Env:
  * - VITE_CHATBOT_API_URL  (ignored in production; local proxy uses CHATBOT_API_TARGET)
