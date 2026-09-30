@@ -74,25 +74,27 @@ const products = [
 
 const news = [
   {
-    image: 'media/Home-page-media/1.png',
-    title: 'Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.',
-    body: 'Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.',
-    href: 'https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr',
+    image: 'media/cnbc-usfda-eir.jpg',
+    title: 'Granules India shares gain after US unit gets EIR from USFDA.',
+    body: 'Granules India shares gain after US unit gets EIR from USFDA.',
+    href: 'https://www.cnbctv18.com/market/granules-india-shares-gain-after-us-unit-gets-eir-from-usfda-ws-l-19918451.htm',
+    external: true,
+  },
+  {
+    image: 'media/Home-page-media/2.png',
+    title: 'Granules India net profit soars 33% to ₹201 cr in Q4 FY26.',
+    body: 'Granules India net profit soars 33% to ₹201 cr in Q4 FY26.',
+    href: 'https://pharma.economictimes.indiatimes.com/news/financial-performance/granules-india-net-profit-soars-33-to-201-cr-in-q4-fy26/130621446',
     external: true,
     hideContext: true,
     cta: 'Know More',
   },
   {
-    image: 'news-2.webp',
-    title: 'Granules India records 60% YoY increase in Q1 PAT.',
-    body: 'Granules India records 60% YoY increase in Q1 PAT.',
-    href: 'https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380',
-  },
-  {
-    image: 'news-3.webp',
-    title: 'Granules India Secures Sole First-to-File Status For Generic LUMRYZ® In US.',
-    body: 'Granules India Secures Sole First-to-File Status For Generic LUMRYZ® In US.',
-    href: 'https://www.business-standard.com/markets/capital-market-news/granules-india-records-60-yoy-increase-in-q1-pat-126072100899_1.html',
+    image: 'media/bw-innovation.jpg',
+    title: 'Innovation Led Transformation.',
+    body: 'As Indian pharma pivots toward innovation and sustainability, Granules India charts strong growth, R&D and global ambitions amid shifting supply chains.',
+    href: 'https://www.businessworld.in/article/innovation-led-transformation-586835',
+    external: true,
   },
 ];
 

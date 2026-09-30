@@ -1414,6 +1414,36 @@
         "id": "news-2026-1",
         "year": "2026",
         "category": "NEWS",
+        "date": "3 JUNE, 2026",
+        "title": "Granules India shares gain after US unit gets EIR from USFDA",
+        "url": "https://www.cnbctv18.com/market/granules-india-shares-gain-after-us-unit-gets-eir-from-usfda-ws-l-19918451.htm",
+        "image": "/assets/media/cnbc-usfda-eir.jpg",
+        "body": "Granules India shares gain after US unit gets EIR from USFDA."
+      },
+      {
+        "id": "news-2026-2",
+        "year": "2026",
+        "category": "NEWS",
+        "date": "30 APRIL, 2026",
+        "title": "Granules India net profit soars 33% to ₹201 cr in Q4 FY26",
+        "url": "https://pharma.economictimes.indiatimes.com/news/financial-performance/granules-india-net-profit-soars-33-to-201-cr-in-q4-fy26/130621446",
+        "image": "/assets/media/Home-page-media/2.png",
+        "body": "Granules India net profit soars 33% to ₹201 cr in Q4 FY26."
+      },
+      {
+        "id": "news-2026-3",
+        "year": "2026",
+        "category": "NEWS",
+        "date": "12 JANUARY, 2026",
+        "title": "Innovation Led Transformation",
+        "url": "https://www.businessworld.in/article/innovation-led-transformation-586835",
+        "image": "/assets/media/bw-innovation.jpg",
+        "body": "As Indian pharma pivots toward innovation and sustainability, Granules India charts strong growth, R&D and global ambitions amid shifting supply chains."
+      },
+      {
+        "id": "news-2026-4",
+        "year": "2026",
+        "category": "NEWS",
         "date": "11 SEPTEMBER, 2026",
         "title": "Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.",
         "url": "https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr",
@@ -1421,7 +1451,7 @@
         "body": "Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors."
       },
       {
-        "id": "news-2026-2",
+        "id": "news-2026-5",
         "year": "2026",
         "category": "NEWS",
         "date": "21 JULY, 2026",
@@ -1431,7 +1461,7 @@
         "body": "Granules India records 60% YoY increase in Q1 PAT."
       },
       {
-        "id": "news-2026-3",
+        "id": "news-2026-6",
         "year": "2026",
         "category": "NEWS",
         "date": "6 JULY, 2026",
@@ -1439,16 +1469,6 @@
         "url": "https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380",
         "image": "/assets/news-2.webp",
         "body": "Granules India Secures Sole First-to-File Status For Generic LUMRYZ® In US."
-      },
-      {
-        "id": "news-2026-4",
-        "year": "2026",
-        "category": "NEWS",
-        "date": "23 JANUARY, 2026",
-        "title": "Innovation led transformation",
-        "url": "https://www.businessworld.in/article/innovation-led-transformation-586835",
-        "image": "https://assets.techcitta-works.com/pdfs/2024/08/Priyanka-chigurupati.jpg",
-        "body": "Innovation led transformation - Featured in news coverage on 23 January, 2026."
       }
     ],
     "2025": [
@@ -3196,41 +3216,61 @@
       "id": "news-2026-1",
       "year": "2026",
       "category": "NEWS",
-      "date": "23 JANUARY, 2026",
-      "title": "Innovation led transformation",
-      "url": "https://www.businessworld.in/article/innovation-led-transformation-586835",
-      "image": "https://assets.techcitta-works.com/pdfs/2024/08/Priyanka-chigurupati.jpg",
-      "body": "Innovation led transformation - Featured in news coverage on 23 January, 2026."
+      "date": "3 JUNE, 2026",
+      "title": "Granules India shares gain after US unit gets EIR from USFDA",
+      "url": "https://www.cnbctv18.com/market/granules-india-shares-gain-after-us-unit-gets-eir-from-usfda-ws-l-19918451.htm",
+      "image": "/assets/media/cnbc-usfda-eir.jpg",
+      "body": "Granules India shares gain after US unit gets EIR from USFDA."
     },
     {
       "id": "news-2026-2",
       "year": "2026",
       "category": "NEWS",
-      "date": "11 SEPTEMBER, 2026",
-      "title": "Granules India secures sole first-to-file status for generic drug",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr",
-      "image": "/assets/media/et-logo.jpg",
-      "body": "Granules India has secured sole first-to-file status for a generic drug, strengthening its position in regulated markets."
+      "date": "30 APRIL, 2026",
+      "title": "Granules India net profit soars 33% to ₹201 cr in Q4 FY26",
+      "url": "https://pharma.economictimes.indiatimes.com/news/financial-performance/granules-india-net-profit-soars-33-to-201-cr-in-q4-fy26/130621446",
+      "image": "/assets/media/Home-page-media/2.png",
+      "body": "Granules India net profit soars 33% to ₹201 cr in Q4 FY26."
     },
     {
       "id": "news-2026-3",
       "year": "2026",
       "category": "NEWS",
-      "date": "6 JULY, 2026",
-      "title": "Showcased breakthrough technologies at CPhI Worldwide 2025.",
-      "url": "https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380",
-      "image": "/assets/news-2.webp",
-      "body": "Granules presented integrated capabilities spanning APIs, finished dosages, peptides and next-generation manufacturing."
+      "date": "12 JANUARY, 2026",
+      "title": "Innovation Led Transformation",
+      "url": "https://www.businessworld.in/article/innovation-led-transformation-586835",
+      "image": "/assets/media/bw-innovation.jpg",
+      "body": "As Indian pharma pivots toward innovation and sustainability, Granules India charts strong growth, R&D and global ambitions amid shifting supply chains."
     },
     {
       "id": "news-2026-4",
       "year": "2026",
       "category": "NEWS",
+      "date": "11 SEPTEMBER, 2026",
+      "title": "Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors.",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/granules-india-promoter-sells-1-72-crore-shares-worth-rs-1500-crore-goldman-sachs-bnp-paribas-among-investors/articleshow/134077487.cms?from=mdr",
+      "image": "/assets/media/et-logo.jpg",
+      "body": "Granules India promoter sells 1.72 crore shares worth Rs 1,500 crore; Goldman Sachs, BNP Paribas among investors."
+    },
+    {
+      "id": "news-2026-5",
+      "year": "2026",
+      "category": "NEWS",
       "date": "21 JULY, 2026",
-      "title": "Launched a dedicated peptide manufacturing unit.",
+      "title": "Granules India records 60% YoY increase in Q1 PAT.",
       "url": "https://www.business-standard.com/markets/capital-market-news/granules-india-records-60-yoy-increase-in-q1-pat-126072100899_1.html",
       "image": "/assets/news-3.webp",
-      "body": "The new facility expands our ability to support complex molecules with a scalable, quality-led development platform."
+      "body": "Granules India records 60% YoY increase in Q1 PAT."
+    },
+    {
+      "id": "news-2026-6",
+      "year": "2026",
+      "category": "NEWS",
+      "date": "6 JULY, 2026",
+      "title": "Granules India Secures Sole First-to-File Status For Generic LUMRYZ® In US.",
+      "url": "https://www.bwhealthcareworld.com/article/granules-india-secures-sole-first-to-file-status-for-generic-lumryz-in-us-613380",
+      "image": "/assets/news-2.webp",
+      "body": "Granules India Secures Sole First-to-File Status For Generic LUMRYZ® In US."
     },
     {
       "id": "news-2025-1",
