@@ -247,20 +247,11 @@ export default function MediaPage() {
                   >
                     <div className="med-news-thumb-box">
                       <img
-                        className="med-news-thumb-backdrop"
-                        src={item.image || fallbackImg}
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                        decoding="async"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = fallbackImg;
-                        }}
-                      />
-                      <img
                         className="med-news-image"
                         src={item.image || fallbackImg}
                         alt={item.title}
+                        width={100}
+                        height={100}
                         loading="lazy"
                         decoding="async"
                         onError={(e) => {
