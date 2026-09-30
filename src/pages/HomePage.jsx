@@ -11,7 +11,7 @@ const A = '/assets/';
 const heroSlides = [
   {
     image: 'Home/home-banner-.jpg',
-    title: 'Growing Pipeline of High-barrier, Complex Molecules in Oncology and CNS/ADHD Therapeutics',
+    title: 'Growing Portfolio of Complex Molecules \nAcross High-Growth Therapeutic Segments',
     cta: 'Know More',
     link: '/business/api#complex-molecules',
   },
