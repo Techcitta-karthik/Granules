@@ -1717,7 +1717,9 @@ article.open .accordion-icon-circle {
 }
 
 .news-card>a {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
   text-decoration: none;
   color: inherit;
@@ -1779,6 +1781,8 @@ article.open .accordion-icon-circle {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 800;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .news-img-framed {

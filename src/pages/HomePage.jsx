@@ -86,7 +86,7 @@ const news = [
     href: 'https://pharma.economictimes.indiatimes.com/news/financial-performance/granules-india-net-profit-soars-33-to-201-cr-in-q4-fy26/130621446',
     external: true,
     hideContext: true,
-    cta: 'Know More',
+    cta: 'Read More',
   },
   {
     image: 'media/bw-innovation.jpg',
@@ -868,13 +868,7 @@ function Media() {
                 decoding="async"
               />
               {!item.hideContext && <h3>{item.title}</h3>}
-              {item.hideContext ? (
-                <div className="news-action">
-                  <span className="button news-btn">{item.cta || 'Know More'}</span>
-                </div>
-              ) : (
-                <span className="read-more">Read More &rarr;</span>
-              )}
+              <span className="read-more">Read More &rarr;</span>
             </a>
           </article>
         ))}
