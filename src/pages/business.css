@@ -1079,4 +1079,50 @@ h3.cp-page-title {
   .gen-section-head--therapy .gen-products-btn {
     align-self: flex-start;
   }
+
+  .gen-portfolio-section .pp-section-head .gen-brochure-btn {
+    align-self: flex-start;
+    padding: 10px 20px;
+    font-size: 13.5px;
+  }
 }
+
+/* ---------- Generics Product Brochure Button ---------- */
+.gen-brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: var(--blue, #0061f8);
+  color: #ffffff;
+  border: none;
+  font: 700 14px/1 'Manrope', Arial, sans-serif;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.22);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.gen-brochure-btn:hover {
+  background: #004ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 97, 248, 0.35);
+}
+
+.gen-brochure-btn:active {
+  transform: translateY(0);
+}
+
+.gen-brochure-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.gen-brochure-btn:hover svg {
+  transform: translateY(1px);
+}
