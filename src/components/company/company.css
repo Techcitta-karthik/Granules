@@ -337,12 +337,12 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 3px 9px;
+  padding: 2.5px 7.5px;
   border-radius: 9999px;
   background: var(--pale-blue, #e8f3ff);
   color: var(--blue, #0061f8);
-  font: 500 9.5px/1.2 var(--font-primary, 'Manrope', sans-serif);
-  letter-spacing: 0.05em;
+  font: 500 8.5px/1.2 var(--font-primary, 'Manrope', sans-serif);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
   border: 1px solid rgba(0, 97, 248, 0.14);

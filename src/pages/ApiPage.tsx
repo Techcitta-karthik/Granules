@@ -134,6 +134,9 @@ export default function ApiPage() {
         </div>
       </div>
 
+
+      <h2 className="complex-molecules-header">High-Barrier Complex Molecules Portfolio</h2>
+
       <div className="biz-cta biz-cta--placeholder">
         <div className="biz-cta-copy">
           <h2>Let&rsquo;s Build Long-Term, Scalable API Partnerships</h2>
