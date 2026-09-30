@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import CustomSelect from '../components/common/CustomSelect';
 import '../components/company/company.css';
@@ -244,6 +244,7 @@ function IntegrationMark({ type }: { type: Integration }) {
 }
 
 export default function ProductPortfolioPage() {
+  const location = useLocation();
   const [segment, setSegment] = useState<Segment>('All');
   const [therapy, setTherapy] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -252,6 +253,27 @@ export default function ProductPortfolioPage() {
   const searchRef = useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const tableWrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const param = searchParams.get('segment') || (location.state as { segment?: string } | null)?.segment;
+    if (param) {
+      const norm = param.trim().toLowerCase();
+      if (norm === 'api') setSegment('API');
+      else if (norm === 'pfi') setSegment('PFI');
+      else if (
+        norm === 'finished dosage' ||
+        norm === 'finished dosages' ||
+        norm === 'fd' ||
+        norm === 'finisheddosage' ||
+        norm === 'finished-dosage'
+      ) {
+        setSegment('Finished Dosage');
+      } else if (norm === 'all') {
+        setSegment('All');
+      }
+    }
+  }, [location.search, location.state]);
 
   useEffect(() => {
     document.title = 'Our Products | APIs, PFIs & Finished Dosages | Granules India';

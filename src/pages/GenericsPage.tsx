@@ -301,25 +301,54 @@ export default function GenericsPage() {
   }, []);
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const param = searchParams.get('segment') || (location.state as { segment?: string } | null)?.segment;
+    if (param) {
+      const norm = param.trim().toLowerCase();
+      if (norm === 'api') {
+        setSegment('API');
+      } else if (norm === 'pfi') {
+        setSegment('PFI');
+      } else if (
+        norm === 'finished dosage' ||
+        norm === 'finished dosages' ||
+        norm === 'fd' ||
+        norm === 'finisheddosage' ||
+        norm === 'finished-dosage'
+      ) {
+        setSegment('Finished Dosage');
+      } else if (norm === 'all') {
+        setSegment('All');
+      }
+    } else if (!location.hash) {
+      setSegment('All');
+    }
+    setTherapy('All');
+    setSearchQuery('');
+
     if (location.hash) {
       const id = location.hash.replace('#', '');
       const targetId = id === 'portfolio' ? 'our-portfolio' : id;
       const el = document.getElementById(targetId) || document.getElementById(id);
       if (el) {
-        setSegment('All');
-        setTherapy('All');
-        setSearchQuery('');
-        const timer = setTimeout(() => {
+        const scrollToTarget = () => {
           const nav = document.querySelector('.cp-nav-wrap') || document.querySelector('header');
           const navHeight = nav ? nav.getBoundingClientRect().height : 80;
-          const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-        }, 150);
-        return () => clearTimeout(timer);
+          const rect = el.getBoundingClientRect();
+          const targetY = rect.top + window.scrollY - navHeight - 12;
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        };
+        const timer1 = setTimeout(scrollToTarget, 100);
+        const timer2 = setTimeout(scrollToTarget, 300);
+        return () => {
+          clearTimeout(timer1);
+          clearTimeout(timer2);
+        };
       }
+    } else {
+      window.scrollTo(0, 0);
     }
-    window.scrollTo(0, 0);
-  }, [location.hash, location.pathname]);
+  }, [location.hash, location.pathname, location.search, location.state]);
 
   useEffect(() => {
     const handleScroll = () => {

@@ -1,0 +1,39 @@
+DEVELOPER WORK & CODE REPORT: MAC
+Email,mac@MAcs-MacBook-Pro.local
+Total Commits,23
+Active Coding Hours,6.7
+Total Span Hours,6.2
+Lines Added (+),0
+Lines Deleted (-),0
+Net Lines Changed,0
+Active Date Range,2026-09-02 11:18:21 to 2026-09-02 17:28:59
+
+--- 1. DAILY SESSIONS LOG ---
+Date,Commits Count,Start Time (IST),End Time (IST),Active Work Hours,Daily Span (Hrs),Lines Added,Lines Deleted,Net Lines,Branches,Primary Tasks
+"2026-09-02",23,"11:18:21","17:28:59",6.7,6.2,0,0,0,"origin/alpha, origin/Skeleton","Integrate AI Chatbot RAG into Skeleton branch | Add .env.example for chatbot backend setup | Fix syntax bug in vectorstore.py (double backticks)"
+
+--- 2. ALL PUSHED COMMITS ---
+#,Commit Hash,Date (IST),Time (IST),Branch / Target Ref,Files Changed,Lines Added (+),Lines Deleted (-),Net Code Changed,Commit Message
+1,"13e93e3","2026-09-02","11:18:21","branch/internal",0,0,0,0,"Integrate AI Chatbot RAG into Skeleton branch"
+2,"2010598","2026-09-02","11:22:40","branch/internal",0,0,0,0,"Add .env.example for chatbot backend setup"
+3,"badc560","2026-09-02","11:24:39","branch/internal",0,0,0,0,"Fix syntax bug in vectorstore.py (double backticks)"
+4,"a0c1882","2026-09-02","11:30:08","branch/internal",0,0,0,0,"Fix invalid Gemini model name: gemini-3.6-flash -> gemini-2.0-flash"
+5,"6291db0","2026-09-02","12:09:05","origin/Skeleton",0,0,0,0,"Replace COLLECTION_NAME with india_knowledge_base"
+6,"62c69a7","2026-09-02","12:37:31","branch/internal",0,0,0,0,"Integrate AI Chatbot RAG into alpha branch"
+7,"aae70a0","2026-09-02","12:39:48","branch/internal",0,0,0,0,"Include .qdrant_store vector database in repo"
+8,"3065827","2026-09-02","12:42:38","branch/internal",0,0,0,0,"Add Windows startup script and setup guide"
+9,"818394a","2026-09-02","12:50:37","branch/internal",0,0,0,0,"Expand chatbot knowledge base with ESG, acquisitions, products, financials"
+10,"e930380","2026-09-02","12:58:58","branch/internal",0,0,0,0,"Expand knowledge base with leadership, milestones, facilities, improved retrieval"
+11,"72b9d76","2026-09-02","13:13:15","branch/internal",0,0,0,0,"Update chatbot highlight to yellow with banner notification"
+12,"c8155fd","2026-09-02","13:20:37","branch/internal",0,0,0,0,"Fix SPA highlight navigation and yellow highlight visibility"
+13,"b12ae1a","2026-09-02","13:48:25","branch/internal",0,0,0,0,"Fix Gemini API: update model to gemini-flash-latest"
+14,"836c77a","2026-09-02","13:52:48","branch/internal",0,0,0,0,"Fix source citations: strip route from title when matching"
+15,"88c77d5","2026-09-02","13:58:07","branch/internal",0,0,0,0,"Fix source highlighting: add section field and fuzzy matching"
+16,"70080e7","2026-09-02","14:06:28","branch/internal",0,0,0,0,"Add Qdrant Cloud support for public deployment"
+17,"299885b","2026-09-02","14:24:11","branch/internal",0,0,0,0,"Add free deployment configs for Netlify + Render"
+18,"07c59b0","2026-09-02","14:35:33","branch/internal",0,0,0,0,"Simplify chatbot: concise answers with 1 source only"
+19,"108ba6b","2026-09-02","14:41:48","branch/internal",0,0,0,0,"Enterprise-grade citation accuracy for MNC clients"
+20,"2d878ca","2026-09-02","14:52:03","branch/internal",0,0,0,0,"Add comprehensive investor data to knowledge base"
+21,"0c6e768","2026-09-02","15:00:28","branch/internal",0,0,0,0,"Add LOCAL_ONLY flag for vectorstore"
+22,"9154707","2026-09-02","15:25:16","branch/internal",0,0,0,0,"Add feedback buttons to chatbot responses"
+23,"8e098ed","2026-09-02","17:28:59","origin/alpha",0,0,0,0,"Update chatbot.js, remove .env.example, add vectorstore exports"

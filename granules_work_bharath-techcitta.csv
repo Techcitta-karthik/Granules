@@ -1,0 +1,55 @@
+DEVELOPER WORK & CODE REPORT: bharath-techcitta
+Email,bharath@techcitta.com
+Total Commits,26
+Active Coding Hours,22.3
+Total Span Hours,33.1
+Lines Added (+),0
+Lines Deleted (-),0
+Net Lines Changed,0
+Active Date Range,2026-08-26 15:16:15 to 2026-09-30 18:01:47
+
+--- 1. DAILY SESSIONS LOG ---
+Date,Commits Count,Start Time (IST),End Time (IST),Active Work Hours,Daily Span (Hrs),Lines Added,Lines Deleted,Net Lines,Branches,Primary Tasks
+"2026-08-26",1,"15:16:15","15:16:15",1.0,0.0,0,0,0,"origin/main, origin/HEAD, main","basic"
+"2026-08-27",2,"14:55:13","22:07:23",1.0,7.2,0,0,0,"origin/feature/Business-page","sustaniability page changes | Add company page feature"
+"2026-09-05",3,"12:56:26","23:42:38",1.8,10.8,0,0,0,"feature/internal","Updated Gloabal Subsidaries | Added Global Subsidaries pages | Add Senn Tides page and updated the about us and business pages"
+"2026-09-07",1,"22:19:37","22:19:37",1.0,0.0,0,0,0,"feature/internal","aboutus/overview"
+"2026-09-08",1,"00:05:36","00:05:36",1.0,0.0,0,0,0,"feature/internal","aboutus/update"
+"2026-09-09",2,"13:40:54","19:48:23",1.0,6.1,0,0,0,"feature/internal","finally | modified"
+"2026-09-10",1,"14:38:57","14:38:57",1.0,0.0,0,0,0,"origin/final-updates, origin/beta","Final updates"
+"2026-09-11",2,"10:26:33","12:15:47",2.3,1.8,0,0,0,"feature/internal","Apply local career page changes | some changes"
+"2026-09-18",1,"22:37:36","22:37:36",1.0,0.0,0,0,0,"feature/internal","Changes on the careers,senn-tides pages"
+"2026-09-21",1,"12:23:36","12:23:36",1.0,0.0,0,0,0,"feature/internal","IM gay"
+"2026-09-24",1,"19:28:33","19:28:33",1.0,0.0,0,0,0,"feature/internal","Update careers page: default to R&D and adjust background blur"
+"2026-09-25",1,"12:50:46","12:50:46",1.0,0.0,0,0,0,"feature/internal","feat(chatbot): make chatbot static across resolutions and prevent expansion on zoom"
+"2026-09-29",5,"13:27:47","17:17:52",4.3,3.8,0,0,0,"feature/internal","fixing issue solved | latestchanges | Merge branch 'chatbot' of https://github.com/Techcitta/granules-india-website into chatbot # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit."
+"2026-09-30",4,"14:36:57","18:01:47",3.9,3.4,0,0,0,"feature/internal","media section changes | Update media news section with official publication logos and 100x100 styling | jhewfv"
+
+--- 2. ALL PUSHED COMMITS ---
+#,Commit Hash,Date (IST),Time (IST),Branch / Target Ref,Files Changed,Lines Added (+),Lines Deleted (-),Net Code Changed,Commit Message
+1,"d88b442","2026-08-26","15:16:15","origin/main, origin/HEAD, main",0,0,0,0,"basic"
+2,"2de3d8f","2026-08-27","14:55:13","branch/internal",0,0,0,0,"sustaniability page changes"
+3,"65ddc92","2026-08-27","22:07:23","origin/feature/Business-page",0,0,0,0,"Add company page feature"
+4,"0eebd35","2026-09-05","12:56:26","branch/internal",0,0,0,0,"Updated Gloabal Subsidaries"
+5,"8c00189","2026-09-05","13:44:05","branch/internal",0,0,0,0,"Added Global Subsidaries pages"
+6,"cb53fb7","2026-09-05","23:42:38","branch/internal",0,0,0,0,"Add Senn Tides page and updated the about us and business pages"
+7,"21ccb56","2026-09-07","22:19:37","branch/internal",0,0,0,0,"aboutus/overview"
+8,"3480048","2026-09-08","00:05:36","branch/internal",0,0,0,0,"aboutus/update"
+9,"4319957","2026-09-09","13:40:54","branch/internal",0,0,0,0,"finally"
+10,"9ec5e03","2026-09-09","19:48:23","branch/internal",0,0,0,0,"modified"
+11,"14d9313","2026-09-10","14:38:57","origin/final-updates, origin/beta",0,0,0,0,"Final updates"
+12,"2f9e98d","2026-09-11","10:26:33","branch/internal",0,0,0,0,"Apply local career page changes"
+13,"a2e87ca","2026-09-11","12:15:47","branch/internal",0,0,0,0,"some changes"
+14,"77b4f63","2026-09-18","22:37:36","branch/internal",0,0,0,0,"Changes on the careers,senn-tides pages"
+15,"16bff22","2026-09-21","12:23:36","branch/internal",0,0,0,0,"IM gay"
+16,"168ed70","2026-09-24","19:28:33","branch/internal",0,0,0,0,"Update careers page: default to R&D and adjust background blur"
+17,"9d475da","2026-09-25","12:50:46","branch/internal",0,0,0,0,"feat(chatbot): make chatbot static across resolutions and prevent expansion on zoom"
+18,"5fe20fb","2026-09-29","13:27:47","branch/internal",0,0,0,0,"fixing issue solved"
+19,"4c1848e","2026-09-29","14:19:26","branch/internal",0,0,0,0,"latestchanges"
+20,"5864911","2026-09-29","14:26:02","branch/internal",0,0,0,0,"Merge branch 'chatbot' of https://github.com/Techcitta/granules-india-website into chatbot # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit."
+21,"8c0bd1f","2026-09-29","16:52:46","branch/internal",0,0,0,0,"Fixed investors page sizing for mobile"
+22,"dfad3b1","2026-09-29","17:17:52","branch/internal",0,0,0,0,"fixed sizing in careers page mobile edition"
+23,"3294a15","2026-09-30","14:36:57","branch/internal",0,0,0,0,"media section changes"
+24,"af06ecd","2026-09-30","15:35:08","branch/internal",0,0,0,0,"Update media news section with official publication logos and 100x100 styling"
+25,"fb790ab","2026-09-30","15:48:55","branch/internal",0,0,0,0,"jhewfv"
+26,"230be19","2026-09-30","18:01:47","branch/internal",0,0,0,0,"updates on media"
