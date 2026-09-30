@@ -93,6 +93,7 @@ function App() {
         <Route path="/business/products" element={<ProductPortfolioPage />} />
         <Route path="/products" element={<ProductsHomepage />} />
         <Route path="/products-homepage" element={<ProductsHomepage />} />
+        <Route path="/productshomepage" element={<ProductsHomepage />} />
         <Route path="/business/rd" element={<RdPage />} />
         <Route path="/business/quality-compliance" element={<QualityCompliancePage />} />
         <Route path="/business/facilities" element={<FacilitiesPage />} />
