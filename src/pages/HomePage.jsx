@@ -10,7 +10,7 @@ const A = '/assets/';
 
 const heroSlides = [
   {
-    image: 'Home/home-banner-.jpg',
+    image: 'Home/home-banner.png',
     title: 'Growing Portfolio of Complex Molecules \n to Address Evolving Healthcare needs',
     cta: 'Know More',
     link: '/business/api#complex-molecules',
@@ -1026,6 +1026,9 @@ export default function HomePage() {
   const activeNavSection = sustainabilityTab === 1 ? 'CSR' : 'Sustainability';
 
   useEffect(() => {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
     const sections = [...document.querySelectorAll('main > section:not(.hero), footer')];
     sections.forEach((section) => section.classList.add('reveal-ready'));
     const reveal = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('revealed')), { threshold: .08 });

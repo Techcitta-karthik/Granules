@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import '@fontsource/manrope/400.css';
 import '@fontsource/manrope/500.css';
 import '@fontsource/manrope/600.css';
@@ -8,6 +8,30 @@ import '@fontsource/manrope/700.css';
 import '@fontsource/manrope/800.css';
 import './styles.css';
 import './typography.css';
+
+if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        const timer = setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+        return () => clearTimeout(timer);
+      }
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname, hash]);
+
+  return null;
+}
 
 import HomePage from './pages/HomePage.jsx';
 import CompanyPage from './pages/CompanyPage.tsx';
@@ -63,6 +87,7 @@ function ExternalRedirect({ to }) {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <BackToTopButton />
       <CookieConsent />
       <ChatbotWidget />

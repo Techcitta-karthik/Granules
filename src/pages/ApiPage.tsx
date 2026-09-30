@@ -221,15 +221,15 @@ export default function ApiPage() {
 
 
       <div id="complex-molecules" className="biz-section-head pp-section-head" style={{ marginTop: '75px', scrollMarginTop: '100px' }}>
-        <div className="copy">
+        <div className="copy" style={{ width: '100%', maxWidth: '100%' }}>
           <h2 id="high-barrier-complex-molecules" className="complex-molecules-header">High-Barrier Complex Molecules Portfolio</h2>
-          <span className="complex-molecules-span" style={{ display: 'block', color: 'var(--n7)', fontSize: 'clamp(16px, 1.2vw, 18px)', lineHeight: '1.5', marginTop: '6px' }}>
+          <span className="complex-molecules-span" style={{ display: 'block', color: 'var(--n7)', fontSize: 'clamp(17px, 1.25vw, 20px)', lineHeight: '1.5', marginTop: '8px', width: '100%', maxWidth: '100%' }}>
             Growing Pipeline of High-barrier, Complex Molecules in Oncology, CNS/ADHD, and Cardiovascular Therapeutics with active USDMF filings.
           </span>
         </div>
       </div>
 
-      <div className="pp-filters" style={{ gridTemplateColumns: '1.4fr 1fr' }}>
+      <div className="pp-filters" style={{ gridTemplateColumns: '1.3fr 1fr 1fr' }}>
         <label className="pp-select" style={{ position: 'relative' }}>
           <span>Search Product / Molecule</span>
           <div className="pp-search-box" ref={searchRef}>
@@ -293,6 +293,31 @@ export default function ApiPage() {
             onChange={(val) => setTherapy(val)}
             ariaLabel="Select Therapeutic category"
           />
+        </div>
+
+        <div className="pp-select">
+          <span className="pp-select-label">Reach Us</span>
+          <a
+            href="mailto:sales@granulesindia.com"
+            className="pp-reach-btn"
+            title="Email sales@granulesindia.com"
+            aria-label="Reach us via email at sales@granulesindia.com"
+          >
+            <svg
+              className="pp-reach-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span className="pp-reach-email">sales@granulesindia.com</span>
+          </a>
         </div>
       </div>
 

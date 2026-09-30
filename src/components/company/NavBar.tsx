@@ -261,7 +261,16 @@ export default function NavBar({
     <div className={`cp-nav-wrap${scrolled ? ' is-scrolled' : ''}`} ref={navRef}>
       <nav className={`cp-nav${open ? ' cp-nav--open' : ''}${scrolled ? ' is-scrolled' : ''}`} aria-label="Primary navigation">
         <div className="cp-nav-bar">
-          <Link to="/" className="cp-nav-logo" aria-label="Granules home" onClick={() => { setOpen(false); setOpenMenu(null); }}>
+          <Link
+            to="/"
+            className="cp-nav-logo"
+            aria-label="Granules home"
+            onClick={() => {
+              setOpen(false);
+              setOpenMenu(null);
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            }}
+          >
             <img src={asset('nav-logo.webp')} alt="Granules" loading="eager" decoding="async" />
           </Link>
 

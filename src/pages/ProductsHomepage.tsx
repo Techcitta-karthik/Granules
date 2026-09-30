@@ -138,7 +138,7 @@ export default function ProductsHomepage() {
       </section>
 
       <div className="cp-about-desc pp-intro scroll-intro">
-        <p>
+        <p className="complex-molecules-span" style={{ width: '100%', maxWidth: '100%' }}>
           Growing Pipeline of High-barrier, Complex Molecules in Oncology, CNS/ADHD, and Cardiovascular Therapeutics with active USDMF filings.
         </p>
         <p className="part-2">
@@ -154,7 +154,7 @@ export default function ProductsHomepage() {
         </div>
       </div>
 
-      <div className="pp-filters" style={{ gridTemplateColumns: '1.4fr 1fr' }}>
+      <div className="pp-filters" style={{ gridTemplateColumns: '1.3fr 1fr 1fr' }}>
         <label className="pp-select" style={{ position: 'relative' }}>
           <span>Search Product / Molecule</span>
           <div className="pp-search-box" ref={searchRef}>
@@ -218,6 +218,31 @@ export default function ProductsHomepage() {
             onChange={(val) => setTherapy(val)}
             ariaLabel="Select Therapeutic category"
           />
+        </div>
+
+        <div className="pp-select">
+          <span className="pp-select-label">Reach Us</span>
+          <a
+            href="mailto:sales@granulesindia.com"
+            className="pp-reach-btn"
+            title="Email sales@granulesindia.com"
+            aria-label="Reach us via email at sales@granulesindia.com"
+          >
+            <svg
+              className="pp-reach-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span className="pp-reach-email">sales@granulesindia.com</span>
+          </a>
         </div>
       </div>
 
