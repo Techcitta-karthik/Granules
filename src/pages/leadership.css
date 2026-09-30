@@ -415,6 +415,16 @@
   transform: scale(1.03) !important;
 }
 
+.ld-photo--vijay-ramanavarapu img,
+.ld-profile-img--vijay-ramanavarapu img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.ld-card:hover .ld-photo--vijay-ramanavarapu img {
+  transform: scale(1.03) !important;
+}
+
 .ld-photo-badge {
   position: absolute;
   bottom: 18px;

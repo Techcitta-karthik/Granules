@@ -327,6 +327,16 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
     ],
   },
   {
+    id: 'vijay-ramanavarapu',
+    image: 'vijay-ramanavarapu.jpg',
+    name: 'Mr. Vijay Ramanavarapu',
+    role: 'President, Granules Pharmaceuticals, Inc.',
+    profile: [
+      'As President of Granules USA and Granules Pharmaceuticals Inc., Vijay Ramanavarapu oversees commercial and operational activities across North America, including API and finished dosage businesses and U.S. operations at GPI. Over the course of his career at Granules, he has held leadership roles spanning supply chain, investor relations, and business operations across India and China. Prior to joining Granules, Vijay worked as an investment banking analyst in California.',
+      'Education: B.A. in Political Science, The Ohio State University; B.B.A. in Finance, The Ohio State University Fisher College of Business; MBA, University of Michigan Stephen M. Ross School of Business.',
+    ],
+  },
+  {
     id: 'ramraj-rangarajalu',
     image: 'Ramraj.JPG',
     name: 'Mr. Ramraj Rangarajalu',
