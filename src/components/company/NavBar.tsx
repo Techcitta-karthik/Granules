@@ -15,12 +15,18 @@ type SubmenuSection = {
   quickLinks: QuickLink[];
 };
 
+type BubbleLink = {
+  label: string;
+  href: string;
+};
+
 type Submenu = {
   title?: string;
   href?: string;
   quickLinks?: QuickLink[];
   sections?: SubmenuSection[];
   links?: { label: string; href: string }[];
+  bubbles?: BubbleLink[];
 };
 
 const SUBMENUS: Record<string, Submenu> = {
@@ -50,6 +56,11 @@ const SUBMENUS: Record<string, Submenu> = {
       { label: 'Research & Development', href: '/business/rd' },
       { label: 'Quality & Compliance', href: '/business/quality-compliance' },
       { label: 'Facilities', href: '/business/facilities' },
+    ],
+    bubbles: [
+      { label: 'FD', href: '/business/finisheddosage' },
+      { label: 'PFI', href: '/business/product-portfolio' },
+      { label: 'API', href: '/business/api' },
     ],
   },
   Careers: {
@@ -389,33 +400,57 @@ export default function NavBar({
 
                         {submenu.links && submenu.links.length > 0 && (
                           <div className="cp-nav-submenu-links">
-                            {submenu.links.map((item) =>
-                              item.href.startsWith('http') ? (
-                                <a
-                                  href={item.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  key={item.label}
-                                  onClick={() => {
-                                    setOpenMenu(null);
-                                    setOpen(false);
-                                  }}
-                                >
-                                  {item.label}
-                                </a>
-                              ) : (
-                                <Link
-                                  to={item.href}
-                                  key={item.label}
-                                  onClick={() => {
-                                    setOpenMenu(null);
-                                    setOpen(false);
-                                  }}
-                                >
-                                  {item.label}
-                                </Link>
-                              )
-                            )}
+                            {submenu.links.map((item) => (
+                              <div key={item.label} className="cp-nav-submenu-item-wrap">
+                                {item.href.startsWith('http') ? (
+                                  <a
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => {
+                                      setOpenMenu(null);
+                                      setOpen(false);
+                                    }}
+                                  >
+                                    {item.label}
+                                  </a>
+                                ) : (
+                                  <Link
+                                    to={item.href}
+                                    onClick={() => {
+                                      setOpenMenu(null);
+                                      setOpen(false);
+                                    }}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                )}
+
+                                {item.label === 'Generics' && submenu.bubbles && submenu.bubbles.length > 0 && (
+                                  <div className="cp-nav-bubbles-wrap">
+                                    {submenu.bubbles.map((b) => {
+                                      const isBubbleActive =
+                                        pathname === b.href ||
+                                        (b.href === '/business/finisheddosage' && pathname === '/business/fd') ||
+                                        (b.href === '/business/product-portfolio' && pathname === '/business/pfi');
+                                      return (
+                                        <Link
+                                          key={b.label}
+                                          to={b.href}
+                                          className={`cp-nav-bubble${isBubbleActive ? ' active' : ''}`}
+                                          onClick={() => {
+                                            setOpenMenu(null);
+                                            setOpen(false);
+                                          }}
+                                        >
+                                          {b.label}
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
                           </div>
                         )}
                       </div>
@@ -499,31 +534,54 @@ export default function NavBar({
                               sub.href !== '/business/generics' &&
                               pathname.startsWith(sub.href)));
 
-                        return isExternal ? (
-                          <a
-                            key={sub.label}
-                            href={sub.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="cp-nav-drawer-sublink"
-                            onClick={() => setOpen(false)}
-                          >
-                            <span>{sub.label}</span>
-                            <svg className="cp-nav-ext-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                              <polyline points="15 3 21 3 21 9" />
-                              <line x1="10" y1="14" x2="21" y2="3" />
-                            </svg>
-                          </a>
-                        ) : (
-                          <Link
-                            key={sub.label}
-                            to={sub.href}
-                            className={`cp-nav-drawer-sublink${isSubActive ? ' active' : ''}`}
-                            onClick={() => setOpen(false)}
-                          >
-                            <span>{sub.label}</span>
-                          </Link>
+                        return (
+                          <div key={sub.label} className="cp-nav-drawer-item-wrap">
+                            {isExternal ? (
+                              <a
+                                href={sub.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="cp-nav-drawer-sublink"
+                                onClick={() => setOpen(false)}
+                              >
+                                <span>{sub.label}</span>
+                                <svg className="cp-nav-ext-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                  <polyline points="15 3 21 3 21 9" />
+                                  <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                              </a>
+                            ) : (
+                              <Link
+                                to={sub.href}
+                                className={`cp-nav-drawer-sublink${isSubActive ? ' active' : ''}`}
+                                onClick={() => setOpen(false)}
+                              >
+                                <span>{sub.label}</span>
+                              </Link>
+                            )}
+
+                            {sub.label === 'Generics' && submenu.bubbles && submenu.bubbles.length > 0 && (
+                              <div className="cp-nav-bubbles-wrap mobile">
+                                {submenu.bubbles.map((b) => {
+                                  const isBubbleActive =
+                                    pathname === b.href ||
+                                    (b.href === '/business/finisheddosage' && pathname === '/business/fd') ||
+                                    (b.href === '/business/product-portfolio' && pathname === '/business/pfi');
+                                  return (
+                                    <Link
+                                      key={b.label}
+                                      to={b.href}
+                                      className={`cp-nav-bubble${isBubbleActive ? ' active' : ''}`}
+                                      onClick={() => setOpen(false)}
+                                    >
+                                      {b.label}
+                                    </Link>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
                         );
                       })}
                     </div>

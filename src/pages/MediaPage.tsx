@@ -104,23 +104,35 @@ export default function MediaPage() {
     if (!el) return;
 
     const nav = document.querySelector('.cp-nav-wrap');
-    const offset = (nav?.getBoundingClientRect().height ?? 72) + 12;
+    const navHeight = nav ? nav.getBoundingClientRect().height : 72;
+    const offset = navHeight + 16;
     const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  };
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage < 1 || newPage > totalPages || newPage === currentPage) return;
+    setCurrentPage(newPage);
+    setTimeout(() => {
+      scrollTabsIntoView();
+    }, 50);
   };
 
   const handleTabChange = (tab: 'news' | 'press') => {
     setActiveTab(tab);
     setYearDropdownOpen(false);
-    if (tab === 'press') {
+    setTimeout(() => {
       scrollTabsIntoView();
-    }
+    }, 50);
   };
 
   const handleYearChange = (year: string) => {
     setSelectedYear(year);
     setYearDropdownOpen(false);
     setCurrentPage(1);
+    setTimeout(() => {
+      scrollTabsIntoView();
+    }, 50);
   };
 
   return (
@@ -308,7 +320,7 @@ export default function MediaPage() {
                 className="med-page-btn nav"
                 aria-label="Previous page"
                 disabled={currentPage === 1}
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                onClick={() => handlePageChange(currentPage - 1)}
               >
                 <svg
                   width="18"
@@ -328,7 +340,7 @@ export default function MediaPage() {
                   type="button"
                   key={pageNum}
                   className={`med-page-btn${currentPage === pageNum ? ' active' : ''}`}
-                  onClick={() => setCurrentPage(pageNum)}
+                  onClick={() => handlePageChange(pageNum)}
                 >
                   {pageNum < 10 ? `0${pageNum}` : pageNum}
                 </button>
@@ -338,7 +350,7 @@ export default function MediaPage() {
                 className="med-page-btn nav"
                 aria-label="Next page"
                 disabled={currentPage === totalPages}
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                onClick={() => handlePageChange(currentPage + 1)}
               >
                 <svg
                   width="18"
@@ -432,7 +444,7 @@ export default function MediaPage() {
                 className="med-page-btn nav"
                 aria-label="Previous page"
                 disabled={currentPage === 1}
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                onClick={() => handlePageChange(currentPage - 1)}
               >
                 <svg
                   width="18"
@@ -452,7 +464,7 @@ export default function MediaPage() {
                   type="button"
                   key={pageNum}
                   className={`med-page-btn${currentPage === pageNum ? ' active' : ''}`}
-                  onClick={() => setCurrentPage(pageNum)}
+                  onClick={() => handlePageChange(pageNum)}
                 >
                   {pageNum < 10 ? `0${pageNum}` : pageNum}
                 </button>
@@ -462,7 +474,7 @@ export default function MediaPage() {
                 className="med-page-btn nav"
                 aria-label="Next page"
                 disabled={currentPage === totalPages}
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                onClick={() => handlePageChange(currentPage + 1)}
               >
                 <svg
                   width="18"

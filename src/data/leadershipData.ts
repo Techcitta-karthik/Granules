@@ -309,7 +309,7 @@ export const MANAGEMENT_TEAM: LeadershipMember[] = [
   {
     id: 'pv-srinivas',
     image: 'Dr PV.jpg',
-    name: 'Mr. PV Srinivas',
+    name: 'Dr. PV Srinivas',
     role: 'Chief Technology Officer',
     profile: [
       'Dr. Srinivas is a PhD in Organic Chemistry from Osmania University & a Post Doctorate from the University of Mississippi, USA.',

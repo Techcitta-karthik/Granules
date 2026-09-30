@@ -15,7 +15,7 @@ interface CapabilityCard {
 
 const WHAT_WE_DO_CARDS: CapabilityCard[] = [
   {
-    title: 'Pharma',
+    title: 'Pharma Peptides',
     image: '/assets/peptides/card-contract-services.webp',
     desc: 'Custom development and cGMP manufacturing of peptide therapeutic APIs for clinical trials and commercial supply, supporting global pharmaceutical innovators.',
   },
@@ -48,8 +48,8 @@ type WhatWeDoBenefit = {
 const WHAT_WE_DO_ITEMS: WhatWeDoBenefit[] = [
   {
     id: 'aad',
-    title: 'Amino Acid Derivatives | 190+ Catalogue SKUs',
-    body: 'Pioneered AAD synthesis with a catalogue of over 190 SKUs, including Fmoc-, Boc- and Z-protected derivatives, beta-amino acids, and side-chain-modified derivatives.',
+    title: 'Amino Acid Derivatives | 200+ Catalogue SKUs',
+    body: 'Pioneered AAD synthesis with a catalogue of over 200+ SKUs, including Fmoc-, Boc- and Z-protected derivatives, beta-amino acids, and side-chain-modified derivatives.',
     icon: '/assets/fd/icon-test-tube.svg',
     image: '/assets/rd/card-catalysis.png',
   },
@@ -261,7 +261,7 @@ const LEADERSHIP_TEAM: LeaderMember[] = [
     image: '/assets/peptides/frederic-besancon.jpg',
   },
   {
-    name: 'Dr Srinivas PV',
+    name: 'Dr. PV Srinivas',
     title: 'Chief Scientific Officer',
     image: '/assets/peptides/dr-pv-srinivas.jpg',
   },
@@ -362,9 +362,6 @@ export default function SennTidesPage() {
             We provide custom development and manufacturing services for peptide ingredients, from route selection and process development through scale-up, validation and commercial supply.
           </h4>
         </div>
-        <a className="cp-cta-btn" href="https://www.sennchem.com" target="_blank" rel="noreferrer">
-          Visit Senn Chemicals ↗
-        </a>
       </section>
 
       {/* What We Do Carousel */}
@@ -778,7 +775,7 @@ export default function SennTidesPage() {
             </address>
             <div className="senn-contact-img-wrap">
               <img
-                src="/assets/peptides/card-contract-services.png"
+                src="/assets/peptides/5.jpg"
                 alt="Senn Chemicals AG - Dielsdorf, Zurich, Switzerland"
                 loading="lazy"
                 decoding="async"
@@ -796,7 +793,7 @@ export default function SennTidesPage() {
             </address>
             <div className="senn-contact-img-wrap">
               <img
-                src="/assets/peptides/images.jpg"
+                src="/assets/peptides/4.jpg"
                 alt="Senn Tides Private Limited - Hyderabad, India"
                 loading="lazy"
                 decoding="async"

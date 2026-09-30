@@ -89,6 +89,7 @@ function App() {
         <Route path="/business/api" element={<ApiPage />} />
         <Route path="/business/pfi" element={<PfiPage />} />
         <Route path="/business/fd" element={<FdPage />} />
+        <Route path="/business/finisheddosage" element={<FdPage />} />
         <Route path="/business/product-portfolio" element={<ProductPortfolioPage />} />
         <Route path="/business/products" element={<ProductPortfolioPage />} />
         <Route path="/products" element={<ProductsHomepage />} />

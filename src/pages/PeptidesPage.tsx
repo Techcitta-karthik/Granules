@@ -388,7 +388,7 @@ export default function PeptidesPage() {
         </div>
         <div className="peptides-stat-card">
           <strong className="peptides-stat-val">2,500 L</strong>
-          <span className="peptides-stat-label">Maximum Reactor Capacity</span>
+          <span className="peptides-stat-label">Largest Reactor Capacity</span>
         </div>
         <div className="peptides-stat-card">
           <strong className="peptides-stat-val">200+</strong>

@@ -294,7 +294,13 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   padding: 2px 0;
 }
 
-.cp-nav-submenu-links a {
+.cp-nav-submenu-item-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cp-nav-submenu-links a:not(.cp-nav-bubble) {
   color: #1e293b;
   font: 600 14px/1.35 'Manrope', sans-serif;
   text-decoration: none;
@@ -305,11 +311,60 @@ a.cp-nav-submenu-title:hover .cp-nav-arrow-diag {
   transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
-.cp-nav-submenu-links a:hover {
+.cp-nav-submenu-links a:not(.cp-nav-bubble):hover {
   color: #0061f8;
   background: #edf5ff;
   transform: translateX(3px);
   font-weight: 600;
+}
+
+/* Horizontal Bubbles Row */
+.cp-nav-bubbles-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 8px 12px;
+  flex-wrap: wrap;
+}
+
+.cp-nav-bubbles-wrap.mobile {
+  padding: 6px 16px 10px 16px;
+  gap: 8px;
+}
+
+/* Bubble button styling matching user's image (.tag pill) */
+.cp-nav-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: var(--pale-blue, #e8f3ff);
+  color: var(--blue, #0061f8);
+  font: 500 9.5px/1.2 var(--font-primary, 'Manrope', sans-serif);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(0, 97, 248, 0.14);
+  box-shadow: 0 1px 3px rgba(0, 97, 248, 0.06);
+  transition: all 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.cp-nav-bubble:hover {
+  background: var(--blue, #0061f8);
+  color: #ffffff;
+  border-color: var(--blue, #0061f8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 97, 248, 0.25);
+}
+
+.cp-nav-bubble.active {
+  background: var(--blue, #0061f8);
+  color: #ffffff;
+  border-color: var(--blue, #0061f8);
+  box-shadow: 0 2px 8px rgba(0, 97, 248, 0.2);
 }
 
 .cp-nav-link {
