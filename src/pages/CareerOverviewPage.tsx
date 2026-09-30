@@ -204,7 +204,7 @@ export default function CareerOverviewPage() {
   const [activeArea, setActiveArea] = useState<number>(0);
   const [practiceIdx, setPracticeIdx] = useState(0);
   const [lifeEventIdx, setLifeEventIdx] = useState(0);
-  const [openBenefit, setOpenBenefit] = useState<number>(0);
+  const [openBenefit, setOpenBenefit] = useState<number>(-1);
   const [activeVoiceKey, setActiveVoiceKey] = useState<string | null>(null);
   const [cvFileName, setCvFileName] = useState<string>('');
   const [talentSubmitted, setTalentSubmitted] = useState<boolean>(false);

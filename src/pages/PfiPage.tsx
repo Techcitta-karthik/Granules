@@ -131,9 +131,10 @@ export default function PfiPage() {
         </div>
         <Link
           className="cp-cta-btn"
-          to="/business/generics#our-portfolio"
+          to="/business/generics?segment=PFI#our-portfolio"
+          state={{ segment: 'PFI' }}
         >
-          VIEW PRODUCT LIST
+          VIEW OUR PFI PORTFOLIO
         </Link>
       </div>
 

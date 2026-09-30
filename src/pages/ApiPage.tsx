@@ -386,7 +386,8 @@ export default function ApiPage() {
         </div>
         <Link
           className="cp-cta-btn"
-          to="/business/generics#our-portfolio"
+          to="/business/generics?segment=API#our-portfolio"
+          state={{ segment: 'API' }}
         >
           VIEW OUR API PORTFOLIO
         </Link>

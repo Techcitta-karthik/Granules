@@ -129,9 +129,10 @@ export default function FdPage() {
         </div>
         <Link
           className="cp-cta-btn"
-          to="/business/generics#our-portfolio"
+          to="/business/generics?segment=Finished%20Dosage#our-portfolio"
+          state={{ segment: 'Finished Dosage' }}
         >
-          VIEW PRODUCT LIST
+          VIEW OUR FD PORTFOLIO
         </Link>
       </div>
 

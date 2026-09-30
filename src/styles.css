@@ -1792,6 +1792,11 @@ article.open .accordion-icon-circle {
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
   object-fit: cover !important;
+  transition: transform .4s, filter .4s, box-shadow .4s;
+}
+
+.news-card:hover .news-img-framed {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.09);
 }
 
 .news-action {

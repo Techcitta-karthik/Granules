@@ -73,23 +73,21 @@ const products = [
 
 const news = [
   {
-    image: 'media/cnbc-usfda-eir.jpg',
+    image: 'media/Home-page-media/2.png',
     title: 'Granules India shares gain after US unit gets EIR from USFDA.',
     body: 'Granules India shares gain after US unit gets EIR from USFDA.',
     href: 'https://www.cnbctv18.com/market/granules-india-shares-gain-after-us-unit-gets-eir-from-usfda-ws-l-19918451.htm',
     external: true,
   },
   {
-    image: 'media/Home-page-media/2.png',
+    image: 'media/Home-page-media/1.png',
     title: 'Granules India net profit soars 33% to ₹201 cr in Q4 FY26.',
     body: 'Granules India net profit soars 33% to ₹201 cr in Q4 FY26.',
     href: 'https://pharma.economictimes.indiatimes.com/news/financial-performance/granules-india-net-profit-soars-33-to-201-cr-in-q4-fy26/130621446',
     external: true,
-    hideContext: true,
-    cta: 'Read More',
   },
   {
-    image: 'media/bw-innovation.jpg',
+    image: 'media/Home-page-media/3.png',
     title: 'Innovation Led Transformation.',
     body: 'As Indian pharma pivots toward innovation and sustainability, Granules India charts strong growth, R&D and global ambitions amid shifting supply chains.',
     href: 'https://www.businessworld.in/article/innovation-led-transformation-586835',
@@ -853,7 +851,7 @@ function Media() {
       </div>
       <div className="news-grid">
         {news.map((item) => (
-          <article className={`news-card ${item.hideContext ? 'news-card-media-banner' : ''}`} key={item.title}>
+          <article className="news-card" key={item.title}>
             <a
               href={item.href}
               target="_blank"
@@ -863,12 +861,10 @@ function Media() {
               <img
                 src={`${A}${item.image}`}
                 alt={item.title}
-                className={item.hideContext ? 'news-img-framed' : ''}
+                className="news-img-framed"
                 loading="lazy"
                 decoding="async"
               />
-              {!item.hideContext && <h3>{item.title}</h3>}
-              <span className="read-more">Read More &rarr;</span>
             </a>
           </article>
         ))}
