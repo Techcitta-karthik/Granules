@@ -578,3 +578,76 @@
   box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
 }
 
+/* Reach Us Contact Option in Filter Toolbar */
+.pp-reach-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 20px;
+  border: 1px solid #e3e8ef;
+  border-radius: 16px;
+  background: #ffffff;
+  color: var(--n9, #0f172a);
+  text-decoration: none;
+  font: 600 clamp(14px, 1.05vw, 15px)/1.3 'Manrope', sans-serif;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.pp-reach-btn:hover {
+  border-color: var(--blue, #0061f8);
+  color: var(--blue, #0061f8);
+  box-shadow: 0 4px 14px rgba(0, 97, 248, 0.12);
+  transform: translateY(-1px);
+}
+
+.pp-reach-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--blue, #0061f8);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.pp-reach-btn:hover .pp-reach-icon {
+  transform: scale(1.1);
+}
+
+.pp-reach-btn,
+.pp-reach-btn span,
+.pp-reach-email {
+  text-transform: lowercase !important;
+  letter-spacing: normal !important;
+  font-weight: 600 !important;
+  font-size: clamp(14px, 1.05vw, 15px) !important;
+  color: var(--n9, #0f172a);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pp-reach-btn:hover,
+.pp-reach-btn:hover span,
+.pp-reach-btn:hover .pp-reach-email {
+  color: var(--blue, #0061f8) !important;
+}
+
+/* Complex Molecules Section Subtitle Single Line */
+.complex-molecules-span {
+  display: block;
+  color: var(--n7, #475569);
+  font-size: clamp(17px, 1.25vw, 20px) !important;
+  line-height: 1.5;
+  margin-top: 8px;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (min-width: 1100px) {
+  .complex-molecules-span {
+    white-space: nowrap;
+  }
+}
+
+

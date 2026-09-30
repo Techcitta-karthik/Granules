@@ -459,7 +459,8 @@ img {
   padding-top: clamp(200px, 36vh, 460px);
 }
 
-.hero h1 {
+.hero h1,
+.hero-content h1 {
   max-width: 1464px;
   margin: 14px 0 38px;
   font-size: clamp(54px, 4.17vw, 80px);
@@ -467,6 +468,7 @@ img {
   letter-spacing: -.035em;
   font-weight: 600;
   white-space: pre-line;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65), 0 4px 32px rgba(0, 0, 0, 0.45);
 }
 
 .hero-live {

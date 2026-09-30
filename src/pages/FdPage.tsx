@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
-import { getAssetUrl } from '../lib/pdf';
 import '../components/company/company.css';
 import './business.css';
 
@@ -128,14 +127,12 @@ export default function FdPage() {
             Discover high-volume, cost-efficient, and globally compliant finished formulations across core therapeutic areas.
           </p>
         </div>
-        <a
+        <Link
           className="cp-cta-btn"
-          href={getAssetUrl('pdfs/2025/06/GIL_Product_Brochure_May_20_2025_Master_FD.pdf')}
-          target="_blank"
-          rel="noopener noreferrer"
+          to="/business/generics#our-portfolio"
         >
           VIEW PRODUCT LIST
-        </a>
+        </Link>
       </div>
 
       <CompanyFooter />

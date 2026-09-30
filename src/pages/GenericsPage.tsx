@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import CustomSelect from '../components/common/CustomSelect';
 import { asset } from '../components/company/constants';
@@ -284,6 +284,7 @@ export default function GenericsPage() {
   const introRef = useRef<HTMLDivElement>(null);
   const [isIntroScrolled, setIsIntroScrolled] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     document.title = 'Generics — Advancing Healthcare Through Science & Scale | Granules India';
@@ -297,9 +298,28 @@ export default function GenericsPage() {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', descriptionContent);
-
-    window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const targetId = id === 'portfolio' ? 'our-portfolio' : id;
+      const el = document.getElementById(targetId) || document.getElementById(id);
+      if (el) {
+        setSegment('All');
+        setTherapy('All');
+        setSearchQuery('');
+        const timer = setTimeout(() => {
+          const nav = document.querySelector('.cp-nav-wrap') || document.querySelector('header');
+          const navHeight = nav ? nav.getBoundingClientRect().height : 80;
+          const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [location.hash, location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -578,7 +598,11 @@ export default function GenericsPage() {
       </section>
 
       <section className="gen-portfolio-section" aria-label="Our Portfolio">
-        <div className="biz-section-head pp-section-head">
+        <div
+          id="our-portfolio"
+          className="biz-section-head pp-section-head"
+          style={{ scrollMarginTop: '90px' }}
+        >
           <div className="copy">
             <span className="cp-section-badge">Our Portfolio</span>
             <h2>{TABLE_TITLES[segment]}</h2>

@@ -1817,12 +1817,16 @@
   }
 
   .inv-hero-title {
-    font-size: clamp(20px, 5.2vw, 24px) !important;
-    line-height: 1.25 !important;
+    font-size: clamp(17px, 5vw, 22px) !important;
+    line-height: 1.28 !important;
+    letter-spacing: -0.01em !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
 
-  .inv-hero-title br {
-    display: none;
+  .inv-hero-title br,
+  .inv-desktop-br {
+    display: none !important;
   }
 
   .inv-hero-cta {

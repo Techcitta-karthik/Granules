@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import CustomSelect from '../components/common/CustomSelect';
-import { getAssetUrl } from '../lib/pdf';
 import { COMPLEX_MOLECULE_PRODUCTS, matchesSearchQuery } from '../data/complexMoleculesData';
 import '../components/company/company.css';
 import './business.css';
@@ -360,14 +359,12 @@ export default function ApiPage() {
             manufacturing partner for quality, scale, and sustainability.
           </p>
         </div>
-        <a
+        <Link
           className="cp-cta-btn"
-          href={getAssetUrl('pdfs/2025/05/Granules_Product_Brochure_API.pdf')}
-          target="_blank"
-          rel="noopener noreferrer"
+          to="/business/generics#our-portfolio"
         >
           VIEW OUR API PORTFOLIO
-        </a>
+        </Link>
       </div>
 
       <CompanyFooter />

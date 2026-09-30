@@ -11,7 +11,7 @@ const A = '/assets/';
 const heroSlides = [
   {
     image: 'Home/home-banner-.jpg',
-    title: 'Growing Portfolio of Complex Molecules \nAcross High-Growth Therapeutic Segments',
+    title: 'Growing Portfolio of Complex Molecules \n to Address Evolving Healthcare needs',
     cta: 'Know More',
     link: '/business/api#complex-molecules',
   },
