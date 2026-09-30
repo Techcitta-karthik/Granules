@@ -268,7 +268,7 @@ const LEADERSHIP_TEAM: LeaderMember[] = [
   {
     name: 'Markus Löweneck',
     title: 'Head of Corporate R&D',
-    image: '/assets/peptides/markus-loweneck.jpg',
+    image: '/assets/peptides/markus_updated_image.png',
   },
 ];
 
