@@ -230,7 +230,7 @@ const FOOTPRINT_LIST = [
     country: 'India',
     location: 'Vizag',
     details: 'Large-scale peptide manufacturing facility under development, with completion expected by December 2027.',
-    image: '/assets/peptides/vizag-coming-soon.jpg',
+    image: '/assets/peptides/vizag_image_u.png',
     flag: (
       <svg width="22" height="22" viewBox="0 0 512 512" style={{ borderRadius: '6px', flexShrink: 0 }}>
         <rect width="512" height="170.7" fill="#ff9933" />
@@ -268,7 +268,7 @@ const LEADERSHIP_TEAM: LeaderMember[] = [
   {
     name: 'Markus Löweneck',
     title: 'Head of Corporate R&D',
-    image: '/assets/peptides/markus_updated_image.png',
+    image: '/assets/peptides/markus_mage_updated.png',
   },
 ];
 

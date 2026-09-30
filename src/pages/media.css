@@ -245,7 +245,8 @@
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   overflow: hidden;
-  background: #f1f5f9;
+  background: #ffffff;
+  border: 1px solid #eef2f6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -261,7 +262,7 @@
 .med-news-thumb-box .med-news-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
 }
