@@ -47,7 +47,7 @@ export const SUSTAINABILITY_KPIS: KpiCardItem[] = [
   {
     id: 'zero-discrimination',
     icon: 'shield',
-    value: 'Zero',
+    value: 'Zero Cases',
     title: 'Building a Workplace Free from Discrimination',
     description: 'A respectful, inclusive and equitable workplace for all',
   },

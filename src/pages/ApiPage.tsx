@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
+import CustomSelect from '../components/common/CustomSelect';
 import { getAssetUrl } from '../lib/pdf';
+import { COMPLEX_MOLECULE_PRODUCTS, matchesSearchQuery } from '../data/complexMoleculesData';
 import '../components/company/company.css';
 import './business.css';
+import './product-portfolio.css';
 
 const A = '/assets/api/';
 
@@ -52,6 +55,75 @@ const SCALE_ITEMS: ScaleItem[] = [
 
 export default function ApiPage() {
   const [open, setOpen] = useState(0);
+  const [therapy, setTherapy] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const therapies = useMemo(() => {
+    const options = new Set<string>();
+    COMPLEX_MOLECULE_PRODUCTS.forEach((p) => {
+      if (p.therapy) options.add(p.therapy);
+    });
+    return ['All', ...Array.from(options).sort((a, b) => a.localeCompare(b))];
+  }, []);
+
+  const suggestions = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return [];
+
+    const matches: { text: string; category: string }[] = [];
+    const seen = new Set<string>();
+
+    COMPLEX_MOLECULE_PRODUCTS.forEach((p) => {
+      if (matchesSearchQuery(p.product, q)) {
+        if (!seen.has(p.product.toLowerCase())) {
+          seen.add(p.product.toLowerCase());
+          matches.push({ text: p.product, category: 'Product' });
+        }
+      }
+    });
+
+    COMPLEX_MOLECULE_PRODUCTS.forEach((p) => {
+      if (p.therapy && matchesSearchQuery(p.therapy, q)) {
+        if (!seen.has(p.therapy.toLowerCase())) {
+          seen.add(p.therapy.toLowerCase());
+          matches.push({ text: p.therapy, category: 'Therapy' });
+        }
+      }
+    });
+
+    return matches.slice(0, 8);
+  }, [searchQuery]);
+
+  const handleSelectSuggestion = (selectedText: string) => {
+    setSearchQuery(selectedText);
+    setShowSuggestions(false);
+  };
+
+  const filtered = useMemo(() => {
+    const q = searchQuery.trim();
+    return COMPLEX_MOLECULE_PRODUCTS.filter((p) => {
+      const therapyMatch = therapy === 'All' || p.therapy === therapy;
+      const queryMatch =
+        !q ||
+        matchesSearchQuery(p.product, q) ||
+        matchesSearchQuery(p.therapy, q) ||
+        matchesSearchQuery(p.status, q);
+      return therapyMatch && queryMatch;
+    });
+  }, [therapy, searchQuery]);
 
   useEffect(() => {
     document.title = 'High-Volume & Niche API Manufacturer | Sustainable, Scalable APIs | Granules India';
@@ -66,8 +138,22 @@ export default function ApiPage() {
     }
     metaDescription.setAttribute('content', descriptionContent);
 
-    window.scrollTo(0, 0);
-  }, []);
+    if (location.hash) {
+      const targetId = location.hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          const nav = document.querySelector('.cp-nav-wrap');
+          const navHeight = nav ? nav.getBoundingClientRect().height : 80;
+          const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location.hash]);
 
   const activeImage = (open >= 0 && SCALE_ITEMS[open]?.image) ? SCALE_ITEMS[open].image : SCALE_ITEMS[0]?.image;
 
@@ -135,7 +221,136 @@ export default function ApiPage() {
       </div>
 
 
-      <h2 className="complex-molecules-header">High-Barrier Complex Molecules Portfolio</h2>
+      <div id="complex-molecules" className="biz-section-head pp-section-head" style={{ marginTop: '75px', scrollMarginTop: '100px' }}>
+        <div className="copy">
+          <h2 id="high-barrier-complex-molecules" className="complex-molecules-header">High-Barrier Complex Molecules Portfolio</h2>
+          <span className="complex-molecules-span" style={{ display: 'block', color: 'var(--n7)', fontSize: 'clamp(16px, 1.2vw, 18px)', lineHeight: '1.5', marginTop: '6px' }}>
+            Growing Pipeline of High-barrier, Complex Molecules in Oncology, CNS/ADHD, and Cardiovascular Therapeutics with active USDMF filings.
+          </span>
+        </div>
+      </div>
+
+      <div className="pp-filters" style={{ gridTemplateColumns: '1.4fr 1fr' }}>
+        <label className="pp-select" style={{ position: 'relative' }}>
+          <span>Search Product / Molecule</span>
+          <div className="pp-search-box" ref={searchRef}>
+            <svg
+              className="pp-search-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search by product, therapy..."
+              value={searchQuery}
+              onFocus={() => setShowSuggestions(true)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSuggestions(true);
+              }}
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="pp-search-clear"
+                onClick={() => {
+                  setSearchQuery('');
+                  setShowSuggestions(false);
+                }}
+                aria-label="Clear search query"
+              >
+                ✕
+              </button>
+            )}
+            {showSuggestions && suggestions.length > 0 && (
+              <ul className="pp-suggestions">
+                {suggestions.map((item) => (
+                  <li
+                    key={`${item.category}-${item.text}`}
+                    className="pp-suggestion-item"
+                    onMouseDown={() => handleSelectSuggestion(item.text)}
+                  >
+                    <span>{item.text}</span>
+                    <span className="pp-suggestion-type">{item.category}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </label>
+
+        <div className="pp-select">
+          <span className="pp-select-label">Therapeutic category</span>
+          <CustomSelect
+            value={therapy}
+            options={therapies}
+            onChange={(val) => setTherapy(val)}
+            ariaLabel="Select Therapeutic category"
+          />
+        </div>
+      </div>
+
+      {filtered.length > 0 ? (
+        <>
+          <div className="pp-table-wrap" style={{ maxHeight: 'none' }}>
+            <table className="pp-table">
+              <thead>
+                <tr>
+                  <th scope="col" style={{ width: '90px', textAlign: 'center' }}>
+                    Sr. no
+                  </th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Therapeutic Category</th>
+                  <th scope="col" style={{ width: '220px' }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((item) => (
+                  <tr key={`${item.srNo}-${item.product}`}>
+                    <td className="pp-sr-no">{item.srNo}</td>
+                    <td className="pp-product" style={{ fontWeight: 600 }}>{item.product}</td>
+                    <td>{item.therapy}</td>
+                    <td>
+                      <span className="pp-status-pill">
+                        <span className="pp-status-dot" />
+                        {item.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="pp-disclaimer">
+            All products available for Global Offering | Products listed herein may not be available
+            for commercial use in countries where any relevant third-party intellectual property is in
+            force. All third party trade marks belong to the respective owners and have been used here
+            for illustrative purposes only.
+          </p>
+        </>
+      ) : (
+        <div className="pp-empty-wrap">
+          <p className="pp-empty">No products match your search or filter combination.</p>
+          <button
+            type="button"
+            className="pp-clear-btn"
+            onClick={() => {
+              setSearchQuery('');
+              setTherapy('All');
+            }}
+          >
+            Reset Search &amp; Filters
+          </button>
+        </div>
+      )}
 
       <div className="biz-cta biz-cta--placeholder">
         <div className="biz-cta-copy">

@@ -13,7 +13,7 @@ const heroSlides = [
     image: 'Home/home-banner-1.jpg',
     title: 'Growing Pipeline of High-barrier, Complex Molecules in Oncology and CNS/ADHD Therapeutics',
     cta: 'Know More',
-    link: '/productshomepage',
+    link: '/business/api#complex-molecules',
   },
   {
     image: 'Home/generics.jpg',
