@@ -747,15 +747,9 @@ export default function SustainabilityOverviewPage() {
           <Link
             to="/sustainability/ehs-documents"
             className="sus-jump-card"
-            title="View Statutory EHS Documents & Submissions"
+            title="Open Statutory EHS Documents & Submissions"
           >
-            <span className="sus-jump-label">EHS Documents</span>
-            <span className="sus-jump-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
-            </span>
+            <span className="sus-jump-label">EHS Submissions</span>
           </Link>
 
           <Link
@@ -794,16 +788,16 @@ export default function SustainabilityOverviewPage() {
             <p className="ov-quote-role p4">CHAIRMAN AND MANAGING DIRECTOR</p>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Section 1: Sustainability Goals and Targets (Image 1) */}
-      <SustainabilityGoalsSection />
+      < SustainabilityGoalsSection />
 
       {/* Section 2: Key Performance Indicators - Progressing With Purpose (Image 2) */}
-      <SustainabilityKpisSection />
+      < SustainabilityKpisSection />
 
       {/* Section 3: Commitments Carousel (Image 3) */}
-      <SustainabilityCarousel
+      < SustainabilityCarousel
         title="Commitments"
         items={COMMITMENTS_CAROUSEL_ITEMS}
         visibleDesktop={4}
@@ -813,7 +807,7 @@ export default function SustainabilityOverviewPage() {
       />
 
       {/* Section 4: Ratings & Certifications Carousel (Images 3 & 4) */}
-      <SustainabilityCarousel
+      < SustainabilityCarousel
         title="Ratings & Certifications"
         items={RATINGS_CAROUSEL_ITEMS}
         visibleDesktop={6}
@@ -823,7 +817,7 @@ export default function SustainabilityOverviewPage() {
       />
 
       {/* Section 5: Partner Collaboration Platforms Carousel (Image 4) */}
-      <SustainabilityCarousel
+      < SustainabilityCarousel
         title="Partner Collaboration Platforms"
         items={PARTNERS_CAROUSEL_ITEMS}
         visibleDesktop={4}
@@ -834,7 +828,7 @@ export default function SustainabilityOverviewPage() {
 
 
       {/* Section 1 Anchor: Sustainability Policies */}
-      <section id="sec-policies" className="sus-doc-section">
+      < section id="sec-policies" className="sus-doc-section" >
         <div className="sus-section-header-center">
           <h2>Sustainability Policies</h2>
           <p>
@@ -846,22 +840,24 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
 
-        {renderDocTable(
-          SUSTAINABILITY_POLICIES.map((item) => ({
-            title: item.title,
-            period: item.meta,
-            pdf: item.pdf,
-            filename: item.filename,
-          })),
-          'Policy / Document Name',
-          null,
-          'Review Timeline'
-        )}
-      </section>
+        {
+          renderDocTable(
+            SUSTAINABILITY_POLICIES.map((item) => ({
+              title: item.title,
+              period: item.meta,
+              pdf: item.pdf,
+              filename: item.filename,
+            })),
+            'Policy / Document Name',
+            null,
+            'Review Timeline'
+          )
+        }
+      </section >
 
 
       {/* Section 2 Anchor: Reports & Disclosures */}
-      <section id="sec-reports" className="sus-doc-section">
+      < section id="sec-reports" className="sus-doc-section" >
         <div className="sus-section-header-center">
           <h2>Reports &amp; Disclosures</h2>
           <p>
@@ -871,20 +867,22 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
 
-        {renderDocTable(
-          REPORTS_DISCLOSURES.map((item) => ({
-            title: item.title,
-            pdf: item.pdf,
-            filename: item.filename,
-          })),
-          'Report / Disclosure Name',
-          null,
-          null
-        )}
-      </section>
+        {
+          renderDocTable(
+            REPORTS_DISCLOSURES.map((item) => ({
+              title: item.title,
+              pdf: item.pdf,
+              filename: item.filename,
+            })),
+            'Report / Disclosure Name',
+            null,
+            null
+          )
+        }
+      </section >
 
       {/* Section 3 Anchor: Assurance & Verification Report */}
-      <section id="sec-assurance" className="sus-doc-section">
+      < section id="sec-assurance" className="sus-doc-section" >
         <div className="sus-section-header-center">
           <h2>Assurance &amp; Verification Report</h2>
           <p>
@@ -893,20 +891,22 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
 
-        {renderDocTable(
-          ASSURANCE_REPORTS.map((item) => ({
-            title: item.title,
-            pdf: item.pdf,
-            filename: item.filename,
-          })),
-          'Statement / Assurance Report',
-          null,
-          null
-        )}
-      </section>
+        {
+          renderDocTable(
+            ASSURANCE_REPORTS.map((item) => ({
+              title: item.title,
+              pdf: item.pdf,
+              filename: item.filename,
+            })),
+            'Statement / Assurance Report',
+            null,
+            null
+          )
+        }
+      </section >
 
       {/* Section 4 Anchor: Commitments, Memberships & Ratings */}
-      <section id="sec-commitments" className="sus-doc-section">
+      < section id="sec-commitments" className="sus-doc-section" >
         <div className="sus-section-header-center">
           <h2>Commitments, Memberships And Ratings</h2>
           <p>
@@ -946,22 +946,24 @@ export default function SustainabilityOverviewPage() {
           </div>
         </div>
 
-        {renderDocTable(
-          (membershipTab === 'commitments' ? COMMITMENTS_DATA : RATINGS_DATA).map((item) => ({
-            title: item.title,
-            detail: item.meta,
-            period: item.period || (membershipTab === 'commitments' ? 'Global Charter' : 'External Rating'),
-            pdf: item.pdf,
-            filename: item.filename,
-          })),
-          membershipTab === 'commitments' ? 'Charter / Alliance' : 'Agency / Standard',
-          membershipTab === 'commitments' ? null : 'Score / Achievement',
-          membershipTab === 'commitments' ? 'Status / Timeline' : 'Validity'
-        )}
-      </section>
+        {
+          renderDocTable(
+            (membershipTab === 'commitments' ? COMMITMENTS_DATA : RATINGS_DATA).map((item) => ({
+              title: item.title,
+              detail: item.meta,
+              period: item.period || (membershipTab === 'commitments' ? 'Global Charter' : 'External Rating'),
+              pdf: item.pdf,
+              filename: item.filename,
+            })),
+            membershipTab === 'commitments' ? 'Charter / Alliance' : 'Agency / Standard',
+            membershipTab === 'commitments' ? null : 'Score / Achievement',
+            membershipTab === 'commitments' ? 'Status / Timeline' : 'Validity'
+          )
+        }
+      </section >
 
       {/* Section 5 Anchor: Certifications Table */}
-      <section id="sec-certifications" className="sus-doc-section">
+      < section id="sec-certifications" className="sus-doc-section" >
         <div className="sus-section-header-center">
           <h2>Certifications</h2>
           <p>
@@ -1021,10 +1023,11 @@ export default function SustainabilityOverviewPage() {
             </div>
           ))}
         </div>
-      </section>
+      </section >
+
 
       {/* Bottom CTA to Strategy */}
-      <div className="sus-cta">
+      < div className="sus-cta" >
         <div className="sus-cta-copy">
           <h2>Together for Stronger Communities</h2>
           <p>
@@ -1032,9 +1035,9 @@ export default function SustainabilityOverviewPage() {
           </p>
         </div>
         <Link className="cp-cta-btn" to="/community">COMMUNITY</Link>
-      </div>
+      </div >
 
       <CompanyFooter />
-    </div>
+    </div >
   );
 }

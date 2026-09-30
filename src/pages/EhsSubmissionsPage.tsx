@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar, CompanyFooter } from '../components/company';
 import '../components/company/company.css';
+import './sustainability.css';
 import './ehs.css';
 import './investor.css';
 import { EHS_DOCUMENTS, EhsDocument } from '../data/ehsData';
@@ -136,46 +137,24 @@ function CustomDropdown({
   );
 }
 
-function getEntityScope(doc: EhsDocument): string {
-  if (doc.facility === 'Corporate') {
-    return 'Granules India Limited (Group)';
-  }
-  if (doc.facility === 'Granules Life Sciences') {
-    return 'Granules Life Sciences (GLS)';
-  }
-  return `Granules India Limited (${doc.facility})`;
-}
-
-function getReportingPeriod(doc: EhsDocument): string {
-  if (doc.period && doc.period.startsWith('FY')) {
-    if (doc.period.includes('2025-26')) return 'FY 25-26';
-    if (doc.period.includes('2024-25') || doc.period === 'FY 2025') return 'FY 24-25';
-    if (doc.period.includes('2023-24') || doc.period === 'FY 2024') return 'FY 23-24';
-    if (doc.period.includes('2022-23') || doc.period === 'FY 2023') return 'FY 22-23';
-    return doc.period;
-  }
-  if (doc.year === '2026') return 'FY 25-26';
-  if (doc.year === '2025') return 'FY 24-25';
-  if (doc.year === '2024') return 'FY 23-24';
-  if (doc.year === '2021') return 'FY 20-21';
-  return doc.period || `FY ${doc.year}`;
-}
+const FACILITY_ORDER = [
+  'Unit 1 - Bonthapally',
+  'Gagillapur',
+  'Jeedimetla',
+  'Granules Life Sciences',
+  'Unit 4 - Vizag',
+  'Unit 5 - Vizag',
+  'PLI Documents',
+];
 
 export default function EhsSubmissionsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedYear, setSelectedYear] = useState<string>('ALL');
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const pageSize = 10;
 
   useEffect(() => {
-    document.title = 'EHS Submissions | Granules India Sustainability';
+    document.title = 'EHS Documents & Submissions | Granules India Sustainability';
     window.scrollTo(0, 0);
   }, []);
-
-  // Reset to page 1 whenever any filter changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, selectedYear]);
 
   const categoryOptions: DropdownOption[] = useMemo(() => {
     return [
@@ -185,12 +164,13 @@ export default function EhsSubmissionsPage() {
       { value: 'Consent & Orders', label: 'Consent & Orders (PCB)' },
       { value: 'Certifications', label: 'Certifications (ISO 14001/45001)' },
       { value: 'Audit & Compliance', label: 'Audit & Compliance' },
+      { value: 'FAC_Unit1', label: 'Facility: Unit 1 - Bonthapally' },
       { value: 'FAC_Gagillapur', label: 'Facility: Gagillapur' },
       { value: 'FAC_Jeedimetla', label: 'Facility: Jeedimetla' },
       { value: 'FAC_GLS', label: 'Facility: Granules Life Sciences' },
-      { value: 'FAC_Unit4', label: 'Facility: Unit IV (Bonthapally)' },
-      { value: 'FAC_Unit5', label: 'Facility: Unit V (Vizag)' },
-      { value: 'FAC_Corporate', label: 'Facility: Corporate / Group' },
+      { value: 'FAC_Unit4', label: 'Facility: Unit 4 - Vizag' },
+      { value: 'FAC_Unit5', label: 'Facility: Unit 5 - Vizag' },
+      { value: 'FAC_PLI', label: 'PLI Documents' },
     ];
   }, []);
 
@@ -210,12 +190,13 @@ export default function EhsSubmissionsPage() {
       if (selectedCategory !== 'ALL') {
         if (selectedCategory.startsWith('FAC_')) {
           const facKey = selectedCategory.replace('FAC_', '');
-          if (facKey === 'Gagillapur') matchCat = doc.facility === 'Gagillapur';
+          if (facKey === 'Unit1') matchCat = doc.facility === 'Unit 1 - Bonthapally';
+          else if (facKey === 'Gagillapur') matchCat = doc.facility === 'Gagillapur';
           else if (facKey === 'Jeedimetla') matchCat = doc.facility === 'Jeedimetla';
           else if (facKey === 'GLS') matchCat = doc.facility === 'Granules Life Sciences';
-          else if (facKey === 'Unit4') matchCat = doc.facility === 'Unit IV';
-          else if (facKey === 'Unit5') matchCat = doc.facility === 'Unit V';
-          else if (facKey === 'Corporate') matchCat = doc.facility === 'Corporate';
+          else if (facKey === 'Unit4') matchCat = doc.facility === 'Unit 4 - Vizag';
+          else if (facKey === 'Unit5') matchCat = doc.facility === 'Unit 5 - Vizag';
+          else if (facKey === 'PLI') matchCat = doc.facility === 'PLI Documents';
         } else {
           matchCat = doc.category.toLowerCase() === selectedCategory.toLowerCase();
         }
@@ -230,11 +211,32 @@ export default function EhsSubmissionsPage() {
     });
   }, [selectedCategory, selectedYear]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredDocs.length / pageSize));
-  const pagedDocs = useMemo(() => {
-    const start = (currentPage - 1) * pageSize;
-    return filteredDocs.slice(start, start + pageSize);
-  }, [filteredDocs, currentPage, pageSize]);
+  const groupedDocs = useMemo(() => {
+    const groups: { facility: string; items: EhsDocument[] }[] = [];
+
+    FACILITY_ORDER.forEach((fac) => {
+      const items = filteredDocs.filter((d) => d.facility === fac);
+      if (items.length > 0) {
+        groups.push({ facility: fac, items });
+      }
+    });
+
+    // In case any doc has an unlisted facility:
+    filteredDocs.forEach((d) => {
+      if (!FACILITY_ORDER.includes(d.facility)) {
+        let g = groups.find((grp) => grp.facility === d.facility);
+        if (!g) {
+          g = { facility: d.facility, items: [] };
+          groups.push(g);
+        }
+        if (!g.items.includes(d)) {
+          g.items.push(d);
+        }
+      }
+    });
+
+    return groups;
+  }, [filteredDocs]);
 
   return (
     <div className="ehs-root">
@@ -246,11 +248,10 @@ export default function EhsSubmissionsPage() {
           <span className="sep">›</span>
           <Link to="/sustainability">SUSTAINABILITY</Link>
           <span className="sep">›</span>
-          <span className="current">EHS SUBMISSIONS</span>
+          <span className="current">EHS Submissions</span>
         </p>
 
         <h1 className="cp-page-title ehs-page-title">EHS Submissions</h1>
-
 
         <div className="ehs-container">
           {/* Section Filter Toolbar with Balanced Controls & Document Counter */}
@@ -299,127 +300,74 @@ export default function EhsSubmissionsPage() {
             </div>
           </div>
 
-          {/* Document Table (Investor / Sustainability Theme with Balanced Proportions) */}
-          <div className="inv-table-wrap">
-            <table className="inv-data-table" aria-label="EHS Submissions Document Table">
-              <thead>
-                <tr>
-                  <th style={{ width: '48%' }}>REPORT / DOCUMENT NAME</th>
-                  <th style={{ width: '27%' }}>ENTITY / REPORTING SCOPE</th>
-                  <th style={{ width: '12%' }}>REPORTING PERIOD</th>
-                  <th style={{ width: '13%', textAlign: 'right' }}>ACTION</th>
-                </tr>
-              </thead>
-              <tbody>
-                {pagedDocs.map((doc) => (
-                  <tr key={doc.id}>
-                    <td className="inv-table-title-cell">
-                      <span>{doc.title}</span>
-                    </td>
-                    <td className="inv-table-detail-cell">
-                      {getEntityScope(doc)}
-                    </td>
-                    <td className="inv-table-period-cell">
-                      {getReportingPeriod(doc)}
-                    </td>
-                    <td className="inv-table-action-cell">
-                      <div className="inv-table-actions">
-                        <a
-                          className="inv-action-link"
-                          href={toCdnPdf(doc.pdf)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={`View ${doc.title} in a new tab`}
-                        >
-                          VIEW
-                        </a>
-                        <span className="inv-action-slash">/</span>
-                        <a
-                          className="inv-action-link"
-                          href={toCdnPdf(doc.pdf)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          download={`${doc.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
-                          title={`Download ${doc.title}`}
-                        >
-                          DOWNLOAD
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-
-                {filteredDocs.length === 0 && (
-                  <tr>
-                    <td colSpan={4} style={{ textAlign: 'center', padding: '48px 24px', color: '#64748b' }}>
-                      <p style={{ margin: '0 0 12px', fontSize: '15.5px', fontWeight: 500 }}>
-                        No EHS documents match your selected filters.
-                      </p>
-                      <button
-                        type="button"
-                        className="inv-doc-reset-btn"
-                        onClick={() => {
-                          setSelectedCategory('ALL');
-                          setSelectedYear('ALL');
-                        }}
-                      >
-                        Reset All Filters
-                      </button>
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-
-            {/* Pagination & Count Strip */}
-            {filteredDocs.length > 0 && (
-              <div className="inv-table-pagination">
-                <span className="inv-pagination-count">
-                  Showing {Math.min((currentPage - 1) * pageSize + 1, filteredDocs.length)}–
-                  {Math.min(currentPage * pageSize, filteredDocs.length)} of {filteredDocs.length} documents
-                  {selectedCategory !== 'ALL' && ` • Filter: ${categoryOptions.find(o => o.value === selectedCategory)?.label || selectedCategory}`}
-                  {selectedYear !== 'ALL' && ` • Year: ${selectedYear}`}
-                </span>
-
-                {totalPages > 1 && (
-                  <div className="inv-pagination-actions">
-                    <button
-                      type="button"
-                      className="inv-page-btn"
-                      disabled={currentPage === 1}
-                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                    >
-                      Previous
-                    </button>
-
-                    <span className="inv-page-info">
-                      Page {currentPage} of {totalPages}
-                    </span>
-
-                    <button
-                      type="button"
-                      className="inv-page-btn"
-                      disabled={currentPage === totalPages}
-                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                    >
-                      Next
-                    </button>
+          {/* Facility Group Cards (Matching Sustainability Certifications Section Layout) */}
+          <div className="sus-cert-groups" style={{ marginBottom: '60px' }}>
+            {groupedDocs.map((group) => (
+              <div key={group.facility} className="sus-cert-card">
+                {group.facility !== 'PLI Documents' && (
+                  <div className="sus-cert-header">
+                    <h3 className="sus-cert-title">{group.facility}</h3>
                   </div>
                 )}
+                <div className="sus-cert-table-wrap">
+                  <table className="sus-cert-table">
+                    <tbody>
+                      {group.items.map((doc) => (
+                        <tr key={doc.id}>
+                          <td className="sus-cert-facility">{doc.title}</td>
+                          <td className="sus-cert-actions">
+                            {doc.pdf ? (
+                              <div className="inv-table-actions">
+                                <a
+                                  className="inv-action-link"
+                                  href={toCdnPdf(doc.pdf)}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  title={`View ${doc.title}`}
+                                >
+                                  VIEW
+                                </a>
+                                <span className="inv-action-slash">/</span>
+                                <a
+                                  className="inv-action-link"
+                                  href={toCdnPdf(doc.pdf)}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  download={`${doc.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`}
+                                  title={`Download ${doc.title}`}
+                                >
+                                  DOWNLOAD
+                                </a>
+                              </div>
+                            ) : (
+                              <span className="sus-cert-soon">Download (Available Soon)</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+
+            {groupedDocs.length === 0 && (
+              <div className="sus-cert-card" style={{ padding: '48px 24px', textAlign: 'center' }}>
+                <p style={{ margin: '0 0 12px', fontSize: '15.5px', fontWeight: 500, color: '#64748b' }}>
+                  No EHS documents match your selected filters.
+                </p>
+                <button
+                  type="button"
+                  className="inv-doc-reset-btn"
+                  onClick={() => {
+                    setSelectedCategory('ALL');
+                    setSelectedYear('ALL');
+                  }}
+                >
+                  Reset All Filters
+                </button>
               </div>
             )}
-          </div>
-
-          {/* Bottom Gradient Call-to-Action Banner */}
-          <div className="ct-cta-box">
-            <h2 className="ct-cta-title">Committed to Zero-Harm &amp; Sustainable Operations</h2>
-            <p className="ct-cta-text">
-              Discover how Granules India integrates green chemistry, energy efficiency, and community stewardship into
-              every phase of our business.
-            </p>
-            <Link to="/sustainability" className="cp-cta-btn">
-              EXPLORE SUSTAINABILITY
-            </Link>
           </div>
         </div>
       </main>

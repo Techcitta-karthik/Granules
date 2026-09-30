@@ -10,7 +10,7 @@ const A = '/assets/';
 
 const heroSlides = [
   {
-    image: 'Home/home-banner-1.jpg',
+    image: 'Home/home-banner-.jpg',
     title: 'Growing Pipeline of High-barrier, Complex Molecules in Oncology and CNS/ADHD Therapeutics',
     cta: 'Know More',
     link: '/business/api#complex-molecules',
@@ -456,7 +456,7 @@ function Presence() {
                 <g className="map-pill-group" filter="url(#map-pill-shadow)">
                   <rect x="150" y="226" width="190" height="26" rx="13" fill="#ffffff" stroke="#d0e2ff" strokeWidth="1" />
                   <text x="245" y="239.5" fill="#0061f8" fontSize="9.5" fontWeight="700" fontFamily="'Manrope', sans-serif" letterSpacing="0.2px" textAnchor="middle" dominantBaseline="central">
-                    GRANULES PHARMA INC, US
+                    GRANULES PHARMACEUTICALS INC, US
                   </text>
                 </g>
                 <circle className="map-pin-dot" cx="261" cy="327" r="7.5" fill="url(#map-pin-3d)" filter="url(#map-pin-shadow)" />

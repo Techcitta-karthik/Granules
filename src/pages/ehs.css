@@ -675,3 +675,13 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 97, 248, 0.15);
 }
+
+.ehs-root .sus-cert-facility {
+  width: auto !important;
+  font-size: 15px !important;
+}
+
+.ehs-root .sus-cert-actions {
+  width: 180px !important;
+  text-align: right !important;
+}
