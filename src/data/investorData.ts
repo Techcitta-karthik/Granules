@@ -2278,6 +2278,28 @@ export const INVESTOR_SECTIONS_DATA: InvestorCategory[] = [
         "label": "Earnings Call Recording",
         "items": [
           {
+            "title": "Audio Recording of the Webinar held on September 29,2026",
+            "scope": "Webinar Audio Recording",
+            "period": "September 29, 2026",
+            "year": "2027",
+            "pdf": "/documents/recordings/GMT20260929-110141_Recording.m4a",
+            "id": "earnings-call-recording-webinar-audio-sep29",
+            "category": "sec-investor-resources",
+            "subcategoryId": "earnings-call-recording",
+            "subcategoryLabel": "Earnings Call Recording"
+          },
+          {
+            "title": "Video Recording of the Webinar held on September 29,2026",
+            "scope": "Webinar Video Recording",
+            "period": "September 29, 2026",
+            "year": "2027",
+            "pdf": "/documents/recordings/GMT20260929110141-Vrecording.mp4",
+            "id": "earnings-call-recording-webinar-video-sep29",
+            "category": "sec-investor-resources",
+            "subcategoryId": "earnings-call-recording",
+            "subcategoryLabel": "Earnings Call Recording"
+          },
+          {
             "title": "First Quarter",
             "scope": "Earnings Call Audio - Q1 FY27",
             "period": "Q1 FY27",

@@ -60,27 +60,30 @@ export default function InvestorOverviewPage() {
   //       /investors/other-information/
   //       /investors/iepf/
   const deepParams = useMemo(() => {
-    const path = location.pathname.toLowerCase();
-    if (path.includes('annual-reports') || path.includes('financial-reports')) {
+    const fullTarget = (location.pathname + location.search + location.hash).toLowerCase();
+    if (fullTarget.includes('earnings-call-recording') || fullTarget.includes('recording') || fullTarget.includes('webinar')) {
+      return { sectionId: 'sec-investor-resources', subcatId: 'earnings-call-recording', year: 'all' };
+    }
+    if (fullTarget.includes('annual-reports') || fullTarget.includes('financial-reports')) {
       return { sectionId: 'sec-financial-reports', subcatId: 'annual-reports', year: '2027' };
     }
-    if (path.includes('investor-presentation') || path.includes('investor-resources')) {
+    if (fullTarget.includes('investor-presentation') || fullTarget.includes('investor-resources')) {
       return { sectionId: 'sec-investor-resources', subcatId: 'investor-presentation', year: '2027' };
     }
-    if (path.includes('notice-of-board-meetings') || path.includes('notice-disclosures')) {
+    if (fullTarget.includes('notice-of-board-meetings') || fullTarget.includes('notice-disclosures')) {
       return { sectionId: 'sec-notices-disclosures', subcatId: 'notice-board-meetings' };
     }
-    if (path.includes('iepf')) {
+    if (fullTarget.includes('iepf')) {
       return { sectionId: 'sec-investor-resources', subcatId: 'unclaimed-dividend-shares-transferred-to-iepf' };
     }
-    if (path.includes('investor-relation-contact') || path.includes('investor-contact')) {
+    if (fullTarget.includes('investor-relation-contact') || fullTarget.includes('investor-contact')) {
       return { sectionId: 'sec-investor-contact', subcatId: 'contact-desk' };
     }
-    if (path.includes('other-information')) {
+    if (fullTarget.includes('other-information')) {
       return { sectionId: 'sec-other-info', subcatId: 'other-information' };
     }
     return null;
-  }, [location.pathname]);
+  }, [location.pathname, location.search, location.hash]);
 
   useEffect(() => {
     if (deepParams?.sectionId) {

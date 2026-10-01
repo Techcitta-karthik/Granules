@@ -159,8 +159,8 @@ const REPORTS_DISCLOSURES = [
     title: 'Integrated Annual Sustainability Report FY 24-25',
     meta: 'Complete Sustainability Disclosure',
     period: 'FY 2024–25',
-    pdf: `${SUS_UPLOADS}/2026/08/1.Integrated-Annual-Report-FY-2024-25.pdf`,
-    filename: '1.Integrated-Annual-Report-FY-2024-25.pdf',
+    pdf: '/documents/New/Granules_Integrated-Report-2024-25.pdf',
+    filename: 'Granules_Integrated-Report-2024-25.pdf',
   },
   {
     title: 'Business Responsibility and Sustainability Report FY 24-25',

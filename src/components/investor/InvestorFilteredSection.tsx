@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { InvestorCategory, InvestorDocItem } from '../../data/investorData';
 import { toCdnPdf } from '../../lib/pdf';
+import WebinarRecordingsBlock from './WebinarRecordingsBlock';
 
 function toTelHref(value: string) {
   return value.replace(/[^0-9+]/g, '');
@@ -469,8 +470,34 @@ export default function InvestorFilteredSection({
         </div>
       ) : (
         /* DATA TABLE WITH REPORT NAME, SCOPE, PERIOD, ACTION */
-        <div className="inv-table-wrap">
-          <table className="inv-data-table">
+        <>
+          {/* Featured Webinar Recordings Buttons matching user screenshot */}
+          {category.id === 'sec-investor-resources' && activeSubcatId === 'earnings-call-recording' && (
+            <WebinarRecordingsBlock />
+          )}
+
+          {/* Quick Notice Banner Strip when viewing other subcategories in Investor Resources */}
+          {category.id === 'sec-investor-resources' && activeSubcatId !== 'earnings-call-recording' && (
+            <div className="inv-webinar-banner-strip">
+              <span className="inv-webinar-badge">LATEST</span>
+              <span className="inv-webinar-text">
+                Webinar Audio &amp; Video Recordings (September 29, 2026) are now available.
+              </span>
+              <button
+                type="button"
+                className="inv-webinar-view-btn"
+                onClick={() => {
+                  setActiveSubcatId('earnings-call-recording');
+                  setSelectedYear('all');
+                }}
+              >
+                View Recordings &rarr;
+              </button>
+            </div>
+          )}
+
+          <div className="inv-table-wrap">
+            <table className="inv-data-table">
             <thead>
               <tr>
                 <th>REPORT / DOCUMENT NAME</th>
@@ -582,7 +609,8 @@ export default function InvestorFilteredSection({
             </div>
           )}
         </div>
-      )}
-    </div>
-  );
+      </>
+    )}
+  </div>
+);
 }
